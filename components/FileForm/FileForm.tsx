@@ -37,6 +37,8 @@ export const FileForm = () => {
   const totalBytesRef = useRef(0);
   const totalUploadedRef = useRef(0);
   const chunkProgressRef = useRef<{ [chunkId: string]: number }>({});
+  const uploadStartTimeRef = useRef<number | null>(null);
+  const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
     open: false,
     msg: "",
@@ -111,6 +113,16 @@ export const FileForm = () => {
               (totalUploadedRef.current / totalBytesRef.current) * 100,
             );
             setOverallProgress(percent);
+
+            // ⏱ Estimate time remaining
+            if (uploadStartTimeRef.current !== null) {
+              const elapsedMs = Date.now() - uploadStartTimeRef.current;
+              const minSpeed = 1; // 1 byte/sec minimum to avoid divide-by-zero
+              const speed = Math.max(totalUploadedRef.current / (elapsedMs / 1000), minSpeed);
+              const remainingBytes = totalBytesRef.current - totalUploadedRef.current;
+              const secondsLeft = remainingBytes / speed;
+              setEstimatedTimeLeft(Math.max(0, secondsLeft));
+            }
           }
         };
         xhr.onload = () => {
@@ -162,6 +174,8 @@ export const FileForm = () => {
 
     setUploading(true);
     setOverallProgress(0);
+    uploadStartTimeRef.current = Date.now();
+
 
     // Initialize total bytes and progress trackers
     totalBytesRef.current = Array.from(files).reduce(
@@ -415,6 +429,11 @@ export const FileForm = () => {
           <Typography variant="body2" color="#FFF" mt={1}>
             We are processing your files...
           </Typography>
+          {estimatedTimeLeft !== null && (
+            <Typography color="white" variant="body2">
+              Time remaining: {formatSeconds(estimatedTimeLeft)}
+            </Typography>
+          )}
         </Stack>
       )}
 
@@ -445,3 +464,9 @@ function getTotalSizeInGB(files: File[]): string {
     return `${(totalBytes / 1024 ** 3).toFixed(2)} GB`;
   }
 }
+
+const formatSeconds = (seconds: number): string => {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins > 0 ? `${mins}m ` : ""}${secs}s`;
+};
