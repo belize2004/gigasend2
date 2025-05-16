@@ -26,7 +26,7 @@ import { z } from "zod";
 import { useFileContext } from "@/context/FileContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { zipFiles } from "@/lib/zip";
+import { ZipWriter } from "@zip.js/zip.js";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
 
@@ -56,109 +56,61 @@ export const FileForm = () => {
 
   const showToast = (msg: string) => setToast({ open: true, msg });
 
-  const uploadSingleFile = async (
-    file: File,
-    fileIndex: number,
-  ): Promise<string> => {
-    // 1. Initiate multipart upload on the server to get uploadId and key
-    const initiateRes = await fetch("/api/uploads/initiate", {
+  async function uploadChunkToS3(chunk: Uint8Array, uploadId: string, key: string, partNumber: number): Promise<string> {
+    let ETag: string = '';
+    // Request presigned URL for this chunk
+    const presignRes = await fetch("/api/uploads/presign", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fileName: file.name, contentType: file.type }),
+      body: JSON.stringify({ uploadId, key, partNumber }),
     });
-    if (!initiateRes.ok) {
-      throw new Error(`Failed to initiate upload for ${file.name}`);
+    if (!presignRes.ok) throw new Error(`Failed to presign part ${partNumber}`);
+    const { url: presignedUrl } = await presignRes.json();
+
+    // Upload chunk
+    await new Promise<void>((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("PUT", presignedUrl);
+      xhr.setRequestHeader("Content-Type", "application/octet-stream");
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // On success, retrieve the ETag from the response headers
+          const eTagHeader = xhr.getResponseHeader("ETag");
+          if (eTagHeader) {
+            ETag = eTagHeader;
+          }
+          resolve();
+        } else {
+          reject(new Error(`Upload failed for part ${partNumber}`));
+        }
+      };
+      xhr.onerror = () => reject(new Error("Network error during upload"));
+      xhr.send(chunk);
+    });
+
+    return ETag;
+  }
+
+  function updateProgress() {
+    const progress = (totalUploadedRef.current / totalBytesRef.current) * 100;
+    setOverallProgress(Math.min(progress, 100));
+
+    if (uploadStartTimeRef.current) {
+      const elapsed = (Date.now() - uploadStartTimeRef.current) / 1000;
+      const speed = totalUploadedRef.current / elapsed;
+      const timeLeft = (totalBytesRef.current - totalUploadedRef.current) / speed;
+      setEstimatedTimeLeft(Math.max(0, Math.ceil(timeLeft)));
     }
-    const { uploadId, key } = await initiateRes.json();
+  }
 
-    // 2. Calculate chunk size and total parts (using 10MB chunks here)
-    const partSize = 5 * 1024 * 1024; // 5 MB
-    const totalParts = Math.ceil(file.size / partSize);
-    const partsList: { PartNumber: number; ETag: string }[] = [];
-
-    // 3. Loop through each part of the file
-    for (let partNumber = 1; partNumber <= totalParts; partNumber++) {
-      const start = (partNumber - 1) * partSize;
-      const end = Math.min(start + partSize, file.size);
-      const blobPart = file.slice(start, end); // File chunk
-
-      // Request a presigned URL for this part from the server
-      const presignRes = await fetch("/api/uploads/presign", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uploadId, key, partNumber }),
-      });
-      if (!presignRes.ok) {
-        throw new Error(
-          `Failed to get presigned URL for part ${partNumber} of ${file.name}`,
-        );
+  function createCountingStream(onChunk: (chunkLength: number) => void) {
+    return new TransformStream<Uint8Array, Uint8Array>({
+      transform(chunk, controller) {
+        onChunk(chunk.length);
+        controller.enqueue(chunk);
       }
-      const { url: presignedUrl } = await presignRes.json();
-
-      // 4. Upload the file chunk directly to the presigned URL using XHR to track progress
-      await new Promise<void>((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("PUT", presignedUrl);
-        xhr.setRequestHeader("Content-Type", "application/octet-stream");
-        // Update overall progress on each upload progress event
-        xhr.upload.onprogress = (event) => {
-          if (event.lengthComputable) {
-            const loaded = event.loaded;
-            const chunkId = `${fileIndex}-${partNumber}`; // Unique ID for this file chunk
-            const prevLoaded = chunkProgressRef.current[chunkId] || 0; // Bytes uploaded in previous event
-            chunkProgressRef.current[chunkId] = loaded;
-            totalUploadedRef.current += loaded - prevLoaded; // Increment global uploaded bytes
-            // Calculate overall percentage across all files
-            const percent = Math.round(
-              (totalUploadedRef.current / totalBytesRef.current) * 100,
-            );
-            setOverallProgress(percent);
-
-            // ⏱ Estimate time remaining
-            if (uploadStartTimeRef.current !== null) {
-              const elapsedMs = Date.now() - uploadStartTimeRef.current;
-              const minSpeed = 1; // 1 byte/sec minimum to avoid divide-by-zero
-              const speed = Math.max(totalUploadedRef.current / (elapsedMs / 1000), minSpeed);
-              const remainingBytes = totalBytesRef.current - totalUploadedRef.current;
-              const secondsLeft = remainingBytes / speed;
-              setEstimatedTimeLeft(Math.max(0, secondsLeft));
-            }
-          }
-        };
-        xhr.onload = () => {
-          if (xhr.status >= 200 && xhr.status < 300) {
-            // On success, retrieve the ETag from the response headers
-            const eTagHeader = xhr.getResponseHeader("ETag");
-            if (eTagHeader) {
-              partsList.push({ PartNumber: partNumber, ETag: eTagHeader });
-            }
-            resolve();
-          } else {
-            reject(
-              new Error(`Upload failed for part ${partNumber} of ${file.name}`),
-            );
-          }
-        };
-        xhr.onerror = () =>
-          reject(
-            new Error(
-              `Network error uploading part ${partNumber} of ${file.name}`,
-            ),
-          );
-        xhr.send(blobPart); // Start upload of the chunk
-      });
-    }
-
-    const completeRes = await fetch("/api/uploads/complete", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ uploadId, key, parts: partsList }),
     });
-    if (!completeRes.ok) {
-      throw new Error(`Failed to complete upload for ${file.name}`);
-    }
-    return key; // Return the unique file key (to be used later for download link)
-  };
+  }
 
   const onSubmit = async (data: UploadFormData) => {
     if (!files || files.length === 0) {
@@ -186,15 +138,86 @@ export const FileForm = () => {
     chunkProgressRef.current = {};
 
     try {
-      // Upload all files concurrently
-      const zipBlob = await zipFiles(files);
-      const zipFile = new File([zipBlob], "giga-sender.zip", {
-        type: "application/zip",
-      });
-      const fileKeys = await uploadSingleFile(zipFile, 0);
-      setOverallProgress(100); // ensure progress is 100% at completion
+      let compressedFileSize = 0;
+      const { writable, readable } = new TransformStream<Uint8Array, Uint8Array>();
+      const zipWriter = new ZipWriter(writable);
 
-      // 6. After uploads, call server to send download links via email
+      // Start background upload of the zip stream
+      const reader = readable.getReader();
+      const partsList: { PartNumber: number; ETag: string }[] = [];
+      let partNumber = 1;
+
+      // Step 1: Initiate multipart upload
+      const initiateRes = await fetch("/api/uploads/initiate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileName: "giga-sender.zip", contentType: "application/zip" }),
+      });
+      if (!initiateRes.ok) throw new Error("Failed to initiate upload");
+
+      const { uploadId, key } = await initiateRes.json();
+      const MIN_PART_SIZE = 5 * 1024 * 1024; // 5 MB
+      let buffer = new Uint8Array(0);
+
+      const uploadStreamPromise = (async () => {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          if (value) {
+            // Append to buffer
+            const newBuffer = new Uint8Array(buffer.length + value.length);
+            newBuffer.set(buffer);
+            newBuffer.set(value, buffer.length);
+            buffer = newBuffer;
+
+            // Upload full chunks
+            while (buffer.length >= MIN_PART_SIZE) {
+              const chunk = buffer.slice(0, MIN_PART_SIZE);
+              buffer = buffer.slice(MIN_PART_SIZE);
+
+              const etag = await uploadChunkToS3(chunk, uploadId, key, partNumber);
+              partsList.push({ PartNumber: partNumber, ETag: etag });
+              partNumber += 1;
+              compressedFileSize += chunk.length;
+            }
+          }
+        }
+
+        // Upload remaining data after stream ends
+        if (buffer.length > 0) {
+          const etag = await uploadChunkToS3(buffer, uploadId, key, partNumber);
+          partsList.push({ PartNumber: partNumber, ETag: etag });
+          partNumber += 1;
+          compressedFileSize += buffer.length;
+        }
+
+        // Complete the multipart upload
+        const completeRes = await fetch("/api/uploads/complete", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ uploadId, key, parts: partsList }),
+        });
+        if (!completeRes.ok) {
+          throw new Error(`Failed to complete upload for giga-sender.zip`);
+        }
+      })();
+
+      // Step 2: Add files to ZIP stream
+      for (const file of files) {
+        const countingStream = file.stream().pipeThrough(
+          createCountingStream((chunkLength) => {
+            // Update total uploaded bytes with original chunk length
+            totalUploadedRef.current += chunkLength;
+            updateProgress(); // pass 0 because we're manually updating totalUploadedRef.current
+          })
+        );
+        await zipWriter.add(file.name, countingStream); // Don't read it beforehand!
+      }
+      await zipWriter.close();
+
+      await uploadStreamPromise;
+      setOverallProgress(100);
+
       const emailRes = await fetch("/api/uploads/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -202,9 +225,9 @@ export const FileForm = () => {
           receiverEmail: data.receiverEmail,
           senderEmail: data.senderEmail,
           numberOfFiles: files.length,
-          fileSize: zipBlob.size,
+          fileSize: compressedFileSize,
           message: data.message,
-          fileKeys: [fileKeys],
+          fileKeys: [key],
         }),
       });
       if (!emailRes.ok) {
@@ -257,10 +280,10 @@ export const FileForm = () => {
             <Stack gap={2} width={{ xs: "100%", md: "50%" }}>
               <Stack>
                 <Typography variant="body1">
-                  {files.length} Downloaded File
+                  {files.length} Selected File{files.length > 1 ? 's' : ''}
                 </Typography>
                 <Typography variant="body2">
-                  {getTotalSizeInGB(files)} of 50GB
+                  {getSizeInReadableFormat(files)} of 50GB
                 </Typography>
               </Stack>
               <Stack gap={2}>
@@ -430,9 +453,14 @@ export const FileForm = () => {
             We are processing your files...
           </Typography>
           {estimatedTimeLeft !== null && (
-            <Typography color="white" variant="body2">
-              Time remaining: {formatSeconds(estimatedTimeLeft)}
-            </Typography>
+            <>
+              <Typography color="white" variant="body2">
+                Time remaining: {formatSeconds(estimatedTimeLeft)}
+              </Typography>
+              <Typography color="white" variant="body2">
+                Uploaded: {bytesToReadableFormat(totalUploadedRef.current)} of {bytesToReadableFormat(totalBytesRef.current)}
+              </Typography>
+            </>
           )}
         </Stack>
       )}
@@ -451,9 +479,13 @@ export const FileForm = () => {
   );
 };
 
-function getTotalSizeInGB(files: File[]): string {
+function getSizeInReadableFormat(files: File[]): string {
   const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
 
+  return bytesToReadableFormat(totalBytes)
+}
+
+function bytesToReadableFormat(totalBytes: number) {
   if (totalBytes < 1024) {
     return `${totalBytes} B`;
   } else if (totalBytes < 1024 ** 2) {
@@ -466,7 +498,9 @@ function getTotalSizeInGB(files: File[]): string {
 }
 
 const formatSeconds = (seconds: number): string => {
-  const mins = Math.floor(seconds / 60);
+  const hrs = Math.floor(seconds / 3600);
+  const mins = Math.floor((seconds % 3600) / 60);
   const secs = Math.floor(seconds % 60);
-  return `${mins > 0 ? `${mins}m ` : ""}${secs}s`;
+
+  return `${hrs > 0 ? `${hrs}h ` : ""}${mins > 0 || hrs > 0 ? `${mins}m ` : ""}${secs}s`;
 };

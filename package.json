@@ -17,6 +17,7 @@
     "@hookform/resolvers": "^5.0.1",
     "@mui/icons-material": "^7.0.1",
     "@mui/material": "^7.0.1",
+    "@zip.js/zip.js": "^2.7.61",
     "jszip": "^3.10.1",
     "mime": "^4.0.7",
     "next": "15.2.4",
