@@ -27,6 +27,7 @@ import { useFileContext } from "@/context/FileContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ZipWriter } from "@zip.js/zip.js";
+import { renameDuplicates } from "@/lib/utils";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
 
@@ -203,7 +204,8 @@ export const FileForm = () => {
       })();
 
       // Step 2: Add files to ZIP stream
-      for (const file of files) {
+      const uniquelyNamedFiles =  renameDuplicates(files);
+      for (const file of uniquelyNamedFiles) {
         const countingStream = file.stream().pipeThrough(
           createCountingStream((chunkLength) => {
             // Update total uploaded bytes with original chunk length
