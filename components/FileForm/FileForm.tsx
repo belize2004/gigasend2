@@ -26,10 +26,10 @@ import { z } from "zod";
 import { useFileContext } from "@/context/FileContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ZipWriter } from "@zip.js/zip.js";
-import { renameDuplicates } from "@/lib/utils";
-import { ListObjectsV2Command } from "@aws-sdk/client-s3";
-import { r2BucketName, r2Client } from "@/lib/r2Client";
+// import { ZipWriter } from "@zip.js/zip.js";
+// import { renameDuplicates } from "@/lib/utils";
+// import { ListObjectsV2Command } from "@aws-sdk/client-s3";
+// import { r2BucketName, r2Client } from "@/lib/r2Client";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
 
