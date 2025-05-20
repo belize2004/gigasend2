@@ -39,7 +39,7 @@ export const FileForm = () => {
   const [uploading, setUploading] = useState<boolean>(false);
   const totalBytesRef = useRef(0);
   const totalUploadedRef = useRef(0);
-  const chunkProgressRef = useRef<{ [chunkId: string]: number }>({});
+  // const chunkProgressRef = useRef<{ [chunkId: string]: number }>({});
   const uploadStartTimeRef = useRef<number | null>(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
@@ -112,14 +112,14 @@ export const FileForm = () => {
     }
   }
 
-  function createCountingStream(onChunk: (chunkLength: number) => void) {
-    return new TransformStream<Uint8Array, Uint8Array>({
-      transform(chunk, controller) {
-        onChunk(chunk.length);
-        controller.enqueue(chunk);
-      }
-    });
-  }
+  // function createCountingStream(onChunk: (chunkLength: number) => void) {
+  //   return new TransformStream<Uint8Array, Uint8Array>({
+  //     transform(chunk, controller) {
+  //       onChunk(chunk.length);
+  //       controller.enqueue(chunk);
+  //     }
+  //   });
+  // }
 
   const onSubmit = async (data: UploadFormData) => {
     if (!files || files.length === 0) {
@@ -218,9 +218,9 @@ export const FileForm = () => {
       setFiles([]);
       setTimeout(() => router.push("/success"), 1000);
 
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      showToast(err.message ?? "Unexpected error");
+      // showToast(err.message ?? "Unexpected error");
     } finally {
       setUploading(false);
     }
