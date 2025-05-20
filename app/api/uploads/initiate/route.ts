@@ -6,12 +6,13 @@ import { CreateMultipartUploadCommand } from "@aws-sdk/client-s3";
 export async function POST(request: NextRequest) {
   try {
     const { fileName, contentType } = await request.json();
-    if (!fileName || !contentType) {
-      return NextResponse.json(
-        { error: "Missing fileName or contentType" },
-        { status: 400 },
-      );
-    }
+    // if (!fileName || !contentType) {
+    //   console.log(' fileName, contentType',  fileName,'->', contentType)
+    //   return NextResponse.json(
+    //     { error: "Missing fileName or contentType" },
+    //     { status: 400 },
+    //   );
+    // }
 
     // Generate a unique object key for the file (to avoid collisions in bucket)
     const extIndex = fileName.lastIndexOf(".");
