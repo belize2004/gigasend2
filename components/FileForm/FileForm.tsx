@@ -96,25 +96,22 @@ export const FileForm = () => {
   }
 
   function updateProgress() {
-    const progress = (totalUploadedRef.current / totalBytesRef.current) * 100;
+    const uploaded = totalUploadedRef.current;
+    const total = totalBytesRef.current;
+    const progress = (uploaded / total) * 100;
     setOverallProgress(Math.min(progress, 100));
 
-    if (uploadStartTimeRef.current) {
-      const elapsed = (Date.now() - uploadStartTimeRef.current) / 1000;
-      const speed = totalUploadedRef.current / elapsed;
-      const timeLeft = (totalBytesRef.current - totalUploadedRef.current) / speed;
+    const elapsed = (Date.now() - uploadStartTimeRef.current!) / 1000;
+
+    if (elapsed >= 5 && uploaded > 0) {
+      const speed = uploaded / elapsed;
+      const timeLeft = (total - uploaded) / speed;
       setEstimatedTimeLeft(Math.max(0, Math.ceil(timeLeft)));
+    } else {
+      setEstimatedTimeLeft(null);
     }
   }
 
-  // function createCountingStream(onChunk: (chunkLength: number) => void) {
-  //   return new TransformStream<Uint8Array, Uint8Array>({
-  //     transform(chunk, controller) {
-  //       onChunk(chunk.length);
-  //       controller.enqueue(chunk);
-  //     }
-  //   });
-  // }
 
   const onSubmit = async (data: UploadFormData) => {
     if (!files || files.length === 0) {
