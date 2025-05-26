@@ -81,6 +81,8 @@ export const FileForm = () => {
           if (eTagHeader) {
             ETag = eTagHeader;
           }
+          totalUploadedRef.current += chunk.length;
+          updateProgress();
           resolve();
         } else {
           reject(new Error(`Upload failed for part ${partNumber}`));
@@ -105,14 +107,14 @@ export const FileForm = () => {
     }
   }
 
-  function createCountingStream(onChunk: (chunkLength: number) => void) {
-    return new TransformStream<Uint8Array, Uint8Array>({
-      transform(chunk, controller) {
-        onChunk(chunk.length);
-        controller.enqueue(chunk);
-      }
-    });
-  }
+  // function createCountingStream(onChunk: (chunkLength: number) => void) {
+  //   return new TransformStream<Uint8Array, Uint8Array>({
+  //     transform(chunk, controller) {
+  //       onChunk(chunk.length);
+  //       controller.enqueue(chunk);
+  //     }
+  //   });
+  // }
 
   const onSubmit = async (data: UploadFormData) => {
     if (!files || files.length === 0) {
@@ -207,28 +209,8 @@ export const FileForm = () => {
 
       // Step 2: Add files to ZIP stream
       const uniquelyNamedFiles = renameDuplicates(files);
-      // for (const file of uniquelyNamedFiles) {
-      //   const countingStream = file.stream().pipeThrough(
-      //     createCountingStream((chunkLength) => {
-      //       // Update total uploaded bytes with original chunk length
-      //       totalUploadedRef.current += chunkLength;
-      //       updateProgress(); // pass 0 because we're manually updating totalUploadedRef.current
-      //     })
-      //   );
-      //   await zipWriter.add(file.name, countingStream, {
-      //     level: 0,
-      //     bufferedWrite: true,
-      //     useCompressionStream: false
-      //   }); // Don't read it beforehand!
-      // }
       await Promise.all(
-        uniquelyNamedFiles.map(file => zipWriter.add(file.name, file.stream().pipeThrough(
-          createCountingStream((chunkLength) => {
-            // Update total uploaded bytes with original chunk length
-            totalUploadedRef.current += chunkLength;
-            updateProgress(); // pass 0 because we're manually updating totalUploadedRef.current
-          })
-        ), {
+        uniquelyNamedFiles.map(file => zipWriter.add(file.name, file.stream(), {
           level: 0,
           bufferedWrite: true,
           useCompressionStream: false
