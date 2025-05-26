@@ -45,6 +45,7 @@ export const FileForm = () => {
     msg: "",
   });
   const router = useRouter();
+  const startTimeRef = useRef<null | number>(null)
 
   const {
     register,
@@ -128,6 +129,7 @@ export const FileForm = () => {
     setUploading(true);
     setOverallProgress(0);
     uploadStartTimeRef.current = Date.now();
+    startTimeRef.current = Date.now();
 
 
     // Initialize total bytes and progress trackers
@@ -205,20 +207,33 @@ export const FileForm = () => {
 
       // Step 2: Add files to ZIP stream
       const uniquelyNamedFiles = renameDuplicates(files);
-      for (const file of uniquelyNamedFiles) {
-        const countingStream = file.stream().pipeThrough(
+      // for (const file of uniquelyNamedFiles) {
+      //   const countingStream = file.stream().pipeThrough(
+      //     createCountingStream((chunkLength) => {
+      //       // Update total uploaded bytes with original chunk length
+      //       totalUploadedRef.current += chunkLength;
+      //       updateProgress(); // pass 0 because we're manually updating totalUploadedRef.current
+      //     })
+      //   );
+      //   await zipWriter.add(file.name, countingStream, {
+      //     level: 0,
+      //     bufferedWrite: true,
+      //     useCompressionStream: false
+      //   }); // Don't read it beforehand!
+      // }
+      await Promise.all(
+        uniquelyNamedFiles.map(file => zipWriter.add(file.name, file.stream().pipeThrough(
           createCountingStream((chunkLength) => {
             // Update total uploaded bytes with original chunk length
             totalUploadedRef.current += chunkLength;
             updateProgress(); // pass 0 because we're manually updating totalUploadedRef.current
           })
-        );
-        await zipWriter.add(file.name, countingStream, {
+        ), {
           level: 0,
           bufferedWrite: true,
           useCompressionStream: false
-        }); // Don't read it beforehand!
-      }
+        }))
+      );
       await zipWriter.close();
 
       await uploadStreamPromise;
@@ -465,6 +480,9 @@ export const FileForm = () => {
               </Typography>
               <Typography color="white" variant="body2">
                 Uploaded: {bytesToReadableFormat(totalUploadedRef.current)} of {bytesToReadableFormat(totalBytesRef.current)}
+              </Typography>
+              <Typography color="white" variant="body2">
+                Start time: {new Date(startTimeRef.current ?? 0).toLocaleTimeString()}
               </Typography>
             </>
           )}
