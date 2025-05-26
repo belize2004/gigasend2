@@ -26,10 +26,8 @@ import { z } from "zod";
 import { useFileContext } from "@/context/FileContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-// import { ZipWriter } from "@zip.js/zip.js";
-// import { renameDuplicates } from "@/lib/utils";
-// import { ListObjectsV2Command } from "@aws-sdk/client-s3";
-// import { r2BucketName, r2Client } from "@/lib/r2Client";
+import { ZipWriter } from "@zip.js/zip.js";
+import { renameDuplicates } from "@/lib/utils";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
 
@@ -39,7 +37,7 @@ export const FileForm = () => {
   const [uploading, setUploading] = useState<boolean>(false);
   const totalBytesRef = useRef(0);
   const totalUploadedRef = useRef(0);
-  // const chunkProgressRef = useRef<{ [chunkId: string]: number }>({});
+  const chunkProgressRef = useRef<{ [chunkId: string]: number }>({});
   const uploadStartTimeRef = useRef<number | null>(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
@@ -55,12 +53,6 @@ export const FileForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<UploadFormData>({
     resolver: zodResolver(UploadFormSchema),
-    defaultValues: {
-      files: [],
-      message: 'this is a file',
-      receiverEmail: 'mu8494759@gmail.com',
-      senderEmail: 'someone@gmail.com'
-    }
   });
 
   const showToast = (msg: string) => setToast({ open: true, msg });
@@ -112,14 +104,14 @@ export const FileForm = () => {
     }
   }
 
-  // function createCountingStream(onChunk: (chunkLength: number) => void) {
-  //   return new TransformStream<Uint8Array, Uint8Array>({
-  //     transform(chunk, controller) {
-  //       onChunk(chunk.length);
-  //       controller.enqueue(chunk);
-  //     }
-  //   });
-  // }
+  function createCountingStream(onChunk: (chunkLength: number) => void) {
+    return new TransformStream<Uint8Array, Uint8Array>({
+      transform(chunk, controller) {
+        onChunk(chunk.length);
+        controller.enqueue(chunk);
+      }
+    });
+  }
 
   const onSubmit = async (data: UploadFormData) => {
     if (!files || files.length === 0) {
@@ -132,75 +124,106 @@ export const FileForm = () => {
       return;
     }
 
+
     setUploading(true);
     setOverallProgress(0);
     uploadStartTimeRef.current = Date.now();
 
-    totalBytesRef.current = Array.from(files).reduce((sum, f) => sum + f.size, 0);
+
+    // Initialize total bytes and progress trackers
+    totalBytesRef.current = Array.from(files).reduce(
+      (sum, f) => sum + f.size,
+      0,
+    );
     totalUploadedRef.current = 0;
+    chunkProgressRef.current = {};
 
     try {
-      const uploadedFileKeys: string[] = [];
+      let compressedFileSize = 0;
+      const { writable, readable } = new TransformStream<Uint8Array, Uint8Array>();
+      const zipWriter = new ZipWriter(writable);
 
-      for (const file of files) {
-        // 1. Initiate multipart upload
-        console.log(file)
-        const initRes = await fetch("/api/uploads/initiate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ fileName: file.name, contentType: file.type }),
-        });
-        if (!initRes.ok) throw new Error(`Failed to initiate upload for ${file.name}`);
-        const { uploadId, key } = await initRes.json();
+      // Start background upload of the zip stream
+      const reader = readable.getReader();
+      const partsList: { PartNumber: number; ETag: string }[] = [];
+      let partNumber = 1;
 
-        const partsList: { PartNumber: number; ETag: string }[] = [];
-        const MIN_PART_SIZE = 5 * 1024 * 1024;
-        const reader = file.stream().getReader();
-        let partNumber = 1;
-        let buffer = new Uint8Array(0);
+      // Step 1: Initiate multipart upload
+      const initiateRes = await fetch("/api/uploads/initiate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileName: "giga-sender.zip", contentType: "application/zip" }),
+      });
+      if (!initiateRes.ok) throw new Error("Failed to initiate upload");
 
+      const { uploadId, key } = await initiateRes.json();
+      const MIN_PART_SIZE = 5 * 1024 * 1024; // 5 MB
+      let buffer = new Uint8Array(0);
+
+      const uploadStreamPromise = (async () => {
         while (true) {
-          const { done, value } = await reader.read();
+          const { value, done } = await reader.read();
           if (done) break;
+          if (value) {
+            // Append to buffer
+            const newBuffer = new Uint8Array(buffer.length + value.length);
+            newBuffer.set(buffer);
+            newBuffer.set(value, buffer.length);
+            buffer = newBuffer;
 
-          // Append new chunk
-          const newBuffer = new Uint8Array(buffer.length + value.length);
-          newBuffer.set(buffer);
-          newBuffer.set(value, buffer.length);
-          buffer = newBuffer;
+            // Upload full chunks
+            while (buffer.length >= MIN_PART_SIZE) {
+              const chunk = buffer.slice(0, MIN_PART_SIZE);
+              buffer = buffer.slice(MIN_PART_SIZE);
 
-          while (buffer.length >= MIN_PART_SIZE) {
-            const chunk = buffer.slice(0, MIN_PART_SIZE);
-            buffer = buffer.slice(MIN_PART_SIZE);
-
-            const etag = await uploadChunkToS3(chunk, uploadId, key, partNumber);
-            partsList.push({ PartNumber: partNumber, ETag: etag });
-            partNumber += 1;
-            totalUploadedRef.current += chunk.length;
-            updateProgress();
+              const etag = await uploadChunkToS3(chunk, uploadId, key, partNumber);
+              partsList.push({ PartNumber: partNumber, ETag: etag });
+              partNumber += 1;
+              compressedFileSize += chunk.length;
+            }
           }
         }
 
+        // Upload remaining data after stream ends
         if (buffer.length > 0) {
           const etag = await uploadChunkToS3(buffer, uploadId, key, partNumber);
           partsList.push({ PartNumber: partNumber, ETag: etag });
-          totalUploadedRef.current += buffer.length;
-          updateProgress();
+          partNumber += 1;
+          compressedFileSize += buffer.length;
         }
 
-        // Complete multipart upload
+        // Complete the multipart upload
         const completeRes = await fetch("/api/uploads/complete", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ uploadId, key, parts: partsList }),
         });
-        if (!completeRes.ok) throw new Error(`Failed to complete upload for ${file.name}`);
-        uploadedFileKeys.push(key);
-      }
+        if (!completeRes.ok) {
+          throw new Error(`Failed to complete upload for giga-sender.zip`);
+        }
+      })();
 
+      // Step 2: Add files to ZIP stream
+      const uniquelyNamedFiles = renameDuplicates(files);
+      for (const file of uniquelyNamedFiles) {
+        const countingStream = file.stream().pipeThrough(
+          createCountingStream((chunkLength) => {
+            // Update total uploaded bytes with original chunk length
+            totalUploadedRef.current += chunkLength;
+            updateProgress(); // pass 0 because we're manually updating totalUploadedRef.current
+          })
+        );
+        await zipWriter.add(file.name, countingStream, {
+          level: 0,
+          bufferedWrite: true,
+          useCompressionStream: false
+        }); // Don't read it beforehand!
+      }
+      await zipWriter.close();
+
+      await uploadStreamPromise;
       setOverallProgress(100);
 
-      // Send notification email
       const emailRes = await fetch("/api/uploads/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -208,19 +231,22 @@ export const FileForm = () => {
           receiverEmail: data.receiverEmail,
           senderEmail: data.senderEmail,
           numberOfFiles: files.length,
-          fileSize: totalBytesRef.current,
+          fileSize: compressedFileSize,
           message: data.message,
-          fileKeys: uploadedFileKeys,
+          fileKeys: [key],
         }),
       });
-      if (!emailRes.ok) throw new Error("Failed to send download email.");
-
+      if (!emailRes.ok) {
+        throw new Error("Failed to send download links email.");
+      }
       setFiles([]);
-      setTimeout(() => router.push("/success"), 1000);
-
-    } catch (err) {
+      setTimeout(() => {
+        router.push("/success");
+      }, 1000);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       console.error(err);
-      // showToast(err.message ?? "Unexpected error");
+      showToast(err.message ?? "Unexpected error");
     } finally {
       setUploading(false);
     }
