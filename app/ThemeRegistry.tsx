@@ -10,7 +10,7 @@ const ThemeRegistry = ({
 }>) => {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       {children}
     </ThemeProvider>
   );
