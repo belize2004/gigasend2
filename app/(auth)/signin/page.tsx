@@ -13,6 +13,7 @@ import {
   FiZap,
   FiUsers
 } from 'react-icons/fi';
+import axios, { AxiosError } from "axios"
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,18 +21,29 @@ const LoginPage = () => {
     email: '',
     password: ''
   });
+  const [error, setError] = useState<string | null>(null)
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle login submission here
-    console.log('Login submitted:', formData);
+    try {
+      const res = await axios.post<ApiResponse>('/api/auth/signin', formData);
+      console.log('res', res)
+    } catch (error) {
+      const axiosError = error as AxiosError<ApiResponse>;
+      console.log('axiosError', axiosError)
+      if (axiosError.response) {
+        setError(axiosError.response.data.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
   };
 
   return (
@@ -107,8 +119,17 @@ const LoginPage = () => {
               </p>
             </div>
 
+            {/* error */}
+            <p
+              className={`text-red-400 text-sm mb-4 transform transition-all duration-300 origin-top ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 h-0'
+                }`}
+            >
+              {error ?? ''}
+            </p>
+
+
             {/* Form */}
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -181,7 +202,7 @@ const LoginPage = () => {
                 Sign In
                 <FiArrowRight className="ml-2" />
               </button>
-            </div>
+            </form>
 
             {/* Sign Up Link */}
             <div className="text-center mt-6">
@@ -198,7 +219,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

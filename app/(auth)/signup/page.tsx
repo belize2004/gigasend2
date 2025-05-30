@@ -1,4 +1,5 @@
 "use client"
+import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import {
@@ -17,24 +18,35 @@ import {
 
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle signup submission here
-    console.log('Signup submitted:', formData);
+    try {
+      console.log('formData', formData)
+      const res = await axios.post<ApiResponse>('/api/auth/signup', formData);
+      console.log('res', res)
+    } catch (error) {
+      const axiosError = error as AxiosError<ApiResponse>;
+      console.log('axiosError', axiosError)
+      if (axiosError.response) {
+        setError(axiosError.response.data.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
   };
 
   const passwordRequirements = [
@@ -123,8 +135,16 @@ const SignupPage = () => {
               </p>
             </div>
 
+            {/* error */}
+            <p
+              className={`text-red-400 text-sm mb-4 transform transition-all duration-300 origin-top ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 h-0'
+                }`}
+            >
+              {error ?? ''}
+            </p>
+
             {/* Form */}
-            <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -232,13 +252,12 @@ const SignupPage = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                onClick={handleSubmit}
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
               >
                 Create Account
                 <FiArrowRight className="ml-2" />
               </button>
-            </div>
+            </form>
 
             {/* Sign In Link */}
             <div className="text-center mt-6">
