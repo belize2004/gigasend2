@@ -2,12 +2,14 @@ import { connectToDB } from '@/lib/db';
 import { stripe } from '@/lib/stripe';
 import { verifyToken } from '@/lib/verifyJwt';
 import User from '@/models/User';
+import { StripeError } from '@stripe/stripe-js';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   await connectToDB()
   try {
-    const token = req.cookies.get('token')?.value!;
+    
+    const token = req.cookies.get('token')!.value!;
     const payload = await verifyToken(token);
 
     const userId = payload?.userId!;
@@ -16,7 +18,7 @@ export async function POST(req: NextRequest) {
     if (!user) {
       return NextResponse.json({ success: false, message: 'User not found' }, { status: 404 });
     }
-    let customerId = user.stripeCustomerId;
+    const customerId = user.stripeCustomerId;
 
     if (!customerId) {
       return NextResponse.json({ success: false, message: 'No Stripe customer ID found' }, { status: 400 });
@@ -42,8 +44,8 @@ export async function POST(req: NextRequest) {
       subscription: canceled,
     });
 
-  } catch (error: any) {
-    const stripeError = error?.raw?.message || error?.message || 'Something went wrong';
+  } catch (error) {
+    const stripeError = (error as StripeError)?.message || 'Something went wrong';
 
     return NextResponse.json<ApiResponse>({
       success: false,

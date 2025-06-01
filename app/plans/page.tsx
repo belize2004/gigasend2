@@ -1,5 +1,4 @@
 import { PLANS } from '@/lib/constant';
-import Link from 'next/link';
 import React from 'react';
 import {
   FiCheck,

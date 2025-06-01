@@ -34,7 +34,7 @@ export default function SubscriptionManagement({ onSubscriptionCancel }: { onSub
               <div>
                 <h4 className="font-semibold text-yellow-800 mb-1">Before you cancel</h4>
                 <p className="text-sm text-yellow-700">
-                  You'll lose access to all premium features and your files will be removed after the current billing period ends.
+                  You&apos;ll lose access to all premium features and your files will be removed after the current billing period ends.
                 </p>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function SubscriptionManagement({ onSubscriptionCancel }: { onSub
             </div>
 
             <p className="text-gray-600 mb-6">
-              Are you sure you want to cancel your subscription? This action cannot be undone and you'll lose access to all premium features.
+              Are you sure you want to cancel your subscription? This action cannot be undone and you&apos;ll lose access to all premium features.
             </p>
 
             <div className="flex space-x-3">

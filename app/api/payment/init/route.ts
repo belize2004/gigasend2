@@ -1,8 +1,8 @@
 import { createPlan, createProduct } from '@/lib/stripe';
 import StripeProduct from '@/models/StripeProduct';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
+export async function POST() {
   let data = {}
 
   const product = await createProduct("Subscription");

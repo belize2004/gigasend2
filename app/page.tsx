@@ -1,14 +1,13 @@
 "use client"
 import React, { useState } from 'react';
-import { 
-  FiCloud, 
-  FiZap, 
-  FiShield, 
-  FiUsers, 
-  FiUpload, 
-  FiDownload, 
-  FiGlobe, 
-  FiCheck, 
+import {
+  FiCloud,
+  FiZap,
+  FiShield,
+  FiUsers,
+  FiUpload,
+  FiGlobe,
+  FiCheck,
   FiArrowRight,
   FiStar,
   FiPlay,
@@ -36,28 +35,28 @@ const Homepage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Left Content */}
             <div className="text-left">
               <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <FiTrendingUp className="mr-2" />
                 Trusted by 10M+ users worldwide
               </div>
-              
+
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Share Files 
+                Share Files
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Lightning Fast</span>
               </h1>
-              
+
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Send files of any size instantly with military-grade security. No registration required for basic transfers.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
                   <FiUpload className="mr-2" />
@@ -68,7 +67,7 @@ const Homepage = () => {
                   Watch Demo
                 </button>
               </div>
-              
+
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
@@ -85,7 +84,7 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Right Content - Interactive Demo */}
             <div className="relative">
               <div className="bg-white rounded-3xl shadow-2xl p-8 transform hover:scale-105 transition-all duration-300">
@@ -94,12 +93,12 @@ const Homepage = () => {
                   <h3 className="text-xl font-semibold text-gray-900">Drop files here</h3>
                   <p className="text-gray-600 text-sm">or click to browse</p>
                 </div>
-                
+
                 <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-500 transition-colors duration-200 cursor-pointer">
                   <FiUpload className="text-4xl text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-600">Drag & drop files here</p>
                 </div>
-                
+
                 {uploadProgress > 0 && (
                   <div className="mt-6">
                     <div className="flex justify-between mb-2">
@@ -107,22 +106,22 @@ const Homepage = () => {
                       <span className="text-sm text-gray-600">{uploadProgress}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
+                      <div
                         className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-300"
                         style={{ width: `${uploadProgress}%` }}
                       ></div>
                     </div>
                   </div>
                 )}
-                
-                <button 
+
+                <button
                   onClick={simulateUpload}
                   className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
                 >
                   Try Demo Upload
                 </button>
               </div>
-              
+
               {/* Floating elements */}
               <div className="absolute -top-4 -right-4 bg-green-500 text-white p-3 rounded-full animate-bounce">
                 <FiShield />
@@ -146,9 +145,9 @@ const Homepage = () => {
               Built for speed, security, and simplicity. Experience the future of file sharing.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
+
             {/* Feature 1 */}
             <div className="group bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -162,7 +161,7 @@ const Homepage = () => {
                 <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Resume interrupted transfers</li>
               </ul>
             </div>
-            
+
             {/* Feature 2 */}
             <div className="group bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -176,7 +175,7 @@ const Homepage = () => {
                 <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Auto-delete options</li>
               </ul>
             </div>
-            
+
             {/* Feature 3 */}
             <div className="group bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -190,7 +189,7 @@ const Homepage = () => {
                 <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Activity tracking</li>
               </ul>
             </div>
-            
+
             {/* Feature 4 */}
             <div className="group bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-orange-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -204,7 +203,7 @@ const Homepage = () => {
                 <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Offline sync</li>
               </ul>
             </div>
-            
+
             {/* Feature 5 */}
             <div className="group bg-gradient-to-br from-pink-50 to-pink-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-pink-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -218,7 +217,7 @@ const Homepage = () => {
                 <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Batch processing</li>
               </ul>
             </div>
-            
+
             {/* Feature 6 */}
             <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-indigo-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -247,9 +246,9 @@ const Homepage = () => {
               See what our users have to say about Giga Send
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             {/* Testimonial 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center mb-4">
@@ -258,7 +257,7 @@ const Homepage = () => {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 italic">
-                "Giga Send has transformed how our team shares files. The speed is incredible and the security gives us peace of mind."
+                &quot;Giga Send has transformed how our team shares files. The speed is incredible and the security gives us peace of mind.&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
@@ -270,7 +269,7 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Testimonial 2 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center mb-4">
@@ -279,7 +278,7 @@ const Homepage = () => {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 italic">
-                "The collaboration features are amazing. We can work on projects seamlessly across different continents."
+                &quot;The collaboration features are amazing. We can work on projects seamlessly across different continents.&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
@@ -291,7 +290,7 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Testimonial 3 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center mb-4">
@@ -300,7 +299,7 @@ const Homepage = () => {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 italic">
-                "Finally, a file sharing service that just works. No complicated setup, just drag, drop, and share."
+                &quot;Finally, a file sharing service that just works. No complicated setup, just drag, drop, and share.&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold mr-4">

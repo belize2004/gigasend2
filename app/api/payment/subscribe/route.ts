@@ -6,6 +6,7 @@ import StripeProduct from '@/models/StripeProduct';
 import User from '@/models/User';
 import { PaymentMethod } from '@stripe/stripe-js';
 import { NextRequest, NextResponse } from 'next/server';
+import { StripeError } from '@stripe/stripe-js';
 
 export interface SubscriptionRequestBody {
   paymentMethod: PaymentMethod,
@@ -18,7 +19,8 @@ export async function POST(req: NextRequest) {
     const body: SubscriptionRequestBody = await req.json();
     const { paymentMethod, planName } = body;
 
-    const token = req.cookies.get('token')?.value!;
+    
+    const token = req.cookies.get('token')!.value!;
     const payload = await verifyToken(token);
 
     const userId = payload?.userId!;
@@ -91,8 +93,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, message: `Successfully subscribed to ${planName} plan` });
 
-  } catch (error: any) {
-    const stripeError = error?.raw?.message || error?.message || 'Something went wrong';
+  } catch (error) {
+    const stripeError = (error as StripeError)?.message || 'Something went wrong';
 
     return NextResponse.json<ApiResponse>({
       success: false,

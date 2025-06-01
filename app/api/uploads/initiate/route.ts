@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
 
     let planPrefix = "free"; // free | paid
     let userPlan = PLANS.free;
-    const token = request.cookies.get("token")?.value!;
+    const token = request.cookies.get("token")!.value!;
 
     const payload = await verifyToken(token);
     const userId = payload?.userId!;

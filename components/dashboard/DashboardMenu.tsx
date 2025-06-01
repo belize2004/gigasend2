@@ -1,8 +1,7 @@
 "use client"
 import { useAuth } from '@/lib/hooks/useAuth';
-import axios from 'axios';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {
@@ -13,7 +12,6 @@ import {
 
 const DashboardMenu: React.FC = () => {
   const pathname = usePathname();
-  const router = useRouter();
 
   const menuItems = [
     {
@@ -42,10 +40,11 @@ const DashboardMenu: React.FC = () => {
 
       {/* Navigation */}
       <nav className="space-y-2">
-        {menuItems.map((item) => {
+        {menuItems.map((item, key) => {
           const IconComponent = item.icon;
           return (
             <button
+              key={key}
               className={`rounded-xl transition-all duration-200 w-full ${item.active
                 ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
                 : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'

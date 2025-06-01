@@ -36,7 +36,7 @@ export function useAuth() {
       .catch(() => {
         setIsAuthenticated(false)
       });
-  }, [router]);
+  }, [router, isAuthenticated]);
 
   async function handleLogout() {
     try {

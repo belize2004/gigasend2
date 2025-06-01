@@ -1,14 +1,11 @@
 "use client"
 import { PLANS } from '@/lib/constant';
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  FiCreditCard,
   FiCalendar,
   FiDollarSign,
   FiCheck,
-  FiX,
   FiAlertTriangle,
-  FiStar,
   FiUpload,
   FiUsers,
   FiShield,
@@ -18,9 +15,6 @@ import {
 } from 'react-icons/fi';
 
 const Free: React.FC = () => {
-  const [showCancelConfirm, setShowCancelConfirm] = useState(false);
-  const [isCancelling, setIsCancelling] = useState(false);
-
   // Mock data for demonstration - Free Plan
   const data = {
     planName: 'Free Plan',
@@ -44,14 +38,6 @@ const Free: React.FC = () => {
     { icon: FiUsers, text: 'Unlimited Shares', highlight: false },
     { icon: FiUsers, text: 'Usage increase as previous share expire', highlight: false },
   ];
-
-  const formatDate = (dateString: string): string => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
 
   return (
     <div className="space-y-6">

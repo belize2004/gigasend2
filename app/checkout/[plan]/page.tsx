@@ -5,7 +5,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {
   FiCheck,
@@ -75,7 +75,7 @@ const CheckoutPage = () => {
     }
 
     try {
-      const res = await axios.post<SubscriptionRequestBody, ApiResponse>('/api/payment/subscribe', {
+      await axios.post<SubscriptionRequestBody, ApiResponse>('/api/payment/subscribe', {
         paymentMethod: paymentMethod.paymentMethod,
         planName: selectedPlan.name
       })
@@ -89,6 +89,10 @@ const CheckoutPage = () => {
       }
     }
   };
+
+  useEffect(() => {
+    setSelectedPlan(PLANS[plan]);
+  }, [plan])
 
   // undefined plan
   if (!selectedPlan || selectedPlan.name == 'Free') {

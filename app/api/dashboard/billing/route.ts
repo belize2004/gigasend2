@@ -28,7 +28,8 @@ export type BillingData = PaidPlan | FreePlan
 export async function GET(req: NextRequest) {
   await connectToDB();
 
-  const token = req.cookies.get('token')?.value!;
+  
+  const token = req.cookies.get('token')!.value!;
   const payload = await verifyToken(token);
   const userId = payload?.userId!;
 
@@ -46,7 +47,7 @@ export async function GET(req: NextRequest) {
       customer: user.stripeCustomerId,
     });
 
-    const subscription:Stripe.Subscription = subscriptions.data[0];
+    const subscription: Stripe.Subscription = subscriptions.data[0];
     if (subscription) {
       const planName = subscription.items.data[0].plan.nickname!.toLowerCase();
       const subscribedPlan = PLANS[planName as PlanEnum];

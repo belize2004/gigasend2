@@ -5,7 +5,20 @@ if (!MONGODB_URI) {
   throw new Error('Please define MONGODB_URI');
 }
 
-let cached = (global as any).mongoose || { conn: null, promise: null };
+// Add type to globalThis to avoid TS7017 and namespace lint error
+interface MongooseGlobal {
+  mongoose: {
+    conn: mongoose.Mongoose | null;
+    promise: Promise<mongoose.Mongoose> | null;
+  };
+}
+
+declare const globalThis: typeof global & Partial<MongooseGlobal>;
+
+const cached = globalThis.mongoose ?? {
+  conn: null,
+  promise: null,
+};
 
 export async function connectToDB() {
   if (cached.conn) return cached.conn;
@@ -15,6 +28,6 @@ export async function connectToDB() {
   }
 
   cached.conn = await cached.promise;
-  (global as any).mongoose = cached;
+  globalThis.mongoose = cached;
   return cached.conn;
 }

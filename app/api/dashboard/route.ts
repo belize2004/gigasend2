@@ -18,7 +18,8 @@ export async function GET(req: NextRequest) {
 
   await connectToDB();
 
-  const token = req.cookies.get('token')?.value!;
+  
+const token = req.cookies.get('token')!.value!;
   const payload = await verifyToken(token);
   const userId = payload?.userId!
 

@@ -1,15 +1,15 @@
-import { connectToDB } from '@/lib/db';
-import User from '@/models/User';
-import bcrypt from 'bcryptjs';
-import { NextRequest, NextResponse } from 'next/server';
-import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '@/lib/constant';
-import { verifyToken } from '@/lib/verifyJwt';
+// import { connectToDB } from '@/lib/db';
+// import User from '@/models/User';
+// import bcrypt from 'bcryptjs';
+// import jwt from 'jsonwebtoken';
+// import { JWT_SECRET } from '@/lib/constant';
+// import { verifyToken } from '@/lib/verifyJwt';
+import { NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
+export async function POST() {
   // const body = await req.json();
 
-  // const token = req.cookies.get('token')?.value!;
+  // const token = req.cookies.get('token')!.value!;
 
   // const payload = verifyToken(token);
   // if (!payload) {

@@ -1,6 +1,6 @@
 import { PaidPlan } from '@/app/api/dashboard/billing/route'
 import BillingDetails from '@/components/dashboard/billing/BillingDetails'
-import PaymentMethod from '@/components/dashboard/billing/PaymentMethod'
+// import PaymentMethod from '@/components/dashboard/billing/PaymentMethod'
 import PlanDetails from '@/components/dashboard/billing/PlanDetails'
 import SecurityNotice from '@/components/dashboard/billing/SecurityNotice'
 import SubscriptionManagement from '@/components/dashboard/billing/SubscriptionManagement'

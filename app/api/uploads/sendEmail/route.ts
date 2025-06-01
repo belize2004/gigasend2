@@ -23,7 +23,8 @@ export async function POST(request: NextRequest) {
   try {
     await connectToDB();
 
-    const token = request.cookies.get("token")?.value!;
+    
+    const token = request.cookies.get("token")!.value!;
     const payload = await verifyToken(token);
     const userId = payload?.userId!;
 
