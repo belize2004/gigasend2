@@ -1,17 +1,19 @@
+import { formatBytes } from "./utils";
+
 export function generateEmailTemplate({
-  senderEmail,
-  numberOfFiles,
-  link,
-  message,
-  fileSize
+    senderEmail,
+    numberOfFiles,
+    link,
+    message,
+    fileSize
 }: {
-  senderEmail: string;
-  numberOfFiles: number;
-  link: string;
-  message: string;
-  fileSize: number
+    senderEmail: string;
+    numberOfFiles: number;
+    link: string;
+    message?: string;
+    fileSize: number
 }) {
-  return `
+    return `
   <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -179,10 +181,13 @@ export function generateEmailTemplate({
                   </div>
               </div>
               
-              <div class="message-section">
-                  <h4>Message</h4>
-                  <p>${message}</p>
-              </div>
+              ${message ?
+            `<div class="message-section">
+                        <h4>Message</h4>
+                        <p>${message}</p>
+                    </div>`:
+            ''
+        }
               
               <div class="expiry-notice">
                   <strong>Note:</strong> These download links will expire in 3 days. Please download your files before then.
@@ -198,14 +203,4 @@ export function generateEmailTemplate({
   </html>
   
   `
-}
-
-function formatBytes(bytes: number, decimals = 2) {
-  if (bytes === 0) return '0 Bytes';
-  const k = 1024;
-  const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import theme from "@/theme/theme";
 
 const ThemeRegistry = ({
@@ -10,7 +10,7 @@ const ThemeRegistry = ({
 }>) => {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       {children}
     </ThemeProvider>
   );
