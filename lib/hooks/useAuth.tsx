@@ -28,13 +28,14 @@ export function useAuth() {
       .then(data => {
         if (data.success) {
           setIsAuthenticated(true)
-          setLoading(false);
         } else {
           setIsAuthenticated(false)
         }
       })
       .catch(() => {
         setIsAuthenticated(false)
+      }).finally(() => {
+        setLoading(false);
       });
   }, [router, isAuthenticated]);
 
