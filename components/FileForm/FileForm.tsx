@@ -27,7 +27,10 @@ import { useFileContext } from "@/context/FileContext";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ZipWriter } from "@zip.js/zip.js";
-import { renameDuplicates } from "@/lib/utils";
+import { formatBytes, renameDuplicates } from "@/lib/utils";
+import axios from "axios";
+import { UsageData } from "@/app/api/usage/route";
+import { PLANS } from "@/lib/constant";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
 
@@ -40,6 +43,7 @@ export const FileForm = () => {
   const chunkProgressRef = useRef<{ [chunkId: string]: number }>({});
   const uploadStartTimeRef = useRef<number | null>(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
+  const [allowedLimit, setAllowedLimit] = useState(PLANS.free.storageBytes * (1024 ** 3));
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
     open: false,
     msg: "",
@@ -85,6 +89,8 @@ export const FileForm = () => {
           updateProgress();
           resolve();
         } else {
+          console.log(xhr.response)
+          showToast('Upload failed for part ' + partNumber);
           reject(new Error(`Upload failed for part ${partNumber}`));
         }
       };
@@ -119,12 +125,6 @@ export const FileForm = () => {
       return;
     }
 
-    if (data.senderEmail === data.receiverEmail) {
-      showToast("Sender and receiver email cannot be the same.");
-      return;
-    }
-
-
     setUploading(true);
     setOverallProgress(0);
     uploadStartTimeRef.current = Date.now();
@@ -136,6 +136,12 @@ export const FileForm = () => {
       (sum, f) => sum + f.size,
       0,
     );
+    if (totalBytesRef.current > allowedLimit) {
+      showToast(`You can only upload up to ${formatBytes(allowedLimit)}. Please remove some files.`);
+      setUploading(false);
+      return;
+    }
+
     totalUploadedRef.current = 0;
     chunkProgressRef.current = {};
 
@@ -153,7 +159,7 @@ export const FileForm = () => {
       const initiateRes = await fetch("/api/uploads/initiate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fileName: "giga-sender.zip", contentType: "application/zip" }),
+        body: JSON.stringify({ fileName: "giga-sender.zip", contentType: "application/zip", fileSize: totalBytesRef.current }),
       });
       if (!initiateRes.ok) throw new Error("Failed to initiate upload");
 
@@ -223,7 +229,6 @@ export const FileForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           receiverEmail: data.receiverEmail,
-          senderEmail: data.senderEmail,
           numberOfFiles: files.length,
           fileSize: compressedFileSize,
           message: data.message,
@@ -249,6 +254,18 @@ export const FileForm = () => {
   useEffect(() => {
     setValue("files", files);
   }, [files, setValue]);
+
+  useEffect(() => {
+    (async function () {
+      try {
+        const res = await axios.get<ApiResponse<UsageData>>('/api/usage');
+        const data = res.data.data!;
+        setAllowedLimit(data.allowedStorage - data.usedStorage);
+      } catch (error) {
+        console.error('Error fetching usage limit:', error);
+      }
+    })()
+  }, [])
 
   return (
     <Card sx={{ maxWidth: "768px", maxHeight: '80vh', overflowY: 'auto' }}>
@@ -283,7 +300,7 @@ export const FileForm = () => {
                   {files.length} Selected File{files.length > 1 ? 's' : ''}
                 </Typography>
                 <Typography variant="body2">
-                  {getSizeInReadableFormat(files)} of 50GB
+                  {getSizeInReadableFormat(files)} of {formatBytes(allowedLimit)}
                 </Typography>
               </Stack>
               <Stack gap={2}>
@@ -315,17 +332,6 @@ export const FileForm = () => {
                     error={!!errors.receiverEmail}
                     helperText={
                       errors.receiverEmail ? errors.receiverEmail.message : ""
-                    }
-                  />
-                </FormControl>
-                <FormControl fullWidth variant="outlined">
-                  <FormLabel>Sender&apos;s email</FormLabel>
-                  <TextField
-                    placeholder="e.g., yourmail@example.com"
-                    {...register("senderEmail")}
-                    error={!!errors.senderEmail}
-                    helperText={
-                      errors.senderEmail ? errors.senderEmail.message : ""
                     }
                   />
                 </FormControl>
@@ -458,7 +464,7 @@ export const FileForm = () => {
                 Time remaining: {formatSeconds(estimatedTimeLeft)}
               </Typography>
               <Typography color="white" variant="body2">
-                Uploaded: {bytesToReadableFormat(totalUploadedRef.current)} of {bytesToReadableFormat(totalBytesRef.current)}
+                Uploaded: {formatBytes(totalUploadedRef.current)} of {formatBytes(totalBytesRef.current)}
               </Typography>
               <Typography color="white" variant="body2">
                 Start time: {new Date(startTimeRef.current ?? 0).toLocaleTimeString()}
@@ -485,19 +491,7 @@ export const FileForm = () => {
 function getSizeInReadableFormat(files: File[]): string {
   const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
 
-  return bytesToReadableFormat(totalBytes)
-}
-
-function bytesToReadableFormat(totalBytes: number) {
-  if (totalBytes < 1024) {
-    return `${totalBytes} B`;
-  } else if (totalBytes < 1024 ** 2) {
-    return `${(totalBytes / 1024).toFixed(2)} KB`;
-  } else if (totalBytes < 1024 ** 3) {
-    return `${(totalBytes / 1024 ** 2).toFixed(2)} MB`;
-  } else {
-    return `${(totalBytes / 1024 ** 3).toFixed(2)} GB`;
-  }
+  return formatBytes(totalBytes)
 }
 
 const formatSeconds = (seconds: number): string => {

@@ -1,116 +1,18 @@
+import { PLANS } from '@/lib/constant';
 import Link from 'next/link';
 import React from 'react';
 import {
   FiCheck,
-  FiCloud,
   FiUpload,
   FiUsers,
   FiShield,
   FiZap,
   FiStar
 } from 'react-icons/fi';
+import PlanButton from './PlanButton';
+import { BsArrowUpSquareFill } from "react-icons/bs";
 
 const PricingPlans = () => {
-  const plans = [
-    {
-      name: 'Free',
-      price: 0,
-      storage: '10 GB',
-      storageBytes: 10,
-      popular: false,
-      description: 'Perfect for getting started',
-      features: [
-        '10 GB storage',
-        'Basic file sharing',
-        'Standard upload speed',
-        'Email support',
-        '7-day file retention'
-      ],
-      buttonText: 'Get Started',
-      buttonStyle: 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-    },
-    {
-      name: 'Starter',
-      price: 10,
-      storage: '30 GB',
-      storageBytes: 30,
-      popular: false,
-      description: 'Great for individuals',
-      features: [
-        '30 GB storage',
-        'Advanced file sharing',
-        'Fast upload speed',
-        'Priority email support',
-        '30-day file retention',
-        'Password protection'
-      ],
-      buttonText: 'Choose Starter',
-      buttonStyle: 'bg-blue-600 text-white hover:bg-blue-700'
-    },
-    {
-      name: 'Pro',
-      price: 20,
-      storage: '80 GB',
-      storageBytes: 80,
-      popular: true,
-      description: 'Most popular for professionals',
-      features: [
-        '80 GB storage',
-        'Premium file sharing',
-        'Ultra-fast upload speed',
-        '24/7 priority support',
-        '90-day file retention',
-        'Advanced password protection',
-        'Custom branding',
-        'Analytics dashboard'
-      ],
-      buttonText: 'Choose Pro',
-      buttonStyle: 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
-    },
-    {
-      name: 'Studio',
-      price: 50,
-      storage: '200 GB',
-      storageBytes: 200,
-      popular: false,
-      description: 'Perfect for creative teams',
-      features: [
-        '200 GB storage',
-        'Unlimited file sharing',
-        'Lightning-fast upload',
-        'Dedicated support',
-        '1-year file retention',
-        'Advanced security features',
-        'Team collaboration tools',
-        'API access',
-        'Custom integrations'
-      ],
-      buttonText: 'Choose Studio',
-      buttonStyle: 'bg-indigo-600 text-white hover:bg-indigo-700'
-    },
-    {
-      name: 'Agency',
-      price: 100,
-      storage: '500 GB',
-      storageBytes: 500,
-      popular: false,
-      description: 'Enterprise-grade solution',
-      features: [
-        '500 GB storage',
-        'Unlimited everything',
-        'Maximum upload speed',
-        'White-glove support',
-        'Unlimited file retention',
-        'Enterprise security',
-        'Advanced team management',
-        'Full API access',
-        'Custom integrations',
-        'SLA guarantee'
-      ],
-      buttonText: 'Choose Agency',
-      buttonStyle: 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600'
-    }
-  ];
 
   return (
     <div className="bg-gradient-to-br from-slate-50 to-blue-50 py-12 px-4">
@@ -118,8 +20,8 @@ const PricingPlans = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
-            <FiCloud className="text-4xl text-blue-600 mr-3" />
-            <h1 className="text-4xl font-bold text-gray-900">Giga Send</h1>
+            <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-3" />
+            <h1 className="text-4xl font-bold text-gray-900">GigaSend</h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the perfect plan for your file sharing needs. Scale up as you grow with flexible storage options.
@@ -128,9 +30,9 @@ const PricingPlans = () => {
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
-          {plans.map((plan, index) => (
+          {Object.values(PLANS).map((plan, index) => (
             <div
-              key={plan.name}
+              key={index}
               className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${plan.popular ? 'ring-2 ring-purple-500 scale-105' : ''
                 }`}
             >
@@ -172,16 +74,11 @@ const PricingPlans = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button
-
-                  className={`w-full py-3 px-4 rounded-xl font-semibold transition-all duration-200 cursor-pointer ${plan.buttonStyle}`}
-                >
-                  <Link
-                    href="/checkout"
-                  >
-                    {plan.buttonText}
-                  </Link>
-                </button>
+                <PlanButton
+                  buttonStyle={plan.buttonStyle}
+                  buttonText={plan.buttonText}
+                  planName={plan.name}
+                />
               </div>
             </div>
           ))}

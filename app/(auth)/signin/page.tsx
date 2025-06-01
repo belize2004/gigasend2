@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import {
   FiMail,
   FiLock,
-  FiCloud,
   FiEye,
   FiEyeOff,
   FiArrowRight,
@@ -14,16 +13,23 @@ import {
   FiUsers
 } from 'react-icons/fi';
 import axios, { AxiosError } from "axios"
+import { useRouter } from 'next/navigation';
+import { BsArrowUpSquareFill } from 'react-icons/bs';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (error)
+      setError(null);
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -33,16 +39,18 @@ const LoginPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post<ApiResponse>('/api/auth/signin', formData);
-      console.log('res', res)
+      setLoading(true)
+      await axios.post<ApiResponse, typeof formData>('/api/auth/signin', formData);
+      router.push('/dashboard');
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-      console.log('axiosError', axiosError)
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
         setError("An unexpected error occurred.");
       }
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -54,8 +62,8 @@ const LoginPage = () => {
         <div className="hidden lg:block">
           <div className="text-left">
             <div className="flex items-center mb-6">
-              <FiCloud className="text-5xl text-blue-600 mr-4" />
-              <h1 className="text-4xl font-bold text-gray-900">Giga Send</h1>
+              <BsArrowUpSquareFill className="text-5xl text-blue-600 mr-4" />
+              <h1 className="text-4xl font-bold text-gray-900">GigaSend</h1>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Welcome back!
@@ -104,8 +112,8 @@ const LoginPage = () => {
             {/* Mobile branding */}
             <div className="lg:hidden text-center mb-8">
               <div className="flex items-center justify-center mb-4">
-                <FiCloud className="text-4xl text-blue-600 mr-2" />
-                <h1 className="text-3xl font-bold text-gray-900">Giga Send</h1>
+                <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-2" />
+                <h1 className="text-3xl font-bold text-gray-900">GigaSend</h1>
               </div>
             </div>
 
@@ -197,10 +205,11 @@ const LoginPage = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
+                disabled={loading}
+                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center transform ${loading ? 'animate-pulse opacity-80' : 'hover:from-blue-700 hover:to-purple-700 hover:scale-105'}`}
               >
-                Sign In
-                <FiArrowRight className="ml-2" />
+                {!loading ? 'Sign In' : 'Signing In'}
+                {!loading && <FiArrowRight className="ml-2" />}
               </button>
             </form>
 

@@ -2,6 +2,8 @@ import { connectToDB } from '@/lib/db';
 import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 import { NextRequest, NextResponse } from 'next/server';
+import jwt from 'jsonwebtoken';
+import { JWT_SECRET } from '@/lib/constant';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -18,5 +20,11 @@ export async function POST(req: NextRequest) {
   const hashedPassword = await bcrypt.hash(password, 10);
   const newUser = await User.create({ name, email, password: hashedPassword });
 
-  return NextResponse.json({ success: true, message: 'User created successfully', data: { name, email } }, { status: 201 });
+  const token = jwt.sign({ userId: newUser._id }, JWT_SECRET, { expiresIn: '7d' });
+
+  const res = NextResponse.json({ success: true, message: 'User created successfully', data: { name, email } }, { status: 201 })
+
+  res.cookies.set('token', token);
+
+  return res;
 }

@@ -1,11 +1,12 @@
 "use client"
 import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {
   FiMail,
   FiLock,
-  FiCloud,
   FiEye,
   FiEyeOff,
   FiArrowRight,
@@ -24,6 +25,8 @@ const SignupPage = () => {
     email: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -34,18 +37,19 @@ const SignupPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true)
     try {
-      console.log('formData', formData)
-      const res = await axios.post<ApiResponse>('/api/auth/signup', formData);
-      console.log('res', res)
+      await axios.post<typeof formData, ApiResponse>('/api/auth/signup', formData);
+      router.push('/dashboard')
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-      console.log('axiosError', axiosError)
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
         setError("An unexpected error occurred.");
       }
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -64,8 +68,8 @@ const SignupPage = () => {
         <div className="hidden lg:block">
           <div className="text-left">
             <div className="flex items-center mb-6">
-              <FiCloud className="text-5xl text-blue-600 mr-4" />
-              <h1 className="text-4xl font-bold text-gray-900">Giga Send</h1>
+              <BsArrowUpSquareFill className="text-5xl text-blue-600 mr-4" />
+              <h1 className="text-4xl font-bold text-gray-900">GigaSend</h1>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Join thousands of users
@@ -108,7 +112,7 @@ const SignupPage = () => {
             {/* Trust indicators */}
             <div className="mt-8 p-6 bg-white rounded-xl shadow-lg">
               <h4 className="font-semibold text-gray-900 mb-2">Trusted by professionals</h4>
-              <p className="text-sm text-gray-600">Join over 50,000+ users who trust Giga Send for their file sharing needs.</p>
+              <p className="text-sm text-gray-600">Join over 50,000+ users who trust GigaSend for their file sharing needs.</p>
             </div>
           </div>
         </div>
@@ -120,8 +124,8 @@ const SignupPage = () => {
             {/* Mobile branding */}
             <div className="lg:hidden text-center mb-8">
               <div className="flex items-center justify-center mb-4">
-                <FiCloud className="text-4xl text-blue-600 mr-2" />
-                <h1 className="text-3xl font-bold text-gray-900">Giga Send</h1>
+                <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-2" />
+                <h1 className="text-3xl font-bold text-gray-900">GigaSend</h1>
               </div>
             </div>
 
@@ -213,7 +217,7 @@ const SignupPage = () => {
                 </div>
 
                 {/* Password Requirements */}
-                {formData.password && (
+                {(
                   <div className="mt-2 space-y-1">
                     {passwordRequirements.map((req, index) => (
                       <div key={index} className="flex items-center text-xs">
@@ -252,10 +256,11 @@ const SignupPage = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
+                disabled={loading}
+                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold ${loading ? 'opacity-80 animate-pulse' : 'hover:from-blue-700 hover:to-purple-700 transform hover:scale-105'} transition-all duration-200 flex items-center justify-center`}
               >
-                Create Account
-                <FiArrowRight className="ml-2" />
+                {!loading ? 'Create Account' : 'Creating Account'}
+                {!loading && <FiArrowRight className="ml-2" />}
               </button>
             </form>
 

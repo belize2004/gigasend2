@@ -1,10 +1,14 @@
 "use client"
+import { SubscriptionRequestBody } from '@/app/api/payment/subscribe/route';
+import { PlanEnum, PLANS } from '@/lib/constant';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {
-  FiCloud,
   FiCheck,
-  FiCreditCard,
   FiLock,
   FiShield,
   FiArrowLeft,
@@ -12,58 +16,85 @@ import {
   FiUpload,
   FiUsers,
   FiZap,
-  FiCalendar,
   FiMail
 } from 'react-icons/fi';
 
+
 const CheckoutPage = () => {
-  const [selectedPlan, setSelectedPlan] = useState({
-    name: 'Pro',
-    price: 20,
-    storage: '80 GB',
-    popular: true,
-    features: [
-      '80 GB storage',
-      'Premium file sharing',
-      'Ultra-fast upload speed',
-      '24/7 priority support',
-      '90-day file retention',
-      'Advanced password protection',
-      'Custom branding',
-      'Analytics dashboard'
-    ]
-  });
+  const { plan }: { plan: PlanEnum } = useParams();
+  const router = useRouter()
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const [selectedPlan, setSelectedPlan] = useState(PLANS[plan]);
 
   const [formData, setFormData] = useState({
     email: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvc: '',
-    cardName: '',
-    country: 'US',
-    postalCode: ''
   });
+  const [error, setError] = useState<string | null>(null);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    if (error)
+      setError(null)
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const yearlyDiscount = 0.2; // 20% discount for yearly
   const monthlyPrice = selectedPlan.price;
-  const yearlyPrice = Math.round(monthlyPrice * 12 * (1 - yearlyDiscount));
   const currentPrice = monthlyPrice;
 
-  const handleCheckout = () => {
-    // This is where you'd integrate with Stripe
-    console.log('Processing checkout for:', {
-      plan: selectedPlan.name,
-      price: currentPrice,
-      customerData: formData
+  const handleCheckout = async () => {
+    if (!formData.email) {
+      setError('Email is required.');
+      return;
+    }
+
+    if (!elements || !stripe) {
+      setError('Stripe.js has not loaded yet.');
+      return;
+    }
+
+    const card = elements.getElement(CardElement);
+    if (!card) {
+      setError('CardElement not found');
+      return;
+    }
+
+    const paymentMethod = await stripe.createPaymentMethod({
+      type: 'card',
+      card: card
     });
+
+    if (paymentMethod.error) {
+      setError(paymentMethod.error.message || null);
+      return;
+    }
+
+    try {
+      const res = await axios.post<SubscriptionRequestBody, ApiResponse>('/api/payment/subscribe', {
+        paymentMethod: paymentMethod.paymentMethod,
+        planName: selectedPlan.name
+      })
+    } catch (error) {
+      const axiosError = error as AxiosError<ApiResponse>;
+      console.log(axiosError)
+      if (axiosError.response) {
+        setError(axiosError.response.data.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
+    }
   };
+
+  // undefined plan
+  if (!selectedPlan || selectedPlan.name == 'Free') {
+    router.push('/plans');
+    return <></>
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
@@ -78,12 +109,12 @@ const CheckoutPage = () => {
             </span>
           </Link>
           <div className="flex items-center">
-            <FiCloud className="text-3xl text-blue-600 mr-2" />
-            <h1 className="text-2xl font-bold text-gray-900">FileShare Pro</h1>
+            <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
+            <h1 className="text-2xl font-bold text-gray-900">GigaSend</h1>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
           {/* Left Side - Order Summary */}
           <div className="space-y-6">
@@ -112,15 +143,12 @@ const CheckoutPage = () => {
 
                 {/* Features List */}
                 <div className="space-y-2 mb-4">
-                  {selectedPlan.features.slice(0, 4).map((feature, index) => (
+                  {selectedPlan.features.map((feature, index) => (
                     <div key={index} className="flex items-center text-sm">
                       <FiCheck className="text-green-500 mr-2 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
-                  <div className="text-xs text-gray-500 mt-2">
-                    +{selectedPlan.features.length - 4} more features included
-                  </div>
                 </div>
               </div>
 
@@ -166,11 +194,19 @@ const CheckoutPage = () => {
           <div className="bg-white rounded-2xl shadow-lg p-6">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Payment Details</h2>
 
+            {/* error */}
+            <p
+              className={`text-red-400 text-sm mb-4 transform transition-all duration-300 origin-top ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 h-0'
+                }`}
+            >
+              {error ?? ''}
+            </p>
+
             <div className="space-y-6">
               {/* Email */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
+                  Email Address <span className='text-red-500'>*</span>
                 </label>
                 <div className="relative">
                   <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -189,100 +225,13 @@ const CheckoutPage = () => {
               {/* Card Information */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Card Information
+                  Card Information <span className='text-red-500'>*</span>
                 </label>
 
-                {/* Card Number */}
-                <div className="relative mb-3">
-                  <FiCreditCard className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
-                    type="text"
-                    name="cardNumber"
-                    value={formData.cardNumber}
-                    onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-t-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="1234 1234 1234 1234"
-                    maxLength={19}
-                  />
-                </div>
-
-                {/* Expiry and CVC */}
-                <div className="grid grid-cols-2 gap-0">
-                  <div className="relative">
-                    <FiCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="text"
-                      name="expiryDate"
-                      value={formData.expiryDate}
-                      onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 border-r-0 rounded-bl-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="MM/YY"
-                      maxLength={5}
-                    />
-                  </div>
-                  <div className="relative">
-                    <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="text"
-                      name="cvc"
-                      value={formData.cvc}
-                      onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-br-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="CVC"
-                      maxLength={4}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Cardholder Name */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Cardholder Name
-                </label>
-                <input
-                  type="text"
-                  name="cardName"
-                  value={formData.cardName}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Full name on card"
+                {/* Card Number, Expiry and CVC */}
+                <CardElement
+                  className='border border-gray-300 rounded-xl px-3 py-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 mb-4'
                 />
-              </div>
-
-              {/* Country and Postal Code */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Country
-                  </label>
-                  <select
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="GB">United Kingdom</option>
-                    <option value="AU">Australia</option>
-                    <option value="DE">Germany</option>
-                    <option value="FR">France</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Postal Code
-                  </label>
-                  <input
-                    type="text"
-                    name="postalCode"
-                    value={formData.postalCode}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="12345"
-                  />
-                </div>
               </div>
 
               {/* Payment Button */}

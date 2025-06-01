@@ -2,6 +2,7 @@ import React from 'react'
 import ClientThemeRegistry from '../ThemeRegistryDynamic'
 import { MediaBackground } from '@/components/MediaBackground'
 import { FileProvider } from '@/context/FileContext'
+import ProtectedPage from '@/components/ProtectedPage';
 
 export default function layout({ children }: Readonly<{
   children: React.ReactNode;
@@ -9,7 +10,9 @@ export default function layout({ children }: Readonly<{
   return (
     <ClientThemeRegistry>
       <MediaBackground>
-        <FileProvider>{children}</FileProvider>
+        <ProtectedPage>
+          <FileProvider>{children}</FileProvider>
+        </ProtectedPage>
       </MediaBackground>
     </ClientThemeRegistry>
   )
