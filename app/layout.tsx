@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-const interSans = Inter({
-  variable: "--font-inter-sans",
+
+const fontPrimary = Manrope({
+  variable: "--font-primary",
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interSans.variable}`}>
+      <body className={`${fontPrimary.variable}`}>
         <Navbar />
         {children}
       </body>
