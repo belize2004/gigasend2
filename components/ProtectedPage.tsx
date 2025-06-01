@@ -1,16 +1,25 @@
 "use client";
 import { useAuth } from "@/lib/hooks/useAuth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { BsArrowUpSquareFill } from "react-icons/bs";
 import { FiShield } from "react-icons/fi";
 
 export default function ProtectedPage({ children }: { children: React.ReactNode }) {
-  const { loading } = useAuth();
+  const router = useRouter();
+  const { loading, isAuthenticated } = useAuth();
 
-  if (loading) {
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.replace("/signin"); 
+    }
+  }, [loading, isAuthenticated, router]);
+
+  if (loading || (!loading && !isAuthenticated)) {
     return <AuthLoader />;
   }
 
-  return children;
+  return <>{children}</>;
 }
 
 

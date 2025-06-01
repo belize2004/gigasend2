@@ -3,6 +3,7 @@ import { useAuth } from '@/lib/hooks/useAuth';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { BsArrowUpSquareFill } from 'react-icons/bs';
 import { FiCloud, FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <div className="flex items-center">
-            <FiCloud className="text-3xl text-blue-600 mr-2" />
+            <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
             <span className="text-2xl font-bold text-gray-900">Giga Send</span>
           </div>
 

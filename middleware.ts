@@ -4,7 +4,6 @@ import { verifyToken } from './lib/verifyJwt';
 
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get('token')?.value;
-  console.log('first')
   if (!token) {
     return NextResponse.redirect(new URL('/signin', req.url));
   }

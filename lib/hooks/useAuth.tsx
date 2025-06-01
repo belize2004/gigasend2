@@ -9,11 +9,9 @@ export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const auth = sessionStorage.getItem('isAuthenticated');
 
-    if (auth === 'true') {
+    if (isAuthenticated) {
       setLoading(false);
-      setIsAuthenticated(true)
       return;
     }
 
@@ -25,21 +23,18 @@ export function useAuth() {
     })
       .then(res => {
         if (!res.ok) throw new Error('Not authenticated');
-        setIsAuthenticated(true)
         return res.json();
       })
       .then(data => {
         if (data.success) {
-          sessionStorage.setItem('isAuthenticated', 'true');
+          setIsAuthenticated(true)
           setLoading(false);
         } else {
           setIsAuthenticated(false)
-          router.replace('/signin');
         }
       })
       .catch(() => {
-        setIsAuthenticated(true)
-        router.replace('/signin');
+        setIsAuthenticated(false)
       });
   }, [router]);
 
@@ -48,7 +43,6 @@ export function useAuth() {
       await axios.post('/api/auth/signout');
       router.replace('/signin')
       setIsAuthenticated(false);
-      sessionStorage.removeItem('isAuthenticated');
     } catch (error) {
       console.error("Logout failed:", error);
     }
