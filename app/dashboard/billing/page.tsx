@@ -14,7 +14,6 @@ const DashboardBilling: React.FC = () => {
       try {
         const res = await axios.get<ApiResponse<BillingData>>('/api/dashboard/billing');
         setData(res.data.data!);
-        console.log(res.data.data)
       } catch (error) {
         const axiosError = error as AxiosError<ApiResponse>;
         if (axiosError.response) {

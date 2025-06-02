@@ -113,6 +113,7 @@ export const FileForm = () => {
         if (attempt >= maxRetries) {
           showToast(`Upload failed for part ${partNumber} after ${maxRetries} attempts.`);
           setUploading(false);
+          console.error('Chunk upload fail', err)
           throw new Error(`Upload failed for part ${partNumber} after ${maxRetries} attempts.`);
         } else {
           console.warn(`Retrying part ${partNumber} (attempt ${attempt + 1})...`);

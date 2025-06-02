@@ -9,7 +9,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const { isAuthenticated, handleLogout } = useAuth();
-  console.log('isAuthenticated', isAuthenticated)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

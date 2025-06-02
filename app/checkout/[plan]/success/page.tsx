@@ -97,7 +97,7 @@ const Page = () => {
             {/* Features */}
             <div className="text-left max-w-md mx-auto">
               <h4 className="font-semibold text-gray-900 mb-3 text-center">
-                What's included:
+                What&apos;s included:
               </h4>
               <div className="space-y-2">
                 {selectedPlan.features.map((feature, index) => (
@@ -152,7 +152,7 @@ const Page = () => {
             <FiUsers className="text-purple-600 mx-auto mb-2 text-2xl" />
             <h4 className="font-semibold text-gray-900 mb-1">24/7 Support</h4>
             <p className="text-sm text-gray-600">
-              We're here to help anytime
+              We&apos;re here to help anytime
             </p>
           </div>
         </div>
