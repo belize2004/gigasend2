@@ -1,5 +1,6 @@
 "use client"
 import { PLANS } from '@/lib/constant';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import {
   FiCalendar,
@@ -15,7 +16,8 @@ import {
 } from 'react-icons/fi';
 
 const Free: React.FC = () => {
-  // Mock data for demonstration - Free Plan
+  const router = useRouter();
+
   const data = {
     planName: 'Free Plan',
     planFeatures: [
@@ -108,13 +110,20 @@ const Free: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <button
+              onClick={
+                () => router.push('/checkout/pro')
+              }
               className="flex-1 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-200 flex items-center justify-center shadow-lg"
             >
               <FiTrendingUp className="mr-2" />
               Upgrade to Pro - ${PLANS.pro.price}/month
               <FiArrowRight className="ml-2" />
             </button>
-            <button className="px-6 py-4 border-2 border-white border-opacity-30 text-white rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-200">
+            <button
+              onClick={
+                () => router.push(`/plans`)
+              }
+              className="px-6 py-4 border-2 border-white border-opacity-30 text-white rounded-xl font-semibold hover:bg-white hover:text-black hover:bg-opacity-10 transition-all duration-200">
               View All Plans
             </button>
           </div>
@@ -137,6 +146,9 @@ const Free: React.FC = () => {
               About to end the usage limit?
             </p>
             <button
+              onClick={
+                () => router.push(`/checkout/pro`)
+              }
               className="text-orange-800 font-semibold text-sm hover:text-orange-900 underline"
             >
               Upgrade Now →

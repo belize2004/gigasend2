@@ -44,6 +44,7 @@ export const FileForm = () => {
   const uploadStartTimeRef = useRef<number | null>(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
   const [allowedLimit, setAllowedLimit] = useState(PLANS.free.storageBytes * (1024 ** 3));
+  const [uploadStatus, setUploadStatus] = useState<"initiating" | "uploading" | null>(null)
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
     open: false,
     msg: "",
@@ -62,44 +63,66 @@ export const FileForm = () => {
 
   const showToast = (msg: string) => setToast({ open: true, msg });
 
-  async function uploadChunkToS3(chunk: Uint8Array, uploadId: string, key: string, partNumber: number): Promise<string> {
-    let ETag: string = '';
-    // Request presigned URL for this chunk
-    const presignRes = await fetch("/api/uploads/presign", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ uploadId, key, partNumber }),
-    });
-    if (!presignRes.ok) throw new Error(`Failed to presign part ${partNumber}`);
-    const { url: presignedUrl } = await presignRes.json();
+  async function uploadChunkToS3(
+    chunk: Uint8Array,
+    uploadId: string,
+    key: string,
+    partNumber: number,
+    maxRetries = 3
+  ) {
+    let ETag = '';
+    let attempt = 0;
 
-    // Upload chunk
-    await new Promise<void>((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open("PUT", presignedUrl);
-      xhr.setRequestHeader("Content-Type", "application/octet-stream");
-      xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          // On success, retrieve the ETag from the response headers
-          const eTagHeader = xhr.getResponseHeader("ETag");
-          if (eTagHeader) {
-            ETag = eTagHeader;
-          }
-          totalUploadedRef.current += chunk.length;
-          updateProgress();
-          resolve();
+    while (attempt < maxRetries) {
+      try {
+        // Request presigned URL for this chunk
+        const presignRes = await fetch("/api/uploads/presign", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ uploadId, key, partNumber }),
+        });
+
+        if (!presignRes.ok) throw new Error(`Failed to presign part ${partNumber}`);
+        const { url: presignedUrl } = await presignRes.json();
+
+        // Upload chunk
+        await new Promise<void>((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open("PUT", presignedUrl);
+          xhr.setRequestHeader("Content-Type", "application/octet-stream");
+          xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              const eTagHeader = xhr.getResponseHeader("ETag");
+              if (eTagHeader) {
+                ETag = eTagHeader;
+              }
+              totalUploadedRef.current += chunk.length;
+              updateProgress();
+              resolve();
+            } else {
+              console.log(xhr.response);
+              reject(new Error(`Upload failed with status ${xhr.status}`));
+            }
+          };
+          xhr.onerror = () => reject(new Error("Network error during upload"));
+          xhr.send(chunk);
+        });
+
+      } catch (err) {
+        attempt++;
+        if (attempt >= maxRetries) {
+          showToast(`Upload failed for part ${partNumber} after ${maxRetries} attempts.`);
+          setUploading(false);
+          throw new Error(`Upload failed for part ${partNumber} after ${maxRetries} attempts.`);
         } else {
-          console.log(xhr.response)
-          showToast('Upload failed for part ' + partNumber);
-          reject(new Error(`Upload failed for part ${partNumber}`));
+          console.warn(`Retrying part ${partNumber} (attempt ${attempt + 1})...`);
+          await new Promise(res => setTimeout(res, 1000 * attempt)); // exponential backoff
         }
-      };
-      xhr.onerror = () => reject(new Error("Network error during upload"));
-      xhr.send(chunk);
-    });
-
+      }
+    }
     return ETag;
   }
+
 
   function updateProgress() {
     const uploaded = totalUploadedRef.current;
@@ -155,6 +178,7 @@ export const FileForm = () => {
       const partsList: { PartNumber: number; ETag: string }[] = [];
       let partNumber = 1;
 
+      setUploadStatus("initiating");
       // Step 1: Initiate multipart upload
       const initiateRes = await fetch("/api/uploads/initiate", {
         method: "POST",
@@ -164,9 +188,10 @@ export const FileForm = () => {
       if (!initiateRes.ok) throw new Error("Failed to initiate upload");
 
       const { uploadId, key } = await initiateRes.json();
-      const MIN_PART_SIZE = 5 * 1024 * 1024; // 5 MB
+      const MIN_PART_SIZE = 20 * 1024 * 1024; // 20 MB
       let buffer = new Uint8Array(0);
 
+      setUploadStatus("uploading");
       const uploadStreamPromise = (async () => {
         while (true) {
           const { value, done } = await reader.read();
@@ -458,6 +483,11 @@ export const FileForm = () => {
           <Typography variant="body2" color="#FFF" mt={1}>
             We are processing your files...
           </Typography>
+          {uploadStatus &&
+            <Typography color="white" variant="body2">
+              Status: {uploadStatus}
+            </Typography>
+          }
           {estimatedTimeLeft !== null && (
             <>
               <Typography color="white" variant="body2">

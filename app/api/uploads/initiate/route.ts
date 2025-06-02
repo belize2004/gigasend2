@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
 
     const user = await User.findById<User>(userId);
     if (!user) {
+      console.log("User not found:", userId);
       return NextResponse.json(
         { error: "User not found" },
         { status: 404 },
@@ -47,6 +48,7 @@ export async function POST(request: NextRequest) {
         const subscribedPlan = PLANS[planName as PlanEnum] || PLANS.free
 
         if (!subscribedPlan) {
+          console.log("Subscribed plan not found for user:", userId);
           return NextResponse.json(
             { error: "Subscribed plan not found" },
             { status: 404 },

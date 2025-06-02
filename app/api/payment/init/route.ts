@@ -1,3 +1,4 @@
+import { connectToDB } from '@/lib/db';
 import { createPlan, createProduct } from '@/lib/stripe';
 import StripeProduct from '@/models/StripeProduct';
 import { NextResponse } from 'next/server';
@@ -5,6 +6,7 @@ import { NextResponse } from 'next/server';
 export async function POST() {
   let data = {}
 
+  await connectToDB();
   const product = await createProduct("Subscription");
 
   const starterPlan = await createPlan({

@@ -1,5 +1,5 @@
 "use client"
-import { useAuth } from '@/lib/hooks/useAuth';
+import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const { isAuthenticated, handleLogout } = useAuth();
+  console.log('isAuthenticated', isAuthenticated)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

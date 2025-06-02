@@ -15,6 +15,7 @@ import {
 import axios, { AxiosError } from "axios"
 import { useRouter } from 'next/navigation';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
+import { useAuth } from '@/context/AuthContext';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,6 +26,7 @@ const LoginPage = () => {
   });
   const [error, setError] = useState<string | null>(null)
   const router = useRouter();
+  const { authenticate } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (error)
@@ -41,6 +43,7 @@ const LoginPage = () => {
     try {
       setLoading(true)
       await axios.post<ApiResponse, typeof formData>('/api/auth/signin', formData);
+      authenticate();
       router.push('/dashboard');
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
@@ -49,7 +52,7 @@ const LoginPage = () => {
       } else {
         setError("An unexpected error occurred.");
       }
-    } finally{
+    } finally {
       setLoading(false)
     }
   };

@@ -22,6 +22,7 @@ import {
 
 const CheckoutPage = () => {
   const { plan }: { plan: PlanEnum } = useParams();
+  const [loading, setLoading] = useState(false);
   const router = useRouter()
 
   const stripe = useStripe();
@@ -73,20 +74,24 @@ const CheckoutPage = () => {
       setError(paymentMethod.error.message || null);
       return;
     }
+    setLoading(true)
 
     try {
       await axios.post<SubscriptionRequestBody, ApiResponse>('/api/payment/subscribe', {
         paymentMethod: paymentMethod.paymentMethod,
         planName: selectedPlan.name
       })
+      router.push(`/checkout/${selectedPlan.name.toLowerCase()}/success`);
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-      console.log(axiosError)
+      console.error(axiosError)
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
         setError("An unexpected error occurred.");
       }
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -241,10 +246,11 @@ const CheckoutPage = () => {
               {/* Payment Button */}
               <button
                 onClick={handleCheckout}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
+                disabled={!stripe || loading}
+                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform ${loading ? 'opacity-60 animate-pulse' : ''} transition-all duration-200 flex items-center justify-center`}
               >
                 <FiLock className="mr-2" />
-                Complete Payment - ${currentPrice}
+                {!loading ? 'Complete' : 'Completing'} Payment - ${currentPrice}
               </button>
 
               {/* Security info */}

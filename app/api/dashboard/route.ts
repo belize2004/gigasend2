@@ -37,11 +37,10 @@ const token = req.cookies.get('token')!.value!;
       customer: user.stripeCustomerId,
       expand: ['data.items'],
     })
-
     if (subscription.data.length > 0) {
-      const planName = subscription.data[0].items.data[0].plan.nickname;
+      const planName = subscription.data[0].items.data[0].plan.nickname!.toLowerCase();
       const subscribedPlan = PLANS[planName as PlanEnum] || PLANS.free;
-
+      
       if (!subscribedPlan) {
         return NextResponse.json({ success: false, message: 'Subscribed plan not found' }, { status: 404 });
       }

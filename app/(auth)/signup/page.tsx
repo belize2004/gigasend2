@@ -1,4 +1,5 @@
 "use client"
+import { useAuth } from '@/context/AuthContext';
 import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -27,6 +28,7 @@ const SignupPage = () => {
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { authenticate } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -40,6 +42,7 @@ const SignupPage = () => {
     setLoading(true)
     try {
       await axios.post<typeof formData, ApiResponse>('/api/auth/signup', formData);
+      authenticate();
       router.push('/dashboard')
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
