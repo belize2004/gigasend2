@@ -5,6 +5,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const revalidate = 60;
+
 interface Slug {
   slug: { current: string }
 }
@@ -28,12 +30,6 @@ interface MorePost {
   mainImage: { asset: { url: string }, alt: string },
   author: { name: string }
 }
-
-// interface PageProps {
-//   params: {
-//     slug: string;
-//   };
-// }
 
 export async function generateStaticParams() {
   const slugs = await client.fetch<Slug[]>(`*[_type == "post"]{ "slug": slug.current }`)
@@ -90,7 +86,7 @@ export default async function BlogPost({ params }: PageProps) {
   return (
     <>
       {!post ?
-        <p className="text-gray-600 text-lg">Blog not found.</p>
+        <p className="text-gray-600 text-lg max-w-3xl mx-auto p-6">Blog not found.</p>
         :
         <>
           <Head>

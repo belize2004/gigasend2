@@ -1,4 +1,5 @@
 // Configuration constants for the application
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'site_url';
 export const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret';
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongo_uri';
 
@@ -10,6 +11,7 @@ export const NEXT_PUBLIC_RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY
 export const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'sanity_project_id';
 export const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'sanity_dataset';
 export const SANITY_API_VERSION = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-06-03';
+export const SANITY_WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET || 'mysecretkey123';
 
 // Pricing plans for the application
 export const PLAN_ENUM = ["free", "starter", "pro", "studio", "agency"] as const;

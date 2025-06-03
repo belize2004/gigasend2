@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { client } from '@/sanity/lib/client'
 import Image from 'next/image'
 
+export const revalidate = 60;
+
 interface Post {
   _id: string,
   title: string,
