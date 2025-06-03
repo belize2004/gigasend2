@@ -1,15 +1,12 @@
+import { PageProps } from '@/.next/types/app/blogs/[slug]/page'
 import { client } from '@/sanity/lib/client'
 import { PortableText, PortableTextBlock, PortableTextComponents } from '@portabletext/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export async function getStaticPaths() {
-  const slugs = await client.fetch(`*[_type == "post"]{ "slug": slug.current }`)
-  return {
-    paths: slugs.map((s: any) => ({ params: { slug: s.slug } })),
-    fallback: false,
-  }
+interface Slug {
+  slug: { current: string }
 }
 
 interface Post {
@@ -32,7 +29,20 @@ interface MorePost {
   author: { name: string }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+// interface PageProps {
+//   params: {
+//     slug: string;
+//   };
+// }
+
+export async function generateStaticParams() {
+  const slugs = await client.fetch<Slug[]>(`*[_type == "post"]{ "slug": slug.current }`)
+  return slugs.map((s) => ({
+    slug: s.slug,
+  }))
+}
+
+export default async function BlogPost({ params }: PageProps) {
   const { slug } = await params
   const post = await client.fetch<Post>(`
     *[_type == "post" && slug.current == $slug][0] {
