@@ -1,10 +1,6 @@
 import { SITE_URL } from '@/lib/constant';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req: NextRequest) {
-  return NextResponse.json({ message: 'Use POST' }, { status: 405 });
-}
-
 export async function POST(req: NextRequest) {
   const secret = process.env.SANITY_WEBHOOK_SECRET;
 
