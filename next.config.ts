@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "5gb",
     },
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 };
 
 export default nextConfig;

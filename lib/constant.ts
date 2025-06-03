@@ -7,6 +7,10 @@ export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || 'stripe_secret
 
 export const NEXT_PUBLIC_RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY || 'resend_api_key';
 
+export const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'sanity_project_id';
+export const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'sanity_dataset';
+export const SANITY_API_VERSION = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-06-03';
+
 // Pricing plans for the application
 export const PLAN_ENUM = ["free", "starter", "pro", "studio", "agency"] as const;
 export type PlanEnum = typeof PLAN_ENUM[number];

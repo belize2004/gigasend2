@@ -3,7 +3,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
-import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut } from 'react-icons/fi';
+import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut, FiFileText } from 'react-icons/fi';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +34,14 @@ const Navbar = () => {
               className="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
               <FiHome className="mr-1" />
               Home
+            </button>
+            <button
+              onClick={() => {
+                router.push('/blogs');
+              }}
+              className="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+              <FiFileText className="mr-1" />
+              Blogs
             </button>
             <button
               onClick={() => {
