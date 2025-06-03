@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "@/context/AuthContext";
+import { FileProvider } from "@/context/FileContext";
 
 const fontPrimary = Manrope({
   variable: "--font-primary",
@@ -25,8 +26,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${fontPrimary.variable}`}>
         <AuthProvider>
-          <Navbar />
-          {children}
+          <FileProvider>
+            <Navbar />
+            {children}
+          </FileProvider>
         </AuthProvider>
       </body>
     </html>

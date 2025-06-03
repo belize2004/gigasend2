@@ -1,5 +1,10 @@
 "use client"
-import React, { useState } from 'react';
+import FileList from '@/components/File/FileList';
+import { FileUploader } from '@/components/Upload/FileUploader';
+import { useFileContext } from '@/context/FileContext';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React from 'react';
 import {
   FiCloud,
   FiZap,
@@ -17,20 +22,15 @@ import {
 } from 'react-icons/fi';
 
 const Homepage = () => {
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const router = useRouter()
+  const { files } = useFileContext();
 
-  // Simulate upload progress
-  const simulateUpload = () => {
-    setUploadProgress(0);
-    const interval = setInterval(() => {
-      setUploadProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 200);
+  const handleUpoadClick = () => {
+    if (files.length === 0) {
+      alert('Please select a file first');
+      return;
+    }
+    router.push('/transfer')
   };
 
   return (
@@ -58,10 +58,12 @@ const Homepage = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
-                  <FiUpload className="mr-2" />
-                  Start Sharing Now
-                </button>
+                <Link href="/transfer">
+                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
+                    <FiUpload className="mr-2" />
+                    Start Sharing Now
+                  </button>
+                </Link>
                 <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-200 flex items-center justify-center">
                   <FiPlay className="mr-2" />
                   Watch Demo
@@ -94,31 +96,16 @@ const Homepage = () => {
                   <p className="text-gray-600 text-sm">or click to browse</p>
                 </div>
 
-                <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-500 transition-colors duration-200 cursor-pointer">
-                  <FiUpload className="text-4xl text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Drag & drop files here</p>
+                <FileUploader />
+                <div className="mt-5">
+                  <FileList />
                 </div>
 
-                {uploadProgress > 0 && (
-                  <div className="mt-6">
-                    <div className="flex justify-between mb-2">
-                      <span className="text-sm text-gray-600">Uploading...</span>
-                      <span className="text-sm text-gray-600">{uploadProgress}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${uploadProgress}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                )}
-
                 <button
-                  onClick={simulateUpload}
+                  onClick={handleUpoadClick}
                   className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
                 >
-                  Try Demo Upload
+                  Upload
                 </button>
               </div>
 
