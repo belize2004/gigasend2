@@ -31,8 +31,11 @@ import { formatBytes, renameDuplicates } from "@/lib/utils";
 import axios from "axios";
 import { UsageData } from "@/app/api/usage/route";
 import { PLANS } from "@/lib/constant";
+import pLimit from "p-limit";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
+type UploadStatus = "initiating" | "uploading" | "zipping" | "sending email" | "finalizing" | null
+const limit = pLimit(4);
 
 export const FileForm = () => {
   const { files, setFiles } = useFileContext();
@@ -44,13 +47,14 @@ export const FileForm = () => {
   const uploadStartTimeRef = useRef<number | null>(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
   const [allowedLimit, setAllowedLimit] = useState(PLANS.free.storageBytes * (1024 ** 3));
-  const [uploadStatus, setUploadStatus] = useState<"initiating" | "uploading" | null>(null)
+  const [uploadStatus, setUploadStatus] = useState<UploadStatus>(null)
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
     open: false,
     msg: "",
   });
   const router = useRouter();
   const startTimeRef = useRef<null | number>(null)
+  const partNumberRef = useRef(1);
 
   const {
     register,
@@ -63,29 +67,22 @@ export const FileForm = () => {
 
   const showToast = (msg: string) => setToast({ open: true, msg });
 
-  async function uploadChunkToS3(
-    chunk: Uint8Array,
-    uploadId: string,
-    key: string,
-    partNumber: number,
-    maxRetries = 3
-  ) {
-    let ETag = '';
-    let attempt = 0;
+  async function uploadChunkToS3(chunk: Uint8Array, uploadId: string, key: string, partNumber: number): Promise<string> {
+    let ETag: string = '';
+    const MAX_RETRIES = 3;
+    let retries = 0;
 
-    while (attempt < maxRetries) {
+    // Request presigned URL for this chunk (this part doesn't need retries as it's a separate API call)
+    const presignRes = await fetch("/api/uploads/presign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uploadId, key, partNumber }),
+    });
+    if (!presignRes.ok) throw new Error(`Failed to presign part ${partNumber}`);
+    const { url: presignedUrl } = await presignRes.json();
+
+    while (retries <= MAX_RETRIES) {
       try {
-        // Request presigned URL for this chunk
-        const presignRes = await fetch("/api/uploads/presign", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ uploadId, key, partNumber }),
-        });
-
-        if (!presignRes.ok) throw new Error(`Failed to presign part ${partNumber}`);
-        const { url: presignedUrl } = await presignRes.json();
-
-        // Upload chunk
         await new Promise<void>((resolve, reject) => {
           const xhr = new XMLHttpRequest();
           xhr.open("PUT", presignedUrl);
@@ -96,34 +93,33 @@ export const FileForm = () => {
               if (eTagHeader) {
                 ETag = eTagHeader;
               }
-              totalUploadedRef.current += chunk.length;
+              if (totalUploadedRef && totalUploadedRef.current !== undefined) { // Check if exists
+                totalUploadedRef.current += chunk.length;
+              }
               updateProgress();
               resolve();
             } else {
-              console.log(xhr.response);
-              reject(new Error(`Upload failed with status ${xhr.status}`));
+              reject(new Error(`Upload failed for part ${partNumber} with status ${xhr.status}`));
             }
           };
           xhr.onerror = () => reject(new Error("Network error during upload"));
           xhr.send(chunk);
         });
-
-      } catch (err) {
-        attempt++;
-        if (attempt >= maxRetries) {
-          showToast(`Upload failed for part ${partNumber} after ${maxRetries} attempts.`);
-          setUploading(false);
-          console.error('Chunk upload fail', err)
-          throw new Error(`Upload failed for part ${partNumber} after ${maxRetries} attempts.`);
-        } else {
-          console.warn(`Retrying part ${partNumber} (attempt ${attempt + 1})...`);
-          await new Promise(res => setTimeout(res, 1000 * attempt)); // exponential backoff
+        // If the promise resolves, the upload was successful, break out of the retry loop
+        break;
+      } catch (error) {
+        console.warn(`Attempt ${retries + 1} for part ${partNumber} failed:`, error);
+        retries++;
+        if (retries > MAX_RETRIES) {
+          throw new Error(`Failed to upload part ${partNumber} after ${MAX_RETRIES} retries.`);
         }
+        // Optional: Add a delay before retrying
+        await new Promise(resolve => setTimeout(resolve, 2000 * retries)); // Exponential backoff for delay
       }
     }
+
     return ETag;
   }
-
 
   function updateProgress() {
     const uploaded = totalUploadedRef.current;
@@ -177,7 +173,8 @@ export const FileForm = () => {
       // Start background upload of the zip stream
       const reader = readable.getReader();
       const partsList: { PartNumber: number; ETag: string }[] = [];
-      let partNumber = 1;
+      const uploadPromises: Array<Promise<void>> = [];
+      // let partNumber = 1;
 
       setUploadStatus("initiating");
       // Step 1: Initiate multipart upload
@@ -189,14 +186,16 @@ export const FileForm = () => {
       if (!initiateRes.ok) throw new Error("Failed to initiate upload");
 
       const { uploadId, key } = await initiateRes.json();
-      const MIN_PART_SIZE = 20 * 1024 * 1024; // 20 MB
+      const MIN_PART_SIZE = 8 * 1024 * 1024; // 8 MB
       let buffer = new Uint8Array(0);
 
-      setUploadStatus("uploading");
       const uploadStreamPromise = (async () => {
         while (true) {
           const { value, done } = await reader.read();
-          if (done) break;
+          if (done) {
+            break;
+          }
+          // if (done) break;
           if (value) {
             // Append to buffer
             const newBuffer = new Uint8Array(buffer.length + value.length);
@@ -208,23 +207,49 @@ export const FileForm = () => {
             while (buffer.length >= MIN_PART_SIZE) {
               const chunk = buffer.slice(0, MIN_PART_SIZE);
               buffer = buffer.slice(MIN_PART_SIZE);
+              if (uploadStatus != "uploading")
+                setUploadStatus("uploading");
 
-              const etag = await uploadChunkToS3(chunk, uploadId, key, partNumber);
-              partsList.push({ PartNumber: partNumber, ETag: etag });
-              partNumber += 1;
-              compressedFileSize += chunk.length;
+
+              const currPart = partNumberRef.current++;
+              const uploadPromise = limit(async () => {
+                return uploadChunkToS3(chunk, uploadId, key, currPart).then((etag) => {
+                  partsList.push({ PartNumber: currPart, ETag: etag });
+                  compressedFileSize += chunk.length;
+                });
+              });
+
+              uploadPromises.push(uploadPromise);
+              uploadPromise.finally(() => { //
+                const index = uploadPromises.indexOf(uploadPromise);
+                if (index > -1) {
+                  uploadPromises.splice(index, 1);
+                }
+              });
             }
+            console.log('uploadPromises', uploadPromises)
           }
         }
 
+        await Promise.all(uploadPromises);
+
         // Upload remaining data after stream ends
         if (buffer.length > 0) {
-          const etag = await uploadChunkToS3(buffer, uploadId, key, partNumber);
-          partsList.push({ PartNumber: partNumber, ETag: etag });
-          partNumber += 1;
-          compressedFileSize += buffer.length;
+          const finalChunk = buffer;
+
+          const currPart = partNumberRef.current++;
+          const finalPromise = limit(async () => {
+            return uploadChunkToS3(finalChunk, uploadId, key, currPart).then(etag => {
+              partsList.push({ PartNumber: currPart, ETag: etag });
+              compressedFileSize += finalChunk.length;
+            });
+          });
+          uploadPromises.push(finalPromise);
         }
 
+        await Promise.all(uploadPromises);
+
+        setUploadStatus("finalizing");
         // Complete the multipart upload
         const completeRes = await fetch("/api/uploads/complete", {
           method: "POST",
@@ -236,7 +261,6 @@ export const FileForm = () => {
         }
       })();
 
-      // Step 2: Add files to ZIP stream
       const uniquelyNamedFiles = renameDuplicates(files);
       await Promise.all(
         uniquelyNamedFiles.map(file => zipWriter.add(file.name, file.stream(), {
@@ -250,6 +274,7 @@ export const FileForm = () => {
       await uploadStreamPromise;
       setOverallProgress(100);
 
+      setUploadStatus("sending email");
       const emailRes = await fetch("/api/uploads/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
