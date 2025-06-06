@@ -1,5 +1,5 @@
 "use client"
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/useAuth';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
@@ -8,7 +8,7 @@ import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus,
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
-  const { isAuthenticated, handleLogout } = useAuth();
+  const { handleLogout, auth } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -53,7 +53,7 @@ const Navbar = () => {
             </button>
 
             {/* Conditional navigation items for logged in users */}
-            {isAuthenticated && (
+            {auth && (
               <>
                 <button
                   onClick={() => {
@@ -77,7 +77,7 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            {isAuthenticated ? (
+            {auth ? (
               <button
                 onClick={handleLogout}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center"
@@ -139,7 +139,7 @@ const Navbar = () => {
             </button>
 
             {/* Conditional mobile navigation items */}
-            {isAuthenticated && (
+            {auth && (
               <>
                 <button
                   onClick={() => {
@@ -162,7 +162,7 @@ const Navbar = () => {
 
             {/* Mobile Auth Buttons */}
             <div className="pt-4 space-y-2">
-              {isAuthenticated ? (
+              {auth ? (
                 <button
                   onClick={handleLogout}
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200"

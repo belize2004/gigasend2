@@ -1,5 +1,4 @@
 // Configuration constants for the application
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'site_url';
 export const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret';
 export const MONGODB_URI = process.env.MONGODB_URI || 'mongo_uri';
 

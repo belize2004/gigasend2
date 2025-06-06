@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
   await connectToDB();
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne<User>({ email });
   if (!user) {
     return NextResponse.json({ success: false, message: 'User not found' }, { status: 404 });
   }
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
 
   const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '7d' });
 
-  const res = NextResponse.json({ success: true, data: token, message: 'Login successful' });
+  const res = NextResponse.json({ success: true, data: { _id: user._id, email: user.email }, message: 'Login successful' });
 
   res.cookies.set('token', token)
 

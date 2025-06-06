@@ -15,7 +15,8 @@ import {
 import axios, { AxiosError } from "axios"
 import { useRouter } from 'next/navigation';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
-import { useAuth } from '@/context/AuthContext';
+import { useAppDispatch } from '@/lib/store';
+import { setUser } from '@/lib/userSlice';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +27,7 @@ const LoginPage = () => {
   });
   const [error, setError] = useState<string | null>(null)
   const router = useRouter();
-  const { authenticate } = useAuth();
+  const dispatch = useAppDispatch();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (error)
@@ -42,8 +43,8 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       setLoading(true)
-      await axios.post<ApiResponse, typeof formData>('/api/auth/signin', formData);
-      authenticate();
+      const res = await axios.post<ApiResponse<UserSlice>>('/api/auth/signin', formData);
+      dispatch(setUser(res.data.data!));
       router.push('/dashboard');
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;

@@ -9,3 +9,8 @@ interface Plan {
   buttonText: string;
   buttonStyle: string;
 }
+
+interface UserSlice {
+  _id: string | null
+  email: string | null
+}

@@ -1,4 +1,3 @@
-import { SITE_URL } from '@/lib/constant';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
@@ -13,12 +12,12 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    await fetch(`${SITE_URL}/blogs`, { method: 'PURGE' });
+    await fetch(`/blogs`, { method: 'PURGE' });
 
     // If body.slug exists (e.g., for a blog post)
     if (body.slug?.current) {
       const slug = body.slug.current;
-      await fetch(`${SITE_URL}/blogs/${slug}`, { method: 'PURGE' });
+      await fetch(`/blogs/${slug}`, { method: 'PURGE' });
     }
 
     return NextResponse.json({ revalidated: true });
