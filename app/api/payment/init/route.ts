@@ -4,7 +4,7 @@
 import { NextResponse } from 'next/server';
 
 export async function POST() {
-  let data = {}
+  const data = {}
 
   // await connectToDB();
   // const product = await createProduct("Subscription");
