@@ -28,7 +28,7 @@ export type BillingData = PaidPlan | FreePlan
 export async function GET(req: NextRequest) {
   await connectToDB();
 
-  
+
   const token = req.cookies.get('token')!.value!;
   const payload = await verifyToken(token);
   const userId = payload?.userId!;
@@ -70,12 +70,33 @@ export async function GET(req: NextRequest) {
           exp_year = String(paymentMethod.card.exp_year);
         }
       }
+
+      const invoices = await stripe.invoices.list({
+        subscription: subscription.id,
+        limit: 1,
+      });
+
+      const latestInvoice = invoices.data[0];
+
+      let lastPaymentDate: Date;
+
+      if (latestInvoice && latestInvoice.status === 'paid' && latestInvoice.created) {
+        lastPaymentDate = new Date(latestInvoice.created * 1000);
+      } else {
+        lastPaymentDate = new Date(subscription.start_date * 1000);
+      }
+
+      const nextBillingDate = new Date(lastPaymentDate);
+      nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
+
+      const nextBillingDateISO = nextBillingDate.toISOString();
+
       const data: PaidPlan = {
         isFree: false,
         planName: planName as PlanEnum,
         planFeatures: subscribedPlan.features,
         subscriptionStartDate: new Date(subscription.start_date * 1000).toISOString(),
-        nextBillingDate: new Date().toISOString(), //subscription.current_period_end! * 1000
+        nextBillingDate: nextBillingDateISO, //subscription.current_period_end! * 1000
         nextBillingAmount: subscription.items.data[0].price.unit_amount! / 100, // assuming USD
         last4,
         exp_month,

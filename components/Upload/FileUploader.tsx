@@ -55,7 +55,7 @@ export function FileUploader() {
         </Typography>
       </Typography>
       <Typography variant="body2">
-        Support all type of files, available for 3 days, up to 50GB
+        Support all type of files, available for 30 days, up to 200GB
       </Typography>
       <Box mt={4}>
         <Button variant="contained" color="primary" onClick={handleMenuOpen}>

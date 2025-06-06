@@ -12,7 +12,8 @@ import {
   FiShield,
   FiZap,
   FiTrendingUp,
-  FiArrowRight
+  FiArrowRight,
+  FiRefreshCw
 } from 'react-icons/fi';
 
 const Free: React.FC = () => {
@@ -38,7 +39,7 @@ const Free: React.FC = () => {
     { icon: FiZap, text: 'More than 10Gb Storage', highlight: true },
     { icon: FiCalendar, text: 'Upto 30 days retention', highlight: true },
     { icon: FiUsers, text: 'Unlimited Shares', highlight: false },
-    { icon: FiUsers, text: 'Usage increase as previous share expire', highlight: false },
+    { icon: FiRefreshCw, text: 'Reclaimable', highlight: false },
   ];
 
   return (

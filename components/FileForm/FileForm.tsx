@@ -47,6 +47,7 @@ export const FileForm = () => {
   const uploadStartTimeRef = useRef<number | null>(null);
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
   const [allowedLimit, setAllowedLimit] = useState(PLANS.free.storageBytes * (1024 ** 3));
+  const [expiryLimit, setExpiryLimit] = useState(3); // in days
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>(null)
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
     open: false,
@@ -312,6 +313,7 @@ export const FileForm = () => {
         const res = await axios.get<ApiResponse<UsageData>>('/api/usage');
         const data = res.data.data!;
         setAllowedLimit(data.allowedStorage - data.usedStorage);
+        setExpiryLimit(data.expiryDays)
       } catch (error) {
         console.error('Error fetching usage limit:', error);
       }
@@ -420,7 +422,7 @@ export const FileForm = () => {
             >
               <Stack>
                 <Typography variant="subtitle1">
-                  Expires on {new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toDateString()}
+                  Expires on {new Date(Date.now() + expiryLimit * 24 * 60 * 60 * 1000).toDateString()}
                 </Typography>
                 <TermsConditions sx={{ fontSize: "12px" }} />
               </Stack>
@@ -515,7 +517,7 @@ export const FileForm = () => {
             </Typography>
           }
           {estimatedTimeLeft !== null && (
-            <>
+            <>-
               <Typography color="white" variant="body2">
                 Time remaining: {formatSeconds(estimatedTimeLeft)}
               </Typography>

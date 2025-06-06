@@ -1,6 +1,7 @@
 "use client"
 import { SubscriptionRequestBody } from '@/app/api/payment/subscribe/route';
 import { PlanEnum, PLANS } from '@/lib/constant';
+import { useAppSelector } from '@/lib/store';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
@@ -23,6 +24,7 @@ import {
 const CheckoutPage = () => {
   const { plan }: { plan: PlanEnum } = useParams();
   const [loading, setLoading] = useState(false);
+  const { email } = useAppSelector(state => state.user)
   const router = useRouter()
 
   const stripe = useStripe();
@@ -31,7 +33,7 @@ const CheckoutPage = () => {
   const [selectedPlan, setSelectedPlan] = useState(PLANS[plan]);
 
   const [formData, setFormData] = useState({
-    email: '',
+    email: email!,
   });
   const [error, setError] = useState<string | null>(null);
 

@@ -10,13 +10,14 @@ import { NextRequest, NextResponse } from 'next/server';
 export interface UsageData {
   allowedStorage: number;
   usedStorage: number;
+  expiryDays: number;
 }
 
 export async function GET(req: NextRequest) {
 
   await connectToDB();
 
-  
+
   const token = req.cookies.get('token')!.value!;
   const payload = await verifyToken(token);
   const userId = payload?.userId!
@@ -28,6 +29,7 @@ export async function GET(req: NextRequest) {
   }
 
   let allowedStorage = gbToBytes(PLANS.free.storageBytes)
+  let expiryDays = 10;
 
   if (user.stripeCustomerId) {
     const subscription = await stripe.subscriptions.list({
@@ -37,7 +39,7 @@ export async function GET(req: NextRequest) {
     })
 
     if (subscription.data.length > 0) {
-      const planName = subscription.data[0].items.data[0].plan.nickname;
+      const planName = subscription.data[0].items.data[0].plan.nickname!.toLowerCase();
       const subscribedPlan = PLANS[planName as PlanEnum] || PLANS.free;
 
       if (!subscribedPlan) {
@@ -45,6 +47,7 @@ export async function GET(req: NextRequest) {
       }
 
       allowedStorage = gbToBytes(subscribedPlan.storageBytes);
+      expiryDays = subscribedPlan.name != 'Free' ? 30 : expiryDays
     }
   }
 
@@ -58,6 +61,7 @@ export async function GET(req: NextRequest) {
   const data: UsageData = {
     allowedStorage,
     usedStorage,
+    expiryDays
   }
 
   return NextResponse.json({ success: true, data, message: 'Dashboard data retrieved' }, { status: 200 });
