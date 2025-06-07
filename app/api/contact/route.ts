@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
 
 // Email template function for contact form
-export const createContactEmailTemplate = (data: ContactUsBody) => {
+const createContactEmailTemplate = (data: ContactUsBody) => {
   const { fullname, email, company, phoneNumber, subject, message } = data;
 
   return `
