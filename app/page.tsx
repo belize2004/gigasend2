@@ -1,4 +1,5 @@
 "use client"
+import ContactForm from '@/components/ContactUs';
 import FileList from '@/components/File/FileList';
 import { FileUploader } from '@/components/Upload/FileUploader';
 import { useFileContext } from '@/context/FileContext';
@@ -301,6 +302,8 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+
+      <ContactForm />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
