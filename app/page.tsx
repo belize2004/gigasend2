@@ -44,10 +44,10 @@ const Homepage = () => {
 
             {/* Left Content */}
             <div className="text-left">
-              <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              {/* <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <FiTrendingUp className="mr-2" />
                 Trusted by 10M+ users worldwide
-              </div>
+              </div> */}
 
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Share Files
