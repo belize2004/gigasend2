@@ -17,7 +17,7 @@ import {
   FiArrowRight,
   FiStar,
   FiPlay,
-  FiTrendingUp,
+  // FiTrendingUp,
   FiLock,
   FiClock
 } from 'react-icons/fi';
