@@ -286,30 +286,30 @@ const ContactForm = () => {
         </div>
 
         {/* Contact Info */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="mt-16 grid grid-cols-1 gap-8 text-center">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl">
             <div className="bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
               <FiMail className="text-white text-xl" />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-            <p className="text-gray-600">support@gigasend.com</p>
+            <p className="text-gray-600">info@gigasend.us</p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl">
+          {/* <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl">
             <div className="bg-green-600 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
               <FiPhone className="text-white text-xl" />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Call Us</h3>
             <p className="text-gray-600">+1 (555) 123-4567</p>
-          </div>
+          </div> */}
 
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl">
+          {/* <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl">
             <div className="bg-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4">
               <FiMessageSquare className="text-white text-xl" />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Live Chat</h3>
             <p className="text-gray-600">Available 24/7</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

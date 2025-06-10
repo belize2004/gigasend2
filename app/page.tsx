@@ -55,7 +55,7 @@ const Homepage = () => {
               </h1>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Send files of any size instantly with military-grade security. No registration required for basic transfers.
+                Send files of any size instantly with military-grade security. No payment required for 10 GB transfers.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -315,11 +315,15 @@ const Homepage = () => {
             Join millions of users who trust Giga Send for their file sharing needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
+            <button
+              onClick={() => router.push('/transfer')}
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
               <FiUpload className="mr-2" />
               Start Free Transfer
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 flex items-center justify-center">
+            <button
+              onClick={() => router.push('/plans')}
+              className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 flex items-center justify-center">
               View Pricing Plans
               <FiArrowRight className="ml-2" />
             </button>

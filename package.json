@@ -39,6 +39,7 @@
     "p-limit": "^6.2.0",
     "pexels": "^1.4.0",
     "postcss": "^8.5.4",
+    "posthog-js": "^1.249.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
