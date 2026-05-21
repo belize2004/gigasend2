@@ -891,10 +891,15 @@ export const FileForm = () => {
       sendTelemetry("completed");
       setFiles([]);
       setTimeout(() => {
-        const linkQuery = deliveryMode === "link" && sharePayload?.link
-          ? `?link=${encodeURIComponent(sharePayload.link)}`
-          : "";
-        router.push(`/success${linkQuery}`);
+        const params = new URLSearchParams();
+        if ((deliveryMode === "link" || sharePayload?.emailSent === false) && sharePayload?.link) {
+          params.set("link", sharePayload.link);
+        }
+        if (sharePayload?.emailSent === false) {
+          params.set("email", "failed");
+        }
+        const successQuery = params.toString() ? `?${params.toString()}` : "";
+        router.push(`/success${successQuery}`);
       }, 1000);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {

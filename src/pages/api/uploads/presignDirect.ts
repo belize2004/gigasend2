@@ -5,7 +5,7 @@ import { r2BucketName, r2Client } from "@/lib/r2Client";
 import { findUserById, getActiveShareUsage, getDb } from "@/lib/d1";
 import { PlanEnum, PLANS } from "@/lib/constant";
 import { stripe } from "@/lib/stripe";
-import { gbToBytes } from "@/lib/utils";
+import { getStorageLimitBytesForUser } from "@/lib/storageLimit";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 import { createUploadKey } from "@/src/lib/uploadKeys";
@@ -59,7 +59,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     const usedLimit = await getActiveShareUsage(db, userId);
-    const totalLimit = gbToBytes(userPlan.storageBytes);
+    const totalLimit = getStorageLimitBytesForUser(user, userPlan.name.toLowerCase() as PlanEnum);
     const remainingLimit = Math.max(0, totalLimit - usedLimit);
 
     if (usedLimit + fileSize > totalLimit) {

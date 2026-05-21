@@ -113,7 +113,47 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
           shareId: share.id,
         },
       });
-      return json({ error: "Failed to send email" }, 500);
+      const failedDeliveryConfirmation = await resend.emails.send({
+        from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+        to: user.email,
+        subject: "Your GigaSend transfer is ready",
+        html: generateUploadConfirmationEmail({
+          deliveryLabel: `Email to ${receiverEmail} failed`,
+          fileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        text: generateUploadConfirmationText({
+          deliveryLabel: `Email to ${receiverEmail} failed`,
+          fileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        headers: {
+          "X-Entity-Ref-ID": `${share.id}-sender-confirmation-email-failed`,
+        },
+      });
+
+      if (failedDeliveryConfirmation.error) {
+        console.error("Resend sender confirmation after delivery failure error:", failedDeliveryConfirmation.error);
+        captureMonitoringException(failedDeliveryConfirmation.error, {
+          user: { id: userId, email: user.email },
+          tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
+          context: {
+            receiverDomain: receiverEmail.split("@")[1],
+            numberOfFiles,
+            fileSize,
+            shareId: share.id,
+          },
+        });
+      }
+
+      return json({
+        success: true,
+        emailSent: false,
+        link: share.link,
+        message: "Transfer created, but the recipient email could not be sent. Copy and send the link manually.",
+      });
     }
 
     const confirmation = await resend.emails.send({
@@ -151,7 +191,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       });
     }
 
-    return json({ message: "Download links sent to email" });
+    return json({
+      success: true,
+      emailSent: true,
+      link: share.link,
+      message: "Download links sent to email",
+    });
   } catch (error) {
     console.error("Error sending email:", error);
     captureMonitoringException(error, {

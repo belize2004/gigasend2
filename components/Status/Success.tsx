@@ -9,11 +9,13 @@ import { FiCheck, FiCopy } from "react-icons/fi";
 export const Success = () => {
   const router = useRouter();
   const [shareLink, setShareLink] = useState("");
+  const [emailFailed, setEmailFailed] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setShareLink(params.get("link") ?? "");
+    setEmailFailed(params.get("email") === "failed");
   }, []);
 
   const copyShareLink = async () => {
@@ -69,7 +71,9 @@ export const Success = () => {
               },
             }}
           >
-            {shareLink
+            {emailFailed
+              ? "Your upload is finished, but the recipient email could not be sent. Copy this link and send it manually."
+              : shareLink
               ? "Your shareable link is ready. Anyone with this link can download the files until it expires."
               : "Email sent! The recipient has 3 days to download your files."}
           </Typography>
