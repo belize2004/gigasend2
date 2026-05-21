@@ -89,11 +89,44 @@ function getUploadPartSize(fileSize: number) {
 }
 
 function shouldUploadFilesIndividually(fileCount: number, totalBytes: number) {
-  if (PACKAGE_MULTI_FILE_UPLOADS_AS_ZIP) {
-    return false;
+  if (!PACKAGE_MULTI_FILE_UPLOADS_AS_ZIP) {
+    return fileCount > MULTI_FILE_DIRECT_UPLOAD_COUNT_THRESHOLD || totalBytes > MULTI_FILE_DIRECT_UPLOAD_SIZE_THRESHOLD;
   }
 
-  return fileCount > MULTI_FILE_DIRECT_UPLOAD_COUNT_THRESHOLD || totalBytes > MULTI_FILE_DIRECT_UPLOAD_SIZE_THRESHOLD;
+  if (totalBytes > MULTI_FILE_DIRECT_UPLOAD_SIZE_THRESHOLD) {
+    return true;
+  }
+
+  if (fileCount > MULTI_FILE_DIRECT_UPLOAD_COUNT_THRESHOLD) {
+    return true;
+  }
+
+  return false;
+}
+
+async function waitForUploadSlot(uploadPromises: Array<Promise<void>>, concurrency: number) {
+  while (uploadPromises.length >= concurrency) {
+    await Promise.race(uploadPromises);
+  }
+}
+
+function removeUploadPromise(uploadPromises: Array<Promise<void>>, uploadPromise: Promise<void>) {
+  const index = uploadPromises.indexOf(uploadPromise);
+  if (index > -1) {
+    uploadPromises.splice(index, 1);
+  }
+}
+
+function isUploadCanceled(error: unknown) {
+  return error instanceof Error && error.message === "Upload canceled";
+}
+
+function isUploadRejected(error: unknown) {
+  if (isUploadCanceled(error)) {
+    return;
+  }
+
+  throw error;
 }
 
 export const FileForm = () => {
@@ -325,9 +358,11 @@ export const FileForm = () => {
       try {
         await new Promise<void>((resolve, reject) => {
           const xhr = new XMLHttpRequest();
+          activeXhrsRef.current.add(xhr);
           xhr.open("PUT", presignedUrl);
           xhr.setRequestHeader("Content-Type", "application/octet-stream");
           xhr.onload = () => {
+            activeXhrsRef.current.delete(xhr);
             if (xhr.status >= 200 && xhr.status < 300) {
               const eTagHeader = xhr.getResponseHeader("ETag");
               if (eTagHeader) {
@@ -342,7 +377,14 @@ export const FileForm = () => {
               reject(new Error(`Upload failed for part ${partNumber} with status ${xhr.status}`));
             }
           };
-          xhr.onerror = () => reject(new Error("Network error during upload"));
+          xhr.onerror = () => {
+            activeXhrsRef.current.delete(xhr);
+            reject(new Error("Network error during upload"));
+          };
+          xhr.onabort = () => {
+            activeXhrsRef.current.delete(xhr);
+            reject(new Error("Upload canceled"));
+          };
           if (abortRequestedRef.current) {
             xhr.abort();
             reject(new Error("Upload canceled"));
@@ -541,15 +583,11 @@ export const FileForm = () => {
             telemetryRef.current.completedParts += 1;
             uploadedSize += chunk.length;
           });
-        });
+        }).catch(isUploadRejected);
 
         uploadPromises.push(uploadPromise);
-        uploadPromise.finally(() => {
-          const index = uploadPromises.indexOf(uploadPromise);
-          if (index > -1) {
-            uploadPromises.splice(index, 1);
-          }
-        });
+        uploadPromise.finally(() => removeUploadPromise(uploadPromises, uploadPromise));
+        await waitForUploadSlot(uploadPromises, UPLOAD_CONCURRENCY);
       }
     }
 
@@ -565,8 +603,9 @@ export const FileForm = () => {
           telemetryRef.current.completedParts += 1;
           uploadedSize += finalChunk.length;
         });
-      });
+      }).catch(isUploadRejected);
       uploadPromises.push(finalPromise);
+      finalPromise.finally(() => removeUploadPromise(uploadPromises, finalPromise));
     }
 
     await Promise.all(uploadPromises);
@@ -649,6 +688,7 @@ export const FileForm = () => {
       await waitWhilePaused();
       if (abortRequestedRef.current) throw new Error("Upload canceled");
       setUploadStatus("uploading");
+      await waitForUploadSlot(uploadPromises, UPLOAD_CONCURRENCY);
 
       const start = (partNumber - 1) * partSize;
       const end = Math.min(start + partSize, file.size);
@@ -666,15 +706,10 @@ export const FileForm = () => {
             writeSavedSession(nextSession);
           }
         });
-      });
+      }).catch(isUploadRejected);
 
       uploadPromises.push(uploadPromise);
-      uploadPromise.finally(() => {
-        const index = uploadPromises.indexOf(uploadPromise);
-        if (index > -1) {
-          uploadPromises.splice(index, 1);
-        }
-      });
+      uploadPromise.finally(() => removeUploadPromise(uploadPromises, uploadPromise));
     }
 
     await Promise.all(uploadPromises);
