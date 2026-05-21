@@ -7,7 +7,7 @@ import { configure, ZipWriter } from "@zip.js/zip.js";
 const DOWNLOAD_ORIGIN = "https://download.gigasend.us";
 const ZIP_DOWNLOAD_MAX_BYTES = 2 * 1024 * 1024 * 1024;
 const ZIP_DOWNLOAD_MAX_FILES = 25;
-const ZIP_BATCH_FILE_COUNT = 25;
+const LARGE_TRANSFER_ZIP_PART_COUNT = 5;
 
 configure({
   maxWorkers: 1,
@@ -132,8 +132,10 @@ function renderDownloadPage(input: {
 
 function getZipBatches(fileKeys: string[]) {
   const batches: string[][] = [];
-  for (let index = 0; index < fileKeys.length; index += ZIP_BATCH_FILE_COUNT) {
-    batches.push(fileKeys.slice(index, index + ZIP_BATCH_FILE_COUNT));
+  const filesPerBatch = Math.ceil(fileKeys.length / LARGE_TRANSFER_ZIP_PART_COUNT);
+
+  for (let index = 0; index < fileKeys.length; index += filesPerBatch) {
+    batches.push(fileKeys.slice(index, index + filesPerBatch));
   }
 
   return batches;
