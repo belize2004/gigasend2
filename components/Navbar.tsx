@@ -1,6 +1,6 @@
 "use client"
 import { useAuth } from '@/context/useAuth';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/components/compat/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut, FiFileText } from 'react-icons/fi';

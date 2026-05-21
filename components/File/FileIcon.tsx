@@ -3,7 +3,7 @@ import { Typography, Box, Paper, Stack, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { fileTypeColor } from "./fileTypeColors";
 import mime from "mime";
-import Image from "next/image";
+import Image from '@/components/compat/Image';
 
 interface FileProps {
   name: string;

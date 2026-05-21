@@ -1,6 +1,6 @@
 "use client"
 import { PlanEnum, PLANS } from '@/lib/constant';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter } from '@/components/compat/navigation';
 import React, { useEffect, useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {

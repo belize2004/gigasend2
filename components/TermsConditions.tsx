@@ -1,5 +1,5 @@
 import { Typography, SxProps, Theme } from "@mui/material";
-import Link from "next/link";
+import Link from '@/components/compat/Link';
 
 export const TermsConditions = ({ sx }: { sx?: SxProps<Theme> }) => {
   return (

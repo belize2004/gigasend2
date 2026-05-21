@@ -1,32 +1,21 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import Image from "next/image";
-import { Box, Button, Typography, Menu, MenuItem } from "@mui/material";
+import React, { useId, useState } from "react";
+import Image from '@/components/compat/Image';
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { useFileContext } from "@/context/FileContext";
 
 export function FileUploader() {
   const { setFiles } = useFileContext();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const folderInputRef = useRef<HTMLInputElement>(null);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [inputKey, setInputKey] = useState(0);
+  const inputId = useId();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
 
     const selectedFiles = Array.from(e.target.files);
     setFiles((prev) => [...prev, ...selectedFiles]);
-  };
-
-  const handleMenuOpen = (e: React.MouseEvent<HTMLElement>) => setAnchorEl(e.currentTarget);
-  const handleMenuClose = () => setAnchorEl(null);
-  const triggerFile = () => {
-    fileInputRef.current?.click();
-    handleMenuClose();
-  };
-  const triggerFolder = () => {
-    folderInputRef.current?.click();
-    handleMenuClose();
+    setInputKey((key) => key + 1);
   };
 
   return (
@@ -55,48 +44,48 @@ export function FileUploader() {
         </Typography>
       </Typography>
       <Typography variant="body2">
-        Support all type of files, available for 30 days, up to 200GB
+        Supports all file types, up to your available plan storage
       </Typography>
-      <Box mt={4}>
-        <Button variant="contained" color="primary" onClick={handleMenuOpen}>
-          Browse File
+      <Stack direction={{ xs: "column", sm: "row" }} gap={1.5} justifyContent="center" mt={4}>
+        <Button variant="contained" color="primary" component="label" htmlFor={`${inputId}-files`}>
+          Browse files
         </Button>
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-          PaperProps={{
-            sx: {
-              minWidth: anchorEl?.clientWidth || 0,
-            },
-          }}
-        >
-          <MenuItem onClick={triggerFile} sx={{ typography: 'body2', color: 'text.secondary' }}>
-            Files
-          </MenuItem>
-          <MenuItem onClick={triggerFolder} sx={{ typography: 'body2', color: 'text.secondary' }}>
-            Folder
-          </MenuItem>
-        </Menu>
-      </Box>
+        <Button variant="outlined" color="primary" component="label" htmlFor={`${inputId}-folder`}>
+          Browse folder
+        </Button>
+      </Stack>
 
       <input
-        ref={fileInputRef}
+        key={`files-${inputKey}`}
+        id={`${inputId}-files`}
         type="file"
         multiple
-        style={{ display: "none" }}
+        style={visuallyHiddenInput}
         onChange={handleFileChange}
       />
       <input
-        ref={folderInputRef}
+        key={`folder-${inputKey}`}
+        id={`${inputId}-folder`}
         type="file"
         multiple
         directory="true"
         webkitdirectory="true"
         mozdirectory="true"
-        style={{ display: "none" }}
+        style={visuallyHiddenInput}
         onChange={handleFileChange}
       />
     </Box>
   );
 }
+
+const visuallyHiddenInput: React.CSSProperties = {
+  border: 0,
+  clip: "rect(0 0 0 0)",
+  height: 1,
+  margin: -1,
+  overflow: "hidden",
+  padding: 0,
+  position: "absolute",
+  whiteSpace: "nowrap",
+  width: 1,
+};

@@ -1,7 +1,7 @@
 import { InitialUpload } from "@/components/Upload/InitialUpload";
 import { useFileContext } from "@/context/FileContext";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from '@/components/compat/navigation';
 
 export const Screen = () => {
   const { files } = useFileContext();

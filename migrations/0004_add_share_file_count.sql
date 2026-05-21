@@ -1,0 +1,1 @@
+ALTER TABLE shares ADD COLUMN number_of_files INTEGER NOT NULL DEFAULT 1;

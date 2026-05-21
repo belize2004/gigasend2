@@ -1,7 +1,7 @@
 "use client"
 import { useAuth } from '@/context/useAuth';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from '@/components/compat/Link';
+import { usePathname } from '@/components/compat/navigation';
 import React from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {

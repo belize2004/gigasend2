@@ -1,6 +1,6 @@
 "use client"
 import { PLANS } from '@/lib/constant';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/components/compat/navigation';
 import React from 'react';
 import {
   FiCalendar,
@@ -25,7 +25,7 @@ const Free: React.FC = () => {
       '1GB Storage',
       '5 Shares per month',
       'Basic file types only',
-      '24-hour file expiry'
+      '3-day file retention'
     ],
     billingCycleDuration: 'Free',
     nextBillingDate: '',

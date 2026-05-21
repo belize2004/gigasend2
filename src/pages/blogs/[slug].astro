@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AppLayout from "@/components/AppLayout";
+import { blogPosts, getBlogPost } from "@/src/data/blogPosts";
+
+const { slug } = Astro.params;
+const post = getBlogPost(slug);
+const morePosts = blogPosts.filter((related) => related.slug !== slug).slice(0, 3);
+---
+
+<BaseLayout title={post ? `${post.title} | GigaSend` : "Blog Not Found | GigaSend"} description={post?.excerpt}>
+  <AppLayout client:load>
+    {!post ? (
+      <p class="text-gray-600 text-lg max-w-3xl mx-auto p-6">Blog not found.</p>
+    ) : (
+      <article class="p-6 max-w-3xl mx-auto">
+        <h1 class="text-3xl font-bold">{post.title}</h1>
+        <p class="text-sm text-gray-600 mb-6">
+          {post.author} · {new Date(post.publishedAt).toLocaleDateString()}
+        </p>
+        <div class="space-y-5 text-gray-700 leading-7">
+          {post.body.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </article>
+    )}
+
+    <section class="p-6 max-w-3xl mx-auto mt-12 border-t pt-8">
+      <h2 class="text-2xl font-bold mb-6">More Articles</h2>
+      {morePosts.length === 0 ? (
+        <p class="text-gray-600 text-lg">No blog posts available right now. Please check back later.</p>
+      ) : (
+        <ul class="space-y-6 gap-6 flex flex-wrap">
+          {morePosts.map((related) => (
+            <li>
+              <a href={`/blogs/${related.slug}`}>
+                <div class="hover:underline cursor-pointer max-w-[300px]">
+                  <h2 class="text-xl font-semibold">{related.title}</h2>
+                  <p class="text-sm text-gray-600">
+                    By {related.author} · {new Date(related.publishedAt).toLocaleDateString()}
+                  </p>
+                  <p class="mt-2">{related.excerpt}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  </AppLayout>
+</BaseLayout>

@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
 import { FileUploader } from "./FileUploader";
 import { TermsConditions } from "../TermsConditions";
-import Image from "next/image";
+import Image from '@/components/compat/Image';
 
 export const InitialUpload = () => {
   return (

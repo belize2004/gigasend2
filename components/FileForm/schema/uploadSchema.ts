@@ -1,7 +1,12 @@
 import { z } from "zod";
 
 export const UploadFormSchema = z.object({
-  receiverEmail: z.string().email({ message: "Invalid email address" }),
+  receiverEmail: z
+    .string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .optional()
+    .or(z.literal("")),
 
   senderEmail: z
     .string()

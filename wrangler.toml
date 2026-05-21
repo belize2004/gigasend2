@@ -1,0 +1,17 @@
+name = "gigasend"
+compatibility_date = "2026-05-07"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+[vars]
+NODE_VERSION = "20"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gigasend"
+database_id = "f331dd30-59e3-4d5d-840c-964cf5fbe3f8"
+
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "bigsender"
+preview_bucket_name = "bigsender"

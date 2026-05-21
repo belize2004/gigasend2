@@ -1,5 +1,5 @@
 import { jwtVerify } from 'jose';
-import { JWT_SECRET } from './constant';
+import { JWT_SECRET } from './serverEnv';
 
 export interface JwtPayload {
   userId: string;

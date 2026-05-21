@@ -4,7 +4,7 @@ import { FiCalendar, FiCheck, FiCopy, FiMail, FiShare2 } from 'react-icons/fi';
 
 interface Props {
   email: string;
-  expiresAt: Date;
+  expiresAt: string;
   size: number; // size in bytes
   link: string;
 }
@@ -23,6 +23,7 @@ export default function ShareCard(share: Props) {
   };
 
   const isExpired = new Date(share.expiresAt) < new Date();
+  const isLinkOnly = share.email === "__share_link__";
 
   return (
     <div className={`bg-white rounded-xl border-2 p-4 transition-all duration-200 ${isExpired
@@ -35,8 +36,8 @@ export default function ShareCard(share: Props) {
           <div>
             <p className="font-semibold text-gray-900">{formatBytes(share.size)}</p>
             <div className="flex items-center text-sm text-gray-500 mt-1">
-              <FiMail className="mr-1" />
-              <span>{share.email}</span>
+              {isLinkOnly ? <FiShare2 className="mr-1" /> : <FiMail className="mr-1" />}
+              <span>{isLinkOnly ? "Shareable link" : share.email}</span>
             </div>
           </div>
         </div>

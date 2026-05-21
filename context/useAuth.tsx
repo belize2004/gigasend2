@@ -2,8 +2,9 @@
 
 import { useAppDispatch, useAppSelector } from "@/lib/store";
 import { clearUser, setUser } from "@/lib/userSlice";
+import { captureMonitoringException, setMonitoringUser } from "@/lib/monitoring";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter } from '@/components/compat/navigation';
 import { useEffect, useState } from "react";
 
 export const useAuth = () => {
@@ -20,6 +21,10 @@ export const useAuth = () => {
       router.replace("/signin");
     } catch (err) {
       console.error("Logout failed", err);
+      captureMonitoringException(err, {
+        tags: { feature: "auth", action: "logout" },
+        context: { route: "useAuth.handleLogout" },
+      });
     }
   };
 
@@ -34,7 +39,15 @@ export const useAuth = () => {
           return res.json();
         })
         .then((data: ApiResponse<UserSlice>) => {
-          dispatch(setUser(data.data!))
+          dispatch(setUser(data.data!));
+          setMonitoringUser({ email: data.data?.email });
+        })
+        .catch((error) => {
+          setMonitoringUser();
+          captureMonitoringException(error, {
+            tags: { feature: "auth", action: "verify" },
+            context: { route: "useAuth.verify" },
+          });
         })
         .finally(() => setLoading(false));
     }
@@ -43,7 +56,9 @@ export const useAuth = () => {
 
   useEffect(() => {
     setAuth(email != null)
-    console.log(email)
+    if (email) {
+      setMonitoringUser({ email });
+    }
   }, [email])
 
   return {

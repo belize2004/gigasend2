@@ -8,7 +8,7 @@ import {
   FiUpload,
   FiInbox
 } from 'react-icons/fi';
-import { DashboardData } from '../api/dashboard/route';
+import type { DashboardData } from '@/types/app-data';
 
 const DashboardHome: React.FC = () => {
   const [data, setData] = useState<DashboardData>({

@@ -1,4 +1,4 @@
-import { PaidPlan } from '@/app/api/dashboard/billing/route'
+import type { PaidPlan } from '@/types/app-data'
 import BillingDetails from '@/components/dashboard/billing/BillingDetails'
 // import PaymentMethod from '@/components/dashboard/billing/PaymentMethod'
 import PlanDetails from '@/components/dashboard/billing/PlanDetails'

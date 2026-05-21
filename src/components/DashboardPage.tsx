@@ -1,0 +1,10 @@
+import DashboardLayout from "@/app/dashboard/layout";
+import DashboardHome from "@/app/dashboard/page";
+
+export default function DashboardPage() {
+  return (
+    <DashboardLayout>
+      <DashboardHome />
+    </DashboardLayout>
+  );
+}

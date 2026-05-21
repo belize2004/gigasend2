@@ -1,0 +1,35 @@
+---
+import "../../app/globals.css";
+import SuggestionBox from "@/src/components/SuggestionBox";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = "GigaSend",
+  description = "GigaSend lets you send and share large files quickly and securely. Share via email, direct link, or social platforms with ease.",
+  canonical,
+} = Astro.props;
+const pathname = Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/$/, "");
+const canonicalUrl = canonical ?? `https://www.gigasend.us${pathname}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <slot name="head" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <SuggestionBox client:load />
+  </body>
+</html>

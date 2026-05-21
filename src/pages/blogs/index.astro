@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AppLayout from "@/components/AppLayout";
+import { blogPosts } from "@/src/data/blogPosts";
+---
+
+<BaseLayout title="Blog | GigaSend">
+  <AppLayout client:load>
+    <main class="p-6 max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold mb-8">Blog</h1>
+      {blogPosts.length === 0 ? (
+        <p class="text-gray-600 text-lg">No blog posts available right now. Please check back later.</p>
+      ) : (
+        <ul class="space-y-6 gap-6 flex flex-wrap">
+          {blogPosts.map((post) => (
+            <li>
+              <a href={`/blogs/${post.slug}`}>
+                <div class="hover:underline cursor-pointer max-w-[300px]">
+                  <h2 class="text-xl font-semibold">{post.title}</h2>
+                  <p class="text-sm text-gray-600">
+                    By {post.author} · {new Date(post.publishedAt).toLocaleDateString()}
+                  </p>
+                  <p class="mt-2">{post.excerpt}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </main>
+  </AppLayout>
+</BaseLayout>

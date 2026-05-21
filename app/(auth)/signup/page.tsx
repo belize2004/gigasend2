@@ -2,8 +2,8 @@
 import { useAppDispatch } from '@/lib/store';
 import { setUser } from '@/lib/userSlice';
 import axios, { AxiosError } from 'axios';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/components/compat/Link';
+import { useRouter } from '@/components/compat/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {
@@ -18,6 +18,15 @@ import {
   FiCheck,
   FiUser
 } from 'react-icons/fi';
+
+const getSafeNextPath = () => {
+  if (typeof window === 'undefined') {
+    return '/dashboard';
+  }
+
+  const next = new URLSearchParams(window.location.search).get('next');
+  return next?.startsWith('/') && !next.startsWith('//') ? next : '/dashboard';
+};
 
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -44,7 +53,7 @@ const SignupPage = () => {
     try {
       const res = await axios.post<ApiResponse<UserSlice>>('/api/auth/signup', formData);
       dispatch(setUser(res.data.data!));
-      router.push('/dashboard')
+      router.push(getSafeNextPath())
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       if (axiosError.response) {
@@ -272,7 +281,7 @@ const SignupPage = () => {
             <div className="text-center mt-6">
               <p className="text-gray-600">
                 Already have an account?{' '}
-                <Link href="/signin" >
+                <Link href={typeof window !== 'undefined' && window.location.search ? `/signin${window.location.search}` : "/signin"} >
                   <span className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200">Sign in here</span>
                 </Link>
               </p>

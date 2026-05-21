@@ -1,7 +1,7 @@
 import { Stripe } from 'stripe';
-import { STRIPE_SECRET_KEY } from './constant';
+import { STRIPE_SECRET_KEY } from './serverEnv';
 
-export const stripe = new Stripe(STRIPE_SECRET_KEY)
+export const stripe = new Stripe(STRIPE_SECRET_KEY || "sk_test_missing")
 
 export function createProduct(name: string) {
   return stripe.products.create({

@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fi';
 import PlanButton from './PlanButton';
 import { BsArrowUpSquareFill } from "react-icons/bs";
+import TrustSignals from "@/components/TrustSignals";
 
 const PricingPlans = () => {
 
@@ -25,10 +26,13 @@ const PricingPlans = () => {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the perfect plan for your file sharing needs. Scale up as you grow with flexible storage options.
           </p>
+          <div className="mt-8">
+            <TrustSignals />
+          </div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {Object.values(PLANS).map((plan, index) => (
             <div
               key={index}
@@ -52,8 +56,14 @@ const PricingPlans = () => {
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
                     <p className="text-gray-600 text-sm mb-4">{plan.description}</p>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold text-gray-900">${plan.price}</span>
-                      {plan.price > 0 && <span className="text-gray-600">/month</span>}
+                      {plan.priceLabel ? (
+                        <span className="text-4xl font-bold text-gray-900">{plan.priceLabel}</span>
+                      ) : (
+                        <>
+                          <span className="text-4xl font-bold text-gray-900">${plan.price}</span>
+                          {plan.price > 0 && <span className="text-gray-600">/month</span>}
+                        </>
+                      )}
                     </div>
                     <div className="flex items-center justify-center mb-4">
                       <FiUpload className="text-blue-600 mr-2" />
@@ -77,6 +87,7 @@ const PricingPlans = () => {
                   buttonStyle={plan.buttonStyle}
                   buttonText={plan.buttonText}
                   planName={plan.name}
+                  contactSales={plan.contactSales}
                 />
               </div>
             </div>

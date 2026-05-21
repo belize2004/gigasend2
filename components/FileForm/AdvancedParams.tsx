@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Collapse, Stack, Typography } from "@mui/material";
-import Image from "next/image";
+import Image from '@/components/compat/Image';
 
 export const AdvancedParams = () => {
   const [expanded, setExpanded] = useState(false);

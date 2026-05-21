@@ -1,5 +1,5 @@
 "use client"
-import { BillingData } from '@/app/api/dashboard/billing/route';
+import type { BillingData } from '@/types/app-data';
 import React, { useEffect, useState } from 'react';
 import Paid from './Paid';
 import Free from './Free';

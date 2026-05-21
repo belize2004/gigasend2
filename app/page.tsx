@@ -2,10 +2,12 @@
 import ContactForm from '@/components/ContactUs';
 import FileList from '@/components/File/FileList';
 import { FileUploader } from '@/components/Upload/FileUploader';
+import TrustSignals from '@/components/TrustSignals';
 import { useFileContext } from '@/context/FileContext';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import { useAuth } from '@/context/useAuth';
+import Link from '@/components/compat/Link';
+import { useRouter } from '@/components/compat/navigation';
+import React, { Suspense, lazy, useState } from 'react';
 import {
   FiCloud,
   FiZap,
@@ -22,17 +24,44 @@ import {
   FiClock
 } from 'react-icons/fi';
 
-const Homepage = () => {
-  const router = useRouter()
-  const { files } = useFileContext();
+const TransferPage = lazy(() => import('@/src/components/TransferPage'));
 
-  const handleUpoadClick = () => {
+const Homepage = () => {
+  const { files } = useFileContext();
+  const { auth, loading } = useAuth();
+  const router = useRouter();
+  const [showTransferForm, setShowTransferForm] = useState(false);
+  const transferHref = auth ? "/transfer" : "/signup?next=/transfer";
+
+  const handleUploadClick = () => {
+    if (!loading && !auth) {
+      router.push("/signup?next=/transfer");
+      return;
+    }
+
     if (files.length === 0) {
       alert('Please select a file first');
       return;
     }
-    router.push('/transfer')
+
+    setShowTransferForm(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (showTransferForm) {
+    return (
+      <Suspense fallback={
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center px-4">
+          <div className="text-center">
+            <div className="mx-auto mb-4 h-10 w-10 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin" />
+            <p className="text-gray-700 font-medium">Preparing your transfer...</p>
+          </div>
+        </div>
+      }>
+        <TransferPage />
+      </Suspense>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -55,14 +84,14 @@ const Homepage = () => {
               </h1>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Send files of any size instantly with military-grade security. No payment required for 10 GB transfers.
+                Create a free account with your email to send large files, create secure links, and track transfers up to 10 GB.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/transfer">
+                <Link href={transferHref}>
                   <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
                     <FiUpload className="mr-2" />
-                    Start Sharing Now
+                    {auth ? "Start Sharing Now" : "Create Account to Send"}
                   </button>
                 </Link>
                 <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-200 flex items-center justify-center">
@@ -74,8 +103,8 @@ const Homepage = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">10TB</div>
-                  <div className="text-sm text-gray-600">Max File Size</div>
+                  <div className="text-2xl font-bold text-gray-900">10GB</div>
+                  <div className="text-sm text-gray-600">Free Transfers</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-gray-900">256-bit</div>
@@ -86,6 +115,9 @@ const Homepage = () => {
                   <div className="text-sm text-gray-600">Uptime</div>
                 </div>
               </div>
+              <div className="mt-8">
+                <TrustSignals />
+              </div>
             </div>
 
             {/* Right Content - Interactive Demo */}
@@ -95,6 +127,9 @@ const Homepage = () => {
                   <FiCloud className="text-6xl text-blue-600 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900">Drop files here</h3>
                   <p className="text-gray-600 text-sm">or click to browse</p>
+                  <p className="mt-2 text-xs font-medium text-blue-700">
+                    Sign up with your email before sending files.
+                  </p>
                 </div>
 
                 <FileUploader />
@@ -103,10 +138,10 @@ const Homepage = () => {
                 </div>
 
                 <button
-                  onClick={handleUpoadClick}
+                  onClick={handleUploadClick}
                   className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
                 >
-                  Upload
+                  {auth ? "Upload" : "Create account to send"}
                 </button>
               </div>
 
@@ -315,18 +350,18 @@ const Homepage = () => {
             Join millions of users who trust Giga Send for their file sharing needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => router.push('/transfer')}
+            <Link
+              href="/transfer"
               className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 flex items-center justify-center">
               <FiUpload className="mr-2" />
               Start Free Transfer
-            </button>
-            <button
-              onClick={() => router.push('/plans')}
+            </Link>
+            <Link
+              href="/plans"
               className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 flex items-center justify-center">
               View Pricing Plans
               <FiArrowRight className="ml-2" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

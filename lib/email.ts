@@ -1,5 +1,14 @@
 import { formatBytes } from "./utils";
 
+function escapeHtml(value = "") {
+    return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
 export function generateEmailTemplate({
     senderEmail,
     numberOfFiles,
@@ -13,6 +22,9 @@ export function generateEmailTemplate({
     message?: string;
     fileSize: number
 }) {
+    const safeSenderEmail = escapeHtml(senderEmail);
+    const safeMessage = escapeHtml(message).replaceAll("\n", "<br />");
+
     return `
   <html lang="en">
   <head>
@@ -164,7 +176,7 @@ export function generateEmailTemplate({
               <h1>Files Shared with You</h1>
               
               <div class="sender-info">
-                  <strong>From:</strong> ${senderEmail}
+                  <strong>From:</strong> ${safeSenderEmail}
               </div>
               
               <div class="file-count">
@@ -184,7 +196,7 @@ export function generateEmailTemplate({
               ${message ?
             `<div class="message-section">
                         <h4>Message</h4>
-                        <p>${message}</p>
+                        <p>${safeMessage}</p>
                     </div>`:
             ''
         }
@@ -203,4 +215,32 @@ export function generateEmailTemplate({
   </html>
   
   `
+}
+
+export function generateEmailText({
+    senderEmail,
+    numberOfFiles,
+    link,
+    message,
+    fileSize
+}: {
+    senderEmail: string;
+    numberOfFiles: number;
+    link: string;
+    message?: string;
+    fileSize: number;
+}) {
+    return [
+        `${senderEmail} sent you ${numberOfFiles} file${numberOfFiles === 1 ? "" : "s"} with GigaSend.`,
+        `Size: ${formatBytes(fileSize)}`,
+        "",
+        "Download:",
+        link,
+        message ? "" : undefined,
+        message ? "Message:" : undefined,
+        message || undefined,
+        "",
+        "This download link expires in 3 days.",
+        "Sent securely via GigaSend.",
+    ].filter((line): line is string => line !== undefined).join("\n");
 }

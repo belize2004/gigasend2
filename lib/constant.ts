@@ -1,19 +1,8 @@
 // Configuration constants for the application
-export const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret';
-export const MONGODB_URI = process.env.MONGODB_URI || 'mongo_uri';
-
 export const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'stripe_publishable_key';
-export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || 'stripe_secret_key';
-
-export const NEXT_PUBLIC_RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY || 'resend_api_key';
-
-export const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'sanity_project_id';
-export const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'sanity_dataset';
-export const SANITY_API_VERSION = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-06-03';
-export const SANITY_WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET || 'mysecretkey123';
 
 // Pricing plans for the application
-export const PLAN_ENUM = ["free", "starter", "pro", "studio", "agency"] as const;
+export const PLAN_ENUM = ["free", "starter", "pro", "studio", "agency", "enterprise"] as const;
 export type PlanEnum = typeof PLAN_ENUM[number];
 
 export const PLANS: Record<PlanEnum, Plan> = {
@@ -91,5 +80,23 @@ export const PLANS: Record<PlanEnum, Plan> = {
     ],
     buttonText: 'Choose Agency',
     buttonStyle: 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600'
+  },
+  enterprise: {
+    name: 'Enterprise',
+    price: 0,
+    priceLabel: 'Custom',
+    storage: '5 TB',
+    storageBytes: 5120,
+    popular: false,
+    description: 'Custom plans for high-volume teams',
+    features: [
+      'Up to 5 TB single file uploads',
+      'Custom storage and retention',
+      'Priority support',
+      'Team onboarding',
+    ],
+    buttonText: 'Ask for pricing',
+    buttonStyle: 'bg-slate-900 text-white hover:bg-slate-800',
+    contactSales: true,
   }
 };

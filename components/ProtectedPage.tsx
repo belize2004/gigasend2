@@ -1,6 +1,6 @@
 "use client";
 import { useAuth } from '@/context/useAuth';
-import { useRouter } from "next/navigation";
+import { useRouter } from '@/components/compat/navigation';
 import { useEffect } from "react";
 import { BsArrowUpSquareFill } from "react-icons/bs";
 import { FiShield } from "react-icons/fi";
@@ -11,7 +11,11 @@ export default function ProtectedPage({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     if (!loading && !auth) {
-      router.replace("/signin");
+      const nextPath = typeof window !== "undefined"
+        ? `${window.location.pathname}${window.location.search}`
+        : "/dashboard";
+
+      router.replace(`/signin?next=${encodeURIComponent(nextPath)}`);
     }
   }, [auth, loading]);
 

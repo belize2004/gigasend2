@@ -1,11 +1,11 @@
 "use client"
-import { SubscriptionRequestBody } from '@/app/api/payment/subscribe/route';
+import type { SubscriptionRequestBody } from '@/types/app-data';
 import { PlanEnum, PLANS } from '@/lib/constant';
 import { useAppSelector } from '@/lib/store';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios, { AxiosError } from 'axios';
-import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import Link from '@/components/compat/Link';
+import { useParams, useRouter } from '@/components/compat/navigation';
 import React, { useEffect, useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import {

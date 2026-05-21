@@ -1,6 +1,6 @@
 
 "use client"
-import Link from 'next/link';
+import Link from '@/components/compat/Link';
 import React, { useState } from 'react';
 import {
   FiMail,
@@ -13,10 +13,19 @@ import {
   FiUsers
 } from 'react-icons/fi';
 import axios, { AxiosError } from "axios"
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/components/compat/navigation';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import { useAppDispatch } from '@/lib/store';
 import { setUser } from '@/lib/userSlice';
+
+const getSafeNextPath = () => {
+  if (typeof window === 'undefined') {
+    return '/dashboard';
+  }
+
+  const next = new URLSearchParams(window.location.search).get('next');
+  return next?.startsWith('/') && !next.startsWith('//') ? next : '/dashboard';
+};
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +54,7 @@ const LoginPage = () => {
       setLoading(true)
       const res = await axios.post<ApiResponse<UserSlice>>('/api/auth/signin', formData);
       dispatch(setUser(res.data.data!));
-      router.push('/dashboard');
+      router.push(getSafeNextPath());
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       if (axiosError.response) {
@@ -221,7 +230,7 @@ const LoginPage = () => {
             <div className="text-center mt-6">
               <p className="text-gray-600">
                 Don&apos;t have an account?{' '}
-                <Link href="/signup">
+                <Link href={typeof window !== 'undefined' && window.location.search ? `/signup${window.location.search}` : "/signup"}>
                   <span className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200">
                     Sign up here
                   </span>
