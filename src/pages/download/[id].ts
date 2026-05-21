@@ -1,8 +1,21 @@
 import type { APIRoute } from "astro";
-import { findShareById, getDb, type RuntimeLocals } from "@/lib/d1";
+import {
+  findShareById,
+  findUserById,
+  getDb,
+  markShareDownloadNotified,
+  type RuntimeLocals,
+} from "@/lib/d1";
 import { r2BucketName, r2Client } from "@/lib/r2Client";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { configure, ZipWriter } from "@zip.js/zip.js";
+import { Resend } from "resend";
+import {
+  generateDownloadNotificationEmail,
+  generateDownloadNotificationText,
+} from "@/lib/email";
+import { RESEND_API_KEY } from "@/lib/serverEnv";
+import { captureMonitoringException } from "@/lib/monitoring";
 
 const DOWNLOAD_ORIGIN = "https://download.gigasend.us";
 const ZIP_DOWNLOAD_MAX_BYTES = 2 * 1024 * 1024 * 1024;
@@ -256,6 +269,74 @@ function getUniqueFileName(fileName: string, usedFileNames: Map<string, number>)
   return `${fileName.slice(0, extIndex)} (${currentCount + 1})${fileName.slice(extIndex)}`;
 }
 
+async function sendDownloadNotification({
+  db,
+  fileCount,
+  share,
+}: {
+  db: ReturnType<typeof getDb>;
+  fileCount: number;
+  share: NonNullable<Awaited<ReturnType<typeof findShareById>>>;
+}) {
+  try {
+    const shouldNotify = await markShareDownloadNotified(db, share.id);
+    if (!shouldNotify) return;
+
+    const sender = await findUserById(db, share.userId);
+    if (!sender) return;
+
+    const resend = new Resend(RESEND_API_KEY);
+    const deliveryLabel = share.email === "__share_link__"
+      ? "Shareable link"
+      : `Sent to ${share.email}`;
+
+    const notification = await resend.emails.send({
+      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      to: sender.email,
+      subject: "Your GigaSend transfer was downloaded",
+      html: generateDownloadNotificationEmail({
+        deliveryLabel,
+        fileSize: share.size,
+        link: share.link,
+        numberOfFiles: fileCount,
+      }),
+      text: generateDownloadNotificationText({
+        deliveryLabel,
+        fileSize: share.size,
+        link: share.link,
+        numberOfFiles: fileCount,
+      }),
+      headers: {
+        "X-Entity-Ref-ID": `${share.id}-download-notification`,
+      },
+    });
+
+    if (notification.error) {
+      captureMonitoringException(notification.error, {
+        user: { id: sender.id, email: sender.email },
+        tags: { feature: "email", route: "download", provider: "resend", notification: "download" },
+        context: {
+          shareId: share.id,
+          receiverDomain: share.email.includes("@") ? share.email.split("@")[1] : undefined,
+          fileCount,
+          fileSize: share.size,
+        },
+      });
+    }
+  } catch (error) {
+    console.error("Failed to send download notification:", error);
+    captureMonitoringException(error, {
+      user: { id: share.userId },
+      tags: { feature: "email", route: "download", notification: "download" },
+      context: {
+        shareId: share.id,
+        fileCount,
+        fileSize: share.size,
+      },
+    });
+  }
+}
+
 export const GET: APIRoute = async ({ params, locals, url }) => {
   const id = params.id;
   if (!id) {
@@ -274,6 +355,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
 
   const fileKeys = parseFileKeys(share.fileKey);
   if (fileKeys.length === 1) {
+    await sendDownloadNotification({ db, fileCount: fileKeys.length, share });
     return Response.redirect(getDownloadUrl(fileKeys[0]), 302);
   }
 
@@ -290,6 +372,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
       return Response.redirect(`/download/${share.id}`, 302);
     }
 
+    await sendDownloadNotification({ db, fileCount: fileKeys.length, share });
     const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
     return new Response(await streamZip(batchFileKeys, bucket), {
       headers: {

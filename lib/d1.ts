@@ -24,6 +24,7 @@ interface ShareRow {
   user_id: string;
   link: string;
   file_key: string | null;
+  download_notified_at: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -84,7 +85,7 @@ export type AppD1Database = {
 type AppD1PreparedStatement = {
   first: <T = unknown>(columnName?: string) => Promise<T | null>;
   all: <T = unknown>() => Promise<{ results?: T[] }>;
-  run: () => Promise<unknown>;
+  run: () => Promise<{ meta?: { changes?: number } }>;
 };
 
 export interface RuntimeLocals {
@@ -129,6 +130,7 @@ function toShare(row: ShareRow) {
     userId: row.user_id,
     link: row.link,
     fileKey: row.file_key,
+    downloadNotifiedAt: row.download_notified_at,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -174,7 +176,7 @@ export async function updateUserStripeCustomerId(db: AppD1Database, userId: stri
 export async function listActiveShares(db: AppD1Database, userId: string) {
   const { results = [] } = await db
     .prepare(
-      "SELECT id, email, expires_at, size, user_id, link, file_key, created_at, updated_at FROM shares WHERE user_id = ? AND expires_at > datetime('now') ORDER BY created_at DESC",
+      "SELECT id, email, expires_at, size, user_id, link, file_key, download_notified_at, created_at, updated_at FROM shares WHERE user_id = ? AND expires_at > datetime('now') ORDER BY created_at DESC",
     )
     .bind(userId)
     .all<ShareRow>();
@@ -245,12 +247,23 @@ export async function getPublicStats(db: AppD1Database) {
 export async function findShareById(db: AppD1Database, id: string) {
   const row = await db
     .prepare(
-      "SELECT id, email, expires_at, size, user_id, link, file_key, created_at, updated_at FROM shares WHERE id = ? LIMIT 1",
+      "SELECT id, email, expires_at, size, user_id, link, file_key, download_notified_at, created_at, updated_at FROM shares WHERE id = ? LIMIT 1",
     )
     .bind(id)
     .first<ShareRow>();
 
   return row ? toShare(row) : null;
+}
+
+export async function markShareDownloadNotified(db: AppD1Database, id: string) {
+  const result = await db
+    .prepare(
+      "UPDATE shares SET download_notified_at = datetime('now'), updated_at = datetime('now') WHERE id = ? AND download_notified_at IS NULL",
+    )
+    .bind(id)
+    .run();
+
+  return Number(result.meta?.changes ?? 0) > 0;
 }
 
 export async function findStripePlanByName(db: AppD1Database, planName: string) {
