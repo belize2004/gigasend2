@@ -244,3 +244,71 @@ export function generateEmailText({
         "Sent securely via GigaSend.",
     ].filter((line): line is string => line !== undefined).join("\n");
 }
+
+export function generateUploadConfirmationEmail({
+    deliveryLabel,
+    fileSize,
+    link,
+    numberOfFiles,
+}: {
+    deliveryLabel: string;
+    fileSize: number;
+    link: string;
+    numberOfFiles: number;
+}) {
+    const safeDeliveryLabel = escapeHtml(deliveryLabel);
+
+    return `
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Your GigaSend transfer is ready</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f5f7fb;color:#1f2937;font-family:Arial,Helvetica,sans-serif;">
+      <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;">
+          <div style="padding:24px 28px;border-bottom:1px solid #eef2f7;background:#f8fafc;">
+              <h1 style="margin:0;font-size:22px;color:#111827;">Your transfer is ready</h1>
+          </div>
+          <div style="padding:28px;">
+              <p style="margin:0 0 18px;line-height:1.6;">GigaSend finished creating your transfer.</p>
+              <div style="background:#f8fafc;border-left:4px solid #2563eb;border-radius:8px;padding:16px;margin-bottom:22px;">
+                  <p style="margin:0 0 8px;"><strong>Delivery:</strong> ${safeDeliveryLabel}</p>
+                  <p style="margin:0 0 8px;"><strong>Files:</strong> ${numberOfFiles}</p>
+                  <p style="margin:0;"><strong>Size:</strong> ${formatBytes(fileSize)}</p>
+              </div>
+              <p style="margin:0 0 22px;line-height:1.6;">You can use the transfer link below to verify or share it.</p>
+              <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">Open transfer</a>
+          </div>
+          <div style="padding:16px 28px;border-top:1px solid #eef2f7;background:#f8fafc;font-size:12px;color:#64748b;">
+              Sent securely via GigaSend
+          </div>
+      </div>
+  </body>
+  </html>
+  `;
+}
+
+export function generateUploadConfirmationText({
+    deliveryLabel,
+    fileSize,
+    link,
+    numberOfFiles,
+}: {
+    deliveryLabel: string;
+    fileSize: number;
+    link: string;
+    numberOfFiles: number;
+}) {
+    return [
+        "Your GigaSend transfer is ready.",
+        `Delivery: ${deliveryLabel}`,
+        `Files: ${numberOfFiles}`,
+        `Size: ${formatBytes(fileSize)}`,
+        "",
+        "Transfer link:",
+        link,
+        "",
+        "Sent securely via GigaSend.",
+    ].join("\n");
+}

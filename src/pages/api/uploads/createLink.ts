@@ -1,5 +1,11 @@
 import type { APIRoute } from "astro";
+import { Resend } from "resend";
 import { createShare, findUserById, getDb } from "@/lib/d1";
+import {
+  generateUploadConfirmationEmail,
+  generateUploadConfirmationText,
+} from "@/lib/email";
+import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { stripe } from "@/lib/stripe";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
@@ -62,6 +68,41 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       numberOfFiles,
       getLink: (shareId) => `${SITE_URL.replace(/\/$/, "")}/download/${shareId}`,
     });
+
+    const resend = new Resend(RESEND_API_KEY);
+    const confirmation = await resend.emails.send({
+      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      to: user.email,
+      subject: "Your GigaSend transfer link is ready",
+      html: generateUploadConfirmationEmail({
+        deliveryLabel: "Link created",
+        fileSize,
+        link: share.link,
+        numberOfFiles,
+      }),
+      text: generateUploadConfirmationText({
+        deliveryLabel: "Link created",
+        fileSize,
+        link: share.link,
+        numberOfFiles,
+      }),
+      headers: {
+        "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
+      },
+    });
+
+    if (confirmation.error) {
+      console.error("Resend link confirmation error:", confirmation.error);
+      captureMonitoringException(confirmation.error, {
+        user: { id: userId, email: user.email },
+        tags: { feature: "email", route: "createLink", provider: "resend", notification: "sender-confirmation" },
+        context: {
+          numberOfFiles,
+          fileSize,
+          shareId: share.id,
+        },
+      });
+    }
 
     return json({ success: true, message: "Shareable link created", link: share.link });
   } catch (error) {

@@ -1,7 +1,12 @@
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { RESEND_API_KEY } from "@/lib/serverEnv";
-import { generateEmailTemplate, generateEmailText } from "@/lib/email";
+import {
+  generateEmailTemplate,
+  generateEmailText,
+  generateUploadConfirmationEmail,
+  generateUploadConfirmationText,
+} from "@/lib/email";
 import { createShare, findUserById, getDb } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
@@ -109,6 +114,41 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         },
       });
       return json({ error: "Failed to send email" }, 500);
+    }
+
+    const confirmation = await resend.emails.send({
+      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      to: user.email,
+      subject: "Your GigaSend transfer is ready",
+      html: generateUploadConfirmationEmail({
+        deliveryLabel: `Sent to ${receiverEmail}`,
+        fileSize,
+        link: share.link,
+        numberOfFiles,
+      }),
+      text: generateUploadConfirmationText({
+        deliveryLabel: `Sent to ${receiverEmail}`,
+        fileSize,
+        link: share.link,
+        numberOfFiles,
+      }),
+      headers: {
+        "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
+      },
+    });
+
+    if (confirmation.error) {
+      console.error("Resend sender confirmation error:", confirmation.error);
+      captureMonitoringException(confirmation.error, {
+        user: { id: userId, email: user.email },
+        tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
+        context: {
+          receiverDomain: receiverEmail.split("@")[1],
+          numberOfFiles,
+          fileSize,
+          shareId: share.id,
+        },
+      });
     }
 
     return json({ message: "Download links sent to email" });
