@@ -5,6 +5,7 @@ pages_build_output_dir = "dist"
 
 [vars]
 NODE_VERSION = "20"
+PUBLIC_BRAND_EMAIL_FROM = "SBVisual File Delivery <no-reply@mail.sbvisual.com>"
 
 [[d1_databases]]
 binding = "DB"

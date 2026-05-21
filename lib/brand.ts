@@ -7,7 +7,7 @@ export const brand = {
   siteUrl: (publicEnv.PUBLIC_SITE_URL || publicEnv.PUBLIC_NEXT_PUBLIC_SITE_URL || "https://send.sbvisual.com").replace(/\/$/, ""),
   downloadOrigin: (publicEnv.PUBLIC_DOWNLOAD_ORIGIN || "https://download.gigasend.us").replace(/\/$/, ""),
   logoUrl: publicEnv.PUBLIC_BRAND_LOGO_URL || "",
-  emailFrom: publicEnv.PUBLIC_BRAND_EMAIL_FROM || "SBVisual File Delivery <no-reply@transfer.gigasend.us>",
+  emailFrom: publicEnv.PUBLIC_BRAND_EMAIL_FROM || "SBVisual File Delivery <no-reply@mail.sbvisual.com>",
   contactEmail: publicEnv.PUBLIC_BRAND_CONTACT_EMAIL || "info@sbvisual.com",
   zipFilenamePrefix: publicEnv.PUBLIC_BRAND_ZIP_PREFIX || "sbvisual-files",
   footerText: publicEnv.PUBLIC_BRAND_FOOTER || "Delivered securely by SBVisual.",
