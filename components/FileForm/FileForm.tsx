@@ -65,8 +65,9 @@ type UploadSingleFileOptions = {
 };
 type DeliveryMode = "email" | "link";
 
-const UPLOAD_CONCURRENCY = 6;
-const DIRECT_FILE_UPLOAD_CONCURRENCY = 8;
+const UPLOAD_CONCURRENCY = 8;
+const DIRECT_FILE_UPLOAD_CONCURRENCY = 10;
+const PRESIGN_BATCH_SIZE = 8;
 const PACKAGE_MULTI_FILE_UPLOADS_AS_ZIP = true;
 const MULTI_FILE_DIRECT_UPLOAD_COUNT_THRESHOLD = 100;
 const MULTI_FILE_DIRECT_UPLOAD_SIZE_THRESHOLD = 2 * 1024 * 1024 * 1024;
@@ -143,6 +144,7 @@ export const FileForm = () => {
   const pausedDurationRef = useRef(0);
   const pauseResolversRef = useRef<Array<() => void>>([]);
   const activeXhrsRef = useRef<Set<XMLHttpRequest>>(new Set());
+  const presignedUrlBatchesRef = useRef<Map<string, Promise<Record<string, string>>>>(new Map());
   const activeSessionRef = useRef<SavedUploadSession | null>(null);
   const abortRequestedRef = useRef(false);
   const telemetryRef = useRef<UploadTelemetry>({
@@ -331,6 +333,45 @@ export const FileForm = () => {
     pauseResolversRef.current.splice(0).forEach((resolve) => resolve());
   };
 
+  async function getPresignedPartUrl(uploadId: string, key: string, partNumber: number): Promise<string> {
+    const batchStart = Math.floor((partNumber - 1) / PRESIGN_BATCH_SIZE) * PRESIGN_BATCH_SIZE + 1;
+    const batchKey = `${uploadId}:${key}:${batchStart}`;
+    let batchPromise = presignedUrlBatchesRef.current.get(batchKey);
+
+    if (!batchPromise) {
+      const partNumbers = Array.from({ length: PRESIGN_BATCH_SIZE }, (_, index) => batchStart + index);
+      batchPromise = fetch("/api/uploads/presign", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uploadId, key, partNumbers }),
+      })
+        .then(async (presignRes) => {
+          const payload = await presignRes.json().catch(() => null);
+          if (!presignRes.ok) {
+            addMonitoringBreadcrumb("Upload part presign failed", {
+              partNumber,
+              status: presignRes.status,
+            }, "upload");
+            throw new Error(payload?.message || payload?.error || `Failed to presign part ${partNumber}`);
+          }
+
+          return payload?.urls ?? {};
+        })
+        .finally(() => {
+          presignedUrlBatchesRef.current.delete(batchKey);
+        });
+      presignedUrlBatchesRef.current.set(batchKey, batchPromise);
+    }
+
+    const urls = await batchPromise;
+    const presignedUrl = urls[String(partNumber)];
+    if (!presignedUrl) {
+      throw new Error(`Failed to presign part ${partNumber}`);
+    }
+
+    return presignedUrl;
+  }
+
   async function uploadChunkToS3(chunk: Uint8Array, uploadId: string, key: string, partNumber: number): Promise<string> {
     let ETag: string = '';
     const MAX_RETRIES = 3;
@@ -339,20 +380,7 @@ export const FileForm = () => {
     await waitWhilePaused();
     if (abortRequestedRef.current) throw new Error("Upload canceled");
 
-    // Request presigned URL for this chunk (this part doesn't need retries as it's a separate API call)
-    const presignRes = await fetch("/api/uploads/presign", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ uploadId, key, partNumber }),
-    });
-    if (!presignRes.ok) {
-      addMonitoringBreadcrumb("Upload part presign failed", {
-        partNumber,
-        status: presignRes.status,
-      }, "upload");
-      throw new Error(`Failed to presign part ${partNumber}`);
-    }
-    const { url: presignedUrl } = await presignRes.json();
+    const presignedUrl = await getPresignedPartUrl(uploadId, key, partNumber);
 
     while (retries <= MAX_RETRIES) {
       try {
@@ -764,6 +792,7 @@ export const FileForm = () => {
     setUploading(true);
     abortRequestedRef.current = false;
     resetTelemetry();
+    presignedUrlBatchesRef.current.clear();
     setOverallProgress(0);
     setIsPaused(false);
     pausedRef.current = false;
