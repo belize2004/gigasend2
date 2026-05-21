@@ -7,6 +7,7 @@ import { configure, ZipWriter } from "@zip.js/zip.js";
 const DOWNLOAD_ORIGIN = "https://download.gigasend.us";
 const ZIP_DOWNLOAD_MAX_BYTES = 2 * 1024 * 1024 * 1024;
 const ZIP_DOWNLOAD_MAX_FILES = 25;
+const ZIP_BATCH_FILE_COUNT = 25;
 
 configure({
   maxWorkers: 1,
@@ -49,20 +50,40 @@ function renderDownloadPage(input: {
   downloadUrl?: string;
   expiresAt: string;
   fileKeys: string[];
+  shareId: string;
   zipAvailable: boolean;
 }) {
   const safeDownloadUrl = input.downloadUrl ? escapeHtml(input.downloadUrl) : "";
-  const downloadLinks = input.fileKeys.map((fileKey) => {
+  const zipBatches = getZipBatches(input.fileKeys);
+  const batchLinks = zipBatches.map((batch, index) => {
+    const href = escapeHtml(`/download/${input.shareId}?zip=1&batch=${index}`);
+    return `<li><a href="${href}" download>Download ZIP part ${index + 1} of ${zipBatches.length} <span>${batch.length} files</span></a></li>`;
+  }).join("");
+  const directDownloadLinks = input.fileKeys.map((fileKey) => {
     const fileName = escapeHtml(getFileName(fileKey));
     const href = escapeHtml(getDownloadUrl(fileKey));
     return `<li><a href="${href}" download>${fileName}</a></li>`;
   }).join("");
   const intro = input.zipAvailable
     ? `This transfer includes ${input.fileKeys.length} files. GigaSend can package them into one ZIP download for you, or you can download files individually.`
-    : `This transfer is too large to package into one ZIP in the browser. Download the files individually below.`;
+    : `This transfer is too large to package into one ZIP. Download it in ${zipBatches.length} ZIP parts below.`;
   const primaryButton = input.zipAvailable && safeDownloadUrl
     ? `<a class="button" href="${safeDownloadUrl}">Download ZIP</a>`
     : "";
+  const batchSection = input.zipAvailable ? "" : `
+      <section>
+        <h2>ZIP parts</h2>
+        <ul class="files">${batchLinks}</ul>
+      </section>`;
+  const directSection = input.zipAvailable ? `
+      <section>
+        <h2>Individual files</h2>
+        <ul class="files">${directDownloadLinks}</ul>
+      </section>` : `
+      <details>
+        <summary>Show individual file links</summary>
+        <ul class="files">${directDownloadLinks}</ul>
+      </details>`;
 
   return `<!doctype html>
 <html lang="en">
@@ -78,11 +99,16 @@ function renderDownloadPage(input: {
       .icon { width: 32px; height: 32px; border-radius: 7px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #2563eb, #a855f7); }
       h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); letter-spacing: 0; }
       p { margin: 0 0 24px; color: #4b5563; line-height: 1.55; }
+      h2 { margin: 28px 0 12px; font-size: 18px; }
       .button { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 8px; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; font-weight: 800; text-decoration: none; box-shadow: 0 16px 30px rgba(37, 99, 235, 0.24); }
       .button:hover { filter: brightness(0.96); }
       .files { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; max-height: min(52vh, 520px); overflow: auto; }
-      .files a { display: block; padding: 14px 16px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1d4ed8; background: #f8fafc; text-decoration: none; overflow-wrap: anywhere; }
+      h2 + .files { margin-top: 0; }
+      .files a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1d4ed8; background: #f8fafc; text-decoration: none; overflow-wrap: anywhere; }
+      .files span { color: #6b7280; font-size: 13px; white-space: nowrap; }
       .files a:hover { background: #eef4ff; border-color: #bfdbfe; }
+      details { margin-top: 24px; }
+      summary { cursor: pointer; color: #1d4ed8; font-weight: 700; }
       .expires { margin-top: 20px; font-size: 14px; color: #6b7280; }
     </style>
   </head>
@@ -92,7 +118,8 @@ function renderDownloadPage(input: {
       <h1>Your files are ready</h1>
       <p>${intro}</p>
       ${primaryButton}
-      <ul class="files">${downloadLinks}</ul>
+      ${batchSection}
+      ${directSection}
       <div class="expires">Available until ${escapeHtml(new Date(input.expiresAt).toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
@@ -101,6 +128,15 @@ function renderDownloadPage(input: {
     </main>
   </body>
 </html>`;
+}
+
+function getZipBatches(fileKeys: string[]) {
+  const batches: string[][] = [];
+  for (let index = 0; index < fileKeys.length; index += ZIP_BATCH_FILE_COUNT) {
+    batches.push(fileKeys.slice(index, index + ZIP_BATCH_FILE_COUNT));
+  }
+
+  return batches;
 }
 
 type R2BucketBinding = {
@@ -241,15 +277,22 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
 
   const zipAvailable = share.size <= ZIP_DOWNLOAD_MAX_BYTES && fileKeys.length <= ZIP_DOWNLOAD_MAX_FILES;
   if (url.searchParams.get("zip") === "1") {
-    if (!zipAvailable) {
+    const requestedBatch = url.searchParams.get("batch");
+    const batches = getZipBatches(fileKeys);
+    const batchIndex = requestedBatch == null ? null : Number(requestedBatch);
+    const batchFileKeys = batchIndex == null
+      ? fileKeys
+      : batches[batchIndex];
+
+    if (!zipAvailable && (batchIndex == null || Number.isNaN(batchIndex) || !batchFileKeys)) {
       return Response.redirect(`/download/${share.id}`, 302);
     }
 
     const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
-    return new Response(await streamZip(fileKeys, bucket), {
+    return new Response(await streamZip(batchFileKeys, bucket), {
       headers: {
         "Content-Type": "application/zip",
-        "Content-Disposition": `attachment; filename="gigasend-${share.id}.zip"`,
+        "Content-Disposition": `attachment; filename="gigasend-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip"`,
         "Cache-Control": "private, no-store",
       },
     });
@@ -259,6 +302,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
     downloadUrl: `/download/${share.id}?zip=1`,
     expiresAt: share.expiresAt,
     fileKeys,
+    shareId: share.id,
     zipAvailable,
   }), {
     headers: {
