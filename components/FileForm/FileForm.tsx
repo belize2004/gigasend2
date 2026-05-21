@@ -33,6 +33,7 @@ import type { UsageData } from '@/types/app-data';
 import { PLANS } from "@/lib/constant";
 import pLimit from "p-limit";
 import { addMonitoringBreadcrumb, captureMonitoringException } from "@/lib/monitoring";
+import { brand } from "@/lib/brand";
 
 type UploadFormData = z.infer<typeof UploadFormSchema>;
 type UploadStatus = "initiating" | "uploading" | "zipping" | "sending email" | "finalizing" | null
@@ -1026,7 +1027,13 @@ export const FileForm = () => {
               alignItems: "center",
             }}
           >
-            <Image src="/logo.png" alt="logo" width={168} height={36} />
+            {brand.logoUrl ? (
+              <Image src={brand.logoUrl} alt={brand.productName} width={168} height={36} />
+            ) : (
+              <Typography variant="h5" fontWeight={800} color="primary">
+                {brand.productName}
+              </Typography>
+            )}
           </Stack>
 
           <Stack
@@ -1147,7 +1154,7 @@ export const FileForm = () => {
                       Signed-in link sharing
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Your files will upload first, then GigaSend will create a secure download link you can copy and share anywhere. Click the purple button below to start.
+                      Your files will upload first, then {brand.productName} will create a secure download link you can copy and share anywhere. Click the purple button below to start.
                     </Typography>
                   </Stack>
                 )}

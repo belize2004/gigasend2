@@ -4,6 +4,7 @@ import { ADMIN_EMAILS, RESEND_API_KEY } from "@/lib/serverEnv";
 import { createSuggestion, findUserById, getDb } from "@/lib/d1";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getAuthenticatedUserId, json } from "@/src/lib/api";
+import { brand } from "@/lib/brand";
 
 const DEFAULT_SUGGESTION_RECIPIENT = "Blaine@flowwebdesigner.com";
 const MAX_SUGGESTION_LENGTH = 1500;
@@ -37,7 +38,7 @@ function createSuggestionEmailTemplate(input: {
   userEmail?: string | null;
 }) {
   return `
-    <h1>New GigaSend Suggestion</h1>
+    <h1>New ${brand.productName} Suggestion</h1>
     <p><strong>From:</strong> ${escapeHtml(input.userEmail ?? "Anonymous visitor")}</p>
     <p><strong>Page:</strong> ${escapeHtml(input.pageUrl ?? "Unknown")}</p>
     <p><strong>Suggestion:</strong></p>
@@ -76,17 +77,17 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
-      from: "GigaSend Suggestions <no-reply@transfer.gigasend.us>",
+      from: brand.emailFrom,
       to: getSuggestionRecipients(),
       replyTo: user?.email,
-      subject: "New GigaSend suggestion",
+      subject: `New ${brand.productName} suggestion`,
       html: createSuggestionEmailTemplate({
         message,
         pageUrl,
         userEmail: user?.email,
       }),
       text: [
-        "New GigaSend Suggestion",
+        `New ${brand.productName} Suggestion`,
         `From: ${user?.email ?? "Anonymous visitor"}`,
         `Page: ${pageUrl ?? "Unknown"}`,
         "",

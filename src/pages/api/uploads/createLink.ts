@@ -9,8 +9,9 @@ import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { stripe } from "@/lib/stripe";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
+import { brand } from "@/lib/brand";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gigasend.us";
+const SITE_URL = brand.siteUrl;
 const LINK_ONLY_SHARE_EMAIL = "__share_link__";
 
 interface CreateLinkBody {
@@ -71,9 +72,9 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     const resend = new Resend(RESEND_API_KEY);
     const confirmation = await resend.emails.send({
-      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      from: brand.emailFrom,
       to: user.email,
-      subject: "Your GigaSend transfer link is ready",
+      subject: `Your ${brand.productName} transfer link is ready`,
       html: generateUploadConfirmationEmail({
         deliveryLabel: "Link created",
         fileSize,

@@ -4,6 +4,7 @@ import { useRouter } from '@/components/compat/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut, FiFileText } from 'react-icons/fi';
+import { brand } from '@/lib/brand';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-            <span className="text-2xl font-bold text-gray-900">Giga Send</span>
+            <span className="text-2xl font-bold text-gray-900">{brand.productName}</span>
           </div>
 
           {/* Desktop Navigation */}

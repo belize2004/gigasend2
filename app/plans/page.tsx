@@ -11,6 +11,7 @@ import {
 import PlanButton from './PlanButton';
 import { BsArrowUpSquareFill } from "react-icons/bs";
 import TrustSignals from "@/components/TrustSignals";
+import { brand } from "@/lib/brand";
 
 const PricingPlans = () => {
 
@@ -21,7 +22,7 @@ const PricingPlans = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
             <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-3" />
-            <h1 className="text-4xl font-bold text-gray-900">GigaSend</h1>
+            <h1 className="text-4xl font-bold text-gray-900">{brand.productName}</h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Choose the perfect plan for your file sharing needs. Scale up as you grow with flexible storage options.
@@ -97,7 +98,7 @@ const PricingPlans = () => {
         {/* Additional Features Section */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Why Choose GigaSender?
+            Why Choose {brand.productName}?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">

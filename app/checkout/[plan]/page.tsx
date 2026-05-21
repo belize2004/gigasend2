@@ -19,6 +19,7 @@ import {
   FiZap,
   FiMail
 } from 'react-icons/fi';
+import { brand } from '@/lib/brand';
 
 
 const CheckoutPage = () => {
@@ -121,7 +122,7 @@ const CheckoutPage = () => {
           </Link>
           <div className="flex items-center">
             <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-            <h1 className="text-2xl font-bold text-gray-900">GigaSend</h1>
+            <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import Link from '@/components/compat/Link';
 import { usePathname } from '@/components/compat/navigation';
 import React from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
+import { brand } from '@/lib/brand';
 import {
   FiHome,
   FiCreditCard,
@@ -35,7 +36,7 @@ const DashboardMenu: React.FC = () => {
       {/* Header */}
       <div className="flex items-center mb-8">
         <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-        <h1 className="text-2xl font-bold text-gray-900">GigaSend</h1>
+        <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
       </div>
 
       {/* Navigation */}

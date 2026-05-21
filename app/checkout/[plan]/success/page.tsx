@@ -12,6 +12,7 @@ import {
   FiCheckCircle,
   FiArrowRight
 } from 'react-icons/fi';
+import { brand } from '@/lib/brand';
 
 const Page = () => {
   const { plan }: { plan: PlanEnum } = useParams();
@@ -44,7 +45,7 @@ const Page = () => {
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center">
             <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-            <h1 className="text-2xl font-bold text-gray-900">GigaSend</h1>
+            <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
           </div>
         </div>
 
@@ -160,7 +161,7 @@ const Page = () => {
         {/* Footer Message */}
         <div className="text-center mt-8">
           <p className="text-gray-500 text-sm">
-            Thank you for choosing GigaSend! If you have any questions, 
+            Thank you for choosing {brand.productName}! If you have any questions,
             <span className="text-blue-600 font-medium"> contact our support team</span>.
           </p>
         </div>

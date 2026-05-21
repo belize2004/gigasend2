@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { seoLandingPages } from "../data/seoLandingPages";
+import { brand } from "@/lib/brand";
 
 const staticPaths = [
   "",
@@ -12,7 +13,7 @@ const staticPaths = [
 ];
 
 export const GET: APIRoute = async ({ site }) => {
-  const origin = site?.origin ?? "https://www.gigasend.us";
+  const origin = site?.origin ?? brand.siteUrl;
   const urls = staticPaths
     .map((path) => `<url><loc>${origin}/${path}</loc></url>`)
     .join("");

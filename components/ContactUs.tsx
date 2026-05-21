@@ -14,6 +14,7 @@ import {
 } from 'react-icons/fi';
 import { BsBuildings } from 'react-icons/bs';
 import axios from 'axios';
+import { brand } from '@/lib/brand';
 
 // Validation schema
 const validationSchema = z.object({
@@ -292,7 +293,7 @@ const ContactForm = () => {
               <FiMail className="text-white text-xl" />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-            <p className="text-gray-600">info@gigasend.us</p>
+            <p className="text-gray-600">{brand.contactEmail}</p>
           </div>
 
           {/* <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl">

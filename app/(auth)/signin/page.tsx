@@ -17,6 +17,7 @@ import { useRouter } from '@/components/compat/navigation';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
 import { useAppDispatch } from '@/lib/store';
 import { setUser } from '@/lib/userSlice';
+import { brand } from '@/lib/brand';
 
 const getSafeNextPath = () => {
   if (typeof window === 'undefined') {
@@ -76,7 +77,7 @@ const LoginPage = () => {
           <div className="text-left">
             <div className="flex items-center mb-6">
               <BsArrowUpSquareFill className="text-5xl text-blue-600 mr-4" />
-              <h1 className="text-4xl font-bold text-gray-900">GigaSend</h1>
+              <h1 className="text-4xl font-bold text-gray-900">{brand.productName}</h1>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Welcome back!
@@ -126,7 +127,7 @@ const LoginPage = () => {
             <div className="lg:hidden text-center mb-8">
               <div className="flex items-center justify-center mb-4">
                 <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-2" />
-                <h1 className="text-3xl font-bold text-gray-900">GigaSend</h1>
+                <h1 className="text-3xl font-bold text-gray-900">{brand.productName}</h1>
               </div>
             </div>
 

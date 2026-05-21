@@ -1,6 +1,7 @@
 ---
 import "../../app/globals.css";
 import SuggestionBox from "@/src/components/SuggestionBox";
+import { brand } from "@/lib/brand";
 
 interface Props {
   title?: string;
@@ -9,12 +10,13 @@ interface Props {
 }
 
 const {
-  title = "GigaSend",
-  description = "GigaSend lets you send and share large files quickly and securely. Share via email, direct link, or social platforms with ease.",
+  title = brand.productName,
+  description = brand.description,
   canonical,
 } = Astro.props;
 const pathname = Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/$/, "");
-const canonicalUrl = canonical ?? `https://www.gigasend.us${pathname}`;
+const canonicalUrl = canonical ?? `${brand.siteUrl}${pathname}`;
+const pageTitle = title.replaceAll("GigaSend", brand.productName);
 ---
 
 <!doctype html>
@@ -26,7 +28,7 @@ const canonicalUrl = canonical ?? `https://www.gigasend.us${pathname}`;
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <slot name="head" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <slot />

@@ -23,6 +23,7 @@ import {
   FiLock,
   FiClock
 } from 'react-icons/fi';
+import { brand } from '@/lib/brand';
 
 const TransferPage = lazy(() => import('@/src/components/TransferPage'));
 
@@ -162,7 +163,7 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Giga Send?
+              Why Choose {brand.productName}?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Built for speed, security, and simplicity. Experience the future of file sharing.
@@ -266,7 +267,7 @@ const Homepage = () => {
               Loved by Teams Worldwide
             </h2>
             <p className="text-xl text-gray-600">
-              See what our users have to say about Giga Send
+              See what clients have to say about {brand.productName}
             </p>
           </div>
 
@@ -280,7 +281,7 @@ const Homepage = () => {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 italic">
-                &quot;Giga Send has transformed how our team shares files. The speed is incredible and the security gives us peace of mind.&quot;
+                &quot;{brand.productName} makes large client file delivery feel simple, polished, and secure.&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
@@ -347,7 +348,7 @@ const Homepage = () => {
             Ready to Experience Lightning-Fast File Sharing?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join millions of users who trust Giga Send for their file sharing needs.
+            A private SBVisual delivery workspace for large photo, video, and project files.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

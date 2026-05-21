@@ -11,8 +11,9 @@ import { createShare, findUserById, getDb } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
+import { brand } from "@/lib/brand";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.gigasend.us";
+const SITE_URL = brand.siteUrl;
 
 interface SendEmailBody {
   receiverEmail: string;
@@ -90,10 +91,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
-      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      from: brand.emailFrom,
       to: receiverEmail,
       replyTo: user.email,
-      subject: `${user.email} sent you files with GigaSend`,
+      subject: `${user.email} sent you files with ${brand.productName}`,
       html: htmlContent,
       text: textContent,
       headers: {
@@ -114,9 +115,9 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         },
       });
       const failedDeliveryConfirmation = await resend.emails.send({
-        from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+        from: brand.emailFrom,
         to: user.email,
-        subject: "Your GigaSend transfer is ready",
+        subject: `Your ${brand.productName} transfer is ready`,
         html: generateUploadConfirmationEmail({
           deliveryLabel: `Email to ${receiverEmail} failed`,
           fileSize,
@@ -157,9 +158,9 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     const confirmation = await resend.emails.send({
-      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      from: brand.emailFrom,
       to: user.email,
-      subject: "Your GigaSend transfer is ready",
+      subject: `Your ${brand.productName} transfer is ready`,
       html: generateUploadConfirmationEmail({
         deliveryLabel: `Sent to ${receiverEmail}`,
         fileSize,

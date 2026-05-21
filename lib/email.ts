@@ -1,4 +1,5 @@
 import { formatBytes } from "./utils";
+import { brand } from "./brand";
 
 function escapeHtml(value = "") {
     return value
@@ -30,7 +31,7 @@ export function generateEmailTemplate({
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Files Shared via GigaSend</title>
+      <title>Files Shared via ${brand.productName}</title>
       <style>
           body {
               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -169,7 +170,9 @@ export function generateEmailTemplate({
   <body>
       <div class="email-container">
           <div class="email-header">
-              <img src="https://www.gigasend.us/logo.png" alt="GigaSend" class="logo">
+              ${brand.logoUrl
+            ? `<img src="${brand.logoUrl}" alt="${brand.productName}" class="logo">`
+            : `<strong style="font-size:24px;color:#111827;">${brand.productName}</strong>`}
           </div>
           
           <div class="email-content">
@@ -207,8 +210,8 @@ export function generateEmailTemplate({
           </div>
           
           <div class="email-footer">
-              <p>Sent securely via GigaSend</p>
-              <p>&copy; 2025 GigaSend. All rights reserved.</p>
+              <p>${brand.footerText}</p>
+              <p>&copy; 2026 ${brand.name}. All rights reserved.</p>
           </div>
       </div>
   </body>
@@ -231,7 +234,7 @@ export function generateEmailText({
     fileSize: number;
 }) {
     return [
-        `${senderEmail} sent you ${numberOfFiles} file${numberOfFiles === 1 ? "" : "s"} with GigaSend.`,
+        `${senderEmail} sent you ${numberOfFiles} file${numberOfFiles === 1 ? "" : "s"} with ${brand.productName}.`,
         `Size: ${formatBytes(fileSize)}`,
         "",
         "Download:",
@@ -241,7 +244,7 @@ export function generateEmailText({
         message || undefined,
         "",
         "This download link expires in 3 days.",
-        "Sent securely via GigaSend.",
+        brand.footerText,
     ].filter((line): line is string => line !== undefined).join("\n");
 }
 
@@ -263,7 +266,7 @@ export function generateUploadConfirmationEmail({
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Your GigaSend transfer is ready</title>
+      <title>Your ${brand.productName} transfer is ready</title>
   </head>
   <body style="margin:0;padding:0;background:#f5f7fb;color:#1f2937;font-family:Arial,Helvetica,sans-serif;">
       <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;">
@@ -271,7 +274,7 @@ export function generateUploadConfirmationEmail({
               <h1 style="margin:0;font-size:22px;color:#111827;">Your transfer is ready</h1>
           </div>
           <div style="padding:28px;">
-              <p style="margin:0 0 18px;line-height:1.6;">GigaSend finished creating your transfer.</p>
+              <p style="margin:0 0 18px;line-height:1.6;">${brand.productName} finished creating your transfer.</p>
               <div style="background:#f8fafc;border-left:4px solid #2563eb;border-radius:8px;padding:16px;margin-bottom:22px;">
                   <p style="margin:0 0 8px;"><strong>Delivery:</strong> ${safeDeliveryLabel}</p>
                   <p style="margin:0 0 8px;"><strong>Files:</strong> ${numberOfFiles}</p>
@@ -281,7 +284,7 @@ export function generateUploadConfirmationEmail({
               <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">Open transfer</a>
           </div>
           <div style="padding:16px 28px;border-top:1px solid #eef2f7;background:#f8fafc;font-size:12px;color:#64748b;">
-              Sent securely via GigaSend
+              ${brand.footerText}
           </div>
       </div>
   </body>
@@ -301,7 +304,7 @@ export function generateUploadConfirmationText({
     numberOfFiles: number;
 }) {
     return [
-        "Your GigaSend transfer is ready.",
+        `Your ${brand.productName} transfer is ready.`,
         `Delivery: ${deliveryLabel}`,
         `Files: ${numberOfFiles}`,
         `Size: ${formatBytes(fileSize)}`,
@@ -309,7 +312,7 @@ export function generateUploadConfirmationText({
         "Transfer link:",
         link,
         "",
-        "Sent securely via GigaSend.",
+        brand.footerText,
     ].join("\n");
 }
 
@@ -331,7 +334,7 @@ export function generateDownloadNotificationEmail({
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Your GigaSend transfer was downloaded</title>
+      <title>Your ${brand.productName} transfer was downloaded</title>
   </head>
   <body style="margin:0;padding:0;background:#f5f7fb;color:#1f2937;font-family:Arial,Helvetica,sans-serif;">
       <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e5e7eb;">
@@ -339,7 +342,7 @@ export function generateDownloadNotificationEmail({
               <h1 style="margin:0;font-size:22px;color:#111827;">Your transfer was downloaded</h1>
           </div>
           <div style="padding:28px;">
-              <p style="margin:0 0 18px;line-height:1.6;">Someone opened the download for your GigaSend transfer.</p>
+              <p style="margin:0 0 18px;line-height:1.6;">Someone opened the download for your ${brand.productName} transfer.</p>
               <div style="background:#f8fafc;border-left:4px solid #16a34a;border-radius:8px;padding:16px;margin-bottom:22px;">
                   <p style="margin:0 0 8px;"><strong>Delivery:</strong> ${safeDeliveryLabel}</p>
                   <p style="margin:0 0 8px;"><strong>Files:</strong> ${numberOfFiles}</p>
@@ -349,7 +352,7 @@ export function generateDownloadNotificationEmail({
               <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">Open transfer</a>
           </div>
           <div style="padding:16px 28px;border-top:1px solid #eef2f7;background:#f8fafc;font-size:12px;color:#64748b;">
-              Sent securely via GigaSend
+              ${brand.footerText}
           </div>
       </div>
   </body>
@@ -369,7 +372,7 @@ export function generateDownloadNotificationText({
     numberOfFiles: number;
 }) {
     return [
-        "Your GigaSend transfer was downloaded.",
+        `Your ${brand.productName} transfer was downloaded.`,
         `Delivery: ${deliveryLabel}`,
         `Files: ${numberOfFiles}`,
         `Size: ${formatBytes(fileSize)}`,
@@ -378,6 +381,6 @@ export function generateDownloadNotificationText({
         link,
         "",
         "This notification is sent once per transfer.",
-        "Sent securely via GigaSend.",
+        brand.footerText,
     ].join("\n");
 }

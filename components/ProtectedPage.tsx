@@ -4,6 +4,7 @@ import { useRouter } from '@/components/compat/navigation';
 import { useEffect } from "react";
 import { BsArrowUpSquareFill } from "react-icons/bs";
 import { FiShield } from "react-icons/fi";
+import { brand } from "@/lib/brand";
 
 export default function ProtectedPage({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -34,7 +35,7 @@ const AuthLoader = () => {
         {/* Logo and Brand */}
         <div className="flex items-center justify-center mb-6">
           <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-2" />
-          <h1 className="text-2xl font-bold text-gray-900">GigaSend</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
         </div>
 
         {/* Loading Animation */}

@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { json } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
+import { brand } from "@/lib/brand";
 
 interface ContactUsBody {
   email: string;
@@ -40,9 +41,9 @@ export const POST: APIRoute = async ({ request }) => {
 
   const resend = new Resend(RESEND_API_KEY);
   const { error } = await resend.emails.send({
-    from: "GigaSend <no-reply@transfer.gigasend.us>",
-    to: "info@gigasend.us",
-    subject: body.subject || "New GigaSend contact inquiry",
+    from: brand.emailFrom,
+    to: brand.contactEmail,
+    subject: body.subject || `New ${brand.productName} contact inquiry`,
     html: createContactEmailTemplate(body),
   });
 

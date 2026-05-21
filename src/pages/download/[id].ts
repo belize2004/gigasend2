@@ -16,8 +16,9 @@ import {
 } from "@/lib/email";
 import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { captureMonitoringException } from "@/lib/monitoring";
+import { brand } from "@/lib/brand";
 
-const DOWNLOAD_ORIGIN = "https://download.gigasend.us";
+const DOWNLOAD_ORIGIN = brand.downloadOrigin;
 const ZIP_DOWNLOAD_MAX_BYTES = 2 * 1024 * 1024 * 1024;
 const ZIP_DOWNLOAD_MAX_FILES = 25;
 const LARGE_TRANSFER_ZIP_PART_COUNT = 5;
@@ -78,7 +79,7 @@ function renderDownloadPage(input: {
     return `<li><a href="${href}" download>${fileName}</a></li>`;
   }).join("");
   const intro = input.zipAvailable
-    ? `This transfer includes ${input.fileKeys.length} files. GigaSend can package them into one ZIP download for you, or you can download files individually.`
+    ? `This transfer includes ${input.fileKeys.length} files. ${brand.productName} can package them into one ZIP download for you, or you can download files individually.`
     : `This transfer is too large to package into one ZIP. Download it in ${zipBatches.length} ZIP parts below.`;
   const primaryButton = input.zipAvailable && safeDownloadUrl
     ? `<a class="button" href="${safeDownloadUrl}">Download ZIP</a>`
@@ -103,7 +104,7 @@ function renderDownloadPage(input: {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Download Files | GigaSend</title>
+    <title>Download Files | ${brand.productName}</title>
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f5f8fc; }
       body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; }
@@ -127,7 +128,7 @@ function renderDownloadPage(input: {
   </head>
   <body>
     <main>
-      <div class="brand"><span class="icon">↑</span><span>GigaSend</span></div>
+      <div class="brand"><span class="icon">↑</span><span>${brand.productName}</span></div>
       <h1>Your files are ready</h1>
       <p>${intro}</p>
       ${primaryButton}
@@ -291,9 +292,9 @@ async function sendDownloadNotification({
       : `Sent to ${share.email}`;
 
     const notification = await resend.emails.send({
-      from: "GigaSend Transfers <no-reply@transfer.gigasend.us>",
+      from: brand.emailFrom,
       to: sender.email,
-      subject: "Your GigaSend transfer was downloaded",
+      subject: `Your ${brand.productName} transfer was downloaded`,
       html: generateDownloadNotificationEmail({
         deliveryLabel,
         fileSize: share.size,
@@ -377,7 +378,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
     return new Response(await streamZip(batchFileKeys, bucket), {
       headers: {
         "Content-Type": "application/zip",
-        "Content-Disposition": `attachment; filename="gigasend-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip"`,
+        "Content-Disposition": `attachment; filename="${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip"`,
         "Cache-Control": "private, no-store",
       },
     });

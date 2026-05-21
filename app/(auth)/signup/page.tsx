@@ -18,6 +18,7 @@ import {
   FiCheck,
   FiUser
 } from 'react-icons/fi';
+import { brand } from '@/lib/brand';
 
 const getSafeNextPath = () => {
   if (typeof window === 'undefined') {
@@ -82,7 +83,7 @@ const SignupPage = () => {
           <div className="text-left">
             <div className="flex items-center mb-6">
               <BsArrowUpSquareFill className="text-5xl text-blue-600 mr-4" />
-              <h1 className="text-4xl font-bold text-gray-900">GigaSend</h1>
+              <h1 className="text-4xl font-bold text-gray-900">{brand.productName}</h1>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Join thousands of users
@@ -125,7 +126,7 @@ const SignupPage = () => {
             {/* Trust indicators */}
             <div className="mt-8 p-6 bg-white rounded-xl shadow-lg">
               <h4 className="font-semibold text-gray-900 mb-2">Trusted by professionals</h4>
-              <p className="text-sm text-gray-600">Join over 50,000+ users who trust GigaSend for their file sharing needs.</p>
+              <p className="text-sm text-gray-600">A private file delivery workspace for SBVisual client handoffs.</p>
             </div>
           </div>
         </div>
@@ -138,7 +139,7 @@ const SignupPage = () => {
             <div className="lg:hidden text-center mb-8">
               <div className="flex items-center justify-center mb-4">
                 <BsArrowUpSquareFill className="text-4xl text-blue-600 mr-2" />
-                <h1 className="text-3xl font-bold text-gray-900">GigaSend</h1>
+                <h1 className="text-3xl font-bold text-gray-900">{brand.productName}</h1>
               </div>
             </div>
 
