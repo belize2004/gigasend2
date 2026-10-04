@@ -1,4 +1,5 @@
-name = "gigasend"
+name = "gigasend-app"
+account_id = "54b1fed58d0ba6424964b70ae4ba4b14"
 compatibility_date = "2026-05-07"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
