@@ -26,11 +26,26 @@ const faqSchema = {
     },
   })),
 };
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: `${brand.productName} — ${landingPage.h1}`,
+  url: canonical,
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "All",
+  offers: {
+    "@type": "Offer",
+    price: "0.00",
+    priceCurrency: "USD",
+    description: "Free large file transfers up to 10GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
+  },
+};
 ---
 
 <BaseLayout title={landingPage.title} description={landingPage.metaDescription} canonical={canonical}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
   </Fragment>
 
   <main class="min-h-screen bg-slate-50 text-slate-950">

@@ -5,6 +5,8 @@ import sentry from "@sentry/astro";
 import { fileURLToPath } from "node:url";
 
 export default defineConfig({
+  site: "https://gigasend.us",
+  trailingSlash: "never",
   output: "server",
   adapter: cloudflare({
     platformProxy: {
