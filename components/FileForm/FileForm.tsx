@@ -7,6 +7,10 @@ import {
   Card,
   CardContent,
   CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   FormControl,
   FormLabel,
   Snackbar,
@@ -24,6 +28,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadFormSchema } from "./schema/uploadSchema";
 import { z } from "zod";
 import { useFileContext } from "@/context/FileContext";
+import { useAuth } from "@/context/useAuth";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from '@/components/compat/navigation';
 import { ZipWriter } from "@zip.js/zip.js";
@@ -163,6 +168,9 @@ export const FileForm = () => {
   const [expiryLimit, setExpiryLimit] = useState(3); // in days
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>(null)
   const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("email");
+  const { auth } = useAuth();
+  const [upgradeModalOpen, setUpgradeModalOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
   const [toast, setToast] = useState<{ open: boolean; msg: string }>({
     open: false,
     msg: "",
@@ -778,6 +786,19 @@ export const FileForm = () => {
     }
 
     const selectedBytes = Array.from(files).reduce((sum, f) => sum + f.size, 0);
+
+    // 1. Check if files exceed remaining storage / free limit
+    if (selectedBytes > allowedLimit) {
+      setUpgradeModalOpen(true);
+      return;
+    }
+
+    // 2. Check if user is authenticated before initiating upload
+    if (!auth) {
+      setAuthModalOpen(true);
+      return;
+    }
+
     if (deliveryMode === "email" && !data.receiverEmail) {
       showToast("Please enter a receiver email or choose Create link.");
       return;
@@ -807,7 +828,7 @@ export const FileForm = () => {
     // Initialize total bytes and progress trackers
     totalBytesRef.current = selectedBytes;
     if (totalBytesRef.current > allowedLimit) {
-      showToast(`This transfer is larger than your remaining storage (${formatBytes(allowedLimit)}). Please remove files, clear old transfers, or upgrade your plan.`);
+      setUpgradeModalOpen(true);
       setUploading(false);
       return;
     }
@@ -1340,6 +1361,143 @@ export const FileForm = () => {
           )}
         </Stack>
       )}
+
+      {/* Upgrade Paywall Modal for transfers exceeding limits */}
+      <Dialog
+        open={upgradeModalOpen}
+        onClose={() => setUpgradeModalOpen(false)}
+        maxWidth="sm"
+        fullWidth
+        PaperProps={{ sx: { borderRadius: 3, p: 1 } }}
+      >
+        <DialogTitle sx={{ fontWeight: "bold", fontSize: "1.25rem", pb: 1 }}>
+          Upgrade Required for Large Transfer
+        </DialogTitle>
+        <DialogContent>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Your selected transfer is <strong>{getSizeInReadableFormat(files)}</strong>, which exceeds your available storage ({formatBytes(allowedLimit)}).
+            Choose a high-speed plan to transfer your file immediately with zero compression and line-rate edge speeds.
+          </Typography>
+
+          <Stack gap={1.5} sx={{ mt: 2 }}>
+            <Box
+              sx={{
+                p: 2,
+                border: "2px solid #2563eb",
+                borderRadius: 2,
+                bgcolor: "#eff6ff",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <Typography variant="subtitle1" fontWeight="bold">
+                  Starter Plan — $10/mo
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Send up to 30 GB files • 30-day link retention
+                </Typography>
+              </div>
+              <Button
+                variant="contained"
+                onClick={() => router.push("/checkout/starter")}
+                sx={{ bgcolor: "#2563eb", textTransform: "none", fontWeight: "bold" }}
+              >
+                Choose Starter
+              </Button>
+            </Box>
+
+            <Box
+              sx={{
+                p: 2,
+                border: "1px solid #e2e8f0",
+                borderRadius: 2,
+                bgcolor: "#f8fafc",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <Typography variant="subtitle1" fontWeight="bold">
+                  Pro Plan — $20/mo
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Send up to 80 GB files • 30-day link retention
+                </Typography>
+              </div>
+              <Button
+                variant="outlined"
+                onClick={() => router.push("/checkout/pro")}
+                sx={{ textTransform: "none", fontWeight: "bold" }}
+              >
+                Choose Pro
+              </Button>
+            </Box>
+
+            <Box sx={{ textAlign: "center", pt: 1 }}>
+              <Button
+                variant="text"
+                size="small"
+                onClick={() => router.push("/plans")}
+                sx={{ textTransform: "none", color: "#475569" }}
+              >
+                Need 200 GB (Studio) or 500 GB (Agency)? View all plans →
+              </Button>
+            </Box>
+          </Stack>
+        </DialogContent>
+        <DialogActions sx={{ px: 3, pb: 2 }}>
+          <Button onClick={() => setUpgradeModalOpen(false)} sx={{ textTransform: "none" }}>
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Auth Modal for guest users sending within free limits */}
+      <Dialog
+        open={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        maxWidth="xs"
+        fullWidth
+        PaperProps={{ sx: { borderRadius: 3, p: 1 } }}
+      >
+        <DialogTitle sx={{ fontWeight: "bold", fontSize: "1.2rem", pb: 1 }}>
+          Deliver Your Transfer
+        </DialogTitle>
+        <DialogContent>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Your <strong>{getSizeInReadableFormat(files)}</strong> transfer is ready. Sign in or create a quick free account so we can generate your download link and track delivery receipts.
+          </Typography>
+        </DialogContent>
+        <DialogActions sx={{ flexDirection: "column", gap: 1, px: 3, pb: 2 }}>
+          <Button
+            variant="contained"
+            fullWidth
+            onClick={() => router.push("/signup?next=/transfer")}
+            sx={{ bgcolor: "#2563eb", textTransform: "none", fontWeight: "bold", py: 1 }}
+          >
+            Create Free Account
+          </Button>
+          <Button
+            variant="outlined"
+            fullWidth
+            onClick={() => router.push("/signin?next=/transfer")}
+            sx={{ textTransform: "none", fontWeight: "bold", py: 1 }}
+          >
+            Sign In
+          </Button>
+          <Button
+            variant="text"
+            size="small"
+            onClick={() => setAuthModalOpen(false)}
+            sx={{ textTransform: "none", color: "#64748b" }}
+          >
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       <Snackbar
         open={toast.open}
