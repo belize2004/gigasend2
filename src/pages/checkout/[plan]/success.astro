@@ -1,6 +1,25 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CheckoutSuccessApp from "@/src/components/CheckoutSuccessApp";
+import { stripe } from "@/lib/stripe";
+import { getDb, updateUserStripeCustomerId } from "@/lib/d1";
+import { getAuthenticatedUserId } from "@/src/lib/api";
+
+const sessionId = Astro.url.searchParams.get("session_id");
+if (sessionId) {
+  try {
+    const userId = await getAuthenticatedUserId(Astro.cookies);
+    if (userId) {
+      const db = getDb(Astro.locals);
+      const session = await stripe.checkout.sessions.retrieve(sessionId);
+      if (session.customer && (session.payment_status === "paid" || session.status === "complete")) {
+        await updateUserStripeCustomerId(db, userId, session.customer as string);
+      }
+    }
+  } catch (e) {
+    console.error("Failed to sync checkout session on success:", e);
+  }
+}
 ---
 
 <BaseLayout title="Checkout Success | GigaSend">

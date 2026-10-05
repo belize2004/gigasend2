@@ -57,44 +57,61 @@ const CheckoutPage = () => {
       return;
     }
 
-    if (!elements || !stripe) {
-      setError('Stripe.js has not loaded yet.');
-      return;
+    setLoading(true);
+
+    if (elements && stripe) {
+      const card = elements.getElement(CardElement);
+      if (card) {
+        const paymentMethod = await stripe.createPaymentMethod({
+          type: 'card',
+          card: card
+        });
+
+        if (paymentMethod.error) {
+          setError(paymentMethod.error.message || null);
+          setLoading(false);
+          return;
+        }
+
+        try {
+          await axios.post<SubscriptionRequestBody, ApiResponse>('/api/payment/subscribe', {
+            paymentMethod: paymentMethod.paymentMethod,
+            planName: selectedPlan.name
+          });
+          router.push(`/checkout/${selectedPlan.name.toLowerCase()}/success`);
+          return;
+        } catch (error) {
+          const axiosError = error as AxiosError<ApiResponse>;
+          if (axiosError.response) {
+            setError(axiosError.response.data.message);
+          } else {
+            setError("An unexpected error occurred.");
+          }
+          setLoading(false);
+          return;
+        }
+      }
     }
 
-    const card = elements.getElement(CardElement);
-    if (!card) {
-      setError('CardElement not found');
-      return;
-    }
-
-    const paymentMethod = await stripe.createPaymentMethod({
-      type: 'card',
-      card: card
-    });
-
-    if (paymentMethod.error) {
-      setError(paymentMethod.error.message || null);
-      return;
-    }
-    setLoading(true)
-
+    // Direct Stripe Hosted Checkout Session (using server STRIPE_SECRET_KEY)
     try {
-      await axios.post<SubscriptionRequestBody, ApiResponse>('/api/payment/subscribe', {
-        paymentMethod: paymentMethod.paymentMethod,
+      const res = await axios.post<{ success: boolean; url?: string; message?: string }>('/api/payment/create-checkout-session', {
         planName: selectedPlan.name
-      })
-      router.push(`/checkout/${selectedPlan.name.toLowerCase()}/success`);
+      });
+      if (res.data?.url) {
+        window.location.href = res.data.url;
+        return;
+      }
+      setError(res.data?.message || 'Unable to start Stripe checkout session.');
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
-      console.error(axiosError)
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
-        setError("An unexpected error occurred.");
+        setError("Unable to initiate Stripe checkout.");
       }
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -234,26 +251,40 @@ const CheckoutPage = () => {
                 </div>
               </div>
 
-              {/* Card Information */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Card Information <span className='text-red-500'>*</span>
-                </label>
-
-                {/* Card Number, Expiry and CVC */}
-                <CardElement
-                  className='border border-gray-300 rounded-xl px-3 py-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 mb-4'
-                />
-              </div>
+              {/* Card Information or Hosted Stripe Banner */}
+              {stripe && elements ? (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    Card Information <span className='text-red-500'>*</span>
+                  </label>
+                  <CardElement
+                    className='border border-gray-300 rounded-xl px-3 py-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 mb-4'
+                  />
+                </div>
+              ) : (
+                <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-5 text-center mb-4">
+                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                    <FiLock className="text-xl" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900">Secure Stripe Checkout</h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Pay securely with Credit Card, Apple Pay, or Google Pay via Stripe's encrypted checkout.
+                  </p>
+                </div>
+              )}
 
               {/* Payment Button */}
               <button
                 onClick={handleCheckout}
-                disabled={!stripe || loading}
-                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform ${loading ? 'opacity-60 animate-pulse' : ''} transition-all duration-200 flex items-center justify-center`}
+                disabled={loading}
+                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform ${loading ? 'opacity-60 animate-pulse' : ''} transition-all duration-200 flex items-center justify-center cursor-pointer`}
               >
                 <FiLock className="mr-2" />
-                {!loading ? 'Complete' : 'Completing'} Payment - ${currentPrice}
+                {!loading
+                  ? stripe && elements
+                    ? `Complete Payment - $${currentPrice}`
+                    : `Proceed to Stripe Checkout - $${currentPrice}/mo →`
+                  : 'Redirecting to Stripe...'}
               </button>
 
               {/* Security info */}
