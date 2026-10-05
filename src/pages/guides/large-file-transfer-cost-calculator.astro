@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/guides/large-file-transfer-cost-calculator`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "Large File Transfer Cost Calculator (PAYG vs. Subscription Guide)",
+  description: "A comprehensive cost comparison guide analyzing pay-as-you-go transfer rates versus recurring subscriptions (WeTransfer, Dropbox, AWS S3 egress).",
+  url: canonical,
+  author: {
+    "@type": "Organization",
+    name: brand.productName,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: brand.productName,
+    url: brand.siteUrl,
+  },
+  datePublished: "2026-05-01",
+  dateModified: "2026-10-04",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How much does it cost to send a 50GB file online?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "With legacy providers like WeTransfer or Dropbox, you are required to subscribe to an annual $144–$240 plan just to send a single large file. With Gigasend, transfers under 10GB are 100% free, and larger sizes cost a simple $10–$20/mo flat tier or pay-as-you-go from $0.16/GB.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are cloud egress fees and why do they increase file transfer costs?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Traditional cloud providers (AWS S3, Google Cloud, Azure) charge between $0.05 and $0.09 per Gigabyte whenever someone downloads your file (egress). If 5 clients download a 100GB video deliverable, you pay an extra $45 just in bandwidth fees. Gigasend operates with zero egress surcharges.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is pay-as-you-go cheaper than an annual file transfer subscription?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "For freelance video editors, motion designers, and independent photographers who dispatch project files sporadically (e.g. 2 to 5 client deliveries per month), pay-as-you-go or flexible monthly pricing saves between 60% and 85% annually compared to locked-in annual subscriptions.",
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`Large File Transfer Cost Calculator — Free Online Estimator | ${brand.productName}`}
+  description="Calculate exact costs to send 50GB to 5TB files. Compare pay-as-you-go rates vs WeTransfer, Dropbox, and cloud storage subscriptions instantly."
+  canonical={canonical}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-slate-50 text-slate-950">
+    <header class="border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
+          {brand.productName}
+        </a>
+        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
+          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
+          <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="hover:text-blue-700" href="/directory">Directory</a>
+          <a class="hover:text-blue-700" href="/guides">Guides</a>
+          <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Calculator</a>
+        </div>
+      </nav>
+    </header>
+
+    <article class="bg-white py-16 sm:py-20 border-b border-slate-200">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
+          <span>Cost & Billing Analysis</span>
+        </div>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+          Large File Transfer Cost Calculator (PAYG vs. Subscriptions)
+        </h1>
+        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+          How much are you really paying to deliver 50GB to 5TB files to your clients? An unvarnished financial breakdown comparing monthly recurring subscriptions, hidden cloud egress fees, and modern pay-as-you-go delivery.
+        </p>
+
+        <div class="mt-6 flex items-center gap-3 border-y border-slate-100 py-4 text-xs text-slate-500">
+          <span>Published by Growth & Pricing Architecture</span>
+          <span>•</span>
+          <span>Updated October 2026</span>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+
+        <div class="prose prose-slate mt-8 max-w-none space-y-6 text-slate-800 leading-relaxed">
+          <h2 class="text-2xl font-bold text-slate-950">1. The "Ghost Subscription" Trap in Creative Workflows</h2>
+          <p>
+            Most video editors, photographers, and audio engineers do not transfer 100GB of client files every single day. Work moves in project bursts: two weeks of production, followed by client deliverable handoff, followed by a gap between jobs.
+          </p>
+          <p>
+            Yet traditional transfer services charge <strong>\$12 to \$25 per user, every single month (\$144 to \$300/year)</strong>, regardless of whether you sent 10 transfers or zero transfers that month. Over three years, an independent freelancer pays nearly \$1,000 just for the capability to generate download links.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-950">2. Real Cost Breakdown: Sending a 50GB Delivery to 3 Clients</h2>
+          <p>
+            When delivering a 50GB finished video master or multi-track audio stem archive to 3 team members or clients, here is how the real costs stack up:
+          </p>
+        </div>
+
+        <!-- Comparative Table -->
+        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+          <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
+            <thead class="bg-slate-50 text-slate-900 font-semibold">
+              <tr>
+                <th scope="col" class="px-6 py-4">Delivery Platform</th>
+                <th scope="col" class="px-6 py-4">Monthly Commitment</th>
+                <th scope="col" class="px-6 py-4">Egress Surcharge (3 Downloads)</th>
+                <th scope="col" class="px-6 py-4">Annual Cost (Sporadic Use)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">WeTransfer Pro</td>
+                <td class="px-6 py-4">\$12 / month</td>
+                <td class="px-6 py-4 text-emerald-700">\$0 (Included)</td>
+                <td class="px-6 py-4 font-semibold text-rose-700">\$144 / year</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">Dropbox Business</td>
+                <td class="px-6 py-4">\$20 / user / mo</td>
+                <td class="px-6 py-4 text-emerald-700">\$0 (Included)</td>
+                <td class="px-6 py-4 font-semibold text-rose-700">\$240 / year</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">AWS S3 Direct</td>
+                <td class="px-6 py-4">\$1.15 storage</td>
+                <td class="px-6 py-4 text-rose-700">\$13.50 (150GB @ \$0.09/GB)</td>
+                <td class="px-6 py-4 font-semibold text-amber-700">Variable + Complex</td>
+              </tr>
+              <tr class="bg-blue-50/50">
+                <td class="px-6 py-4 font-bold text-blue-900">{brand.productName}</td>
+                <td class="px-6 py-4 font-semibold text-blue-700">Free up to 10GB / \$10 Flat</td>
+                <td class="px-6 py-4 font-semibold text-emerald-700">\$0 Egress Surcharges</td>
+                <td class="px-6 py-4 font-bold text-blue-700">Save 60% – 85%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="prose prose-slate mt-8 max-w-none space-y-6 text-slate-800 leading-relaxed">
+          <h2 class="text-2xl font-bold text-slate-950">3. The Zero-Egress Economics of Cloudflare R2</h2>
+          <p>
+            Unlike Amazon AWS, Microsoft Azure, or Google Cloud—which charge between \$0.05 and \$0.09 per Gigabyte every time a recipient clicks download—Gigasend is built natively on <strong>Cloudflare R2 object storage</strong>.
+          </p>
+          <p>
+            Cloudflare does not charge egress bandwidth fees. That architectural advantage allows Gigasend to offer 100% free transfers up to 10GB without annoying watermarks, speed throttling, or download caps for your recipients.
+          </p>
+        </div>
+
+        <!-- FAQs -->
+        <div class="mt-12">
+          <h2 class="text-2xl font-bold text-slate-950">Cost & Pricing FAQs</h2>
+          <dl class="mt-6 space-y-6">
+            {faqSchema.mainEntity.map((faq) => (
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                <dt class="text-base font-semibold text-slate-950">{faq.name}</dt>
+                <dd class="mt-3 text-sm leading-relaxed text-slate-600">{faq.acceptedAnswer.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
+          <h3 class="text-2xl font-bold">Try Transparent Transfer Pricing</h3>
+          <p class="mt-2 text-blue-100 text-sm">
+            Send up to 10GB completely free with 3 days storage, or view our straightforward high-capacity tiers.
+          </p>
+          <div class="mt-6 flex justify-center gap-4">
+            <a
+              href="/transfer"
+              class="rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
+            >
+              Start Free Transfer
+            </a>
+            <a
+              href="/plans"
+              class="rounded-lg border border-blue-400 bg-blue-700 px-8 py-3 text-base font-semibold text-white hover:bg-blue-800"
+            >
+              View Storage Plans
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/guides`;
+
+const guides = [
+  {
+    slug: "why-large-file-transfers-are-slow",
+    title: "Why Large File Transfers Are So Slow (And How to Fix It)",
+    category: "WAN & Infrastructure",
+    description: "Diagnosing TCP window scaling, peering latency, and packet loss bottlenecks on 10GB–1TB file transfers—plus how to achieve line-rate edge speeds.",
+    readTime: "6 min read",
+  },
+  {
+    slug: "large-file-transfer-cost-calculator",
+    title: "Large File Transfer Cost Calculator (PAYG vs. Subscriptions)",
+    category: "Cost & Billing",
+    description: "Compare the real cost of sending 50GB to 5TB files. Pay-as-you-go pricing vs WeTransfer, Dropbox, and cloud storage egress fees.",
+    readTime: "5 min read",
+  },
+  {
+    slug: "transfer-large-files-without-failed-uploads",
+    title: "How to Transfer Large Files Without Failed Uploads",
+    category: "Reliability & Resilience",
+    description: "How client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50GB+ uploads on unstable connections.",
+    readTime: "4 min read",
+  },
+  {
+    slug: "file-transfer-vs-cloud-storage-vs-media-review",
+    title: "File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams",
+    category: "Workflow Architecture",
+    description: "When to use ephemeral point-to-point transfer (Gigasend) versus persistent cloud storage (Google Drive/Dropbox) versus frame-by-frame review (Frame.io).",
+    readTime: "7 min read",
+  },
+  {
+    slug: "send-large-files-without-filling-computer",
+    title: "How to Send Large Files Without Filling Up Your Hard Drive",
+    category: "Storage Optimization",
+    description: "Stop cloud sync apps from cloning 200GB project folders onto your local SSD. How direct browser streaming protects disk space.",
+    readTime: "4 min read",
+  },
+];
+---
+
+<BaseLayout
+  title={`Large File Transfer Engineering Guides | ${brand.productName}`}
+  description="Technical guides, WAN latency diagnostics, and cost calculations for video editors, VFX studios, and remote creative teams transferring massive files."
+  canonical={canonical}
+>
+  <main class="min-h-screen bg-slate-50 text-slate-950">
+    <header class="border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
+          {brand.productName}
+        </a>
+        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
+          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
+          <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="hover:text-blue-700" href="/directory">Directory</a>
+          <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Speed Calculator</a>
+          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="border-b border-slate-200 bg-white py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-blue-600">Technical Resource Center</p>
+          <h1 class="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+            Large File Transfer Engineering Guides
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            Deep technical insights on high-speed data transfer, TCP optimization, Cloudflare edge storage, and creator workflow architecture.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {guides.map((guide) => (
+            <a
+              href={`/guides/${guide.slug}`}
+              class="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-blue-500 hover:shadow-md"
+            >
+              <div>
+                <div class="flex items-center justify-between text-xs font-semibold text-slate-500">
+                  <span class="rounded bg-blue-50 px-2.5 py-1 text-blue-700">{guide.category}</span>
+                  <span>{guide.readTime}</span>
+                </div>
+                <h2 class="mt-4 text-xl font-bold text-slate-900 group-hover:text-blue-600">
+                  {guide.title}
+                </h2>
+                <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                  {guide.description}
+                </p>
+              </div>
+              <div class="mt-6 flex items-center gap-1 text-sm font-semibold text-blue-600">
+                <span>Read guide</span>
+                <span class="transition-transform group-hover:translate-x-1">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

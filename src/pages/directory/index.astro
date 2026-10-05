@@ -1,0 +1,206 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { seoLandingPages } from "../../data/seoLandingPages";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/directory`;
+
+const categories = [
+  {
+    id: "video-cinema",
+    title: "Cinema & Video Post-Production",
+    description: "Transfer raw camera masters, multi-camera sequences, and NLE project bundles without compression.",
+    keywords: ["braw", "r3d", "arri", "mxf", "davinci", "premiere", "final-cut", "video"],
+  },
+  {
+    id: "vfx-3d",
+    title: "3D Animation, VFX & Simulation",
+    description: "Send multi-gigabyte 3D project files, simulation caches, and frame sequences directly to render nodes.",
+    keywords: ["maya", "blender", "cinema-4d", "houdini", "unreal", "openexr", "revit"],
+  },
+  {
+    id: "audio-music",
+    title: "Audio Engineering & Music Stems",
+    description: "Collaborate on DAWs and send uncompressed 24-bit/96kHz multitrack audio stems with zero data loss.",
+    keywords: ["protools", "ableton", "logic-pro", "stems"],
+  },
+  {
+    id: "competitor-bypass",
+    title: "Quota Bypass & Cloud Alternatives",
+    description: "Instant alternatives when legacy cloud storage, email, or free tools hit hard upload and download limits.",
+    keywords: ["wetransfer", "google-drive", "dropbox", "email-attachment", "alternative", "bypass"],
+  },
+  {
+    id: "sizes",
+    title: "File Size Capacity Tiers",
+    description: "Direct upload channels optimized for exact capacity limits from 5GB free tiers to 2TB multi-part transfers.",
+    keywords: ["5gb", "10gb", "15gb", "20gb", "25gb", "30gb", "50gb", "100gb", "500gb", "1tb", "2tb", "larger-than-2gb"],
+  },
+];
+
+// Group landing pages by category
+const groupedPages = categories.map((cat) => {
+  const pages = seoLandingPages.filter((page) =>
+    cat.keywords.some((kw) => page.slug.toLowerCase().includes(kw))
+  );
+  return {
+    ...cat,
+    pages,
+  };
+});
+
+// Any pages not explicitly matched go to general
+const matchedSlugs = new Set(groupedPages.flatMap((g) => g.pages.map((p) => p.slug)));
+const generalPages = seoLandingPages.filter((page) => !matchedSlugs.has(page.slug));
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `${brand.productName} File Transfer Directory`,
+  description: "Browse optimized transfer destinations for high-capacity media files, 3D projects, cinema RAW codecs, and cloud quota bypasses.",
+  url: canonical,
+};
+---
+
+<BaseLayout
+  title={`File Transfer Directory & Codec Solutions | ${brand.productName}`}
+  description="Browse specialized high-capacity file transfer destinations. Send BRAW, RED R3D, Blender, DaVinci, Ableton, and bypass 2GB upload quotas directly."
+  canonical={canonical}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-slate-50 text-slate-950">
+    <header class="border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
+          {brand.productName}
+        </a>
+        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
+          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
+          <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="text-blue-600 font-semibold" href="/directory">Directory</a>
+          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="border-b border-slate-200 bg-white py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-blue-600">Enterprise Transfer Index</p>
+          <h1 class="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+            Large File Transfer Directory
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">
+            Engineered transfer channels optimized for exact media formats, creative applications, and high-volume data payloads up to 5TB. Powered by Cloudflare's 335+ edge PoPs with zero file compression.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/transfer" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
+              Transfer files now
+            </a>
+            <a href="/plans" class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-700">
+              View storage tiers
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
+        {groupedPages.map((cat) => (
+          <div id={cat.id} class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="border-b border-slate-100 pb-4">
+              <h2 class="text-2xl font-bold text-slate-950">{cat.title}</h2>
+              <p class="mt-1 text-sm text-slate-600">{cat.description}</p>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {cat.pages.map((page) => (
+                <a
+                  href={`/send/${page.slug}`}
+                  class="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-500 hover:bg-blue-50/50 hover:shadow-md"
+                >
+                  <div>
+                    <span class="inline-block rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-800">
+                      {page.eyebrow}
+                    </span>
+                    <h3 class="mt-2 text-base font-semibold text-slate-900 group-hover:text-blue-600">
+                      {page.h1}
+                    </h3>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-600 line-clamp-2">
+                      {page.intro}
+                    </p>
+                  </div>
+                  <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-blue-600">
+                    <span>Send this format</span>
+                    <span class="transition-transform group-hover:translate-x-0.5">→</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        {generalPages.length > 0 && (
+          <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="border-b border-slate-100 pb-4">
+              <h2 class="text-2xl font-bold text-slate-950">Core Transfer Utilities</h2>
+              <p class="mt-1 text-sm text-slate-600">General high-performance large file dispatch solutions.</p>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {generalPages.map((page) => (
+                <a
+                  href={`/send/${page.slug}`}
+                  class="group flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-500 hover:bg-blue-50/50 hover:shadow-md"
+                >
+                  <div>
+                    <span class="inline-block rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-800">
+                      {page.eyebrow}
+                    </span>
+                    <h3 class="mt-2 text-base font-semibold text-slate-900 group-hover:text-blue-600">
+                      {page.h1}
+                    </h3>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-600 line-clamp-2">
+                      {page.intro}
+                    </p>
+                  </div>
+                  <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-blue-600">
+                    <span>Send now</span>
+                    <span class="transition-transform group-hover:translate-x-0.5">→</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section class="border-t border-slate-200 bg-white py-16">
+      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          Ready to send your large files?
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+          Upload up to 10GB 100% free with no account required, or transfer up to 5TB with custom storage expiration.
+        </p>
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="/transfer" class="rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
+            Start free transfer
+          </a>
+          <a href="/plans" class="rounded-lg border border-slate-300 bg-white px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-blue-500">
+            See all plans
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

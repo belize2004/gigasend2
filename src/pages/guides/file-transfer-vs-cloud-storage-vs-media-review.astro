@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/guides/file-transfer-vs-cloud-storage-vs-media-review`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams",
+  description: "When to use point-to-point file transfer (Gigasend) vs cloud storage sync (Google Drive/Dropbox) vs video review (Frame.io).",
+  url: canonical,
+  author: {
+    "@type": "Organization",
+    name: brand.productName,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: brand.productName,
+    url: brand.siteUrl,
+  },
+  datePublished: "2026-05-01",
+  dateModified: "2026-10-04",
+};
+---
+
+<BaseLayout
+  title={`File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams | ${brand.productName}`}
+  description="Compare file transfer vs cloud storage vs media review tools. Learn when to use Gigasend vs Dropbox vs Frame.io in video and post-production workflows."
+  canonical={canonical}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-slate-50 text-slate-950">
+    <header class="border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
+          {brand.productName}
+        </a>
+        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
+          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
+          <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="hover:text-blue-700" href="/directory">Directory</a>
+          <a class="hover:text-blue-700" href="/guides">Guides</a>
+          <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Calculator</a>
+        </div>
+      </nav>
+    </header>
+
+    <article class="bg-white py-16 sm:py-20 border-b border-slate-200">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
+          <span>Creative Workflow Architecture</span>
+        </div>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+          File Transfer vs Cloud Storage vs Media Review
+        </h1>
+        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+          Many post-production and design teams mistakenly try to use one tool for everything. Understanding the distinct purpose of point-to-point dispatch, collaborative syncing, and frame-accurate review saves thousands of dollars and hours of wasted time.
+        </p>
+
+        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+          <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
+            <thead class="bg-slate-50 text-slate-900 font-semibold">
+              <tr>
+                <th scope="col" class="px-6 py-4">Tool Category</th>
+                <th scope="col" class="px-6 py-4">Primary Purpose</th>
+                <th scope="col" class="px-6 py-4">Ideal For</th>
+                <th scope="col" class="px-6 py-4">Where It Fails</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="px-6 py-4 font-bold text-blue-700">Point-to-Point Transfer ({brand.productName})</td>
+                <td class="px-6 py-4">Ephemeral deliverable dispatch</td>
+                <td class="px-6 py-4">Sending 10GB–5TB client packages & camera masters</td>
+                <td class="px-6 py-4 text-slate-500">Long-term permanent archival</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">Cloud Storage (Dropbox / Google Drive)</td>
+                <td class="px-6 py-4">Synchronized workspace collaboration</td>
+                <td class="px-6 py-4">Sharing active docs, project notes, small assets</td>
+                <td class="px-6 py-4 text-rose-700">Sync conflicts, disk clogging, strict download quotas</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold text-purple-700">Media Review (Frame.io)</td>
+                <td class="px-6 py-4">Frame-accurate client feedback</td>
+                <td class="px-6 py-4">Timecode notes, client rough-cut approvals</td>
+                <td class="px-6 py-4 text-rose-700">Prohibitive storage pricing for raw camera masters</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
+          <h3 class="text-2xl font-bold">Use the Right Tool for Large Deliverables</h3>
+          <p class="mt-2 text-blue-100 text-sm">
+            Clean ephemeral transfers up to 10GB free. No recipient accounts required.
+          </p>
+          <a
+            href="/transfer"
+            class="mt-6 inline-block rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
+          >
+            Transfer Files With Gigasend
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

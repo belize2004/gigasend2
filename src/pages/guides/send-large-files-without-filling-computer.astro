@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/guides/send-large-files-without-filling-computer`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: "How to Send Large Files Without Filling Up Your Hard Drive",
+  description: "Learn how to transfer 20GB–500GB files directly without cloud storage desktop apps consuming your SSD disk space with local cache files.",
+  url: canonical,
+  author: {
+    "@type": "Organization",
+    name: brand.productName,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: brand.productName,
+    url: brand.siteUrl,
+  },
+  datePublished: "2026-05-01",
+  dateModified: "2026-10-04",
+};
+---
+
+<BaseLayout
+  title={`How to Send Large Files Without Filling Up Your Hard Drive | ${brand.productName}`}
+  description="Stop cloud sync apps from cloning 200GB project folders onto your local SSD. How direct browser streaming transfers large files with zero disk caching."
+  canonical={canonical}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-slate-50 text-slate-950">
+    <header class="border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
+          {brand.productName}
+        </a>
+        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
+          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
+          <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="hover:text-blue-700" href="/directory">Directory</a>
+          <a class="hover:text-blue-700" href="/guides">Guides</a>
+          <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Calculator</a>
+        </div>
+      </nav>
+    </header>
+
+    <article class="bg-white py-16 sm:py-20 border-b border-slate-200">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
+          <span>Local Storage Optimization</span>
+        </div>
+        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+          How to Send Large Files Without Filling Up Your Hard Drive
+        </h1>
+        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+          Ever dropped a 100GB video project into Dropbox or Google Drive to share with a client, only to receive a macOS warning: "Your startup disk is almost full"? Here is why cloud sync apps devour local storage and how to send files with zero local disk overhead.
+        </p>
+
+        <div class="prose prose-slate mt-8 max-w-none space-y-6 text-slate-800 leading-relaxed">
+          <h2 class="text-2xl font-bold text-slate-950">The Hidden Cache Problem of Cloud Sync Apps</h2>
+          <p>
+            Traditional sync clients (Google Drive Desktop, Dropbox, Microsoft OneDrive) work by maintaining a mirrored folder on your local file system. Even when you designate a folder as "Online-Only", uploading a 50GB file requires the sync client to copy that 50GB into a hidden local cache directory (<code>~/Library/CloudStorage/...</code>) while it uploads.
+          </p>
+          <p>
+            If you only have 30GB of free space on your MacBook or Windows laptop, the upload will crash and lock up your operating system.
+          </p>
+
+          <h2 class="text-2xl font-bold text-slate-950">The Zero-Cache In-Browser Transfer Alternative</h2>
+          <p>
+            Gigasend bypasses your local file system entirely. Using the HTML5 File System API and Web Streams:
+          </p>
+          <ul class="list-disc pl-5 space-y-3 text-slate-700">
+            <li>Your browser reads the file chunks directly from your external drive, camera card, or local SSD into memory buffers.</li>
+            <li>No duplicate copies or hidden cache files are written to your computer.</li>
+            <li>Once transmitted to the edge, the buffer is immediately released by JavaScript garbage collection.</li>
+          </ul>
+        </div>
+
+        <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
+          <h3 class="text-2xl font-bold">Transfer Large Files Without Wasting Disk Space</h3>
+          <p class="mt-2 text-blue-100 text-sm">
+            Drag and drop directly from external drives. Free up to 10GB with zero local cache footprint.
+          </p>
+          <a
+            href="/transfer"
+            class="mt-6 inline-block rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
+          >
+            Send File Directly Now
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
