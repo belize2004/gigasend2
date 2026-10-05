@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import { brand } from "@/lib/brand";
 
+export const prerender = true;
+
 export const GET: APIRoute = async ({ site }) => {
   const origin = (site?.origin ?? brand.siteUrl).replace(/\/$/, "");
   const content = [
@@ -16,6 +18,9 @@ export const GET: APIRoute = async ({ site }) => {
   ].join("\n");
 
   return new Response(`${content}\n`, {
-    headers: { "content-type": "text/plain; charset=utf-8" },
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "public, max-age=3600, s-maxage=86400",
+    },
   });
 };
