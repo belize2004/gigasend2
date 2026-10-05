@@ -14,7 +14,9 @@ export const GET: APIRoute = async ({ site }) => {
     "Disallow: /admin/",
     "Disallow: /api/",
     "",
+    `Sitemap: ${origin}/sitemap-index.xml`,
     `Sitemap: ${origin}/sitemap.xml`,
+    `Sitemap: ${origin}/sitemap-0.xml`,
   ].join("\n");
 
   return new Response(`${content}\n`, {
