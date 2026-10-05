@@ -1,19 +1,32 @@
 name = "gigasend-app"
 account_id = "54b1fed58d0ba6424964b70ae4ba4b14"
+main = "worker-wrapper.js"
 compatibility_date = "2026-05-07"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "dist"
+binding = "ASSETS"
 
 [vars]
 NODE_VERSION = "20"
-PUBLIC_BRAND_EMAIL_FROM = "SBVisual File Delivery <no-reply@mail.sbvisual.com>"
+ENVIRONMENT = "production"
+PUBLIC_APP_URL = "https://gigasend.us"
+R2_ACCOUNT_ID = "54b1fed58d0ba6424964b70ae4ba4b14"
+R2_BUCKET_NAME = "gigasend-files"
+PUBLIC_BRAND_EMAIL_FROM = "Gigasend File Delivery <no-reply@mail.gigasend.us>"
+
+[durable_objects]
+bindings = [
+  { name = "WALLET_COORDINATOR", class_name = "WalletBalanceCoordinator" }
+]
 
 [[d1_databases]]
 binding = "DB"
 database_name = "gigasend"
-database_id = "f331dd30-59e3-4d5d-840c-964cf5fbe3f8"
+database_id = "8ba33bf1-19c7-4198-a389-8c4680021780"
 
 [[r2_buckets]]
 binding = "FILES"
-bucket_name = "bigsender"
-preview_bucket_name = "bigsender"
+bucket_name = "gigasend-files"
+preview_bucket_name = "gigasend-files"
