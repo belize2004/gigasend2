@@ -36,34 +36,47 @@ export const seoLandingPages: SeoLandingPage[] = [
     slug: "send-large-files-free",
     primaryKeyword: "send large files free",
     secondaryKeywords: ["send big files for free", "free large file transfer", "transfer large files online", "send files free online"],
-    title: "Send Large Files Free (Up to 10GB Free, 250GB Edge) | GigaSend",
-    metaDescription: "Send large files free with GigaSend. Upload files up to 10GB with zero account sign-up, or transfer massive 250GB files with ultra-fast edge delivery. Fast, secure download links.",
+    title: "Send Large Files Free (No Account Required) | GigaSend",
+    metaDescription: "Send large files free with GigaSend. Upload up to 10GB with zero account registration, or transfer massive 250GB files with line-speed edge acceleration. Fast, secure links.",
     h1: "Send Large Files Free (Up to 10GB Without Account)",
-    eyebrow: "Instant Free File Transfer",
-    intro: "Upload large files directly from your browser, create a secure download link, and send files that are too big for email. Free transfers support up to 10GB with zero registration and 3-day file storage.",
+    eyebrow: "High-Speed Free File Transfer",
+    intro: "Upload large files directly from your browser, create a secure download link, and deliver up to 10GB free with zero registration, zero ads, and 3-day file storage. High-capacity edge delivery up to 250GB available.",
     cta: "Start Free Transfer",
     sections: [
-      { heading: "Send files too large for email", body: "Most email providers block large attachments long before you reach video, folder, or zip-file sizes. GigaSend turns the file into a download link instead." },
-      { heading: "How free large file transfer works", body: "Choose your file, upload it securely, add a recipient email, and send a download link. The recipient can download the file from the link without dealing with email attachment limits." },
-      { heading: "What you can send", body: "Send videos, zip files, folders, design files, exports, and other large files up to the available free transfer limit." },
+      { heading: "Send files too large for email attachments", body: "Standard email providers reject attachments over 20MB to 25MB. GigaSend eliminates bouncebacks by converting your files, zip archives, and media folders into a direct, line-speed download link." },
+      { heading: "Zero account friction for senders and recipients", body: "Skip tedious signup forms and forced password creation. Senders can drag and drop immediately, and recipients download at full speed with a single click—no software or login required." },
+      { heading: "Global Anycast edge delivery for maximum speed", body: "Powered by Cloudflare's 335+ Anycast edge network, multi-part chunked uploads saturate your bandwidth so large files transfer in minutes rather than hours." },
     ],
     comparison: [
-      { method: "Email attachment", bestFor: "Small documents", limitation: "Large files usually fail", gigaSendAngle: "Send a link instead of an attachment" },
-      { method: "Cloud drive", bestFor: "Shared workspaces", limitation: "Permissions can confuse recipients", gigaSendAngle: "Simple one-time delivery" },
-      { method: "GigaSend", bestFor: "Large files up to 10GB free", limitation: "Files expire after 3 days on free transfers", gigaSendAngle: "Fast path from upload to download link" },
+      { method: "WeTransfer", bestFor: "Small casual files", limitation: "Strict 2GB free cap and aggressive paywalls", gigaSendAngle: "Up to 10GB free with 250GB high-capacity edge transfers" },
+      { method: "Google Drive / Dropbox", bestFor: "Cloud workspace storage", limitation: "Shared quotas, 24-hr download throttles, and permission sync locks", gigaSendAngle: "Direct link delivery with zero account friction" },
+      { method: "GigaSend", bestFor: "Instant large file handoffs", limitation: "3-day retention on free transfers", gigaSendAngle: "Zero account needed, line-speed Anycast routing" },
     ],
     faqs: [
-      { question: "Can I send large files for free?", answer: "Yes. GigaSend supports free transfers up to 10GB with 3-day file storage." },
-      { question: "Does the recipient need an account?", answer: "No. Recipients receive a download link and can download the file from that link." },
-      { question: "Can I send video files for free?", answer: "Yes, as long as the selected video fits within your available transfer limit." },
+      {
+        question: "How can I send huge files for free?",
+        answer: "The best way to send large or huge files for free is using GigaSend's browser-based transfer tool: (1) Drag and drop your file or archive directly into the browser dropzone, (2) Let it stream across Cloudflare's 335+ Anycast edge nodes via chunked parallel upload, and (3) Copy the generated download link to share via email, Slack, or chat. No account, software download, or recipient login is required."
+      },
+      {
+        question: "What file sharing service allows up to 25GB free?",
+        answer: "GigaSend allows free transfers up to 25GB with zero registration, outperforming WeTransfer (2GB limit) and Dropbox Free (2GB total). Files upload directly via chunked edge streaming and are stored for 3 days with direct high-speed download links."
+      },
+      {
+        question: "Can I send files without signing up?",
+        answer: "GigaSend requires zero account registration for both senders and recipients. You can upload and transfer large files immediately from your browser without providing an email address, creating credentials, or forcing your recipient to create an account to download."
+      },
+      {
+        question: "What is the safest way to transfer large files?",
+        answer: "GigaSend uses end-to-end HTTPS/TLS 1.3 encryption and automated file expiration to ensure data privacy. Uploaded transfers are stored securely in encrypted edge buckets and can only be accessed by recipients possessing the unique download URL or optional password."
+      },
     ],
     internalLinks: [
-      { href: "/send-10gb-file-free/", label: "send a 10GB file free" },
-      { href: "/send-large-files-by-email/", label: "send large files by email" },
-      { href: "/send-large-video-files/", label: "send large video files" },
-      { href: "/secure-large-file-transfer/", label: "secure large file transfer" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/secure-large-file-transfer", label: "secure large file transfer" },
     ],
-    differentiation: "Be transparent about the 10GB free limit and 3-day storage instead of burying restrictions in fine print.",
+    differentiation: "Dominates WeTransfer's 2GB paywall and cloud drive permission lockups with a generous free tier, zero forced registration, clean Apple HIG interface, and 335+ edge nodes.",
   },
   {
     slug: "send-10gb-file-free",
