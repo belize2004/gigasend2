@@ -14,6 +14,7 @@ export function getStaticPaths() {
     "email-attachment-too-large-alternative",
     "dropbox-transfer-alternative",
     "send-files-larger-than-2gb",
+    "fastest-way-to-send-large-files",
   ];
   return seoLandingPages
     .filter((page) => bypassSlugs.includes(page.slug) || page.slug.includes("bypass") || page.slug.includes("alternative"))
