@@ -452,35 +452,78 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "dropbox-transfer-alternative",
-    primaryKeyword: "Dropbox Transfer alternative",
-    secondaryKeywords: ["Dropbox transfer limit", "alternative to Dropbox Transfer", "send large files without Dropbox"],
-    title: "Dropbox Transfer Alternative for Large File Delivery",
-    metaDescription: "Need a Dropbox Transfer alternative? GigaSend helps you send large files with simple links, secure delivery, and large-file-focused workflows.",
+    primaryKeyword: "dropbox transfer alternative",
+    secondaryKeywords: [
+      "alternative to dropbox transfer",
+      "send large files without dropbox",
+      "dropbox transfer file too large",
+      "free alternative to dropbox transfer"
+    ],
+    title: "Dropbox Transfer Alternative (Send up to 25GB Free, No Sync) | GigaSend",
+    metaDescription: "Looking for a Dropbox Transfer alternative? With GigaSend, send up to 25GB free with zero forced account creation, zero cloud storage quota consumption, and lightning edge downloads.",
     h1: "Dropbox Transfer Alternative",
-    eyebrow: "Alternative file transfer workflow",
-    intro: "If you want a simpler way to send large files without managing shared folders or storage permissions, GigaSend gives you direct upload-to-link delivery.",
-    cta: "Try GigaSend",
+    eyebrow: "Transfer-First Cloud Delivery",
+    intro: "Deliver large files directly from your browser without forcing recipients into shared folder permissions or consuming personal cloud storage quotas. Send up to 25GB free with zero accounts, zero software installs, and 335+ global edge nodes.",
+    cta: "Start Free Transfer (No Sync Required)",
     sections: [
-      { heading: "Why look for an alternative?", body: "Many users want file delivery, not a full cloud storage workflow. A transfer-first tool can be simpler for one-time client handoffs." },
-      { heading: "Direct large-file delivery", body: "Upload a file, send a link, and let the recipient download it without navigating a shared workspace." },
-      { heading: "Built for large file use cases", body: "GigaSend supports large videos, zipped folders, project exports, and Enterprise workflows up to 5TB single files." },
+      {
+        heading: "Eliminate shared quota lockups and storage full errors",
+        body: "When sharing files via Dropbox, shared folders consume storage from both the sender and the recipient. If your recipient's account is near capacity, transfers fail completely. GigaSend eliminates shared quotas—recipients download directly with one click without needing an account or available storage."
+      },
+      {
+        heading: "No desktop sync apps or local SSD drive bloat",
+        body: "Traditional cloud storage syncs massive project exports and raw video folders down to local hard drives, creating background CPU lag and disk space shortages. GigaSend provides clean, standalone link delivery without background syncing or hard drive clutter."
+      },
+      {
+        heading: "High-speed Anycast edge routing up to 25GB free",
+        body: "While Dropbox Free caps total storage at 2GB and sunsetted standalone transfer features for base plans, GigaSend delivers up to 25GB per payload completely free, streamed across Cloudflare's 335+ global edge locations at full line speed."
+      }
     ],
     comparison: [
-      { method: "Dropbox-style storage", bestFor: "Ongoing shared folders", limitation: "Permissions and storage structure can be overkill", gigaSendAngle: "Direct transfer link" },
-      { method: "Email attachment", bestFor: "Small files", limitation: "Large files fail", gigaSendAngle: "Email the transfer link" },
-      { method: "GigaSend", bestFor: "Large one-time delivery", limitation: "Not a full shared-drive replacement", gigaSendAngle: "Purpose-built transfer flow" },
+      {
+        method: "Dropbox / Dropbox Transfer",
+        bestFor: "Ongoing cloud file storage and workspace document syncing",
+        limitation: "Strict 2GB free cap, shared folder quota penalties, discontinued standalone transfer features",
+        gigaSendAngle: "Up to 25GB free per transfer, zero recipient quota impact, no account required"
+      },
+      {
+        method: "WeTransfer",
+        bestFor: "Casual files under 2GB",
+        limitation: "Hard 2GB limit on free transfers, aggressive $12/month paywall, and banner advertising",
+        gigaSendAngle: "25GB free tier, ad-free Apple HIG interface, line-speed Anycast acceleration"
+      },
+      {
+        method: "GigaSend",
+        bestFor: "Large one-time creative and client file deliveries",
+        limitation: "3-day retention on standard free transfers",
+        gigaSendAngle: "Instant browser drag-and-drop, zero account friction, enterprise 250GB+ edge capacity"
+      }
     ],
     faqs: [
-      { question: "What is a good Dropbox Transfer alternative?", answer: "For simple large-file delivery, GigaSend is a transfer-first alternative that creates direct download links." },
-      { question: "Can I send large files without Dropbox?", answer: "Yes. Upload files to GigaSend and share the generated download link." },
-      { question: "Does GigaSend support video files?", answer: "Yes. GigaSend supports large video files within your available transfer limit." },
+      {
+        question: "What is the best alternative to Dropbox Transfer?",
+        answer: "GigaSend is the leading transfer-first alternative to Dropbox Transfer. Unlike Dropbox which restricts free users to 2GB and discontinued standalone transfer features for many tiers, GigaSend lets you send up to 25GB free with no account required, zero storage quota consumption, and global line-speed delivery via Cloudflare's 335+ Anycast edge nodes."
+      },
+      {
+        question: "Does Dropbox have a free file transfer limit?",
+        answer: "Dropbox Free accounts are capped at 2GB of total storage, meaning files over 2GB cannot be transferred or shared without upgrading to a paid subscription starting at $9.99 to $16.58/month. In contrast, GigaSend provides 25GB per transfer completely free without recurring monthly fees."
+      },
+      {
+        question: "Can someone download from Dropbox without an account?",
+        answer: "While Dropbox allows public link downloads for smaller files, recipients are frequently prompted to sign in, create an account, or save the file to their own Dropbox, which fails if their account lacks free space. GigaSend requires zero account creation for either sender or recipient—recipients click once to download at full edge speeds."
+      },
+      {
+        question: "Why does Dropbox say my storage is full when receiving a file?",
+        answer: "When someone shares a standard Dropbox folder with you, the entire folder size counts against your personal Dropbox storage quota. If the folder exceeds your available space, Dropbox blocks the transfer. GigaSend eliminates shared quota lockups entirely because transfers are standalone, encrypted payloads that do not consume recipient storage."
+      }
     ],
     internalLinks: [
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
       { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/share-large-files-with-link", label: "share large files with a link" },
-      { href: "/send-large-video-files", label: "send large video files" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
     ],
-    differentiation: "Compare workflows without making unverified claims about competitor limits. Position GigaSend as direct delivery, not cloud storage.",
+    differentiation: "Replaces Dropbox's restrictive 2GB free cap, shared folder storage penalties, and background desktop sync clutter with an instant, browser-native 25GB free transfer engine powered by 335+ edge nodes."
   },
   {
     slug: "send-30gb-file",
