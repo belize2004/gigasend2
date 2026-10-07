@@ -79,6 +79,76 @@ export const seoLandingPages: SeoLandingPage[] = [
     differentiation: "Dominates WeTransfer's 2GB paywall and cloud drive permission lockups with a generous free tier, zero forced registration, clean Apple HIG interface, and 335+ edge nodes.",
   },
   {
+    slug: "free-large-file-transfer",
+    primaryKeyword: "free large file transfer",
+    secondaryKeywords: ["send large files free", "send big files free", "transfer large files online free", "free file transfer without account"],
+    title: "Free Large File Transfer (No Account Required) | GigaSend",
+    metaDescription: "Need to send large files? With GigaSend, upload up to 25GB free (vs 2GB on WeTransfer) with zero forced account creation, line-speed edge acceleration, and direct download links.",
+    h1: "Free Large File Transfer",
+    eyebrow: "Zero-Friction Large File Transport",
+    intro: "Transfer large files, multi-gigabyte video exports, and folder archives directly from your browser. Send up to 25GB free with zero registration, zero file compression, and 335+ global edge distribution nodes.",
+    cta: "Start Free Large File Transfer",
+    sections: [
+      {
+        heading: "Instant browser drag-and-drop up to 25GB free",
+        body: "Skip artificial 2GB limits. Upload RAW media, massive zip packages, or creative deliverables directly in your browser with zero forced registration, zero credit card requirement, and instantaneous link generation."
+      },
+      {
+        heading: "Line-speed Anycast routing on Cloudflare's 335+ edge nodes",
+        body: "Centralized legacy servers throttle transfer speeds during peak hours. GigaSend uses multi-threaded parallel chunking routed to the geographically closest Anycast edge data center, maximizing gigabit fiber connections."
+      },
+      {
+        heading: "Recipient-friendly downloads without login walls",
+        body: "Your recipients never have to sign up, download desktop software, or navigate ad-filled link hubs. One click delivers full line-speed downloads with SHA-256 data integrity validation."
+      }
+    ],
+    comparison: [
+      {
+        method: "WeTransfer",
+        bestFor: "Small casual files under 2GB",
+        limitation: "Hard 2GB limit on free tier; $12/month required for larger files; ad-heavy interface",
+        gigaSendAngle: "Up to 25GB free capacity with zero ads and no account needed"
+      },
+      {
+        method: "SwissTransfer / SendGB",
+        bestFor: "Free casual sharing",
+        limitation: "Aggressive third-party ad networks, tracking scripts, and centralized European host latency",
+        gigaSendAngle: "Ad-free, privacy-first Apple HIG interface with 335+ worldwide Anycast edge nodes"
+      },
+      {
+        method: "GigaSend",
+        bestFor: "Fast, uncompressed large file delivery",
+        limitation: "3-day retention on standard free transfers",
+        gigaSendAngle: "Zero account friction, 25GB free tier, line-speed edge delivery"
+      }
+    ],
+    faqs: [
+      {
+        question: "How can I send 20GB files for free?",
+        answer: "To send a 20GB file for free, use GigaSend's web-based transfer engine. Drag and drop your 20GB file directly into the browser dropzone—no account registration or payment required. The payload uploads via parallel edge chunks into Cloudflare's nearest edge node, generating a direct download link with full line-speed delivery."
+      },
+      {
+        question: "Is WeTransfer completely free?",
+        answer: "No, WeTransfer is not completely free. Its free tier is capped at 2GB per transfer, and links expire automatically after 3 to 7 days. Transfers over 2GB, password protection, and custom expiration dates require a paid WeTransfer subscription starting at $12/month. In contrast, GigaSend lets you send up to 25GB free with no account required."
+      },
+      {
+        question: "What is the safest way to transfer large files?",
+        answer: "GigaSend uses end-to-end HTTPS/TLS 1.3 encryption and automated file expiration to ensure data privacy. Uploaded transfers are stored securely in encrypted edge buckets and can only be accessed by recipients possessing the unique download URL or optional password."
+      },
+      {
+        question: "Can I send large files without creating an account?",
+        answer: "GigaSend requires zero account registration for both senders and recipients. You can upload and transfer large files immediately from your browser without providing an email address, creating credentials, or forcing your recipient to create an account to download."
+      }
+    ],
+    internalLinks: [
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
+    ],
+    differentiation: "Dominates WeTransfer's restrictive 2GB paywalls and ad-cluttered competitors by providing up to 25GB free, zero forced registration, clean Apple HIG design, and global Cloudflare Anycast edge acceleration."
+  },
+  {
     slug: "send-10gb-file-free",
     primaryKeyword: "send 10GB file free",
     secondaryKeywords: ["transfer 10GB file online", "send 10GB video file", "upload 10GB file", "send 10gb file without account"],
