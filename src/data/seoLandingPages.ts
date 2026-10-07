@@ -201,34 +201,76 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "send-large-files-by-email",
     primaryKeyword: "send large files by email",
-    secondaryKeywords: ["email large files", "attach large files to email", "file too large for email"],
-    title: "Send Large Files by Email Without Attachment Limits",
-    metaDescription: "Email attachments are too small for large files. Upload your file to GigaSend and email a secure download link instead.",
-    h1: "Send Large Files by Email",
-    eyebrow: "Email large files",
-    intro: "When a file is too large to attach, send a download link by email instead. GigaSend handles the upload and gives your recipient a simple link.",
-    cta: "Email a Large File Link",
+    secondaryKeywords: [
+      "how to send files too large for email",
+      "email large files",
+      "attach large files to email",
+      "send files too large for email"
+    ],
+    title: "Send Files Too Large for Email (Send up to 25GB Free) | GigaSend",
+    metaDescription: "Hit the 25MB attachment limit on Gmail or Outlook? Send files too large for email with GigaSend. Upload up to 25GB free and share a secure, direct download link.",
+    h1: "How to Send Files Too Large for Email",
+    eyebrow: "Email Attachment Limit Bypass",
+    intro: "Hit Gmail's 25MB or Outlook's 20MB attachment limit? GigaSend lets you upload files up to 25GB completely free—1,000x larger than email attachments—and generate a direct, secure download link to paste into any email thread.",
+    cta: "Send Large Files via Email Link",
     sections: [
-      { heading: "Why email attachments fail", body: "Email providers limit attachment sizes to keep inboxes fast and reliable. Large videos, folders, and zip files usually exceed those limits." },
-      { heading: "Use email as the notification", body: "The better workflow is to upload the file once, then email the recipient a secure link to download it." },
-      { heading: "Avoid cloud permission friction", body: "A transfer link is easier for one-time delivery than asking a client to request access to a shared drive folder." },
+      {
+        heading: "Why Email Attachments Fail: The 25MB Ceiling & MIME Inflation",
+        body: "Email protocols were created for text, not multi-gigabyte media. Mail transfer agents enforce strict attachment limits—25MB on Gmail and 20MB on Microsoft Outlook. Furthermore, MIME Base64 encoding inflates binary payloads by 33%, causing an 18MB file to trigger bounce errors. GigaSend bypasses mail server limits completely by hosting files on Cloudflare's Anycast edge and providing a lightweight download link."
+      },
+      {
+        heading: "Paste Unthrottled Download Links Directly into Any Email Thread",
+        body: "Drag and drop your video, zip archive, or presentation into GigaSend's browser dropzone. Your file uploads across 335+ global edge nodes and generates a secure link in seconds. Paste the link directly into Gmail, Outlook, Apple Mail, or Thunderbird. Your recipient clicks once to download at maximum speed without signing up."
+      },
+      {
+        heading: "Zero Recipient Friction & Automated Link Expiration",
+        body: "Unlike cloud drives that trigger 'Request Access' permission delays and Google login screens, GigaSend links are open and friction-free. Transfers are protected by TLS 1.3 encryption, optional passwords, and automatically expire after 3 days to protect your privacy."
+      }
     ],
     comparison: [
-      { method: "Direct attachment", bestFor: "Small PDFs", limitation: "Large attachments bounce", gigaSendAngle: "Avoid attachment limits" },
-      { method: "Cloud folder", bestFor: "Ongoing collaboration", limitation: "Access settings can get messy", gigaSendAngle: "Simple link delivery" },
-      { method: "GigaSend email link", bestFor: "Large file delivery", limitation: "Free storage expires after 3 days", gigaSendAngle: "Email the link, not the file" },
+      {
+        method: "Standard Email Attachment",
+        bestFor: "PDFs and small docs strictly under 20MB",
+        limitation: "Hard 25MB ceiling, 33% MIME inflation, causes 552 bounce errors",
+        gigaSendAngle: "Send up to 25GB free (1,000x larger) via lightweight link"
+      },
+      {
+        method: "Cloud Storage Drives (Google Drive / OneDrive)",
+        bestFor: "Ongoing team document collaboration",
+        limitation: "Recipient permission walls, 'Request Access' errors, quota exhaustion",
+        gigaSendAngle: "Direct download link, zero permission requests, zero sign-in walls"
+      },
+      {
+        method: "GigaSend Email Link Transfer",
+        bestFor: "Large videos, production archives, and client handoffs",
+        limitation: "Free transfer links expire after 3 days (extended on Pro tiers)",
+        gigaSendAngle: "Instant browser dropzone, unthrottled edge delivery, 0 account friction"
+      }
     ],
     faqs: [
-      { question: "How do I send a file too large for email?", answer: "Upload it to GigaSend, then send the generated download link by email." },
-      { question: "Can I attach a 2GB file to email?", answer: "Most email providers will not allow a 2GB attachment. A transfer link is a better option." },
-      { question: "Can I email a large video file?", answer: "Yes. Upload the video and send the download link through email." },
+      {
+        question: "How do I send a file too large for email?",
+        answer: "To send a file too large for email, upload your file directly into GigaSend's browser dropzone. GigaSend generates a secure, high-speed download link that you can paste into Gmail, Outlook, or Apple Mail. Your recipient clicks the link and downloads the uncompressed file immediately at edge line speed with zero sign-up."
+      },
+      {
+        question: "Can I attach a 2GB file to an email?",
+        answer: "No. Major email providers like Gmail, Yahoo, and Outlook enforce hard attachment limits between 20MB and 25MB (100x smaller than 2GB). Attempting to attach a 2GB file will fail instantly or trigger a bounce error. Instead, upload your 2GB file to GigaSend and paste the generated download link into your email message."
+      },
+      {
+        question: "Why do email providers limit attachment sizes to 25MB?",
+        answer: "Email providers limit attachment sizes to 20MB–25MB because email protocols use MIME Base64 encoding, which inflates binary file sizes by 33%. Large attachments clog mail transfer agents (MTAs), fill up recipient mailbox quotas, and trigger bounce errors ('552 Message size exceeds limit'). A dedicated GigaSend link avoids mail server congestion entirely."
+      },
+      {
+        question: "What is the best free alternative to email attachments?",
+        answer: "The best free alternative to email attachments is GigaSend. Unlike cloud storage drives (Google Drive, OneDrive) which require managing shared folder permissions and trigger login walls, GigaSend provides instant, browser-based edge transfers up to 25GB free with zero recipient registration, 3-day storage retention, and optional password protection."
+      }
     ],
     internalLinks: [
-      { href: "/send-files-larger-than-2gb/", label: "send files larger than 2GB" },
-      { href: "/share-large-files-with-link/", label: "share large files with a link" },
-      { href: "/secure-large-file-transfer/", label: "secure file transfer links" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
+      { href: "/share-large-files-with-link", label: "share large files with a link" }
     ],
-    differentiation: "Frame email as the notification channel, not the transport layer.",
+    differentiation: "Frame email as the communication layer and GigaSend as the edge transport layer, delivering up to 25GB free with zero recipient sign-up or permission walls."
   },
   {
     slug: "send-large-video-files",
@@ -399,34 +441,76 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "share-large-files-with-link",
     primaryKeyword: "share large files with a link",
-    secondaryKeywords: ["send file link", "upload file and share link", "file sharing link"],
-    title: "Share Large Files With a Link | GigaSend",
-    metaDescription: "Upload large files and share them with a secure download link. No large email attachments or confusing folder permissions.",
-    h1: "Share Large Files With a Link",
-    eyebrow: "Link-based file sharing",
-    intro: "When attachments fail and cloud permissions get messy, a direct download link is the simplest way to share large files.",
-    cta: "Create a File Link",
+    secondaryKeywords: [
+      "send large file link",
+      "upload file and share link",
+      "direct file sharing link",
+      "share big files via link"
+    ],
+    title: "Share Large Files with a Link (Send up to 25GB Free) | GigaSend",
+    metaDescription: "Looking to share large files with a link? Upload up to 25GB free to GigaSend and generate an instant, direct download link with zero recipient sign-up or drive permissions.",
+    h1: "Share Large Files with a Link Free",
+    eyebrow: "Direct Link File Transfer",
+    intro: "Skip messy cloud folder permissions, shared storage quota errors, and login barriers. GigaSend lets you upload payloads up to 25GB free and generate a clean, direct download link in seconds.",
+    cta: "Create a Download Link Free",
     sections: [
-      { heading: "Why links beat attachments", body: "A link keeps email lightweight while still giving your recipient direct access to the large file." },
-      { heading: "Simple recipient experience", body: "Recipients click the link and download the file, without chasing drive access or permission requests." },
-      { heading: "Use links for videos, folders, and zip files", body: "Share the large deliverables that clients and teams need in one clean workflow." },
+      {
+        heading: "Why Direct Links Outperform Cloud Drive Shared Folders",
+        body: "Sharing large deliverables via Google Drive, Dropbox, or OneDrive frequently causes client delivery failures. Recipients encounter 'Request Access' permission gates, forced login prompts, or 'Storage Full' errors if a shared folder exceeds their personal cloud quota. GigaSend generates standalone, point-to-point transfer links that deliver direct file downloads without touching your recipient's personal cloud quota."
+      },
+      {
+        heading: "Generate High-Speed Edge Links in 3 Simple Steps",
+        body: "Drag and drop your video files, raw photography folders, or production archives directly into GigaSend's browser dropzone. Your payload streams concurrently across Cloudflare's nearest Anycast edge nodes. Once uploaded, copy your unique download link and paste it into Slack, Microsoft Teams, WhatsApp, or an email thread. Your recipient clicks once to download at maximum line speed."
+      },
+      {
+        heading: "Lossless Bit-for-Bit Delivery with Automated Expiration",
+        body: "Unlike messaging apps and consumer drives that compress or transcode large files, GigaSend preserves full bit-level integrity with SHA-256 verification. Free transfer links remain active for 3 days with end-to-end TLS 1.3 encryption, automated disposal, and optional password protection for confidential deliverables."
+      }
     ],
     comparison: [
-      { method: "Attachment", bestFor: "Small files", limitation: "Fails for large files", gigaSendAngle: "Send a link instead" },
-      { method: "Shared folder", bestFor: "Ongoing work", limitation: "Permission management", gigaSendAngle: "Direct delivery link" },
-      { method: "GigaSend link", bestFor: "Large file handoff", limitation: "Expiration depends on plan", gigaSendAngle: "Clean link-based transfer" },
+      {
+        method: "Cloud Shared Folders (Google Drive / Dropbox)",
+        bestFor: "Ongoing live multi-user editing",
+        limitation: "Requires recipient accounts, permission gates, consumes recipient storage quota",
+        gigaSendAngle: "Standalone link, zero recipient account, zero personal storage consumption"
+      },
+      {
+        method: "Messaging Platforms (Slack / Teams / WhatsApp)",
+        bestFor: "Quick text messages and screenshots",
+        limitation: "Strict 100MB–1GB limits, aggressive video compression, unstable uploads",
+        gigaSendAngle: "Send up to 25GB free with bit-for-bit lossless media integrity"
+      },
+      {
+        method: "GigaSend Direct Link Transfer",
+        bestFor: "Delivering 1GB to 25GB+ client deliverables and production files",
+        limitation: "Links expire after 3 days on free tier (extended on Pro tiers)",
+        gigaSendAngle: "Instant browser dropzone, unthrottled edge delivery, 0 account friction"
+      }
     ],
     faqs: [
-      { question: "How do I create a download link for a large file?", answer: "Upload the file to GigaSend and send the generated download link." },
-      { question: "Can I send the link by email?", answer: "Yes. GigaSend can email the download link to your recipient." },
-      { question: "Does the recipient need an account?", answer: "No. Recipients can download from the link." },
+      {
+        question: "How do I create a download link for a large file?",
+        answer: "To create a download link for a large file with GigaSend: Drag and drop your file (up to 25GB free) into the browser dropzone, allow it to stream to the nearest Cloudflare Anycast edge node, and copy the generated link to share anywhere with zero recipient login required."
+      },
+      {
+        question: "Does the recipient need an account to download from a shared link?",
+        answer: "No, recipients do not need an account to download from a shared GigaSend link. Anyone with the URL can immediately click and download files up to 25GB at full unthrottled edge speed without entering an email or logging in."
+      },
+      {
+        question: "How can I share large files without Google Drive permissions?",
+        answer: "To share large files without Google Drive permission errors, upload directly to GigaSend. Because GigaSend creates open, direct download links rather than shared cloud folders, your recipients never encounter 'Request Access' barriers or Google login prompts."
+      },
+      {
+        question: "Are link-based file transfers secure?",
+        answer: "Yes. GigaSend protects all link-based file transfers using TLS 1.3 encryption in transit and AES-256 at rest across Cloudflare's global edge network. Links can be password-protected and expire automatically after 3 days to prevent unauthorized access."
+      }
     ],
     internalLinks: [
-      { href: "/send-large-files-by-email/", label: "send large files by email" },
-      { href: "/send-large-video-files/", label: "share large video files" },
-      { href: "/secure-large-file-transfer/", label: "secure download links" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
+      { href: "/send-large-files-by-email", label: "send large files by email" }
     ],
-    differentiation: "Focus on the clean recipient experience versus cloud-drive permission headaches.",
+    differentiation: "Direct link delivery that eliminates cloud drive permission requests and recipient login walls, providing up to 25GB free with zero account requirements."
   },
   {
     slug: "secure-large-file-transfer",
@@ -463,34 +547,76 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "fast-large-file-transfer",
     primaryKeyword: "fast large file transfer",
-    secondaryKeywords: ["upload large files fast", "send big files fast", "high speed file transfer"],
-    title: "Fast Large File Transfer | Upload and Share Big Files",
-    metaDescription: "Send large files faster with direct upload, resumable transfer support, and simple download links for recipients.",
-    h1: "Fast Large File Transfer",
-    eyebrow: "Fast file uploads",
-    intro: "Large transfers are only useful when uploads and downloads keep moving. GigaSend uses multipart upload, pause/resume controls, and Cloudflare-backed delivery.",
-    cta: "Start Fast Transfer",
+    secondaryKeywords: [
+      "upload large files fast",
+      "high speed file transfer free",
+      "fast file sharing online",
+      "send big files fast"
+    ],
+    title: "Fast Large File Transfer (Multi-Stream Edge Transfer) | GigaSend",
+    metaDescription: "Need to send massive files fast? GigaSend uses multi-stream Anycast edge acceleration to maximize your bandwidth. Transfer up to 25GB free with unthrottled line speed.",
+    h1: "Fast Large File Transfer Online",
+    eyebrow: "Line-Rate Edge Acceleration",
+    intro: "Tired of sluggish uploads and throttled transfers? GigaSend accelerates multi-gigabyte uploads by partitioning payloads into parallel binary chunks streamed directly to Cloudflare's nearest Anycast edge nodes across 335+ cities worldwide.",
+    cta: "Start Fast Transfer Free",
     sections: [
-      { heading: "What affects large file speed", body: "Upload speed depends on your connection, file size, network conditions, and the transfer method." },
-      { heading: "Multipart uploads for large files", body: "GigaSend breaks large uploads into parts, which improves reliability and makes very large transfers more manageable." },
-      { heading: "Pause and resume uploads", body: "If a connection changes or the upload needs to stop, pause/resume support helps reduce wasted progress." },
+      {
+        heading: "Why Cloud Drives Throttle Large Uploads: TCP & Sync Latency",
+        body: "Standard cloud storage providers (Google Drive, Dropbox, OneDrive) are architected for background file synchronization rather than burst line-rate speed. They throttle single-stream TCP connections to protect database indexing servers, and route uploads through distant centralized data centers. High network latency and packet loss cause TCP window collapse, throttling a 1 Gbps connection down to a crawl. GigaSend eliminates TCP collapse with multi-stream parallel HTTP/3 edge streaming."
+      },
+      {
+        heading: "Anycast Edge Acceleration Across 335+ Global POPs",
+        body: "Instead of routing your files across oceans to a centralized server, GigaSend connects your browser directly to the nearest Cloudflare Anycast point of presence (sub-10ms latency). Parallel chunking saturates your available ISP uplink bandwidth, allowing a 10GB payload to upload in under 90 seconds on gigabit fiber, and a 25GB file in under 4 minutes."
+      },
+      {
+        heading: "Unthrottled Recipient Downloads with Zero Client Software",
+        body: "Enterprise UDP accelerators like Aspera and Signiant require complex firewall configurations, desktop client software, and expensive per-gigabyte contracts ($0.25/GB). GigaSend delivers full gigabit line speeds natively within modern web browsers via Web Streams API and HTTP/3 QUIC—100% free up to 25GB with zero software installations."
+      }
     ],
     comparison: [
-      { method: "Browser attachment", bestFor: "Small files", limitation: "Not built for huge files", gigaSendAngle: "Multipart upload flow" },
-      { method: "Cloud sync", bestFor: "Background syncing", limitation: "Can be hard to track delivery", gigaSendAngle: "Explicit transfer status" },
-      { method: "GigaSend", bestFor: "Fast large file handoff", limitation: "Speed still depends on sender connection", gigaSendAngle: "Built around big transfer reliability" },
+      {
+        method: "Consumer Cloud Drives (Google Drive / Dropbox)",
+        bestFor: "Background syncing of text documents",
+        limitation: "Single-stream throttling, distant centralized routing, forced recipient login",
+        gigaSendAngle: "Multi-stream edge streaming, 0 background throttling, 0 login walls"
+      },
+      {
+        method: "Enterprise UDP Accelerators (IBM Aspera / Signiant)",
+        bestFor: "Hollywood studio transfers with six-figure budgets",
+        limitation: "Mandatory desktop client, complex firewall setup, steep per-GB pricing",
+        gigaSendAngle: "100% browser-native (no plugins), zero config, free up to 25GB"
+      },
+      {
+        method: "GigaSend Multi-Stream Transfer",
+        bestFor: "Sending 10GB–25GB+ videos, archives, and production files fast",
+        limitation: "Speed bounded by user's physical ISP uplink bandwidth",
+        gigaSendAngle: "Full gigabit uplink saturation, 335+ global edge nodes, 100% free"
+      }
     ],
     faqs: [
-      { question: "How can I send large files faster?", answer: "Use a dedicated transfer workflow, keep your browser open, and use a stable connection. GigaSend handles multipart upload behind the scenes." },
-      { question: "Can I pause and resume uploads?", answer: "Yes. GigaSend supports pausing and resuming large uploads." },
-      { question: "What affects download speed?", answer: "Recipient download speed depends on their connection and network route, while GigaSend uses Cloudflare-backed infrastructure for delivery." },
+      {
+        question: "What is the fastest way to send large files over the internet?",
+        answer: "The fastest way to send large files over the internet is using an edge-accelerated, multi-stream transfer service like GigaSend. Instead of routing traffic through a single centralized server, GigaSend parallel-chunks uploads and streams them directly into Cloudflare's nearest edge data center across 335+ locations, fully saturating high-speed gigabit uplink connections with zero software installation."
+      },
+      {
+        question: "Why does uploading large files take so long on cloud drives?",
+        answer: "Google Drive and Dropbox are designed for background file synchronization rather than burst line-rate delivery. They route data to centralized cloud storage hubs, throttle single-stream TCP connections to protect server resources, and execute continuous indexing. GigaSend eliminates sync throttling by multi-streaming binary chunks directly into local Anycast edge nodes."
+      },
+      {
+        question: "How fast can GigaSend upload a 10GB or 25GB file?",
+        answer: "On a standard 1 Gbps fiber uplink, a 10GB file uploads to GigaSend in approximately 85 to 95 seconds, and a 25GB file uploads in under 4 minutes. On a 100 Mbps broadband connection, 10GB takes roughly 14 minutes. GigaSend saturates available uplink bandwidth by streaming parallel chunks directly to Cloudflare's nearest edge data center."
+      },
+      {
+        question: "Does browser-based file transfer reduce upload speed?",
+        answer: "No. Modern web browsers support Web Streams API and HTTP/3 over QUIC, allowing browser-based transfers to match the throughput of desktop clients like Aspera or Signiant. GigaSend leverages chunked client-side streaming and Web Workers to bypass single-threaded browser bottlenecks and achieve full unthrottled line speed."
+      }
     ],
     internalLinks: [
-      { href: "/send-large-video-files/", label: "fast video file transfer" },
-      { href: "/transfer-large-files-online/", label: "transfer large files online" },
-      { href: "/secure-large-file-transfer/", label: "secure and fast transfer" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" }
     ],
-    differentiation: "Use real product features: multipart upload, pause/resume, and Cloudflare/R2 architecture.",
+    differentiation: "Multi-stream Anycast edge acceleration saturating gigabit connections natively in the browser without desktop software or per-GB enterprise fees."
   },
   {
     slug: "dropbox-transfer-alternative",
@@ -1809,75 +1935,70 @@ export const seoLandingPages: SeoLandingPage[] = [
       "wetransfer alternative without limit",
       "send files larger than 2gb wetransfer",
     ],
-    title: "Best Free WeTransfer Alternative (Send up to 10GB Free) | GigaSend",
-    metaDescription: "Looking for the best WeTransfer alternative? GigaSend gives you 10GB free (5x WeTransfer's 2GB cap) with zero forced account creation and 335+ edge nodes.",
+    title: "Best Free WeTransfer Alternative (Send up to 25GB Free) | GigaSend",
+    metaDescription: "Looking for the best WeTransfer alternative? GigaSend gives you 25GB free (12.5x WeTransfer's 2GB cap) with zero forced account creation, no ads, and 335+ edge nodes.",
     h1: "The Best Free WeTransfer Alternative",
     eyebrow: "WeTransfer Alternative",
-    intro: "Tired of hitting WeTransfer's restrictive 2GB limit or expensive monthly subscription fees? GigaSend gives you 10GB free transfers with zero account required, 3-day secure retention, and enterprise-grade speed.",
-    cta: "Send Up to 10GB Free",
+    intro: "Tired of hitting WeTransfer's restrictive 2GB limit, full-screen ads, or forced $12/month subscriptions? GigaSend gives you an instant 25GB free tier with zero account required, 3-day secure retention, and unthrottled line-rate edge delivery.",
+    cta: "Send Up to 25GB Free",
     sections: [
       {
-        heading: "5x more free capacity: 10GB vs 2GB",
-        body: "WeTransfer cuts off free transfers at 2GB and forces you into a $12/month subscription. GigaSend provides 10GB completely free with no credit card required.",
+        heading: "12.5x More Free Capacity: 25GB vs 2GB",
+        body: "WeTransfer cuts off free transfers at 2GB and forces you into a $12/month ($144/year) subscription. GigaSend provides 25GB completely free with zero credit card required, zero trial expiration, and zero paywalls.",
       },
       {
-        heading: "Zero recipient sign-up or friction",
-        body: "Your recipients get a direct download link. They don't need to log in, create an account, or download any desktop app or browser extension.",
+        heading: "Zero Recipient Sign-Up or Friction",
+        body: "Your recipients get a direct download link. They don't need to log in, create an account, or download any desktop app or browser extension. One click delivers unthrottled line-speed downloads directly from the nearest edge node.",
       },
       {
-        heading: "Built for creators, agencies, and large files",
-        body: "Need to send more than 10GB? GigaSend easily scales to 30GB, 100GB, and 250GB edge transfers with pay-as-you-go and pro tiers that cost a fraction of traditional tools.",
+        heading: "Ad-Free Delivery Powered by Cloudflare's 335+ Edge POPs",
+        body: "Unlike WeTransfer which injects third-party ads and video commercial overlays onto download pages, GigaSend delivers a pristine, professional delivery interface. Backed by Cloudflare's Anycast network across 335+ cities worldwide, your files arrive at line speed without throttling.",
       },
     ],
     comparison: [
       {
         method: "WeTransfer Free",
         bestFor: "Small files under 2GB",
-        limitation: "Hard 2GB ceiling blocks most video and production files",
-        gigaSendAngle: "10GB free (5x capacity)",
+        limitation: "Hard 2GB ceiling, full-screen commercial ads, 3-day link expiration",
+        gigaSendAngle: "25GB free tier (12.5x larger), 0 ads, clean professional download page",
       },
       {
         method: "WeTransfer Pro ($12/mo)",
         bestFor: "Paid subscribers",
-        limitation: "Requires expensive monthly subscription even for occasional sends",
-        gigaSendAngle: "Pay only for what you send, or use 10GB free",
+        limitation: "Requires $144/year recurring subscription, mandatory account creation",
+        gigaSendAngle: "Free up to 25GB with zero subscriptions, credit cards, or accounts",
       },
       {
-        method: "GigaSend",
-        bestFor: "Fast, generous file transfer",
-        limitation: "3-day retention on free tier",
-        gigaSendAngle: "Direct browser upload, edge acceleration, zero login required",
+        method: "GigaSend Free Transfer",
+        bestFor: "Sending 2GB to 25GB video exports, photo sessions, and archives",
+        limitation: "Free storage expires after 3 days (extended storage on Pro tiers)",
+        gigaSendAngle: "Direct browser dropzone, unthrottled edge delivery, 0 recipient login",
       },
     ],
     faqs: [
       {
         question: "Why is GigaSend the best alternative to WeTransfer?",
-        answer: "GigaSend gives you up to 10GB of free transfer capacity (5 times WeTransfer's 2GB limit), requires no account registration, and routes uploads through Cloudflare's global edge network of 335+ data centers for maximum speed.",
+        answer: "GigaSend gives you up to 25GB of free transfer capacity (12.5 times WeTransfer's 2GB limit), requires zero account registration for either sender or recipient, and routes uploads through Cloudflare's global edge network of 335+ data centers for unthrottled line-speed delivery.",
       },
       {
         question: "How can I send files over 2GB without paying WeTransfer?",
-        answer: "You can send files over 2GB for free using GigaSend. It supports files up to 10GB on the free tier with zero account registration, credit cards, or trial periods. Simply drag and drop your file into the dropzone above.",
+        answer: "You can send files over 2GB for free using GigaSend. It supports payloads up to 25GB on the free tier with zero account registration, credit cards, or trial periods. Simply drag and drop your file into the browser dropzone to generate a direct download link.",
       },
       {
         question: "Do recipients need an account to download files?",
-        answer: "No. Anyone with the download link can immediately download the file from any browser with zero forced logins, apps, or subscription prompts.",
+        answer: "No. Anyone with the download link can immediately download the file from any browser with zero forced logins, apps, or subscription prompts. Download speeds are unthrottled and pull directly from the nearest edge cache.",
       },
       {
         question: "Is GigaSend completely free?",
-        answer: "Yes, GigaSend provides a 100% free tier supporting transfers up to 10GB with 3-day retention. Paid plans and pay-as-you-go options are only required for enterprise payloads up to 250GB+ or extended storage.",
-      },
-      {
-        question: "What is the maximum file size GigaSend can send?",
-        answer: "GigaSend supports free transfers up to 10GB, and high-capacity edge transfers up to 250GB+ for enterprise and creative teams.",
+        answer: "Yes, GigaSend provides a 100% free tier supporting transfers up to 25GB with 3-day retention. Paid plans and pay-as-you-go options are only required for enterprise payloads up to 250GB+ or extended storage.",
       },
     ],
     internalLinks: [
       { href: "/send-large-files-free", label: "send large files free" },
       { href: "/send-10gb-file-free", label: "send 10GB file free" },
-      { href: "/transfer-large-files-online", label: "transfer large files online" },
       { href: "/bypass/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
     ],
-    differentiation: "Direct replacement for WeTransfer with 5x free storage and zero mandatory account creation.",
+    differentiation: "Direct replacement for WeTransfer with 12.5x free capacity (25GB vs 2GB), zero display ads, and zero forced account registration.",
   },
   {
     slug: "wetransfer-2gb-limit-bypass",
