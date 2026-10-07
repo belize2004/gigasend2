@@ -799,63 +799,67 @@ export const seoLandingPages: SeoLandingPage[] = [
     slug: "how-to-send-maya-mb-files",
     primaryKeyword: "how to send maya mb files",
     secondaryKeywords: ["send maya project files", "transfer maya .mb files", "send large 3d animation files"],
-    title: "Send Large Maya .MB Project Files Securely | GigaSend 3D Transfer",
-    metaDescription: "Transfer Autodesk Maya scene files (.mb / .ma), texture caches, and Alembic sequences to render farms or clients without corrupted archives. Try free.",
-    h1: "Send Large Maya .MB Project Files",
-    eyebrow: "3D Animation & VFX Transfer",
+    title: "How to Send Autodesk Maya (.mb) Scenes & Textures | GigaSend",
+    metaDescription: "Transfer Maya scenes without broken reference paths. Use Maya's Archive Scene tool to bundle sourceimages, then deliver up to 25GB free via GigaSend.",
+    h1: "How to Send Autodesk Maya (.mb / .ma) Project Scenes",
+    eyebrow: "3D ANIMATION & VISUAL EFFECTS",
     intro: "Autodesk Maya scenes with linked textures, Arnold caches, and Alembic references easily balloon to tens of gigabytes. Send complete scene archives directly.",
-    cta: "Send Maya Scene Files",
+    cta: "Send Maya Scene Files Free",
     sections: [
-      { heading: "Preserve project hierarchies and texture links", body: "Send zipped Maya project directories containing sourceimages, scenes, and cache folders without corrupted file headers." },
-      { heading: "High-speed render farm and client delivery", body: "Deliver Maya binary (.mb) and ASCII (.ma) projects to overseas studios or external render farms at edge-accelerated speeds." },
-      { heading: "Secure intellectual property protection", body: "Protect proprietary 3D rigs, models, and animations with end-to-end encryption and expiring access credentials." },
+      { heading: "The Fragility of Maya Project References", body: "Absolute directory paths cause missing reference dialogs and untextured geometry on recipient workstations. Maya scenes require strict relative workspace structuring to resolve file textures properly." },
+      { heading: "The 'Archive Scene' Workflow for Missing Textures", body: "Open Maya and execute File > Archive Scene to automatically collect scene files (.mb/.ma), Arnold textures, sourceimages, and external references into a single consolidated zip archive." },
+      { heading: "High-Throughput Studio Ingestion", body: "Move multi-gigabyte character rigs, Alembic caches, and Arnold shader libraries across 335+ Anycast edge nodes. Supervisors download at line speed with zero login walls." },
     ],
     comparison: [
-      { method: "FTP / SFTP", bestFor: "In-house servers", limitation: "Slow, complex setup for clients", gigaSendAngle: "One-click browser transfer" },
-      { method: "WeTransfer", bestFor: "Small assets", limitation: "Fails on large multi-gigabyte cache sets", gigaSendAngle: "High-capacity edge transfer" },
-      { method: "GigaSend", bestFor: "Maya 3D & VFX production", limitation: "Requires initial zip for directory structures", gigaSendAngle: "Line-rate upload and download" },
+      { method: "WeTransfer Free", bestFor: "Small assets", limitation: "Capped at 2GB, failing on heavy Maya texture and animation caches", gigaSendAngle: "25GB free capacity without paywalls" },
+      { method: "Google Drive", bestFor: "Office documents", limitation: "File-locking issues during scene referenced saves and shared quota traps", gigaSendAngle: "Dedicated edge delivery with zero shared quota hits" },
+      { method: "GigaSend", bestFor: "Maya 3D & VFX production", limitation: "Requires initial zip for directory structures", gigaSendAngle: "Unthrottled line-rate delivery up to 25GB free" },
     ],
     faqs: [
-      { question: "How do I send a large Maya scene with textures?", answer: "Archive your Maya project directory (including the workspace.mel file) into a zip or tar archive and upload directly to GigaSend." },
-      { question: "Can I transfer 50GB+ 3D cache files?", answer: "Yes. GigaSend supports transfers up to 5TB for studio and enterprise workflows." },
+      { question: "How do I package a Maya file to send to someone?", answer: "Open Maya and select File > Archive Scene; Maya will generate a unified zip file containing your scene and all linked assets." },
+      { question: "What is the difference between .ma and .mb files for transfer?", answer: "Maya ASCII (.ma) files are human-readable text files that can be edited to repair broken paths, while Maya Binary (.mb) files are smaller and faster to open." },
+      { question: "How do I include Arnold shader textures in my Maya transfer?", answer: "Ensure all image maps reside in your project's sourceimages directory, or run File > Archive Scene so Maya bundles them automatically." },
+      { question: "Can I send a 20GB Maya VFX project for free?", answer: "Yes, GigaSend's free tier supports transfers up to 25GB with zero registration." },
     ],
     internalLinks: [
-      { href: "/send-30gb-file", label: "send 30GB file" },
-      { href: "/send-large-files-free", label: "free large file transfer" },
-      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
+      { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
+      { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
+      { href: "/transfer-openexr-files", label: "transfer OpenEXR files" },
     ],
-    differentiation: "Addresses Google Rank #5.6 query with specific 3D workflow guidance.",
+    differentiation: "Technical 3D VFX pipeline packaging standard with 25GB free edge transfer.",
   },
   {
     slug: "transfer-davinci-resolve-project",
     primaryKeyword: "transfer davinci resolve project",
     secondaryKeywords: ["send davinci resolve project", "share davinci resolve drp", "transfer davinci resolve archive"],
-    title: "Send DaVinci Resolve Projects & DRP Archives | GigaSend",
-    metaDescription: "Transfer DaVinci Resolve timelines, DRP files, and 4K ProRes camera masters directly to clients. Zero compression, line-rate upload speeds.",
-    h1: "Transfer DaVinci Resolve Project Archives",
-    eyebrow: "Post-Production & Color Grading",
+    title: "Transfer DaVinci Resolve Projects with Media (.dra) | GigaSend",
+    metaDescription: "Transfer DaVinci Resolve projects without unlinking media. Export a DaVinci Resolve Project Archive (.dra) and send up to 25GB free via GigaSend.",
+    h1: "How to Transfer DaVinci Resolve Projects with Media (.dra)",
+    eyebrow: "POST-PRODUCTION & COLOR GRADING",
     intro: "Delivering DaVinci Resolve project archives (.dra), project files (.drp), and uncompressed ProRes/DNxHR masters without bandwidth throttling.",
-    cta: "Transfer Resolve Project",
+    cta: "Transfer Resolve Project Free",
     sections: [
-      { heading: "Send .DRP and .DRA packages intact", body: "Transfer standalone project files or complete DaVinci Resolve Archives (.dra) with media pool files and proxy caches." },
-      { heading: "Bit-exact color accuracy", body: "Color grading workflows require zero-loss delivery. GigaSend transfers your raw media with cryptographic integrity verification." },
-      { heading: "Avoid cloud subscription surcharges", body: "Skip expensive media review cloud markups and deliver finished masters directly to directors and post supervisors." },
+      { heading: "The .drp vs .dra Confusion: Media Offline Errors", body: "Exporting a standalone .drp file sends only the project database without media files, causing 'Media Offline' red screens on client systems. Project Archives (.dra) bundle everything together." },
+      { heading: "Exporting a Clean Project Archive (.dra)", body: "Open Project Manager, right-click your project, and choose Export Project Archive (.dra). This bundles the project file, media pool clips, proxy media, and render caches into a self-contained package." },
+      { heading: "Unthrottled Line-Rate Color Delivery", body: "Deliver 20GB to 50GB project archives with zero color profile shifting, gamma degradation, or metadata loss. Remote colorists download at edge line speed." },
     ],
     comparison: [
-      { method: "Frame.io", bestFor: "Review comments", limitation: "Expensive storage tiers for RAW media", gigaSendAngle: "Zero-egress raw file handoff" },
-      { method: "Google Drive", bestFor: "Office files", limitation: "Throttles video uploads and preview generation", gigaSendAngle: "Pure line-rate data transfer" },
-      { method: "GigaSend", bestFor: "DaVinci Resolve pipelines", limitation: "Focuses on delivery rather than timeline commenting", gigaSendAngle: "Fastest path from editor to client" },
+      { method: "Exporting .drp Only", bestFor: "Identical duplicate media environments", limitation: "Arrives with 100% offline media ('Media Offline' red screens)", gigaSendAngle: "Preserves complete .dra archive integrity" },
+      { method: "Sync Storage (Dropbox/Drive)", bestFor: "Document backups", limitation: "Changes directory paths, requiring tedious manual timeline relinking", gigaSendAngle: "Streams bit-for-bit archives with intact hierarchies" },
+      { method: "GigaSend", bestFor: "DaVinci Resolve pipelines", limitation: "Focuses on delivery rather than timeline commenting", gigaSendAngle: "Transfers intact .dra archives up to 25GB free" },
     ],
     faqs: [
-      { question: "What is the best way to send a DaVinci Resolve project to another editor?", answer: "Export a Project Archive (.dra) to bundle all media, or export a .drp file if the recipient already has the source camera files. Upload to GigaSend and share the link." },
-      { question: "Can I send 100GB+ camera masters with the project?", answer: "Yes. GigaSend handles multi-hundred gigabyte uploads smoothly." },
+      { question: "What is the difference between a .drp and a .dra project in DaVinci Resolve?", answer: "A .drp is only the project database without media; a .dra is a Project Archive that bundles the project file along with all referenced video and audio files." },
+      { question: "How do I export a DaVinci Resolve project with all footage included?", answer: "Open the Project Manager, right-click your project, and select Export Project Archive (.dra)." },
+      { question: "How do I avoid Media Offline errors when transferring a Resolve project?", answer: "Always export a .dra Project Archive so that Resolve preserves relative media paths and relinks footage automatically." },
+      { question: "Can I send a 20GB DaVinci Resolve project archive for free?", answer: "Yes, GigaSend's free tier accommodates up to 25GB per transfer with zero sign-up." },
     ],
     internalLinks: [
-      { href: "/send-30gb-file", label: "send 30GB file" },
+      { href: "/transfer-premiere-pro-project", label: "transfer Premiere Pro project" },
+      { href: "/send-braw-video-files", label: "send BRAW video files" },
       { href: "/send-large-video-files", label: "send large video files" },
-      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
     ],
-    differentiation: "Addresses Google Rank #8.6 query with exact post-production terminology.",
+    differentiation: "Addresses color grading workflows with exact .dra vs .drp post-production standard.",
   },
   {
     slug: "send-2tb-file",
@@ -925,51 +929,46 @@ export const seoLandingPages: SeoLandingPage[] = [
     slug: "how-to-transfer-unreal-engine-project",
     primaryKeyword: "how to transfer unreal engine project",
     secondaryKeywords: ["transfer unreal engine project", "send unreal engine project", "transfer ue5 uproject", "share unreal engine build"],
-    title: "How to Transfer Unreal Engine Projects (.uproject & Builds) | GigaSend",
-    metaDescription: "Learn how to transfer Unreal Engine 5 projects, Cooked builds, and .uproject files quickly. Follow our 3-step packaging workflow and send up to 250GB over edge networks.",
-    h1: "How to Transfer Unreal Engine Projects & Large Builds",
-    eyebrow: "Game Development & Realtime 3D",
-    intro: "UE5 projects frequently exceed 50GB to 200GB with Nanite and Lumen textures. GigaSend provides rapid chunked multipart uploads and zero-wait download links for developers, QA, and technical artists.",
-    cta: "Send Unreal Project Now",
+    title: "How to Transfer Unreal Engine Projects (Send up to 25GB Free) | GigaSend",
+    metaDescription: "Learn how to package and transfer Unreal Engine (UE5) projects. Clean Saved and Intermediate folders to reduce size by 70%, then send up to 25GB free.",
+    h1: "How to Transfer Unreal Engine Projects (Clean Packaging & Fast Delivery)",
+    eyebrow: "GAME DEVELOPMENT & VIRTUAL PRODUCTION",
+    intro: "Unreal Engine 5 projects frequently exceed 50GB to 200GB with Nanite and Lumen textures. GigaSend provides rapid chunked multipart uploads and zero-wait download links for developers, QA, and technical artists.",
+    cta: "Send Unreal Project Free",
     sections: [
-      { heading: "Step 1: Clean build cache folders before packaging", body: "To save dozens of gigabytes, delete or exclude the Intermediate, Binaries, and Saved folders. The recipient's engine will regenerate these automatically when opening the .uproject file." },
-      { heading: "Step 2: Zip the root project and Content folder", body: "Zip the root folder containing the .uproject file, Config/, and Content/ directories. A single unified .zip archive prevents loose file sync corruption." },
-      { heading: "Step 3: Upload via GigaSend and share direct download link", body: "Drop your archive into the GigaSend upload box above. Files stream directly to Cloudflare edge storage and generate an immediate download link without forcing the recipient into Perforce or Git LFS access." },
+      { heading: "The Bloated Project Dilemma: Cleaning Temporary Caches", body: "Uncleaned UE5 projects balloon to 80GB with temporary cache files. Deleting machine-specific directories before archiving prevents massive upload bloat without losing any project assets." },
+      { heading: "The Clean Packaging Workflow: Preserving Project Hierarchy", body: "Safely delete Saved, Intermediate, and DerivedDataCache to shrink projects by up to 70%. Zip the root directory containing the .uproject file, Config/, and Content/ folders for flawless handoffs." },
+      { heading: "Unthrottled Multi-Stream Delivery: Saturating Gigabit Uplinks", body: "Send cleaned 15GB to 50GB projects across 335+ edge POPs to remote collaborators. Recipients download at line speed with zero Perforce, Git LFS, or account login gates." },
     ],
     comparison: [
-      { method: "Git LFS", bestFor: "Code repositories", limitation: "Bandwidth overage costs and slow large binary clones", gigaSendAngle: "Instant one-off download link" },
-      { method: "Google Drive", bestFor: "Documents", limitation: "Fails on 50GB+ zip extraction and downloads", gigaSendAngle: "Direct chunked edge transfer" },
-      { method: "GigaSend", bestFor: "Unreal Engine project handoffs", limitation: "3-day retention on free transfers", gigaSendAngle: "High-throughput delivery up to 250GB" },
+      { method: "Git LFS", bestFor: "Code repositories", limitation: "Severe bandwidth caps, steep per-gigabyte overage billing, complex merge conflicts", gigaSendAngle: "Instant one-off download link with zero repo bloat" },
+      { method: "Google Drive / Dropbox", bestFor: "Office documents", limitation: "Corrupts project symlinks, locks files during shader compilation", gigaSendAngle: "Dedicated edge delivery with zero file locking" },
+      { method: "GigaSend", bestFor: "Unreal Engine project handoffs", limitation: "Requires initial zip for directory structures", gigaSendAngle: "Zero file-lock conflicts, 25GB free tier, unthrottled line-rate delivery" },
     ],
     faqs: [
       {
-        question: "Which Unreal Engine folders should I delete before sending?",
-        answer: "You can safely delete the DerivedDataCache, Intermediate, Saved, Binaries, and .vs folders before transferring an Unreal Engine project. Only the Content/ and Config/ folders, plus the .uproject file (and Source/ for C++ projects), are strictly required. The recipient's engine will automatically regenerate shaders and cache files upon first launch."
+        question: "What folders should I delete before transferring an Unreal Engine project?",
+        answer: "Safely delete Saved, Intermediate, and DerivedDataCache; UE5 automatically regenerates them on first launch, reducing archive size by up to 70%."
       },
       {
-        question: "How to share an Unreal Engine 5 project with another developer?",
-        answer: "To share an Unreal Engine project with another developer without Git LFS or Perforce setup, clean the temporary cache folders, compress the project root into a .zip archive, and upload it to GigaSend. The recipient can download the project at line speed with no account required, extract it, and double-click the .uproject file to open it immediately."
+        question: "How do I package an Unreal Engine project to send to someone?",
+        answer: "Clean temporary cache directories, zip the root folder containing the .uproject file and Content/ directory, and upload to GigaSend."
       },
       {
-        question: "Why is my Unreal Engine project so big?",
-        answer: "Unreal Engine projects balloon in size primarily due to the DerivedDataCache (DDC) and Intermediate directories, which store pre-compiled shaders, cooked asset caches, and build artifacts. These machine-specific folders frequently consume 20GB to 80GB of disk space. Deleting them before archiving reduces project size by up to 80% without losing any project data."
+        question: "Can I send an Unreal Engine project over 25GB?",
+        answer: "Yes, GigaSend supports up to 25GB completely free, and Pro/Studio accounts handle up to 250GB."
       },
       {
-        question: "Can I send an Unreal Engine project via Google Drive or Dropbox?",
-        answer: "While possible, cloud sync tools often corrupt active projects due to background file locking on database caches, and they quickly exceed free storage quotas. Dedicated edge transfer with GigaSend ensures clean, archived delivery without sync conflicts."
-      },
-      {
-        question: "Can I transfer 100GB+ Unreal builds with GigaSend?",
-        answer: "Yes. GigaSend handles 100GB to 250GB game builds, uncompressed pak files, and project archives with multi-threaded edge streaming and zero file truncation."
+        question: "Will deleting the Intermediate folder break my project?",
+        answer: "No, the Intermediate folder only holds temporary build artifacts and object files; the engine rebuilds it automatically on startup."
       },
     ],
     internalLinks: [
-      { href: "/send-30gb-file", label: "send 30GB file" },
-      { href: "/send-100gb-file", label: "send 100GB file" },
-      { href: "/send-2tb-file", label: "send 2TB file" },
-      { href: "/how-to-send-maya-mb-files", label: "send Maya MB files" },
+      { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
+      { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
+      { href: "/send-large-files-free", label: "free large file transfer" },
     ],
-    differentiation: "Step-by-step practical developer guide targeted directly at GSC query 'how to transfer unreal engine project'.",
+    differentiation: "Step-by-step practical game developer packaging standard with 25GB free tier.",
   },
   {
     slug: "transfer-openexr-files",
@@ -1300,375 +1299,415 @@ export const seoLandingPages: SeoLandingPage[] = [
   "differentiation": "Direct station clearance and commercial ad delivery solution."
 },
   {
-  "slug": "transfer-premiere-pro-project",
-  "primaryKeyword": "transfer premiere pro project",
-  "secondaryKeywords": [
-    "send premiere pro prproj",
-    "share premiere project with media",
-    "collaborate premiere pro online"
-  ],
-  "title": "Send Adobe Premiere Pro (.PRPROJ) Projects & Media | Gigasend",
-  "metaDescription": "Transfer Adobe Premiere Pro project files (.prproj) packaged with 4K footage, graphics, audio stems, and LUTs to assistant editors and clients.",
-  "h1": "Send Adobe Premiere Pro Projects & Media",
-  "eyebrow": "Video Editorial & Collaboration",
-  "intro": "Handing off Premiere Pro project archives requires transferring dozens of gigabytes of source footage, proxies, and project files. Gigasend makes project handoffs simple.",
-  "cta": "Transfer Premiere Project",
-  "sections": [
-    {
-      "heading": "Send Project Manager consolidated archives",
-      "body": "Package your timeline using Premiere's Project Manager and upload the consolidated media folder directly to Gigasend."
-    },
-    {
-      "heading": "Keep media relinked seamlessly",
-      "body": "By transferring the full media package in a single delivery, assistant editors and colorists relink files on opening with zero offline media errors."
-    },
-    {
-      "heading": "Send lightweight proxy packages",
-      "body": "Quickly distribute ProRes Proxy or CineForm proxy files to remote editors working on laptops anywhere in the world."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Creative Cloud Sync",
-      "bestFor": "Small assets",
-      "limitation": "Strict storage quotas and slow background syncing",
-      "gigaSendAngle": "One-click high-speed link delivery"
-    },
-    {
-      "method": "Google Drive",
-      "bestFor": "Documents",
-      "limitation": "Zips large folder structures and corrupts deep nested paths",
-      "gigaSendAngle": "Direct package streaming"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Premiere project packages",
-      "limitation": "Archiving project recommended",
-      "gigaSendAngle": "Accelerated upload speeds"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Should I include render cache and scratch disks?",
-      "answer": "No. Exclude Premiere's Media Cache and Preview Files before sending to reduce upload time significantly; your recipient can regenerate them."
-    },
-    {
-      "question": "How large of a Premiere project can I send?",
-      "answer": "You can send up to 10GB completely free, or up to 80GB to 2TB with Gigasend Pro and Enterprise plans."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    },
-    {
-      "href": "/transfer-davinci-resolve-project",
-      "label": "transfer DaVinci Resolve project"
-    },
-    {
-      "href": "/send-30gb-file",
-      "label": "send 30GB file"
-    }
-  ],
-  "differentiation": "Optimized for freelance video editors and agency post-production pipelines."
-},
+    slug: "transfer-premiere-pro-project",
+    primaryKeyword: "transfer premiere pro project",
+    secondaryKeywords: [
+      "send premiere pro prproj",
+      "share premiere project with media",
+      "collaborate premiere pro online"
+    ],
+    title: "Transfer Adobe Premiere Pro Projects & Media | GigaSend",
+    metaDescription: "Transfer Premiere Pro projects without broken media links. Consolidate footage using Project Manager and deliver up to 25GB free via GigaSend.",
+    h1: "How to Transfer Adobe Premiere Pro Projects with Media",
+    eyebrow: "VIDEO EDITING & CONSOLIDATION",
+    intro: "Handing off Premiere Pro project archives requires transferring dozens of gigabytes of source footage, proxies, and project files. GigaSend makes project handoffs simple.",
+    cta: "Transfer Premiere Project Free",
+    sections: [
+      {
+        heading: "The Broken Media Relinking Nightmare",
+        body: "Standalone .prproj files trigger dozens of 'Locate File' prompts when opened on external computers because media files reside on different drive paths. Consolidated packaging is essential."
+      },
+      {
+        heading: "Using the Project Manager Consolidation Engine",
+        body: "Execute File > Project Manager > Collect Files and Copy to New Location. Check 'Exclude Unused Clips' to omit unedited b-roll and dramatically shrink transfer payload size."
+      },
+      {
+        heading: "Fast Line-Rate Editorial Delivery",
+        body: "Deliver 10GB to 25GB consolidated documentary or commercial cuts in minutes across 335+ edge POPs. Share direct download links without recipient login barriers."
+      }
+    ],
+    comparison: [
+      {
+        method: "Sending .prproj by Email",
+        bestFor: "Text edits only",
+        limitation: "Arrives with 100% missing video assets and broken file links",
+        gigaSendAngle: "Delivers complete consolidated archives intact"
+      },
+      {
+        method: "Unorganized Cloud Sync",
+        bestFor: "Casual folder sharing",
+        limitation: "Media scattered across desktop, downloads, and external drives fails to link",
+        gigaSendAngle: "Preserves unified project directory structure"
+      },
+      {
+        method: "GigaSend Consolidated Delivery",
+        bestFor: "Premiere project handoffs",
+        limitation: "Requires initial Project Manager consolidation",
+        gigaSendAngle: "Clean consolidated folder uploaded as a unit, delivers up to 25GB free"
+      }
+    ],
+    faqs: [
+      {
+        question: "How do I send a Premiere Pro project with all the video files?",
+        answer: "Use File > Project Manager, select Collect Files and Copy to New Location, and zip the resulting folder for upload to GigaSend."
+      },
+      {
+        question: "Why does Premiere ask to 'Locate File' when opening a transferred project?",
+        answer: "Premiere references absolute directory paths; if media was not consolidated, the links break on new computers."
+      },
+      {
+        question: "Can I exclude unused clips when transferring a Premiere project to reduce file size?",
+        answer: "Yes, in Project Manager, check 'Exclude Unused Clips' to omit scrap takes and shrink upload size."
+      },
+      {
+        question: "What is the maximum Premiere project size I can send for free?",
+        answer: "GigaSend provides a 25GB free tier with unthrottled line-rate speeds and zero account requirements."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/transfer-davinci-resolve-project",
+        label: "transfer DaVinci Resolve project"
+      },
+      {
+        href: "/share-final-cut-pro-fcpbundle",
+        label: "share Final Cut Pro fcpbundle"
+      },
+      {
+        href: "/send-large-video-files",
+        label: "send large video files"
+      }
+    ],
+    differentiation: "Optimized for freelance video editors and agency post-production pipelines with 25GB free tier."
+  },
   {
-  "slug": "share-final-cut-pro-fcpbundle",
-  "primaryKeyword": "share final cut pro fcpbundle",
-  "secondaryKeywords": [
-    "send fcpbundle library",
-    "transfer final cut pro library",
-    "send fcp project to editor"
-  ],
-  "title": "Send Final Cut Pro Libraries (.fcpbundle) Online | Gigasend",
-  "metaDescription": "Transfer massive Apple Final Cut Pro X libraries (.fcpbundle) with original media and render caches to remote editors without upload caps.",
-  "h1": "Send Final Cut Pro Libraries (.fcpbundle)",
-  "eyebrow": "Apple Video Post-Production",
-  "intro": "Final Cut Pro bundles all project timelines, optimized media, and render files into giant .fcpbundle packages. Gigasend allows creators to send complete libraries online.",
-  "cta": "Send FCPX Library",
-  "sections": [
-    {
-      "heading": "Handle macOS package files without corruption",
-      "body": ".fcpbundle files are macOS package directories. Gigasend supports direct zip uploads so library file permissions and internal databases remain pristine."
-    },
-    {
-      "heading": "Delete generated render files for faster transfers",
-      "body": "Use FCP's 'Delete Generated Library Files' feature to strip render files and drop library size from 120GB to 20GB before fast transfer."
-    },
-    {
-      "heading": "Direct client review link generation",
-      "body": "Send the final ProRes master or working library directly to clients with tracking alerts when they download."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "iCloud Drive",
-      "bestFor": "Photos & notes",
-      "limitation": "Extremely slow sync speeds and package corruption risks",
-      "gigaSendAngle": "Dedicated direct edge pipe"
-    },
-    {
-      "method": "WeTransfer",
-      "bestFor": "Casual files",
-      "limitation": "2GB cap blocks even stripped FCPX libraries",
-      "gigaSendAngle": "High-capacity pro bandwidth"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Final Cut Pro libraries",
-      "limitation": "Zip archive recommended",
-      "gigaSendAngle": "Zero-egress delivery"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do I need to zip an .fcpbundle before uploading?",
-      "answer": "Yes. Compressing the .fcpbundle package into a .zip ensures browsers handle the macOS bundle directory as a single unified file."
-    },
-    {
-      "question": "Can the recipient open the library on Mac?",
-      "answer": "Yes. Once downloaded and unzipped, the recipient double-clicks the .fcpbundle to open the project in Final Cut Pro instantly."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/transfer-premiere-pro-project",
-      "label": "transfer Premiere Pro project"
-    },
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    },
-    {
-      "href": "/send-50gb-file",
-      "label": "send 50GB file"
-    }
-  ],
-  "differentiation": "Mac-optimized workflow for YouTube creators and documentary filmmakers."
-},
+    slug: "share-final-cut-pro-fcpbundle",
+    primaryKeyword: "share final cut pro fcpbundle",
+    secondaryKeywords: [
+      "send fcpbundle library",
+      "transfer final cut pro library",
+      "send fcp project to editor"
+    ],
+    title: "Share Final Cut Pro Libraries (.fcpbundle) | GigaSend",
+    metaDescription: "Share Final Cut Pro libraries without massive render bloat. Delete generated render files to slim your .fcpbundle, then send up to 25GB free via GigaSend.",
+    h1: "How to Share Final Cut Pro Libraries (.fcpbundle)",
+    eyebrow: "MAC POST-PRODUCTION PIPELINES",
+    intro: "Final Cut Pro bundles all project timelines, optimized media, and render files into giant .fcpbundle packages. GigaSend allows creators to send complete libraries online.",
+    cta: "Share Final Cut Pro Library Free",
+    sections: [
+      {
+        heading: "The Bloated .fcpbundle Package Trap",
+        body: "macOS package bundles balloon to 80GB-150GB because Final Cut Pro continuously generates background optical flow and render caches. Sending an uncleaned library creates massive unnecessary transfer delays."
+      },
+      {
+        heading: "Deleting Generated Library Files to Slim Libraries",
+        body: "Select your library in FCP, go to File > Delete Generated Library Files, and choose Delete Render Files. This safely removes tens of gigabytes of temporary cache without affecting cuts, color grades, or source media."
+      },
+      {
+        heading: "Unthrottled macOS Edge Transfer",
+        body: "Deliver cleaned 10GB to 25GB .fcpbundle packages directly through Safari or Chrome at full fiber line rates. Recipients double-click the downloaded bundle to resume editing immediately."
+      }
+    ],
+    comparison: [
+      {
+        method: "Sending Uncleaned Library",
+        bestFor: "Local external hard drives",
+        limitation: "Huge 80GB–150GB payload full of temporary render files that fail on cloud drives",
+        gigaSendAngle: "Teaches instant render file cleanup for 80% smaller transfers"
+      },
+      {
+        method: "AirDrop / USB Drive",
+        bestFor: "Same-room physical handoffs",
+        limitation: "Limited to local physical proximity and slow wireless transfer speeds",
+        gigaSendAngle: "Global Anycast edge delivery to remote editors anywhere"
+      },
+      {
+        method: "GigaSend",
+        bestFor: "Final Cut Pro libraries",
+        limitation: "Zip archive recommended for bundle safety",
+        gigaSendAngle: "Ingests cleaned 10GB–25GB .fcpbundle libraries free, delivering high-speed direct download links"
+      }
+    ],
+    faqs: [
+      {
+        question: "How do I make a Final Cut Pro library smaller before transferring?",
+        answer: "Select your library in FCP, go to File > Delete Generated Library Files, and check Delete Render Files."
+      },
+      {
+        question: "Can I upload a .fcpbundle file directly to GigaSend?",
+        answer: "Yes, drag the .fcpbundle package directly into GigaSend or zip it first for cross-platform safety."
+      },
+      {
+        question: "How do I avoid missing media in Final Cut Pro transfers?",
+        answer: "Select your library, navigate to File > Consolidate Library Media, and choose 'In Library' to ensure all external assets are embedded."
+      },
+      {
+        question: "What is the fastest way to send a 20GB FCP library to an editor?",
+        answer: "Delete generated render files, compress the .fcpbundle into a zip file, and upload to GigaSend to transfer up to 25GB free at edge speed."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/transfer-premiere-pro-project",
+        label: "transfer Premiere Pro project"
+      },
+      {
+        href: "/transfer-davinci-resolve-project",
+        label: "transfer DaVinci Resolve project"
+      },
+      {
+        href: "/send-large-files-free",
+        label: "free large file transfer"
+      }
+    ],
+    differentiation: "Mac-optimized workflow for YouTube creators and documentary filmmakers with 25GB free tier."
+  },
   {
-  "slug": "how-to-send-blender-blend-files",
-  "primaryKeyword": "how to send blender blend files",
-  "secondaryKeywords": [
-    "send blender files with textures",
-    "transfer blender project",
-    "share large blend file"
-  ],
-  "title": "How to Send Blender (.BLEND) Files & Textures Online | Gigasend",
-  "metaDescription": "Learn how to pack and send large Blender (.blend) files with high-res textures, geometry nodes, and render caches to 3D artists worldwide.",
-  "h1": "How to Send Large Blender (.BLEND) Files & Textures",
-  "eyebrow": "3D Modeling & Animation",
-  "intro": "Blender scenes with 4K/8K UDIM textures and simulation caches routinely hit 10GB to 50GB. Gigasend transfers your entire 3D project package with zero missing texture errors.",
-  "cta": "Send Blender Project",
-  "sections": [
-    {
-      "heading": "Pack external resources before sending",
-      "body": "Always use 'File > External Data > Pack Resources' in Blender so textures and HDRI maps embed directly into your .blend file, or zip the textures folder together with your scene."
-    },
-    {
-      "heading": "Send simulation and physics caches",
-      "body": "Transfer complex Mantaflow fluid simulations, cloth caches, and geometry node bakes without worrying about file size ceilings."
-    },
-    {
-      "heading": "Fast render farm and contractor handoffs",
-      "body": "Send scenes directly to freelance lighters and animators with instant download links that don't force them to register."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Discord / Slack",
-      "bestFor": "Chat screenshots",
-      "limitation": "Strict 10MB-50MB attachment limit",
-      "gigaSendAngle": "Supports up to 2,000GB payloads"
-    },
-    {
-      "method": "Google Drive",
-      "bestFor": "Office documents",
-      "limitation": "Slow folder download and extraction errors",
-      "gigaSendAngle": "Fast direct edge downloads"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Blender 3D projects",
-      "limitation": "Broadband required",
-      "gigaSendAngle": "Zero-egress Anycast distribution"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "How do I make sure textures don't go missing when sending Blender files?",
-      "answer": "In Blender, go to File > External Data > Pack Resources, save your file, and upload to Gigasend. This bakes all image textures inside the .blend file."
-    },
-    {
-      "question": "Can I transfer Blender files over 10GB?",
-      "answer": "Yes. Gigasend allows up to 10GB free, and higher tiers support 80GB to 2TB for complex architectural and VFX scenes."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/how-to-send-maya-mb-files",
-      "label": "how to send Maya MB files"
-    },
-    {
-      "href": "/transfer-cinema-4d-c4d-files",
-      "label": "transfer Cinema 4D C4D files"
-    },
-    {
-      "href": "/send-30gb-file",
-      "label": "send 30GB file"
-    }
-  ],
-  "differentiation": "Comprehensive guide and fast delivery engine for the open-source 3D community."
-},
+    slug: "how-to-send-blender-blend-files",
+    primaryKeyword: "how to send blender blend files",
+    secondaryKeywords: [
+      "send blender files with textures",
+      "transfer blender project",
+      "share large blend file"
+    ],
+    title: "How to Send Blender (.blend) Files with Textures | GigaSend",
+    metaDescription: "Send Blender projects without missing texture pink shaders. Learn to pack resources via File > External Data > Pack Resources and share up to 25GB free.",
+    h1: "How to Send Blender (.blend) Files with Textures & Assets",
+    eyebrow: "3D MODELING & ANIMATION",
+    intro: "Blender scenes with 4K/8K UDIM textures and simulation caches routinely hit 10GB to 50GB. GigaSend transfers your entire 3D project package with zero missing texture errors.",
+    cta: "Send Blender Project Free",
+    sections: [
+      {
+        heading: "The Missing Texture 'Pink Shader' Trap",
+        body: "Blender files lose texture paths when transferred across different operating systems due to absolute directory links. Opening an unbundled scene results in missing magenta shader errors on external workstations."
+      },
+      {
+        heading: "Packing External Textures & VDB Caches",
+        body: "Navigate to File > External Data > Automatically Pack Resources to embed image maps and HDRIs into the .blend file. For large OpenVDB smoke grids or physics caches, bundle the project directory into a single zip archive."
+      },
+      {
+        heading: "Unthrottled High-Capacity Delivery",
+        body: "Deliver 5GB to 25GB Blender scenes with packed 8K PBR textures and simulation caches at edge line speed. Remote artists download without account registration or cloud drive sync corruption."
+      }
+    ],
+    comparison: [
+      {
+        method: "Email / Standard Cloud",
+        bestFor: "Small scene files without textures",
+        limitation: "Fails on large texture caches and breaks relative asset pathing",
+        gigaSendAngle: "25GB free capacity without paywalls or texture loss"
+      },
+      {
+        method: "Render Farm FTP",
+        bestFor: "Internal network transfers",
+        limitation: "Complex credential setup, slow single-stream upload speeds",
+        gigaSendAngle: "Instant browser dropzone with multi-stream Anycast acceleration"
+      },
+      {
+        method: "GigaSend",
+        bestFor: "Blender 3D projects",
+        limitation: "Requires packing external textures or initial zip",
+        gigaSendAngle: "Direct drag-and-drop, 25GB free capacity, instant download link for render artists"
+      }
+    ],
+    faqs: [
+      {
+        question: "How do I send a Blender file with all its textures included?",
+        answer: "In Blender, navigate to File > External Data > Pack Resources to embed all external image textures directly into the .blend file."
+      },
+      {
+        question: "Why are my materials pink when opening a Blender file on another computer?",
+        answer: "Pink materials indicate missing image textures caused by absolute file paths pointing to your local hard drive."
+      },
+      {
+        question: "How do I send large Blender physics and simulation caches?",
+        answer: "Zip the .blend file together with the simulation cache folder (blendcache or VDB) and upload directly to GigaSend."
+      },
+      {
+        question: "What is the maximum Blender project size I can send for free?",
+        answer: "GigaSend allows up to 25GB per transfer completely free with zero registration."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/how-to-transfer-unreal-engine-project",
+        label: "transfer Unreal Engine project"
+      },
+      {
+        href: "/how-to-send-maya-mb-files",
+        label: "how to send Maya MB files"
+      },
+      {
+        href: "/send-large-files-free",
+        label: "free large file transfer"
+      }
+    ],
+    differentiation: "Comprehensive open-source 3D asset packaging guide with 25GB free transfer."
+  },
   {
-  "slug": "transfer-cinema-4d-c4d-files",
-  "primaryKeyword": "transfer cinema 4d c4d files",
-  "secondaryKeywords": [
-    "send c4d project",
-    "share cinema 4d with octane materials",
-    "send redshift c4d scene"
-  ],
-  "title": "Transfer Cinema 4D (.C4D) Projects & Render Caches | Gigasend",
-  "metaDescription": "Send Cinema 4D project archives (.c4d) packaged with Redshift, Octane, or Arnold materials, X-Particles caches, and Alembic sequences.",
-  "h1": "Send Cinema 4D (.C4D) Projects & Assets",
-  "eyebrow": "Motion Design & 3D Broadcast",
-  "intro": "Motion designers building 3D title sequences and commercial spots deal with massive texture maps and particle caches. Gigasend moves full C4D projects in minutes.",
-  "cta": "Send C4D Project",
-  "sections": [
-    {
-      "heading": "Use 'Save Project with Assets'",
-      "body": "Always run 'File > Save Project with Assets' in Cinema 4D to gather all fonts, materials, and textures into a single project directory, then zip and transfer."
-    },
-    {
-      "heading": "Transfer heavy X-Particles and VDB caches",
-      "body": "Send multi-gigabyte OpenVDB smoke and fire volumes and Alembic point caches without upload throttling."
-    },
-    {
-      "heading": "Zero delay between agency and 3D animator",
-      "body": "Clients and creative directors download your full scene package with high-speed multi-threaded edge connections."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "WeTransfer",
-      "bestFor": "Simple decks",
-      "limitation": "2GB limit blocks realistic 3D scene directories",
-      "gigaSendAngle": "High-capacity delivery tiers"
-    },
-    {
-      "method": "Dropbox Team",
-      "bestFor": "Local folder sync",
-      "limitation": "Sync conflicts corrupt active 3D caches",
-      "gigaSendAngle": "Explicit, unconflicted package delivery"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Cinema 4D project delivery",
-      "limitation": "Zip archive required",
-      "gigaSendAngle": "Fast line-rate edge transfers"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Will third-party render materials (Octane/Redshift) survive transfer?",
-      "answer": "Yes, provided you use C4D's 'Save Project with Assets' feature before compressing, all material links remain intact."
-    },
-    {
-      "question": "Can I send C4D projects to remote render farms?",
-      "answer": "Yes. Generate a Gigasend download link and send it directly to your remote render operator."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/how-to-send-blender-blend-files",
-      "label": "how to send Blender blend files"
-    },
-    {
-      "href": "/how-to-send-maya-mb-files",
-      "label": "how to send Maya MB files"
-    },
-    {
-      "href": "/send-50gb-file",
-      "label": "send 50GB file"
-    }
-  ],
-  "differentiation": "Tailored specifically for motion graphic artists and 3D studio pipelines."
-},
+    slug: "transfer-cinema-4d-c4d-files",
+    primaryKeyword: "transfer cinema 4d c4d files",
+    secondaryKeywords: [
+      "send c4d project",
+      "share cinema 4d with octane materials",
+      "send redshift c4d scene"
+    ],
+    title: "Transfer Cinema 4D (.c4d) Projects & Assets | GigaSend",
+    metaDescription: "Transfer Cinema 4D projects without missing Redshift or Octane textures. Use \"Save Project with Assets\" and deliver up to 25GB free via GigaSend.",
+    h1: "How to Transfer Cinema 4D (.c4d) Projects with Assets",
+    eyebrow: "MOTION DESIGN & 3D GRAPHICS",
+    intro: "Motion designers building 3D title sequences and commercial spots deal with massive texture maps and particle caches. GigaSend moves full C4D projects in minutes.",
+    cta: "Transfer C4D Project Free",
+    sections: [
+      {
+        heading: "The Motion Design Asset Link Trap",
+        body: "Standalone .c4d files fail when opened on external machines because third-party render textures point to local drive paths. Missing textures result in black shaders."
+      },
+      {
+        heading: "The 'Save Project with Assets' Standard",
+        body: "Execute File > Save Project with Assets... in Cinema 4D to gather the .c4d file, all image textures, Redshift/Octane shader nodes, and simulation caches into a unified folder."
+      },
+      {
+        heading: "Lightning-Fast Client & Render Farm Delivery",
+        body: "Transfer 10GB to 25GB motion graphics scenes across 335+ localized edge nodes. Deliver direct download links without forced client registration or cloud sync lockups."
+      }
+    ],
+    comparison: [
+      {
+        method: "Dropbox",
+        bestFor: "Local folder sync",
+        limitation: "Fails when syncing active Octane cache folders, causing version conflicts",
+        gigaSendAngle: "Explicit, unconflicted package delivery without daemon locks"
+      },
+      {
+        method: "WeTransfer",
+        bestFor: "Simple slide decks",
+        limitation: "2GB limit is too small for modern 4K Redshift texture libraries",
+        gigaSendAngle: "25GB free capacity with unthrottled line-rate delivery"
+      },
+      {
+        method: "GigaSend",
+        bestFor: "Cinema 4D project delivery",
+        limitation: "Zip archive required for folder structures",
+        gigaSendAngle: "25GB free, unthrottled gigabit speeds, zero recipient registration"
+      }
+    ],
+    faqs: [
+      {
+        question: "How do I export a Cinema 4D project with all textures included?",
+        answer: "Select File > Save Project with Assets...; Cinema 4D will create a clean directory containing the .c4d file and a tex folder with all dependencies."
+      },
+      {
+        question: "How do I transfer Redshift and Octane render caches in C4D?",
+        answer: "Running Save Project with Assets automatically collects third-party render engine textures and caches into the local tex directory."
+      },
+      {
+        question: "Why does Cinema 4D see missing textures when transferred?",
+        answer: "If assets were stored outside the local tex directory, relative paths break; saving with assets relinks everything automatically."
+      },
+      {
+        question: "What is the maximum C4D project size I can transfer for free?",
+        answer: "GigaSend allows up to 25GB per transfer completely free without an account."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/how-to-send-blender-blend-files",
+        label: "how to send Blender blend files"
+      },
+      {
+        href: "/transfer-davinci-resolve-project",
+        label: "transfer DaVinci Resolve project"
+      },
+      {
+        href: "/send-large-files-free",
+        label: "free large file transfer"
+      }
+    ],
+    differentiation: "Dedicated motion design packaging workflow with 25GB free tier."
+  },
   {
-  "slug": "send-houdini-hip-projects",
-  "primaryKeyword": "send houdini hip projects",
-  "secondaryKeywords": [
-    "transfer houdini simulation caches",
-    "share houdini hip file",
-    "vfx simulation file transfer"
-  ],
-  "title": "Send Houdini (.HIP) Projects & VDB Simulation Caches | Gigasend",
-  "metaDescription": "Transfer SideFX Houdini scene files (.hip/.hipnc), Pyro simulations, FLIP fluids, and geometry caches to studios and render farms without size caps.",
-  "h1": "Send Houdini (.HIP) Projects & Simulation Caches",
-  "eyebrow": "Procedural VFX & Simulation",
-  "intro": "Houdini simulations generate hundreds of gigabytes of raw bgeo.sc and VDB caches. Gigasend provides the high-capacity bandwidth VFX technical directors need.",
-  "cta": "Send Houdini Simulation",
-  "sections": [
-    {
-      "heading": "Move massive bgeo.sc and VDB sequence caches",
-      "body": "Simulation shot caches routinely reach 50GB to 500GB per take. Gigasend handles heavy technical payloads with chunked resume support."
-    },
-    {
-      "heading": "Send project trees with intact relative paths",
-      "body": "Compress your `$HIP` root directory so internal SOP, DOP, and ROP nodes relink automatically upon receipt."
-    },
-    {
-      "heading": "Multi-region edge infrastructure for international studios",
-      "body": "Distribute simulation tasks between studios in London, Montreal, and Mumbai through Cloudflare's localized points of presence."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Aspera",
-      "bestFor": "Enterprise VFX",
-      "limitation": "Prohibitive tens of thousands in annual licensing",
-      "gigaSendAngle": "Pay-as-you-go and low monthly plans"
-    },
-    {
-      "method": "Google Drive",
-      "bestFor": "Standard files",
-      "limitation": "Fails on 100,000+ file bgeo sequences",
-      "gigaSendAngle": "High-throughput binary streaming"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Heavy VFX simulations",
-      "limitation": "Broadband connection required",
-      "gigaSendAngle": "Zero cloud egress fees"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "What is the best way to package Houdini simulation caches?",
-      "answer": "Create a tar or zip archive of the `$HIP/geo` directory to prevent individual file system lookup overhead during upload."
-    },
-    {
-      "question": "Can I transfer files larger than 100GB?",
-      "answer": "Yes. Gigasend supports multi-hundred gigabyte and terabyte-scale enterprise simulation distributions."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/transfer-openexr-files",
-      "label": "transfer OpenEXR files"
-    },
-    {
-      "href": "/how-to-transfer-unreal-engine-project",
-      "label": "transfer Unreal Engine project"
-    },
-    {
-      "href": "/send-2tb-file",
-      "label": "send 2TB file"
-    }
-  ],
-  "differentiation": "Built for procedural technical directors and high-end simulation pipelines."
-},
+    slug: "send-houdini-hip-projects",
+    primaryKeyword: "send houdini hip projects",
+    secondaryKeywords: [
+      "transfer houdini simulation caches",
+      "share houdini hip file",
+      "vfx simulation file transfer"
+    ],
+    title: "Transfer SideFX Houdini (.hip) Scenes & Caches | GigaSend",
+    metaDescription: "Transfer Houdini .hip files and massive bgeo/USD simulation caches. Learn relative path hygiene and send up to 25GB free with zero registration.",
+    h1: "How to Transfer SideFX Houdini (.hip) Projects & Simulation Caches",
+    eyebrow: "VFX SIMULATION & PROCEDURAL PIPELINES",
+    intro: "Houdini simulations generate hundreds of gigabytes of raw bgeo.sc and VDB caches. GigaSend provides the high-capacity bandwidth VFX technical directors need.",
+    cta: "Send Houdini Simulation Free",
+    sections: [
+      {
+        heading: "The Houdini $HIP Relative Pathing Standard",
+        body: "Absolute drive roots like C:/Users/ break procedural asset networks on external machines. Configure all file and geometry nodes to reference $HIP/geo/ and $HIP/tex/ relative variables."
+      },
+      {
+        heading: "Handling Multi-Gigabyte .bgeo.sc Sequences",
+        body: "Archive thousands of individual simulation frame files into a single unified .tar.gz or .zip file to bypass browser file-count limitations and streamline edge transmission."
+      },
+      {
+        heading: "Studio-Grade Edge Ingestion with Resumable Uploads",
+        body: "Move heavy 15GB to 50GB procedural simulation archives to remote render nodes and overseas studios without cloud egress fees or timeout drops."
+      }
+    ],
+    comparison: [
+      {
+        method: "Traditional Cloud Drives",
+        bestFor: "Standard document storage",
+        limitation: "Fails on thousands of individual .bgeo frame cache files, throttles sync",
+        gigaSendAngle: "Streams unified tar/zip simulation archives with zero file count limits"
+      },
+      {
+        method: "Enterprise FTP / Aspera",
+        bestFor: "Legacy on-premise studio infrastructure",
+        limitation: "Expensive annual licensing ($10,000+) and complex network firewall configurations",
+        gigaSendAngle: "Browser-native edge transfer with zero software installations"
+      },
+      {
+        method: "GigaSend",
+        bestFor: "Heavy VFX simulations",
+        limitation: "Requires archiving simulation sequences into single container",
+        gigaSendAngle: "Ingests unified tar/zip simulation archives up to 25GB free with line-rate edge speeds"
+      }
+    ],
+    faqs: [
+      {
+        question: "How do I make a Houdini project portable before transferring?",
+        answer: "Ensure all file and geometry nodes reference $HIP relative variables instead of absolute drive paths, then bundle the project directory."
+      },
+      {
+        question: "How do I send large Houdini bgeo simulation caches?",
+        answer: "Archive your geo or sim cache directory containing .bgeo.sc sequences into a .zip or .tar.gz file before uploading to GigaSend."
+      },
+      {
+        question: "Can GigaSend handle 50GB Houdini cache transfers?",
+        answer: "Yes, GigaSend Pro supports 100GB and Studio supports up to 250GB transfers with zero cloud egress fees."
+      },
+      {
+        question: "Do I need an account to send Houdini files to a collaborator?",
+        answer: "No account is required; you can send projects up to 25GB completely free without creating credentials."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/transfer-openexr-files",
+        label: "transfer OpenEXR files"
+      },
+      {
+        href: "/how-to-send-maya-mb-files",
+        label: "how to send Maya MB files"
+      },
+      {
+        href: "/send-50gb-file",
+        label: "send 50GB file"
+      }
+    ],
+    differentiation: "Built for procedural technical directors and high-end simulation pipelines with 25GB free standard."
+  },
   {
   "slug": "send-revit-rvt-bim-models",
   "primaryKeyword": "send revit rvt bim models",
