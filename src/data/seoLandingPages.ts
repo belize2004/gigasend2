@@ -278,35 +278,77 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "send-files-larger-than-2gb",
-    primaryKeyword: "send files larger than 2GB",
-    secondaryKeywords: ["send files over 2GB", "file too large for email", "send 2GB file"],
-    title: "Send Files Larger Than 2GB Online",
-    metaDescription: "Need to send files larger than 2GB? Upload large files to GigaSend and share them with a secure download link.",
-    h1: "Send Files Larger Than 2GB",
-    eyebrow: "Files over 2GB",
-    intro: "Files larger than 2GB are too big for many email, chat, and form upload workflows. GigaSend gives you a direct large-file transfer path.",
-    cta: "Send Files Over 2GB",
+    primaryKeyword: "send files larger than 2gb",
+    secondaryKeywords: [
+      "how to send files over 2gb",
+      "send files larger than 2gb free",
+      "wetransfer over 2gb alternative",
+      "send files over 2gb without paying"
+    ],
+    title: "How to Send Files Larger Than 2GB (Send up to 25GB Free) | GigaSend",
+    metaDescription: "Need to send files larger than 2GB without paying for WeTransfer Pro? With GigaSend, upload up to 25GB free with zero registration, unthrottled edge speeds, and direct download links.",
+    h1: "How to Send Files Larger Than 2GB Free",
+    eyebrow: "2GB Paywall Bypass",
+    intro: "Hit WeTransfer's 2GB cap or email limits? GigaSend gives you an instant, browser-based dropzone to upload up to 25GB completely free—12.5x more capacity than WeTransfer with zero forced account creation.",
+    cta: "Send Files Over 2GB Free",
     sections: [
-      { heading: "2GB is already too large for email", body: "Even a single video export, design package, or folder zip can cross 2GB quickly." },
-      { heading: "Use a download link instead", body: "Upload the file once and send a link that your recipient can download from." },
-      { heading: "Scale beyond 2GB", body: "Free transfers support up to 10GB. Paid and Enterprise options support larger transfer needs." },
+      {
+        heading: "Why Free File Transfers Cap at 2GB: The WeTransfer Paywall Trap",
+        body: "Most mainstream file transfer utilities enforce an arbitrary 2GB file ceiling. WeTransfer, Dropbox Free, and various free tools cap transfers at 2.00GB specifically to convert high-volume creators into recurring monthly subscriptions ($12–$20/month). Forcing creators to split archives into multi-part zips or compress 4K footage degrades media quality and wastes valuable production time. GigaSend eliminates the 2GB paywall barrier entirely by providing an instant 25GB free tier."
+      },
+      {
+        heading: "Send Up to 25GB Free with Zero Account Friction",
+        body: "Transferring payloads between 2GB and 25GB on GigaSend requires zero account registration for either sender or recipient. Simply drag and drop your video files, raw photography folders, or production zips directly into the web browser. GigaSend streams your file directly across Cloudflare's global edge network, instantly generating a direct download link. Your recipient clicks once to download at full unthrottled speed without entering an email address or creating an account."
+      },
+      {
+        heading: "Lossless Delivery Powered by Cloudflare's Global Edge",
+        body: "Unlike consumer cloud drives that transcode videos or apply lossy compression, GigaSend preserves bit-for-bit file integrity with SHA-256 verification. Uploads are chunked client-side and routed over Anycast across 335+ cities worldwide, eliminating TCP window bottlenecks and high-latency timeouts. Your large files remain securely accessible for 3 days with end-to-end encryption and zero tracking."
+      }
     ],
     comparison: [
-      { method: "Email", bestFor: "Small attachments", limitation: "2GB will not work", gigaSendAngle: "Send a download link" },
-      { method: "Chat apps", bestFor: "Quick messages", limitation: "Large files may be compressed or blocked", gigaSendAngle: "Preserve transfer workflow" },
-      { method: "GigaSend", bestFor: "Files larger than 2GB", limitation: "Storage expires based on plan", gigaSendAngle: "Built for big uploads" },
+      {
+        method: "WeTransfer Free",
+        bestFor: "Quick one-off files strictly under 2GB",
+        limitation: "Hard paywall at 2.01GB, aggressive full-screen ads, 3-day link expiration",
+        gigaSendAngle: "25GB free tier (12.5x larger), zero ads, direct clean downloads"
+      },
+      {
+        method: "WeTransfer Pro ($12/month)",
+        bestFor: "Files up to 200GB for paying teams",
+        limitation: "Requires $144/year subscription, mandatory account creation, credit card required",
+        gigaSendAngle: "100% free up to 25GB without subscriptions, credit cards, or accounts"
+      },
+      {
+        method: "GigaSend Free Transfer",
+        bestFor: "Sending 2GB to 25GB videos, 3D assets, and production archives",
+        limitation: "Transfers capped at 25GB on free tier (high-capacity edge tiers support 250GB+)",
+        gigaSendAngle: "Instant browser dropzone, unthrottled edge delivery across 335+ locations"
+      }
     ],
     faqs: [
-      { question: "Can I email a file larger than 2GB?", answer: "Usually no. Uploading the file and emailing a download link is more reliable." },
-      { question: "Can I send a folder larger than 2GB?", answer: "Yes. You can upload folders or zipped folders as long as they fit your available transfer limit." },
-      { question: "Are large transfer links secure?", answer: "GigaSend uses secure transfer links and encrypted transport for upload and download." },
+      {
+        question: "How can I send files larger than 2GB for free?",
+        answer: "You can send files larger than 2GB for free using GigaSend. It supports payloads up to 25GB completely free with no account registration or payment required. Files are encrypted, chunked in the browser, and distributed via edge nodes across 335+ cities for maximum reliability."
+      },
+      {
+        question: "Can I send files over 2GB on WeTransfer without paying?",
+        answer: "WeTransfer does not allow you to send more than 2GB without paying for a Pro subscription ($12/month). If you try to upload a file exceeding 2GB, the upload is blocked by a paywall. To send files up to 25GB without paying, switch to GigaSend, which offers a 100% free tier with zero subscription lock-in."
+      },
+      {
+        question: "What is the best free alternative to WeTransfer for files larger than 2GB?",
+        answer: "GigaSend is a faster, higher-capacity alternative to WeTransfer. Unlike WeTransfer which caps free transfers at 2GB and enforces aggressive paywalls, GigaSend provides up to 25GB completely free with zero file compression, instant drag-and-drop browser uploads, and global edge acceleration via Cloudflare's 335+ data centers."
+      },
+      {
+        question: "Does Google Drive allow sending files larger than 2GB?",
+        answer: "While Google Drive offers 15GB of free storage, that quota is shared across your entire Google account (Gmail, Google Photos, Drive) and enforces strict 24-hour daily download quotas on popular files. GigaSend provides dedicated transfer bandwidth up to 25GB free with no shared quota, no forced Google sign-in for recipients, and zero impact on your cloud storage allowance."
+      }
     ],
     internalLinks: [
-      { href: "/send-large-files-by-email/", label: "send files too large for email" },
-      { href: "/send-large-files-free/", label: "send large files free" },
-      { href: "/send-10gb-file-free/", label: "send a 10GB file free" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" }
     ],
-    differentiation: "Capture users at the exact moment they discover a hard upload or email limit.",
+    differentiation: "Send up to 25GB free (12.5x larger than WeTransfer) with zero recipient registration, no full-screen ads, and unthrottled line-rate edge downloads."
   },
   {
     slug: "transfer-large-files-online",
