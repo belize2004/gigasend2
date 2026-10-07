@@ -2430,79 +2430,88 @@ export const seoLandingPages: SeoLandingPage[] = [
   "differentiation": "Studio-tier power for heavy video, VFX, and dataset transfers."
 },
   {
-  "slug": "send-100gb-file",
-  "primaryKeyword": "send 100gb file",
-  "secondaryKeywords": [
-    "transfer 100gb file online",
-    "how to share 100gb",
-    "upload 100gb file"
-  ],
-  "title": "Send a 100GB File Online (Enterprise Multi-Stream Transfer) | Gigasend",
-  "metaDescription": "Send 100GB files online with Gigasend. High-throughput line-rate edge delivery for 8K video, game builds, and enterprise datasets with zero egress fees.",
-  "h1": "Send a 100GB File Online",
-  "eyebrow": "Enterprise Volume Transfer",
-  "intro": "100GB files require true enterprise infrastructure. Gigasend transfers heavy camera rolls, full software repositories, and massive datasets across 335+ global edge locations.",
-  "cta": "Send 100GB File",
-  "sections": [
-    {
-      "heading": "Full gigabit line-rate throughput",
-      "body": "Gigasend is engineered to saturate 1 Gbps to 10 Gbps uplinks with parallel HTTP/3 streams directly into Cloudflare R2 storage."
-    },
-    {
-      "heading": "Eliminate shipping physical hard drives",
-      "body": "Why wait for FedEx to ship an external hard drive when a 100GB transfer can be downloaded by your client in 15 minutes?"
-    },
-    {
-      "heading": "Direct edge downloads for global teams",
-      "body": "Distribute your 100GB file to teams in Europe, Asia, and North America simultaneously without bandwidth throttling."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Hard Drive Shipping (FedEx)",
-      "bestFor": "No internet environments",
-      "limitation": "Takes 24 hours, costs $30+, risk of physical damage",
-      "gigaSendAngle": "Completed online in ~15 minutes"
-    },
-    {
-      "method": "AWS S3 / GCP Storage",
-      "bestFor": "App developers",
-      "limitation": "Charges $9.00 in egress fees every time the file is downloaded",
-      "gigaSendAngle": "$0.00 egress fee on Gigasend"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "100GB enterprise payloads",
-      "limitation": "High-speed broadband needed",
-      "gigaSendAngle": "Fastest digital delivery available"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "How long does a 100GB file take to transfer on 1 Gbps internet?",
-      "answer": "On a dedicated 1 Gbps fiber uplink, a 100GB file transfers in roughly 14 to 16 minutes."
-    },
-    {
-      "question": "Can I protect a 100GB transfer with a password?",
-      "answer": "Yes, all Gigasend transfers can be protected with custom passwords and download limits."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-50gb-file",
-      "label": "send 50GB file"
-    },
-    {
-      "href": "/send-500gb-file",
-      "label": "send 500GB file"
-    },
-    {
-      "href": "/send-2tb-file",
-      "label": "send 2TB file"
-    }
-  ],
-  "differentiation": "Replaces courier hard drive shipping for creative and corporate enterprises."
-},
+    "slug": "send-100gb-file",
+    "primaryKeyword": "send 100gb file",
+    "secondaryKeywords": [
+      "fastest way to send 100gb file",
+      "send 100gb file free",
+      "how long to upload 100gb",
+      "transfer 100gb file online"
+    ],
+    "title": "Send 100GB File Online (Fast Multi-Stream Transfer) | GigaSend",
+    "metaDescription": "Send 100GB files online with GigaSend. High-throughput line-rate edge delivery for 8K video, game builds, and enterprise datasets with zero egress fees.",
+    "h1": "Send 100GB File Online",
+    "eyebrow": "Enterprise Volume Transfer",
+    "intro": "100GB files require true enterprise infrastructure. GigaSend transfers heavy camera rolls, full software repositories, and massive datasets across 335+ global edge locations without shipping physical drives.",
+    "cta": "Send 100GB File Online",
+    "sections": [
+      {
+        "heading": "Full gigabit line-rate throughput via HTTP/3 multi-stream",
+        "body": "GigaSend saturates 1 Gbps to 10 Gbps uplinks with parallel chunked HTTP/3 streams directly into Cloudflare's nearest edge nodes, completing 100GB transfers in approximately 14 to 16 minutes."
+      },
+      {
+        "heading": "Eliminate shipping physical hard drives and courier delays",
+        "body": "Why spend $50 to $150 and wait 24 to 48 hours for FedEx or courier services to deliver an external SSD? GigaSend enables direct global downloads minutes after packaging."
+      },
+      {
+        "heading": "Zero cloud egress taxes compared to AWS S3 or Google Cloud",
+        "body": "Traditional cloud providers charge steep egress bandwidth penalties ($9.00/100GB on AWS S3). GigaSend delivers unlimited line-speed edge downloads with zero egress surcharge."
+      }
+    ],
+    "comparison": [
+      {
+        "method": "Hard Drive Shipping (FedEx / Courier)",
+        "bestFor": "Locations with zero internet connectivity",
+        "limitation": "Takes 24–48 hours, costs $50–$150, physical drive loss or transit damage risk",
+        "gigaSendAngle": "Completed online in ~14–16 minutes on gigabit fiber"
+      },
+      {
+        "method": "AWS S3 / Google Cloud Storage",
+        "bestFor": "Backend developer programmatic storage",
+        "limitation": "Charges ~$9.00 in egress bandwidth penalties per 100GB download",
+        "gigaSendAngle": "$0.00 egress bandwidth taxes on GigaSend edge tiers"
+      },
+      {
+        "method": "GigaSend Enterprise Edge",
+        "bestFor": "100GB–250GB+ studio video, game builds & raw datasets",
+        "limitation": "High-speed broadband uplink recommended",
+        "gigaSendAngle": "Parallel Anycast streaming, SHA-256 integrity, auto-resume"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can you send a 100GB file for free?",
+        "answer": "GigaSend provides a 100% free tier supporting transfers up to 25GB with zero registration. For single payloads reaching 100GB, GigaSend offers high-capacity edge tiers supporting files up to 250GB+ with parallel HTTP/3 streaming, auto-resume, and zero cloud egress bandwidth charges."
+      },
+      {
+        "question": "What is the fastest way to send a 100GB file?",
+        "answer": "The fastest way to send a 100GB file is using GigaSend's multi-stream edge transfer engine. By breaking the 100GB payload into parallel chunks uploaded simultaneously to Cloudflare's 335+ global edge nodes, GigaSend saturates gigabit fiber connections and eliminates transcontinental cloud bottlenecks."
+      },
+      {
+        "question": "How long does it take to upload a 100GB file?",
+        "answer": "On a dedicated 1 Gbps fiber uplink, a 100GB file transfers in approximately 14 to 16 minutes. On a 100 Mbps broadband connection, it takes roughly 2.2 to 2.5 hours. GigaSend maximizes speed by parallel-chunking the file across Cloudflare's nearest Anycast edge nodes, saturating your available bandwidth."
+      },
+      {
+        "question": "Can I send a 100GB file via email?",
+        "answer": "No, you cannot attach a 100GB file directly to an email because major email providers cap attachments at 20MB to 25MB (4,000x smaller than 100GB). Instead, upload your 100GB payload to GigaSend and paste the generated secure link into your email for instant recipient download."
+      }
+    ],
+    "internalLinks": [
+      {
+        "href": "/send-large-video-files",
+        "label": "send large video files"
+      },
+      {
+        "href": "/send-large-files-free",
+        "label": "send large files free"
+      },
+      {
+        "href": "/wetransfer-alternative",
+        "label": "WeTransfer alternative"
+      }
+    ],
+    "differentiation": "Replaces courier hard drive shipping and avoids $9/100GB cloud egress taxes with parallel line-rate edge delivery."
+  },
   {
   "slug": "send-500gb-file",
   "primaryKeyword": "send 500gb file",
