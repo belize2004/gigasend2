@@ -695,36 +695,36 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "send-30gb-file",
-    primaryKeyword: "30gb file transfer",
-    secondaryKeywords: ["send 30gb file free", "how to transfer 30gb file", "upload 30gb file online"],
-    title: "Send a 30GB File Online Free (Fast & Direct) | GigaSend",
-    metaDescription: "Transfer up to 30GB files without size limits or failed uploads. Direct edge acceleration, zero compression, and no software required. Start free transfer.",
-    h1: "Send a 30GB File Online Free",
-    eyebrow: "30GB Large File Transfer",
-    intro: "Need to send a 30GB file? GigaSend handles multi-gigabyte files, 4K camera footage, and project archives with line-rate edge speeds and zero compression.",
-    cta: "Upload 30GB File Now",
+    primaryKeyword: "send 30gb file",
+    secondaryKeywords: ["send 30gb file online", "how to transfer 30gb file", "upload 30gb file"],
+    title: "Send 30GB File Online (Fast Multi-Stream Edge Transfer) | GigaSend",
+    metaDescription: "Transfer 30GB production archives and master video files online. Fast multi-stream edge delivery, resumable chunked uploads, and zero cloud egress fees.",
+    h1: "Send 30GB Files Online (Fast Multi-Stream Edge Transfer)",
+    eyebrow: "HIGH-CAPACITY PRODUCTION DELIVERIES",
+    intro: "Need to transfer 30GB of footage, 3D project directories, or software builds? GigaSend moves 30GB payloads across 335+ Anycast edge nodes at unthrottled line-rate speeds.",
+    cta: "Send 30GB File Now",
     sections: [
-      { heading: "Bypass standard 2GB and 10GB upload limits", body: "Most free transfer platforms cap uploads at 2GB to 5GB. GigaSend handles massive 30GB transfers reliably via chunked multipart uploads." },
-      { heading: "Line-rate speeds across 335+ edge nodes", body: "Files are uploaded directly to the nearest Cloudflare edge PoP, avoiding slow transcontinental cloud relays and packet loss." },
-      { heading: "Password protection and expiring links", body: "Keep your 30GB delivery confidential with optional password verification and automated link expiration." },
+      { heading: "Overcoming the 25GB free tier ceiling", body: "While GigaSend provides 25GB completely free, 30GB archives require Edge Pro high-throughput routing to move uncompressed camera media and game assets without courier drives." },
+      { heading: "The 30GB transfer bottleneck: Cloud drives vs edge acceleration", body: "Traditional cloud storage throttles single-stream TCP transfers to 15–30 Mbps over long distances. GigaSend splits 30GB payloads into parallel HTTP/3 chunks, saturating gigabit fiber connections." },
+      { heading: "Resumable uploads and zero recipient sign-up", body: "Never worry about Wi-Fi drops at 28GB. GigaSend's chunked state engine automatically resumes interrupted streams. Recipients receive clean direct download links with zero forced registration." },
     ],
     comparison: [
-      { method: "WeTransfer Free", bestFor: "Under 2GB", limitation: "Hard 2GB limit", gigaSendAngle: "30GB ready without subscriptions" },
-      { method: "Google Drive", bestFor: "Workspace docs", limitation: "Download quota exceeded errors", gigaSendAngle: "Clean direct download link" },
-      { method: "GigaSend", bestFor: "30GB+ creative delivery", limitation: "Requires broadband connection", gigaSendAngle: "Direct chunked edge transfer" },
+      { method: "Consumer Cloud Drives", bestFor: "Small office docs", limitation: "Sync daemon crashes, download throttles on files >25GB", gigaSendAngle: "Unthrottled multi-stream edge transfer" },
+      { method: "Enterprise UDP Accelerators", bestFor: "Broadcast networks", limitation: "High annual contracts ($10,000+) and desktop app installs", gigaSendAngle: "Browser-native high-throughput transfer" },
+      { method: "GigaSend Edge Pro", bestFor: "30GB–100GB creative payloads", limitation: "Broadband connection required", gigaSendAngle: "Line-rate saturation, zero cloud egress tax" },
     ],
     faqs: [
-      { question: "How can I send a 30GB file for free?", answer: "Upload your 30GB file to GigaSend, enter your recipient's email or generate a direct link, and send immediately." },
-      { question: "Will my 30GB video be compressed?", answer: "No. GigaSend never transcodes or recompresses video, audio, or archive files." },
-      { question: "Can I resume a 30GB upload if my connection drops?", answer: "Yes. GigaSend features automatic multipart retry so interrupted transfers pick up where they left off." },
+      { question: "Can I send a 30GB file online through a browser?", answer: "Yes, GigaSend handles 30GB transfers seamlessly using browser Web Streams and chunked multipart uploads without crashing system memory." },
+      { question: "How long does it take to upload a 30GB file?", answer: "On a dedicated 1 Gbps fiber uplink, a 30GB file transfers in approximately 4 to 5 minutes; on a 100 Mbps uplink, it takes around 42 minutes." },
+      { question: "What is the best way to transfer 30GB to a client?", answer: "GigaSend generates a direct, secure download link that allows clients to download the full 30GB payload at maximum line speed without registering for an account." },
+      { question: "What tier do I need on GigaSend to send 30GB?", answer: "GigaSend Edge Pro ($12/month) supports single transfers up to 100GB, while GigaSend Studio ($29/month) supports up to 250GB per transfer." },
     ],
     internalLinks: [
-      { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/deliver-20gb-file", label: "deliver 20GB files" },
+      { href: "/send-25gb-file", label: "send 25GB file" },
+      { href: "/send-50gb-file", label: "send 50GB file" },
       { href: "/send-large-video-files", label: "send large video files" },
-      { href: "/send-2tb-file", label: "send 2TB enterprise files" },
     ],
-    differentiation: "Directly solves the #2 Google rank query '30gb file transfer' with immediate action-oriented messaging.",
+    differentiation: "Bridges the mid-tier gap between free 25GB transfers and studio workflows with unthrottled line-rate edge delivery.",
   },
   {
     slug: "deliver-20gb-file",
@@ -861,32 +861,34 @@ export const seoLandingPages: SeoLandingPage[] = [
     slug: "send-2tb-file",
     primaryKeyword: "send 2tb file",
     secondaryKeywords: ["transfer 2tb online", "send 2tb hard drive equivalent", "enterprise large file delivery"],
-    title: "Send a 2TB File Online (Enterprise Line-Rate Delivery) | GigaSend",
-    metaDescription: "Transfer multi-terabyte datasets, full feature-film camera reels, and massive backup archives. Zero egress fees, Cloudflare edge acceleration up to 5TB single files.",
-    h1: "Send a 2TB File Online",
-    eyebrow: "Enterprise Multi-Terabyte Delivery",
-    intro: "Transferring a 2TB file requires enterprise-grade multipart resilience. GigaSend handles multi-terabyte production data with zero egress markups.",
+    title: "Send 2TB File Online (Zero Egress Studio Transfer) | GigaSend",
+    metaDescription: "Transfer full 2TB camera card dumps and uncompressed archives. Multi-stream parallel Anycast edge ingestion eliminates $180 AWS egress fees.",
+    h1: "Send 2TB Files Online (Zero Egress Studio Transfer)",
+    eyebrow: "MAXIMUM CAPACITY CLOUD DELIVERY",
+    intro: "Transferring a 2TB file requires enterprise-grade multi-part resilience. GigaSend handles multi-terabyte production data with zero cloud egress markups.",
     cta: "Start 2TB Transfer",
     sections: [
-      { heading: "Built for feature films and seismic data", body: "Send full production reels, multi-camera shoot archives, and scientific datasets that break standard consumer transfer tools." },
-      { heading: "Zero egress fees on Cloudflare Edge", body: "Unlike AWS S3 or GCP which bill up to $0.09/GB for data egress, GigaSend operates on a zero-egress architecture, saving thousands per transfer." },
-      { heading: "Resilient multipart parallel streaming", body: "2TB files are partitioned into secure parallel chunks with automatic failover and network recovery." },
+      { heading: "The DIT hard drive shuttling bottleneck", body: "Shipping physical 2TB rugged SSDs across cities or continents via courier adds 24–48 hours of latency and physical transit risk to time-sensitive post-production schedules." },
+      { heading: "Eliminating the $180 AWS S3 egress tax", body: "Traditional cloud storage providers charge up to $0.09 per GB for data retrieval, billing $180 or more for a single 2TB download. GigaSend delivers unmetered egress on studio tiers." },
+      { heading: "Uninterrupted multi-hour resumability", body: "2TB files are partitioned into parallel chunk streams with persistent state tracking, allowing massive overnight transfers to withstand transient network reboots without restarting." },
     ],
     comparison: [
-      { method: "Hard drive courier (FedEx)", bestFor: "No internet", limitation: "Takes 24-48 hours, risk of drive damage", gigaSendAngle: "Instant digital delivery" },
-      { method: "AWS S3 Transfer", bestFor: "Cloud infrastructure", limitation: "Massive egress fees on 2TB downloads", gigaSendAngle: "Zero egress markups" },
-      { method: "GigaSend Enterprise", bestFor: "2TB+ high-throughput transfers", limitation: "Requires high-speed uplink", gigaSendAngle: "Fastest digital pipe available" },
+      { method: "AWS S3 / Azure", bestFor: "Static cloud storage", limitation: "$180+ egress billing per download, complex IAM setup", gigaSendAngle: "Zero egress fee architecture" },
+      { method: "Physical Hard Drive Courier", bestFor: "Locations with no internet", limitation: "Takes 24–48 hours, high shipping costs, physical shock risk", gigaSendAngle: "Delivers digitally in hours at line speed" },
+      { method: "GigaSend Studio", bestFor: "2TB+ high-throughput transfers", limitation: "Requires broadband fiber uplink", gigaSendAngle: "Multi-stream edge acceleration, flat monthly pricing" },
     ],
     faqs: [
-      { question: "How long does it take to upload a 2TB file?", answer: "On a dedicated 1Gbps fiber connection, a 2TB file uploads in approximately 4.5 hours through GigaSend's edge network." },
-      { question: "What is the maximum file size GigaSend supports?", answer: "GigaSend supports individual files up to 5TB on Enterprise tiers." },
+      { question: "How long does it take to transfer 2TB over the internet?", answer: "On a dedicated 1 Gbps fiber connection, a 2TB file transfers in approximately 4.5 to 5 hours; on a 10 Gbps connection, it completes in under 30 minutes." },
+      { question: "How much does AWS charge to download a 2TB file?", answer: "AWS S3 egress charges for 2TB total approximately $180 per download, whereas GigaSend provides unmetered transfers with zero egress fees." },
+      { question: "Is sending 2TB online faster than overnight shipping?", answer: "Yes, over gigabit fiber, a 2TB transfer arrives in 5 hours compared to 24–48 hours for courier hard drive shipments." },
+      { question: "How does GigaSend prevent browser crashes during a 2TB upload?", answer: "Data is streamed directly in sequential memory-managed chunks without buffering the full 2TB payload into system RAM." },
     ],
     internalLinks: [
-      { href: "/send-30gb-file", label: "send 30GB file" },
-      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-1tb-file", label: "send 1TB file" },
+      { href: "/send-500gb-file", label: "send 500GB file" },
       { href: "/fast-large-file-transfer", label: "fast large file transfer" },
     ],
-    differentiation: "Directly reinforces the existing Rank #7.0 page that already converted clicks in Search Console.",
+    differentiation: "Replaces physical SSD courier shipments for enterprise studios and eliminates $180 AWS S3 egress charges.",
   },
   {
     slug: "deliver-protools-ptx-files",
@@ -2777,153 +2779,169 @@ export const seoLandingPages: SeoLandingPage[] = [
     "differentiation": "Replaces courier hard drive shipping and avoids $9/100GB cloud egress taxes with parallel line-rate edge delivery."
   },
   {
-  "slug": "send-500gb-file",
-  "primaryKeyword": "send 500gb file",
-  "secondaryKeywords": [
-    "how to transfer 500gb online",
-    "share 500gb dataset",
-    "send 500gb hard drive alternative"
-  ],
-  "title": "Send a 500GB File Online (Ultra-High Capacity Delivery) | Gigasend",
-  "metaDescription": "Transfer a 500GB file or dataset online with Gigasend Agency. Enterprise line-rate delivery, zero cloud egress fees, and dedicated edge storage.",
-  "h1": "Send a 500GB File Online",
-  "eyebrow": "Ultra-High Capacity Data Transfer",
-  "intro": "When you have 500GB of virtual production assets, multicam concert shoots, or AI datasets, ordinary cloud tools fail completely. Gigasend moves half a terabyte reliably.",
-  "cta": "Send 500GB File",
-  "sections": [
-    {
-      "heading": "Half a terabyte transferred without server timeouts",
-      "body": "Built on resilient chunked multipart protocols with automatic pause-and-resume protection for ultra-large files."
-    },
-    {
-      "heading": "Save hundreds in cloud egress bills",
-      "body": "Downloading 500GB from Amazon S3 costs $45.00 per download. With Gigasend, egress is always $0.00."
-    },
-    {
-      "heading": "Dedicated bandwidth across 335+ edge POPs",
-      "body": "Your data routes through Cloudflare's private global backbone directly to the recipient's closest geographic edge server."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "AWS S3 / Azure Blob",
-      "bestFor": "Cloud databases",
-      "limitation": "Enormous egress costs ($45+ per single download)",
-      "gigaSendAngle": "Zero egress fee architecture"
-    },
-    {
-      "method": "Aspera On Demand",
-      "bestFor": "Broadcast giants",
-      "limitation": "Expensive software setup and complex client installations",
-      "gigaSendAngle": "Zero-install web browser delivery"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "500GB large payloads",
-      "limitation": "High-speed broadband uplink required",
-      "gigaSendAngle": "Instant link-based delivery"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Can a browser really upload a 500GB file without crashing?",
-      "answer": "Yes! Gigasend slices files into small binary chunks in memory without loading the entire 500GB into RAM."
-    },
-    {
-      "question": "What plan supports 500GB transfers?",
-      "answer": "Our Agency tier supports single transfers up to 500GB with dedicated high-speed edge capacity."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-100gb-file",
-      "label": "send 100GB file"
-    },
-    {
-      "href": "/send-2tb-file",
-      "label": "send 2TB file"
-    },
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    }
-  ],
-  "differentiation": "Engineered for AI datasets, virtual production volumes, and media archives."
-},
+    slug: "send-500gb-file",
+    primaryKeyword: "send 500gb file",
+    secondaryKeywords: [
+      "how to transfer 500gb online",
+      "share 500gb dataset",
+      "send 500gb hard drive alternative"
+    ],
+    title: "Send 500GB File Online (Studio Edge Acceleration) | GigaSend",
+    metaDescription: "Transfer 500GB multi-camera reels, VFX plates, and massive datasets. Multi-stream Anycast edge routing eliminates cloud egress taxes and courier delays.",
+    h1: "Send 500GB Files Online (Studio-Grade Edge Acceleration)",
+    eyebrow: "TERABYTE-SCALE PRODUCTION PIPELINES",
+    intro: "When you have 500GB of virtual production assets, multicam concert shoots, or AI datasets, ordinary cloud tools fail completely. GigaSend moves half a terabyte reliably.",
+    cta: "Send 500GB File",
+    sections: [
+      {
+        heading: "The multi-camera reel dilemma: Moving half a terabyte",
+        body: "High-capacity production workflows require high-throughput streaming. Squeezing 500GB into consumer cloud folders triggers sync crashes and system memory exhaustion."
+      },
+      {
+        heading: "Eliminating the $45 cloud egress penalty",
+        body: "Downloading 500GB from Amazon S3 or Azure costs $45.00+ per download. GigaSend Studio operates on a zero-egress architecture, saving hundreds on every distribution."
+      },
+      {
+        heading: "Dedicated bandwidth across 335+ edge POPs",
+        body: "Your data routes through Cloudflare's private Anycast backbone directly to the recipient's closest geographic edge server with unthrottled line-rate delivery."
+      }
+    ],
+    comparison: [
+      {
+        method: "AWS S3 / Azure Blob",
+        bestFor: "Static cloud storage",
+        limitation: "$45+ egress cost per single download, complex IAM setup",
+        gigaSendAngle: "Zero egress fee architecture"
+      },
+      {
+        method: "MASV Pay-As-You-Go",
+        bestFor: "Occasional large transfers",
+        limitation: "$125.00 transfer fee per 500GB handoff ($0.25/GB)",
+        gigaSendAngle: "Fixed monthly studio plans, predictable cost"
+      },
+      {
+        method: "GigaSend Studio",
+        bestFor: "500GB large payloads",
+        limitation: "High-speed broadband uplink required",
+        gigaSendAngle: "Browser-native multi-stream edge delivery"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can a web browser really upload a 500GB file without crashing?",
+        answer: "Yes, GigaSend streams files in small memory-managed binary chunks using native Web Streams without buffering the entire 500GB payload into system RAM."
+      },
+      {
+        question: "How long does it take to transfer 500GB over fiber?",
+        answer: "On a dedicated 1 Gbps fiber uplink, a 500GB file transfers in approximately 1 hour and 15 minutes."
+      },
+      {
+        question: "How much does it cost to send 500GB?",
+        answer: "While competitors charge $45 to $125 in download bandwidth fees, GigaSend Studio provides high-capacity transfers at flat monthly rates with zero egress charges."
+      },
+      {
+        question: "Can I upload 500GB directly from an external RAID drive?",
+        answer: "Yes, GigaSend streams directly from connected NVMe arrays, RAIDs, or external drives without copying to local boot drives."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/send-100gb-file",
+        label: "send 100GB file"
+      },
+      {
+        href: "/send-1tb-file",
+        label: "send 1TB file"
+      },
+      {
+        href: "/send-2tb-file",
+        label: "send 2TB file"
+      }
+    ],
+    differentiation: "Replaces courier hard drive shipping and avoids $45/500GB cloud egress taxes with parallel line-rate edge delivery."
+  },
   {
-  "slug": "send-1tb-file",
-  "primaryKeyword": "send 1tb file",
-  "secondaryKeywords": [
-    "how to transfer 1tb online",
-    "share 1 terabyte file",
-    "send 1tb hard drive online"
-  ],
-  "title": "Send a 1TB (Terabyte) File Online Directly | Gigasend",
-  "metaDescription": "Send a 1TB (Terabyte) file online with Gigasend Enterprise. Line-rate Anycast edge delivery, zero egress tax, and end-to-end transfer integrity.",
-  "h1": "Send a 1TB (Terabyte) File Online",
-  "eyebrow": "Terabyte-Scale Enterprise Delivery",
-  "intro": "1 Terabyte of data used to require shipping an NVMe SSD across the country. Gigasend allows enterprises and production companies to transfer 1TB online at line-rate speeds.",
-  "cta": "Send 1TB File",
-  "sections": [
-    {
-      "heading": "True terabyte-scale digital transport",
-      "body": "Send full episodic television seasons, massive 3D photogrammetry scans, and high-frequency financial datasets with absolute bit-level fidelity."
-    },
-    {
-      "heading": "Zero cloud egress tax: save $90+ per transfer",
-      "body": "Legacy cloud providers charge up to $90.00 in egress bandwidth every time a 1TB file is downloaded. Gigasend eliminates egress fees entirely."
-    },
-    {
-      "heading": "Parallel multi-stream architecture",
-      "body": "Harness multi-gigabit fiber connections to move a full terabyte in just a few hours rather than days."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Physical NVMe Courier",
-      "bestFor": "Slow internet locations",
-      "limitation": "Requires packaging, courier scheduling, and waiting 24-48 hours",
-      "gigaSendAngle": "Available for client download in hours"
-    },
-    {
-      "method": "AWS S3 / Google Cloud",
-      "bestFor": "Cloud infrastructure",
-      "limitation": "$90.00 egress charge per download",
-      "gigaSendAngle": "$0 egress charge on Gigasend"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "1TB enterprise file transport",
-      "limitation": "Dedicated fiber internet recommended",
-      "gigaSendAngle": "335+ global edge data centers"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "How long does a 1TB transfer take on a 1 Gbps connection?",
-      "answer": "On a dedicated 1 Gbps fiber uplink, 1TB transfers in approximately 2.5 to 3 hours."
-    },
-    {
-      "question": "How does Gigasend verify data integrity on a 1TB transfer?",
-      "answer": "Every chunk is verified with MD5/SHA checksums during transfer, and final assembled payloads are validated before client delivery."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-500gb-file",
-      "label": "send 500GB file"
-    },
-    {
-      "href": "/send-2tb-file",
-      "label": "send 2TB file"
-    },
-    {
-      "href": "/send-100gb-file",
-      "label": "send 100GB file"
-    }
-  ],
-  "differentiation": "Replaces physical SSD courier shipments for enterprise studios."
-},
+    slug: "send-1tb-file",
+    primaryKeyword: "send 1tb file",
+    secondaryKeywords: [
+      "how to transfer 1tb online",
+      "share 1 terabyte file",
+      "send 1tb hard drive online"
+    ],
+    title: "Send 1TB File Online (High-Speed Edge Data Transfer) | GigaSend",
+    metaDescription: "Transfer 1TB datasets and RAW footage online without IBM Aspera fees or AWS egress taxes. Multi-stream parallel edge acceleration across 335+ POPs.",
+    h1: "Send 1TB Files Online (High-Speed Edge Data Transfer)",
+    eyebrow: "PETABYTE-READY INFRASTRUCTURE",
+    intro: "1 Terabyte of data used to require shipping an NVMe SSD across the country. GigaSend allows enterprises and production companies to transfer 1TB online at line-rate speeds.",
+    cta: "Send 1TB File",
+    sections: [
+      {
+        heading: "True terabyte-scale digital transport",
+        body: "Send full episodic television seasons, massive 3D photogrammetry scans, and high-frequency financial datasets with absolute bit-level fidelity."
+      },
+      {
+        heading: "Zero cloud egress tax: Save $90+ per transfer",
+        body: "Legacy cloud providers charge up to $90.00 in egress bandwidth every time a 1TB file is downloaded. GigaSend eliminates egress fees entirely."
+      },
+      {
+        heading: "Parallel multi-stream architecture",
+        body: "Harness multi-gigabit fiber connections to move a full terabyte in just a few hours rather than waiting days for physical parcel couriers."
+      }
+    ],
+    comparison: [
+      {
+        method: "Physical NVMe Courier",
+        bestFor: "Locations with no internet",
+        limitation: "Requires packaging, courier scheduling, and 24–48hr shipping delay",
+        gigaSendAngle: "Available for client download in hours"
+      },
+      {
+        method: "AWS S3 / Google Cloud",
+        bestFor: "Cloud infrastructure",
+        limitation: "$90.00 egress charge per download",
+        gigaSendAngle: "$0 egress charge on GigaSend"
+      },
+      {
+        method: "GigaSend Studio",
+        bestFor: "1TB enterprise file transport",
+        limitation: "Dedicated fiber internet recommended",
+        gigaSendAngle: "335+ global edge data centers, flat rate"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you send a 1TB file over the internet?",
+        answer: "Yes, high-speed multi-stream HTTP/3 Anycast edge routing makes 1TB transfers practical over standard gigabit internet connections."
+      },
+      {
+        question: "How long does a 1TB transfer take on a 1 Gbps connection?",
+        answer: "On a dedicated 1 Gbps fiber uplink, a 1TB file transfers in approximately 2.5 to 3 hours."
+      },
+      {
+        question: "How much does transferring 1TB cost in cloud egress?",
+        answer: "Standard cloud providers bill between $80 and $120 for 1TB of egress; GigaSend charges zero egress fees on studio plans."
+      },
+      {
+        question: "How does GigaSend verify data integrity on a 1TB transfer?",
+        answer: "Every chunk is verified with cryptographic checksums during transfer, and final assembled payloads are validated before client delivery."
+      }
+    ],
+    internalLinks: [
+      {
+        href: "/send-500gb-file",
+        label: "send 500GB file"
+      },
+      {
+        href: "/send-2tb-file",
+        label: "send 2TB file"
+      },
+      {
+        href: "/send-100gb-file",
+        label: "send 100GB file"
+      }
+    ],
+    differentiation: "Replaces physical SSD courier shipments for enterprise studios and eliminates $90 AWS S3 egress charges."
+  },
   {
     "slug": "best-way-to-share-large-files-with-clients",
     "primaryKeyword": "best way to share large files with clients",
