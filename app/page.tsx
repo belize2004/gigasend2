@@ -85,7 +85,7 @@ const Homepage = () => {
               </h1>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Create a free account with your email to send large files, create secure links, and track transfers up to 10 GB.
+                Create a free account with your email to send large files, create secure links, and track transfers up to 25 GB.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -104,7 +104,7 @@ const Homepage = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">10GB</div>
+                  <div className="text-2xl font-bold text-gray-900">25GB</div>
                   <div className="text-sm text-gray-600">Free Transfers</div>
                 </div>
                 <div className="text-center">
@@ -147,10 +147,10 @@ const Homepage = () => {
               </div>
 
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-green-500 text-white p-3 rounded-full animate-bounce">
+              <div className="absolute -top-4 -right-4 bg-green-500 text-white p-3 rounded-full shadow-lg">
                 <FiShield />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-purple-500 text-white p-3 rounded-full animate-pulse">
+              <div className="absolute -bottom-4 -left-4 bg-purple-500 text-white p-3 rounded-full shadow-lg">
                 <FiZap />
               </div>
             </div>
