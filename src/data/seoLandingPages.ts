@@ -163,34 +163,48 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "send-large-video-files",
     primaryKeyword: "send large video files",
-    secondaryKeywords: ["share large video files", "upload large video files", "best way to send large video files"],
-    title: "Send Large Video Files Online | GigaSend",
-    metaDescription: "Send large video files online without compression headaches. Upload your video, create a secure link, and share it with clients or teams.",
-    h1: "Send Large Video Files Online",
-    eyebrow: "Video file transfer",
-    intro: "Large video exports are hard to email and awkward to share through messaging apps. GigaSend helps you upload full-size video files and send a clean download link.",
-    cta: "Send Video Files",
+    secondaryKeywords: ["share large video files", "upload large video files", "send 4k video online", "send video too large for email"],
+    title: "Send Large Video Files (No Account Required) | GigaSend",
+    metaDescription: "Send large video files online without compression loss. Transfer 4K/8K ProRes, BRAW, and MP4 master exports up to 25GB free with zero forced account signup.",
+    h1: "Send Large Video Files Online (Lossless & Fast)",
+    eyebrow: "Pro Video & Post-Production Transfer",
+    intro: "Upload massive video files directly from your browser, generate an instant download link, and deliver 4K/8K master files up to 25GB free. Zero video re-encoding, zero compression, and line-speed Anycast edge routing.",
+    cta: "Send Video Files Now",
     sections: [
-      { heading: "Built for video-heavy workflows", body: "Send client cuts, event footage, real estate videos, social edits, production assets, or compressed delivery folders." },
-      { heading: "Avoid compression issues", body: "Messaging apps often compress or block video files. A direct transfer link keeps the delivery workflow clearer." },
-      { heading: "Simple client delivery", body: "Recipients get a straightforward download link instead of needing to understand drive permissions." },
+      { heading: "Lossless transmission with zero re-encoding", body: "Unlike messaging platforms and social drives that aggressively transcode and degrade video, GigaSend delivers bit-for-bit files preserving full resolution, color bit-depth, and audio stems." },
+      { heading: "Bypass 25MB email attachment limits", body: "Don't fight email bouncebacks or bounce clients between cloud folder permission screens. Paste a secure, high-speed download link straight into your email or client chat." },
+      { heading: "Native support for 4K/8K ProRes and RAW camera cards", body: "Send Apple ProRes (422 HQ, 4444 XQ), Avid DNxHR, Blackmagic RAW (.braw), REDCODE (.r3d), and high-bitrate MP4 exports up to 250GB over Cloudflare's Anycast edge." },
     ],
     comparison: [
-      { method: "Messaging app", bestFor: "Short clips", limitation: "Compression and size limits", gigaSendAngle: "Send the full file" },
-      { method: "Cloud storage", bestFor: "Project collaboration", limitation: "Permissions can slow clients down", gigaSendAngle: "Cleaner one-time delivery" },
-      { method: "GigaSend", bestFor: "Large video delivery", limitation: "Upload speed depends on connection", gigaSendAngle: "Large-video-first sharing" },
+      { method: "Messaging Apps (Slack/WhatsApp)", bestFor: "Short mobile previews", limitation: "Aggressive bitrate compression and 100MB file caps", gigaSendAngle: "Bit-exact master file delivery" },
+      { method: "WeTransfer", bestFor: "Casual files under 2GB", limitation: "Strict 2GB paywalls and slow recipient downloads", gigaSendAngle: "Up to 25GB free capacity and 250GB high-capacity edge tiers" },
+      { method: "GigaSend", bestFor: "Full video exports up to 250GB", limitation: "3-day retention on free transfers", gigaSendAngle: "Zero account needed, line-speed Anycast routing" },
     ],
     faqs: [
-      { question: "What is the best way to send large video files?", answer: "For most client delivery, uploading the video and sending a download link is easier than attaching it to email." },
-      { question: "Can I send a large video by email?", answer: "You can send the download link by email after uploading the video to GigaSend." },
-      { question: "Can clients download without signing up?", answer: "Recipients can use the download link without creating a sender account." },
+      {
+        question: "How can I send a large video file for free?",
+        answer: "To send or transfer large files online for free using GigaSend: (1) Drag and drop your file or archive directly into the browser dropzone, (2) Let it stream across Cloudflare's 335+ Anycast edge nodes via chunked parallel upload, and (3) Copy the generated download link to share via email, Slack, or chat. No account, software installation, or recipient login is required."
+      },
+      {
+        question: "How to send a video that is too large for email?",
+        answer: "Standard email providers like Gmail and Outlook cap attachments at 20MB to 25MB. To send large files by email, upload your file to GigaSend and simply paste the resulting secure download link into your email message. The recipient clicks the link to download at full speed without bouncing your email."
+      },
+      {
+        question: "Does sending a video through GigaSend compress the quality?",
+        answer: "No file compression is needed. GigaSend delivers lossless transmission with zero transcoding or file tampering. Your recipients receive the exact bit-for-bit file, preserving full metadata and quality for 4K/8K video (ProRes, BRAW), RAW photo sessions, 3D models, and multi-track audio projects."
+      },
+      {
+        question: "Can I send 4K ProRes video files without an account?",
+        answer: "Yes. GigaSend natively supports all professional video formats including 4K/8K Apple ProRes (422 HQ, 4444 XQ), Avid DNxHR, Blackmagic RAW (.braw), and MP4/MKV exports. Videos transfer bit-for-bit with SHA-256 verification and zero re-encoding."
+      },
     ],
     internalLinks: [
-      { href: "/fast-large-file-transfer/", label: "fast large file transfer" },
-      { href: "/send-10gb-file-free/", label: "send a 10GB video file free" },
-      { href: "/share-large-files-with-link/", label: "share video files with a link" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/send-braw-video-files", label: "send BRAW video files" },
     ],
-    differentiation: "Speak to creators, agencies, video editors, real estate teams, and client delivery workflows.",
+    differentiation: "Targets video editors, cinematographers, colorists, and post-production studios needing uncompressed, bit-exact video delivery without 2GB paywalls or forced recipient logins.",
   },
   {
     slug: "send-files-larger-than-2gb",
