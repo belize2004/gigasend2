@@ -4,14 +4,19 @@ import { brand } from "@/lib/brand";
 
 export const prerender = true;
 
-const bypassSlugs = [
+const baseBypassSlugs = [
   "wetransfer-2gb-limit-bypass",
   "google-drive-download-quota-exceeded-fix",
   "dropbox-file-size-limit-bypass",
   "email-attachment-too-large-alternative",
   "dropbox-transfer-alternative",
   "send-files-larger-than-2gb",
+  "fastest-way-to-send-large-files",
 ];
+
+const bypassSlugs = seoLandingPages
+  .filter((page) => baseBypassSlugs.includes(page.slug) || page.slug.includes("bypass") || page.slug.includes("alternative"))
+  .map((page) => page.slug);
 
 const guideSlugs = [
   "why-large-file-transfers-are-slow",
@@ -25,6 +30,8 @@ const staticPaths = [
   "",
   "transfer",
   "plans",
+  "pricing",
+  "compare",
   "directory",
   "guides",
   "tools/transfer-speed-calculator",
