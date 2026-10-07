@@ -45,16 +45,49 @@ const howToSchema = {
     },
   ],
 };
+
+const faqs = [
+  {
+    question: "How long does it take to upload a 10GB file on gigabit internet?",
+    answer: "On a full 1 Gbps fiber uplink, a 10GB file uploads in approximately 85 to 95 seconds under unthrottled line-rate conditions with ~92% edge multi-part efficiency.",
+  },
+  {
+    question: "Why is my real upload speed slower than my internet speed test?",
+    answer: "Speed tests measure ping to local ISP servers, whereas cloud uploads encounter WAN latency, single-stream TCP window limits, and server-side ingress throttling. Connecting directly to Anycast edge nodes minimizes this penalty.",
+  },
+  {
+    question: "What is the fastest way to upload a 100GB file?",
+    answer: "Multi-stream HTTP/3 parallel chunking connected to an Anycast edge point of presence is the fastest way, eliminating round-trip bottlenecks and packet drop penalties.",
+  },
+  {
+    question: "How does file size affect transfer reliability?",
+    answer: "As payload sizes grow beyond 10GB, single-stream HTTP uploads have an exponential probability of packet drop socket timeouts unless chunked resumability and multi-part upload streaming are used.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout
-  title={`Large File Transfer Speed Calculator — Free Upload Estimator | ${brand.productName}`}
-  description="Calculate exact upload times for 1GB to 2TB files across 10 Mbps to 10 Gbps connections. See how edge multi-part delivery reduces transfer latency."
+  title={`File Transfer Speed Calculator: Estimate Upload Times | ${brand.productName}`}
+  description="Calculate exact upload and download times for 1GB to 2TB files across 10 Mbps to 10 Gbps uplinks. Real-world transfer duration with TCP overhead calculations."
   canonical={canonical}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
   <main class="min-h-screen bg-slate-50 text-slate-950">
@@ -197,20 +230,14 @@ const howToSchema = {
 
         <!-- FAQs -->
         <div>
-          <h3 class="text-2xl font-bold text-slate-950">Transfer Calculator FAQs</h3>
+          <h3 class="text-2xl font-bold text-slate-950">Transfer Speed & Network FAQs</h3>
           <dl class="mt-6 space-y-6">
-            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <dt class="text-base font-semibold text-slate-950">What is the difference between MB/s and Mbps?</dt>
-              <dd class="mt-2 text-sm text-slate-600 leading-relaxed">
-                Network speeds are measured in <strong>Megabits per second (Mbps)</strong>, while files are measured in <strong>Megabytes (MB)</strong> or <strong>Gigabytes (GB)</strong>. Because there are 8 bits in every byte, a 100 Mbps internet connection uploads at a maximum theoretical rate of 12.5 MB per second.
-              </dd>
-            </div>
-            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <dt class="text-base font-semibold text-slate-950">Can I transfer files larger than 100GB in the browser without installing software?</dt>
-              <dd class="mt-2 text-sm text-slate-600 leading-relaxed">
-                Yes. Gigasend operates directly in modern browsers (Chrome, Safari, Firefox, Edge) using Web Streams and HTML5 File APIs. You can transfer projects up to 5TB without installing any desktop agents or plugins.
-              </dd>
-            </div>
+            {faqs.map((faq) => (
+              <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <dt class="text-base font-semibold text-slate-950">{faq.question}</dt>
+                <dd class="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+              </div>
+            ))}
           </dl>
         </div>
       </div>
@@ -223,14 +250,14 @@ const howToSchema = {
           Test Your Transfer Speed Now
         </h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-          Send up to 10GB 100% free with no account required, or transfer up to 5TB directly to clients and render farms.
+          Send up to 25GB 100% free with zero registration, or transfer massive 2TB project payloads across global Anycast edge nodes.
         </p>
         <div class="mt-8 flex justify-center gap-4">
           <a href="/transfer" class="rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
-            Launch transfer
+            Send 25GB Free
           </a>
           <a href="/directory" class="rounded-lg border border-slate-300 bg-white px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-blue-500">
-            Explore codec directory
+            Explore Transfer Directory
           </a>
         </div>
       </div>

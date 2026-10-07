@@ -61,11 +61,11 @@ export default function SpeedCalculator() {
     <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-6 shadow-xl sm:p-10">
       <div className="border-b border-slate-200 pb-6 text-center">
         <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-800">
-          WAN Transfer Benchmark
+          INTERACTIVE ESTIMATION TOOL
         </span>
-        <h2 className="mt-3 text-3xl font-extrabold text-slate-900 sm:text-4xl">
-          Large File Transfer Speed Calculator
-        </h2>
+        <h1 className="mt-3 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+          File Transfer Speed & Upload Time Calculator
+        </h1>
         <p className="mt-2 text-sm text-slate-600 sm:text-base">
           Estimate realistic upload and delivery durations based on your WAN bandwidth and file payload.
         </p>
