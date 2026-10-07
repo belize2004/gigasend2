@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { seoLandingPages } from "../../data/seoLandingPages";
 import { brand } from "@/lib/brand";
+import TransferEmbed from "@/src/components/TransferEmbed";
 
 export const prerender = true;
 
@@ -108,26 +109,29 @@ const webAppSchema = {
           </div>
         </div>
 
-        <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-          <h2 class="text-xl font-bold text-slate-950">How to bypass upload limits with {brand.productName}</h2>
-          <ol class="mt-6 space-y-4">
-            <li class="flex gap-3">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">1</span>
-              <span><strong>Select your file</strong> — No 2GB or 15GB arbitrary cutoff. Free transfers up to 10GB, paid up to 5TB.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">2</span>
-              <span><strong>Direct edge upload</strong> — Uploads are streamed across Cloudflare's global edge network at line rate.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">3</span>
-              <span><strong>Instant share link</strong> — Recipients download directly without hitting Google Drive quotas or signup walls.</span>
-            </li>
-          </ol>
-          <div class="mt-6 rounded-lg bg-blue-50 p-4 text-xs text-blue-900 border border-blue-100">
-            <strong>Pro Tip:</strong> Unlike cloud storage syncing folders that consume local disk space, Gigasend is built exclusively for ephemeral point-to-point dispatch.
-          </div>
-        </aside>
+        <div class="flex flex-col gap-6">
+          <TransferEmbed client:load />
+          <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-950">How to bypass upload limits with {brand.productName}</h2>
+            <ol class="mt-6 space-y-4">
+              <li class="flex gap-3">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">1</span>
+                <span><strong>Select your file</strong> — No 2GB or 15GB arbitrary cutoff. Free transfers up to 10GB, paid up to 5TB.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">2</span>
+                <span><strong>Direct edge upload</strong> — Uploads are streamed across Cloudflare's global edge network at line rate.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">3</span>
+                <span><strong>Instant share link</strong> — Recipients download directly without hitting Google Drive quotas or signup walls.</span>
+              </li>
+            </ol>
+            <div class="mt-6 rounded-lg bg-blue-50 p-4 text-xs text-blue-900 border border-blue-100">
+              <strong>Pro Tip:</strong> Unlike cloud storage syncing folders that consume local disk space, Gigasend is built exclusively for ephemeral point-to-point dispatch.
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 

@@ -9,7 +9,8 @@ import {
 } from "@/lib/email";
 import { createShare, findUserById, getDb } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
-import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
+import { getOrCreateUserSession } from "@/src/lib/guestSession";
+import { json } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { brand } from "@/lib/brand";
 
@@ -17,6 +18,7 @@ const SITE_URL = brand.siteUrl;
 
 interface SendEmailBody {
   receiverEmail: string;
+  senderEmail?: string;
   numberOfFiles: number;
   fileSize: number;
   message?: string;
@@ -28,12 +30,13 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: Partial<SendEmailBody> = {};
 
   try {
-    userId = await getAuthenticatedUserId(cookies);
-    if (!userId) return unauthorized();
-
     const db = getDb(locals);
+    const session = await getOrCreateUserSession(cookies, db);
+    userId = session.userId;
+    const user = session.user;
+
     body = await request.json() as SendEmailBody;
-    const { receiverEmail, message, fileKeys, numberOfFiles, fileSize } = body;
+    const { receiverEmail, senderEmail, message, fileKeys, numberOfFiles, fileSize } = body;
 
     if (
       !receiverEmail ||
@@ -48,11 +51,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const cleanFileKeys = fileKeys.filter((fileKey) => typeof fileKey === "string" && fileKey.trim().length > 0);
     if (cleanFileKeys.length === 0) return json({ error: "Missing file key" }, 400);
 
-    const user = await findUserById(db, userId);
-    if (!user) return json({ error: "User not found" }, 404);
+    const effectiveSenderEmail = senderEmail || (!session.isGuest ? user.email : "guest@gigasend.us");
 
     let isFreePlan = true;
-    if (user.stripeCustomerId) {
+    if (!session.isGuest && user.stripeCustomerId) {
       const subscribedPlan = await stripe.subscriptions.list({
         status: "active",
         customer: user.stripeCustomerId,
@@ -79,22 +81,22 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       link: share.link,
       message,
       numberOfFiles,
-      senderEmail: user.email,
+      senderEmail: effectiveSenderEmail,
     });
     const textContent = generateEmailText({
       fileSize,
       link: share.link,
       message,
       numberOfFiles,
-      senderEmail: user.email,
+      senderEmail: effectiveSenderEmail,
     });
 
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: brand.emailFrom,
       to: receiverEmail,
-      replyTo: user.email,
-      subject: `${user.email} sent you files with ${brand.productName}`,
+      replyTo: effectiveSenderEmail,
+      subject: `${effectiveSenderEmail} sent you files with ${brand.productName}`,
       html: htmlContent,
       text: textContent,
       headers: {
@@ -102,10 +104,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       },
     });
 
+    const targetConfirmationEmail = effectiveSenderEmail && !effectiveSenderEmail.endsWith("@guest.gigasend.us") ? effectiveSenderEmail : null;
+
     if (error) {
       console.error("Resend API error:", error);
       captureMonitoringException(error, {
-        user: { id: userId, email: user.email },
+        user: { id: userId, email: effectiveSenderEmail },
         tags: { feature: "email", route: "sendEmail", provider: "resend" },
         context: {
           receiverDomain: receiverEmail.split("@")[1],
@@ -114,39 +118,42 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
           shareId: share.id,
         },
       });
-      const failedDeliveryConfirmation = await resend.emails.send({
-        from: brand.emailFrom,
-        to: user.email,
-        subject: `Your ${brand.productName} transfer is ready`,
-        html: generateUploadConfirmationEmail({
-          deliveryLabel: `Email to ${receiverEmail} failed`,
-          fileSize,
-          link: share.link,
-          numberOfFiles,
-        }),
-        text: generateUploadConfirmationText({
-          deliveryLabel: `Email to ${receiverEmail} failed`,
-          fileSize,
-          link: share.link,
-          numberOfFiles,
-        }),
-        headers: {
-          "X-Entity-Ref-ID": `${share.id}-sender-confirmation-email-failed`,
-        },
-      });
 
-      if (failedDeliveryConfirmation.error) {
-        console.error("Resend sender confirmation after delivery failure error:", failedDeliveryConfirmation.error);
-        captureMonitoringException(failedDeliveryConfirmation.error, {
-          user: { id: userId, email: user.email },
-          tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
-          context: {
-            receiverDomain: receiverEmail.split("@")[1],
-            numberOfFiles,
+      if (targetConfirmationEmail) {
+        const failedDeliveryConfirmation = await resend.emails.send({
+          from: brand.emailFrom,
+          to: targetConfirmationEmail,
+          subject: `Your ${brand.productName} transfer is ready`,
+          html: generateUploadConfirmationEmail({
+            deliveryLabel: `Email to ${receiverEmail} failed`,
             fileSize,
-            shareId: share.id,
+            link: share.link,
+            numberOfFiles,
+          }),
+          text: generateUploadConfirmationText({
+            deliveryLabel: `Email to ${receiverEmail} failed`,
+            fileSize,
+            link: share.link,
+            numberOfFiles,
+          }),
+          headers: {
+            "X-Entity-Ref-ID": `${share.id}-sender-confirmation-email-failed`,
           },
         });
+
+        if (failedDeliveryConfirmation.error) {
+          console.error("Resend sender confirmation after delivery failure error:", failedDeliveryConfirmation.error);
+          captureMonitoringException(failedDeliveryConfirmation.error, {
+            user: { id: userId, email: targetConfirmationEmail },
+            tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
+            context: {
+              receiverDomain: receiverEmail.split("@")[1],
+              numberOfFiles,
+              fileSize,
+              shareId: share.id,
+            },
+          });
+        }
       }
 
       return json({
@@ -157,39 +164,41 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       });
     }
 
-    const confirmation = await resend.emails.send({
-      from: brand.emailFrom,
-      to: user.email,
-      subject: `Your ${brand.productName} transfer is ready`,
-      html: generateUploadConfirmationEmail({
-        deliveryLabel: `Sent to ${receiverEmail}`,
-        fileSize,
-        link: share.link,
-        numberOfFiles,
-      }),
-      text: generateUploadConfirmationText({
-        deliveryLabel: `Sent to ${receiverEmail}`,
-        fileSize,
-        link: share.link,
-        numberOfFiles,
-      }),
-      headers: {
-        "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
-      },
-    });
-
-    if (confirmation.error) {
-      console.error("Resend sender confirmation error:", confirmation.error);
-      captureMonitoringException(confirmation.error, {
-        user: { id: userId, email: user.email },
-        tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
-        context: {
-          receiverDomain: receiverEmail.split("@")[1],
-          numberOfFiles,
+    if (targetConfirmationEmail) {
+      const confirmation = await resend.emails.send({
+        from: brand.emailFrom,
+        to: targetConfirmationEmail,
+        subject: `Your ${brand.productName} transfer is ready`,
+        html: generateUploadConfirmationEmail({
+          deliveryLabel: `Sent to ${receiverEmail}`,
           fileSize,
-          shareId: share.id,
+          link: share.link,
+          numberOfFiles,
+        }),
+        text: generateUploadConfirmationText({
+          deliveryLabel: `Sent to ${receiverEmail}`,
+          fileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        headers: {
+          "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
         },
       });
+
+      if (confirmation.error) {
+        console.error("Resend sender confirmation error:", confirmation.error);
+        captureMonitoringException(confirmation.error, {
+          user: { id: userId, email: targetConfirmationEmail },
+          tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
+          context: {
+            receiverDomain: receiverEmail.split("@")[1],
+            numberOfFiles,
+            fileSize,
+            shareId: share.id,
+          },
+        });
+      }
     }
 
     return json({

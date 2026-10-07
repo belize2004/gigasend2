@@ -62,6 +62,13 @@ export interface AdminOverviewData {
   recentShares: AdminShareData[];
   stripePlans: AdminStripePlanData[];
   recentSuggestions: AdminSuggestionData[];
+  seoStats?: {
+    totalKeywords: number;
+    strikingDistanceCount: number;
+    underexposedCount: number;
+    highFitCount: number;
+    topAction: string;
+  } | null;
 }
 
 export interface AdminUserData {

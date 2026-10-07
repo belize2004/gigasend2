@@ -9,6 +9,7 @@ import {
   FiActivity,
   FiAlertCircle,
   FiCheckCircle,
+  FiCompass,
   FiCreditCard,
   FiDatabase,
   FiHardDrive,
@@ -141,14 +142,28 @@ export default function AdminPage() {
               <p className="text-sm font-semibold text-blue-600">Admin</p>
               <h1 className="text-3xl font-bold text-gray-900">GigaSend Control Panel</h1>
             </div>
-            <button
-              onClick={locked ? undefined : loadAdminData}
-              disabled={loading}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-3 text-sm font-semibold text-gray-800 shadow hover:bg-gray-50 disabled:opacity-60"
-            >
-              <FiRefreshCw className={`mr-2 ${loading ? "animate-spin" : ""}`} />
-              Refresh
-            </button>
+            <div className="flex items-center gap-3">
+              <a
+                href="/admin/seo"
+                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700 transition-colors gap-2"
+              >
+                <FiCompass />
+                <span>Keyword Intelligence</span>
+                {data.seoStats && (
+                  <span className="rounded-full bg-blue-500/80 px-2 py-0.5 text-xs font-bold text-white">
+                    {data.seoStats.strikingDistanceCount} wins
+                  </span>
+                )}
+              </a>
+              <button
+                onClick={locked ? undefined : loadAdminData}
+                disabled={loading}
+                className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-3 text-sm font-semibold text-gray-800 shadow hover:bg-gray-50 disabled:opacity-60"
+              >
+                <FiRefreshCw className={`mr-2 ${loading ? "animate-spin" : ""}`} />
+                Refresh
+              </button>
+            </div>
           </div>
 
           {error && (
@@ -196,6 +211,55 @@ export default function AdminPage() {
             <StatCard icon={FiHardDrive} label="Active Storage" value={formatBytes(data.stats.activeStorageBytes)} tone="slate" />
             <StatCard icon={FiDatabase} label="All-Time Data" value={formatBytes(data.stats.totalSharedBytes)} tone="slate" />
           </div>
+
+          {data.seoStats && (
+            <section className="bg-gradient-to-r from-slate-900 via-blue-950 to-indigo-950 rounded-2xl shadow-lg p-6 text-white border border-slate-800">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <p className="text-xs font-semibold uppercase tracking-wider text-blue-300">
+                      Ops SEO Intelligence
+                    </p>
+                  </div>
+                  <h2 className="text-xl font-bold mt-1 text-white">
+                    GSC × DataForSEO Keyword Engine
+                  </h2>
+                  <p className="text-sm text-slate-300 mt-1 max-w-3xl">
+                    <strong className="text-emerald-400 font-semibold">Next Tactical Action:</strong> {data.seoStats.topAction}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 shrink-0">
+                  <a
+                    href="/admin/seo"
+                    className="inline-flex items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white shadow transition-colors"
+                  >
+                    <FiCompass className="mr-2" />
+                    Open Full Suite →
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-white/10">
+                <div className="bg-white/5 rounded-xl p-3 border border-white/10">
+                  <p className="text-xs text-slate-300">Tracked Keywords</p>
+                  <p className="text-2xl font-bold text-white mt-1">{data.seoStats.totalKeywords}</p>
+                </div>
+                <div className="bg-emerald-500/10 rounded-xl p-3 border border-emerald-400/20">
+                  <p className="text-xs text-emerald-300">Striking Distance (Pos 4-20)</p>
+                  <p className="text-2xl font-bold text-emerald-300 mt-1">{data.seoStats.strikingDistanceCount}</p>
+                </div>
+                <div className="bg-amber-500/10 rounded-xl p-3 border border-amber-400/20">
+                  <p className="text-xs text-amber-300">Underexposed Demands</p>
+                  <p className="text-2xl font-bold text-amber-300 mt-1">{data.seoStats.underexposedCount}</p>
+                </div>
+                <div className="bg-purple-500/10 rounded-xl p-3 border border-purple-400/20">
+                  <p className="text-xs text-purple-300">High Product Fit (&ge;70)</p>
+                  <p className="text-2xl font-bold text-purple-300 mt-1">{data.seoStats.highFitCount}</p>
+                </div>
+              </div>
+            </section>
+          )}
 
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
             <section className="xl:col-span-2 bg-white rounded-2xl shadow-lg p-6">

@@ -6,6 +6,7 @@ export const prerender = true;
 
 const bypassSlugs = [
   "wetransfer-2gb-limit-bypass",
+  "wetransfer-alternative",
   "google-drive-download-quota-exceeded-fix",
   "dropbox-file-size-limit-bypass",
   "email-attachment-too-large-alternative",

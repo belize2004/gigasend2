@@ -167,7 +167,7 @@ export const FileForm = () => {
   const [usageLoading, setUsageLoading] = useState(true);
   const [expiryLimit, setExpiryLimit] = useState(3); // in days
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>(null)
-  const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("email");
+  const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("link");
   const { auth } = useAuth();
   const [upgradeModalOpen, setUpgradeModalOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
@@ -793,14 +793,13 @@ export const FileForm = () => {
       return;
     }
 
-    // 2. Check if user is authenticated before initiating upload
-    if (!auth) {
-      setAuthModalOpen(true);
+    if (deliveryMode === "email" && !data.receiverEmail) {
+      showToast("Please enter a receiver email or choose Share link.");
       return;
     }
 
-    if (deliveryMode === "email" && !data.receiverEmail) {
-      showToast("Please enter a receiver email or choose Create link.");
+    if (deliveryMode === "email" && !auth && !data.senderEmail) {
+      showToast("Please enter your email so the recipient knows who sent this.");
       return;
     }
 
@@ -928,7 +927,7 @@ export const FileForm = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...(deliveryMode === "email" ? { receiverEmail: data.receiverEmail } : {}),
+          ...(deliveryMode === "email" ? { receiverEmail: data.receiverEmail, senderEmail: data.senderEmail } : { senderEmail: data.senderEmail }),
           numberOfFiles: files.length,
           fileSize: uploadedSize,
           message: data.message,
@@ -1140,6 +1139,21 @@ export const FileForm = () => {
                         }
                       />
                     </FormControl>
+                    {!auth && (
+                      <FormControl fullWidth variant="outlined">
+                        <FormLabel>Your email (sender)</FormLabel>
+                        <TextField
+                          placeholder="e.g., you@example.com"
+                          {...register("senderEmail")}
+                          error={!!errors.senderEmail}
+                          helperText={
+                            errors.senderEmail
+                              ? errors.senderEmail.message
+                              : "Recipient will see this sender email"
+                          }
+                        />
+                      </FormControl>
+                    )}
                     <FormControl fullWidth variant="outlined">
                       <FormLabel>Your message</FormLabel>
                       <TextField
@@ -1172,10 +1186,10 @@ export const FileForm = () => {
                     }}
                   >
                     <Typography variant="body2" fontWeight={700}>
-                      Signed-in link sharing
+                      Instant link sharing
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Your files will upload first, then {brand.productName} will create a secure download link you can copy and share anywhere. Click the purple button below to start.
+                      Your files will upload directly at line speed. Once finished, {brand.productName} gives you a 1-click secure link you can send anywhere. No account or password required.
                     </Typography>
                   </Stack>
                 )}

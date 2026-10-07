@@ -1,16 +1,19 @@
 import type { APIRoute } from "astro";
 import { CompleteMultipartUploadCommand, type CompletedPart } from "@aws-sdk/client-s3";
 import { r2BucketName, r2Client } from "@/lib/r2Client";
-import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
+import { getDb } from "@/lib/d1";
+import { json } from "@/src/lib/api";
+import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { captureMonitoringException } from "@/lib/monitoring";
 
-export const POST: APIRoute = async ({ request, cookies }) => {
+export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let userId: string | null = null;
   let body: { uploadId?: string; key?: string; parts?: CompletedPart[] } = {};
 
   try {
-    userId = await getAuthenticatedUserId(cookies);
-    if (!userId) return unauthorized();
+    const db = getDb(locals);
+    const session = await getOrCreateUserSession(cookies, db);
+    userId = session.userId;
 
     body = await request.json();
     const { uploadId, key, parts } = body;

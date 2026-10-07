@@ -6,7 +6,8 @@ import { PlanEnum, PLANS } from "@/lib/constant";
 import { stripe } from "@/lib/stripe";
 import { gbToBytes } from "@/lib/utils";
 import { getStorageLimitBytesForUser } from "@/lib/storageLimit";
-import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
+import { json } from "@/src/lib/api";
+import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { createUploadKey } from "@/src/lib/uploadKeys";
 
@@ -23,14 +24,22 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: Partial<InitiateUploadBody> = {};
 
   try {
-    userId = await getAuthenticatedUserId(cookies);
-    if (!userId) return unauthorized();
-
     const db = getDb(locals);
+    const session = await getOrCreateUserSession(cookies, db);
+    userId = session.userId;
+    const user = session.user;
+
     body = await request.json() as InitiateUploadBody;
     const { fileName, contentType, fileSize } = body;
     if (!fileName || !contentType || typeof fileSize !== "number") {
       return json({ error: "Missing fileName, contentType, or fileSize" }, 400);
+    }
+
+    if (session.isGuest && fileSize > PLANS.free.storageBytes * 1024 * 1024 * 1024) {
+      return json({
+        success: false,
+        message: `Free guest transfers are limited to ${PLANS.free.storageBytes} GB. Upgrade to send larger files.`,
+      }, 403);
     }
 
     if (fileSize > MAX_SINGLE_FILE_UPLOAD_BYTES) {
@@ -43,10 +52,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     let planPrefix = "free";
     let userPlan = PLANS.free;
 
-    const user = await findUserById(db, userId);
-    if (!user) return json({ error: "User not found" }, 404);
-
-    if (user.stripeCustomerId) {
+    if (!session.isGuest && user.stripeCustomerId) {
       const subscriptions = await stripe.subscriptions.list({
         customer: user.stripeCustomerId,
         status: "active",

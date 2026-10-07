@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { seoLandingPages } from "../data/seoLandingPages";
 import { brand } from "@/lib/brand";
+import TransferEmbed from "@/src/components/TransferEmbed";
 
 export const prerender = true;
 
@@ -93,23 +94,26 @@ const webAppSchema = {
           </div>
         </div>
 
-        <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-          <h2 class="text-xl font-bold text-slate-950">How it works</h2>
-          <ol class="mt-6 space-y-4">
-            <li class="flex gap-3">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">1</span>
-              <span><strong>Upload</strong> your large file, folder, zip, or video.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">2</span>
-              <span><strong>Add</strong> a recipient and optional message.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">3</span>
-              <span><strong>Send</strong> a secure download link instead of an attachment.</span>
-            </li>
-          </ol>
-        </aside>
+        <div class="flex flex-col gap-6">
+          <TransferEmbed client:load />
+          <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+            <h2 class="text-sm font-bold text-slate-950 uppercase tracking-wide">Instant 3-Step Edge Transfer</h2>
+            <ol class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">1</span>
+                <span><strong>Drop</strong> files above</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">2</span>
+                <span><strong>Line-speed</strong> upload</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">3</span>
+                <span><strong>Get 1-click link</strong></span>
+              </li>
+            </ol>
+          </aside>
+        </div>
       </div>
     </section>
 

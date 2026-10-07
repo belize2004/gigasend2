@@ -7,7 +7,8 @@ import { PlanEnum, PLANS } from "@/lib/constant";
 import { stripe } from "@/lib/stripe";
 import { getStorageLimitBytesForUser } from "@/lib/storageLimit";
 import { captureMonitoringException } from "@/lib/monitoring";
-import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
+import { json } from "@/src/lib/api";
+import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { createUploadKey } from "@/src/lib/uploadKeys";
 
 interface PresignDirectBody {
@@ -23,10 +24,11 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: Partial<PresignDirectBody> = {};
 
   try {
-    userId = await getAuthenticatedUserId(cookies);
-    if (!userId) return unauthorized();
-
     const db = getDb(locals);
+    const session = await getOrCreateUserSession(cookies, db);
+    userId = session.userId;
+    const user = session.user;
+
     body = await request.json() as PresignDirectBody;
     const { fileName, contentType, fileSize } = body;
 
@@ -41,10 +43,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     let planPrefix = "free";
     let userPlan = PLANS.free;
 
-    const user = await findUserById(db, userId);
-    if (!user) return json({ error: "User not found" }, 404);
-
-    if (user.stripeCustomerId) {
+    if (!session.isGuest && user.stripeCustomerId) {
       const subscriptions = await stripe.subscriptions.list({
         customer: user.stripeCustomerId,
         status: "active",

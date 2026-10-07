@@ -407,6 +407,39 @@ export async function getAdminOverview(db: AppD1Database) {
       userEmail: suggestion.user_email,
       createdAt: suggestion.created_at,
     })),
+    seoStats: await (async () => {
+      try {
+        const rawSeo = await db
+          .prepare(`
+            SELECT 
+              (SELECT COUNT(*) FROM seo_keywords) as total_keywords,
+              (SELECT COUNT(*) FROM seo_keywords WHERE opportunity_status = 'STRIKING DISTANCE') as striking_distance_count,
+              (SELECT COUNT(*) FROM seo_keywords WHERE opportunity_status = 'UNDEREXPOSED') as underexposed_count,
+              (SELECT COUNT(*) FROM seo_keywords WHERE product_fit_score >= 70) as high_fit_count,
+              (SELECT query || ': ' || action_reason FROM seo_keywords WHERE opportunity_status = 'STRIKING DISTANCE' ORDER BY opportunity_score DESC LIMIT 1) as top_action
+          `)
+          .first<{
+            total_keywords: number;
+            striking_distance_count: number;
+            underexposed_count: number;
+            high_fit_count: number;
+            top_action: string | null;
+          }>();
+
+        if (rawSeo && rawSeo.total_keywords > 0) {
+          return {
+            totalKeywords: Number(rawSeo.total_keywords || 0),
+            strikingDistanceCount: Number(rawSeo.striking_distance_count || 0),
+            underexposedCount: Number(rawSeo.underexposed_count || 0),
+            highFitCount: Number(rawSeo.high_fit_count || 0),
+            topAction: rawSeo.top_action || "Optimize landing page meta tags and review striking distance keywords.",
+          };
+        }
+        return null;
+      } catch {
+        return null;
+      }
+    })(),
   };
 }
 
