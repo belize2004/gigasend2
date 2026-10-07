@@ -2068,79 +2068,87 @@ export const seoLandingPages: SeoLandingPage[] = [
   "differentiation": "Direct pain-point resolution for Dropbox shared folder space limits."
 },
   {
-  "slug": "email-attachment-too-large-alternative",
-  "primaryKeyword": "email attachment too large alternative",
-  "secondaryKeywords": [
-    "how to email a file too large",
-    "send large video through email",
-    "file exceeds email limit fix"
-  ],
-  "title": "How to Send Files Too Large for Email (Outlook/Gmail) | Gigasend",
-  "metaDescription": "Easily send files that exceed Outlook (20MB) and Gmail (25MB) attachment limits. Upload up to 10GB free and send a direct download link via email.",
-  "h1": "How to Send Files Too Large for Email",
-  "eyebrow": "Email Attachment Solutions",
-  "intro": "Email servers reject attachments over 20MB to 25MB. Gigasend allows you to enter your recipient's email address and send files up to 10GB instantly.",
-  "cta": "Email Large File Now",
-  "sections": [
-    {
-      "heading": "Bypass the 25MB email attachment barrier",
-      "body": "Upload your video, high-resolution PDF, zip archive, or photos directly to Gigasend. We automatically email a secure download link to your recipient."
-    },
-    {
-      "heading": "Delivered cleanly into recipient inboxes",
-      "body": "Because large binary payloads don't clog email servers, your delivery notification reaches inboxes reliably without triggering spam filters."
-    },
-    {
-      "heading": "Delivery receipts and download tracking",
-      "body": "Get notified the exact moment your client or colleague downloads your delivery, giving you verifiable proof of receipt."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Standard Email Attachment",
-      "bestFor": "Word docs & invoices",
-      "limitation": "Fails on anything over 20MB-25MB",
-      "gigaSendAngle": "Sends files up to 10GB free"
-    },
-    {
-      "method": "Compressing/Downsampling",
-      "bestFor": "Quick previews",
-      "limitation": "Destroys image and video quality",
-      "gigaSendAngle": "Maintains 100% full-resolution original quality"
-    },
-    {
-      "method": "Gigasend Email Delivery",
-      "bestFor": "Any file over 25MB",
-      "limitation": "Internet connection required",
-      "gigaSendAngle": "Automatic receipt confirmation"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "What is the maximum attachment size for Gmail and Outlook?",
-      "answer": "Gmail allows up to 25MB and Outlook/Exchange typically allows 20MB. Gigasend lets you send up to 10GB free and up to 80GB+ on paid tiers."
-    },
-    {
-      "question": "Can I enter multiple recipient email addresses?",
-      "answer": "Yes, you can send to multiple recipients simultaneously or generate a shareable link to paste directly into your email thread."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-large-files-by-email",
-      "label": "send large files by email"
-    },
-    {
-      "href": "/send-large-files-free",
-      "label": "send large files free"
-    },
-    {
-      "href": "/send-10gb-file-free",
-      "label": "send 10GB file free"
-    }
-  ],
-  "differentiation": "Clean email-based delivery without attachment bounce-backs."
-},
+    "slug": "email-attachment-too-large-alternative",
+    "primaryKeyword": "email attachment too large alternative",
+    "secondaryKeywords": [
+      "how to email a file too large",
+      "send large video through email",
+      "file exceeds email limit fix"
+    ],
+    "title": "Send Files Too Large for Email (Send up to 25GB Free) | GigaSend",
+    "metaDescription": "Hit the 25MB attachment limit on Gmail or Outlook? Send files too large for email with GigaSend. Upload up to 25GB free and share a secure, direct download link.",
+    "h1": "How to Send Files Too Large for Email",
+    "eyebrow": "Email Attachment Limit Bypass",
+    "intro": "Email servers reject attachments over 20MB to 25MB due to MIME encoding overhead and mailbox quotas. GigaSend allows you to bypass email size barriers instantly, uploading up to 25GB completely free and generating a direct, high-speed download link for your email thread.",
+    "cta": "Send Files Too Large for Email",
+    "sections": [
+      {
+        "heading": "Why Email Attachments Fail: The 25MB Ceiling & MIME Inflation",
+        "body": "Standard email protocols (SMTP/IMAP) were never designed for large file transfers. Files attached to emails undergo Base64 MIME encoding, inflating binary payload sizes by approximately 33%. Consequently, an 18MB video or zip archive frequently exceeds the strict 25MB Gmail ceiling or 20MB Outlook/Exchange threshold, triggering instant bounce notifications ('552 Message size exceeds fixed maximum limit'). GigaSend eliminates server-side attachment rejection by transferring files out-of-band over encrypted HTTP/3."
+      },
+      {
+        "heading": "Frictionless Inbox Delivery via Direct Edge Download Links",
+        "body": "Rather than clogging your recipient's inbox quota or requiring complicated shared-folder permissions on Google Drive or OneDrive, GigaSend generates a clean, direct download URL. You can paste the link straight into your email reply, or have GigaSend email the recipient directly. The recipient simply clicks to download at unthrottled gigabit speeds—no registration, software installation, or cloud account sign-in required."
+      },
+      {
+        "heading": "End-to-End Encryption & Privacy Controls",
+        "body": "Unlike unencrypted email attachments that pass through multiple intermediary mail relays in cleartext or Base64, every transfer on GigaSend is secured with TLS 1.3 in transit and AES-256 encryption at rest. Transfers automatically expire after 7 days, ensuring sensitive client contracts, media assets, and legal documents do not linger permanently in email archives."
+      }
+    ],
+    "comparison": [
+      {
+        "method": "Standard Email Attachment (Gmail / Outlook)",
+        "bestFor": "Word documents & spreadsheets (<20MB)",
+        "limitation": "Hard 20MB–25MB ceiling + 33% MIME encoding inflation",
+        "gigaSendAngle": "Send up to 25GB free (1,000x larger than Gmail)"
+      },
+      {
+        "method": "Cloud Drives (Google Drive / OneDrive)",
+        "bestFor": "Collaborative document editing",
+        "limitation": "Consumes account storage; forces recipient Google/Microsoft sign-in & permission requests",
+        "gigaSendAngle": "Zero storage footprint, zero recipient login required"
+      },
+      {
+        "method": "GigaSend Direct Transfer",
+        "bestFor": "Videos, design files, zip archives & large attachments (up to 25GB free)",
+        "limitation": "7-day retention (ideal for transfer, not long-term storage)",
+        "gigaSendAngle": "Instant link generation, direct browser download, 100% free"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the email attachment size limit for Gmail and Outlook?",
+        "answer": "Gmail caps incoming and outgoing email attachments at 25MB, while Microsoft Outlook, Exchange, and Office 365 default to a 20MB limit. Furthermore, because email systems encode binary attachments using Base64 MIME format, files expand by roughly 33% in transit, meaning a 19MB file can trigger a 25MB rejection bounce."
+      },
+      {
+        "question": "How do I send a file that is too large for email?",
+        "answer": "The fastest way is using a dedicated large file transfer service like GigaSend. Upload your file (up to 25GB free) directly in your browser without creating an account. Once uploaded, copy the direct download link and paste it into your email body, or have GigaSend deliver an email notification directly to your recipient."
+      },
+      {
+        "question": "Why do email providers limit attachment sizes to 25MB?",
+        "answer": "Email architecture relies on decentralized SMTP mail servers that store and forward messages. Restricting attachments prevents mail server queues from crashing under memory exhaustion, limits bandwidth expenses for providers, and protects recipient mailboxes from exceeding storage quotas."
+      },
+      {
+        "question": "What is the best free alternative to email attachments for large files?",
+        "answer": "GigaSend is the top free alternative. It provides up to 25GB per transfer completely free—12.5x more than WeTransfer's 2GB limit and 1,000x larger than Gmail attachments. Recipients can download files directly with a single click without creating an account or dealing with permission access requests."
+      }
+    ],
+    "internalLinks": [
+      {
+        "href": "/send-large-files-free",
+        "label": "send large files free"
+      },
+      {
+        "href": "/send-10gb-file-free",
+        "label": "send 10GB file free"
+      },
+      {
+        "href": "/wetransfer-alternative",
+        "label": "WeTransfer alternative"
+      }
+    ],
+    "differentiation": "Direct replacement for email attachments: send up to 25GB free (1,000x larger than Gmail) with zero recipient account barriers and zero email bounces."
+  },
   {
   "slug": "send-5gb-file-free",
   "primaryKeyword": "send 5gb file free",
