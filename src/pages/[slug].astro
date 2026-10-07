@@ -39,7 +39,7 @@ const webAppSchema = {
     "@type": "Offer",
     price: "0.00",
     priceCurrency: "USD",
-    description: "Free large file transfers up to 10GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
+    description: "Free large file transfers up to 25GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
   },
 };
 ---
@@ -58,9 +58,9 @@ const webAppSchema = {
           {brand.productName}
         </a>
         <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
-          <a class="hover:text-blue-700" href="/transfer/">Transfer</a>
-          <a class="hover:text-blue-700" href="/plans/">Plans</a>
-          <a class="hover:text-blue-700" href="/send-large-files-free/">Free transfer</a>
+          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
+          <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer</a>
         </div>
       </nav>
     </header>
@@ -72,16 +72,16 @@ const webAppSchema = {
           <h1 class="max-w-4xl text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">{landingPage.h1}</h1>
           <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{landingPage.intro}</p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="/transfer/" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
+            <a href="/transfer" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
               {landingPage.cta}
             </a>
-            <a href="/plans/" class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-700">
+            <a href="/plans" class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-700">
               View plans
             </a>
           </div>
           <div class="mt-8 grid max-w-2xl grid-cols-3 gap-3 text-center text-sm">
             <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">10GB</div>
+              <div class="text-xl font-bold text-slate-950">25GB</div>
               <div class="mt-1 text-slate-600">Free transfers</div>
             </div>
             <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
@@ -161,7 +161,7 @@ const webAppSchema = {
       <div>
         <h2 class="text-3xl font-bold text-slate-950">Why this page is different</h2>
         <p class="mt-4 leading-7 text-slate-600">{landingPage.differentiation}</p>
-        <a href="/transfer/" class="mt-6 inline-flex rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700">{landingPage.cta}</a>
+        <a href="/transfer" class="mt-6 inline-flex rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700">{landingPage.cta}</a>
       </div>
 
       <div>
@@ -187,7 +187,7 @@ const webAppSchema = {
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold">Ready to send a large file?</h2>
         <p class="mt-4 text-lg text-blue-100">Upload your file and send a secure download link in a few clicks.</p>
-        <a href="/transfer/" class="mt-8 inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">{landingPage.cta}</a>
+        <a href="/transfer" class="mt-8 inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">{landingPage.cta}</a>
       </div>
     </section>
   </main>

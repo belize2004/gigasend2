@@ -15,7 +15,7 @@ export function getStaticPaths() {
 }
 
 const { page: landingPage } = Astro.props;
-const canonical = `${brand.siteUrl}/send/${landingPage.slug}`;
+const canonical = `${brand.siteUrl}/${landingPage.slug}`;
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -39,7 +39,7 @@ const webAppSchema = {
     "@type": "Offer",
     price: "0.00",
     priceCurrency: "USD",
-    description: "Free large file transfers up to 10GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
+    description: "Free large file transfers up to 25GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
   },
 };
 ---
@@ -81,7 +81,7 @@ const webAppSchema = {
           </div>
           <div class="mt-8 grid max-w-2xl grid-cols-3 gap-3 text-center text-sm">
             <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">10GB</div>
+              <div class="text-xl font-bold text-slate-950">25GB</div>
               <div class="mt-1 text-slate-600">Free transfers</div>
             </div>
             <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">

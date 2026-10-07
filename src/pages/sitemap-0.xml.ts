@@ -4,20 +4,6 @@ import { brand } from "@/lib/brand";
 
 export const prerender = true;
 
-const baseBypassSlugs = [
-  "wetransfer-2gb-limit-bypass",
-  "google-drive-download-quota-exceeded-fix",
-  "dropbox-file-size-limit-bypass",
-  "email-attachment-too-large-alternative",
-  "dropbox-transfer-alternative",
-  "send-files-larger-than-2gb",
-  "fastest-way-to-send-large-files",
-];
-
-const bypassSlugs = seoLandingPages
-  .filter((page) => baseBypassSlugs.includes(page.slug) || page.slug.includes("bypass") || page.slug.includes("alternative"))
-  .map((page) => page.slug);
-
 const guideSlugs = [
   "why-large-file-transfers-are-slow",
   "large-file-transfer-cost-calculator",
@@ -40,8 +26,6 @@ const staticPaths = [
   "signup",
   ...guideSlugs.map((slug) => `guides/${slug}`),
   ...seoLandingPages.map((page) => page.slug),
-  ...seoLandingPages.map((page) => `send/${page.slug}`),
-  ...bypassSlugs.map((slug) => `bypass/${slug}`),
 ];
 
 const today = new Date().toISOString().split("T")[0];
