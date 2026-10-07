@@ -582,9 +582,26 @@ export const seoLandingPages: SeoLandingPage[] = [
       { method: "GigaSend", bestFor: "Unreal Engine project handoffs", limitation: "3-day retention on free transfers", gigaSendAngle: "High-throughput delivery up to 250GB" },
     ],
     faqs: [
-      { question: "How do I transfer an Unreal Engine project to another computer?", answer: "Delete Intermediate and Saved directories to shrink file size, zip the project root (including .uproject and Content), upload to GigaSend, and send the download link." },
-      { question: "Which Unreal Engine folders are safe to delete before sending?", answer: "Intermediate, Saved, DerivedDataCache, and Binaries folders are safe to delete. They will be rebuilt upon launch." },
-      { question: "Can I transfer 100GB+ Unreal builds with GigaSend?", answer: "Yes! GigaSend easily supports 100GB to 250GB game builds and project distributions." },
+      {
+        question: "Which Unreal Engine folders should I delete before sending?",
+        answer: "You can safely delete the DerivedDataCache, Intermediate, Saved, Binaries, and .vs folders before transferring an Unreal Engine project. Only the Content/ and Config/ folders, plus the .uproject file (and Source/ for C++ projects), are strictly required. The recipient's engine will automatically regenerate shaders and cache files upon first launch."
+      },
+      {
+        question: "How to share an Unreal Engine 5 project with another developer?",
+        answer: "To share an Unreal Engine project with another developer without Git LFS or Perforce setup, clean the temporary cache folders, compress the project root into a .zip archive, and upload it to GigaSend. The recipient can download the project at line speed with no account required, extract it, and double-click the .uproject file to open it immediately."
+      },
+      {
+        question: "Why is my Unreal Engine project so big?",
+        answer: "Unreal Engine projects balloon in size primarily due to the DerivedDataCache (DDC) and Intermediate directories, which store pre-compiled shaders, cooked asset caches, and build artifacts. These machine-specific folders frequently consume 20GB to 80GB of disk space. Deleting them before archiving reduces project size by up to 80% without losing any project data."
+      },
+      {
+        question: "Can I send an Unreal Engine project via Google Drive or Dropbox?",
+        answer: "While possible, cloud sync tools often corrupt active projects due to background file locking on database caches, and they quickly exceed free storage quotas. Dedicated edge transfer with GigaSend ensures clean, archived delivery without sync conflicts."
+      },
+      {
+        question: "Can I transfer 100GB+ Unreal builds with GigaSend?",
+        answer: "Yes. GigaSend handles 100GB to 250GB game builds, uncompressed pak files, and project archives with multi-threaded edge streaming and zero file truncation."
+      },
     ],
     internalLinks: [
       { href: "/send-30gb-file", label: "send 30GB file" },
