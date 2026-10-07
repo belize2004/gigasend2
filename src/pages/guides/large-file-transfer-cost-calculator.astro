@@ -34,7 +34,7 @@ const faqSchema = {
       name: "How much does it cost to send a 50GB file online?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "With legacy providers like WeTransfer or Dropbox, you are required to subscribe to an annual $144–$240 plan just to send a single large file. With Gigasend, transfers under 10GB are 100% free, and larger sizes cost a simple $10–$20/mo flat tier or pay-as-you-go from $0.16/GB.",
+        text: "With legacy providers like WeTransfer or Dropbox, you are required to subscribe to an annual $144–$240 plan just to send a single large file. With Gigasend, transfers under 25GB are 100% free, and larger sizes cost a simple $12–$29/mo flat tier or unmetered edge routing.",
       },
     },
     {
@@ -151,7 +151,7 @@ const faqSchema = {
               </tr>
               <tr class="bg-blue-50/50">
                 <td class="px-6 py-4 font-bold text-blue-900">{brand.productName}</td>
-                <td class="px-6 py-4 font-semibold text-blue-700">Free up to 10GB / \$10 Flat</td>
+                <td class="px-6 py-4 font-semibold text-blue-700">Free up to 25GB / \$12 Pro</td>
                 <td class="px-6 py-4 font-semibold text-emerald-700">\$0 Egress Surcharges</td>
                 <td class="px-6 py-4 font-bold text-blue-700">Save 60% – 85%</td>
               </tr>
@@ -165,7 +165,7 @@ const faqSchema = {
             Unlike Amazon AWS, Microsoft Azure, or Google Cloud—which charge between \$0.05 and \$0.09 per Gigabyte every time a recipient clicks download—Gigasend is built natively on <strong>Cloudflare R2 object storage</strong>.
           </p>
           <p>
-            Cloudflare does not charge egress bandwidth fees. That architectural advantage allows Gigasend to offer 100% free transfers up to 10GB without annoying watermarks, speed throttling, or download caps for your recipients.
+            Cloudflare does not charge egress bandwidth fees. That architectural advantage allows Gigasend to offer 100% free transfers up to 25GB without annoying watermarks, speed throttling, or download caps for your recipients.
           </p>
         </div>
 
@@ -185,14 +185,14 @@ const faqSchema = {
         <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
           <h3 class="text-2xl font-bold">Try Transparent Transfer Pricing</h3>
           <p class="mt-2 text-blue-100 text-sm">
-            Send up to 10GB completely free with 3 days storage, or view our straightforward high-capacity tiers.
+            Send up to 25GB completely free with 3 days storage, or view our straightforward high-capacity tiers.
           </p>
           <div class="mt-6 flex justify-center gap-4">
             <a
               href="/transfer"
               class="rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
             >
-              Start Free Transfer
+              Start Free Transfer (25GB)
             </a>
             <a
               href="/plans"
@@ -204,5 +204,32 @@ const faqSchema = {
         </div>
       </div>
     </article>
+
+    <!-- Related Workflows & Cross-Cluster Navigation -->
+    <section class="border-t border-slate-200 bg-slate-50 py-12">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">Related Pricing & Transfer Solutions</h3>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/plans">
+            Plans & Pricing (Free 25GB to Studio 250GB)
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/compare">
+            Competitor Comparison Matrix
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/tools/transfer-speed-calculator">
+            Transfer Speed Calculator
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/dropbox-transfer-alternative">
+            Dropbox Transfer Alternative
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/wetransfer-alternative">
+            WeTransfer Alternative
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/directory">
+            Full Transfer Directory
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>

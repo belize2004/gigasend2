@@ -11,7 +11,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
   headline: "Why Large File Transfers Are So Slow (And How to Fix It)",
-  description: "A comprehensive network engineering breakdown of TCP window scaling, peering latency, packet loss, and WAN bottlenecks during 10GB–1TB file transfers.",
+  description: "A comprehensive network engineering breakdown of TCP window scaling, peering latency, packet loss, and WAN bottlenecks during 25GB–2TB file transfers.",
   url: canonical,
   author: {
     "@type": "Organization",
@@ -23,7 +23,7 @@ const articleSchema = {
     url: brand.siteUrl,
   },
   datePublished: "2026-05-01",
-  dateModified: "2026-10-04",
+  dateModified: "2026-10-06",
 };
 
 const faqSchema = {
@@ -60,7 +60,7 @@ const faqSchema = {
 
 <BaseLayout
   title={`Why Large File Transfers Are So Slow (And How to Fix It) | ${brand.productName}`}
-  description="Diagnose slow 10GB to 1TB file uploads. Understand TCP window scaling, RTT latency, packet loss, and how edge multi-part networks deliver line-rate speeds."
+  description="Diagnose slow 25GB to 2TB file uploads. Understand TCP window scaling, RTT latency, packet loss, and how edge multi-part networks deliver line-rate speeds."
   canonical={canonical}
 >
   <Fragment slot="head">
@@ -178,13 +178,37 @@ const faqSchema = {
         <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
           <h3 class="text-2xl font-bold">Transfer Large Files at Line Rate</h3>
           <p class="mt-2 text-blue-100 text-sm">
-            Experience sub-15ms edge upload acceleration. Free transfers up to 10GB with zero subscription barriers.
+            Experience sub-15ms edge upload acceleration. Free transfers up to 25GB with zero subscription barriers.
           </p>
           <a
             href="/transfer"
             class="mt-6 inline-block rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
           >
             Start Free Transfer Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Workflows & Cross-Cluster Navigation -->
+    <section class="border-t border-slate-200 bg-slate-50 py-12">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">Related Technical Workflows & Tools</h3>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/tools/transfer-speed-calculator">
+            Transfer Speed Calculator
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/fast-large-file-transfer">
+            Fast Large File Transfer
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/guides/transfer-large-files-without-failed-uploads">
+            Prevent Failed Uploads Guide
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/send-large-files-free">
+            Send Large Files Free (25GB)
+          </a>
+          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/directory">
+            Full Transfer Directory
           </a>
         </div>
       </div>

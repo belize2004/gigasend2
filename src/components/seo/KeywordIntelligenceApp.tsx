@@ -19,6 +19,7 @@ import {
   FiList,
   FiRefreshCw,
   FiSearch,
+  FiSend,
   FiSliders,
   FiTrendingUp,
 } from "react-icons/fi";
@@ -32,6 +33,7 @@ export default function KeywordIntelligenceApp() {
   >("opportunities");
   const [selectedKeywordId, setSelectedKeywordId] = useState<string | null>(null);
   const [runningAction, setRunningAction] = useState(false);
+  const [broadcastingIndexNow, setBroadcastingIndexNow] = useState(false);
   const [actionNotice, setActionNotice] = useState<string | null>(null);
 
   const loadData = async () => {
@@ -78,6 +80,26 @@ export default function KeywordIntelligenceApp() {
     }
   };
 
+  const handleIndexNow = async () => {
+    setBroadcastingIndexNow(true);
+    setActionNotice(null);
+    try {
+      const res = await axios.post<{ success: boolean; message: string }>(
+        "/api/admin/seo/indexnow"
+      );
+      if (res.data?.success) {
+        setActionNotice(res.data.message || "IndexNow broadcast completed!");
+        setTimeout(() => setActionNotice(null), 6000);
+      } else {
+        setActionNotice(res.data?.message || "IndexNow broadcast failed");
+      }
+    } catch (err: any) {
+      setActionNotice(err?.response?.data?.message || "IndexNow request failed");
+    } finally {
+      setBroadcastingIndexNow(false);
+    }
+  };
+
   const selectedKeyword =
     selectedKeywordId && data ? data.keywords.find((k) => k.id === selectedKeywordId) || null : null;
 
@@ -115,6 +137,15 @@ export default function KeywordIntelligenceApp() {
                 {actionNotice}
               </span>
             )}
+
+            <button
+              onClick={handleIndexNow}
+              disabled={broadcastingIndexNow || loading}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white text-xs font-semibold rounded-full shadow-sm transition-all"
+            >
+              <FiSend className={`text-xs ${broadcastingIndexNow ? "animate-pulse" : ""}`} />
+              <span>{broadcastingIndexNow ? "Broadcasting..." : "Broadcast IndexNow"}</span>
+            </button>
 
             <button
               onClick={() => handleRunAction(1)}

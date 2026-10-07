@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { seoLandingPages } from "../../data/seoLandingPages";
 import { brand } from "@/lib/brand";
 import TransferEmbed from "@/src/components/TransferEmbed";
+import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
 
 export const prerender = true;
 
@@ -173,19 +174,10 @@ const webAppSchema = {
       </div>
     </section>
 
-    <section class="border-t border-slate-200 bg-white py-12">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Related transfer pages</h3>
-        <ul class="mt-4 flex flex-wrap gap-4 text-sm font-medium text-blue-600">
-          {landingPage.internalLinks.map((link) => (
-            <li>
-              <a href={link.href} class="hover:text-blue-800 hover:underline">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <RelatedWorkflows
+      currentSlug={landingPage.slug}
+      internalLinks={landingPage.internalLinks}
+      title="Related Transfer Solutions & Workflows"
+    />
   </main>
 </BaseLayout>

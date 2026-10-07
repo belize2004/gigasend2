@@ -11,7 +11,7 @@ const guides = [
     slug: "why-large-file-transfers-are-slow",
     title: "Why Large File Transfers Are So Slow (And How to Fix It)",
     category: "WAN & Infrastructure",
-    description: "Diagnosing TCP window scaling, peering latency, and packet loss bottlenecks on 10GB–1TB file transfers—plus how to achieve line-rate edge speeds.",
+    description: "Diagnosing TCP window scaling, peering latency, and packet loss bottlenecks on 25GB–2TB file transfers—plus how to achieve line-rate edge speeds.",
     readTime: "6 min read",
   },
   {
@@ -60,9 +60,10 @@ const guides = [
         <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
           <a class="hover:text-blue-700" href="/transfer">Transfer</a>
           <a class="hover:text-blue-700" href="/plans">Plans</a>
+          <a class="hover:text-blue-700" href="/compare">Compare</a>
           <a class="hover:text-blue-700" href="/directory">Directory</a>
           <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Speed Calculator</a>
-          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer</a>
+          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer (25GB)</a>
         </div>
       </nav>
     </header>
@@ -107,6 +108,27 @@ const guides = [
               </div>
             </a>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Tools & Transfer Directory Cross-Links -->
+    <section class="border-t border-slate-200 bg-white py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-slate-950">Interactive Utilities & Transfer Solutions</h2>
+        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/tools/transfer-speed-calculator" class="rounded-xl border border-slate-200 p-6 shadow-sm transition hover:border-blue-500 hover:shadow-md">
+            <h3 class="font-bold text-slate-950 hover:text-blue-600">Speed Calculator</h3>
+            <p class="mt-2 text-sm text-slate-600">Simulate upload durations across 10 Mbps to 10 Gbps pipes with real-world TCP overhead.</p>
+          </a>
+          <a href="/directory" class="rounded-xl border border-slate-200 p-6 shadow-sm transition hover:border-blue-500 hover:shadow-md">
+            <h3 class="font-bold text-slate-950 hover:text-blue-600">Codec & Software Directory</h3>
+            <p class="mt-2 text-sm text-slate-600">Browse 46 optimized channels for BRAW, RED R3D, DaVinci, Blender, Ableton, and more.</p>
+          </a>
+          <a href="/compare" class="rounded-xl border border-slate-200 p-6 shadow-sm transition hover:border-blue-500 hover:text-blue-700">
+            <h3 class="font-bold text-slate-950 hover:text-blue-600">Competitor Matrix</h3>
+            <p class="mt-2 text-sm text-slate-600">Compare free transfer caps and cloud egress costs across WeTransfer, Dropbox, Drive, and MASV.</p>
+          </a>
         </div>
       </div>
     </section>
