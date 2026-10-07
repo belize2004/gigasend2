@@ -86,16 +86,34 @@ export const seoLandingPages: SeoLandingPage[] = [
       { method: "GigaSend", bestFor: "10GB online delivery", limitation: "Upload speed depends on connection", gigaSendAngle: "Direct large-file transfer flow" },
     ],
     faqs: [
-      { question: "Can I send a 10GB file for free?", answer: "Yes. The free plan supports transfers up to 10GB." },
-      { question: "How long does a free 10GB transfer stay available?", answer: "Free transfers are stored for 3 days." },
-      { question: "Can I send a 10GB video file?", answer: "Yes. Video files are supported as long as they fit within your available transfer limit." },
+      {
+        question: "How to send a 10GB file for free online?",
+        answer: "To send a large file for free using GigaSend: (1) Drag and drop your file directly into the dropzone above, (2) Wait for line-speed chunked upload across Cloudflare's global edge network, and (3) Copy the generated secure download link to share via email or messaging. No account registration or credit card is required.",
+      },
+      {
+        question: "Does Google Drive let you send 10GB for free?",
+        answer: "While Google Drive offers 15GB of free storage, that quota is shared across your entire Google account (Gmail, Google Photos, Drive) and enforces strict 24-hour daily download quotas on popular files. GigaSend provides dedicated transfer bandwidth up to 25GB free with no shared quota, no forced Google sign-in for recipients, and zero impact on your cloud storage allowance.",
+      },
+      {
+        question: "Which free transfer tool does not require an account?",
+        answer: "GigaSend requires zero account registration for both senders and recipients. You can upload and transfer large files immediately from your browser without providing an email address, creating credentials, or forcing your recipient to create an account to download.",
+      },
+      {
+        question: "How long does a free 10GB transfer stay available?",
+        answer: "Free transfers are stored safely on Cloudflare edge storage for 3 full days (72 hours) before automated cleanup, preventing stale links.",
+      },
+      {
+        question: "Can I send a 10GB file without compressing it?",
+        answer: "Yes. GigaSend delivers lossless transmission with zero transcoding or file tampering. Your recipients receive the exact bit-for-bit file, preserving full metadata and quality for 4K/8K video, 3D assets, and archives.",
+      },
     ],
     internalLinks: [
-      { href: "/send-large-files-free/", label: "send large files free" },
-      { href: "/share-large-files-with-link/", label: "share large files with a link" },
-      { href: "/send-large-video-files/", label: "send large video files" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/bypass/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
     ],
-    differentiation: "This page maps exactly to the free product limit, making it one of the cleanest conversion pages.",
+    differentiation: "This page maps directly to the generous free product limit with zero account walls, making it one of the highest-converting programmatic landing pages.",
   },
   {
     slug: "send-large-files-by-email",
