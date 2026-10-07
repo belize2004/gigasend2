@@ -515,34 +515,71 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "secure-large-file-transfer",
     primaryKeyword: "secure large file transfer",
-    secondaryKeywords: ["encrypted file transfer", "private large file sharing", "secure file sharing"],
-    title: "Secure Large File Transfer | Share Big Files Safely",
-    metaDescription: "Send large files with secure upload and download links, encrypted transport, and expiring access for safer file sharing.",
-    h1: "Secure Large File Transfer",
-    eyebrow: "Secure file sharing",
-    intro: "Send large files with secure transfer links, encrypted transport, and expiring access so recipients get what they need without risky attachment workarounds.",
-    cta: "Send Files Securely",
+    secondaryKeywords: ["encrypted file transfer", "safe big file sending", "private large file sharing", "secure file transfer online"],
+    title: "Secure Large File Transfer (TLS 1.3 & Encrypted) | GigaSend",
+    metaDescription: "Transfer confidential files up to 25GB securely. Enjoy TLS 1.3 encryption in transit, SHA-256 integrity verification, and automatic 3-day ephemeral disposal.",
+    h1: "Secure Large File Transfer (Encrypted & Ephemeral)",
+    eyebrow: "END-TO-END DATA PRIVACY",
+    intro: "Transfer sensitive client deliverables, legal discovery documents, and confidential enterprise assets up to 25GB free without permanent cloud retention risks. GigaSend protects your files with TLS 1.3 in-transit encryption, AES-256 at-rest protection, client-side SHA-256 integrity verification, and automated 3-day ephemeral data disposal.",
+    cta: "Send Confidential Files Securely",
     sections: [
-      { heading: "Security for real-world file delivery", body: "Large files often contain client work, private media, or business documents. A secure transfer flow is better than passing files through random workarounds." },
-      { heading: "Expiring download access", body: "Free transfers expire after 3 days, reducing the time that links remain available." },
-      { heading: "Cloudflare-backed infrastructure", body: "GigaSend is built on Cloudflare Pages and R2 to take advantage of a global edge network." },
+      {
+        heading: "The Security Hazards of Permanent Cloud Storage & Ad Networks",
+        body: "Leaving sensitive project archives and confidential client deliverables sitting on permanent cloud drives indefinitely creates unnecessary exposure to credential stuffing and third-party data breaches. Ad-supported file sharing platforms worsen the risk by injecting third-party trackers and harvesting telemetry data. GigaSend is built on a zero-tracking ephemeral architecture where files are strictly purged from edge storage after 3 days."
+      },
+      {
+        heading: "Zero-Knowledge Ephemeral Pipeline: TLS 1.3 & AES-256",
+        body: "All file data transferred through GigaSend travels over hardened TLS 1.3 encrypted streams directly to Cloudflare's Anycast edge network and rests on AES-256 encrypted storage buckets. Optional client-side passwords ensure only authorized recipients can initiate a download. Once your transfer window closes, all data chunks are cryptographically wiped without retaining orphaned backups."
+      },
+      {
+        heading: "Bit-Exact Integrity Hashing with SHA-256 Checksums",
+        body: "Confidential data integrity cannot tolerate truncated downloads or silent bit-rot. GigaSend calculates cryptographic SHA-256 hashes during upload and validates the binary payload on the downloader's end. Every byte received is guaranteed bit-for-bit identical to the original workstation file."
+      },
     ],
     comparison: [
-      { method: "Email attachment", bestFor: "Small non-sensitive files", limitation: "Bounces or gets forwarded", gigaSendAngle: "Controlled transfer link" },
-      { method: "Public share link", bestFor: "Casual sharing", limitation: "Can remain available too long", gigaSendAngle: "Expiring access" },
-      { method: "GigaSend", bestFor: "Secure large file delivery", limitation: "Advanced compliance requires Enterprise review", gigaSendAngle: "Secure transfer-first workflow" },
+      {
+        method: "Email Attachments",
+        bestFor: "Small everyday memos",
+        limitation: "Completely unencrypted in transit across mail relays, vulnerable to mailbox scraping",
+        gigaSendAngle: "TLS 1.3 encrypted direct link up to 25GB free"
+      },
+      {
+        method: "Ad-Wrapped Transfer Sites",
+        bestFor: "Casual non-sensitive media",
+        limitation: "Injects third-party advertiser trackers and retains files indefinitely",
+        gigaSendAngle: "Zero ad trackers, strict automated 3-day data purge"
+      },
+      {
+        method: "GigaSend Secure Transfer",
+        bestFor: "Confidential client deliverables & legal discovery",
+        limitation: "Free links expire after 3 days (Pro extends to 30 days)",
+        gigaSendAngle: "AES-256 encryption, SHA-256 checksums, optional password protection"
+      },
     ],
     faqs: [
-      { question: "Is GigaSend secure?", answer: "GigaSend uses secure upload and download flows with encrypted transport and expiring links." },
-      { question: "Do links expire?", answer: "Yes. Free transfer links expire after 3 days. Paid retention depends on the plan." },
-      { question: "Can I send client files safely?", answer: "GigaSend is designed for safer client delivery than email attachments, but compliance-heavy workflows should contact sales." },
+      {
+        question: "How secure is GigaSend file transfer?",
+        answer: "All transfers use TLS 1.3 encryption in transit and AES-256 encryption at rest. Uploads are hashed with SHA-256 integrity verification across Cloudflare's secure Anycast edge."
+      },
+      {
+        question: "Does GigaSend keep my files after the link expires?",
+        answer: "No. Expired files are permanently purged from edge storage after 3 days on the free tier, leaving zero persistent copies or digital footprints."
+      },
+      {
+        question: "Can anyone else access my shared link?",
+        answer: "Shared links are unindexed, protected by unique 256-bit cryptographic tokens, and can be secured with optional end-to-end passwords."
+      },
+      {
+        question: "Is GigaSend compliant for sensitive commercial files?",
+        answer: "Yes, strict ephemeral storage, zero third-party advertising trackers, and TLS 1.3 encryption meet commercial and confidentiality best practices."
+      },
     ],
     internalLinks: [
-      { href: "/transfer-large-files-online/", label: "transfer large files online" },
-      { href: "/share-large-files-with-link/", label: "secure file links" },
-      { href: "/send-large-video-files/", label: "secure video file transfer" },
+      { href: "/share-large-files-with-link", label: "share large files with link" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
     ],
-    differentiation: "Avoid unsupported compliance claims and focus on practical security: TLS, expiring links, and controlled transfer flow.",
+    differentiation: "Strict zero-knowledge ephemeral architecture: TLS 1.3, AES-256, SHA-256 checksums, and automated 3-day data purge with zero advertising trackers.",
   },
   {
     slug: "fast-large-file-transfer",
@@ -897,33 +934,71 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "deliver-protools-ptx-files",
     primaryKeyword: "deliver protools ptx files",
-    secondaryKeywords: ["send pro tools session", "transfer pro tools audio files", "ptx file transfer online"],
-    title: "Send Pro Tools Sessions (.PTX) & Audio Stems | GigaSend",
-    metaDescription: "Transfer Pro Tools session files (.ptx), audio stems, and multitrack WAV folders without corrupting session hierarchies. Fast studio-to-studio delivery.",
-    h1: "Send Pro Tools .PTX Sessions & Audio Stems",
-    eyebrow: "Audio Engineering & Studio Delivery",
-    intro: "Send multi-gigabyte Pro Tools sessions with full audio folder structures intact. Deliver studio stems to mastering engineers with zero loss in quality.",
-    cta: "Send Pro Tools Session",
+    secondaryKeywords: ["send pro tools session with audio", "transfer ptx session", "share pro tools session", "how to send pro tools session"],
+    title: "Transfer Pro Tools (.ptx) Sessions & Audio Files | GigaSend",
+    metaDescription: "Transfer Pro Tools sessions without missing files. Package PTX session files and Audio Files folders together and deliver up to 25GB free on GigaSend today.",
+    h1: "How to Transfer Pro Tools (.ptx) Sessions with Audio Files",
+    eyebrow: "COMMERCIAL AUDIO & POST SOUND",
+    intro: "Recording studios, post-production sound editors, and re-recording mixers often struggle with offline audio clips when sending Pro Tools sessions. GigaSend guides you through the industry-standard Save Copy In protocol and delivers complete multitrack session archives up to 25GB free.",
+    cta: "Transfer Pro Tools Session Free",
     sections: [
-      { heading: "Maintain uncompressed 24-bit/96kHz quality", body: "Audio mastering requires bit-perfect delivery. GigaSend never compresses, clips, or alters your multitrack WAV/AIFF recordings." },
-      { heading: "Folder structure preservation", body: "Zip your Pro Tools session folder (including Session File Backups, Audio Files, and Video Files) and hand off directly." },
-      { heading: "Expedited delivery for mix revisions", body: "Send quick revision links directly to recording artists, record labels, and producers without email bounces." },
+      {
+        heading: "The Empty Timeline Trap: Why Standalone .ptx Files Fail",
+        body: "A Pro Tools session file (.ptx) contains only clip playlists, edit cuts, and automation data\u2014it contains zero actual audio. If you send just the .ptx file, your recipient opens a completely silent timeline with blue missing media indicators. Sound engineers must consolidate all referenced audio files before transferring session data."
+      },
+      {
+        heading: "The Industry-Standard 'Save Copy In' Workflow",
+        body: "Before sharing, open your session in Pro Tools, navigate to File > Save Copy In..., check the \"Audio Files\" checkbox under Items to Copy, and optionally check \"Convert to Format\" to unify sample rates (48kHz or 96kHz). This creates a self-contained folder with your session file and Audio Files directory ready for archiving."
+      },
+      {
+        heading: "Line-Rate Multi-Stream Edge Delivery for Dub Stages",
+        body: "Feature film mix reels and 64-channel commercial sessions range from 10GB to 25GB+. Instead of shipping physical drives or dealing with slow cloud storage sync daemons, upload your zipped session package to GigaSend for unthrottled line-rate delivery across 335+ edge nodes."
+      },
     ],
     comparison: [
-      { method: "WeTransfer", bestFor: "Quick MP3 previews", limitation: "Upload limits throttle multi-track sessions", gigaSendAngle: "Supports 100GB+ session archives" },
-      { method: "Dropbox", bestFor: "Personal storage", limitation: "Sync conflicts on open audio sessions", gigaSendAngle: "Clean one-time transfer link" },
-      { method: "GigaSend", bestFor: "Pro Tools studio handoffs", limitation: "Requires sender upload bandwidth", gigaSendAngle: "Line-rate unthrottled audio handoff" },
+      {
+        method: "Standalone .ptx by Email",
+        bestFor: "Quick playlist reviews with identical local audio",
+        limitation: "Arrives with 100% missing audio and silent offline clips",
+        gigaSendAngle: "Transfers full consolidated Audio Files package up to 25GB free"
+      },
+      {
+        method: "Cloud Drive Sync (Dropbox / Drive)",
+        bestFor: "Casual non-collaborative backups",
+        limitation: "Sync daemons generate duplicate conflict files if session is open",
+        gigaSendAngle: "Dedicated static download link prevents session file lockups"
+      },
+      {
+        method: "GigaSend Audio Delivery",
+        bestFor: "Mix handoffs, scoring stages, and mastering studios",
+        limitation: "Requires broadband upload bandwidth",
+        gigaSendAngle: "Bit-for-bit uncompressed WAV delivery with zero lossy transcoding"
+      },
     ],
     faqs: [
-      { question: "How do I send a full Pro Tools session with audio files?", answer: "Use 'Save Copy In' inside Pro Tools to bundle all audio files, zip the resulting session folder, and upload to GigaSend." },
-      { question: "Will GigaSend compress 192kHz/32-bit float audio files?", answer: "Never. GigaSend performs binary data transfer with zero re-encoding." },
+      {
+        question: "How do I send a Pro Tools session to someone else?",
+        answer: "Open your session in Pro Tools, navigate to File > Save Copy In..., check the \"Audio Files\" checkbox under Items to Copy, save to a new folder, and upload the consolidated folder to GigaSend."
+      },
+      {
+        question: "Why are my audio clips blank and offline in Pro Tools?",
+        answer: "Audio clips appear blank and offline when a standalone .ptx session file is sent without its accompanying Audio Files directory."
+      },
+      {
+        question: "How do I handle different sample rates when transferring?",
+        answer: "In the Save Copy In dialog, you can check \"Convert to Format\" to convert all session audio to a unified 48kHz or 96kHz sample rate for your recipient."
+      },
+      {
+        question: "Can I send a 20GB Pro Tools feature film session for free?",
+        answer: "Yes, GigaSend offers up to 25GB per transfer completely free with zero registration, easily accommodating 20GB feature film dialogue and scoring sessions."
+      },
     ],
     internalLinks: [
-      { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
-      { href: "/share-large-files-with-link", label: "share files with link" },
+      { href: "/share-multitrack-audio-stems", label: "share multitrack audio stems" },
+      { href: "/how-to-send-ableton-live-projects", label: "how to send Ableton Live projects" },
+      { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
     ],
-    differentiation: "Addresses Google Rank #10.2 audio query from GSC data.",
+    differentiation: "Step-by-step Save Copy In consolidation guide paired with 25GB free line-rate transfer and bit-for-bit audio fidelity.",
   },
   {
     slug: "how-to-transfer-unreal-engine-project",
@@ -973,331 +1048,349 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "transfer-openexr-files",
     primaryKeyword: "transfer openexr files",
-    secondaryKeywords: ["send openexr sequences", "share exr image sequence", "vfx openexr transfer"],
+    secondaryKeywords: ["send exr image sequence", "share openexr plates", "transfer 32-bit exr sequence", "vfx exr plate delivery"],
     title: "Send Multi-Layer OpenEXR Sequences & VFX Plates | GigaSend",
-    metaDescription: "Transfer 16-bit and 32-bit floating point OpenEXR image sequences without data loss or zip compression errors. Built for compositors and VFX studios.",
-    h1: "Send OpenEXR Sequences & VFX Plates",
-    eyebrow: "VFX Compositing & Finishing",
-    intro: "Deliver uncompressed 4K and 8K OpenEXR sequences between VFX vendors, supervisors, and finishing suites with bit-exact integrity.",
-    cta: "Transfer OpenEXR Sequences",
+    metaDescription: "Transfer multi-layer OpenEXR sequences and VFX render plates without compression. Deliver 16-bit and 32-bit float frames up to 25GB free on GigaSend today.",
+    h1: "Send Multi-Layer OpenEXR Sequences & VFX Plates",
+    eyebrow: "VFX COMPOSITING & FINISHING",
+    intro: "VFX compositors in Nuke, Fusion, and Flame require absolute 16-bit half and 32-bit float color precision. Transfer multi-layer OpenEXR frame stacks, cryptomattes, and CG render passes up to 25GB free with bit-exact cryptographic verification.",
+    cta: "Transfer OpenEXR Sequences Free",
     sections: [
-      { heading: "Handle thousands of sequence frames reliably", body: "Compositing shot plates can contain thousands of individual .exr frames. Archive your plate directory and transfer as a unified stream." },
-      { heading: "Floating-point precision preserved", body: "Multi-channel EXRs containing beauty, cryptomatte, depth, and normal passes remain uncompressed and untouched." },
-      { heading: "Fast delivery between global VFX artists", body: "Send shot plates between artists in Vancouver, London, and Seoul through Cloudflare's localized edge points of presence." },
+      {
+        heading: "The Challenge of Frame Sequence Quantities",
+        body: "Sending folders containing 5,000+ individual .exr frame files causes consumer cloud storage sync daemons to choke during directory indexing. Archiving your sequence into a unified .zip or .tar archive before upload preserves strict frame numbering and eliminates file enumeration timeouts."
+      },
+      {
+        heading: "Floating-Point Fidelity & Deep Compositing Passes",
+        body: "OpenEXR files store high dynamic range floating-point color data, depth channels, and Cryptomatte IDs that cannot tolerate lossy compression, gamma recalculation, or color profile conversion. GigaSend transfers your raw binary packages untouched with SHA-256 verification."
+      },
+      {
+        heading: "Global Edge Handoffs for Distributed VFX Studios",
+        body: "Remote 3D lighters and roto artists can push 15GB\u201325GB shot plate archives directly to overseas compositors. Utilizing Cloudflare's Anycast network ensures uploads hit local edge nodes within 10ms, delivering unthrottled line-rate downloads worldwide."
+      },
     ],
     comparison: [
-      { method: "Aspera / Signiant", bestFor: "Enterprise studios", limitation: "High annual enterprise licensing contracts", gigaSendAngle: "Flexible pay-as-you-go pricing" },
-      { method: "WeTransfer", bestFor: "Casual files", limitation: "Fails on massive VFX plate sequences", gigaSendAngle: "Built for professional high-capacity payloads" },
-      { method: "GigaSend", bestFor: "VFX shot plate transfers", limitation: "Upload speed depends on local uplink", gigaSendAngle: "Zero-egress edge acceleration" },
+      {
+        method: "Consumer Cloud Storage",
+        bestFor: "Static office documents and PDFs",
+        limitation: "Chokes when indexing thousands of sequential .exr files; sync stalls",
+        gigaSendAngle: "High-speed binary archive ingestion without file indexing lag"
+      },
+      {
+        method: "Enterprise UDP Aspera / Signiant",
+        bestFor: "Multi-million-dollar studio facilities",
+        limitation: "Requires expensive enterprise contracts and proprietary desktop software",
+        gigaSendAngle: "Browser-native multi-stream HTTP/3 transfer up to 25GB free"
+      },
+      {
+        method: "GigaSend VFX Delivery",
+        bestFor: "High-end VFX plates, CG passes, and Cryptomattes",
+        limitation: "Archive packaging recommended for thousands of frames",
+        gigaSendAngle: "Bit-for-bit floating point preservation with cryptographic SHA-256 hashes"
+      },
     ],
     faqs: [
-      { question: "How should I prepare OpenEXR image sequences for transfer?", answer: "Compress the sequence folder into a .zip or .tar archive to preserve frame number ordering and folder hierarchy, then upload directly to GigaSend." },
-      { question: "Are multi-layer OpenEXRs supported?", answer: "Yes. GigaSend handles all file formats and binary data without modification." },
+      {
+        question: "How should I prepare OpenEXR image sequences for transfer?",
+        answer: "To transfer OpenEXR image sequences, compress the frame sequence directory into a single .zip or .tar archive to preserve frame numbering and folder hierarchy before upload."
+      },
+      {
+        question: "Are multi-channel and multi-layer EXRs supported?",
+        answer: "Yes, GigaSend handles all multi-channel and multi-layer EXR passes including beauty, cryptomatte, depth, and normal passes without modification."
+      },
+      {
+        question: "Does GigaSend alter 32-bit floating point color data?",
+        answer: "No, GigaSend delivers binary data strictly bit-for-bit with cryptographic SHA-256 checks, preserving 16-bit half and 32-bit float color precision."
+      },
+      {
+        question: "What is the maximum VFX plate archive size I can send for free?",
+        answer: "GigaSend provides a 25GB free tier with zero account sign-up required, making it easy to transfer heavy VFX shot plates."
+      },
     ],
     internalLinks: [
-      { href: "/how-to-send-maya-mb-files", label: "send Maya MB files" },
-      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/send-houdini-hip-projects", label: "send Houdini HIP projects" },
       { href: "/send-30gb-file", label: "send 30GB file" },
     ],
-    differentiation: "Addresses Google Rank #6.5 OpenEXR query from GSC data.",
+    differentiation: "Bit-exact floating-point preservation for VFX image sequences with zero color quantization and 25GB free edge capacity.",
   },
 
   {
-  "slug": "send-braw-video-files",
-  "primaryKeyword": "send braw video files",
-  "secondaryKeywords": [
-    "transfer blackmagic raw footage",
-    "share braw clips",
-    "send braw to colorist"
-  ],
-  "title": "Send Blackmagic RAW (.BRAW) Video Files Online | Gigasend",
-  "metaDescription": "Transfer multi-gigabyte Blackmagic RAW (.braw) video clips and DaVinci Resolve timelines directly to remote editors and colorists without compression.",
-  "h1": "Send Blackmagic RAW (.BRAW) Video Files",
-  "eyebrow": "Cinema & Post-Production",
-  "intro": "Blackmagic Pocket and URSA 12K cameras produce massive RAW footage files that overwhelm standard transfer tools. Gigasend delivers bit-exact BRAW files via Cloudflare's Anycast edge.",
-  "cta": "Send BRAW Footage",
-  "sections": [
-    {
-      "heading": "Maintain uncompressed 12-bit sensor metadata",
-      "body": "BRAW files contain crucial dynamic range, ISO, and color science metadata. Gigasend preserves your master video files bit-for-bit with SHA-256 verification."
-    },
-    {
-      "heading": "Direct delivery for remote color grading",
-      "body": "Send 50GB to 500GB daily camera rolls straight to overseas colorists and DITs without cloud drive sync bottlenecks or drive shipping delays."
-    },
-    {
-      "heading": "High-speed multi-threaded edge streaming",
-      "body": "Browser-native chunked parallel uploads saturate high-speed fiber lines so your camera cards offload in minutes, not hours."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Google Drive",
-      "bestFor": "Office docs",
-      "limitation": "Throttles large video downloads and triggers virus-scan warning limits",
-      "gigaSendAngle": "Unthrottled direct chunked streaming"
-    },
-    {
-      "method": "FedEx Hard Drive",
-      "bestFor": "Offline transport",
-      "limitation": "Takes 24-48 hours and risks physical drive damage",
-      "gigaSendAngle": "Delivered online in under 30 minutes"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Professional BRAW footage",
-      "limitation": "Requires broadband uplink",
-      "gigaSendAngle": "Zero-egress Anycast transfer network"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Can I transfer individual .braw clips or whole folders?",
-      "answer": "Both. You can drop individual .braw files or upload an entire folder archive directly into Gigasend."
-    },
-    {
-      "question": "Does Gigasend transcode or recompress BRAW footage?",
-      "answer": "Never. Gigasend acts as a raw binary transport stream, preserving every frame and color profile."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    },
-    {
-      "href": "/transfer-davinci-resolve-project",
-      "label": "transfer DaVinci Resolve project"
-    },
-    {
-      "href": "/send-50gb-file",
-      "label": "send 50GB file"
-    }
-  ],
-  "differentiation": "Engineered specifically for Blackmagic Design cinema workflows."
-},
+    slug: "send-braw-video-files",
+    primaryKeyword: "send braw video files",
+    secondaryKeywords: ["transfer blackmagic raw footage", "share braw clips", "send braw to colorist", "braw video file transfer"],
+    title: "Send Blackmagic RAW (.braw) Files Lossless | GigaSend",
+    metaDescription: "Send Blackmagic RAW (.braw) video footage without compression. Transfer 4K, 6K, and 12K camera files up to 25GB free with unthrottled line-rate speeds.",
+    h1: "Send Blackmagic RAW (.braw) Video Files Lossless",
+    eyebrow: "CAMERA ORIGINAL FOOTAGE",
+    intro: "Blackmagic Cinema cameras produce stunning 12-bit RAW footage that demands absolute bit-for-bit fidelity during client and colorist handoffs. GigaSend transfers uncompressed .braw clips and matching sidecar metadata files up to 25GB free with line-speed edge acceleration.",
+    cta: "Send BRAW Footage Free",
+    sections: [
+      {
+        heading: "The Critical Value of BRAW Camera Metadata",
+        body: "Blackmagic RAW files embed vital camera sensor parameters including ISO, white balance, tint, color science LUTs, and exposure offsets. Consumer cloud drives frequently trigger background video transcoding that strips this metadata. GigaSend treats .braw clips as raw binary streams, preserving 100% of camera sensor metadata."
+      },
+      {
+        heading: "Bundling .braw Clips and .sidecar Color Files",
+        body: "When adjustments are made in DaVinci Resolve or Blackmagic RAW Player, color grading settings are stored in matching .sidecar files. Uploading folders containing both .braw footage and their sidecars guarantees your remote colorist receives the exact creative look you intended."
+      },
+      {
+        heading: "High-Speed Edge Delivery for Color Grading Turnarounds",
+        body: "A 20GB daily shoot reel transfers in under 4 minutes across GigaSend's 335+ edge POPs on 1 Gbps fiber. Colorists and DITs download at line speed with no account registration, no credit cards, and zero cloud storage egress fees."
+      },
+    ],
+    comparison: [
+      {
+        method: "Consumer Cloud Storage",
+        bestFor: "Compressed H.264 review screeners",
+        limitation: "Often attempts automated video transcoding, stripping RAW sidecars",
+        gigaSendAngle: "Bit-for-bit lossless delivery with intact 12-bit sensor metadata"
+      },
+      {
+        method: "Hard Drive Courier (FedEx)",
+        bestFor: "Offline production archiving",
+        limitation: "Takes 24 to 48 hours and risks physical drive impact damage in transit",
+        gigaSendAngle: "Delivered online in under 5 minutes with SHA-256 verification"
+      },
+      {
+        method: "GigaSend Cinema Transfer",
+        bestFor: "Professional BRAW camera rolls & DIT handoffs",
+        limitation: "Requires broadband fiber uplink",
+        gigaSendAngle: "25GB free tier, zero cloud egress taxes, instant direct link"
+      },
+    ],
+    faqs: [
+      {
+        question: "Does GigaSend transcode or compress .braw files?",
+        answer: "No, GigaSend delivers .braw files bit-for-bit identical to the camera card originals with zero compression or transcoding."
+      },
+      {
+        question: "Are BRAW sidecar files (.sidecar) supported?",
+        answer: "Yes, you can upload folders containing .braw clips and their matching .sidecar color metadata files together to GigaSend."
+      },
+      {
+        question: "How long does it take to send 20GB of BRAW footage?",
+        answer: "On a standard 1 Gbps fiber uplink, a 20GB reel of Blackmagic RAW footage transfers in approximately 3 to 4 minutes via GigaSend's multi-stream edge network."
+      },
+      {
+        question: "What is the free file limit for BRAW transfers?",
+        answer: "GigaSend provides a 25GB free tier with zero account registration or credit card needed, perfect for transferring daily BRAW takes."
+      },
+    ],
+    internalLinks: [
+      { href: "/transfer-r3d-raw-footage", label: "transfer RED R3D footage" },
+      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
+      { href: "/send-large-video-files", label: "send large video files" },
+    ],
+    differentiation: "Bit-exact camera RAW delivery preserving 12-bit sensor data and .sidecar files with 25GB free capacity.",
+  },
   {
-  "slug": "transfer-r3d-raw-footage",
-  "primaryKeyword": "transfer r3d raw footage",
-  "secondaryKeywords": [
-    "send red raw files",
-    "share red digital cinema clips",
-    "r3d file transfer online"
-  ],
-  "title": "Transfer RED RAW (.R3D) Footage Online Fast | Gigasend",
-  "metaDescription": "Send 8K and 6K RED RAW (.R3D) camera magazines and spanned clips to post-production houses and VFX editors with high-speed edge delivery.",
-  "h1": "Transfer RED Digital Cinema (.R3D) Footage",
-  "eyebrow": "High-Resolution Cinema Delivery",
-  "intro": "RED V-RAPTOR and KOMODO cameras generate huge 4GB-spanned R3D clip sequences. Gigasend provides fast, reliable transport for full shoot magazines.",
-  "cta": "Transfer R3D Footage",
-  "sections": [
-    {
-      "heading": "Preserve spanned R3D magazine structures",
-      "body": "RED cameras split long takes across multiple 4GB chunks. Gigasend allows you to deliver complete folder hierarchies so NLEs recognize continuous clips seamlessly."
-    },
-    {
-      "heading": "Zero cloud egress tax for post houses",
-      "body": "Download 8K R3D files repeatedly across editorial, sound, and color departments without paying $0.09/GB AWS or Azure egress fees."
-    },
-    {
-      "heading": "Resume-supported browser uploads",
-      "body": "If field Wi-Fi or tethered 5G dips on set, Gigasend automatically retries and resumes without restarting your 100GB transfer from scratch."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Dropbox",
-      "bestFor": "Team folder sync",
-      "limitation": "Consistently syncs slowly with multi-gigabyte R3D files",
-      "gigaSendAngle": "Single-purpose accelerated pipeline"
-    },
-    {
-      "method": "WeTransfer",
-      "bestFor": "Files under 2GB",
-      "limitation": "Hard upload caps stop cinema takes immediately",
-      "gigaSendAngle": "Supports up to 2TB enterprise transfers"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "8K/6K RED RAW workflows",
-      "limitation": "Upload depends on uplink connection",
-      "gigaSendAngle": "Direct-to-R2 edge routing"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "How do I send spanned R3D files?",
-      "answer": "Keep the RDC/RDM folder structure intact, compress the reel folder into a ZIP or upload the files directly so the clip metadata stays linked."
-    },
-    {
-      "question": "Is there a limit on R3D magazine size?",
-      "answer": "Free transfers support up to 10GB; Pro accounts can send up to 80GB, with custom tiers supporting up to 2TB."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    },
-    {
-      "href": "/send-100gb-file",
-      "label": "send 100GB file"
-    },
-    {
-      "href": "/send-braw-video-files",
-      "label": "send BRAW video files"
-    }
-  ],
-  "differentiation": "Built for Hollywood and commercial production DIT handoffs."
-},
+    slug: "transfer-r3d-raw-footage",
+    primaryKeyword: "transfer r3d raw footage",
+    secondaryKeywords: ["send red raw files", "share red digital cinema clips", "r3d file transfer online", "redcode raw footage transfer"],
+    title: "Transfer RED (.R3D) Raw Footage Bit-Exact | GigaSend",
+    metaDescription: "Transfer RED RAW (.R3D) footage without corrupted frames. Deliver 6K and 8K REDCODE camera files up to 25GB free with fast, unthrottled edge downloads.",
+    h1: "How to Transfer RED Digital Cinema (.R3D) Footage",
+    eyebrow: "CINEMATOGRAPHY & DIT PIPELINES",
+    intro: "RED Digital Cinema cameras (V-RAPTOR, KOMODO, MONSTRO) capture wide dynamic range REDCODE RAW footage split into 4GB spanned clips. GigaSend preserves your complete .RDC folder hierarchies and transfers camera takes up to 25GB free with line-speed edge acceleration.",
+    cta: "Transfer RED Footage Free",
+    sections: [
+      {
+        heading: "The RED Clip Spanning Architecture: Why Standalone .R3D Files Break",
+        body: "RED cameras split long takes across consecutive 4GB chunk files (_001.R3D, _002.R3D) inside dedicated .RDC clip directories. Moving individual .R3D files without their parent directory breaks playback spanning and desynchronizes embedded audio tracks. Always upload the complete .RDC folder intact."
+      },
+      {
+        heading: "Preserving the RED Mag Structure & IPP2 Color Metadata",
+        body: "REDCODE RAW incorporates RED's Image Processing Pipeline (IPP2) metadata directly into the clip headers. GigaSend performs bit-for-bit binary file streaming without file conversion or header modification, guaranteeing your colorist sees pristine raw sensor curves."
+      },
+      {
+        heading: "Line-Rate Post-Production Handoffs Without Egress Fees",
+        body: "Post houses and VFX vendors download RED magazines directly at line speed across 335+ edge POPs. GigaSend eliminates painful cloud egress fees ($0.09/GB on AWS) and delivers verified payloads up to 25GB completely free."
+      },
+    ],
+    comparison: [
+      {
+        method: "Generic Web Uploaders",
+        bestFor: "Single short video clips",
+        limitation: "Flattens .RDC folder hierarchies, corrupting multi-part spanned takes",
+        gigaSendAngle: "Preserves entire directory structures and spanned .R3D sequences"
+      },
+      {
+        method: "Hard Drive Courier (FedEx)",
+        bestFor: "Multi-terabyte entire feature archives",
+        limitation: "High shipping costs ($50\u2013$150) and 24\u201348 hour transit delays",
+        gigaSendAngle: "Transfers daily takes up to 25GB free in under 4 minutes"
+      },
+      {
+        method: "GigaSend RED Delivery",
+        bestFor: "Commercial dailies and DIT-to-post handoffs",
+        limitation: "Requires broadband fiber uplink",
+        gigaSendAngle: "Bit-exact SHA-256 verification and zero cloud egress surcharges"
+      },
+    ],
+    faqs: [
+      {
+        question: "How should I package RED footage before uploading?",
+        answer: "Always preserve the entire .RDC clip folder containing all spanned 4GB .R3D files, then drag the folder into GigaSend or zip it before transfer."
+      },
+      {
+        question: "Does transferring R3D footage cause quality loss?",
+        answer: "Never; GigaSend performs bit-for-bit file delivery with SHA-256 cryptographic verification, ensuring REDCODE RAW files transfer without corruption."
+      },
+      {
+        question: "Can I send RED IPP2 color metadata with the footage?",
+        answer: "Yes, all embedded REDCODE RAW and IPP2 color metadata remains 100% untouched and uncompressed during transfer."
+      },
+      {
+        question: "How much RED footage can I send for free?",
+        answer: "GigaSend offers up to 25GB per transfer completely free without registration or software installation."
+      },
+    ],
+    internalLinks: [
+      { href: "/send-braw-video-files", label: "send BRAW video files" },
+      { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW footage" },
+      { href: "/send-large-video-files", label: "send large video files" },
+    ],
+    differentiation: "Preserves spanned 4GB .RDC clip hierarchies and IPP2 color metadata with 25GB free edge transfer.",
+  },
   {
-  "slug": "deliver-arri-raw-footage",
-  "primaryKeyword": "deliver arri raw footage",
-  "secondaryKeywords": [
-    "send arriraw files",
-    "share arri alexa footage",
-    "prores 4444 xq transfer"
-  ],
-  "title": "Send ARRI RAW & ProRes 4444 XQ Footage Online | Gigasend",
-  "metaDescription": "Deliver ARRI ALEXA 35 and Mini LF ARRIRAW and uncompressed ProRes 4444 XQ masters directly to VFX vendors and mastering facilities.",
-  "h1": "Send ARRIRAW & ProRes 4444 XQ Masters",
-  "eyebrow": "Broadcast & Feature Film Finishing",
-  "intro": "ARRI uncompressed footage demands maximum bandwidth and zero data corruption. Gigasend connects production sets directly to finishing suites at line-rate speeds.",
-  "cta": "Deliver ARRI Footage",
-  "sections": [
-    {
-      "heading": "Pristine color pipeline preservation",
-      "body": "ARRIRAW delivers industry-benchmark LogC4 color science. Gigasend ensures bit-level parity with zero compression or artifacting."
-    },
-    {
-      "heading": "Eliminate shipping physical shuttle drives",
-      "body": "Avoid transatlantic drive couriers and security chain-of-custody delays by transferring directly through encrypted edge links."
-    },
-    {
-      "heading": "Secure enterprise encryption at rest & in transit",
-      "body": "Protected by TLS 1.3 transit encryption and AES-256 Cloudflare R2 storage with optional password protection."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Shuttle Drives",
-      "bestFor": "Offline transport",
-      "limitation": "Customs delays, physical theft risk, mechanical failure",
-      "gigaSendAngle": "Instant encrypted digital delivery"
-    },
-    {
-      "method": "AWS S3 Direct",
-      "bestFor": "Dev infrastructure",
-      "limitation": "Complex IAM keys and massive egress billing surprises",
-      "gigaSendAngle": "Zero-egress transparent pricing"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Feature film master handoffs",
-      "limitation": "Requires fast uplink connection",
-      "gigaSendAngle": "335+ global edge POPs"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Can I password-protect ARRI footage transfers?",
-      "answer": "Yes. You can protect your delivery links with password access to ensure confidential dailies remain private."
-    },
-    {
-      "question": "How fast will a 100GB ARRI master transfer?",
-      "answer": "On a 1 Gbps fiber uplink, a 100GB transfer completes in approximately 14 to 16 minutes with Gigasend."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    },
-    {
-      "href": "/secure-large-file-transfer",
-      "label": "secure large file transfer"
-    },
-    {
-      "href": "/send-100gb-file",
-      "label": "send 100GB file"
-    }
-  ],
-  "differentiation": "Enterprise-grade security and line-rate speed for cinematic productions."
-},
+    slug: "deliver-arri-raw-footage",
+    primaryKeyword: "deliver arri raw footage",
+    secondaryKeywords: ["transfer arri alexa raw", "send arri footage", "share arriraw reels", "arri raw camera file delivery"],
+    title: "Deliver ARRI RAW Footage Bit-Exact | GigaSend",
+    metaDescription: "Deliver ARRI RAW and ProRes camera originals with complete folder structures intact. Transfer uncompressed cinema files up to 25GB free on GigaSend today.",
+    h1: "Deliver ARRI RAW & ProRes Camera Footage Bit-Exact",
+    eyebrow: "HIGH-END FEATURE PRODUCTION",
+    intro: "High-end commercial and feature productions shot on ARRI Alexa 35 and Mini LF cameras require absolute bit-for-bit fidelity. Transfer uncompressed ARRI RAW (.ari / .arx / .mxf) and ProRes 4444 XQ takes up to 25GB free without expensive enterprise transfer software.",
+    cta: "Deliver ARRI RAW Footage Free",
+    sections: [
+      {
+        heading: "The Uncompromising Standard of ARRI Sensor Data",
+        body: "ARRI cameras capture unmatched dynamic range and filmic skin tones. In-camera look files (ALF4), CDL values, and anamorphic desqueeze metadata must arrive at post houses completely uncorrupted. GigaSend guarantees bit-for-bit transfer with cryptographic SHA-256 validation."
+      },
+      {
+        heading: "Streaming Massive Feature Takes at Fiber Line Speed",
+        body: "Uncompressed ARRI RAW reels generate massive payloads exceeding 20GB per take. GigaSend's multi-stream Web Streams architecture transfers 25GB reels in under 4 minutes over gigabit fiber, connecting directly to the nearest of 335+ global edge nodes."
+      },
+      {
+        heading: "Bypassing Multi-Thousand-Dollar Enterprise Contracts",
+        body: "Legacy feature film pipelines frequently rely on complex Signiant or Aspera desktop licenses costing thousands of dollars annually. GigaSend brings studio-grade line-rate delivery directly to modern web browsers\u2014free up to 25GB per send with zero software installation."
+      },
+    ],
+    comparison: [
+      {
+        method: "Legacy Cloud Storage",
+        bestFor: "Office PDFs and spreadsheets",
+        limitation: "Throttles high-bitrate media and sync daemons stall on heavy camera reels",
+        gigaSendAngle: "Unthrottled line-rate edge streaming with zero sync daemon bloat"
+      },
+      {
+        method: "Enterprise Aspera / Signiant",
+        bestFor: "Multi-thousand-dollar studio enterprise contracts",
+        limitation: "Requires proprietary client installs, server infrastructure, and high license fees",
+        gigaSendAngle: "Browser-native transfer up to 25GB free with zero client setup"
+      },
+      {
+        method: "GigaSend ARRI Delivery",
+        bestFor: "Feature dailies, commercial masters, and remote finishing",
+        limitation: "Requires stable broadband uplink",
+        gigaSendAngle: "Bit-for-bit uncompressed delivery with full ALF4 look profile preservation"
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I transfer ARRI RAW camera files through a web browser?",
+        answer: "Yes, GigaSend handles uncompressed ARRI RAW (.ari / .arx / .mxf) and ProRes camera takes natively in any modern web browser up to 25GB free."
+      },
+      {
+        question: "Are ARRI Look Files (ALF4) preserved during transfer?",
+        answer: "Yes, all embedded ARRI Look Files (ALF4), CDL values, and camera sensor metadata remain 100% untouched during edge transfer."
+      },
+      {
+        question: "How long does a 25GB ARRI take take to upload?",
+        answer: "On a standard 1 Gbps fiber uplink, a 25GB ARRI RAW camera reel uploads in under 4 minutes across GigaSend's 335+ edge POPs."
+      },
+      {
+        question: "Do finishing houses need special software to download?",
+        answer: "No, finishing houses and colorists simply click your direct GigaSend link to initiate an unthrottled line-rate download with zero software to install."
+      },
+    ],
+    internalLinks: [
+      { href: "/transfer-r3d-raw-footage", label: "transfer RED R3D footage" },
+      { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
+      { href: "/send-large-video-files", label: "send large video files" },
+    ],
+    differentiation: "Studio-grade bit-exact ARRI RAW delivery preserving ALF4 metadata up to 25GB free with zero software installs.",
+  },
   {
-  "slug": "send-mxf-broadcast-video",
-  "primaryKeyword": "send mxf broadcast video",
-  "secondaryKeywords": [
-    "transfer mxf op1a files",
-    "share sony xavc mxf",
-    "deliver broadcast masters"
-  ],
-  "title": "Send Large MXF Broadcast Video Files Online | Gigasend",
-  "metaDescription": "Send broadcast-standard MXF OP1a, Avid DNxHD, and Sony XAVC video masters to TV stations, agencies, and distribution partners online.",
-  "h1": "Send MXF Broadcast Video Masters",
-  "eyebrow": "Television & Commercial Delivery",
-  "intro": "Broadcast television and commercial clearances require strict MXF wrappers with multi-channel audio tracks. Gigasend transfers your station delivery files without quality loss.",
-  "cta": "Send MXF Files",
-  "sections": [
-    {
-      "heading": "Broadcast-compliant audio and caption integrity",
-      "body": "MXF files embed SMPTE timecode, discrete 5.1/stereo audio channels, and CEA-708 captions. Gigasend delivers files intact."
-    },
-    {
-      "heading": "Bypass strict station FTP and server limits",
-      "body": "Avoid expired station FTP servers and connection timeouts by delivering via a fast, browser-downloadable HTTPS link."
-    },
-    {
-      "heading": "Instant notification when stations download",
-      "body": "Receive automatic email alerts the second traffic managers and station engineers complete downloading your master."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "FTP / SFTP",
-      "bestFor": "Legacy workflows",
-      "limitation": "Frequent firewall timeouts and slow single-threaded speeds",
-      "gigaSendAngle": "Modern multi-stream HTTPS edge delivery"
-    },
-    {
-      "method": "Email Links",
-      "bestFor": "Small previews",
-      "limitation": "Compresses video and strips metadata",
-      "gigaSendAngle": "Full-fidelity bit-exact delivery"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "MXF station deliveries",
-      "limitation": "Internet uplink dependent",
-      "gigaSendAngle": "Instant receipt confirmation"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Are Sony XAVC and Avid MXF formats supported?",
-      "answer": "Yes. Gigasend supports all MXF profiles including OP1a, OP-Atom, Avid MediaFiles, and Sony XAVC."
-    },
-    {
-      "question": "Will the recipient need special software to download?",
-      "answer": "No. The recipient simply clicks your secure link and downloads the file through their standard web browser."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-large-video-files",
-      "label": "send large video files"
-    },
-    {
-      "href": "/fast-large-file-transfer",
-      "label": "fast large file transfer"
-    },
-    {
-      "href": "/send-30gb-file",
-      "label": "send 30GB file"
-    }
-  ],
-  "differentiation": "Direct station clearance and commercial ad delivery solution."
-},
+    slug: "send-mxf-broadcast-video",
+    primaryKeyword: "send mxf broadcast video",
+    secondaryKeywords: ["transfer mxf files", "deliver mxf op1a", "send avid mxf masters", "broadcast video delivery online"],
+    title: "Send MXF (OP1a) Broadcast Masters Fast | GigaSend",
+    metaDescription: "Send broadcast-standard MXF OP1a files and DCP packages without re-encoding. Deliver high-bitrate video masters up to 25GB free with fast edge delivery.",
+    h1: "Send MXF (OP1a) Broadcast Video Masters Fast",
+    eyebrow: "TELEVISION & NETWORK BROADCAST",
+    intro: "Delivering commercial spots, episodic programming, and broadcast masters requires strict container compliance. GigaSend transfers binary-intact MXF OP1a files with untouched SMPTE timecode and discrete 8-channel audio mapping up to 25GB free.",
+    cta: "Send MXF Broadcast Masters Free",
+    sections: [
+      {
+        heading: "Broadcast Compliance: The MXF OP1a Delivery Mandate",
+        body: "Television broadcast networks and cable syndication require strict Operational Pattern 1a (OP1a) MXF files. These containers package synchronized video streams, multi-track audio mapping, and drop-frame/non-drop-frame SMPTE timecode into a unified standard that automated broadcast servers ingest directly."
+      },
+      {
+        heading: "Eliminating Multi-Channel Audio Corruption & QC Rejection",
+        body: "Standard cloud drives and consumer file sharing sites often alter audio tracks during preview generation, downmixing discrete 5.1 surround or 8-channel audio into stereo. GigaSend acts as a pure bit-exact transport pipe, ensuring your MXF passes Baton and Aurora automated QC without errors."
+      },
+      {
+        heading: "Accelerated Delivery to Network Master Controls",
+        body: "Tight on-air deadlines cannot tolerate slow single-stream station FTP connections that crawl or drop packets. GigaSend streams 10GB\u201325GB broadcast masters across Cloudflare's 335+ Anycast edge nodes, providing instant 1-click downloads for station traffic managers."
+      },
+    ],
+    comparison: [
+      {
+        method: "Station FTP Servers",
+        bestFor: "Legacy station ingest protocols",
+        limitation: "Single-stream bottlenecks, slow transfers, dropped connections require re-upload",
+        gigaSendAngle: "Multi-stream HTTP/3 edge acceleration with resumable chunked upload"
+      },
+      {
+        method: "Consumer Cloud Storage",
+        bestFor: "General file archiving",
+        limitation: "Corrupts multi-channel audio tracks or strips SMPTE timecode during web preview",
+        gigaSendAngle: "Zero transcoding: 100% binary container integrity preserved"
+      },
+      {
+        method: "GigaSend Broadcast Pipeline",
+        bestFor: "Commercial spots, syndicated programming, and network deliveries",
+        limitation: "Requires internet connectivity",
+        gigaSendAngle: "25GB free tier, SHA-256 cryptographic verification, instant direct link"
+      },
+    ],
+    faqs: [
+      {
+        question: "What is an MXF OP1a file and why is it used for broadcast?",
+        answer: "An MXF OP1a container bundles video, multi-channel discrete audio, and SMPTE timecode into a single standardized master file required by television broadcast networks."
+      },
+      {
+        question: "Will GigaSend alter the multi-channel audio tracks in my MXF?",
+        answer: "No, GigaSend does not modify, transcode, or downmix audio tracks; discrete 8-channel broadcast audio mapping remains 100% bit-exact."
+      },
+      {
+        question: "Can I send a 25GB MXF master for free?",
+        answer: "Yes, GigaSend allows broadcast transfers up to 25GB completely free with zero account registration or subscription fees."
+      },
+      {
+        question: "How do I ensure the MXF file arrived uncorrupted?",
+        answer: "GigaSend verifies file payloads with client-side SHA-256 cryptographic hashes to ensure broadcast masters pass automated QC checks."
+      },
+    ],
+    internalLinks: [
+      { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW footage" },
+      { href: "/send-large-video-files", label: "send large video files" },
+      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
+    ],
+    differentiation: "Guaranteed binary container integrity for MXF OP1a masters with intact SMPTE timecode and 8-channel discrete audio.",
+  },
   {
     slug: "transfer-premiere-pro-project",
     primaryKeyword: "transfer premiere pro project",
@@ -1709,301 +1802,281 @@ export const seoLandingPages: SeoLandingPage[] = [
     differentiation: "Built for procedural technical directors and high-end simulation pipelines with 25GB free standard."
   },
   {
-  "slug": "send-revit-rvt-bim-models",
-  "primaryKeyword": "send revit rvt bim models",
-  "secondaryKeywords": [
-    "transfer revit files",
-    "share bim models with contractors",
-    "large rvt architectural transfer"
-  ],
-  "title": "Send Large Autodesk Revit (.RVT) BIM Models Online | Gigasend",
-  "metaDescription": "Transfer massive Autodesk Revit (.rvt) BIM architectural models, point clouds, and linked CAD drawings to structural engineers and general contractors.",
-  "h1": "Send Autodesk Revit (.RVT) BIM Models",
-  "eyebrow": "Architecture, Engineering & Construction (AEC)",
-  "intro": "Modern BIM models with nested families, MEP links, and point cloud surveys exceed email and standard drive limits. Gigasend transfers Revit models fast and securely.",
-  "cta": "Send Revit Model",
-  "sections": [
-    {
-      "heading": "Transfer multi-gigabyte Central Models and links",
-      "body": "Revit projects with linked architectural, structural, and mechanical models can easily top 15GB to 40GB. Deliver consolidated packages cleanly."
-    },
-    {
-      "heading": "Include point cloud laser scans (.rcp / .rcs)",
-      "body": "Send LiDAR survey point clouds alongside BIM models to ensure sub-contractors and fabricators have complete spatial data."
-    },
-    {
-      "heading": "No mandatory account creation for sub-contractors",
-      "body": "Send a direct download link to general contractors, steel fabricators, or city building departments without forcing them through sign-up walls."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "Autodesk Construction Cloud",
-      "bestFor": "Active design teams",
-      "limitation": "Requires expensive per-seat licenses for external vendors",
-      "gigaSendAngle": "Free download links for external partners"
-    },
-    {
-      "method": "Email Attachments",
-      "bestFor": "Invoices",
-      "limitation": "25MB cap blocks even an empty Revit template",
-      "gigaSendAngle": "Transfer up to 80GB to 2TB effortlessly"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "BIM project handoffs",
-      "limitation": "Internet uplink required",
-      "gigaSendAngle": "Instant receipt tracking"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "How do I detach a Revit model before sending?",
-      "answer": "Open the file with 'Detach from Central' selected, audit the model, purge unused families, and save as a standalone transmission file before uploading."
-    },
-    {
-      "question": "Can I transfer point clouds (.rcp/.rcs) with the model?",
-      "answer": "Yes. Gigasend easily handles 50GB+ point cloud survey data folders alongside your .rvt files."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/send-files-larger-than-2gb",
-      "label": "send files larger than 2GB"
-    },
-    {
-      "href": "/fast-large-file-transfer",
-      "label": "fast large file transfer"
-    },
-    {
-      "href": "/send-30gb-file",
-      "label": "send 30GB file"
-    }
-  ],
-  "differentiation": "AEC-focused BIM model distribution without per-seat licensing fees."
-},
+    slug: "send-revit-rvt-bim-models",
+    primaryKeyword: "send revit rvt bim models",
+    secondaryKeywords: ["transfer revit project", "share bim model with consultants", "how to send revit model", "revit rvt file transfer"],
+    title: "Send Autodesk Revit (.rvt) BIM Models & Links | GigaSend",
+    metaDescription: "Send Autodesk Revit (.rvt) BIM project models without missing linked CAD or IFC files. Transfer large architecture archives up to 25GB free on GigaSend.",
+    h1: "How to Send Autodesk Revit (.rvt) BIM Models & Linked Files",
+    eyebrow: "ARCHITECTURE, ENGINEERING & CONSTRUCTION (AEC)",
+    intro: "Architects, structural engineers, and MEP contractors sharing central Autodesk Revit (.rvt) models often face worksharing lockups and broken CAD links. GigaSend outlines the \"Detach from Central\" protocol and transfers massive BIM sets and point cloud scans up to 25GB free.",
+    cta: "Send Revit Model Free",
+    sections: [
+      {
+        heading: "The Central Model Detachment Rule: Preventing Worksharing Locks",
+        body: "Opening a central model directly and saving it for an external consultant creates ownership conflicts. Always open the model in Revit with \"Detach from Central\" enabled, discard worksets if collaborating externally, audit the project, and purge unused families and view templates to reduce file size."
+      },
+      {
+        heading: "Packaging Linked DWG, IFC & Topography Disciplines",
+        body: "Revit projects reference external structural, MEP, topography, and CAD links. If relative paths are broken, consultants see \"Link Not Found\" errors. Bundle all linked discipline models into the same parent directory before archiving so Revit automatically re-establishes cross-model references upon opening."
+      },
+      {
+        heading: "High-Speed Contractor Handoffs Without BIM 360 Licensing Fees",
+        body: "Autodesk Construction Cloud (BIM 360) charges steep per-seat monthly licenses that force subcontractors into paid accounts. GigaSend generates a clean, zero-login direct download link, streaming 5GB\u201325GB architectural sets and point cloud scans to job sites at fiber line speed."
+      },
+    ],
+    comparison: [
+      {
+        method: "Email Attachments",
+        bestFor: "Simple 2D CAD DWG drawings under 20MB",
+        limitation: "Bounces on multi-gigabyte 3D BIM models and point cloud scans",
+        gigaSendAngle: "Transfers massive BIM models up to 25GB free with zero bounces"
+      },
+      {
+        method: "Autodesk Construction Cloud (BIM 360)",
+        bestFor: "Internal enterprise team co-authoring",
+        limitation: "Expensive per-seat subscriptions required for external subcontractors",
+        gigaSendAngle: "Zero-login client link allows instant contractor download with no fees"
+      },
+      {
+        method: "GigaSend BIM Delivery",
+        bestFor: "Consultant milestones, contractor bids, and point cloud handoffs",
+        limitation: "Requires internet access",
+        gigaSendAngle: "25GB free tier, unthrottled line-rate edge delivery, SHA-256 verification"
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I prepare a Revit model to send to an external consultant?",
+        answer: "Open your model in Revit, check \"Detach from Central\", audit the project, purge unused families and view templates, and save as a standalone archive before uploading to GigaSend."
+      },
+      {
+        question: "Should I include linked CAD and IFC files when sending a Revit model?",
+        answer: "Yes, bundle all linked architectural, structural, MEP, and CAD files in the same directory using relative pathing so consultants open the model without \"Link Not Found\" errors."
+      },
+      {
+        question: "Why is my Revit file size so large?",
+        answer: "Revit file sizes balloon due to unpurged view templates, imported CAD DWGs, raster images, and complex non-parametric 3D families. Purging unused elements reduces size significantly."
+      },
+      {
+        question: "Can I send a 15GB Revit model with point clouds for free?",
+        answer: "Yes, GigaSend allows transfers up to 25GB completely free with zero registration, making it easy to send 15GB Revit models with point cloud scans to job sites."
+      },
+    ],
+    internalLinks: [
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/share-large-files-with-link", label: "share large files with link" },
+      { href: "/deliver-20gb-file", label: "deliver 20GB files" },
+    ],
+    differentiation: "Authoritative Detach from Central protocol with linked model bundling and 25GB free edge transfer.",
+  },
   {
-  "slug": "how-to-send-ableton-live-projects",
-  "primaryKeyword": "how to send ableton live projects",
-  "secondaryKeywords": [
-    "send ableton als project with samples",
-    "share ableton project online",
-    "collaborate ableton live remote"
-  ],
-  "title": "How to Send Ableton Live Projects (.ALS) with Samples | Gigasend",
-  "metaDescription": "Learn how to 'Collect All and Save' and transfer complete Ableton Live projects (.als) with audio samples and presets to collaborators without missing media.",
-  "h1": "How to Send Ableton Live (.ALS) Projects & Samples",
-  "eyebrow": "Music Production & Collaboration",
-  "intro": "Sharing Ableton Live sets often results in the dreaded 'Missing Media Files' error. Gigasend teaches you the proper handoff method and delivers your music fast.",
-  "cta": "Send Ableton Project",
-  "sections": [
-    {
-      "heading": "Always 'Collect All and Save' first",
-      "body": "In Ableton Live, choose 'File > Collect All and Save' and check every source option. This copies external samples, recorded takes, and drum kits into your Project folder."
-    },
-    {
-      "heading": "Zip the root Project folder",
-      "body": "Compress the entire directory containing your .als file, 'Samples' folder, and 'Ableton Project Info' into a single .zip file before uploading."
-    },
-    {
-      "heading": "Lossless uncompressed audio transmission",
-      "body": "Gigasend transfers your 24-bit 96kHz multi-track WAV recordings with 100% bit-exact fidelity, preserving audio dynamic range for mixing."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "WeTransfer",
-      "bestFor": "Casual files",
-      "limitation": "Free 2GB limit often cuts off dense album sessions",
-      "gigaSendAngle": "Send up to 10GB free with 30GB+ pro options"
-    },
-    {
-      "method": "Dropbox",
-      "bestFor": "Personal storage",
-      "limitation": "Syncing while Live is open can corrupt Ableton database locks",
-      "gigaSendAngle": "Clean, static snapshot delivery"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Music producers & recording artists",
-      "limitation": "Broadband uplink required",
-      "gigaSendAngle": "Fast direct edge downloads"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Why does my collaborator see 'Media Files Missing' in Ableton?",
-      "answer": "Because samples were stored on your hard drive outside the project folder. Use File > Collect All and Save, then zip the entire project folder before sending."
-    },
-    {
-      "question": "Can I transfer third-party VST plugin presets?",
-      "answer": "Yes. Freeze and Flatten tracks containing third-party VST synths so your collaborator can hear the audio even if they don't own the plugin."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/deliver-protools-ptx-files",
-      "label": "deliver Pro Tools PTX files"
-    },
-    {
-      "href": "/transfer-logic-pro-x-sessions",
-      "label": "transfer Logic Pro X sessions"
-    },
-    {
-      "href": "/share-multitrack-audio-stems",
-      "label": "share multitrack audio stems"
-    }
-  ],
-  "differentiation": "Comprehensive musician guide preventing missing sample errors."
-},
+    slug: "how-to-send-ableton-live-projects",
+    primaryKeyword: "how to send ableton live projects",
+    secondaryKeywords: ["share ableton project with samples", "send ableton project", "ableton live collect all and save", "transfer ableton als file"],
+    title: "How to Send Ableton Live Projects with Samples | GigaSend",
+    metaDescription: "Send Ableton Live projects without missing samples. Learn Collect All and Save packaging and transfer complete ALS archives up to 25GB free on GigaSend now.",
+    h1: "How to Send Ableton Live Projects with Samples (.als)",
+    eyebrow: "MUSIC PRODUCTION & MIXING",
+    intro: "Music producers collaborating across workstations frequently encounter orange \"Media Files Missing\" banners. GigaSend breaks down the essential \"Collect All and Save\" workflow and transfers consolidated Ableton Live sessions and sample libraries up to 25GB free.",
+    cta: "Send Ableton Project Free",
+    sections: [
+      {
+        heading: "The Missing Sample Orange Banner: Why Standalone .als Files Fail",
+        body: "An Ableton Live Set file (.als) merely contains MIDI data, routing, and links to audio samples stored on your local hard drive. If you send just the .als file, your collaborator opens an empty project with missing sample warnings. External sample packs, recorded vocal takes, and drum kits must be bundled into the project folder."
+      },
+      {
+        heading: "The Master 'Collect All and Save' Workflow",
+        body: "Before sharing, open your project in Ableton Live, choose File > Collect All and Save, and select \"Yes\" on all options: Files from Elsewhere, Files from other Projects, and Files from User Library. For tracks with unique third-party VSTs, freeze and flatten them so your collaborator can hear the audio regardless of plugin setup."
+      },
+      {
+        heading: "High-Speed Edge Handoffs for Album Collaborations",
+        body: "Zipped Ableton projects containing uncompressed 24-bit multitrack audio can easily reach 5GB to 20GB. Upload your archive to GigaSend to transfer up to 25GB free at full line speed with zero recipient login or account requirements."
+      },
+    ],
+    comparison: [
+      {
+        method: "Sending .als File by Email",
+        bestFor: "Quick arrangement feedback when collaborator shares exact local samples",
+        limitation: "Arrives with missing audio warnings and complete playback silence",
+        gigaSendAngle: "Transfers full consolidated project folder with all samples included"
+      },
+      {
+        method: "Cloud Drive Sync (Google Drive / Dropbox)",
+        bestFor: "Personal backup of single files",
+        limitation: "Syncing locks files if Ableton writes temporary render data during playback",
+        gigaSendAngle: "Clean static download link avoids DAW file-locking conflicts"
+      },
+      {
+        method: "GigaSend Music Delivery",
+        bestFor: "Album collaborations, mixing sessions, and remix stems",
+        limitation: "Requires broadband upload bandwidth",
+        gigaSendAngle: "25GB free tier, unthrottled line-rate edge speeds, instant direct link"
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I save an Ableton project so someone else can open it?",
+        answer: "In Ableton Live, open your project, go to File > Collect All and Save, select \"Yes\" for all options to bundle external samples into the project folder, zip the folder, and upload to GigaSend."
+      },
+      {
+        question: "Why does my collaborator see \"Media Files Missing\" in Ableton?",
+        answer: "Collaborators see \"Media Files Missing\" when an Ableton project is saved without collecting external audio samples stored in third-party sample packs or external drives."
+      },
+      {
+        question: "Do VST plugins transfer with the Ableton project?",
+        answer: "No, VST/AU plugins do not transfer with the project. Collaborators must have matching plugins installed, or you should freeze and flatten tracks before sending."
+      },
+      {
+        question: "How large of an Ableton session can I send for free?",
+        answer: "GigaSend allows you to send Ableton projects and sample libraries up to 25GB completely free with zero sign-up or credit card required."
+      },
+    ],
+    internalLinks: [
+      { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
+      { href: "/share-multitrack-audio-stems", label: "share multitrack audio stems" },
+      { href: "/deliver-protools-ptx-files", label: "deliver Pro Tools PTX files" },
+    ],
+    differentiation: "Authoritative Collect All and Save guide with freeze/flatten plugin tips paired with 25GB free edge transfer.",
+  },
   {
-  "slug": "transfer-logic-pro-x-sessions",
-  "primaryKeyword": "transfer logic pro x sessions",
-  "secondaryKeywords": [
-    "send logic pro x project",
-    "share logicx package file",
-    "send logic session to mix engineer"
-  ],
-  "title": "Transfer Logic Pro X (.LOGICX) Sessions Online | Gigasend",
-  "metaDescription": "Send Apple Logic Pro X session packages (.logicx) containing multi-track audio, vocal takes, and MIDI arrangements directly to mixing and mastering engineers.",
-  "h1": "Send Logic Pro X (.LOGICX) Projects Online",
-  "eyebrow": "Audio Mixing & Songwriting",
-  "intro": "Logic Pro X packages complete songs into a single .logicx package bundle. Gigasend allows producers and artists to deliver complete sessions without upload limits.",
-  "cta": "Send Logic Pro Session",
-  "sections": [
-    {
-      "heading": "Safe transfer of macOS package bundles",
-      "body": ".logicx files are packaged directories on macOS. Compressing your session into a .zip before upload ensures all audio files remain intact across any operating system."
-    },
-    {
-      "heading": "Include all audio assets in project settings",
-      "body": "Under File > Project Management > Consolidate, ensure Audio Files, EXS Instruments, and Alchemy Samples are checked before archiving."
-    },
-    {
-      "heading": "Direct delivery to mix & mastering engineers",
-      "body": "Send pristine 32-bit float audio sessions directly to professional mixing engineers without sound compression."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "AirDrop",
-      "bestFor": "In-room Apple devices",
-      "limitation": "Fails when collaborators are in different cities",
-      "gigaSendAngle": "Worldwide Anycast edge transfer"
-    },
-    {
-      "method": "Google Drive",
-      "bestFor": "Documents",
-      "limitation": "Corrupts .logicx packages if uploaded uncompressed",
-      "gigaSendAngle": "Direct package streaming"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Logic Pro session delivery",
-      "limitation": "Zip compression recommended",
-      "gigaSendAngle": "Zero-egress fast delivery"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Should I compress the .logicx file before uploading?",
-      "answer": "Yes. Right-click the .logicx file in Finder and select 'Compress' to create a .zip file before uploading to Gigasend."
-    },
-    {
-      "question": "Can a Windows user download the file?",
-      "answer": "Yes. Windows users can download the .zip file, but opening the session requires Logic Pro on macOS."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/how-to-send-ableton-live-projects",
-      "label": "how to send Ableton Live projects"
-    },
-    {
-      "href": "/deliver-protools-ptx-files",
-      "label": "deliver Pro Tools PTX files"
-    },
-    {
-      "href": "/share-multitrack-audio-stems",
-      "label": "share multitrack audio stems"
-    }
-  ],
-  "differentiation": "Engineered specifically for Apple audio production ecosystems."
-},
+    slug: "transfer-logic-pro-x-sessions",
+    primaryKeyword: "transfer logic pro x sessions",
+    secondaryKeywords: ["send logic pro project", "share logic pro session with audio", "how to send logic pro file", "logic pro x package transfer"],
+    title: "Transfer Logic Pro X Sessions with Audio Files | GigaSend",
+    metaDescription: "Transfer Logic Pro X project packages and folders without missing audio assets. Deliver consolidated music sessions up to 25GB free on GigaSend today.",
+    h1: "How to Transfer Logic Pro X Sessions & Audio Files",
+    eyebrow: "AUDIO ENGINEERING & PRODUCTION",
+    intro: "Sending Logic Pro X projects without proper asset consolidation results in missing vocal takes, broken EXS sampler instruments, and silent tracks. GigaSend covers Package vs Folder modes, asset bundling, and transfers complete sessions up to 25GB free.",
+    cta: "Transfer Logic Pro Session Free",
+    sections: [
+      {
+        heading: "Package vs Folder: Which Format is Safer for Transfer?",
+        body: "Logic Pro allows projects to be saved as a single .logicx Package bundle or as an open Folder. While Packages look cleaner, macOS package structures are prone to corruption when uploaded to web servers. Always compress your .logicx package or project folder into a standard .zip archive before transferring."
+      },
+      {
+        heading: "Consolidating Audio Files, Sampler Data & Alchemy Presets",
+        body: "Before sharing, navigate to File > Project Settings > Assets and ensure checkboxes are enabled for: Audio files, Sampler audio data, and Alchemy audio data. This copies external sound assets directly into the project archive, guaranteeing your collaborator hears all recorded takes and instruments."
+      },
+      {
+        heading: "Uncompressed Studio Handoffs at Fiber Line Speed",
+        body: "Multitrack commercial sessions and full album arrangements frequently range from 5GB to 25GB. Transfer your zipped Logic Pro archive via GigaSend to deliver uncompressed 24-bit audio at edge line rates with zero recipient Apple ID requirements."
+      },
+    ],
+    comparison: [
+      {
+        method: "Unconsolidated Logic Project",
+        bestFor: "Solo work on a single Mac workstation",
+        limitation: "Loses external recorded takes and sampler instruments on other computers",
+        gigaSendAngle: "Complete asset consolidation checklist ensures 100% audio playback"
+      },
+      {
+        method: "AirDrop Over Distance",
+        bestFor: "Local transfers between Apple devices in the same room",
+        limitation: "Fails over long distances and throttles large multi-gigabyte archives",
+        gigaSendAngle: "Global Anycast edge delivery reaches overseas mixing engineers in minutes"
+      },
+      {
+        method: "GigaSend Audio Pipeline",
+        bestFor: "Mixing engineer handoffs, vocal tracking, and mastering",
+        limitation: "Requires broadband internet uplink",
+        gigaSendAngle: "Up to 25GB free per transfer, zero audio transcoding, instant direct download"
+      },
+    ],
+    faqs: [
+      {
+        question: "Should I save my Logic Pro project as a Package or a Folder to send it?",
+        answer: "Saving as a Folder is often safer for cross-machine archiving; if saving as a Package (.logicx), always compress it into a .zip archive before uploading to prevent macOS bundle extraction errors."
+      },
+      {
+        question: "How do I ensure all audio files are included in Logic Pro?",
+        answer: "Go to File > Project Settings > Assets and check all boxes for audio files, EXS sampler data, and Alchemy samples before transferring your session."
+      },
+      {
+        question: "Why can't my mixing engineer hear the vocal tracks?",
+        answer: "Mixing engineers cannot hear vocal tracks if audio was recorded to an external drive path that was not consolidated into the project's local Audio Files folder."
+      },
+      {
+        question: "What is the maximum Logic Pro project size I can send for free?",
+        answer: "GigaSend provides a 25GB free tier with zero account creation required, perfect for transferring multitrack Logic Pro X projects."
+      },
+    ],
+    internalLinks: [
+      { href: "/how-to-send-ableton-live-projects", label: "how to send Ableton Live projects" },
+      { href: "/deliver-protools-ptx-files", label: "deliver Pro Tools PTX files" },
+      { href: "/share-multitrack-audio-stems", label: "share multitrack audio stems" },
+    ],
+    differentiation: "Clear Package vs Folder guide, Asset consolidation checklist, and 25GB free line-rate transfer.",
+  },
   {
-  "slug": "share-multitrack-audio-stems",
-  "primaryKeyword": "share multitrack audio stems",
-  "secondaryKeywords": [
-    "send wav audio stems",
-    "transfer uncompressed multitrack audio",
-    "stems file transfer for mixing"
-  ],
-  "title": "Send 24-Bit Multitrack Audio Stems & WAV Sessions | Gigasend",
-  "metaDescription": "Transfer uncompressed 24-bit/96kHz WAV multitrack audio stems, vocal comp takes, and drum tracks to mixing and mastering engineers without audio compression.",
-  "h1": "Send 24-Bit Multitrack Audio Stems",
-  "eyebrow": "Professional Audio Mixing & Mastering",
-  "intro": "A single 64-track song session exported as 24-bit 96kHz WAV stems easily exceeds 15GB. Gigasend transfers your uncompressed audio with zero sound degradation.",
-  "cta": "Send Audio Stems",
-  "sections": [
-    {
-      "heading": "100% bit-exact uncompressed WAV quality",
-      "body": "Never let cloud storage or chat apps downsample your audio to MP3 or AAC. Gigasend preserves your raw dynamic range and mastering head room."
-    },
-    {
-      "heading": "Keep track numbers and filenames intact",
-      "body": "Preserve track numbering, timing offsets, and zero-start alignments so mix engineers can drop stems into any DAW without manual sync adjustments."
-    },
-    {
-      "heading": "Fast downloads for studios on tight deadlines",
-      "body": "Equipped with Cloudflare Anycast edge routing so commercial mastering facilities download your stems at full fiber speeds."
-    }
-  ],
-  "comparison": [
-    {
-      "method": "SoundCloud / Dropbox Preview",
-      "bestFor": "Streaming preview",
-      "limitation": "Applies lossy audio compression and strips frequency detail",
-      "gigaSendAngle": "Pure binary lossless transport"
-    },
-    {
-      "method": "WeTransfer Free",
-      "bestFor": "Small files",
-      "limitation": "2GB limit cuts off full album multitrack packages",
-      "gigaSendAngle": "Supports 10GB free and up to 2TB pro"
-    },
-    {
-      "method": "Gigasend",
-      "bestFor": "Professional audio stems",
-      "limitation": "Broadband required",
-      "gigaSendAngle": "Zero-loss edge transfer"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "What audio format should I export stems as?",
-      "answer": "Export all stems from bar 1 (zero-start) as 24-bit or 32-bit float WAV files with sample rates matching your recording session (48kHz or 96kHz)."
-    },
-    {
-      "question": "How many tracks can I include in a transfer?",
-      "answer": "There is no limit on the number of tracks, as long as the total package fits within your transfer size quota."
-    }
-  ],
-  "internalLinks": [
-    {
-      "href": "/deliver-protools-ptx-files",
-      "label": "deliver Pro Tools PTX files"
-    },
-    {
-      "href": "/how-to-send-ableton-live-projects",
-      "label": "how to send Ableton Live projects"
-    },
-    {
-      "href": "/send-30gb-file",
-      "label": "send 30GB file"
-    }
-  ],
-  "differentiation": "Audio-grade lossless transmission for recording and mastering studios."
-},
+    slug: "share-multitrack-audio-stems",
+    primaryKeyword: "share multitrack audio stems",
+    secondaryKeywords: ["send audio stems", "transfer multitrack wav files", "how to export stems for mixing", "multitrack stem delivery"],
+    title: "Share Multitrack Audio Stems (Lossless 24-Bit WAV) | GigaSend",
+    metaDescription: "Transfer multitrack audio stems without alignment errors. Learn timeline zero-bounce export hygiene and deliver uncompressed WAV stems up to 25GB free.",
+    h1: "How to Share Multitrack Audio Stems (Lossless 24-Bit Delivery)",
+    eyebrow: "RECORDING & MASTERING DELIVERABLES",
+    intro: "Mixing and mastering engineers across different DAWs (Pro Tools, Logic, Ableton, Studio One) require uncompressed, perfectly aligned multitrack stems. GigaSend explains the timeline zero-bounce rule and transfers 24-bit/96kHz stem folders up to 25GB free with zero audio compression.",
+    cta: "Share Audio Stems Free",
+    sections: [
+      {
+        heading: "The Timeline Zero-Alignment Mandate",
+        body: "Every single audio stem must be bounced from bar 1, beat 1 (0:00:00) of the timeline, even if the instrument only plays for two bars in the bridge. This guarantees that when the mixing engineer drags 60+ WAV files into their DAW, all tracks synchronize perfectly without manual nudging or alignment drift."
+      },
+      {
+        heading: "Lossless 24-Bit/96kHz WAV Delivery Without Transcoding",
+        body: "Consumer file sharing tools and cloud drives often transcode audio into lossy MP3s for web playback, discarding upper harmonic frequencies. GigaSend delivers uncompressed 24-bit or 32-bit float WAV/AIFF stems bit-for-bit with cryptographic SHA-256 verification."
+      },
+      {
+        heading: "High-Bandwidth Album Stems Delivery",
+        body: "A single 60-track 24-bit/96kHz song easily exceeds 4GB to 8GB, overwhelming WeTransfer's 2GB free limit. GigaSend allows up to 25GB per transfer completely free, allowing entire album stem packages to be transferred in a single upload across 335+ edge POPs."
+      },
+    ],
+    comparison: [
+      {
+        method: "WeTransfer Free",
+        bestFor: "Single MP3 demos or short acoustic tracks",
+        limitation: "Hard 2GB limit is easily overwhelmed by a single multitrack song",
+        gigaSendAngle: "25GB free capacity\u2014over 12.5x larger than WeTransfer"
+      },
+      {
+        method: "Consumer Cloud Storage",
+        bestFor: "Casual streaming preview links",
+        limitation: "Generates lossy preview streams and requires recipient Google/Dropbox logins",
+        gigaSendAngle: "Pristine uncompressed 24-bit WAV download with zero sign-up"
+      },
+      {
+        method: "GigaSend Stem Delivery",
+        bestFor: "Professional mixing handoffs and stem mastering",
+        limitation: "Requires broadband upload bandwidth",
+        gigaSendAngle: "Zero lossy transcoding, SHA-256 validation, unthrottled line-rate speeds"
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the correct way to export audio stems for mixing?",
+        answer: "Always consolidate and bounce every track from the exact timeline start (bar 1, beat 1 / 0:00:00) so all stems align automatically when dragged into any DAW."
+      },
+      {
+        question: "What format should audio stems be exported in?",
+        answer: "Export stems as uncompressed 24-bit or 32-bit float WAV or AIFF files at the session's native sample rate (44.1kHz, 48kHz, or 96kHz)."
+      },
+      {
+        question: "Does GigaSend compress my audio files during transfer?",
+        answer: "No, GigaSend preserves pristine uncompressed audio bit-for-bit with zero lossy MP3 transcoding or sample rate alteration."
+      },
+      {
+        question: "How many gigabytes of audio stems can I send for free?",
+        answer: "GigaSend supports up to 25GB per transfer completely free with zero sign-up, accommodating full 80-channel 24-bit/96kHz stem packages."
+      },
+    ],
+    internalLinks: [
+      { href: "/deliver-protools-ptx-files", label: "deliver Pro Tools PTX files" },
+      { href: "/how-to-send-ableton-live-projects", label: "how to send Ableton Live projects" },
+      { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
+    ],
+    differentiation: "Timeline zero-bounce export protocol paired with lossless 24-bit/96kHz WAV delivery up to 25GB free.",
+  },
   {
     slug: "wetransfer-alternative",
     primaryKeyword: "wetransfer alternative",
