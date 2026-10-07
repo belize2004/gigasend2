@@ -227,35 +227,48 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "transfer-large-files-online",
     primaryKeyword: "transfer large files online",
-    secondaryKeywords: ["large file transfer", "online file transfer", "send big files online", "transfer large files free"],
-    title: "Transfer Large Files Online (10GB Free, Up to 250GB) | GigaSend",
-    metaDescription: "Transfer large files online instantly with GigaSend. Send up to 10GB free with zero sign-up or deliver massive files up to 250GB over high-speed global edge networks. Direct browser-to-cloud upload.",
-    h1: "Transfer Large Files Online Fast & Securely",
-    eyebrow: "High-Capacity Online Transfer",
-    intro: "Need to send massive files without email bounces or account logins? GigaSend provides line-speed browser-to-cloud file transfers with instant download links. Send up to 10GB free.",
+    secondaryKeywords: ["large file transfer online", "online file transfer free", "transfer big files online", "send large files via link"],
+    title: "Transfer Large Files Online (Send up to 25GB Free) | GigaSend",
+    metaDescription: "Looking to transfer large files online? GigaSend provides line-speed browser transfers, zero account friction, and direct links for payloads up to 25GB free.",
+    h1: "Transfer Large Files Online Fast & Free",
+    eyebrow: "Browser-Native File Transfer",
+    intro: "Transfer multi-gigabyte files directly from your web browser with zero account registration, no desktop apps, and no compression loss. Powered by Cloudflare's 335+ edge nodes for line-rate upload and download speeds.",
     cta: "Transfer Large Files Now",
     sections: [
-      { heading: "A simple online transfer workflow", body: "Select your file, drop it into the upload box above, and send via email or copy an instant download link. Zero attachment limit wrestling." },
-      { heading: "Transfer videos, folders, and zip files", body: "Use GigaSend for the massive video files, raw audio sessions, 3D assets, and multi-gigabyte archives that normal messaging tools fail to deliver." },
-      { heading: "Direct edge routing for line-rate speed", body: "Uploads are streamed across Cloudflare's 335+ global edge data centers, ensuring your transfer takes full advantage of your bandwidth." },
+      { heading: "100% browser-based transfer with no software installs", body: "Skip heavy desktop sync apps and complex client tools. Drag and drop directly into Chrome, Safari, Firefox, or Edge to generate an instant, shareable download link." },
+      { heading: "Chunked edge streaming for line-rate throughput", body: "GigaSend splits large files into parallel multi-part chunks and streams them directly to Cloudflare's nearest edge data center, saturating your high-speed fiber connection." },
+      { heading: "Send uncompressed 4K video, archives, and datasets", body: "Transfer master video exports, zipped folders, 3D assets, and RAW datasets up to 250GB with bit-exact SHA-256 verification and automated cleanup." },
     ],
     comparison: [
-      { method: "Email", bestFor: "Small files (<25MB)", limitation: "Strict attachment limits bounce big files", gigaSendAngle: "Direct link delivery" },
-      { method: "Cloud folder (Drive/Dropbox)", bestFor: "Long-term collaboration", limitation: "Permission errors and sync overhead", gigaSendAngle: "Instant one-time delivery with zero account" },
-      { method: "GigaSend", bestFor: "Large online transfers up to 250GB", limitation: "3-day retention on free transfers", gigaSendAngle: "Frictionless edge transfer engine" },
+      { method: "WeTransfer", bestFor: "Casual files", limitation: "Hard 2GB free cap and slow downloads", gigaSendAngle: "Up to 25GB free capacity and 250GB edge transfers" },
+      { method: "Desktop Sync Apps (Dropbox/OneDrive)", bestFor: "Folder backup", limitation: "Background disk syncing, quota hogging, and locked databases", gigaSendAngle: "Clean one-time transfer without filling local drives" },
+      { method: "GigaSend", bestFor: "Online transfers up to 250GB", limitation: "3-day retention on free transfers", gigaSendAngle: "Zero account needed, line-speed Anycast routing" },
     ],
     faqs: [
-      { question: "How do I transfer large files online?", answer: "Upload your file to GigaSend using the transfer form above and send the generated download link to your recipient." },
-      { question: "Can I transfer large files for free?", answer: "Yes! Free transfers support up to 10GB with zero registration and 3-day file storage." },
-      { question: "What file types are supported?", answer: "GigaSend supports all file types including 4K/8K videos, zipped project folders, CAD archives, and audio stems." },
+      {
+        question: "How can I transfer large files online for free?",
+        answer: "To transfer large files online for free using GigaSend: (1) Drag and drop your file or archive directly into the browser dropzone, (2) Let it stream across Cloudflare's 335+ Anycast edge nodes via chunked parallel upload, and (3) Copy the generated download link to share via email, Slack, or chat. No account, software installation, or recipient login is required."
+      },
+      {
+        question: "What is the fastest way to send large files online?",
+        answer: "The fastest way to send large files online is using GigaSend's edge-accelerated browser transfer. Instead of routing traffic through a single centralized server, GigaSend parallel-chunks uploads and streams them directly into Cloudflare's nearest edge data center across 335+ locations, saturating high-speed gigabit uplink connections."
+      },
+      {
+        question: "Can I transfer large files without installing software?",
+        answer: "Yes, GigaSend operates 100% in your web browser. Neither the sender nor the recipient needs to install desktop software, browser extensions, or command-line utilities. Simply drag and drop your file into Chrome, Safari, Firefox, or Edge to generate an instant, line-speed download link."
+      },
+      {
+        question: "How to send files larger than 10GB online?",
+        answer: "To send files larger than 10GB online, GigaSend supports single uploads up to 25GB on the free tier and high-capacity transfers up to 250GB+ on edge tiers via chunked dropzone streaming. Unlike WeTransfer (2GB limit) or Dropbox Free (2GB total), GigaSend handles multi-gigabyte payloads without paywalls or file corruption."
+      },
     ],
     internalLinks: [
-      { href: "/send-large-files-free/", label: "free large file transfer" },
-      { href: "/send-10gb-file-free/", label: "send 10GB file free" },
-      { href: "/fast-large-file-transfer/", label: "fast large file transfer" },
-      { href: "/secure-large-file-transfer/", label: "secure large file transfer" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/secure-large-file-transfer", label: "secure large file transfer" },
     ],
-    differentiation: "Comprehensive online file transfer hub with embedded dropzone and transparent limits.",
+    differentiation: "Captures searchers seeking instant, line-speed web browser transfers without mandatory desktop software installations or 2GB paywalls.",
   },
   {
     slug: "share-large-files-with-link",
