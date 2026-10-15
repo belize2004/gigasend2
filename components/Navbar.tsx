@@ -3,7 +3,7 @@ import { useAuth } from '@/context/useAuth';
 import { useRouter } from '@/components/compat/navigation';
 import React, { useState } from 'react';
 import { BsArrowUpSquareFill } from 'react-icons/bs';
-import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut, FiFileText } from 'react-icons/fi';
+import { FiMenu, FiX, FiHome, FiCreditCard, FiGrid, FiSend, FiLogIn, FiUserPlus, FiLogOut, FiFileText, FiMail } from 'react-icons/fi';
 import { brand } from '@/lib/brand';
 
 const Navbar = () => {
@@ -51,6 +51,14 @@ const Navbar = () => {
               className="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
               <FiCreditCard className="mr-1" />
               Plans
+            </button>
+            <button
+              onClick={() => {
+                router.push('/contact');
+              }}
+              className="flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+              <FiMail className="mr-1" />
+              Contact
             </button>
 
             {/* Conditional navigation items for logged in users */}
@@ -137,6 +145,14 @@ const Navbar = () => {
               className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-xl transition-all duration-200 font-medium">
               <FiCreditCard className="mr-2" />
               Plans
+            </button>
+            <button
+              onClick={() => {
+                router.push('/contact');
+              }}
+              className="flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-xl transition-all duration-200 font-medium">
+              <FiMail className="mr-2" />
+              Contact
             </button>
 
             {/* Conditional mobile navigation items */}

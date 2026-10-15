@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactApp from "@/src/components/ContactApp";
+import { brand } from "@/lib/brand";
+---
+
+<BaseLayout
+  title={`Contact Us | ${brand.productName}`}
+  description={`Get in touch with the ${brand.productName} team. Send us your questions, feedback, or support inquiries.`}
+>
+  <ContactApp client:load />
+</BaseLayout>

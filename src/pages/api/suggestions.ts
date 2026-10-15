@@ -6,7 +6,7 @@ import { getAuthenticatedUserId, json } from "@/src/lib/api";
 import { brand } from "@/lib/brand";
 import { sendEmailViaCloudflare } from "@/lib/email";
 
-const DEFAULT_SUGGESTION_RECIPIENT = "Blaine@flowwebdesigner.com";
+const DEFAULT_SUGGESTION_RECIPIENT = "info@gigasend.us";
 const MAX_SUGGESTION_LENGTH = 1500;
 
 interface SuggestionBody {

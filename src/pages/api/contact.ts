@@ -36,14 +36,22 @@ function createContactEmailTemplate(data: ContactUsBody) {
 }
 
 export const POST: APIRoute = async ({ request, locals }) => {
-  const body: ContactUsBody = await request.json();
+  const rawBody: any = await request.json().catch(() => ({}));
+  const body: ContactUsBody = {
+    email: rawBody.email || "",
+    fullname: rawBody.fullname || rawBody.name || "Anonymous",
+    company: rawBody.company || "",
+    phoneNumber: rawBody.phoneNumber || rawBody.phone || "",
+    subject: rawBody.subject || `New ${brand.productName} contact inquiry`,
+    message: rawBody.message || "",
+  };
 
   const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
   const result = await sendEmailViaCloudflare(emailBinding, {
     from: brand.emailFrom,
     to: brand.contactEmail,
     replyTo: body.email,
-    subject: body.subject || `New ${brand.productName} contact inquiry`,
+    subject: body.subject,
     html: createContactEmailTemplate(body),
     text: `${body.subject}\nFrom: ${body.fullname} (${body.email})\nPhone: ${body.phoneNumber || "N/A"}\nCompany: ${body.company || "N/A"}\n\n${body.message}`,
   });

@@ -8,7 +8,7 @@ export const brand = {
   downloadOrigin: (publicEnv.PUBLIC_DOWNLOAD_ORIGIN || "https://download.gigasend.us").replace(/\/$/, ""),
   logoUrl: publicEnv.PUBLIC_BRAND_LOGO_URL || "",
   emailFrom: publicEnv.PUBLIC_BRAND_EMAIL_FROM || "Gigasend File Delivery <no-reply@mail.gigasend.us>",
-  contactEmail: publicEnv.PUBLIC_BRAND_CONTACT_EMAIL || "support@gigasend.us",
+  contactEmail: publicEnv.PUBLIC_BRAND_CONTACT_EMAIL || "info@gigasend.us",
   zipFilenamePrefix: publicEnv.PUBLIC_BRAND_ZIP_PREFIX || "gigasend-files",
   footerText: publicEnv.PUBLIC_BRAND_FOOTER || "Delivered securely by Gigasend.",
 };
