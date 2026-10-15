@@ -10,7 +10,7 @@ interface OutreachRecipient {
 }
 
 const RECIPIENTS: OutreachRecipient[] = [
-  { name: "Vukajermelinda", email: "vukajermelinda@gmail.com" },
+  { name: "Ermelinda", email: "vukajermelinda@gmail.com" },
   { name: "Antony", email: "antonymemos@gmail.com" },
   { name: "Jon", email: "jon.shehu100@gmail.com" },
 ];
@@ -21,7 +21,7 @@ function generateEmailHtml(name: string) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quick update on your Gigasend account</title>
+  <title>Welcome to Gigasend</title>
 </head>
 <body style="margin: 0; padding: 24px; background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
   <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; padding: 36px 28px; color: #1f2937;">
@@ -31,7 +31,7 @@ function generateEmailHtml(name: string) {
     </div>
     
     <h1 style="font-size: 20px; font-weight: 700; color: #111827; margin: 0 0 18px 0; line-height: 1.3;">
-      Quick update on your Gigasend account — file transfers are ready
+      Welcome to Gigasend — Your high-speed file transfer workspace is live
     </h1>
     
     <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin: 0 0 16px 0;">
@@ -39,21 +39,32 @@ function generateEmailHtml(name: string) {
     </p>
     
     <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin: 0 0 16px 0;">
-      Thank you for signing up for Gigasend!
+      Welcome to Gigasend!
     </p>
     
-    <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin: 0 0 24px 0;">
-      You might have encountered an empty screen or an upload error right after signing up—we were in the middle of completing a major infrastructure upgrade to our edge delivery network. That issue is now 100% resolved, fully tested, and transfers are active.
+    <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin: 0 0 20px 0;">
+      We recently completed a major upgrade to our file delivery pipeline across 335+ edge locations. If you experienced any friction right after registering, we appreciate your patience—the platform is now fully optimized and ready for your files.
     </p>
+
+    <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-bottom: 24px;">
+      <p style="font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 12px 0;">
+        What you can do with your account:
+      </p>
+      <ul style="margin: 0; padding-left: 20px; color: #334155; font-size: 14px; line-height: 1.6;">
+        <li style="margin-bottom: 8px;"><strong>Deliver Large Files Quickly:</strong> Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling up to 25 GB.</li>
+        <li style="margin-bottom: 8px;"><strong>Share Anywhere:</strong> Send download links straight to clients' inboxes or generate a secure direct link.</li>
+        <li><strong>Manage Transfers:</strong> Track and organize your active transfers right from your <a href="https://gigasend.us/dashboard" style="color: #2563eb; text-decoration: none;">Dashboard</a>.</li>
+      </ul>
+    </div>
     
     <div style="margin: 28px 0; text-align: center;">
       <a href="https://gigasend.us/transfer" style="display: inline-block; background: linear-gradient(135deg, #2563eb, #a855f7); color: #ffffff; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 15px;">
-        Start a Transfer on Gigasend &rarr;
+        Send Your First Transfer &rarr;
       </a>
     </div>
     
     <p style="font-size: 14px; line-height: 1.5; color: #6b7280; margin: 0 0 24px 0;">
-      If you have any questions, feedback, or need help with a large file delivery, feel free to reply directly to this email (<a href="mailto:info@gigasend.us" style="color: #2563eb; text-decoration: none;">info@gigasend.us</a>).
+      Have feedback or need assistance? Visit our <a href="https://gigasend.us/contact" style="color: #2563eb; text-decoration: none;">Contact Page</a> or reply directly to <a href="mailto:info@gigasend.us" style="color: #2563eb; text-decoration: none;">info@gigasend.us</a>.
     </p>
     
     <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; margin-top: 24px; font-size: 13px; color: #9ca3af;">
@@ -67,14 +78,19 @@ function generateEmailHtml(name: string) {
 function generateEmailText(name: string) {
   return `Hi ${name},
 
-Thank you for signing up for Gigasend!
+Welcome to Gigasend!
 
-You might have encountered an empty screen or an upload error right after signing up—we were in the middle of completing a major infrastructure upgrade to our edge delivery network. That issue is now 100% resolved, fully tested, and transfers are active.
+We recently completed a major upgrade to our file delivery pipeline across 335+ edge locations. If you experienced any friction right after registering, we appreciate your patience—the platform is now fully optimized and ready for your files.
 
-You can jump straight in to send your files here:
+What you can do with your account:
+1. Deliver Large Files Quickly: Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling up to 25 GB.
+2. Share Anywhere: Send download links straight to clients' inboxes or generate a secure direct link.
+3. Manage Transfers: Track and organize your active transfers right from your Dashboard (https://gigasend.us/dashboard).
+
+Send Your First Transfer:
 https://gigasend.us/transfer
 
-If you have any questions, feedback, or need help with a large file delivery, feel free to reply directly to this email (info@gigasend.us).
+Have feedback or need assistance? Visit our Contact Page (https://gigasend.us/contact) or reply directly to info@gigasend.us.
 
 Best regards,
 The Gigasend Team
@@ -109,11 +125,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
         from: "Gigasend <no-reply@mail.gigasend.us>",
         replyTo: "info@gigasend.us",
         to: recipient.email,
-        subject: "Quick update on your Gigasend account — file transfers are ready",
+        subject: "Welcome to Gigasend — Your high-speed file transfer workspace is live",
         html: generateEmailHtml(recipient.name),
         text: generateEmailText(recipient.name),
         headers: {
-          "X-Entity-Ref-ID": `outreach-welcome-${recipient.email}`,
+          "X-Entity-Ref-ID": `welcome-v2-${recipient.email}`,
         },
       });
 
