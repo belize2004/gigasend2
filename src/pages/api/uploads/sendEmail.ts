@@ -1,11 +1,10 @@
 import type { APIRoute } from "astro";
-import { Resend } from "resend";
-import { RESEND_API_KEY } from "@/lib/serverEnv";
 import {
   generateEmailTemplate,
   generateEmailText,
   generateUploadConfirmationEmail,
   generateUploadConfirmationText,
+  sendEmailViaCloudflare,
 } from "@/lib/email";
 import { createShare, findUserById, getDb } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
@@ -91,8 +90,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       senderEmail: effectiveSenderEmail,
     });
 
-    const resend = new Resend(RESEND_API_KEY);
-    const { error } = await resend.emails.send({
+    // Cloudflare email dispatch binding
+    const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+
+    const dispatchResult = await sendEmailViaCloudflare(emailBinding, {
       from: brand.emailFrom,
       to: receiverEmail,
       replyTo: effectiveSenderEmail,
@@ -106,11 +107,11 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     const targetConfirmationEmail = effectiveSenderEmail && !effectiveSenderEmail.endsWith("@guest.gigasend.us") ? effectiveSenderEmail : null;
 
-    if (error) {
-      console.error("Resend API error:", error);
-      captureMonitoringException(error, {
+    if (!dispatchResult.success) {
+      console.warn("[sendEmail] Cloudflare email dispatch notice:", dispatchResult.error);
+      captureMonitoringException(new Error(dispatchResult.error || "Email delivery failed"), {
         user: { id: userId, email: effectiveSenderEmail },
-        tags: { feature: "email", route: "sendEmail", provider: "resend" },
+        tags: { feature: "email", route: "sendEmail", provider: "cloudflare" },
         context: {
           receiverDomain: receiverEmail.split("@")[1],
           numberOfFiles,
@@ -119,53 +120,17 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         },
       });
 
-      if (targetConfirmationEmail) {
-        const failedDeliveryConfirmation = await resend.emails.send({
-          from: brand.emailFrom,
-          to: targetConfirmationEmail,
-          subject: `Your ${brand.productName} transfer is ready`,
-          html: generateUploadConfirmationEmail({
-            deliveryLabel: `Email to ${receiverEmail} failed`,
-            fileSize,
-            link: share.link,
-            numberOfFiles,
-          }),
-          text: generateUploadConfirmationText({
-            deliveryLabel: `Email to ${receiverEmail} failed`,
-            fileSize,
-            link: share.link,
-            numberOfFiles,
-          }),
-          headers: {
-            "X-Entity-Ref-ID": `${share.id}-sender-confirmation-email-failed`,
-          },
-        });
-
-        if (failedDeliveryConfirmation.error) {
-          console.error("Resend sender confirmation after delivery failure error:", failedDeliveryConfirmation.error);
-          captureMonitoringException(failedDeliveryConfirmation.error, {
-            user: { id: userId, email: targetConfirmationEmail },
-            tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
-            context: {
-              receiverDomain: receiverEmail.split("@")[1],
-              numberOfFiles,
-              fileSize,
-              shareId: share.id,
-            },
-          });
-        }
-      }
-
+      // Still return the created share link so upload is never lost
       return json({
         success: true,
         emailSent: false,
         link: share.link,
-        message: "Transfer created, but the recipient email could not be sent. Copy and send the link manually.",
+        message: "Transfer created! (Direct email notification could not be delivered, please share the link manually).",
       });
     }
 
     if (targetConfirmationEmail) {
-      const confirmation = await resend.emails.send({
+      await sendEmailViaCloudflare(emailBinding, {
         from: brand.emailFrom,
         to: targetConfirmationEmail,
         subject: `Your ${brand.productName} transfer is ready`,
@@ -185,20 +150,6 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
           "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
         },
       });
-
-      if (confirmation.error) {
-        console.error("Resend sender confirmation error:", confirmation.error);
-        captureMonitoringException(confirmation.error, {
-          user: { id: userId, email: targetConfirmationEmail },
-          tags: { feature: "email", route: "sendEmail", provider: "resend", notification: "sender-confirmation" },
-          context: {
-            receiverDomain: receiverEmail.split("@")[1],
-            numberOfFiles,
-            fileSize,
-            shareId: share.id,
-          },
-        });
-      }
     }
 
     return json({

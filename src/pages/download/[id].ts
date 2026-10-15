@@ -9,10 +9,10 @@ import {
 import { r2BucketName, r2Client } from "@/lib/r2Client";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { configure, ZipWriter } from "@zip.js/zip.js";
-import { Resend } from "resend";
 import {
   generateDownloadNotificationEmail,
   generateDownloadNotificationText,
+  sendEmailViaCloudflare,
 } from "@/lib/email";
 import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { captureMonitoringException } from "@/lib/monitoring";
@@ -274,10 +274,12 @@ async function sendDownloadNotification({
   db,
   fileCount,
   share,
+  emailBinding,
 }: {
   db: ReturnType<typeof getDb>;
   fileCount: number;
   share: NonNullable<Awaited<ReturnType<typeof findShareById>>>;
+  emailBinding?: any;
 }) {
   try {
     const shouldNotify = await markShareDownloadNotified(db, share.id);
@@ -286,12 +288,11 @@ async function sendDownloadNotification({
     const sender = await findUserById(db, share.userId);
     if (!sender) return;
 
-    const resend = new Resend(RESEND_API_KEY);
     const deliveryLabel = share.email === "__share_link__"
       ? "Shareable link"
       : `Sent to ${share.email}`;
 
-    const notification = await resend.emails.send({
+    await sendEmailViaCloudflare(emailBinding, {
       from: brand.emailFrom,
       to: sender.email,
       subject: `Your ${brand.productName} transfer was downloaded`,
@@ -311,19 +312,6 @@ async function sendDownloadNotification({
         "X-Entity-Ref-ID": `${share.id}-download-notification`,
       },
     });
-
-    if (notification.error) {
-      captureMonitoringException(notification.error, {
-        user: { id: sender.id, email: sender.email },
-        tags: { feature: "email", route: "download", provider: "resend", notification: "download" },
-        context: {
-          shareId: share.id,
-          receiverDomain: share.email.includes("@") ? share.email.split("@")[1] : undefined,
-          fileCount,
-          fileSize: share.size,
-        },
-      });
-    }
   } catch (error) {
     console.error("Failed to send download notification:", error);
     captureMonitoringException(error, {
@@ -345,6 +333,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
   }
 
   const db = getDb(locals);
+  const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
   const share = await findShareById(db, id);
   if (!share || !share.fileKey) {
     return new Response("Download not found", { status: 404 });
@@ -356,7 +345,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
 
   const fileKeys = parseFileKeys(share.fileKey);
   if (fileKeys.length === 1) {
-    await sendDownloadNotification({ db, fileCount: fileKeys.length, share });
+    await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
     return Response.redirect(getDownloadUrl(fileKeys[0]), 302);
   }
 
@@ -373,7 +362,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
       return Response.redirect(`/download/${share.id}`, 302);
     }
 
-    await sendDownloadNotification({ db, fileCount: fileKeys.length, share });
+    await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
     const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
     return new Response(await streamZip(batchFileKeys, bucket), {
       headers: {

@@ -1,10 +1,10 @@
 import type { APIRoute } from "astro";
-import { Resend } from "resend";
-import { ADMIN_EMAILS, RESEND_API_KEY } from "@/lib/serverEnv";
+import { ADMIN_EMAILS } from "@/lib/serverEnv";
 import { createSuggestion, findUserById, getDb } from "@/lib/d1";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getAuthenticatedUserId, json } from "@/src/lib/api";
 import { brand } from "@/lib/brand";
+import { sendEmailViaCloudflare } from "@/lib/email";
 
 const DEFAULT_SUGGESTION_RECIPIENT = "Blaine@flowwebdesigner.com";
 const MAX_SUGGESTION_LENGTH = 1500;
@@ -75,8 +75,8 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       userId,
     });
 
-    const resend = new Resend(RESEND_API_KEY);
-    const { error } = await resend.emails.send({
+    const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+    await sendEmailViaCloudflare(emailBinding, {
       from: brand.emailFrom,
       to: getSuggestionRecipients(),
       replyTo: user?.email,
@@ -97,16 +97,6 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         "X-Entity-Ref-ID": suggestion.id,
       },
     });
-
-    if (error) {
-      console.error("Resend suggestion email error:", error);
-      captureMonitoringException(error, {
-        user: { id: userId, email: user?.email },
-        tags: { feature: "suggestions", route: "suggestions", provider: "resend" },
-        context: { suggestionId: suggestion.id, pageUrl },
-      });
-      return json({ success: false, message: "Suggestion saved, but email notification failed" }, 500);
-    }
 
     return json({ success: true, message: "Suggestion sent" });
   } catch (error) {

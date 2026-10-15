@@ -8,7 +8,8 @@ import { brand } from '@/lib/brand';
 import {
   FiHome,
   FiCreditCard,
-  FiLogOut
+  FiLogOut,
+  FiSend
 } from 'react-icons/fi';
 
 const DashboardMenu: React.FC = () => {
@@ -20,6 +21,12 @@ const DashboardMenu: React.FC = () => {
       icon: FiHome,
       label: 'Home',
       active: pathname === '/dashboard'
+    },
+    {
+      href: '/transfer',
+      icon: FiSend,
+      label: 'Send Files',
+      active: pathname === '/transfer'
     },
     {
       href: '/dashboard/billing',

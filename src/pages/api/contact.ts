@@ -1,9 +1,8 @@
 import type { APIRoute } from "astro";
-import { Resend } from "resend";
-import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { json } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { brand } from "@/lib/brand";
+import { sendEmailViaCloudflare } from "@/lib/email";
 
 interface ContactUsBody {
   email: string;
@@ -36,22 +35,24 @@ function createContactEmailTemplate(data: ContactUsBody) {
   `;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   const body: ContactUsBody = await request.json();
 
-  const resend = new Resend(RESEND_API_KEY);
-  const { error } = await resend.emails.send({
+  const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+  const result = await sendEmailViaCloudflare(emailBinding, {
     from: brand.emailFrom,
     to: brand.contactEmail,
+    replyTo: body.email,
     subject: body.subject || `New ${brand.productName} contact inquiry`,
     html: createContactEmailTemplate(body),
+    text: `${body.subject}\nFrom: ${body.fullname} (${body.email})\nPhone: ${body.phoneNumber || "N/A"}\nCompany: ${body.company || "N/A"}\n\n${body.message}`,
   });
 
-  if (error) {
-    console.error("Resend API error:", error);
-    captureMonitoringException(error, {
+  if (!result.success) {
+    console.error("Cloudflare contact email error:", result.error);
+    captureMonitoringException(new Error(result.error || "Failed to send email"), {
       user: { email: body.email },
-      tags: { feature: "email", route: "contact", provider: "resend" },
+      tags: { feature: "email", route: "contact", provider: "cloudflare" },
       context: {
         subject: body.subject,
         hasCompany: Boolean(body.company),

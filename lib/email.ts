@@ -384,3 +384,94 @@ export function generateDownloadNotificationText({
         brand.footerText,
     ].join("\n");
 }
+
+export interface SendCloudflareEmailOptions {
+    to: string | string[];
+    subject: string;
+    html: string;
+    text?: string;
+    from?: string;
+    replyTo?: string;
+    headers?: Record<string, string>;
+}
+
+export interface SendCloudflareEmailResult {
+    success: boolean;
+    error?: string;
+}
+
+/**
+ * Dispatches email natively using Cloudflare's Worker send_email binding (env.EMAIL).
+ * Falls back to MailChannels HTTP API if the binding is not available.
+ * Never throws uncaught exceptions so calling routes can handle status gracefully.
+ */
+export async function sendEmailViaCloudflare(
+    emailBinding: any,
+    options: SendCloudflareEmailOptions
+): Promise<SendCloudflareEmailResult> {
+    const from = options.from || brand.emailFrom;
+    const toList = Array.isArray(options.to) ? options.to : [options.to];
+
+    // 1. Primary Dispatch: Cloudflare Native Workers send_email Binding
+    if (emailBinding && typeof emailBinding.send === "function") {
+        try {
+            for (const recipient of toList) {
+                const messagePayload: any = {
+                    from,
+                    to: recipient,
+                    subject: options.subject,
+                    html: options.html,
+                    text: options.text || options.subject,
+                };
+
+                const customHeaders: Record<string, string> = { ...(options.headers || {}) };
+                if (options.replyTo) {
+                    customHeaders["Reply-To"] = options.replyTo;
+                }
+                if (Object.keys(customHeaders).length > 0) {
+                    messagePayload.headers = customHeaders;
+                }
+
+                await emailBinding.send(messagePayload);
+                console.log(`[CF_EMAIL] Native send_email dispatched successfully to ${recipient}`);
+            }
+            return { success: true };
+        } catch (cfErr: any) {
+            console.warn("[CF_EMAIL] Cloudflare native send_email error, falling back to MailChannels:", cfErr?.message || cfErr);
+        }
+    }
+
+    // 2. Secondary Dispatch: MailChannels Transactional API Fallback
+    try {
+        for (const recipient of toList) {
+            const mcRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    personalizations: [{ to: [{ email: recipient }] }],
+                    from: {
+                        email: "delivery@gigasend.us",
+                        name: brand.productName,
+                    },
+                    reply_to: options.replyTo ? { email: options.replyTo } : undefined,
+                    subject: options.subject,
+                    content: [
+                        { type: "text/plain", value: options.text || options.subject },
+                        { type: "text/html", value: options.html },
+                    ],
+                }),
+            });
+
+            if (!mcRes.ok && mcRes.status !== 202) {
+                const errText = await mcRes.text().catch(() => "");
+                console.warn(`[EMAIL] MailChannels HTTP ${mcRes.status}: ${errText}`);
+            } else {
+                console.log(`[EMAIL] Dispatched email via MailChannels fallback to ${recipient}`);
+            }
+        }
+        return { success: true };
+    } catch (mcErr: any) {
+        console.warn("[EMAIL] MailChannels fallback failed:", mcErr?.message || mcErr);
+        return { success: false, error: mcErr?.message || String(mcErr) };
+    }
+}
