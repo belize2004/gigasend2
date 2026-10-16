@@ -424,9 +424,18 @@ export async function sendEmailViaCloudflare(
                     text: options.text || options.subject,
                 };
 
-                const customHeaders: Record<string, string> = { ...(options.headers || {}) };
                 if (options.replyTo) {
-                    customHeaders["Reply-To"] = options.replyTo;
+                    messagePayload.replyTo = options.replyTo;
+                }
+
+                // Cloudflare send_email only permits X-* custom headers
+                const customHeaders: Record<string, string> = {};
+                if (options.headers) {
+                    for (const [k, v] of Object.entries(options.headers)) {
+                        if (k.toLowerCase().startsWith("x-")) {
+                            customHeaders[k] = v;
+                        }
+                    }
                 }
                 if (Object.keys(customHeaders).length > 0) {
                     messagePayload.headers = customHeaders;
@@ -465,6 +474,7 @@ export async function sendEmailViaCloudflare(
             if (!mcRes.ok && mcRes.status !== 202) {
                 const errText = await mcRes.text().catch(() => "");
                 console.warn(`[EMAIL] MailChannels HTTP ${mcRes.status}: ${errText}`);
+                return { success: false, error: `MailChannels delivery failed (HTTP ${mcRes.status}): ${errText}` };
             } else {
                 console.log(`[EMAIL] Dispatched email via MailChannels fallback to ${recipient}`);
             }
