@@ -35,9 +35,31 @@ const LoginPage = () => {
     email: '',
     password: ''
   });
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null);
+  const [forgotModalOpen, setForgotModalOpen] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [forgotLoading, setForgotLoading] = useState(false);
+  const [forgotMessage, setForgotMessage] = useState<{ text: string; success: boolean } | null>(null);
   const router = useRouter();
   const dispatch = useAppDispatch();
+
+  const handleForgotSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!forgotEmail || !forgotEmail.includes('@')) {
+      setForgotMessage({ text: 'Please enter a valid email address.', success: false });
+      return;
+    }
+    setForgotLoading(true);
+    setForgotMessage(null);
+    try {
+      const res = await axios.post('/api/auth/forgot-password', { email: forgotEmail });
+      setForgotMessage({ text: res.data.message || 'If an account exists, a reset link was sent.', success: true });
+    } catch {
+      setForgotMessage({ text: 'Failed to send reset link. Please try again.', success: false });
+    } finally {
+      setForgotLoading(false);
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (error)
@@ -199,22 +221,20 @@ const LoginPage = () => {
                 </div>
               </div>
 
-              {/* Forgot Password & Remember Me */}
-              {/* <div className="flex items-center justify-between">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
+              {/* Forgot Password Link */}
+              <div className="flex items-center justify-end">
                 <button
                   type="button"
-                  className="text-sm text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                  onClick={() => {
+                    setForgotEmail(formData.email);
+                    setForgotModalOpen(true);
+                    setForgotMessage(null);
+                  }}
+                  className="text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
                 >
                   Forgot password?
                 </button>
-              </div> */}
+              </div>
 
               {/* Submit Button */}
               <button
@@ -242,6 +262,63 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Forgot Password Modal */}
+      {forgotModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 relative">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Reset Password</h3>
+            <p className="text-xs text-gray-600 mb-4">
+              Enter your account email and we&apos;ll send you a secure link to create a new password.
+            </p>
+
+            {forgotMessage && (
+              <div
+                className={`mb-4 p-3 rounded-xl text-xs flex items-center gap-2 ${
+                  forgotMessage.success
+                    ? 'bg-green-50 text-green-700 border border-green-200'
+                    : 'bg-red-50 text-red-700 border border-red-200'
+                }`}
+              >
+                <span>{forgotMessage.text}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleForgotSubmit} className="space-y-3">
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">Email address</label>
+                <input
+                  type="email"
+                  value={forgotEmail}
+                  onChange={(e) => setForgotEmail(e.target.value)}
+                  placeholder="name@example.com"
+                  required
+                  disabled={forgotLoading}
+                  className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-black text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div className="flex gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setForgotModalOpen(false)}
+                  disabled={forgotLoading}
+                  className="flex-1 py-2 px-3 border border-gray-300 text-gray-700 rounded-xl font-medium text-xs hover:bg-gray-50 transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={forgotLoading}
+                  className="flex-1 py-2 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-xs transition disabled:opacity-50"
+                >
+                  {forgotLoading ? 'Sending...' : 'Send Link'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div >
   );
 };

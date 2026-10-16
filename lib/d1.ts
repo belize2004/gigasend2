@@ -173,6 +173,13 @@ export async function updateUserStripeCustomerId(db: AppD1Database, userId: stri
     .run();
 }
 
+export async function updateUserPassword(db: AppD1Database, userId: string, passwordHash: string) {
+  await db
+    .prepare("UPDATE users SET password = ?, updated_at = datetime('now') WHERE id = ?")
+    .bind(passwordHash, userId)
+    .run();
+}
+
 export async function listActiveShares(db: AppD1Database, userId: string) {
   const { results = [] } = await db
     .prepare(

@@ -3,6 +3,7 @@ import { json } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { brand } from "@/lib/brand";
 import { sendEmailViaCloudflare } from "@/lib/email";
+import { getAdminEmails } from "@/lib/serverEnv";
 
 interface ContactUsBody {
   email: string;
@@ -47,9 +48,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
   };
 
   const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+  const adminRecipients = getAdminEmails((locals as any)?.runtime?.env);
+  const toRecipients = adminRecipients.length > 0 ? adminRecipients : [brand.contactEmail];
+
   const result = await sendEmailViaCloudflare(emailBinding, {
     from: brand.emailFrom,
-    to: brand.contactEmail,
+    to: toRecipients,
     replyTo: body.email,
     subject: body.subject,
     html: createContactEmailTemplate(body),

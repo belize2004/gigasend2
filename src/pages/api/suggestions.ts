@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { ADMIN_EMAILS } from "@/lib/serverEnv";
+import { getAdminEmails } from "@/lib/serverEnv";
 import { createSuggestion, findUserById, getDb } from "@/lib/d1";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getAuthenticatedUserId, json } from "@/src/lib/api";
@@ -23,13 +23,9 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
-function getSuggestionRecipients() {
-  const adminEmails = ADMIN_EMAILS
-    .split(",")
-    .map((email) => email.trim())
-    .filter(Boolean);
-
-  return adminEmails.length > 0 ? adminEmails : [DEFAULT_SUGGESTION_RECIPIENT];
+function getSuggestionRecipients(runtimeEnv?: Record<string, any>) {
+  const recipients = getAdminEmails(runtimeEnv);
+  return recipients.length > 0 ? recipients : [DEFAULT_SUGGESTION_RECIPIENT];
 }
 
 function createSuggestionEmailTemplate(input: {
@@ -78,7 +74,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
     await sendEmailViaCloudflare(emailBinding, {
       from: brand.emailFrom,
-      to: getSuggestionRecipients(),
+      to: getSuggestionRecipients((locals as any)?.runtime?.env),
       replyTo: user?.email,
       subject: `New ${brand.productName} suggestion`,
       html: createSuggestionEmailTemplate({

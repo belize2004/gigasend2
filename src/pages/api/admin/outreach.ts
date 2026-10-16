@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { sendEmailViaCloudflare } from "@/lib/email";
 import { json } from "@/src/lib/api";
+import { getAdminEmails } from "@/lib/serverEnv";
 
 const ADMIN_SECRET = "gigasend_outreach_2026_dispatch";
 
@@ -144,6 +145,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
         success: false,
         error: err?.message || String(err),
       });
+    }
+  }
+
+  if (!isDryRun && results.length > 0) {
+    const adminRecipients = getAdminEmails((locals as any)?.runtime?.env);
+    if (adminRecipients.length > 0) {
+      const summaryList = results.map((r) => `<li>${r.email}: <strong>${r.success ? "Sent" : `Failed (${r.error})`}</strong></li>`).join("");
+      sendEmailViaCloudflare(emailBinding, {
+        from: "Gigasend <no-reply@mail.gigasend.us>",
+        to: adminRecipients,
+        subject: `[Admin Alert] Outreach Batch Dispatched (${results.filter(r => r.success).length}/${results.length} successful)`,
+        html: `<h3>Outreach Batch Dispatch Summary</h3><ul>${summaryList}</ul><p>Timestamp: ${new Date().toISOString()}</p>`,
+        text: `Outreach Batch Dispatch Summary:\n${results.map((r) => `${r.email}: ${r.success ? "Sent" : `Failed (${r.error})`}`).join("\n")}`,
+      }).catch((e) => console.warn("Admin outreach notification error:", e));
     }
   }
 
