@@ -17,6 +17,7 @@ import {
 import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { brand } from "@/lib/brand";
+import { formatBytes } from "@/lib/utils";
 
 const DOWNLOAD_ORIGIN = brand.downloadOrigin;
 const ZIP_DOWNLOAD_MAX_BYTES = 2 * 1024 * 1024 * 1024;
@@ -57,7 +58,7 @@ function getDownloadUrl(fileKey: string) {
 
 function getFileName(fileKey: string) {
   const keyName = fileKey.split("/").pop() ?? "download";
-  return keyName.replace(/-\d{13}-\d{1,6}(?=\.[^.]+$|$)/, "");
+  return keyName.replace(/-\d{13}-[a-zA-Z0-9]+(?=\.[^.]+$|$)/, "");
 }
 
 function renderDownloadPage(input: {
@@ -66,30 +67,48 @@ function renderDownloadPage(input: {
   fileKeys: string[];
   shareId: string;
   zipAvailable: boolean;
+  fileSize?: number;
 }) {
   const safeDownloadUrl = input.downloadUrl ? escapeHtml(input.downloadUrl) : "";
+  const isSingle = input.fileKeys.length === 1;
   const zipBatches = getZipBatches(input.fileKeys);
+
   const batchLinks = zipBatches.map((batch, index) => {
     const href = escapeHtml(`/download/${input.shareId}?zip=1&batch=${index}`);
     return `<li><a href="${href}" download>Download ZIP part ${index + 1} of ${zipBatches.length} <span>${batch.length} files</span></a></li>`;
   }).join("");
-  const directDownloadLinks = input.fileKeys.map((fileKey) => {
+
+  const directDownloadLinks = input.fileKeys.map((fileKey, index) => {
     const fileName = escapeHtml(getFileName(fileKey));
-    const href = escapeHtml(getDownloadUrl(fileKey));
+    const href = escapeHtml(isSingle ? `/download/${input.shareId}?download=1` : `/download/${input.shareId}?file=${index}`);
     return `<li><a href="${href}" download>${fileName}</a></li>`;
   }).join("");
-  const intro = input.zipAvailable
-    ? `This transfer includes ${input.fileKeys.length} files. ${brand.productName} can package them into one ZIP download for you, or you can download files individually.`
-    : `This transfer is too large to package into one ZIP. Download it in ${zipBatches.length} ZIP parts below.`;
-  const primaryButton = input.zipAvailable && safeDownloadUrl
-    ? `<a class="button" href="${safeDownloadUrl}">Download ZIP</a>`
+
+  const intro = isSingle
+    ? `Your file is ready to download.`
+    : input.zipAvailable
+      ? `This transfer includes ${input.fileKeys.length} files. ${brand.productName} can package them into one ZIP download for you, or you can download files individually.`
+      : `This transfer is too large to package into one ZIP. Download it in ${zipBatches.length} ZIP parts below.`;
+
+  const primaryButtonLabel = isSingle
+    ? `Download File ${input.fileSize ? `(${formatBytes(input.fileSize)})` : ""}`
+    : "Download ZIP";
+
+  const primaryButton = safeDownloadUrl
+    ? `<a class="button" href="${safeDownloadUrl}" download>${primaryButtonLabel}</a>`
     : "";
-  const batchSection = input.zipAvailable ? "" : `
+
+  const batchSection = (input.zipAvailable || isSingle) ? "" : `
       <section>
         <h2>ZIP parts</h2>
         <ul class="files">${batchLinks}</ul>
       </section>`;
-  const directSection = input.zipAvailable ? `
+
+  const directSection = isSingle ? `
+      <section>
+        <h2>File details</h2>
+        <ul class="files">${directDownloadLinks}</ul>
+      </section>` : input.zipAvailable ? `
       <section>
         <h2>Individual files</h2>
         <ul class="files">${directDownloadLinks}</ul>
@@ -123,22 +142,27 @@ function renderDownloadPage(input: {
       .files a:hover { background: #eef4ff; border-color: #bfdbfe; }
       details { margin-top: 24px; }
       summary { cursor: pointer; color: #1d4ed8; font-weight: 700; }
-      .expires { margin-top: 20px; font-size: 14px; color: #6b7280; }
+      .footer-bar { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #6b7280; flex-wrap: wrap; gap: 12px; }
+      .report-link { color: #9ca3af; text-decoration: none; }
+      .report-link:hover { color: #ef4444; text-decoration: underline; }
     </style>
   </head>
   <body>
     <main>
       <div class="brand"><span class="icon">↑</span><span>${brand.productName}</span></div>
-      <h1>Your files are ready</h1>
+      <h1>${isSingle ? "Your file is ready" : "Your files are ready"}</h1>
       <p>${intro}</p>
       ${primaryButton}
       ${batchSection}
       ${directSection}
-      <div class="expires">Available until ${escapeHtml(new Date(input.expiresAt).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }))}</div>
+      <div class="footer-bar">
+        <span>Available until ${escapeHtml(new Date(input.expiresAt).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }))}</span>
+        <a class="report-link" href="mailto:${brand.contactEmail}?subject=Report%20Abuse%20-%20Transfer%20${input.shareId}" target="_blank" rel="noopener noreferrer">Report Abuse / Phishing</a>
+      </div>
     </main>
   </body>
 </html>`;
@@ -344,11 +368,54 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
   }
 
   const fileKeys = parseFileKeys(share.fileKey);
-  if (fileKeys.length === 1) {
+  const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
+  const isDirectDownload = url.searchParams.get("download") === "1";
+  const requestedFileIndex = url.searchParams.get("file");
+
+  // 1. Single file direct download requested
+  if (fileKeys.length === 1 && isDirectDownload) {
     await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-    return Response.redirect(getDownloadUrl(fileKeys[0]), 302);
+    const fileKey = fileKeys[0];
+    const safeFileName = getFileName(fileKey).replace(/"/g, "");
+    if (bucket) {
+      const obj = await bucket.get(fileKey);
+      if (obj && obj.body) {
+        const headers = new Headers();
+        obj.writeHttpMetadata(headers);
+        headers.set("Content-Type", "application/octet-stream");
+        headers.set("Content-Disposition", `attachment; filename="${safeFileName}"`);
+        headers.set("X-Content-Type-Options", "nosniff");
+        headers.set("Cache-Control", "private, no-store");
+        return new Response(obj.body, { headers });
+      }
+    }
+    return Response.redirect(getDownloadUrl(fileKey), 302);
   }
 
+  // 2. Multi-file specific file download requested
+  if (requestedFileIndex !== null) {
+    const fileIndex = parseInt(requestedFileIndex, 10);
+    if (!isNaN(fileIndex) && fileKeys[fileIndex]) {
+      const fileKey = fileKeys[fileIndex];
+      const safeFileName = getFileName(fileKey).replace(/"/g, "");
+      await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
+      if (bucket) {
+        const obj = await bucket.get(fileKey);
+        if (obj && obj.body) {
+          const headers = new Headers();
+          obj.writeHttpMetadata(headers);
+          headers.set("Content-Type", "application/octet-stream");
+          headers.set("Content-Disposition", `attachment; filename="${safeFileName}"`);
+          headers.set("X-Content-Type-Options", "nosniff");
+          headers.set("Cache-Control", "private, no-store");
+          return new Response(obj.body, { headers });
+        }
+      }
+      return Response.redirect(getDownloadUrl(fileKey), 302);
+    }
+  }
+
+  // 3. Multi-file ZIP download requested
   const zipAvailable = share.size <= ZIP_DOWNLOAD_MAX_BYTES && fileKeys.length <= ZIP_DOWNLOAD_MAX_FILES;
   if (url.searchParams.get("zip") === "1") {
     const requestedBatch = url.searchParams.get("batch");
@@ -363,26 +430,29 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
     }
 
     await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-    const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
     return new Response(await streamZip(batchFileKeys, bucket), {
       headers: {
         "Content-Type": "application/zip",
         "Content-Disposition": `attachment; filename="${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip"`,
+        "X-Content-Type-Options": "nosniff",
         "Cache-Control": "private, no-store",
       },
     });
   }
 
+  // 4. Default: Render Download Landing Page
   return new Response(renderDownloadPage({
-    downloadUrl: `/download/${share.id}?zip=1`,
+    downloadUrl: fileKeys.length === 1 ? `/download/${share.id}?download=1` : (zipAvailable ? `/download/${share.id}?zip=1` : undefined),
     expiresAt: share.expiresAt,
     fileKeys,
     shareId: share.id,
     zipAvailable,
+    fileSize: share.size,
   }), {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
       "Cache-Control": "private, no-store",
+      "X-Content-Type-Options": "nosniff",
     },
   });
 };

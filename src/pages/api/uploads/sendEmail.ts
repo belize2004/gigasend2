@@ -50,7 +50,33 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const cleanFileKeys = fileKeys.filter((fileKey) => typeof fileKey === "string" && fileKey.trim().length > 0);
     if (cleanFileKeys.length === 0) return json({ error: "Missing file key" }, 400);
 
-    const effectiveSenderEmail = senderEmail || (!session.isGuest ? user.email : "guest@gigasend.us");
+    // Verify all files exist in R2 storage and verify actual byte count
+    const bucket = (locals as any)?.runtime?.env?.FILES;
+    let verifiedTotalSize = 0;
+    if (bucket) {
+      for (const key of cleanFileKeys) {
+        const head = await bucket.head(key);
+        if (!head) {
+          return json({ error: `File not found in storage: ${key}. Please retry upload.` }, 400);
+        }
+        verifiedTotalSize += head.size;
+      }
+    }
+    const effectiveFileSize = verifiedTotalSize > 0 ? verifiedTotalSize : fileSize;
+
+    // Enforce guest transfer size limit (10 GB max)
+    const MAX_GUEST_BYTES = 10 * 1024 * 1024 * 1024;
+    if (session.isGuest && effectiveFileSize > MAX_GUEST_BYTES) {
+      return json({ error: "Free guest transfers are limited to 10 GB. Please create an account or upgrade to send larger files." }, 413);
+    }
+
+    const isGuest = session.isGuest;
+    const userEmail = !isGuest && user?.email ? user.email : null;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validGuestReplyTo = isGuest && senderEmail && emailRegex.test(senderEmail) ? senderEmail : undefined;
+
+    const effectiveReplyTo = userEmail || validGuestReplyTo || brand.contactEmail;
+    const senderDisplayName = userEmail || (validGuestReplyTo ? `${validGuestReplyTo} (via ${brand.productName})` : `A guest visitor (via ${brand.productName})`);
 
     let isFreePlan = true;
     if (!session.isGuest && user.stripeCustomerId) {
@@ -68,7 +94,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const share = await createShare(db, {
       userId,
       email: receiverEmail,
-      size: fileSize,
+      size: effectiveFileSize,
       expiresAt,
       fileKey: cleanFileKeys.length === 1 ? cleanFileKeys[0] : JSON.stringify(cleanFileKeys),
       numberOfFiles,
@@ -76,18 +102,18 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     });
 
     const htmlContent = generateEmailTemplate({
-      fileSize,
+      fileSize: effectiveFileSize,
       link: share.link,
       message,
       numberOfFiles,
-      senderEmail: effectiveSenderEmail,
+      senderEmail: senderDisplayName,
     });
     const textContent = generateEmailText({
-      fileSize,
+      fileSize: effectiveFileSize,
       link: share.link,
       message,
       numberOfFiles,
-      senderEmail: effectiveSenderEmail,
+      senderEmail: senderDisplayName,
     });
 
     // Cloudflare email dispatch binding
@@ -96,8 +122,8 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const dispatchResult = await sendEmailViaCloudflare(emailBinding, {
       from: brand.emailFrom,
       to: receiverEmail,
-      replyTo: effectiveSenderEmail,
-      subject: `${effectiveSenderEmail} sent you files with ${brand.productName}`,
+      replyTo: effectiveReplyTo,
+      subject: `${senderDisplayName} sent you files with ${brand.productName}`,
       html: htmlContent,
       text: textContent,
       headers: {
@@ -105,17 +131,19 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       },
     });
 
-    const targetConfirmationEmail = effectiveSenderEmail && !effectiveSenderEmail.endsWith("@guest.gigasend.us") ? effectiveSenderEmail : null;
+    // NEVER send unsolicited confirmation emails to unverified guest-entered emails
+    // Only send confirmation to logged-in, authenticated accounts
+    const targetConfirmationEmail = userEmail;
 
     if (!dispatchResult.success) {
       console.warn("[sendEmail] Cloudflare email dispatch notice:", dispatchResult.error);
       captureMonitoringException(new Error(dispatchResult.error || "Email delivery failed"), {
-        user: { id: userId, email: effectiveSenderEmail },
+        user: { id: userId, email: userEmail || "guest" },
         tags: { feature: "email", route: "sendEmail", provider: "cloudflare" },
         context: {
           receiverDomain: receiverEmail.split("@")[1],
           numberOfFiles,
-          fileSize,
+          fileSize: effectiveFileSize,
           shareId: share.id,
         },
       });

@@ -17,12 +17,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     const user = await findUserByEmail(db, email);
     if (!user) {
-      return json({ success: false, message: "User not found" }, 404);
+      return json({ success: false, message: "Invalid email or password" }, 401);
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return json({ success: false, message: "Invalid credentials" }, 401);
+      return json({ success: false, message: "Invalid email or password" }, 401);
     }
 
     const secretKey = getJwtSecret((locals as any)?.runtime?.env);

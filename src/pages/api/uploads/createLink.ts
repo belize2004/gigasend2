@@ -46,6 +46,26 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const cleanFileKeys = fileKeys.filter((fileKey) => typeof fileKey === "string" && fileKey.trim().length > 0);
     if (cleanFileKeys.length === 0) return json({ error: "Missing file key" }, 400);
 
+    // Verify all files exist in R2 storage and verify actual byte count
+    const bucket = (locals as any)?.runtime?.env?.FILES;
+    let verifiedTotalSize = 0;
+    if (bucket) {
+      for (const key of cleanFileKeys) {
+        const head = await bucket.head(key);
+        if (!head) {
+          return json({ error: `File not found in storage: ${key}. Please retry upload.` }, 400);
+        }
+        verifiedTotalSize += head.size;
+      }
+    }
+    const effectiveFileSize = verifiedTotalSize > 0 ? verifiedTotalSize : fileSize;
+
+    // Enforce guest transfer size limit (10 GB max)
+    const MAX_GUEST_BYTES = 10 * 1024 * 1024 * 1024;
+    if (session.isGuest && effectiveFileSize > MAX_GUEST_BYTES) {
+      return json({ error: "Free guest transfers are limited to 10 GB. Please create an account or upgrade to send larger files." }, 413);
+    }
+
     let isFreePlan = true;
     if (!session.isGuest && user.stripeCustomerId) {
       const subscribedPlan = await stripe.subscriptions.list({
@@ -62,15 +82,16 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const share = await createShare(db, {
       userId,
       email: LINK_ONLY_SHARE_EMAIL,
-      size: fileSize,
+      size: effectiveFileSize,
       expiresAt,
       fileKey: cleanFileKeys.length === 1 ? cleanFileKeys[0] : JSON.stringify(cleanFileKeys),
       numberOfFiles,
       getLink: (shareId) => `${SITE_URL.replace(/\/$/, "")}/download/${shareId}`,
     });
 
-    const targetEmail = senderEmail || (!session.isGuest ? user.email : null);
-    if (targetEmail && !targetEmail.endsWith("@guest.gigasend.us")) {
+    // Only send confirmation to authenticated accounts with verified emails
+    const targetEmail = !session.isGuest && user?.email ? user.email : null;
+    if (targetEmail) {
       const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
       await sendEmailViaCloudflare(emailBinding, {
         from: brand.emailFrom,
@@ -78,13 +99,13 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         subject: `Your ${brand.productName} transfer link is ready`,
         html: generateUploadConfirmationEmail({
           deliveryLabel: "Link created",
-          fileSize,
+          fileSize: effectiveFileSize,
           link: share.link,
           numberOfFiles,
         }),
         text: generateUploadConfirmationText({
           deliveryLabel: "Link created",
-          fileSize,
+          fileSize: effectiveFileSize,
           link: share.link,
           numberOfFiles,
         }),
