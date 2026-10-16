@@ -3,7 +3,7 @@ import { findUserById, getDb } from "@/lib/d1";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 
 export const POST: APIRoute = async ({ cookies, locals }) => {
-  const userId = await getAuthenticatedUserId(cookies);
+  const userId = await getAuthenticatedUserId(cookies, locals);
   if (!userId) return unauthorized();
 
   const db = getDb(locals);

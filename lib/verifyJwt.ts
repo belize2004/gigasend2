@@ -1,14 +1,14 @@
 import { jwtVerify } from 'jose';
-import { JWT_SECRET } from './serverEnv';
+import { getJwtSecret } from './serverEnv';
 
 export interface JwtPayload {
   userId: string;
 }
 
-const secret = new TextEncoder().encode(JWT_SECRET);
-
-export async function verifyToken(token: string): Promise<JwtPayload | null> {
+export async function verifyToken(token: string, runtimeEnv?: Record<string, any>): Promise<JwtPayload | null> {
   try {
+    const secretKey = getJwtSecret(runtimeEnv);
+    const secret = new TextEncoder().encode(secretKey);
     const { payload } = await jwtVerify<JwtPayload>(token, secret);
     return payload;
   } catch (err) {

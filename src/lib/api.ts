@@ -12,11 +12,12 @@ export function json(data: unknown, init?: ResponseInit | number) {
   });
 }
 
-export async function getAuthenticatedUserId(cookies: AstroCookies) {
+export async function getAuthenticatedUserId(cookies: AstroCookies, locals?: any) {
   const token = cookies.get("token")?.value;
   if (!token) return null;
 
-  const payload = await verifyToken(token);
+  const runtimeEnv = locals?.runtime?.env;
+  const payload = await verifyToken(token, runtimeEnv);
   return payload?.userId ?? null;
 }
 
