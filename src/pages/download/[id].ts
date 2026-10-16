@@ -381,7 +381,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
       const obj = await bucket.get(fileKey);
       if (obj && obj.body) {
         const headers = new Headers();
-        obj.writeHttpMetadata(headers);
+        (obj as any).writeHttpMetadata?.(headers);
         headers.set("Content-Type", "application/octet-stream");
         headers.set("Content-Disposition", `attachment; filename="${safeFileName}"`);
         headers.set("X-Content-Type-Options", "nosniff");
@@ -403,7 +403,7 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
         const obj = await bucket.get(fileKey);
         if (obj && obj.body) {
           const headers = new Headers();
-          obj.writeHttpMetadata(headers);
+          (obj as any).writeHttpMetadata?.(headers);
           headers.set("Content-Type", "application/octet-stream");
           headers.set("Content-Disposition", `attachment; filename="${safeFileName}"`);
           headers.set("X-Content-Type-Options", "nosniff");

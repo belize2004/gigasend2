@@ -95,8 +95,15 @@ const CheckoutPage = () => {
 
     // Direct Stripe Hosted Checkout Session (using server STRIPE_SECRET_KEY)
     try {
+      const isSpanish =
+        typeof document !== 'undefined' &&
+        (document.referrer.includes('/es/') ||
+         window.location.pathname.startsWith('/es') ||
+         document.documentElement.lang.startsWith('es'));
+
       const res = await axios.post<{ success: boolean; url?: string; message?: string }>('/api/payment/create-checkout-session', {
-        planName: selectedPlan.name
+        planName: selectedPlan.name,
+        locale: isSpanish ? 'es' : 'auto',
       });
       if (res.data?.url) {
         window.location.href = res.data.url;

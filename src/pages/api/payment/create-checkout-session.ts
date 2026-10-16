@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
     if (!userId) return unauthorized();
 
     const db = getDb(locals);
-    const { planName } = await request.json();
+    const { planName, locale } = await request.json().catch(() => ({}));
     if (!planName) return json({ success: false, message: "Plan name is required" }, 400);
 
     const user = await findUserById(db, userId);
@@ -29,9 +29,20 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
 
     const origin = (site?.origin ?? brand.siteUrl).replace(/\/$/, "");
 
+    // Detect Spanish locale from request body, Referer header, or page URL
+    const referer = request.headers.get("referer") || "";
+    const isSpanish =
+      locale === "es" ||
+      locale === "es-419" ||
+      referer.includes("/es/") ||
+      referer.includes("/es?") ||
+      referer.endsWith("/es");
+    const stripeLocale = isSpanish ? "es" : "auto";
+
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       customer: customerId,
+      locale: stripeLocale,
       payment_method_collection: "always",
       payment_method_types: ["card"],
       line_items: [
