@@ -16,7 +16,7 @@ PUBLIC_APP_URL = "https://gigasend.us"
 R2_ACCOUNT_ID = "54b1fed58d0ba6424964b70ae4ba4b14"
 R2_BUCKET_NAME = "gigasend-files"
 PUBLIC_BRAND_EMAIL_FROM = "Gigasend File Delivery <no-reply@mail.gigasend.us>"
-ADMIN_EMAILS = "blainebressman@gmail.com"
+ADMIN_EMAILS = "blainebressman@gmail.com,info@gigasend.us"
 
 [durable_objects]
 bindings = [

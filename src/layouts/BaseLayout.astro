@@ -43,6 +43,9 @@ const pageTitle = title.replaceAll("GigaSend", brand.productName);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${brand.siteUrl}/og-image.png`} />
 
+    <!-- Client-Side Website Failure Listener -->
+    <script src="/scripts/error-tracker.js" is:inline></script>
+
     <slot name="head" />
     <title>{pageTitle}</title>
   </head>

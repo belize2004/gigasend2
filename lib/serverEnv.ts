@@ -25,11 +25,11 @@ export function getAdminEmails(runtimeEnv?: Record<string, any>): string[] {
   const adminEmailsStr =
     runtimeEnv?.ADMIN_EMAILS ||
     process.env.ADMIN_EMAILS ||
-    "blainebressman@gmail.com";
+    "blainebressman@gmail.com,info@gigasend.us";
   return adminEmailsStr
     .split(",")
     .map((email: string) => email.trim())
     .filter(Boolean);
 }
 
-export const ADMIN_EMAILS = process.env.ADMIN_EMAILS || "blainebressman@gmail.com";
+export const ADMIN_EMAILS = process.env.ADMIN_EMAILS || "blainebressman@gmail.com,info@gigasend.us";

@@ -43,5 +43,37 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return context.redirect("/compare", 301);
   }
 
-  return next();
+  // 4. Server-Side Failure Interception
+  try {
+    return await next();
+  } catch (error: any) {
+    const cfRay = context.request.headers.get("cf-ray") || "local";
+    const clientIp = context.request.headers.get("cf-connecting-ip") || "unknown";
+
+    console.error("[SERVER_MIDDLEWARE_FAILURE]", JSON.stringify({
+      pathname: rawPath,
+      method: context.request.method,
+      error: error?.message || String(error),
+      stack: error?.stack || "",
+      cfRay,
+      clientIp,
+      timestamp: new Date().toISOString(),
+    }));
+
+    if (rawPath.startsWith("/api/")) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "Internal server error occurred.",
+          rayId: cfRay,
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    throw error;
+  }
 });
