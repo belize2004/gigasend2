@@ -1,10 +1,44 @@
 import type { APIRoute } from "astro";
-import { CompleteMultipartUploadCommand, type CompletedPart } from "@aws-sdk/client-s3";
+import {
+  CompleteMultipartUploadCommand,
+  HeadObjectCommand,
+  ListPartsCommand,
+  type CompletedPart,
+} from "@aws-sdk/client-s3";
 import { r2BucketName, r2Client } from "@/lib/r2Client";
 import { getDb } from "@/lib/d1";
 import { json } from "@/src/lib/api";
 import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { captureMonitoringException } from "@/lib/monitoring";
+
+async function listUploadedPartsFromR2(key: string, uploadId: string): Promise<Map<number, string>> {
+  const r2Parts = new Map<number, string>();
+  let partNumberMarker: string | undefined = undefined;
+
+  for (let page = 0; page < 15; page++) {
+    const listRes = await r2Client.send(
+      new ListPartsCommand({
+        Bucket: r2BucketName,
+        Key: key,
+        UploadId: uploadId,
+        PartNumberMarker: partNumberMarker,
+      })
+    );
+
+    for (const p of listRes.Parts || []) {
+      if (typeof p.PartNumber === "number" && p.ETag) {
+        r2Parts.set(p.PartNumber, p.ETag);
+      }
+    }
+
+    if (!listRes.IsTruncated || !listRes.NextPartNumberMarker) {
+      break;
+    }
+    partNumberMarker = String(listRes.NextPartNumberMarker);
+  }
+
+  return r2Parts;
+}
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let userId: string | null = null;
@@ -17,17 +51,110 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     body = await request.json();
     const { uploadId, key, parts } = body;
-    if (!uploadId || !key || !parts) {
+    if (!uploadId || !key || !Array.isArray(parts) || parts.length === 0) {
       return json({ error: "Missing uploadId, key, or parts" }, 400);
     }
 
-    const command = new CompleteMultipartUploadCommand({
-      Bucket: r2BucketName,
-      Key: key,
-      UploadId: uploadId,
-      MultipartUpload: { Parts: parts },
-    });
-    await r2Client.send(command);
+    // Deduplicate parts by PartNumber and detect if any ETag was stripped/missing
+    const partMap = new Map<number, string>();
+    let needsEtagBackfill = false;
+
+    for (const part of parts) {
+      const partNo = Number((part as any)?.PartNumber ?? (part as any)?.partNumber);
+      const rawEtag = String((part as any)?.ETag ?? (part as any)?.etag ?? "").trim();
+      if (!Number.isFinite(partNo) || partNo < 1) continue;
+      if (!rawEtag) {
+        needsEtagBackfill = true;
+        partMap.set(partNo, "");
+      } else {
+        partMap.set(partNo, rawEtag);
+      }
+    }
+
+    if (needsEtagBackfill || partMap.size === 0) {
+      const r2Parts = await listUploadedPartsFromR2(key, uploadId);
+      if (partMap.size === 0) {
+        for (const [partNo, etag] of r2Parts.entries()) {
+          partMap.set(partNo, etag);
+        }
+      } else {
+        for (const [partNo, etag] of partMap.entries()) {
+          if (!etag && r2Parts.has(partNo)) {
+            partMap.set(partNo, r2Parts.get(partNo)!);
+          }
+        }
+      }
+    }
+
+    const normalizedParts: CompletedPart[] = Array.from(partMap.entries())
+      .filter(([, etag]) => Boolean(etag))
+      .sort((a, b) => a[0] - b[0])
+      .map(([PartNumber, ETag]) => ({ PartNumber, ETag }));
+
+    if (normalizedParts.length === 0) {
+      return json({ error: "No valid uploaded parts found for this upload session" }, 400);
+    }
+
+    try {
+      const command = new CompleteMultipartUploadCommand({
+        Bucket: r2BucketName,
+        Key: key,
+        UploadId: uploadId,
+        MultipartUpload: { Parts: normalizedParts },
+      });
+      await r2Client.send(command);
+    } catch (completeErr: any) {
+      // Fallback 1: If S3 CompleteMultipartUpload failed due to stale client ETags, refresh from R2 ListParts and retry once
+      if (!needsEtagBackfill && completeErr?.name !== "NoSuchUpload") {
+        try {
+          const freshParts = await listUploadedPartsFromR2(key, uploadId);
+          if (freshParts.size > 0) {
+            const refreshedParts: CompletedPart[] = Array.from(freshParts.entries())
+              .sort((a, b) => a[0] - b[0])
+              .map(([PartNumber, ETag]) => ({ PartNumber, ETag }));
+            await r2Client.send(
+              new CompleteMultipartUploadCommand({
+                Bucket: r2BucketName,
+                Key: key,
+                UploadId: uploadId,
+                MultipartUpload: { Parts: refreshedParts },
+              })
+            );
+            return json({ message: "Upload complete", key, recoveredViaListParts: true });
+          }
+        } catch {}
+      }
+
+      // Fallback 2: Native Cloudflare R2 binding resumeMultipartUpload
+      const filesBinding = (locals as any)?.runtime?.env?.FILES;
+      if (filesBinding && typeof filesBinding.resumeMultipartUpload === "function" && completeErr?.name !== "NoSuchUpload") {
+        try {
+          const upload = filesBinding.resumeMultipartUpload(key, uploadId);
+          await upload.complete(
+            normalizedParts.map((p) => ({
+              partNumber: Number(p.PartNumber),
+              etag: String(p.ETag || "").replace(/^"|"$/g, ""),
+            }))
+          );
+          return json({ message: "Upload complete", key, recoveredViaBinding: true });
+        } catch {}
+      }
+
+      // Fallback 3: Idempotent check — if upload was already finalized on a prior request, verify object exists in R2
+      try {
+        if (filesBinding && typeof filesBinding.head === "function") {
+          const existing = await filesBinding.head(key);
+          if (existing) {
+            return json({ message: "Upload complete", key, alreadyCompleted: true });
+          }
+        } else {
+          await r2Client.send(new HeadObjectCommand({ Bucket: r2BucketName, Key: key }));
+          return json({ message: "Upload complete", key, alreadyCompleted: true });
+        }
+      } catch {}
+
+      throw completeErr;
+    }
 
     return json({ message: "Upload complete", key });
   } catch (error) {
@@ -43,3 +170,4 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json({ error: "Failed to complete upload" }, 500);
   }
 };
+

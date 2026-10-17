@@ -93,7 +93,10 @@ async function recordServerIncident(env, { signature, type, message, url, userAg
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    const isIdempotent = request.method === "GET" || request.method === "HEAD";
+    const isSafeIdempotentPost =
+      request.method === "POST" &&
+      (url.pathname === "/api/uploads/complete" || url.pathname === "/api/uploads/presign");
+    const isIdempotent = request.method === "GET" || request.method === "HEAD" || isSafeIdempotentPost;
     const isAstroAsset = url.pathname.startsWith("/_astro/");
 
     try {
