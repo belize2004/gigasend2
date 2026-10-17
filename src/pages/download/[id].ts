@@ -14,7 +14,6 @@ import {
   generateDownloadNotificationText,
   sendEmailViaCloudflare,
 } from "@/lib/email";
-import { RESEND_API_KEY } from "@/lib/serverEnv";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { brand } from "@/lib/brand";
 import { formatBytes } from "@/lib/utils";

@@ -385,13 +385,131 @@ export function generateDownloadNotificationText({
     ].join("\n");
 }
 
+export interface EmailAddress {
+    email: string;
+    name?: string;
+}
+
+export function parseEmailAddress(input?: string | EmailAddress | null): EmailAddress | null {
+    if (!input) return null;
+    if (typeof input === "object" && input.email) {
+        return {
+            email: input.email.trim(),
+            name: input.name?.trim() || undefined,
+        };
+    }
+    if (typeof input !== "string") return null;
+    const str = input.trim();
+    if (!str) return null;
+    const match = str.match(/^(?:([^<]+)<)?([^<>@]+@[^<>@]+)>?$/);
+    if (match) {
+        const name = match[1]?.trim().replace(/^["']|["']$/g, "") || undefined;
+        const email = match[2]?.trim();
+        if (email) {
+            return { email, name };
+        }
+    }
+    return { email: str };
+}
+
+const ALLOWED_STANDARD_HEADERS = new Set([
+    "in-reply-to",
+    "references",
+    "thread-index",
+    "thread-topic",
+    "list-unsubscribe",
+    "list-unsubscribe-post",
+    "auto-submitted",
+    "feedback-id",
+]);
+
+const FORBIDDEN_HEADER_NAMES = new Set([
+    "from",
+    "to",
+    "cc",
+    "bcc",
+    "subject",
+    "reply-to",
+    "date",
+    "message-id",
+    "return-path",
+    "received",
+    "dkim-signature",
+    "require-recipient-valid-since",
+    "expires",
+    "reply-by",
+    "archived-at",
+]);
+
+function sanitizeEmailHeaders(headers?: Record<string, string>): {
+    cleanHeaders: Record<string, string>;
+    extractedReplyTo?: string;
+} {
+    const cleanHeaders: Record<string, string> = {};
+    let extractedReplyTo: string | undefined;
+
+    if (!headers || typeof headers !== "object") {
+        return { cleanHeaders };
+    }
+
+    for (const [rawKey, rawValue] of Object.entries(headers)) {
+        if (!rawKey || !rawValue) continue;
+        const keyLower = rawKey.trim().toLowerCase();
+        const valueTrimmed = String(rawValue).trim();
+
+        if (keyLower === "reply-to") {
+            extractedReplyTo = valueTrimmed;
+            continue;
+        }
+
+        if (FORBIDDEN_HEADER_NAMES.has(keyLower)) {
+            continue;
+        }
+
+        // X-* custom headers: max name 100 chars, value max 2048 bytes
+        if (/^x-[a-z0-9_-]+$/i.test(rawKey.trim()) && rawKey.trim().length <= 100) {
+            cleanHeaders[rawKey.trim()] = valueTrimmed.slice(0, 2048);
+            continue;
+        }
+
+        // Allowlisted standard RFC headers
+        if (ALLOWED_STANDARD_HEADERS.has(keyLower)) {
+            cleanHeaders[rawKey.trim()] = valueTrimmed.slice(0, 2048);
+        }
+    }
+
+    return { cleanHeaders, extractedReplyTo };
+}
+
+function extractRecipientEmails(to: string | string[] | EmailAddress | EmailAddress[]): string[] {
+    const list = Array.isArray(to) ? to : [to];
+    const results: string[] = [];
+
+    for (const item of list) {
+        if (!item) continue;
+        if (typeof item === "string") {
+            const split = item.split(",").map((s) => s.trim()).filter(Boolean);
+            for (const piece of split) {
+                const parsed = parseEmailAddress(piece);
+                if (parsed?.email && parsed.email.includes("@")) {
+                    results.push(parsed.email);
+                }
+            }
+        } else if (typeof item === "object" && item.email && item.email.includes("@")) {
+            results.push(item.email.trim());
+        }
+    }
+
+    return Array.from(new Set(results));
+}
+
 export interface SendCloudflareEmailOptions {
-    to: string | string[];
+    to: string | string[] | EmailAddress | EmailAddress[];
     subject: string;
     html: string;
     text?: string;
-    from?: string;
-    replyTo?: string;
+    from?: string | EmailAddress;
+    replyTo?: string | EmailAddress;
     headers?: Record<string, string>;
 }
 
@@ -402,79 +520,133 @@ export interface SendCloudflareEmailResult {
 
 /**
  * Dispatches email natively using Cloudflare's Worker send_email binding (env.EMAIL).
- * Falls back to MailChannels HTTP API if the binding is not available.
- * Never throws uncaught exceptions so calling routes can handle status gracefully.
+ * Hardened to strictly comply with Cloudflare native email restrictions:
+ * - Proper `from` and `replyTo` formatting (RFC 5322 EmailAddress / string)
+ * - Strict header allowlisting (X-* custom headers and approved standard headers only)
+ * - Safe handling of multiple recipients and input cleansing
+ * - Seamless fallback to MailChannels transactional API if native send_email is unavailable or fails
+ * - Never throws uncaught exceptions so calling routes can handle status gracefully.
  */
 export async function sendEmailViaCloudflare(
     emailBinding: any,
     options: SendCloudflareEmailOptions
 ): Promise<SendCloudflareEmailResult> {
-    const from = options.from || brand.emailFrom;
-    const toList = Array.isArray(options.to) ? options.to : [options.to];
+    const toRecipients = extractRecipientEmails(options.to);
+    if (toRecipients.length === 0) {
+        console.warn("[CF_EMAIL] Send aborted: No valid recipient address provided.");
+        return { success: false, error: "No valid recipient email address provided." };
+    }
+
+    const { cleanHeaders, extractedReplyTo } = sanitizeEmailHeaders(options.headers);
+
+    const parsedFrom = parseEmailAddress(options.from || brand.emailFrom) || {
+        email: "no-reply@mail.gigasend.us",
+        name: brand.productName,
+    };
+    const nativeFrom = parsedFrom.name
+        ? { email: parsedFrom.email, name: parsedFrom.name }
+        : parsedFrom.email;
+
+    const parsedReplyTo = parseEmailAddress(options.replyTo || extractedReplyTo);
+    const nativeReplyTo = parsedReplyTo?.name
+        ? { email: parsedReplyTo.email, name: parsedReplyTo.name }
+        : parsedReplyTo?.email;
+
+    const failedRecipients: string[] = [];
 
     // 1. Primary Dispatch: Cloudflare Native Workers send_email Binding
     if (emailBinding && typeof emailBinding.send === "function") {
-        try {
-            for (const recipient of toList) {
-                const messagePayload: any = {
-                    from,
-                    to: recipient,
-                    subject: options.subject,
-                    html: options.html,
-                    text: options.text || options.subject,
-                };
+        for (const recipient of toRecipients) {
+            const messagePayload: any = {
+                from: nativeFrom,
+                to: recipient,
+                subject: options.subject,
+                html: options.html,
+                text: options.text || options.subject,
+            };
 
-                if (options.replyTo) {
-                    messagePayload.replyTo = options.replyTo;
-                }
-
-                // Cloudflare send_email only permits X-* custom headers
-                const customHeaders: Record<string, string> = {};
-                if (options.headers) {
-                    for (const [k, v] of Object.entries(options.headers)) {
-                        if (k.toLowerCase().startsWith("x-")) {
-                            customHeaders[k] = v;
-                        }
-                    }
-                }
-                if (Object.keys(customHeaders).length > 0) {
-                    messagePayload.headers = customHeaders;
-                }
-
-                await emailBinding.send(messagePayload);
-                console.log(`[CF_EMAIL] Native send_email dispatched successfully to ${recipient}`);
+            if (nativeReplyTo) {
+                messagePayload.replyTo = nativeReplyTo;
             }
-            return { success: true };
-        } catch (cfErr: any) {
-            console.warn("[CF_EMAIL] Cloudflare native send_email error, falling back to MailChannels:", cfErr?.message || cfErr);
+
+            if (Object.keys(cleanHeaders).length > 0) {
+                messagePayload.headers = cleanHeaders;
+            }
+
+            try {
+                const res = await emailBinding.send(messagePayload);
+                console.log(
+                    `[CF_EMAIL] Native send_email dispatched successfully to ${recipient}`,
+                    res?.messageId ? `(id: ${res.messageId})` : ""
+                );
+            } catch (err: any) {
+                // If Cloudflare engine rejected object-shaped `from`, retry with raw email address string
+                if (typeof messagePayload.from === "object" && messagePayload.from?.email) {
+                    try {
+                        messagePayload.from = messagePayload.from.email;
+                        if (typeof messagePayload.replyTo === "object" && messagePayload.replyTo?.email) {
+                            messagePayload.replyTo = messagePayload.replyTo.email;
+                        }
+                        const retryRes = await emailBinding.send(messagePayload);
+                        console.log(
+                            `[CF_EMAIL] Native send_email fallback dispatched successfully to ${recipient}`,
+                            retryRes?.messageId ? `(id: ${retryRes.messageId})` : ""
+                        );
+                        continue;
+                    } catch (retryErr: any) {
+                        console.warn(
+                            `[CF_EMAIL] Native send_email failed for ${recipient}:`,
+                            retryErr?.code || err?.code,
+                            retryErr?.message || err?.message
+                        );
+                    }
+                } else {
+                    console.warn(`[CF_EMAIL] Native send_email failed for ${recipient}:`, err?.code, err?.message || err);
+                }
+
+                failedRecipients.push(recipient);
+            }
         }
+
+        if (failedRecipients.length === 0) {
+            return { success: true };
+        }
+        console.warn(
+            `[CF_EMAIL] ${failedRecipients.length} recipient(s) failed Cloudflare native delivery; attempting MailChannels fallback...`
+        );
+    } else {
+        // Native binding not present (e.g. running in test or unconfigured local preview)
+        failedRecipients.push(...toRecipients);
     }
 
     // 2. Secondary Dispatch: MailChannels Transactional API Fallback
     try {
-        for (const recipient of toList) {
+        for (const recipient of failedRecipients) {
             const mcRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     personalizations: [{ to: [{ email: recipient }] }],
                     from: {
-                        email: "delivery@gigasend.us",
-                        name: brand.productName,
+                        email: parsedFrom.email,
+                        name: parsedFrom.name || brand.productName,
                     },
-                    reply_to: options.replyTo ? { email: options.replyTo } : undefined,
+                    reply_to: parsedReplyTo
+                        ? { email: parsedReplyTo.email, name: parsedReplyTo.name }
+                        : undefined,
                     subject: options.subject,
                     content: [
                         { type: "text/plain", value: options.text || options.subject },
                         { type: "text/html", value: options.html },
                     ],
+                    headers: Object.keys(cleanHeaders).length > 0 ? cleanHeaders : undefined,
                 }),
             });
 
             if (!mcRes.ok && mcRes.status !== 202) {
                 const errText = await mcRes.text().catch(() => "");
                 console.warn(`[EMAIL] MailChannels HTTP ${mcRes.status}: ${errText}`);
-                return { success: false, error: `MailChannels delivery failed (HTTP ${mcRes.status}): ${errText}` };
+                return { success: false, error: `Delivery failed (HTTP ${mcRes.status}): ${errText}` };
             } else {
                 console.log(`[EMAIL] Dispatched email via MailChannels fallback to ${recipient}`);
             }

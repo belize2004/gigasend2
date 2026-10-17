@@ -19,7 +19,6 @@ export function getJwtSecret(runtimeEnv?: Record<string, any>): string {
 
 export const JWT_SECRET = getJwtSecret();
 export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || "";
-export const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
 export const SANITY_WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET;
 export function getAdminEmails(runtimeEnv?: Record<string, any>): string[] {
   const adminEmailsStr =

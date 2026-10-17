@@ -44,7 +44,6 @@
     "react-hook-form": "^7.55.0",
     "react-icons": "^5.5.0",
     "react-redux": "^9.2.0",
-    "resend": "^4.2.0",
     "stripe": "^18.2.0",
     "styled-components": "^6.1.18",
     "tailwindcss": "^4.1.8",
