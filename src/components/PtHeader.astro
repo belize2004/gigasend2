@@ -1,0 +1,116 @@
+---
+import { ptSeoLandingPages } from "../data/ptSeoLandingPages";
+import { brand } from "@/lib/brand";
+
+interface Props {
+  activeNav?: "hub" | "planos" | "comparar" | "calculadora" | "guias" | "slug";
+  enHref: string;
+  esHref?: string;
+  ptHref: string;
+}
+
+const { activeNav = "slug", enHref, esHref = "/es", ptHref } = Astro.props;
+
+const navItems = [
+  { id: "hub", label: `Central Brasil (${ptSeoLandingPages.length})`, shortLabel: `Central BR (${ptSeoLandingPages.length})`, href: "/pt" },
+  { id: "planos", label: "Planos Pré-Pagos", shortLabel: "Planos", href: "/pt/planos" },
+  { id: "comparar", label: "Comparar", shortLabel: "Comparar", href: "/pt/comparar" },
+  { id: "calculadora", label: "Calculadora", shortLabel: "Calculadora", href: "/pt/calculadora-tempo-upload" },
+  { id: "guias", label: "Guias Técnicos", shortLabel: "Guias", href: "/pt/guias" },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/90 backdrop-blur-2xl">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegação Principal">
+    <a
+      href="/pt"
+      class="flex min-h-[44px] items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile"
+    >
+      <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
+        G
+      </span>
+      <span class="group-hover:text-gold-400 transition-colors">
+        {brand.productName} <span class="text-xs font-mono text-emerald-400 ml-1">BR</span>
+      </span>
+    </a>
+
+    <div class="flex items-center gap-2 sm:gap-4 text-xs font-medium text-slate-300">
+      <div class="hidden xl:flex items-center gap-1">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            aria-current={activeNav === item.id ? "page" : undefined}
+            class={`inline-flex min-h-[44px] items-center rounded-xl px-3 transition-colors tap-tactile ${
+              activeNav === item.id
+                ? "text-gold-400 font-bold bg-gold-500/10"
+                : "text-slate-300 hover:text-gold-400 hover:bg-white/5"
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <div
+        class="inline-flex min-h-[44px] items-center rounded-xl border border-white/15 bg-ocean-900/90 p-1 text-xs font-mono"
+        role="group"
+        aria-label="Seletor de idioma"
+      >
+        <a
+          href={enHref}
+          onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'"
+          class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors tap-tactile"
+          title="Mudar para Inglês (English)"
+        >
+          EN
+        </a>
+        <a
+          href={esHref}
+          onclick="document.cookie='gigasend_lang=es; path=/; max-age=31536000; SameSite=Lax'"
+          class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors tap-tactile"
+          title="Cambiar a Español"
+        >
+          ES
+        </a>
+        <a
+          href={ptHref}
+          onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'"
+          class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg bg-gold-500/15 px-2 font-bold text-gold-400"
+          aria-current="true"
+          title="Português (Brasil)"
+        >
+          PT
+        </a>
+      </div>
+
+      <a
+        class="btn-gold inline-flex min-h-[44px] items-center justify-center px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile"
+        href="/transfer"
+      >
+        Enviar Arquivos
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile & Tablet Sub-Navigation Strip (<1280px) so 375px iPhone viewports have full 44pt access to all hubs -->
+  <nav
+    aria-label="Navegação Rápida Mobile"
+    class="xl:hidden border-t border-white/10 bg-ocean-950/95 px-4 py-1.5 overflow-x-auto no-scrollbar"
+  >
+    <div class="mx-auto flex max-w-7xl items-center gap-2 whitespace-nowrap text-xs font-medium">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          aria-current={activeNav === item.id ? "page" : undefined}
+          class={`inline-flex min-h-[40px] shrink-0 items-center rounded-xl px-3.5 py-1.5 transition tap-tactile ${
+            activeNav === item.id
+              ? "border border-gold-500/40 bg-gold-500/15 text-gold-400 font-bold"
+              : "border border-white/10 bg-ocean-900/70 text-slate-200 hover:border-gold-500/40 hover:text-gold-400"
+          }`}
+        >
+          {item.shortLabel}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

@@ -3,7 +3,7 @@ import type { DashboardData } from "@/types/app-data";
 import { PlanEnum, PLANS } from "@/lib/constant";
 import { findUserById, getActiveShareUsage, getDb, listActiveShares } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
-import { getStorageLimitBytesForUser } from "@/lib/storageLimit";
+import { getStorageLimitBytesForUser, getVipGrantForUser } from "@/lib/storageLimit";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 
 export const GET: APIRoute = async ({ cookies, locals }) => {
@@ -15,7 +15,11 @@ export const GET: APIRoute = async ({ cookies, locals }) => {
   if (!user) return json({ success: false, message: "User not found" }, 404);
 
   let allowedStorage = getStorageLimitBytesForUser(user);
-  if (user.stripeCustomerId) {
+
+  const vipGrant = getVipGrantForUser(user);
+  if (vipGrant) {
+    allowedStorage = getStorageLimitBytesForUser(user, vipGrant.plan);
+  } else if (user.stripeCustomerId) {
     const subscription = await stripe.subscriptions.list({
       status: "active",
       customer: user.stripeCustomerId,

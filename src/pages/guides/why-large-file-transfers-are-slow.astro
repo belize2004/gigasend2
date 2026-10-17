@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SpeedCalculator from "../../components/SpeedCalculator";
+import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
@@ -62,127 +63,149 @@ const faqSchema = {
   title={`Why Large File Transfers Are So Slow (And How to Fix It) | ${brand.productName}`}
   description="Diagnose slow 25GB to 2TB file uploads. Understand TCP window scaling, RTT latency, packet loss, and how edge multi-part networks deliver line-rate speeds."
   canonical={canonical}
+  hreflang={[
+    { lang: "en", href: canonical },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai` },
+    { lang: "x-default", href: canonical },
+  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <main class="min-h-screen bg-slate-50 text-slate-950">
-    <header class="border-b border-slate-200 bg-white">
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/85 backdrop-blur-2xl">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
-        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
-          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
-          {brand.productName}
+        <a href="/" class="flex items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile">
+          <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">G</span>
+          <span class="group-hover:text-gold-400 transition-colors">{brand.productName}</span>
         </a>
-        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
-          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
-          <a class="hover:text-blue-700" href="/plans">Plans</a>
-          <a class="hover:text-blue-700" href="/directory">Directory</a>
-          <a class="hover:text-blue-700" href="/guides">Guides</a>
-          <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Calculator</a>
+        <div class="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
+          <a class="hover:text-gold-400 transition-colors" href="/transfer">Transfer</a>
+          <a class="hover:text-gold-400 transition-colors" href="/plans">Plans</a>
+          <a class="hover:text-gold-400 transition-colors" href="/compare">Compare</a>
+          <a class="hover:text-gold-400 transition-colors" href="/directory">Directory</a>
+          <a class="text-gold-400 font-bold" href="/guides">Guides</a>
+          <a class="hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Speed Calculator</a>
+          <a class="hover:text-gold-400 transition-colors" href="/contact">Contact</a>
+          <a class="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile" href="/transfer">Send Files</a>
         </div>
       </nav>
     </header>
 
-    <article class="bg-white py-16 sm:py-20 border-b border-slate-200">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
+      <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
+        <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
+        <li>/</li>
+        <li><a href="/guides" class="hover:text-gold-400 transition-colors">Guides</a></li>
+        <li>/</li>
+        <li class="text-gold-400 font-semibold" aria-current="page">Why Large File Transfers Are Slow</li>
+      </ol>
+    </nav>
+
+    <article class="bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 py-16 sm:py-20 border-b border-white/10">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
+        <div class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400 label-caps">
           <span>Infrastructure & WAN Engineering</span>
         </div>
-        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+        <h1 class="mt-4 text-4xl font-black tracking-tight text-white font-display sm:text-5xl">
           Why Large File Transfers Are So Slow (And How to Fix It)
         </h1>
-        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+        <p class="mt-4 text-lg text-slate-300 leading-relaxed">
           You upgraded to gigabit fiber, yet sending a 60GB raw video archive or 3D VFX sequence to an overseas client is still crawling at a painful 15–30 Mbps. Why does this happen, and how do modern edge architectures eliminate the bottleneck?
         </p>
 
-        <div class="mt-6 flex items-center gap-3 border-y border-slate-100 py-4 text-xs text-slate-500">
+        <div class="mt-6 flex items-center gap-3 border-y border-white/10 py-4 text-xs text-slate-400 font-mono">
           <span>Published by Infrastructure Engineering</span>
           <span>•</span>
           <span>Updated October 2026</span>
           <span>•</span>
-          <span>7 min read</span>
+          <span class="text-gold-400">7 min read</span>
         </div>
 
-        <div class="prose prose-slate mt-8 max-w-none space-y-6 text-slate-800 leading-relaxed">
-          <h2 class="text-2xl font-bold text-slate-950">1. The Myth of the "Gigabit Pipe"</h2>
+        <div class="mt-8 max-w-none space-y-6 text-slate-300 leading-relaxed">
+          <h2 class="text-2xl font-bold text-white font-display">1. The Myth of the "Gigabit Pipe"</h2>
           <p>
-            When internet service providers advertise a <strong>1 Gbps (Gigabit per second)</strong> connection, they are quoting the physical bandwidth between your optical terminal and their local Central Office exchange.
+            When internet service providers advertise a <strong class="text-white">1 Gbps (Gigabit per second)</strong> connection, they are quoting the physical bandwidth between your optical terminal and their local Central Office exchange.
           </p>
           <p>
             However, transferring a 40GB file is rarely an exchange-local task. When delivering footage to an agency in London, a colorist in Los Angeles, or a client in Tokyo, your data packets must transit through multiple Tier-1 transit providers (Cogent, Telia, Lumen) before arriving at the destination storage bucket.
           </p>
 
-          <h2 class="text-2xl font-bold text-slate-950">2. The Mathematics of TCP Window Scaling & Latency</h2>
+          <h2 class="text-2xl font-bold text-white font-display">2. The Mathematics of TCP Window Scaling & Latency</h2>
           <p>
-            Standard internet traffic relies on the <strong>Transmission Control Protocol (TCP)</strong>. TCP is designed for guaranteed delivery, meaning the receiver must acknowledge (ACK) packets before the sender sends more data.
+            Standard internet traffic relies on the <strong class="text-white">Transmission Control Protocol (TCP)</strong>. TCP is designed for guaranteed delivery, meaning the receiver must acknowledge (ACK) packets before the sender sends more data.
           </p>
           <p>
-            The maximum theoretical speed of a single TCP connection is governed by the <strong>Bandwidth-Delay Product (BDP)</strong>:
+            The maximum theoretical speed of a single TCP connection is governed by the <strong class="text-gold-400">Bandwidth-Delay Product (BDP)</strong>:
           </p>
-          <div class="rounded-lg bg-slate-900 p-4 font-mono text-xs text-emerald-400">
+          <div class="rounded-xl bg-ocean-950 border border-gold-500/30 p-4 font-mono text-xs text-gold-400 shadow-inner">
             Maximum Throughput = TCP Window Size / Round Trip Time (RTT)
           </div>
           <p>
-            Even with modern TCP window scaling enabled (e.g. 64KB up to 16MB buffers), if your round-trip latency to a centralized cloud data center is <strong>90 milliseconds</strong>, a single lost packet forces TCP congestion control (CUBIC) to cut throughput by up to 50%. On transatlantic connections, real-world throughput often collapses to less than 10% of physical capacity.
+            Even with modern TCP window scaling enabled (e.g. 64KB up to 16MB buffers), if your round-trip latency to a centralized cloud data center is <strong class="text-white">90 milliseconds</strong>, a single lost packet forces TCP congestion control (CUBIC) to cut throughput by up to 50%. On transatlantic connections, real-world throughput often collapses to less than 10% of physical capacity.
           </p>
 
-          <h2 class="text-2xl font-bold text-slate-950">3. Single-Region Cloud Storage: The Bottleneck Architecture</h2>
+          <h2 class="text-2xl font-bold text-white font-display">3. Single-Region Cloud Storage: The Bottleneck Architecture</h2>
           <p>
-            Legacy services like Google Drive, Dropbox, and standard AWS S3 buckets operate out of centralized regions (e.g. <code>us-east-1</code> in Virginia or <code>eu-west-1</code> in Ireland). When a creator in Munich uploads to a New York agency's bucket:
+            Legacy services like Google Drive, Dropbox, and standard AWS S3 buckets operate out of centralized regions (e.g. <code class="px-2 py-0.5 rounded bg-ocean-900 border border-white/10 text-gold-400 font-mono text-xs">us-east-1</code> in Virginia or <code class="px-2 py-0.5 rounded bg-ocean-900 border border-white/10 text-gold-400 font-mono text-xs">eu-west-1</code> in Ireland). When a creator in Munich uploads to a New York agency's bucket:
           </p>
-          <ul class="list-disc pl-5 space-y-2 text-slate-700">
+          <ul class="list-disc pl-5 space-y-2 text-slate-300">
             <li>Every packet must cross the Atlantic before reaching the cloud.</li>
             <li>Round-trip time exceeds 100ms.</li>
             <li>Any transient Wi-Fi fluctuation or ISP jitter drops the TCP window size to near zero.</li>
           </ul>
 
-          <h2 class="text-2xl font-bold text-slate-950">4. The Solution: Multi-Part Anycast Edge Ingestion</h2>
+          <h2 class="text-2xl font-bold text-white font-display">4. The Solution: Multi-Part Anycast Edge Ingestion</h2>
           <p>
             Gigasend was architected to bypass this physics limitation entirely using Cloudflare's Anycast global network:
           </p>
-          <ol class="list-decimal pl-5 space-y-3 text-slate-700">
-            <li><strong>Sub-15ms Anycast Termination:</strong> Your browser connects to the nearest Cloudflare data center (across 335+ cities). Instead of crossing the ocean, your TCP handshake completes locally in under 15ms.</li>
-            <li><strong>Parallel Chunking:</strong> Files are sliced in-browser into concurrent chunks and uploaded across multiple parallel HTTP/3 streams. If one chunk experiences jitter, other streams continue at maximum line rate.</li>
-            <li><strong>Zero Local SSD Cache:</strong> Files are streamed directly into durable edge object storage without caching hundreds of gigabytes onto your local hard drive.</li>
+          <ol class="list-decimal pl-5 space-y-3 text-slate-300">
+            <li><strong class="text-white">Sub-15ms Anycast Termination:</strong> Your browser connects to the nearest Cloudflare data center (across 335+ cities). Instead of crossing the ocean, your TCP handshake completes locally in under 15ms.</li>
+            <li><strong class="text-white">Parallel Chunking:</strong> Files are sliced in-browser into concurrent chunks and uploaded across multiple parallel HTTP/3 streams. If one chunk experiences jitter, other streams continue at maximum line rate.</li>
+            <li><strong class="text-white">Zero Local SSD Cache:</strong> Files are streamed directly into durable edge object storage without caching hundreds of gigabytes onto your local hard drive.</li>
           </ol>
         </div>
       </div>
     </article>
 
     <!-- Interactive Speed Calculator Integration -->
-    <section class="py-16">
+    <section class="py-16 bg-ocean-950">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-8 text-center">
-          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">Test Your Upload Speed & Latency Overhead</h2>
-          <p class="mt-2 text-sm text-slate-600">Simulate transfer times with our real-time WAN transfer calculator:</p>
+          <span class="label-caps text-gold-400 text-xs">Live Telemetry Simulator</span>
+          <h2 class="mt-1 text-2xl font-black text-white font-display sm:text-3xl">Test Your Upload Speed & Latency Overhead</h2>
+          <p class="mt-2 text-sm text-slate-300">Simulate transfer times with our real-time WAN transfer calculator:</p>
         </div>
         <SpeedCalculator client:visible />
       </div>
     </section>
 
     <!-- FAQs & Takeaways -->
-    <section class="border-t border-slate-200 bg-white py-16">
+    <section class="border-t border-white/10 bg-ocean-900/50 py-16">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-slate-950">Frequently Asked Questions</h2>
+        <span class="label-caps text-gold-400 text-xs">Engineering Q&A</span>
+        <h2 class="mt-1 text-2xl font-black text-white font-display">Frequently Asked Questions</h2>
         <dl class="mt-8 space-y-6">
           {faqSchema.mainEntity.map((faq) => (
-            <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
-              <dt class="text-base font-semibold text-slate-950">{faq.name}</dt>
-              <dd class="mt-3 text-sm leading-relaxed text-slate-600">{faq.acceptedAnswer.text}</dd>
+            <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-md">
+              <dt class="text-base font-bold text-white font-display">{faq.name}</dt>
+              <dd class="mt-3 text-sm leading-relaxed text-slate-300">{faq.acceptedAnswer.text}</dd>
             </div>
           ))}
         </dl>
 
-        <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
-          <h3 class="text-2xl font-bold">Transfer Large Files at Line Rate</h3>
-          <p class="mt-2 text-blue-100 text-sm">
+        <div class="mt-12 apple-glass rounded-3xl border border-gold-500/30 bg-ocean-900/90 p-8 text-white text-center shadow-2xl">
+          <span class="label-caps text-gold-400 text-xs">Sub-15ms Anycast Edge</span>
+          <h3 class="mt-2 text-2xl font-black font-display">Transfer Large Files at Line Rate</h3>
+          <p class="mt-2 text-slate-300 text-sm">
             Experience sub-15ms edge upload acceleration. Free transfers up to 25GB with zero subscription barriers.
           </p>
           <a
             href="/transfer"
-            class="mt-6 inline-block rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
+            class="btn-gold mt-6 inline-block rounded-xl px-8 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile"
           >
             Start Free Transfer Now
           </a>
@@ -190,28 +213,109 @@ const faqSchema = {
       </div>
     </section>
 
-    <!-- Related Workflows & Cross-Cluster Navigation -->
-    <section class="border-t border-slate-200 bg-slate-50 py-12">
+    <!-- Sibling Engineering Guides Clique -->
+    <section class="border-t border-white/10 bg-ocean-900/60 py-14">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">Related Technical Workflows & Tools</h3>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/tools/transfer-speed-calculator">
-            Transfer Speed Calculator
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="label-caps text-gold-400 text-xs">Engineering Series</span>
+            <h2 class="mt-1 text-2xl font-black text-white font-display">More Production & Infrastructure Guides</h2>
+          </div>
+          <a href="/guides" class="text-xs font-mono font-bold text-gold-400 hover:text-gold-300 transition-colors">All 5 Guides →</a>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs monthly subscriptions and AWS egress fees.</p>
           </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/fast-large-file-transfer">
-            Fast Large File Transfer
+          <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Transfer Without Failed Uploads</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Client-side chunking, multi-part parallel streams, and auto-retry.</p>
           </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/guides/transfer-large-files-without-failed-uploads">
-            Prevent Failed Uploads Guide
+          <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Workflow Architecture</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs Cloud Storage vs Review</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs sync vs review.</p>
           </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/send-large-files-free">
-            Send Large Files Free (25GB)
-          </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/directory">
-            Full Transfer Directory
+          <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage Optimization</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Without Filling Your Hard Drive</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Avoid local sync cache bloat with zero-cache browser streaming.</p>
           </a>
         </div>
       </div>
     </section>
+
+    <RelatedWorkflows
+      currentSlug="guides/why-large-file-transfers-are-slow"
+      internalLinks={[
+        { href: "/tools/transfer-speed-calculator", label: "Transfer Speed Calculator" },
+        { href: "/fast-large-file-transfer", label: "Fast Large File Transfer" },
+        { href: "/fastest-way-to-send-large-files", label: "Fastest Way to Send Large Files" },
+        { href: "/send-large-files-free", label: "Send Large Files Free (25GB)" },
+        { href: "/compare", label: "Cloudflare Edge vs AWS Relays" },
+        { href: "/directory", label: "Full Transfer Directory" },
+      ]}
+    />
+
+    <!-- Apple HIG Dark Blue SEO Footer -->
+    <footer class="border-t border-white/10 bg-ocean-950 py-14 text-xs text-slate-400">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a href="/" class="flex items-center gap-2.5 text-base font-extrabold font-display text-white">
+              <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black text-sm">G</span>
+              <span>{brand.productName}</span>
+            </a>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Platform & Tools</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/transfer" class="hover:text-gold-400 transition-colors">Send Large Files</a></li>
+              <li><a href="/plans" class="hover:text-gold-400 transition-colors">Plans & Pricing</a></li>
+              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Architecture Comparison</a></li>
+              <li><a href="/tools/transfer-speed-calculator" class="hover:text-gold-400 transition-colors">Transfer Speed Calculator</a></li>
+              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Codec & Format Directory</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Engineering Guides</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Engineering Guides</a></li>
+              <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
+              <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
+              <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
+              <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
+              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>
+              <li><a href="/contact" class="hover:text-gold-400 transition-colors">Contact Support</a></li>
+              <li><a href="/terms" class="hover:text-gold-400 transition-colors">Terms</a> · <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© {new Date().getFullYear()} {brand.productName}. Engineered on Cloudflare Edge & R2.</p>
+          <div class="flex gap-4">
+            <a href="/security" class="hover:text-gold-400 transition-colors">Security</a>
+            <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
+            <a href="/terms" class="hover:text-gold-400 transition-colors">Terms of Service</a>
+            <a href="/contact" class="hover:text-gold-400 transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </main>
 </BaseLayout>

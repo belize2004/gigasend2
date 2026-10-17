@@ -8,6 +8,7 @@ import {
 } from "@/lib/email";
 import { createShare, findUserById, getDb } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
+import { getVipGrantForUser } from "@/lib/storageLimit";
 import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { json } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
@@ -79,7 +80,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const senderDisplayName = userEmail || (validGuestReplyTo ? `${validGuestReplyTo} (via ${brand.productName})` : `A guest visitor (via ${brand.productName})`);
 
     let isFreePlan = true;
-    if (!session.isGuest && user.stripeCustomerId) {
+    const vipGrant = !session.isGuest ? getVipGrantForUser(user) : null;
+    if (vipGrant) {
+      isFreePlan = false;
+    } else if (!session.isGuest && user.stripeCustomerId) {
       const subscribedPlan = await stripe.subscriptions.list({
         status: "active",
         customer: user.stripeCustomerId,

@@ -21,14 +21,44 @@ export default function Paid(
 
   return (
     <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            {data.isVipPartner ? (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-gold-500/20 text-gold-300 border border-gold-500/40 shadow-sm">
+                ⭐ VIP Partner Plan (12-Month Pro Grant)
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                Active Subscription
+              </span>
+            )}
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Billing & Subscription</h1>
+          <p className="text-xs sm:text-sm text-slate-300 font-body mt-0.5">
+            {data.isVipPartner
+              ? "VIP Influencer Partner access granted with 80 GB storage and 30-day retention through October 18, 2027."
+              : "Manage your active plan, billing schedule, and subscription preferences."}
+          </p>
+        </div>
+      </div>
+
       {/* Current Plan Card */}
-      <PlanDetails nextBillingAmount={data.nextBillingAmount} planName={data.planName} daysUntilBilling={daysUntilBilling} />
+      <PlanDetails
+        nextBillingAmount={data.nextBillingAmount}
+        planName={data.planName}
+        daysUntilBilling={daysUntilBilling}
+        isVipPartner={data.isVipPartner}
+        planFeatures={data.planFeatures}
+      />
 
       {/* Billing Details Card */}
       <BillingDetails
         nextBillingAmount={data.nextBillingAmount}
         nextBillingDate={data.nextBillingDate}
         subscriptionStartDate={data.subscriptionStartDate}
+        isVipPartner={data.isVipPartner}
       />
 
       {/* Payment Method Card */}
@@ -39,7 +69,10 @@ export default function Paid(
       /> */}
 
       {/* Subscription Management */}
-      <SubscriptionManagement onSubscriptionCancel={onSubscriptionCancel} />
+      <SubscriptionManagement
+        onSubscriptionCancel={onSubscriptionCancel}
+        isVipPartner={data.isVipPartner}
+      />
 
       {/* Security Notice */}
       <SecurityNotice />

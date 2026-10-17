@@ -4,17 +4,21 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
-      main: "#107AE6",
+      main: "#f7bc6a",
     },
     background: {
-      default: "#FFFFFF",
-      paper: "#F4F9FF",
+      default: "#001d32",
+      paper: "#002f4d",
+    },
+    text: {
+      primary: "#f1f5f9",
+      secondary: "#94a3b8",
     },
   },
   typography: {
-    fontFamily: "var(--font-inter-sans), sans-serif",
+    fontFamily: "var(--font-body), 'Fira Sans', sans-serif",
     fontSize: 14,
   },
   components: {
@@ -27,34 +31,34 @@ const theme = createTheme({
             {
               props: { variant: "body1" },
               style: {
-                color: "#242634",
+                color: "#f1f5f9",
                 fontWeight: 700,
               },
             },
             {
               props: { variant: "body2" },
               style: {
-                color: "#6D6D6D",
+                color: "#94a3b8",
               },
             },
             {
               props: { variant: "h6" },
               style: {
-                color: "#242634",
+                color: "#ffffff",
                 fontWeight: 400,
               },
             },
             {
               props: { variant: "caption" },
               style: {
-                color: "#107AE6",
+                color: "#f7bc6a",
                 fontWeight: 500,
               },
             },
             {
               props: { variant: "subtitle1" },
               style: {
-                color: "#D92D20",
+                color: "#fb7185",
                 lineHeight: "22px",
                 fontWeight: 600,
               },
@@ -62,7 +66,7 @@ const theme = createTheme({
             {
               props: { variant: "h1" },
               style: {
-                color: "#020B15",
+                color: "#ffffff",
                 fontWeight: 700,
                 fontSize: "24px",
                 lineHeight: "16px",
@@ -79,14 +83,17 @@ const theme = createTheme({
           marginBottom: 8,
           fontSize: "14px",
           fontWeight: 600,
-          color: "#242634",
+          color: "#e2e8f0",
+          "&.Mui-focused": {
+            color: "#f7bc6a",
+          },
           "&::after": {
             content: "''",
             borderRadius: "2px",
             position: "absolute",
             width: "4px",
             height: "4px",
-            backgroundColor: "#D8346D",
+            backgroundColor: "#f7bc6a",
             top: "50%",
             transform: "translate(150%, -50%)",
           },
@@ -101,9 +108,12 @@ const theme = createTheme({
         root: {
           border: "none",
           fontSize: "14px",
+          color: "#f8fafc",
         },
         input: {
+          color: "#f8fafc",
           "&::placeholder": {
+            color: "#94a3b8",
             opacity: 0.7,
           },
         },
@@ -114,14 +124,22 @@ const theme = createTheme({
         input: {
           padding: 0,
           height: 20,
+          color: "#f8fafc",
         },
         root: {
           padding: "11px 11px",
           border: "1px solid",
-          backgroundColor: "#FFFFFF",
-          borderColor: "#E5E7EB",
+          backgroundColor: "rgba(0, 29, 50, 0.85)",
+          borderColor: "rgba(255, 255, 255, 0.14)",
+          color: "#f8fafc",
           borderRadius: "8px",
           transition: "border 120ms ease-in",
+          "&:hover": {
+            borderColor: "#f7bc6a",
+          },
+          "&.Mui-focused": {
+            borderColor: "#f7bc6a",
+          },
         },
         sizeSmall: {
           style: {
@@ -139,27 +157,31 @@ const theme = createTheme({
           borderWidth: "1px",
           borderStyle: "solid",
           borderRadius: "8px",
-          color: "#FFFFFF",
+          color: "#002f4d",
+          fontWeight: 700,
           padding: "10px 14px",
           "& .MuiButton-startIcon, & .MuiButton-endIcon": {
             fontSize: "14px",
-            color: "#FFFFFF",
+            color: "inherit",
           },
           textTransform: "none",
           variants: [
             {
               props: { color: "primary" },
               style: {
-                backgroundColor: "#107AE6",
-                borderColor: "#107AE6",
+                backgroundColor: "#f7bc6a",
+                borderColor: "#f7bc6a",
                 boxShadow: "none",
-                color: "#FFFFFF",
+                color: "#002f4d",
+                fontWeight: 700,
                 "&.Mui-disabled": {
-                  backgroundColor: "#AC83FE",
-                  borderColor: "#9159FE",
-                  color: "#E3D6FF",
+                  backgroundColor: "rgba(247, 188, 106, 0.25)",
+                  borderColor: "rgba(247, 188, 106, 0.25)",
+                  color: "rgba(255, 255, 255, 0.4)",
                 },
                 "&:hover": {
+                  backgroundColor: "#ffddb4",
+                  borderColor: "#ffddb4",
                   boxShadow: "none",
                 },
               },
@@ -167,17 +189,19 @@ const theme = createTheme({
             {
               props: { variant: "outlined" },
               style: {
-                backgroundColor: "#FFFFFF",
-                borderColor: "#E9EAEB",
-                color: "#242634",
+                backgroundColor: "rgba(255, 255, 255, 0.04)",
+                borderColor: "rgba(247, 188, 106, 0.4)",
+                color: "#f7bc6a",
                 "&:hover": {
-                  borderColor: "#E9EAEB",
+                  backgroundColor: "rgba(247, 188, 106, 0.1)",
+                  borderColor: "#f7bc6a",
                 },
                 "&.Mui-disabled": {
-                  color: "#AC83FE",
+                  color: "rgba(247, 188, 106, 0.35)",
+                  borderColor: "rgba(247, 188, 106, 0.15)",
                 },
               },
-            }
+            },
           ],
         },
         sizeLarge: {
@@ -200,10 +224,11 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: "12px",
+          borderRadius: "16px",
           boxShadow: "none",
           padding: "0px",
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "rgba(0, 47, 77, 0.75)",
+          border: "1px solid rgba(255, 255, 255, 0.09)",
         },
       },
     },
@@ -221,10 +246,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "8px",
-          backgroundColor: "#E9EAEB",
+          backgroundColor: "#002f4d",
         },
         bar1: {
-          backgroundColor: "#107AE6",
+          backgroundColor: "#f7bc6a",
           borderRadius: "8px",
         },
       },

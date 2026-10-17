@@ -519,13 +519,8 @@ export interface SendCloudflareEmailResult {
 }
 
 /**
- * Dispatches email natively using Cloudflare's Worker send_email binding (env.EMAIL).
- * Hardened to strictly comply with Cloudflare native email restrictions:
- * - Proper `from` and `replyTo` formatting (RFC 5322 EmailAddress / string)
- * - Strict header allowlisting (X-* custom headers and approved standard headers only)
- * - Safe handling of multiple recipients and input cleansing
- * - Seamless fallback to MailChannels transactional API if native send_email is unavailable or fails
- * - Never throws uncaught exceptions so calling routes can handle status gracefully.
+ * Dispatches email natively using Cloudflare's Worker send_email binding (env.EMAIL)
+ * on the authorized subdomain sender (`no-reply@mail.gigasend.us`).
  */
 export async function sendEmailViaCloudflare(
     emailBinding: any,
@@ -537,123 +532,163 @@ export async function sendEmailViaCloudflare(
         return { success: false, error: "No valid recipient email address provided." };
     }
 
+    if (!emailBinding || typeof emailBinding.send !== "function") {
+        console.warn("[CF_EMAIL] Send aborted: Cloudflare EMAIL binding is not available.");
+        return { success: false, error: "Cloudflare EMAIL binding is not configured." };
+    }
+
     const { cleanHeaders, extractedReplyTo } = sanitizeEmailHeaders(options.headers);
 
     const parsedFrom = parseEmailAddress(options.from || brand.emailFrom) || {
         email: "no-reply@mail.gigasend.us",
         name: brand.productName,
     };
+    // Enforce authorized Cloudflare Email Sending sender address
+    const senderEmail = parsedFrom.email.endsWith("@mail.gigasend.us")
+        ? parsedFrom.email
+        : "no-reply@mail.gigasend.us";
     const nativeFrom = parsedFrom.name
-        ? { email: parsedFrom.email, name: parsedFrom.name }
-        : parsedFrom.email;
+        ? { email: senderEmail, name: parsedFrom.name }
+        : senderEmail;
 
     const parsedReplyTo = parseEmailAddress(options.replyTo || extractedReplyTo);
     const nativeReplyTo = parsedReplyTo?.name
         ? { email: parsedReplyTo.email, name: parsedReplyTo.name }
         : parsedReplyTo?.email;
 
-    const failedRecipients: string[] = [];
+    const errors: string[] = [];
 
-    // 1. Primary Dispatch: Cloudflare Native Workers send_email Binding
-    if (emailBinding && typeof emailBinding.send === "function") {
-        for (const recipient of toRecipients) {
-            const messagePayload: any = {
-                from: nativeFrom,
-                to: recipient,
-                subject: options.subject,
-                html: options.html,
-                text: options.text || options.subject,
-            };
+    for (const recipient of toRecipients) {
+        const messagePayload: any = {
+            from: nativeFrom,
+            to: recipient,
+            subject: options.subject,
+            html: options.html,
+            text: options.text || options.subject,
+        };
 
-            if (nativeReplyTo) {
-                messagePayload.replyTo = nativeReplyTo;
-            }
+        if (nativeReplyTo) {
+            messagePayload.replyTo = nativeReplyTo;
+        }
 
-            if (Object.keys(cleanHeaders).length > 0) {
-                messagePayload.headers = cleanHeaders;
-            }
+        if (Object.keys(cleanHeaders).length > 0) {
+            messagePayload.headers = cleanHeaders;
+        }
 
-            try {
-                const res = await emailBinding.send(messagePayload);
-                console.log(
-                    `[CF_EMAIL] Native send_email dispatched successfully to ${recipient}`,
-                    res?.messageId ? `(id: ${res.messageId})` : ""
-                );
-            } catch (err: any) {
-                // If Cloudflare engine rejected object-shaped `from`, retry with raw email address string
-                if (typeof messagePayload.from === "object" && messagePayload.from?.email) {
-                    try {
-                        messagePayload.from = messagePayload.from.email;
-                        if (typeof messagePayload.replyTo === "object" && messagePayload.replyTo?.email) {
-                            messagePayload.replyTo = messagePayload.replyTo.email;
-                        }
-                        const retryRes = await emailBinding.send(messagePayload);
-                        console.log(
-                            `[CF_EMAIL] Native send_email fallback dispatched successfully to ${recipient}`,
-                            retryRes?.messageId ? `(id: ${retryRes.messageId})` : ""
-                        );
-                        continue;
-                    } catch (retryErr: any) {
-                        console.warn(
-                            `[CF_EMAIL] Native send_email failed for ${recipient}:`,
-                            retryErr?.code || err?.code,
-                            retryErr?.message || err?.message
-                        );
+        try {
+            const res = await emailBinding.send(messagePayload);
+            console.log(
+                `[CF_EMAIL] Native send_email dispatched successfully to ${recipient}`,
+                res?.messageId ? `(id: ${res.messageId})` : ""
+            );
+        } catch (err: any) {
+            if (typeof messagePayload.from === "object" && messagePayload.from?.email) {
+                try {
+                    messagePayload.from = messagePayload.from.email;
+                    if (typeof messagePayload.replyTo === "object" && messagePayload.replyTo?.email) {
+                        messagePayload.replyTo = messagePayload.replyTo.email;
                     }
-                } else {
-                    console.warn(`[CF_EMAIL] Native send_email failed for ${recipient}:`, err?.code, err?.message || err);
+                    const retryRes = await emailBinding.send(messagePayload);
+                    console.log(
+                        `[CF_EMAIL] Native send_email fallback dispatched successfully to ${recipient}`,
+                        retryRes?.messageId ? `(id: ${retryRes.messageId})` : ""
+                    );
+                    continue;
+                } catch (retryErr: any) {
+                    const msg = retryErr?.message || err?.message || String(retryErr);
+                    console.warn(`[CF_EMAIL] Native send_email failed for ${recipient}:`, retryErr?.code || err?.code, msg);
+                    errors.push(`${recipient}: ${msg}`);
                 }
-
-                failedRecipients.push(recipient);
-            }
-        }
-
-        if (failedRecipients.length === 0) {
-            return { success: true };
-        }
-        console.warn(
-            `[CF_EMAIL] ${failedRecipients.length} recipient(s) failed Cloudflare native delivery; attempting MailChannels fallback...`
-        );
-    } else {
-        // Native binding not present (e.g. running in test or unconfigured local preview)
-        failedRecipients.push(...toRecipients);
-    }
-
-    // 2. Secondary Dispatch: MailChannels Transactional API Fallback
-    try {
-        for (const recipient of failedRecipients) {
-            const mcRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    personalizations: [{ to: [{ email: recipient }] }],
-                    from: {
-                        email: parsedFrom.email,
-                        name: parsedFrom.name || brand.productName,
-                    },
-                    reply_to: parsedReplyTo
-                        ? { email: parsedReplyTo.email, name: parsedReplyTo.name }
-                        : undefined,
-                    subject: options.subject,
-                    content: [
-                        { type: "text/plain", value: options.text || options.subject },
-                        { type: "text/html", value: options.html },
-                    ],
-                    headers: Object.keys(cleanHeaders).length > 0 ? cleanHeaders : undefined,
-                }),
-            });
-
-            if (!mcRes.ok && mcRes.status !== 202) {
-                const errText = await mcRes.text().catch(() => "");
-                console.warn(`[EMAIL] MailChannels HTTP ${mcRes.status}: ${errText}`);
-                return { success: false, error: `Delivery failed (HTTP ${mcRes.status}): ${errText}` };
             } else {
-                console.log(`[EMAIL] Dispatched email via MailChannels fallback to ${recipient}`);
+                const msg = err?.message || String(err);
+                console.warn(`[CF_EMAIL] Native send_email failed for ${recipient}:`, err?.code, msg);
+                errors.push(`${recipient}: ${msg}`);
             }
         }
-        return { success: true };
-    } catch (mcErr: any) {
-        console.warn("[EMAIL] MailChannels fallback failed:", mcErr?.message || mcErr);
-        return { success: false, error: mcErr?.message || String(mcErr) };
     }
+
+    if (errors.length > 0) {
+        return { success: false, error: errors.join("; ") };
+    }
+
+    return { success: true };
 }
+
+export function generateWelcomeEmailHtml(name: string) {
+    const safeName = escapeHtml(name || "there");
+    return `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Gigasend</title>
+</head>
+<body style="margin: 0; padding: 24px; background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; padding: 36px 28px; color: #1f2937;">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+      <span style="display: inline-block; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 6px; font-weight: 900; font-size: 16px;">↑</span>
+      <span style="font-weight: 800; font-size: 22px; color: #111827;">Gigasend</span>
+    </div>
+    
+    <h1 style="font-size: 20px; font-weight: 700; color: #111827; margin: 0 0 18px 0; line-height: 1.3;">
+      Welcome to Gigasend — Your high-speed file transfer workspace is live
+    </h1>
+    
+    <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin: 0 0 16px 0;">
+      Hi ${safeName},
+    </p>
+    
+    <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin: 0 0 20px 0;">
+      Welcome to Gigasend! Your account is ready for fast, reliable file delivery across 335+ global edge locations.
+    </p>
+
+    <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-bottom: 24px;">
+      <p style="font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 12px 0;">
+        What you can do with your account:
+      </p>
+      <ul style="margin: 0; padding-left: 20px; color: #334155; font-size: 14px; line-height: 1.6;">
+        <li style="margin-bottom: 8px;"><strong>Deliver Large Files Quickly:</strong> Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling up to 25 GB.</li>
+        <li style="margin-bottom: 8px;"><strong>Share Anywhere:</strong> Send download links straight to clients' inboxes or generate a secure direct link.</li>
+        <li><strong>Manage Transfers:</strong> Track and organize your active transfers right from your <a href="https://gigasend.us/dashboard" style="color: #2563eb; text-decoration: none;">Dashboard</a>.</li>
+      </ul>
+    </div>
+    
+    <div style="margin: 28px 0; text-align: center;">
+      <a href="https://gigasend.us/transfer" style="display: inline-block; background: linear-gradient(135deg, #2563eb, #a855f7); color: #ffffff; padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 15px;">
+        Send Your First Transfer &rarr;
+      </a>
+    </div>
+    
+    <p style="font-size: 14px; line-height: 1.5; color: #6b7280; margin: 0 0 24px 0;">
+      Have feedback or need assistance? Visit our <a href="https://gigasend.us/contact" style="color: #2563eb; text-decoration: none;">Contact Page</a> or reply directly to <a href="mailto:info@gigasend.us" style="color: #2563eb; text-decoration: none;">info@gigasend.us</a>.
+    </p>
+    
+    <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; margin-top: 24px; font-size: 13px; color: #9ca3af;">
+      <p style="margin: 0;">The Gigasend Team &bull; <a href="https://gigasend.us" style="color: #6b7280; text-decoration: none;">gigasend.us</a></p>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+export function generateWelcomeEmailText(name: string) {
+    return `Hi ${name || "there"},
+
+Welcome to Gigasend! Your account is ready for fast, reliable file delivery across 335+ global edge locations.
+
+What you can do with your account:
+1. Deliver Large Files Quickly: Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling up to 25 GB.
+2. Share Anywhere: Send download links straight to clients' inboxes or generate a secure direct link.
+3. Manage Transfers: Track and organize your active transfers right from your Dashboard (https://gigasend.us/dashboard).
+
+Send Your First Transfer:
+https://gigasend.us/transfer
+
+Have feedback or need assistance? Visit our Contact Page (https://gigasend.us/contact) or reply directly to info@gigasend.us.
+
+Best regards,
+The Gigasend Team
+https://gigasend.us
+`;
+}
+

@@ -39,3 +39,11 @@ preview_bucket_name = "gigasend-files"
 
 [[send_email]]
 name = "EMAIL"
+allowed_sender_addresses = ["no-reply@mail.gigasend.us"]
+
+[[tail_consumers]]
+service = "gigasend-app"
+
+[triggers]
+crons = ["0 * * * *"]
+

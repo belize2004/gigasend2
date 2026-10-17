@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PtHeader from "../../../components/PtHeader.astro";
+import PtFooter from "../../../components/PtFooter.astro";
+import { PT_ENGINEERING_GUIDES } from "../../../data/ptGuides";
+import { PT_CORE_VALUE_PROPOSITIONS } from "../../../data/ptSeoLandingPages";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/pt/guias`;
+const hreflang = [
+  { lang: "en", href: `${brand.siteUrl}/guides` },
+  { lang: "pt-BR", href: canonical },
+  { lang: "x-default", href: `${brand.siteUrl}/guides` },
+];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `${brand.productName} Brasil — Guias Técnicos de Transferência de Arquivos Pesados`,
+  description:
+    "Manuais de engenharia em português sobre envio de arquivos grandes (50GB–500GB+), drones ANAC SISANT, vídeos 4K/RAW e upload na Claro, Vivo e Starlink.",
+  url: canonical,
+  inLanguage: "pt-BR",
+  hasPart: PT_ENGINEERING_GUIDES.map((g) => ({
+    "@type": "TechArticle",
+    headline: g.h1,
+    url: `${brand.siteUrl}/pt/guias/${g.slug}`,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
+    { "@type": "ListItem", position: 2, name: "Guias Técnicos", item: canonical },
+  ],
+};
+---
+
+<BaseLayout
+  title={`Guias Técnicos de Transferência no Brasil | ${brand.productName}`}
+  description="Manuais técnicos em português sobre transferência de arquivos grandes (50GB a 500GB+), drones ANAC SISANT, vídeos 4K/RAW e upload na Claro, Vivo e Starlink."
+  canonical={canonical}
+  lang="pt-BR"
+  hreflang={hreflang}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <PtHeader activeNav="guias" enHref="/guides?lang=en" ptHref="/pt/guias?lang=pt" />
+
+    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400">
+          📚 Biblioteca de Engenharia & Fluxos B2B no Brasil
+        </span>
+        <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
+          Guias Técnicos de Transferência de Arquivos Pesados
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          Aprenda como eliminar quedas de upload em 99% nas operadoras brasileiras, entregar levantamentos de drones (ANAC SISANT) e vídeos 4K/RAW sem compressão e economizar até 80% sem assinaturas mensais.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        {PT_ENGINEERING_GUIDES.map((guide) => (
+          <a
+            href={`/pt/guias/${guide.slug}`}
+            class="rounded-3xl border border-white/10 bg-ocean-900/80 p-6 sm:p-8 hover:border-gold-500/50 transition flex flex-col justify-between tap-tactile"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs font-mono text-gold-400">
+                <span>{guide.eyebrow}</span>
+                <span class="text-slate-300">{guide.readTime}</span>
+              </div>
+              <h2 class="mt-3 text-xl sm:text-2xl font-bold text-white font-display leading-snug">
+                {guide.h1}
+              </h2>
+              <p class="mt-3 text-sm text-slate-300 leading-relaxed">{guide.summary}</p>
+            </div>
+            <div class="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs">
+              <span class="font-mono text-slate-300">Tópico: {guide.primaryKeyword}</span>
+              <span class="font-bold text-gold-400">Ler guia completo →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-12 grid gap-6 lg:grid-cols-4">
+        {PT_CORE_VALUE_PROPOSITIONS.map((prop) => (
+          <div class="apple-glass rounded-2xl p-5">
+            <span class="inline-block rounded-md bg-gold-500/15 border border-gold-500/30 px-2 py-0.5 text-[11px] font-mono font-semibold text-gold-300">
+              {prop.badge}
+            </span>
+            <h3 class="mt-2 text-base font-bold text-gold-400 font-display">{prop.title}</h3>
+            <p class="mt-2 text-xs leading-relaxed text-slate-300">{prop.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <PtFooter />
+  </main>
+</BaseLayout>

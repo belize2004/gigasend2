@@ -1,4 +1,468 @@
 ---
 export const prerender = true;
-return Astro.redirect("/directory", 301);
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SpeedCalculator from "../components/SpeedCalculator";
+import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
+import { brand } from "@/lib/brand";
+
+const canonical = `${brand.siteUrl}/compare`;
+const hreflang = [
+  { lang: "en", href: canonical },
+  { lang: "es", href: `${brand.siteUrl}/es/alternativas-a-wetransfer` },
+  { lang: "pt-BR", href: `${brand.siteUrl}/pt/comparar` },
+  { lang: "x-default", href: canonical },
+];
 ---
+
+<BaseLayout
+  title={`Cloudflare Edge vs AWS Relays — Why Creative Studios Choose ${brand.productName}`}
+  description="Compare Gigasend’s zero-egress Cloudflare edge architecture with AWS-based transfer tools like MASV, WeTransfer, and Dropbox. Save 20% to 36% with rates from $0.16/GB to $0.20/GB and zero monthly subscriptions."
+  canonical={canonical}
+  hreflang={hreflang}
+>
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/85 backdrop-blur-2xl">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
+        <a href="/" class="flex items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile">
+          <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">G</span>
+          <span class="group-hover:text-gold-400 transition-colors">{brand.productName}</span>
+        </a>
+        <div class="flex items-center gap-4 sm:gap-6 text-xs font-medium text-slate-300">
+          <a class="hidden md:inline hover:text-gold-400 transition-colors" href="/transfer">Transfer</a>
+          <a class="hidden md:inline hover:text-gold-400 transition-colors" href="/plans">Plans</a>
+          <a class="hidden sm:inline text-gold-400 font-bold" href="/compare">Compare</a>
+          <a class="hidden lg:inline hover:text-gold-400 transition-colors" href="/directory">Directory</a>
+          <a class="hidden lg:inline hover:text-gold-400 transition-colors" href="/guides">Guides</a>
+          <a class="hidden xl:inline hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Speed Calculator</a>
+          <a class="hidden lg:inline hover:text-gold-400 transition-colors" href="/contact">Contact</a>
+          <div class="inline-flex items-center rounded-xl border border-white/15 bg-ocean-900/90 p-1 text-xs font-mono" role="group" aria-label="Language switcher">
+            <a href="/compare?lang=en" onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'" class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2.5 py-1.5 font-bold bg-gold-500/15 text-gold-400" aria-current="true">EN</a>
+            <span class="mx-0.5 text-slate-600" aria-hidden="true">|</span>
+            <a href="/es/alternativas-a-wetransfer?lang=es" onclick="document.cookie='gigasend_lang=es; path=/; max-age=31536000; SameSite=Lax'" class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2.5 py-1.5 text-slate-300 hover:text-white transition-colors">ES</a>
+            <span class="mx-0.5 text-slate-600" aria-hidden="true">|</span>
+            <a href="/pt/comparar?lang=pt" onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'" class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2.5 py-1.5 text-slate-300 hover:text-white transition-colors">PT</a>
+          </div>
+          <a class="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile" href="/transfer">Send Files</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
+      <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
+        <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
+        <li>/</li>
+        <li class="text-gold-400 font-semibold" aria-current="page">Compare</li>
+      </ol>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-20 px-6 bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 text-center border-b border-white/10">
+      <div class="max-w-4xl mx-auto space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 label-caps text-xs">
+          <span>⚡</span> The Zero-Egress Architectural Moat
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black text-white font-display tracking-tight leading-[1.1]">
+          Why Creative Studios Are Choosing {brand.productName}.
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-body leading-relaxed">
+          Stop paying $0.25/GB for AWS-taxed cloud relays or locked-in monthly subscriptions. Competitors pass steep cloud egress fees onto your bill. {brand.productName} delivers your files across Cloudflare’s 335+ zero-egress edge facilities starting at <span class="text-gold-400 font-bold">$0.16/GB</span> with 25GB free transfers.
+        </p>
+
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a href="#compare" class="btn-gold px-8 py-4 rounded-xl text-xs shadow-xl shadow-gold-500/20 font-bold tap-tactile">
+            View Feature Comparison ↓
+          </a>
+          <a href="/transfer" class="btn-outline-gold px-8 py-4 rounded-xl text-xs font-bold tap-tactile">
+            Try Live Upload
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Difference Highlights Grid -->
+    <section class="py-20 px-6 bg-ocean-950 text-slate-100 border-b border-white/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+          <span class="label-caps text-gold-400 text-xs">The Edge Difference</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-display">
+            Built on Zero Egress. Priced for Creators.
+          </h2>
+          <p class="text-slate-300 text-sm font-body">Four fundamental reasons why Cloudflare edge architecture outperforms legacy AWS relays.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="p-8 rounded-2xl apple-glass bg-ocean-900/80 border border-white/10 shadow-xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center font-bold text-xl font-display">
+              $
+            </div>
+            <h3 class="text-xl font-bold text-white font-display">The Zero-Egress Cost Advantage</h3>
+            <p class="text-slate-300 text-sm leading-relaxed font-body">
+              While AWS-based tools charge a flat <span class="line-through text-slate-400">$0.25/GB</span> to cover cloud egress taxes, {brand.productName} runs on Cloudflare R2 with <span class="text-gold-400 font-bold">$0.00 egress fees</span>. Pricing starts at <span class="text-white font-bold">$0.20/GB</span> (20% lower) and drops to <span class="text-white font-bold">$0.16/GB</span> (36% lower) on 5TB packs—saving you <span class="text-gold-400 font-bold">$450 per package</span>.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-2xl apple-glass bg-ocean-900/80 border border-white/10 shadow-xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-ocean-800 border border-white/10 text-gold-400 flex items-center justify-center font-bold text-xl font-display">
+              🌐
+            </div>
+            <h3 class="text-xl font-bold text-white font-display">Cloudflare 335+ Anycast Edge Network</h3>
+            <p class="text-slate-300 text-sm leading-relaxed font-body">
+              Traditional tools relay through centralized single-region AWS buckets. {brand.productName} ingests and serves files from the nearest Cloudflare edge facility (&lt;50ms latency to 95% of the world), eliminating cross-continental bottleneck hops.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-2xl apple-glass bg-ocean-900/80 border border-white/10 shadow-xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold text-xl font-display">
+              ⏳
+            </div>
+            <h3 class="text-xl font-bold text-white font-display">12-Month Credit Validity & 25GB Free</h3>
+            <p class="text-slate-300 text-sm leading-relaxed font-body">
+              Never worry about monthly quota forfeitures. Send up to 25GB free, and all prepaid delivery credits stay valid for a full 12 months—letting you bank bandwidth during production rushes and carry credits across project hiatuses.
+            </p>
+          </div>
+
+          <div class="p-8 rounded-2xl apple-glass bg-ocean-900/80 border border-white/10 shadow-xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center font-bold text-xl font-display">
+              🚀
+            </div>
+            <h3 class="text-xl font-bold text-white font-display">Zero Software or App Installs</h3>
+            <p class="text-slate-300 text-sm leading-relaxed font-body">
+              No mandatory desktop agent or UDP client required for line-rate speed. {brand.productName}’s multipart engine runs directly inside your browser with Pause, Resume, and 3x auto-retry network resilience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Side-by-Side Comparison Table Section -->
+    <section id="compare" class="py-24 px-6 bg-ocean-950">
+      <div class="max-w-5xl mx-auto space-y-12">
+        <div class="text-center space-y-3">
+          <span class="label-caps text-gold-400 text-xs">Head-to-Head</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
+            Delivery Architecture & Feature Matrix
+          </h2>
+          <p class="text-sm text-slate-300 max-w-xl mx-auto font-body">
+            Compare specs, pricing, and infrastructure side by side.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-ocean-900/80 overflow-hidden shadow-2xl apple-glass backdrop-blur-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-300 font-body">
+              <thead class="bg-ocean-950/90 text-slate-400 border-b border-white/10">
+                <tr>
+                  <th class="px-6 py-5 label-caps text-xs text-white">Feature / Capability</th>
+                  <th class="px-6 py-5 label-caps text-xs text-slate-400 bg-ocean-950/40">AWS-Based Relays (e.g. MASV / WeTransfer)</th>
+                  <th class="px-6 py-5 label-caps text-xs text-gold-400 bg-ocean-900/90 border-l border-gold-500/30">{brand.productName} (Cloudflare Edge & R2)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/10">
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Free Tier Ceiling</td>
+                  <td class="px-6 py-4 text-slate-400 font-mono text-sm bg-ocean-950/20">2 GB (WeTransfer) / Trial Only</td>
+                  <td class="px-6 py-4 text-gold-400 font-bold font-mono text-base bg-ocean-900/50 border-l border-gold-500/30">
+                    25 GB Free <span class="text-xs text-emerald-400 font-body block sm:inline">(3-day edge retention)</span>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Pay-As-You-Go Delivery Rate</td>
+                  <td class="px-6 py-4 text-slate-400 font-mono text-sm bg-ocean-950/20">$0.25 / GB standard</td>
+                  <td class="px-6 py-4 text-gold-400 font-bold font-mono text-base bg-ocean-900/50 border-l border-gold-500/30">
+                    $0.16 – $0.20 / GB <span class="text-xs text-emerald-400 font-body block sm:inline">(20% to 36% lower)</span>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition bg-ocean-950/40">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Underlying Cloud Egress Fees</td>
+                  <td class="px-6 py-4 text-rose-400 text-xs font-mono bg-ocean-950/30">AWS charges $0.05–$0.09/GB egress tax per download</td>
+                  <td class="px-6 py-4 text-emerald-400 font-bold text-xs bg-ocean-900/60 border-l border-gold-500/30">
+                    $0.00 / GB egress tax (Cloudflare R2 zero-egress moat)
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Network Architecture</td>
+                  <td class="px-6 py-4 text-slate-400 bg-ocean-950/20">Centralized Single-Region AWS Buckets</td>
+                  <td class="px-6 py-4 text-white font-semibold bg-ocean-900/50 border-l border-gold-500/30">
+                    Cloudflare 335+ Global Anycast Edge Network
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">1 TB Delivery Cost</td>
+                  <td class="px-6 py-4 text-slate-400 font-mono bg-ocean-950/20">$250.00</td>
+                  <td class="px-6 py-4 text-gold-400 font-bold font-mono bg-ocean-900/50 border-l border-gold-500/30">
+                    $180.00 <span class="text-xs text-emerald-400 font-body block sm:inline">(Save $70.00 / TB)</span>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">5 TB Delivery Cost</td>
+                  <td class="px-6 py-4 text-slate-400 font-mono bg-ocean-950/20">$1,250.00</td>
+                  <td class="px-6 py-4 text-gold-400 font-bold font-mono bg-ocean-900/50 border-l border-gold-500/30">
+                    $800.00 <span class="text-xs text-emerald-400 font-body block sm:inline">(Save $450.00 / 5TB)</span>
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Browser-Direct Multipart</td>
+                  <td class="px-6 py-4 text-slate-400 bg-ocean-950/20">Often requires separate Desktop App</td>
+                  <td class="px-6 py-4 text-white font-semibold bg-ocean-900/50 border-l border-gold-500/30">
+                    Native Direct Edge Delivery in Browser (Zero software install)
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Pause, Resume & Auto-Retry</td>
+                  <td class="px-6 py-4 text-slate-400 bg-ocean-950/20">App-dependent or absent in browser</td>
+                  <td class="px-6 py-4 text-white font-semibold bg-ocean-900/50 border-l border-gold-500/30">
+                    Included in Browser with 3x retry resilience
+                  </td>
+                </tr>
+
+                <tr class="hover:bg-ocean-800/30 transition">
+                  <td class="px-6 py-4 font-semibold text-white font-display">Prepaid Credit Validity</td>
+                  <td class="px-6 py-4 text-slate-400 bg-ocean-950/20">Subscription quotas forfeit every 30 days</td>
+                  <td class="px-6 py-4 text-gold-400 font-bold bg-ocean-900/50 border-l border-gold-500/30">
+                    Full 12 Months Validity on all Volume Packs
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direct Competitor & Quota Bypass Guides -->
+    <section class="py-20 px-6 bg-ocean-900/60 border-t border-white/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl space-y-2">
+          <span class="label-caps text-gold-400 text-xs">Platform Switch & Quota Solutions</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white font-display">
+            Direct Competitor & Quota Bypass Guides
+          </h2>
+          <p class="text-sm text-slate-300">
+            Explore side-by-side workflow comparisons and instant solutions when legacy cloud tools hit upload caps or download quotas.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/wetransfer-alternative" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Competitor Switch</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">WeTransfer Alternative (25GB Free)</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Send 12.5x larger free packages than WeTransfer without recurring Pro subscription lock-in.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Compare WeTransfer</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/wetransfer-2gb-limit-bypass" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Quota Bypass</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">WeTransfer 2GB Limit Bypass</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Bypass the 2GB free cap and monthly transfer count restrictions immediately in your browser.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Bypass 2GB Limit</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/dropbox-transfer-alternative" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Competitor Switch</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Dropbox Transfer Alternative</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Deliver large client packages without consuming your personal Dropbox storage quota or requiring logins.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Compare Dropbox</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/dropbox-file-size-limit-bypass" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Quota Bypass</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Dropbox File Size Limit Bypass</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Avoid 2GB Basic account limits and 200GB daily shared link bandwidth suspensions.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Bypass Dropbox Cap</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/google-drive-download-quota-exceeded-fix" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Quota Fix</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Google Drive "Download Quota Exceeded" Fix</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Eliminate 24-hour Google Drive lockouts and "cannot scan for viruses" errors on large archives.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>View Quota Fix</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/email-attachment-too-large-alternative" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Email Bypass</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Email Attachment Too Large Alternative</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Replace 25MB Gmail and 20MB Outlook attachment errors with instant 25GB free edge links.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Bypass Email Limits</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/send-large-files-free" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Free Tier</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Send Large Files Free (Up to 25GB)</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Transfer up to 25GB 100% free with 3-day Cloudflare R2 edge storage and zero recipient signups.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Send 25GB Free</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/free-large-file-transfer" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Zero Egress</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Free Large File Transfer Service</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Unthrottled browser-direct file delivery with pause, resume, and 3x automatic retry resilience.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Explore Free Transfer</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/fastest-way-to-send-large-files" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">High Velocity</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Fastest Way to Send Large Files</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Achieve ~92% line-rate efficiency via parallel HTTP/3 chunking to 335+ Anycast edge PoPs.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>See Speed Benchmarks</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+
+          <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile sm:col-span-2 lg:col-span-3">
+            <div>
+              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Architecture Guide</span>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Learn when to use point-to-point ephemeral file transfer (Gigasend) versus workspace cloud sync (Dropbox/Google Drive) versus frame-accurate video review (Frame.io).</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
+              <span>Read Architecture Breakdown</span>
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Estimator Section -->
+    <section class="py-24 px-6 bg-gradient-to-b from-ocean-950 to-ocean-900 border-t border-white/10">
+      <div class="max-w-5xl mx-auto space-y-8">
+        <div class="text-center space-y-2">
+          <span class="label-caps text-gold-400 text-xs">Velocity & Latency Telemetry</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display">
+            Calculate Your Exact Transfer Velocity
+          </h2>
+        </div>
+        <SpeedCalculator client:load />
+      </div>
+    </section>
+
+    <RelatedWorkflows currentSlug="compare" />
+
+    <!-- Final CTA Section -->
+    <section class="py-24 px-6 bg-ocean-900 text-center border-t border-white/10">
+      <div class="max-w-3xl mx-auto space-y-6">
+        <span class="label-caps text-gold-400 text-xs">Ready to Get Started?</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-display">
+          Experience Faster Delivery at Lower Rates.
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base font-body">
+          Send your first file transfer in seconds without installing any desktop software.
+        </p>
+        <div class="pt-4">
+          <a href="/transfer" class="btn-gold px-8 py-4 rounded-xl text-xs font-bold shadow-xl shadow-gold-500/20 inline-flex tap-tactile">
+            Upload Files with {brand.productName} →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apple HIG Dark Blue SEO Footer -->
+    <footer class="border-t border-white/10 bg-ocean-950 py-14 text-xs text-slate-400">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a href="/" class="flex items-center gap-2.5 text-base font-extrabold font-display text-white">
+              <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black text-sm">G</span>
+              <span>{brand.productName}</span>
+            </a>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Platform & Tools</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/transfer" class="hover:text-gold-400 transition-colors">Send Large Files</a></li>
+              <li><a href="/plans" class="hover:text-gold-400 transition-colors">Plans & Pricing</a></li>
+              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Architecture Comparison</a></li>
+              <li><a href="/tools/transfer-speed-calculator" class="hover:text-gold-400 transition-colors">Transfer Speed Calculator</a></li>
+              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Codec & Format Directory</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Engineering Guides</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Engineering Guides</a></li>
+              <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
+              <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
+              <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
+              <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
+              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>
+              <li><a href="/contact" class="hover:text-gold-400 transition-colors">Contact Support</a></li>
+              <li><a href="/terms" class="hover:text-gold-400 transition-colors">Terms</a> · <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© {new Date().getFullYear()} {brand.productName}. Engineered on Cloudflare Edge & R2.</p>
+          <div class="flex gap-4">
+            <a href="/security" class="hover:text-gold-400 transition-colors">Security</a>
+            <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
+            <a href="/terms" class="hover:text-gold-400 transition-colors">Terms of Service</a>
+            <a href="/contact" class="hover:text-gold-400 transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

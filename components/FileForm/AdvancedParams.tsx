@@ -13,12 +13,18 @@ export const AdvancedParams = () => {
         direction="row"
         alignItems="center"
         gap={1}
-        sx={{ cursor: "pointer" }}
+        sx={{
+          cursor: "pointer",
+          color: "#ffddb4",
+          "&:hover": { color: "#FFFFFF" },
+        }}
         onClick={() => setExpanded(!expanded)}
       >
-        <Typography variant="caption">Advanced Params</Typography>
+        <Typography variant="caption" sx={{ color: "inherit", fontWeight: 600 }}>
+          Advanced Params
+        </Typography>
         <Image
-          src="./arrowDown.svg"
+          src="/arrowDown.svg"
           alt="arrowDown"
           width={16}
           height={16}
@@ -31,4 +37,4 @@ export const AdvancedParams = () => {
       <Collapse in={expanded} timeout="auto" unmountOnExit></Collapse>
     </>
   );
-};
+};

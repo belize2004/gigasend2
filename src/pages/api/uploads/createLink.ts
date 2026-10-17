@@ -6,6 +6,7 @@ import {
   sendEmailViaCloudflare,
 } from "@/lib/email";
 import { stripe } from "@/lib/stripe";
+import { getVipGrantForUser } from "@/lib/storageLimit";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { json } from "@/src/lib/api";
@@ -67,7 +68,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     let isFreePlan = true;
-    if (!session.isGuest && user.stripeCustomerId) {
+    const vipGrant = !session.isGuest ? getVipGrantForUser(user) : null;
+    if (vipGrant) {
+      isFreePlan = false;
+    } else if (!session.isGuest && user.stripeCustomerId) {
       const subscribedPlan = await stripe.subscriptions.list({
         status: "active",
         customer: user.stripeCustomerId,

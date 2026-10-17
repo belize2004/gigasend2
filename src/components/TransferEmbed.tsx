@@ -10,10 +10,11 @@ export default function TransferEmbed() {
   return (
     <Provider store={store}>
       <FileProvider>
-        <div className="w-full max-w-2xl mx-auto shadow-xl rounded-2xl overflow-hidden bg-white border border-slate-200">
+        <div className="w-full max-w-3xl mx-auto shadow-2xl rounded-3xl overflow-hidden apple-glass bg-ocean-900/90 border border-white/10 text-slate-100">
           <FileForm />
         </div>
       </FileProvider>
     </Provider>
   );
 }
+

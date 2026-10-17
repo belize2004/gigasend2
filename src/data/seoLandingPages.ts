@@ -71,10 +71,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
       { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
       { href: "/send-10gb-file-free", label: "send 10GB file free" },
       { href: "/transfer-large-files-online", label: "transfer large files online" },
       { href: "/secure-large-file-transfer", label: "secure large file transfer" },
+      { href: "/fast-large-file-transfer", label: "fast large file transfer" },
     ],
     differentiation: "Dominates WeTransfer's 2GB paywall and cloud drive permission lockups with a generous free tier, zero forced registration, clean Apple HIG interface, and 335+ edge nodes.",
   },
@@ -141,10 +143,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
       { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
       { href: "/send-10gb-file-free", label: "send 10GB file free" },
       { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/share-large-files-with-link", label: "share large files with a link" },
     ],
     differentiation: "Dominates WeTransfer's restrictive 2GB paywalls and ad-cluttered competitors by providing up to 25GB free, zero forced registration, clean Apple HIG design, and global Cloudflare Anycast edge acceleration."
   },
@@ -191,10 +195,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
-      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
+      { href: "/send-15gb-file", label: "send 15GB file" },
+      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
       { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/transfer-large-files-online", label: "transfer large files online" },
-      { href: "/bypass/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/send-large-files-by-email", label: "send large files by email" },
     ],
     differentiation: "This page maps directly to the generous free product limit with zero account walls, making it one of the highest-converting programmatic landing pages.",
   },
@@ -266,9 +272,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/email-attachment-too-large-alternative", label: "email attachment too large alternative" },
+      { href: "/share-large-files-with-link", label: "share large files with a link" },
       { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
-      { href: "/share-large-files-with-link", label: "share large files with a link" }
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
+      { href: "/send-large-files-free", label: "send large files free" },
     ],
     differentiation: "Frame email as the communication layer and GigaSend as the edge transport layer, delivering up to 25GB free with zero recipient sign-up or permission walls."
   },
@@ -311,10 +319,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
-      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
-      { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/send-10gb-file-free", label: "send 10GB file free" },
       { href: "/send-braw-video-files", label: "send BRAW video files" },
+      { href: "/transfer-r3d-raw-footage", label: "transfer RED R3D raw footage" },
+      { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW footage" },
+      { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
+      { href: "/transfer-premiere-pro-project", label: "transfer Premiere Pro project" },
+      { href: "/share-final-cut-pro-fcpbundle", label: "share Final Cut Pro fcpbundle" },
     ],
     differentiation: "Targets video editors, cinematographers, colorists, and post-production studios needing uncompressed, bit-exact video delivery without 2GB paywalls or forced recipient logins.",
   },
@@ -386,9 +396,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/dropbox-file-size-limit-bypass", label: "bypass Dropbox file size limit" },
+      { href: "/email-attachment-too-large-alternative", label: "email attachment too large alternative" },
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
       { href: "/send-10gb-file-free", label: "send 10GB file free" },
-      { href: "/wetransfer-alternative", label: "WeTransfer alternative" }
+      { href: "/send-large-files-by-email", label: "send large files by email" },
     ],
     differentiation: "Send up to 25GB free (12.5x larger than WeTransfer) with zero recipient registration, no full-screen ads, and unthrottled line-rate edge downloads."
   },
@@ -431,10 +444,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
-      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
       { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
+      { href: "/fast-large-file-transfer", label: "fast large file transfer" },
+      { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
       { href: "/secure-large-file-transfer", label: "secure large file transfer" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
     ],
     differentiation: "Captures searchers seeking instant, line-speed web browser transfers without mandatory desktop software installations or 2GB paywalls.",
   },
@@ -507,8 +522,11 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
       { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
-      { href: "/send-large-files-by-email", label: "send large files by email" }
+      { href: "/send-large-files-by-email", label: "send large files by email" },
+      { href: "/secure-large-file-transfer", label: "secure large file transfer" },
+      { href: "/google-drive-download-quota-exceeded-fix", label: "fix Google Drive download quota exceeded" },
     ],
     differentiation: "Direct link delivery that eliminates cloud drive permission requests and recipient login walls, providing up to 25GB free with zero account requirements."
   },
@@ -576,8 +594,11 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/share-large-files-with-link", label: "share large files with link" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
       { href: "/send-large-files-free", label: "send large files free" },
       { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/fast-large-file-transfer", label: "fast large file transfer" },
+      { href: "/send-revit-rvt-bim-models", label: "send Revit RVT BIM models" },
     ],
     differentiation: "Strict zero-knowledge ephemeral architecture: TLS 1.3, AES-256, SHA-256 checksums, and automated 3-day data purge with zero advertising trackers.",
   },
@@ -649,9 +670,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      { href: "/send-large-files-free", label: "send large files free" },
       { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
-      { href: "/transfer-large-files-online", label: "transfer large files online" }
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
+      { href: "/send-large-video-files", label: "send large video files" },
+      { href: "/send-50gb-file", label: "send 50GB file" },
     ],
     differentiation: "Multi-stream Anycast edge acceleration saturating gigabit connections natively in the browser without desktop software or per-GB enterprise fees."
   },
@@ -723,10 +747,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
+      { href: "/dropbox-file-size-limit-bypass", label: "bypass Dropbox file size limits" },
       { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/google-drive-download-quota-exceeded-fix", label: "fix Google Drive download quota exceeded" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
       { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/send-10gb-file-free", label: "send 10GB file free" },
-      { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
     ],
     differentiation: "Replaces Dropbox's restrictive 2GB free cap, shared folder storage penalties, and background desktop sync clutter with an instant, browser-native 25GB free transfer engine powered by 335+ edge nodes."
   },
@@ -757,8 +783,10 @@ export const seoLandingPages: SeoLandingPage[] = [
       { question: "What tier do I need on GigaSend to send 30GB?", answer: "GigaSend Edge Pro ($12/month) supports single transfers up to 100GB, while GigaSend Studio ($29/month) supports up to 250GB per transfer." },
     ],
     internalLinks: [
+      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
       { href: "/send-25gb-file", label: "send 25GB file" },
       { href: "/send-50gb-file", label: "send 50GB file" },
+      { href: "/send-100gb-file", label: "send 100GB file" },
       { href: "/send-large-video-files", label: "send large video files" },
     ],
     differentiation: "Bridges the mid-tier gap between free 25GB transfers and studio workflows with unthrottled line-rate edge delivery.",
@@ -828,7 +856,9 @@ export const seoLandingPages: SeoLandingPage[] = [
     internalLinks: [
       { href: "/send-15gb-file", label: "send 15GB file" },
       { href: "/send-25gb-file", label: "send 25GB file" },
-      { href: "/share-large-files-with-link", label: "share large files with link" }
+      { href: "/send-30gb-file", label: "send 30GB file" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/share-large-files-with-link", label: "share large files with link" },
     ],
     differentiation: "Direct answer to Google Rank #9.0 query with 25GB free tier standard and zero recipient friction."
   },
@@ -861,7 +891,10 @@ export const seoLandingPages: SeoLandingPage[] = [
     internalLinks: [
       { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
       { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
+      { href: "/send-houdini-hip-projects", label: "send Houdini HIP projects" },
       { href: "/transfer-openexr-files", label: "transfer OpenEXR files" },
+      { href: "/how-to-transfer-unreal-engine-project", label: "transfer Unreal Engine project" },
+      { href: "/send-revit-rvt-bim-models", label: "send Revit RVT BIM models" },
     ],
     differentiation: "Technical 3D VFX pipeline packaging standard with 25GB free edge transfer.",
   },
@@ -893,7 +926,9 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/transfer-premiere-pro-project", label: "transfer Premiere Pro project" },
+      { href: "/share-final-cut-pro-fcpbundle", label: "share Final Cut Pro fcpbundle" },
       { href: "/send-braw-video-files", label: "send BRAW video files" },
+      { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
       { href: "/send-large-video-files", label: "send large video files" },
     ],
     differentiation: "Addresses color grading workflows with exact .dra vs .drp post-production standard.",
@@ -925,9 +960,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       { question: "How does GigaSend prevent browser crashes during a 2TB upload?", answer: "Data is streamed directly in sequential memory-managed chunks without buffering the full 2TB payload into system RAM." },
     ],
     internalLinks: [
-      { href: "/send-1tb-file", label: "send 1TB file" },
+      { href: "/send-100gb-file", label: "send 100GB file" },
       { href: "/send-500gb-file", label: "send 500GB file" },
+      { href: "/send-1tb-file", label: "send 1TB file" },
       { href: "/fast-large-file-transfer", label: "fast large file transfer" },
+      { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
     ],
     differentiation: "Replaces physical SSD courier shipments for enterprise studios and eliminates $180 AWS S3 egress charges.",
   },
@@ -997,6 +1034,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       { href: "/share-multitrack-audio-stems", label: "share multitrack audio stems" },
       { href: "/how-to-send-ableton-live-projects", label: "how to send Ableton Live projects" },
       { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
     ],
     differentiation: "Step-by-step Save Copy In consolidation guide paired with 25GB free line-rate transfer and bit-for-bit audio fidelity.",
   },
@@ -1040,8 +1078,10 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
-      { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
-      { href: "/send-large-files-free", label: "free large file transfer" },
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/send-houdini-hip-projects", label: "send Houdini HIP projects" },
+      { href: "/send-revit-rvt-bim-models", label: "send Revit RVT BIM models" },
+      { href: "/send-50gb-file", label: "send 50GB file" },
     ],
     differentiation: "Step-by-step practical game developer packaging standard with 25GB free tier.",
   },
@@ -1108,9 +1148,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
-      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
       { href: "/send-houdini-hip-projects", label: "send Houdini HIP projects" },
-      { href: "/send-30gb-file", label: "send 30GB file" },
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
+      { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
+      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
     ],
     differentiation: "Bit-exact floating-point preservation for VFX image sequences with zero color quantization and 25GB free edge capacity.",
   },
@@ -1179,6 +1221,8 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/transfer-r3d-raw-footage", label: "transfer RED R3D footage" },
+      { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW footage" },
+      { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
       { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
       { href: "/send-large-video-files", label: "send large video files" },
     ],
@@ -1249,6 +1293,8 @@ export const seoLandingPages: SeoLandingPage[] = [
     internalLinks: [
       { href: "/send-braw-video-files", label: "send BRAW video files" },
       { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW footage" },
+      { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
+      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
       { href: "/send-large-video-files", label: "send large video files" },
     ],
     differentiation: "Preserves spanned 4GB .RDC clip hierarchies and IPP2 color metadata with 25GB free edge transfer.",
@@ -1317,7 +1363,9 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/transfer-r3d-raw-footage", label: "transfer RED R3D footage" },
+      { href: "/send-braw-video-files", label: "send BRAW video files" },
       { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
+      { href: "/transfer-premiere-pro-project", label: "transfer Premiere Pro project" },
       { href: "/send-large-video-files", label: "send large video files" },
     ],
     differentiation: "Studio-grade bit-exact ARRI RAW delivery preserving ALF4 metadata up to 25GB free with zero software installs.",
@@ -1386,7 +1434,9 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     internalLinks: [
       { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW footage" },
-      { href: "/send-large-video-files", label: "send large video files" },
+      { href: "/transfer-r3d-raw-footage", label: "transfer RED R3D footage" },
+      { href: "/transfer-premiere-pro-project", label: "transfer Premiere Pro project" },
+      { href: "/share-final-cut-pro-fcpbundle", label: "share Final Cut Pro fcpbundle" },
       { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
     ],
     differentiation: "Guaranteed binary container integrity for MXF OP1a masters with intact SMPTE timecode and 8-channel discrete audio.",
@@ -1458,18 +1508,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/transfer-davinci-resolve-project",
-        label: "transfer DaVinci Resolve project"
-      },
-      {
-        href: "/share-final-cut-pro-fcpbundle",
-        label: "share Final Cut Pro fcpbundle"
-      },
-      {
-        href: "/send-large-video-files",
-        label: "send large video files"
-      }
+      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
+      { href: "/share-final-cut-pro-fcpbundle", label: "share Final Cut Pro fcpbundle" },
+      { href: "/send-mxf-broadcast-video", label: "send MXF broadcast video" },
+      { href: "/send-braw-video-files", label: "send BRAW video files" },
+      { href: "/send-large-video-files", label: "send large video files" },
     ],
     differentiation: "Optimized for freelance video editors and agency post-production pipelines with 25GB free tier."
   },
@@ -1540,18 +1583,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/transfer-premiere-pro-project",
-        label: "transfer Premiere Pro project"
-      },
-      {
-        href: "/transfer-davinci-resolve-project",
-        label: "transfer DaVinci Resolve project"
-      },
-      {
-        href: "/send-large-files-free",
-        label: "free large file transfer"
-      }
+      { href: "/transfer-premiere-pro-project", label: "transfer Premiere Pro project" },
+      { href: "/transfer-davinci-resolve-project", label: "transfer DaVinci Resolve project" },
+      { href: "/deliver-arri-raw-footage", label: "deliver ARRI RAW & ProRes footage" },
+      { href: "/send-large-video-files", label: "send large video files" },
+      { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
     ],
     differentiation: "Mac-optimized workflow for YouTube creators and documentary filmmakers with 25GB free tier."
   },
@@ -1622,18 +1658,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/how-to-transfer-unreal-engine-project",
-        label: "transfer Unreal Engine project"
-      },
-      {
-        href: "/how-to-send-maya-mb-files",
-        label: "how to send Maya MB files"
-      },
-      {
-        href: "/send-large-files-free",
-        label: "free large file transfer"
-      }
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
+      { href: "/send-houdini-hip-projects", label: "send Houdini HIP projects" },
+      { href: "/how-to-transfer-unreal-engine-project", label: "transfer Unreal Engine project" },
+      { href: "/transfer-openexr-files", label: "transfer OpenEXR files" },
+      { href: "/send-revit-rvt-bim-models", label: "send Revit RVT BIM models" },
     ],
     differentiation: "Comprehensive open-source 3D asset packaging guide with 25GB free transfer."
   },
@@ -1704,18 +1734,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/how-to-send-blender-blend-files",
-        label: "how to send Blender blend files"
-      },
-      {
-        href: "/transfer-davinci-resolve-project",
-        label: "transfer DaVinci Resolve project"
-      },
-      {
-        href: "/send-large-files-free",
-        label: "free large file transfer"
-      }
+      { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/send-houdini-hip-projects", label: "send Houdini HIP projects" },
+      { href: "/transfer-openexr-files", label: "transfer OpenEXR files" },
+      { href: "/how-to-transfer-unreal-engine-project", label: "transfer Unreal Engine project" },
     ],
     differentiation: "Dedicated motion design packaging workflow with 25GB free tier."
   },
@@ -1786,18 +1809,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/transfer-openexr-files",
-        label: "transfer OpenEXR files"
-      },
-      {
-        href: "/how-to-send-maya-mb-files",
-        label: "how to send Maya MB files"
-      },
-      {
-        href: "/send-50gb-file",
-        label: "send 50GB file"
-      }
+      { href: "/transfer-openexr-files", label: "transfer OpenEXR files" },
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/transfer-cinema-4d-c4d-files", label: "transfer Cinema 4D C4D files" },
+      { href: "/how-to-transfer-unreal-engine-project", label: "transfer Unreal Engine project" },
+      { href: "/send-revit-rvt-bim-models", label: "send Revit RVT BIM models" },
     ],
     differentiation: "Built for procedural technical directors and high-end simulation pipelines with 25GB free standard."
   },
@@ -1864,9 +1880,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
-      { href: "/send-large-files-free", label: "send large files free" },
-      { href: "/share-large-files-with-link", label: "share large files with link" },
-      { href: "/deliver-20gb-file", label: "deliver 20GB files" },
+      { href: "/how-to-transfer-unreal-engine-project", label: "transfer Unreal Engine project" },
+      { href: "/how-to-send-maya-mb-files", label: "how to send Maya MB files" },
+      { href: "/how-to-send-blender-blend-files", label: "how to send Blender blend files" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
+      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
     ],
     differentiation: "Authoritative Detach from Central protocol with linked model bundling and 25GB free edge transfer.",
   },
@@ -1936,6 +1954,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
       { href: "/share-multitrack-audio-stems", label: "share multitrack audio stems" },
       { href: "/deliver-protools-ptx-files", label: "deliver Pro Tools PTX files" },
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
     ],
     differentiation: "Authoritative Collect All and Save guide with freeze/flatten plugin tips paired with 25GB free edge transfer.",
   },
@@ -2005,6 +2024,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       { href: "/how-to-send-ableton-live-projects", label: "how to send Ableton Live projects" },
       { href: "/deliver-protools-ptx-files", label: "deliver Pro Tools PTX files" },
       { href: "/share-multitrack-audio-stems", label: "share multitrack audio stems" },
+      { href: "/share-final-cut-pro-fcpbundle", label: "share Final Cut Pro fcpbundle" },
     ],
     differentiation: "Clear Package vs Folder guide, Asset consolidation checklist, and 25GB free line-rate transfer.",
   },
@@ -2074,6 +2094,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       { href: "/deliver-protools-ptx-files", label: "deliver Pro Tools PTX files" },
       { href: "/how-to-send-ableton-live-projects", label: "how to send Ableton Live projects" },
       { href: "/transfer-logic-pro-x-sessions", label: "transfer Logic Pro X sessions" },
+      { href: "/email-attachment-too-large-alternative", label: "email attachment too large alternative" },
     ],
     differentiation: "Timeline zero-bounce export protocol paired with lossless 24-bit/96kHz WAV delivery up to 25GB free.",
   },
@@ -2145,9 +2166,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       },
     ],
     internalLinks: [
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer alternative" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
       { href: "/send-large-files-free", label: "send large files free" },
       { href: "/send-10gb-file-free", label: "send 10GB file free" },
-      { href: "/bypass/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
     ],
     differentiation: "Direct replacement for WeTransfer with 12.5x free capacity (25GB vs 2GB), zero display ads, and zero forced account registration.",
   },
@@ -2218,18 +2242,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/wetransfer-alternative",
-        label: "WeTransfer alternative"
-      },
-      {
-        href: "/send-10gb-file-free",
-        label: "send 10GB file free"
-      },
-      {
-        href: "/send-large-files-free",
-        label: "send large files free"
-      }
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/dropbox-file-size-limit-bypass", label: "bypass Dropbox file size limit" },
+      { href: "/google-drive-download-quota-exceeded-fix", label: "fix Google Drive download quota exceeded" },
     ],
     differentiation: "Direct, 1-click bypass for users blocked by WeTransfer's 2GB ceiling: 25GB free capacity, zero registration, zero ads, and sub-second global edge distribution."
   },
@@ -2300,18 +2318,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-large-files-free",
-        "label": "send large files free"
-      },
-      {
-        "href": "/share-large-files-with-link",
-        "label": "share large files with link"
-      },
-      {
-        "href": "/send-25gb-file",
-        "label": "send 25GB file"
-      }
+      { href: "/dropbox-file-size-limit-bypass", label: "bypass Dropbox file size limit" },
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/share-large-files-with-link", label: "share large files with link" },
+      { href: "/send-15gb-file", label: "send 15GB file" },
+      { href: "/send-25gb-file", label: "send 25GB file" },
+      { href: "/best-way-to-share-large-files-with-clients", label: "best way to share large files with clients" },
     ],
     "differentiation": "Permanent, 1-click bypass for Google Drive's 24-hour viral download lockout: 25GB free tier, zero bandwidth throttling, and zero recipient Google account requirements."
   },
@@ -2382,18 +2394,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/dropbox-transfer-alternative",
-        "label": "Dropbox transfer alternative"
-      },
-      {
-        "href": "/send-files-larger-than-2gb",
-        "label": "send files larger than 2GB"
-      },
-      {
-        "href": "/send-25gb-file",
-        "label": "send 25GB file"
-      }
+      { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer alternative" },
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/google-drive-download-quota-exceeded-fix", label: "fix Google Drive download quota exceeded" },
+      { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
+      { href: "/send-25gb-file", label: "send 25GB file" },
     ],
     "differentiation": "Direct, zero-cost bypass for Dropbox's 2GB storage cap and shared folder quota errors: 25GB free capacity, zero recipient drive space required, and instant browser downloads."
   },
@@ -2464,18 +2469,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-large-files-free",
-        "label": "send large files free"
-      },
-      {
-        "href": "/send-10gb-file-free",
-        "label": "send 10GB file free"
-      },
-      {
-        "href": "/wetransfer-alternative",
-        "label": "WeTransfer alternative"
-      }
+      { href: "/send-large-files-by-email", label: "send large files by email" },
+      { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
+      { href: "/send-large-files-free", label: "send large files free" },
     ],
     "differentiation": "Direct replacement for email attachments: send up to 25GB free (1,000x larger than Gmail) with zero recipient account barriers and zero email bounces."
   },
@@ -2546,18 +2544,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-10gb-file-free",
-        "label": "send 10GB file free"
-      },
-      {
-        "href": "/send-files-larger-than-2gb",
-        "label": "send files larger than 2GB"
-      },
-      {
-        "href": "/send-25gb-file",
-        "label": "send 25GB file"
-      }
+      { href: "/send-files-larger-than-2gb", label: "send files larger than 2GB" },
+      { href: "/wetransfer-2gb-limit-bypass", label: "bypass WeTransfer 2GB limit" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/send-15gb-file", label: "send 15GB file" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
+      { href: "/email-attachment-too-large-alternative", label: "email attachment too large alternative" },
     ],
     "differentiation": "Direct, 100% free transfer for 5GB files: 25GB free capacity beating WeTransfer's 2GB paywall, zero account registration, and instant global edge links."
   },
@@ -2628,18 +2620,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-10gb-file-free",
-        "label": "send 10GB file free"
-      },
-      {
-        "href": "/deliver-20gb-file",
-        "label": "deliver 20GB file"
-      },
-      {
-        "href": "/send-25gb-file",
-        "label": "send 25GB file"
-      }
+      { href: "/send-5gb-file-free", label: "send 5GB file free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
+      { href: "/send-25gb-file", label: "send 25GB file" },
+      { href: "/google-drive-download-quota-exceeded-fix", label: "fix Google Drive 15GB quota limit" },
     ],
     "differentiation": "High-capacity 15GB file delivery without consuming Google Drive's 15GB mailbox quota or paying WeTransfer subscriptions: 25GB free tier with automated chunk recovery."
   },
@@ -2710,18 +2695,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/deliver-20gb-file",
-        "label": "deliver 20GB file"
-      },
-      {
-        "href": "/send-large-files-free",
-        "label": "send large files free"
-      },
-      {
-        "href": "/send-50gb-file",
-        "label": "send 50GB file"
-      }
+      { href: "/send-15gb-file", label: "send 15GB file" },
+      { href: "/deliver-20gb-file", label: "deliver 20GB file" },
+      { href: "/send-30gb-file", label: "send 30GB file" },
+      { href: "/send-50gb-file", label: "send 50GB file" },
+      { href: "/free-large-file-transfer", label: "free large file transfer" },
     ],
     "differentiation": "Flagship 25GB free tier showcase: the largest free transfer capacity online with zero sign-up, zero egress fees, and sub-second edge distribution."
   },
@@ -2792,18 +2770,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/send-large-files-free",
-        label: "send large files free"
-      },
-      {
-        href: "/send-100gb-file",
-        label: "send 100GB file"
-      },
-      {
-        href: "/transfer-large-files-online",
-        label: "transfer large files online"
-      }
+      { href: "/send-25gb-file", label: "send 25GB file" },
+      { href: "/send-30gb-file", label: "send 30GB file" },
+      { href: "/send-100gb-file", label: "send 100GB file" },
+      { href: "/send-500gb-file", label: "send 500GB file" },
+      { href: "/fast-large-file-transfer", label: "fast large file transfer" },
     ],
     differentiation: "Studio-tier edge acceleration for heavy video, VFX, and dataset transfers: multi-stream chunking, auto-resume, and zero cloud egress fees."
   },
@@ -2875,18 +2846,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-large-video-files",
-        "label": "send large video files"
-      },
-      {
-        "href": "/send-large-files-free",
-        "label": "send large files free"
-      },
-      {
-        "href": "/wetransfer-alternative",
-        "label": "WeTransfer alternative"
-      }
+      { href: "/send-30gb-file", label: "send 30GB file" },
+      { href: "/send-50gb-file", label: "send 50GB file" },
+      { href: "/send-500gb-file", label: "send 500GB file" },
+      { href: "/send-1tb-file", label: "send 1TB file" },
+      { href: "/send-2tb-file", label: "send 2TB file" },
+      { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
     ],
     "differentiation": "Replaces courier hard drive shipping and avoids $9/100GB cloud egress taxes with parallel line-rate edge delivery."
   },
@@ -2957,18 +2922,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/send-100gb-file",
-        label: "send 100GB file"
-      },
-      {
-        href: "/send-1tb-file",
-        label: "send 1TB file"
-      },
-      {
-        href: "/send-2tb-file",
-        label: "send 2TB file"
-      }
+      { href: "/send-50gb-file", label: "send 50GB file" },
+      { href: "/send-100gb-file", label: "send 100GB file" },
+      { href: "/send-1tb-file", label: "send 1TB file" },
+      { href: "/send-2tb-file", label: "send 2TB file" },
+      { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
     ],
     differentiation: "Replaces courier hard drive shipping and avoids $45/500GB cloud egress taxes with parallel line-rate edge delivery."
   },
@@ -3039,18 +2997,11 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     internalLinks: [
-      {
-        href: "/send-500gb-file",
-        label: "send 500GB file"
-      },
-      {
-        href: "/send-2tb-file",
-        label: "send 2TB file"
-      },
-      {
-        href: "/send-100gb-file",
-        label: "send 100GB file"
-      }
+      { href: "/send-100gb-file", label: "send 100GB file" },
+      { href: "/send-500gb-file", label: "send 500GB file" },
+      { href: "/send-2tb-file", label: "send 2TB file" },
+      { href: "/fast-large-file-transfer", label: "fast large file transfer" },
+      { href: "/fastest-way-to-send-large-files", label: "fastest way to send large files" },
     ],
     differentiation: "Replaces physical SSD courier shipments for enterprise studios and eliminates $90 AWS S3 egress charges."
   },
@@ -3122,18 +3073,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-large-video-files",
-        "label": "send large video files"
-      },
-      {
-        "href": "/wetransfer-alternative",
-        "label": "WeTransfer alternative"
-      },
-      {
-        "href": "/dropbox-transfer-alternative",
-        "label": "Dropbox Transfer alternative"
-      }
+      { href: "/share-large-files-with-link", label: "share large files with a link" },
+      { href: "/secure-large-file-transfer", label: "secure large file transfer" },
+      { href: "/send-large-video-files", label: "send large video files" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
+      { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer alternative" },
+      { href: "/google-drive-download-quota-exceeded-fix", label: "bypass Google Drive quota exceeded" },
     ],
     "differentiation": "Eliminates client login walls, 'request access' permissions, and shared quota lockups with 1-click line-rate edge downloads."
   },
@@ -3205,18 +3150,12 @@ export const seoLandingPages: SeoLandingPage[] = [
       }
     ],
     "internalLinks": [
-      {
-        "href": "/send-large-files-free",
-        "label": "send large files free"
-      },
-      {
-        "href": "/send-10gb-file-free",
-        "label": "send 10GB file free"
-      },
-      {
-        "href": "/wetransfer-alternative",
-        "label": "WeTransfer alternative"
-      }
+      { href: "/fast-large-file-transfer", label: "fast large file transfer" },
+      { href: "/transfer-large-files-online", label: "transfer large files online" },
+      { href: "/send-large-files-free", label: "send large files free" },
+      { href: "/send-10gb-file-free", label: "send 10GB file free" },
+      { href: "/send-100gb-file", label: "send 100GB file" },
+      { href: "/wetransfer-alternative", label: "WeTransfer alternative" },
     ],
     "differentiation": "Browser-native multi-stream Anycast edge acceleration saturating gigabit connections without desktop software or per-GB enterprise fees."
   },

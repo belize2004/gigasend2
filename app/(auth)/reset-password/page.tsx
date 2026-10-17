@@ -71,29 +71,32 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/40 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-        <div className="text-center mb-6">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <BsArrowUpSquareFill className="text-3xl text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">{brand.productName}</span>
+    <div className="min-h-screen bg-ocean-950 text-slate-100 flex items-center justify-center p-4 font-body">
+      <div className="w-full max-w-md apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-8 sm:p-10 backdrop-blur-2xl text-left">
+        <div className="mb-6">
+          <div className="w-14 h-14 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mb-6 border border-gold-500/20">
+            <FiLock className="w-6 h-6" />
           </div>
-          <h1 className="text-xl font-bold text-gray-900">Create New Password</h1>
-          <p className="text-sm text-gray-600 mt-1">
+          <div className="flex items-center gap-2 mb-2">
+            <BsArrowUpSquareFill className="text-lg text-gold-400" />
+            <span className="label-caps text-gold-400 text-xs">{brand.productName} Security</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Create New Password</h1>
+          <p className="text-sm text-slate-300 mt-1.5 font-body">
             Enter your new password below to regain access to your account.
           </p>
         </div>
 
         {error && (
-          <div className="mb-5 p-3.5 bg-red-50 border border-red-200 rounded-xl flex items-start gap-2.5 text-sm text-red-700">
-            <FiAlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+          <div className="mb-5 p-4 bg-rose-500/10 border border-rose-500/30 rounded-2xl flex items-start gap-2.5 text-xs text-rose-300">
+            <FiAlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-rose-400" />
             <span>{error}</span>
           </div>
         )}
 
         {success && (
-          <div className="mb-5 p-3.5 bg-green-50 border border-green-200 rounded-xl flex items-center gap-2.5 text-sm text-green-700">
-            <FiCheckCircle className="w-5 h-5 flex-shrink-0 text-green-500" />
+          <div className="mb-5 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex items-center gap-2.5 text-xs text-emerald-300">
+            <FiCheckCircle className="w-4 h-4 flex-shrink-0 text-emerald-400" />
             <span>Password updated! Redirecting you now...</span>
           </div>
         )}
@@ -101,11 +104,11 @@ export default function ResetPasswordPage() {
         {!success && (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1">
+              <label className="block label-caps text-slate-200 text-[10px] mb-2">
                 New Password
               </label>
               <div className="relative">
-                <FiLock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <FiLock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
@@ -114,12 +117,12 @@ export default function ResetPasswordPage() {
                   required
                   minLength={8}
                   disabled={loading}
-                  className="w-full pl-10 pr-11 py-2.5 border border-gray-300 rounded-xl text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="w-full pl-10 pr-11 py-3 bg-ocean-950 border border-white/15 rounded-xl text-white placeholder-slate-500 focus:border-gold-500 outline-none text-sm transition"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition"
                 >
                   {showPassword ? <FiEyeOff /> : <FiEye />}
                 </button>
@@ -127,11 +130,11 @@ export default function ResetPasswordPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1">
+              <label className="block label-caps text-slate-200 text-[10px] mb-2">
                 Confirm New Password
               </label>
               <div className="relative">
-                <FiLock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+                <FiLock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={confirmPassword}
@@ -140,7 +143,7 @@ export default function ResetPasswordPage() {
                   required
                   minLength={8}
                   disabled={loading}
-                  className="w-full pl-10 pr-11 py-2.5 border border-gray-300 rounded-xl text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="w-full pl-10 pr-11 py-3 bg-ocean-950 border border-white/15 rounded-xl text-white placeholder-slate-500 focus:border-gold-500 outline-none text-sm transition"
                 />
               </div>
             </div>
@@ -148,16 +151,16 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading || !token}
-              className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-md transition disabled:opacity-50 text-sm"
+              className="w-full mt-2 py-3.5 px-6 btn-gold font-bold font-display rounded-xl shadow-lg shadow-gold-500/15 transition disabled:opacity-50 text-xs tap-tactile"
             >
               {loading ? "Updating Password..." : "Set New Password"}
             </button>
           </form>
         )}
 
-        <div className="mt-6 text-center text-xs text-gray-500">
+        <div className="mt-6 pt-6 border-t border-white/10 text-center text-xs text-slate-300">
           Remember your password?{" "}
-          <a href="/signin" className="text-blue-600 hover:underline font-medium">
+          <a href="/signin" className="text-gold-400 hover:text-amber-300 font-semibold transition">
             Sign In
           </a>
         </div>

@@ -4,12 +4,14 @@ import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 
 export const POST: APIRoute = async ({ cookies, locals }) => {
   const userId = await getAuthenticatedUserId(cookies, locals);
-  if (!userId) return unauthorized();
+  if (!userId) {
+    return json({ success: false, message: "Not authenticated", data: null }, 200);
+  }
 
   const db = getDb(locals);
   const user = await findUserById(db, userId);
   if (!user) {
-    return json({ success: false, message: "User not found" }, 404);
+    return json({ success: false, message: "User not found", data: null }, 200);
   }
 
   return json({

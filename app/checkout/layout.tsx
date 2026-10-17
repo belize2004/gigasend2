@@ -33,7 +33,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   if (!isReady) {
-    return <div className="p-6 text-center text-gray-600">Loading payment system...</div>;
+    return (
+      <div className="min-h-screen bg-ocean-950 flex items-center justify-center p-6 text-center text-slate-300 font-body text-sm">
+        <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl px-8 py-6 shadow-2xl">
+          Loading payment system...
+        </div>
+      </div>
+    );
   }
 
   if (stripePromise) {

@@ -3,7 +3,7 @@ import type { BillingData, PaidPlan } from "@/types/app-data";
 import { PlanEnum, PLANS } from "@/lib/constant";
 import { findUserById, getDb } from "@/lib/d1";
 import { stripe } from "@/lib/stripe";
-import { getStorageLimitBytesForUser } from "@/lib/storageLimit";
+import { getStorageLimitBytesForUser, getVipGrantForUser } from "@/lib/storageLimit";
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 import type Stripe from "stripe";
 
@@ -16,6 +16,32 @@ export const GET: APIRoute = async ({ cookies, locals }) => {
   if (!user) return json({ success: false, message: "User not found" }, 404);
 
   let allowedStorage = getStorageLimitBytesForUser(user);
+
+  // Check VIP / Partner granted plan
+  const vipGrant = getVipGrantForUser(user);
+  if (vipGrant) {
+    const planName = vipGrant.plan;
+    const planDef = PLANS[planName] || PLANS.pro;
+
+    const data: PaidPlan = {
+      isFree: false,
+      isVipPartner: true,
+      partnerNotes: vipGrant.notes,
+      planName: planName,
+      planFeatures: [
+        `${vipGrant.storageGB} GB storage`,
+        ...planDef.features.filter((f) => !f.toLowerCase().includes("storage")),
+      ],
+      subscriptionStartDate: "2026-10-18T00:00:00Z",
+      nextBillingDate: vipGrant.expiresAt,
+      nextBillingAmount: 0,
+      last4: "VIP",
+      exp_month: "10",
+      exp_year: "2027",
+    };
+
+    return json({ success: true, data, allowedStorage, message: "VIP Partner billing data retrieved" });
+  }
 
   if (user.stripeCustomerId) {
     const subscriptions = await stripe.subscriptions.list({

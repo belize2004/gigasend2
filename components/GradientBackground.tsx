@@ -9,13 +9,13 @@ export const GradientBackground = () => (
       bottom: 0,
       left: 0,
       zIndex: -1,
-      filter: "blur(118px)",
-      maxWidth: "48rem",
+      filter: "blur(128px)",
+      maxWidth: "56rem",
       height: "800px",
       marginLeft: "auto",
       marginRight: "auto",
       background:
-        "linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)",
+        "linear-gradient(125deg, rgba(14, 143, 209, 0.22) 10%, rgba(0, 67, 106, 0.45) 45%, rgba(247, 188, 106, 0.14) 85%, rgba(0, 29, 50, 0.6) 100%)",
     }}
   />
 );

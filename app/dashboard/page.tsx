@@ -37,15 +37,35 @@ const DashboardHome: React.FC = () => {
   }, [])
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
+      {/* Header with Breadcrumbs & Actions */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold-500/15 text-gold-400 border border-gold-500/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Edge Node Active
+            </span>
+            <span className="text-xs text-slate-400 font-mono">Cloudflare Anycast</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Workspace Overview</h1>
+          <p className="text-xs sm:text-sm text-slate-300 font-body mt-0.5">
+            Direct edge streaming and transfer package management.
+          </p>
+        </div>
+      </div>
+
       {/* Storage Usage Card */}
       <Usage allowedStorage={data.allowedStorage} usedStorage={data.usedStorage} />
 
       {/* Active Shares */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Active Shares</h2>
-          <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+          <div>
+            <span className="label-caps text-gold-400 text-[10px] block mb-0.5">Live Delivery</span>
+            <h2 className="text-xl font-bold text-white font-display">Active Shares</h2>
+          </div>
+          <div className="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {activeShares.length} Active
           </div>
         </div>
@@ -66,10 +86,13 @@ const DashboardHome: React.FC = () => {
       </div>
 
       {/* Expired Shares */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Expired Shares</h2>
-          <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold">
+          <div>
+            <span className="label-caps text-slate-400 text-[10px] block mb-0.5">Archive History</span>
+            <h2 className="text-xl font-bold text-white font-display">Expired Shares</h2>
+          </div>
+          <div className="bg-rose-500/15 text-rose-400 border border-rose-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {expiredShares.length} Expired
           </div>
         </div>

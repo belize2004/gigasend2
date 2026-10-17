@@ -15,7 +15,7 @@ type PexelsResponse = {
 
 const PEXELS_API_KEY = process.env.NEXT_PUBLIC_PEXELS_API_KEY!;
 const PEXELS_IMAGE_API =
-  "https://api.pexels.com/v1/search?query=nature&orientation=landscape&per_page=20";
+  "https://api.pexels.com/v1/search?query=ocean+night&orientation=landscape&per_page=20";
 
 export function MediaBackground({
   children,
@@ -66,13 +66,14 @@ export function MediaBackground({
         height: "100vh",
         overflow: "hidden",
         position: "relative",
+        backgroundColor: "#001d32",
       }}
     >
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-          opacity: fade ? 0 : 1,
+          opacity: fade ? 0 : 0.35,
           transition: "opacity 1s ease-in-out",
           zIndex: 0,
         }}
@@ -85,8 +86,8 @@ export function MediaBackground({
             sx={{
               width: "100%",
               height: "100%",
-              objectFit: "cover", // Ensures image covers the area without being distorted
-              filter: "none", // No blur effect here
+              objectFit: "cover",
+              filter: "none",
             }}
           />
         ) : null}
@@ -100,9 +101,9 @@ export function MediaBackground({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          color: "white",
-          backgroundColor: "rgba(0, 0, 0, 0.3)",
-          backdropFilter: "blur(3px)",
+          color: "#f1f5f9",
+          backgroundColor: "rgba(0, 29, 50, 0.78)",
+          backdropFilter: "blur(12px)",
         }}
       >
         {children}

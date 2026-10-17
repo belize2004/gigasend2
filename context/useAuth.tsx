@@ -3,9 +3,10 @@
 import { useAppDispatch, useAppSelector } from "@/lib/store";
 import { clearUser, setUser } from "@/lib/userSlice";
 import { captureMonitoringException, setMonitoringUser } from "@/lib/monitoring";
-import axios from "axios";
 import { useRouter } from '@/components/compat/navigation';
 import { useEffect, useState } from "react";
+
+let verifyPromise: Promise<ApiResponse<UserSlice> | null> | null = null;
 
 export const useAuth = () => {
   const router = useRouter();
@@ -16,7 +17,8 @@ export const useAuth = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/api/auth/signout");
+      await fetch("/api/auth/signout", { method: "POST" });
+      verifyPromise = null;
       dispatch(clearUser())
       router.replace("/signin");
     } catch (err) {
@@ -30,24 +32,23 @@ export const useAuth = () => {
 
   useEffect(() => {
     if (!auth) {
-      fetch("/api/auth/verify", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error("Not authenticated");
-          return res.json();
+      if (!verifyPromise) {
+        verifyPromise = fetch("/api/auth/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
         })
-        .then((data: ApiResponse<UserSlice>) => {
-          dispatch(setUser(data.data!));
-          setMonitoringUser({ email: data.data?.email });
-        })
-        .catch((error) => {
-          setMonitoringUser();
-          captureMonitoringException(error, {
-            tags: { feature: "auth", action: "verify" },
-            context: { route: "useAuth.verify" },
-          });
+          .then((res) => (res.ok ? res.json() : null))
+          .catch(() => null);
+      }
+
+      verifyPromise
+        .then((data: ApiResponse<UserSlice> | null) => {
+          if (data?.success && data.data) {
+            dispatch(setUser(data.data));
+            setMonitoringUser({ email: data.data?.email });
+          } else {
+            setMonitoringUser();
+          }
         })
         .finally(() => setLoading(false));
     }
@@ -55,11 +56,16 @@ export const useAuth = () => {
 
 
   useEffect(() => {
-    setAuth(email != null)
+    setAuth(email != null);
     if (email) {
+      verifyPromise = Promise.resolve({
+        success: true,
+        message: "Authenticated",
+        data: { email },
+      });
       setMonitoringUser({ email });
     }
-  }, [email])
+  }, [email]);
 
   return {
     auth,

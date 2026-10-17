@@ -39,11 +39,16 @@ const DashboardMenu: React.FC = () => {
   const { handleLogout } = useAuth();
 
   return (
-    <div className="bg-white shadow-lg rounded-2xl p-6 h-fit">
+    <div className="apple-glass bg-ocean-900/90 border border-white/10 shadow-2xl rounded-3xl p-6 h-fit">
       {/* Header */}
-      <div className="flex items-center mb-8">
-        <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-        <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
+      <div className="flex items-center mb-8 pb-5 border-b border-white/10">
+        <div className="w-10 h-10 rounded-xl bg-gold-500/15 text-gold-400 flex items-center justify-center mr-3 border border-gold-500/20">
+          <BsArrowUpSquareFill className="text-xl text-gold-400" />
+        </div>
+        <div>
+          <h1 className="text-xl font-extrabold text-white font-display tracking-tight">{brand.productName}</h1>
+          <span className="label-caps text-gold-400 text-[9px] block">Workspace Console</span>
+        </div>
       </div>
 
       {/* Navigation */}
@@ -53,17 +58,17 @@ const DashboardMenu: React.FC = () => {
           return (
             <button
               key={key}
-              className={`rounded-xl transition-all duration-200 w-full ${item.active
-                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+              className={`rounded-xl transition-all duration-200 w-full tap-tactile ${item.active
+                ? 'btn-gold text-ocean-950 font-bold shadow-lg shadow-gold-500/20'
+                : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
                 }`}>
               <Link
                 key={item.href}
                 href={item.href}
-                className='flex items-center px-4 py-3'
+                className='flex items-center px-4 py-3 text-sm'
               >
                 <IconComponent className="mr-3 text-lg" />
-                <span className={`font-medium`}>{item.label}</span>
+                <span className="font-semibold font-display">{item.label}</span>
               </Link>
             </button>
           );
@@ -71,14 +76,13 @@ const DashboardMenu: React.FC = () => {
       </nav>
 
       {/* Logout Button */}
-
-      <div className="mt-8 pt-6 border-t border-gray-200">
+      <div className="mt-8 pt-6 border-t border-white/10">
         <button
           onClick={handleLogout}
-          className="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-xl transition-all duration-200"
+          className="flex items-center w-full px-4 py-3 text-slate-400 hover:bg-rose-500/10 hover:text-rose-400 rounded-xl transition-all duration-200 text-sm tap-tactile"
         >
           <FiLogOut className="mr-3 text-lg" />
-          <span className="font-medium">Logout</span>
+          <span className="font-semibold font-display">Logout</span>
         </button>
       </div>
     </div>

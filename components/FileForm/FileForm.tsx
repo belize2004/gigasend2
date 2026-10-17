@@ -166,6 +166,7 @@ export const FileForm = () => {
   const [allowedLimit, setAllowedLimit] = useState(PLANS.free.storageBytes * (1024 ** 3));
   const [usageLoading, setUsageLoading] = useState(true);
   const [expiryLimit, setExpiryLimit] = useState(3); // in days
+  const [expiryDateText, setExpiryDateText] = useState<string | null>(null);
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>(null)
   const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>("link");
   const { auth } = useAuth();
@@ -1033,51 +1034,79 @@ export const FileForm = () => {
     })()
   }, [])
 
+  useEffect(() => {
+    setExpiryDateText(
+      new Date(Date.now() + expiryLimit * 24 * 60 * 60 * 1000).toDateString()
+    );
+  }, [expiryLimit]);
+
   return (
-    <Card sx={{ maxWidth: "768px", maxHeight: '84vh', overflowY: 'auto' }}>
+    <Card
+      className="apple-glass"
+      sx={{
+        width: "100%",
+        maxWidth: "820px",
+        maxHeight: "86vh",
+        overflowY: "auto",
+        backgroundColor: "rgba(0, 47, 77, 0.88)",
+        backdropFilter: "blur(24px)",
+        border: "1px solid rgba(255, 255, 255, 0.12)",
+        borderRadius: "28px",
+        boxShadow: "0 24px 64px rgba(0, 15, 28, 0.75)",
+        color: "#f8fafc",
+      }}
+    >
       <form
         onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}
         style={{ display: "flex", flexDirection: "column", gap: 16 }}
       >
-        <CardContent sx={{ flex: "column" }}>
+        <CardContent sx={{ flex: "column", p: 0, "&:last-child": { pb: 0 } }}>
           <Stack
             sx={{
-              padding: "24px",
+              padding: "24px 28px 18px",
               justifyContent: "center",
               alignItems: "center",
             }}
+            gap={0.5}
           >
             {brand.logoUrl ? (
               <Image src={brand.logoUrl} alt={brand.productName} width={168} height={36} />
             ) : (
-              <Typography variant="h5" fontWeight={800} color="primary">
+              <Typography
+                variant="h5"
+                fontWeight={800}
+                sx={{ color: "#FFFFFF", letterSpacing: "-0.02em" }}
+              >
                 {brand.productName}
               </Typography>
             )}
+            <span className="label-caps text-gold-400 text-[10px]">
+              Zero-Egress Edge Transfer • 335+ Anycast PoPs
+            </span>
           </Stack>
 
           <Stack
             direction={{ xs: "column", md: "row" }}
             sx={{
-              padding: "24px",
-              borderTop: "1px solid #D5D7DA",
-              borderBottom: "1px solid #D5D7DA",
+              padding: "24px 28px",
+              borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
             }}
-            gap={2}
+            gap={3}
             alignItems="stretch"
           >
             <Stack gap={2} width={{ xs: "100%", md: "50%" }}>
-              <Stack>
-                <Typography variant="body1">
-                  {files.length} Selected File{files.length > 1 ? 's' : ''}
+              <Stack gap={0.5}>
+                <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
+                  {files.length} Selected File{files.length !== 1 ? "s" : ""}
                 </Typography>
-                <Typography variant="body2">
+                <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
                   {usageLoading
                     ? `${getSizeInReadableFormat(files)} selected. Checking available storage...`
                     : `${getSizeInReadableFormat(files)} selected of ${formatBytes(allowedLimit)} remaining`}
                 </Typography>
                 {savedSession && (
-                  <Typography variant="body2" color="primary">
+                  <Typography variant="body2" sx={{ color: "#ffddb4", fontWeight: 600, fontSize: "0.8rem" }}>
                     Resumable upload found: {formatBytes(savedSession.parts.reduce((sum, part) => sum + part.size, 0))} saved
                   </Typography>
                 )}
@@ -1089,12 +1118,38 @@ export const FileForm = () => {
             </Stack>
 
             <Stack gap={2} width={{ xs: "100%", md: "50%" }}>
-              <Stack direction="row" gap={1} sx={{ backgroundColor: "#EEF2F7", borderRadius: 2, padding: "4px" }}>
+              <Stack
+                direction="row"
+                gap={1}
+                sx={{
+                  backgroundColor: "rgba(0, 29, 50, 0.9)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  borderRadius: "14px",
+                  padding: "5px",
+                }}
+              >
                 <Button
                   type="button"
                   onClick={() => setDeliveryMode("email")}
                   variant={deliveryMode === "email" ? "contained" : "text"}
-                  sx={{ flex: 1, textTransform: "none" }}
+                  sx={{
+                    flex: 1,
+                    textTransform: "none",
+                    borderRadius: "10px",
+                    fontWeight: 700,
+                    py: 1,
+                    ...(deliveryMode === "email"
+                      ? {
+                          backgroundColor: "#f7bc6a",
+                          color: "#001d32",
+                          boxShadow: "0 4px 12px rgba(247, 188, 106, 0.25)",
+                          "&:hover": { backgroundColor: "#ffddb4" },
+                        }
+                      : {
+                          color: "#cbd5e1",
+                          "&:hover": { color: "#FFFFFF", backgroundColor: "rgba(255, 255, 255, 0.05)" },
+                        }),
+                  }}
                 >
                   Email recipient
                 </Button>
@@ -1106,44 +1161,84 @@ export const FileForm = () => {
                     clearErrors("receiverEmail");
                   }}
                   variant={deliveryMode === "link" ? "contained" : "text"}
-                  sx={{ flex: 1, textTransform: "none" }}
+                  sx={{
+                    flex: 1,
+                    textTransform: "none",
+                    borderRadius: "10px",
+                    fontWeight: 700,
+                    py: 1,
+                    ...(deliveryMode === "link"
+                      ? {
+                          backgroundColor: "#f7bc6a",
+                          color: "#001d32",
+                          boxShadow: "0 4px 12px rgba(247, 188, 106, 0.25)",
+                          "&:hover": { backgroundColor: "#ffddb4" },
+                        }
+                      : {
+                          color: "#cbd5e1",
+                          "&:hover": { color: "#FFFFFF", backgroundColor: "rgba(255, 255, 255, 0.05)" },
+                        }),
+                  }}
                 >
                   Share link
                 </Button>
               </Stack>
-              <Stack>
-                <Typography variant="body1">{deliveryMode === "email" ? "Email" : "Shareable Link"}</Typography>
-                <Typography variant="body2">
+              <Stack gap={0.5}>
+                <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
+                  {deliveryMode === "email" ? "Email Delivery" : "Shareable Edge Link"}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
                   {deliveryMode === "email"
-                    ? "We will let you know when your files get downloaded"
-                    : "Upload now and copy an expiring download link after transfer"}
+                    ? "We will notify you when your files get downloaded"
+                    : "Upload now and copy an expiring line-rate download link after transfer"}
                 </Typography>
               </Stack>
               <Stack
-                borderRadius={2}
-                padding={2}
-                sx={{ backgroundColor: "#F6F8FB" }}
+                borderRadius={"18px"}
+                padding={2.5}
+                sx={{
+                  backgroundColor: "rgba(0, 29, 50, 0.7)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
                 flex={1}
                 gap={2}
               >
                 {deliveryMode === "email" ? (
                   <>
                     <FormControl fullWidth variant="outlined">
-                      <FormLabel>Receiver&apos;s email</FormLabel>
+                      <FormLabel sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
+                        Receiver&apos;s email
+                      </FormLabel>
                       <TextField
-                        placeholder="e.g., receiver@example.com"
+                        placeholder="e.g., client@studio.com"
                         {...register("receiverEmail")}
                         error={!!errors.receiverEmail}
                         helperText={
                           errors.receiverEmail ? errors.receiverEmail.message : ""
                         }
+                        sx={{
+                          "& .MuiOutlinedInput-root": {
+                            backgroundColor: "rgba(0, 29, 50, 0.95)",
+                            color: "#FFFFFF",
+                            borderRadius: "12px",
+                            "& fieldset": { borderColor: "rgba(255, 255, 255, 0.15)" },
+                            "&:hover fieldset": { borderColor: "rgba(247, 188, 106, 0.5)" },
+                            "&.Mui-focused fieldset": { borderColor: "#f7bc6a" },
+                          },
+                          "& .MuiInputBase-input::placeholder": {
+                            color: "#64748b",
+                            opacity: 1,
+                          },
+                        }}
                       />
                     </FormControl>
                     {!auth && (
                       <FormControl fullWidth variant="outlined">
-                        <FormLabel>Your email (sender)</FormLabel>
+                        <FormLabel sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
+                          Your email (sender)
+                        </FormLabel>
                         <TextField
-                          placeholder="e.g., you@example.com"
+                          placeholder="e.g., you@studio.com"
                           {...register("senderEmail")}
                           error={!!errors.senderEmail}
                           helperText={
@@ -1151,23 +1246,49 @@ export const FileForm = () => {
                               ? errors.senderEmail.message
                               : "Recipient will see this sender email"
                           }
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              backgroundColor: "rgba(0, 29, 50, 0.95)",
+                              color: "#FFFFFF",
+                              borderRadius: "12px",
+                              "& fieldset": { borderColor: "rgba(255, 255, 255, 0.15)" },
+                              "&:hover fieldset": { borderColor: "rgba(247, 188, 106, 0.5)" },
+                              "&.Mui-focused fieldset": { borderColor: "#f7bc6a" },
+                            },
+                            "& .MuiFormHelperText-root": {
+                              color: "#94a3b8",
+                            },
+                            "& .MuiInputBase-input::placeholder": {
+                              color: "#64748b",
+                              opacity: 1,
+                            },
+                          }}
                         />
                       </FormControl>
                     )}
                     <FormControl fullWidth variant="outlined">
-                      <FormLabel>Your message</FormLabel>
+                      <FormLabel sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
+                        Your message
+                      </FormLabel>
                       <TextField
-                        placeholder="e.g., hi this is the file."
+                        placeholder="Add an optional delivery note..."
                         multiline
                         sx={{
-                          "& .MuiInputBase-root": {
-                            height: "80px",
+                          "& .MuiOutlinedInput-root": {
+                            backgroundColor: "rgba(0, 29, 50, 0.95)",
+                            color: "#FFFFFF",
+                            borderRadius: "12px",
+                            height: "84px",
                             padding: 0,
+                            "& fieldset": { borderColor: "rgba(255, 255, 255, 0.15)" },
+                            "&:hover fieldset": { borderColor: "rgba(247, 188, 106, 0.5)" },
+                            "&.Mui-focused fieldset": { borderColor: "#f7bc6a" },
                             "& textarea": {
                               height: "100% !important",
                               overflowY: "auto",
-                              padding: "10px",
+                              padding: "10px 12px",
                               boxSizing: "border-box",
+                              color: "#FFFFFF",
                             },
                           },
                         }}
@@ -1177,19 +1298,19 @@ export const FileForm = () => {
                   </>
                 ) : (
                   <Stack
-                    gap={1}
+                    gap={1.25}
                     sx={{
-                      border: "1px solid #D5D7DA",
-                      borderRadius: 2,
-                      backgroundColor: "#FFF",
-                      padding: 2,
+                      border: "1px solid rgba(247, 188, 106, 0.25)",
+                      borderRadius: "14px",
+                      backgroundColor: "rgba(0, 29, 50, 0.9)",
+                      padding: 2.25,
                     }}
                   >
-                    <Typography variant="body2" fontWeight={700}>
-                      Instant link sharing
+                    <Typography variant="body2" fontWeight={700} sx={{ color: "#ffddb4" }}>
+                      ⚡ Instant Zero-Egress Link Sharing
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Your files will upload directly at line speed. Once finished, {brand.productName} gives you a 1-click secure link you can send anywhere. No account or password required.
+                    <Typography variant="body2" sx={{ color: "#cbd5e1", lineHeight: 1.6, fontSize: "0.85rem" }}>
+                      Your files stream directly to the nearest Cloudflare edge node at line speed. Once finished, {brand.productName} gives you a 1-click secure link you can send anywhere—no recipient account required.
                     </Typography>
                   </Stack>
                 )}
@@ -1201,13 +1322,14 @@ export const FileForm = () => {
 
           <Stack
             sx={{
-              padding: "18px 24px 22px",
+              padding: "18px 28px 22px",
               position: "sticky",
               bottom: 0,
               zIndex: 2,
-              backgroundColor: "#FFF",
-              borderTop: "1px solid #D5D7DA",
-              boxShadow: "0 -12px 28px rgba(15, 23, 42, 0.16)",
+              backgroundColor: "rgba(0, 29, 50, 0.95)",
+              backdropFilter: "blur(16px)",
+              borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 -12px 28px rgba(0, 15, 28, 0.45)",
             }}
           >
             <Stack
@@ -1217,10 +1339,10 @@ export const FileForm = () => {
               gap={2}
             >
               <Stack>
-                <Typography variant="subtitle1">
-                  Expires on {new Date(Date.now() + expiryLimit * 24 * 60 * 60 * 1000).toDateString()}
+                <Typography variant="subtitle1" suppressHydrationWarning sx={{ color: "#ffddb4", fontWeight: 700, fontSize: "0.9rem" }}>
+                  {expiryDateText ? `Expires on ${expiryDateText}` : `Expires in ${expiryLimit} days`}
                 </Typography>
-                <TermsConditions sx={{ fontSize: "12px" }} />
+                <TermsConditions sx={{ fontSize: "12px", color: "#94a3b8" }} />
               </Stack>
 
               <Stack direction={{ xs: "column-reverse", sm: "row" }} gap={2} width={{ xs: "100%", sm: "auto" }}>
@@ -1231,13 +1353,22 @@ export const FileForm = () => {
                   sx={{
                     minHeight: 48,
                     minWidth: { sm: 112 },
+                    borderRadius: "12px",
+                    textTransform: "none",
+                    fontWeight: 700,
+                    borderColor: "rgba(255, 255, 255, 0.2)",
+                    color: "#cbd5e1",
+                    "&:hover": {
+                      borderColor: "#f7bc6a",
+                      color: "#FFFFFF",
+                      backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    },
                   }}
                 >
                   Cancel
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   type={deliveryMode === "link" ? "button" : "submit"}
                   disabled={isSubmitting || uploading}
                   onClick={deliveryMode === "link" ? () => {
@@ -1249,17 +1380,23 @@ export const FileForm = () => {
                     });
                   } : undefined}
                   sx={{
-                    minHeight: 56,
+                    minHeight: 52,
                     minWidth: { sm: 220 },
                     px: 4,
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: 800,
+                    borderRadius: "14px",
                     textTransform: "none",
-                    boxShadow: "0 12px 24px rgba(37, 99, 235, 0.32)",
-                    background: "linear-gradient(135deg, #2563eb 0%, #a855f7 100%)",
+                    color: "#001d32",
+                    backgroundColor: "#f7bc6a",
+                    boxShadow: "0 12px 24px rgba(247, 188, 106, 0.28)",
                     "&:hover": {
-                      background: "linear-gradient(135deg, #1d4ed8 0%, #9333ea 100%)",
-                      boxShadow: "0 14px 28px rgba(37, 99, 235, 0.38)",
+                      backgroundColor: "#ffddb4",
+                      boxShadow: "0 14px 28px rgba(247, 188, 106, 0.38)",
+                    },
+                    "&.Mui-disabled": {
+                      backgroundColor: "rgba(247, 188, 106, 0.3)",
+                      color: "rgba(0, 29, 50, 0.6)",
                     },
                   }}
                 >
@@ -1281,17 +1418,20 @@ export const FileForm = () => {
           top={0}
           left={0}
           height="100vh"
-          sx={{ backgroundColor: "rgba(0, 0, 0, 0.8)", zIndex: 9999 }}
+          sx={{
+            backgroundColor: "rgba(0, 29, 50, 0.92)",
+            backdropFilter: "blur(20px)",
+            zIndex: 9999,
+          }}
         >
           <Box sx={{ position: "relative", display: "inline-flex" }}>
             <CircularProgress
               variant="determinate"
               value={100}
               size={150}
-              thickness={3}
+              thickness={3.5}
               sx={{
-                color: "rgba(255, 255, 255, 0.2)",
-                filter: "blur(1px)",
+                color: "rgba(255, 255, 255, 0.12)",
                 position: "absolute",
               }}
             />
@@ -1301,9 +1441,9 @@ export const FileForm = () => {
               variant="determinate"
               value={overallProgress}
               size={150}
-              thickness={3}
+              thickness={3.5}
               sx={{
-                color: "#198CD2",
+                color: "#f7bc6a",
                 "& .MuiCircularProgress-circle": {
                   strokeLinecap: "round",
                 },
@@ -1324,54 +1464,75 @@ export const FileForm = () => {
               <Typography
                 variant="caption"
                 component="div"
-                color="text.secondary"
-                fontSize={18}
+                fontSize={22}
+                fontWeight={800}
                 sx={{
-                  color: "#FFF",
+                  color: "#ffddb4",
+                  fontFamily: "monospace",
                 }}
               >
                 {`${Math.round(overallProgress)}%`}
               </Typography>
             </Box>
           </Box>
-          <Typography variant="body2" color="#FFF" mt={1}>
-            {uploadStatus === "sending email" ? "Sending your transfer email..." : "Uploading your files..."}
+          <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }} mt={1}>
+            {uploadStatus === "sending email" ? "Sending your transfer email..." : "Streaming to Cloudflare Edge..."}
           </Typography>
-          {uploadStatus &&
-            <Typography color="white" variant="body2">
+          {uploadStatus && (
+            <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
               Status: {isPaused ? "paused" : uploadStatus === "initiating" && overallProgress > 0 ? "uploading" : uploadStatus}
             </Typography>
-          }
-          <Button
-            variant="contained"
-            color={isPaused ? "primary" : "inherit"}
-            type="button"
-            onClick={isPaused ? resumeUpload : pauseUpload}
-            sx={{ minWidth: 120 }}
-          >
-            {isPaused ? "Resume" : "Pause"}
-          </Button>
-          <Button
-            variant="outlined"
-            color="error"
-            type="button"
-            onClick={cancelUpload}
-            sx={{ minWidth: 120, borderColor: "#FFF", color: "#FFF" }}
-          >
-            Cancel
-          </Button>
+          )}
+          <Stack direction="row" gap={1.5} mt={1}>
+            <Button
+              variant="contained"
+              type="button"
+              onClick={isPaused ? resumeUpload : pauseUpload}
+              sx={{
+                minWidth: 120,
+                borderRadius: "12px",
+                textTransform: "none",
+                fontWeight: 700,
+                backgroundColor: "#f7bc6a",
+                color: "#001d32",
+                "&:hover": { backgroundColor: "#ffddb4" },
+              }}
+            >
+              {isPaused ? "Resume" : "Pause"}
+            </Button>
+            <Button
+              variant="outlined"
+              type="button"
+              onClick={cancelUpload}
+              sx={{
+                minWidth: 120,
+                borderRadius: "12px",
+                textTransform: "none",
+                fontWeight: 700,
+                borderColor: "rgba(255, 255, 255, 0.3)",
+                color: "#f8fafc",
+                "&:hover": {
+                  borderColor: "#fb7185",
+                  color: "#fb7185",
+                  backgroundColor: "rgba(244, 63, 94, 0.1)",
+                },
+              }}
+            >
+              Cancel
+            </Button>
+          </Stack>
           {estimatedTimeLeft !== null && (
-            <>-
-              <Typography color="white" variant="body2">
+            <Stack alignItems="center" gap={0.5} mt={1}>
+              <Typography sx={{ color: "#ffddb4", fontFamily: "monospace" }} variant="body2">
                 Time remaining: {formatSeconds(estimatedTimeLeft)}
               </Typography>
-              <Typography color="white" variant="body2">
+              <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
                 Uploaded: {formatBytes(totalUploadedRef.current)} of {formatBytes(totalBytesRef.current)}
               </Typography>
-              <Typography color="white" variant="body2">
+              <Typography sx={{ color: "#94a3b8", fontSize: "0.75rem" }} variant="body2">
                 Start time: {new Date(startTimeRef.current ?? 0).toLocaleTimeString()}
               </Typography>
-            </>
+            </Stack>
           )}
         </Stack>
       )}
@@ -1382,41 +1543,58 @@ export const FileForm = () => {
         onClose={() => setUpgradeModalOpen(false)}
         maxWidth="sm"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3, p: 1 } }}
+        PaperProps={{
+          sx: {
+            borderRadius: "24px",
+            p: 1,
+            backgroundColor: "#002f4d",
+            color: "#f8fafc",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
+            boxShadow: "0 24px 64px rgba(0, 15, 28, 0.85)",
+          },
+        }}
       >
-        <DialogTitle sx={{ fontWeight: "bold", fontSize: "1.25rem", pb: 1 }}>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: "1.35rem", pb: 1, color: "#FFFFFF" }}>
           Upgrade Required for Large Transfer
         </DialogTitle>
         <DialogContent>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Your selected transfer is <strong>{getSizeInReadableFormat(files)}</strong>, which exceeds your available storage ({formatBytes(allowedLimit)}).
+          <Typography variant="body2" sx={{ mb: 2, color: "#cbd5e1", lineHeight: 1.6 }}>
+            Your selected transfer is <strong style={{ color: "#ffddb4" }}>{getSizeInReadableFormat(files)}</strong>, which exceeds your available storage ({formatBytes(allowedLimit)}).
             Choose a high-speed plan to transfer your file immediately with zero compression and line-rate edge speeds.
           </Typography>
 
           <Stack gap={1.5} sx={{ mt: 2 }}>
             <Box
               sx={{
-                p: 2,
-                border: "2px solid #2563eb",
-                borderRadius: 2,
-                bgcolor: "#eff6ff",
+                p: 2.25,
+                border: "2px solid #f7bc6a",
+                borderRadius: "16px",
+                bgcolor: "rgba(0, 29, 50, 0.85)",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                gap: 2,
               }}
             >
               <div>
-                <Typography variant="subtitle1" fontWeight="bold">
+                <Typography variant="subtitle1" fontWeight="bold" sx={{ color: "#FFFFFF" }}>
                   Starter Plan — $10/mo
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" sx={{ color: "#cbd5e1" }}>
                   Send up to 30 GB files • 30-day link retention
                 </Typography>
               </div>
               <Button
                 variant="contained"
                 onClick={() => router.push("/checkout/starter")}
-                sx={{ bgcolor: "#2563eb", textTransform: "none", fontWeight: "bold" }}
+                sx={{
+                  bgcolor: "#f7bc6a",
+                  color: "#001d32",
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  fontWeight: "bold",
+                  "&:hover": { bgcolor: "#ffddb4" },
+                }}
               >
                 Choose Starter
               </Button>
@@ -1424,27 +1602,35 @@ export const FileForm = () => {
 
             <Box
               sx={{
-                p: 2,
-                border: "1px solid #e2e8f0",
-                borderRadius: 2,
-                bgcolor: "#f8fafc",
+                p: 2.25,
+                border: "1px solid rgba(255, 255, 255, 0.15)",
+                borderRadius: "16px",
+                bgcolor: "rgba(0, 29, 50, 0.6)",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                gap: 2,
               }}
             >
               <div>
-                <Typography variant="subtitle1" fontWeight="bold">
+                <Typography variant="subtitle1" fontWeight="bold" sx={{ color: "#FFFFFF" }}>
                   Pro Plan — $20/mo
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" sx={{ color: "#cbd5e1" }}>
                   Send up to 80 GB files • 30-day link retention
                 </Typography>
               </div>
               <Button
                 variant="outlined"
                 onClick={() => router.push("/checkout/pro")}
-                sx={{ textTransform: "none", fontWeight: "bold" }}
+                sx={{
+                  borderColor: "rgba(247, 188, 106, 0.5)",
+                  color: "#ffddb4",
+                  borderRadius: "10px",
+                  textTransform: "none",
+                  fontWeight: "bold",
+                  "&:hover": { borderColor: "#f7bc6a", bgcolor: "rgba(247, 188, 106, 0.12)" },
+                }}
               >
                 Choose Pro
               </Button>
@@ -1455,15 +1641,15 @@ export const FileForm = () => {
                 variant="text"
                 size="small"
                 onClick={() => router.push("/plans")}
-                sx={{ textTransform: "none", color: "#475569" }}
+                sx={{ textTransform: "none", color: "#ffddb4", fontWeight: 600 }}
               >
-                Need 200 GB (Studio) or 500 GB (Agency)? View all plans →
+                Need Pay-As-You-Go or 200 GB+ Studio plans? View all plans →
               </Button>
             </Box>
           </Stack>
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 2 }}>
-          <Button onClick={() => setUpgradeModalOpen(false)} sx={{ textTransform: "none" }}>
+          <Button onClick={() => setUpgradeModalOpen(false)} sx={{ textTransform: "none", color: "#cbd5e1" }}>
             Cancel
           </Button>
         </DialogActions>
@@ -1475,14 +1661,23 @@ export const FileForm = () => {
         onClose={() => setAuthModalOpen(false)}
         maxWidth="xs"
         fullWidth
-        PaperProps={{ sx: { borderRadius: 3, p: 1 } }}
+        PaperProps={{
+          sx: {
+            borderRadius: "24px",
+            p: 1,
+            backgroundColor: "#002f4d",
+            color: "#f8fafc",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
+            boxShadow: "0 24px 64px rgba(0, 15, 28, 0.85)",
+          },
+        }}
       >
-        <DialogTitle sx={{ fontWeight: "bold", fontSize: "1.2rem", pb: 1 }}>
+        <DialogTitle sx={{ fontWeight: 800, fontSize: "1.25rem", pb: 1, color: "#FFFFFF" }}>
           Deliver Your Transfer
         </DialogTitle>
         <DialogContent>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Your <strong>{getSizeInReadableFormat(files)}</strong> transfer is ready. Sign in or create a quick free account so we can generate your download link and track delivery receipts.
+          <Typography variant="body2" sx={{ mb: 2, color: "#cbd5e1", lineHeight: 1.6 }}>
+            Your <strong style={{ color: "#ffddb4" }}>{getSizeInReadableFormat(files)}</strong> transfer is ready. Sign in or create a quick free account so we can generate your download link and track delivery receipts.
           </Typography>
         </DialogContent>
         <DialogActions sx={{ flexDirection: "column", gap: 1, px: 3, pb: 2 }}>
@@ -1490,7 +1685,15 @@ export const FileForm = () => {
             variant="contained"
             fullWidth
             onClick={() => router.push("/signup?next=/transfer")}
-            sx={{ bgcolor: "#2563eb", textTransform: "none", fontWeight: "bold", py: 1 }}
+            sx={{
+              bgcolor: "#f7bc6a",
+              color: "#001d32",
+              borderRadius: "12px",
+              textTransform: "none",
+              fontWeight: "bold",
+              py: 1.1,
+              "&:hover": { bgcolor: "#ffddb4" },
+            }}
           >
             Create Free Account
           </Button>
@@ -1498,7 +1701,15 @@ export const FileForm = () => {
             variant="outlined"
             fullWidth
             onClick={() => router.push("/signin?next=/transfer")}
-            sx={{ textTransform: "none", fontWeight: "bold", py: 1 }}
+            sx={{
+              borderColor: "rgba(247, 188, 106, 0.5)",
+              color: "#ffddb4",
+              borderRadius: "12px",
+              textTransform: "none",
+              fontWeight: "bold",
+              py: 1.1,
+              "&:hover": { borderColor: "#f7bc6a", bgcolor: "rgba(247, 188, 106, 0.12)" },
+            }}
           >
             Sign In
           </Button>
@@ -1506,7 +1717,7 @@ export const FileForm = () => {
             variant="text"
             size="small"
             onClick={() => setAuthModalOpen(false)}
-            sx={{ textTransform: "none", color: "#64748b" }}
+            sx={{ textTransform: "none", color: "#94a3b8" }}
           >
             Cancel
           </Button>
@@ -1526,6 +1737,7 @@ export const FileForm = () => {
     </Card>
   );
 };
+
 
 function getSizeInReadableFormat(files: File[]): string {
   const totalBytes = files.reduce((sum, file) => sum + file.size, 0);

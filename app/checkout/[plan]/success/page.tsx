@@ -38,58 +38,61 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-8 px-4">
+    <div className="min-h-screen bg-ocean-950 text-slate-100 py-12 px-4 sm:px-6 lg:px-8 font-body">
       <div className="max-w-4xl mx-auto">
         
         {/* Header */}
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center">
-            <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-            <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
+            <div className="w-10 h-10 rounded-xl bg-gold-500/15 text-gold-400 flex items-center justify-center mr-3 border border-gold-500/20">
+              <BsArrowUpSquareFill className="text-xl text-gold-400" />
+            </div>
+            <h1 className="text-2xl font-extrabold text-white font-display tracking-tight">{brand.productName}</h1>
           </div>
         </div>
 
         {/* Success Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 text-center mb-8">
+        <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-8 sm:p-10 text-center mb-8">
           {/* Success Icon */}
-          <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-            <FiCheckCircle className="w-8 h-8 text-green-600" />
+          <div className="mx-auto w-16 h-16 bg-emerald-500/15 border border-emerald-500/30 rounded-2xl flex items-center justify-center mb-6">
+            <FiCheckCircle className="w-8 h-8 text-emerald-400" />
           </div>
 
           {/* Success Message */}
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <span className="label-caps text-emerald-400 text-xs block mb-1">Subscription Active</span>
+          <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mb-3">
             Payment Successful! 🎉
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
+          <p className="text-base text-slate-300 mb-8 max-w-lg mx-auto">
             Congratulations! Your subscription has been activated successfully.
           </p>
 
           {/* Plan Details Card */}
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 mb-8">
-            <div className="flex items-center justify-center mb-4">
-              <h3 className="text-xl font-bold text-gray-900 mr-3">
+          <div className="bg-ocean-950/80 border border-white/10 rounded-2xl p-6 sm:p-8 mb-8">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <h3 className="text-xl font-bold text-white font-display">
                 {selectedPlan.name} Plan
               </h3>
               {selectedPlan.popular && (
-                <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center">
-                  <FiStar className="mr-1" />
+                <div className="bg-gold-500/15 text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center">
+                  <FiStar className="mr-1.5" />
                   Most Popular
                 </div>
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pb-6 border-b border-white/10">
               {/* Storage Info */}
               <div className="flex items-center justify-center">
-                <FiUpload className="text-blue-600 mr-2" />
-                <span className="font-semibold text-gray-800">
+                <FiUpload className="text-sky-400 mr-2 text-lg" />
+                <span className="font-bold text-white font-display">
                   {selectedPlan.storage} Storage
                 </span>
               </div>
 
               {/* Price */}
               <div className="flex items-center justify-center">
-                <span className="text-2xl font-bold text-green-600">
+                <span className="text-2xl font-black text-gold-400 font-display">
                   ${selectedPlan.price}/month
                 </span>
               </div>
@@ -97,14 +100,14 @@ const Page = () => {
 
             {/* Features */}
             <div className="text-left max-w-md mx-auto">
-              <h4 className="font-semibold text-gray-900 mb-3 text-center">
-                What&apos;s included:
+              <h4 className="label-caps text-slate-300 text-[10px] mb-3 text-center">
+                What&apos;s included
               </h4>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {selectedPlan.features.map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <FiCheck className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm">{feature}</span>
+                    <FiCheck className="text-emerald-400 mr-2.5 mt-0.5 flex-shrink-0" />
+                    <span className="text-slate-300 text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -115,44 +118,50 @@ const Page = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <button
               onClick={handleDashboardRedirect}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
+              className="btn-gold py-4 px-6 rounded-xl font-bold font-display text-xs shadow-lg shadow-gold-500/15 transition-all duration-200 flex items-center justify-center tap-tactile"
             >
               Go to Dashboard
-              <FiArrowRight className="ml-2" />
+              <FiArrowRight className="ml-2 text-sm" />
             </button>
 
             <button
               onClick={handleTransferRedirect}
-              className="bg-white border-2 border-blue-600 text-blue-600 py-4 px-6 rounded-xl font-semibold hover:bg-blue-50 transform hover:scale-105 transition-all duration-200 flex items-center justify-center"
+              className="btn-outline-gold border border-white/15 text-white py-4 px-6 rounded-xl font-bold font-display text-xs hover:bg-white/[0.08] transition-all duration-200 flex items-center justify-center tap-tactile"
             >
               Start Transferring Files
-              <FiUpload className="ml-2" />
+              <FiUpload className="ml-2 text-sm" />
             </button>
           </div>
         </div>
 
         {/* Additional Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div className="bg-white rounded-xl p-4 shadow-md">
-            <FiZap className="text-blue-600 mx-auto mb-2 text-2xl" />
-            <h4 className="font-semibold text-gray-900 mb-1">Instant Access</h4>
-            <p className="text-sm text-gray-600">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
+          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-2xl p-5 shadow-xl">
+            <div className="w-11 h-11 rounded-xl bg-gold-500/15 text-gold-400 border border-gold-500/20 flex items-center justify-center mx-auto mb-3">
+              <FiZap className="text-xl" />
+            </div>
+            <h4 className="font-bold text-white font-display text-sm mb-1">Instant Access</h4>
+            <p className="text-xs text-slate-300">
               Your plan is active immediately
             </p>
           </div>
           
-          <div className="bg-white rounded-xl p-4 shadow-md">
-            <FiUpload className="text-green-600 mx-auto mb-2 text-2xl" />
-            <h4 className="font-semibold text-gray-900 mb-1">Ready to Upload</h4>
-            <p className="text-sm text-gray-600">
+          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-2xl p-5 shadow-xl">
+            <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto mb-3">
+              <FiUpload className="text-xl" />
+            </div>
+            <h4 className="font-bold text-white font-display text-sm mb-1">Ready to Upload</h4>
+            <p className="text-xs text-slate-300">
               Start sending files right away
             </p>
           </div>
           
-          <div className="bg-white rounded-xl p-4 shadow-md">
-            <FiUsers className="text-purple-600 mx-auto mb-2 text-2xl" />
-            <h4 className="font-semibold text-gray-900 mb-1">24/7 Support</h4>
-            <p className="text-sm text-gray-600">
+          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-2xl p-5 shadow-xl">
+            <div className="w-11 h-11 rounded-xl bg-sky-500/15 text-sky-400 border border-sky-500/20 flex items-center justify-center mx-auto mb-3">
+              <FiUsers className="text-xl" />
+            </div>
+            <h4 className="font-bold text-white font-display text-sm mb-1">24/7 Support</h4>
+            <p className="text-xs text-slate-300">
               We&apos;re here to help anytime
             </p>
           </div>
@@ -160,9 +169,9 @@ const Page = () => {
 
         {/* Footer Message */}
         <div className="text-center mt-8">
-          <p className="text-gray-500 text-sm">
+          <p className="text-slate-400 text-xs">
             Thank you for choosing {brand.productName}! If you have any questions,
-            <span className="text-blue-600 font-medium"> contact our support team</span>.
+            <a href="/contact" className="text-gold-400 hover:text-amber-300 font-semibold ml-1 transition">contact our support team</a>.
           </p>
         </div>
       </div>

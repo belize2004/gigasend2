@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { seoLandingPages } from "../data/seoLandingPages";
+import { getLanguageSwitchPaths } from "../data/ptSeoLandingPages";
 import { brand } from "@/lib/brand";
 import TransferEmbed from "@/src/components/TransferEmbed";
 import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
@@ -16,6 +17,13 @@ export function getStaticPaths() {
 
 const { page: landingPage } = Astro.props;
 const canonical = `${brand.siteUrl}/${landingPage.slug}`;
+const { ptPath, esPath } = getLanguageSwitchPaths(`/${landingPage.slug}`);
+const hreflang = [
+  { lang: "en", href: canonical },
+  { lang: "es", href: `${brand.siteUrl}${esPath || "/es"}` },
+  { lang: "pt-BR", href: `${brand.siteUrl}${ptPath || "/pt"}` },
+  { lang: "x-default", href: canonical },
+];
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -42,75 +50,150 @@ const webAppSchema = {
     description: "Free large file transfers up to 25GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
   },
 };
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: brand.siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Transfer Directory",
+      item: `${brand.siteUrl}/directory`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: landingPage.h1,
+      item: canonical,
+    },
+  ],
+};
 ---
 
-<BaseLayout title={landingPage.title} description={landingPage.metaDescription} canonical={canonical}>
+<BaseLayout title={landingPage.title} description={landingPage.metaDescription} canonical={canonical} hreflang={hreflang}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
-  <main class="min-h-screen bg-slate-50 text-slate-950">
-    <header class="border-b border-slate-200 bg-white">
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/85 backdrop-blur-2xl">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
-        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
-          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
-          {brand.productName}
+        <a href="/" class="flex items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile">
+          <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">G</span>
+          <span class="group-hover:text-gold-400 transition-colors">{brand.productName}</span>
         </a>
-        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
-          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
-          <a class="hover:text-blue-700" href="/plans">Plans</a>
-          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer</a>
+        <div class="flex items-center gap-4 sm:gap-5 text-xs font-medium text-slate-300">
+          <a class="hidden md:inline hover:text-gold-400 transition-colors" href="/transfer">Transfer</a>
+          <a class="hidden md:inline hover:text-gold-400 transition-colors" href="/plans">Plans</a>
+          <a class="hidden lg:inline hover:text-gold-400 transition-colors" href="/compare">Compare</a>
+          <a class="hidden md:inline hover:text-gold-400 transition-colors" href="/directory">Directory</a>
+          <a class="hidden lg:inline hover:text-gold-400 transition-colors" href="/guides">Guides</a>
+          <a class="hidden xl:inline hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Speed Calculator</a>
+          <a class="hidden lg:inline hover:text-gold-400 transition-colors" href="/contact">Contact</a>
+          <div class="inline-flex items-center rounded-xl border border-white/15 bg-ocean-900/90 p-1 text-xs font-mono" role="group" aria-label="Language switcher">
+            <a
+              href={`/${landingPage.slug}?lang=en`}
+              onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'"
+              class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2.5 py-1.5 font-bold bg-gold-500/15 text-gold-400"
+              aria-current="true"
+            >
+              EN
+            </a>
+            <span class="mx-0.5 text-slate-600" aria-hidden="true">|</span>
+            <a
+              href={`${esPath || "/es"}?lang=es`}
+              onclick="document.cookie='gigasend_lang=es; path=/; max-age=31536000; SameSite=Lax'"
+              class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2.5 py-1.5 text-slate-300 hover:text-white transition-colors"
+            >
+              ES
+            </a>
+            <span class="mx-0.5 text-slate-600" aria-hidden="true">|</span>
+            <a
+              href={`${ptPath || "/pt"}?lang=pt`}
+              onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'"
+              class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2.5 py-1.5 text-slate-300 hover:text-white transition-colors"
+            >
+              PT
+            </a>
+          </div>
+          <a class="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile" href="/transfer">Send Files</a>
         </div>
       </nav>
     </header>
 
-    <section class="bg-white">
+    <nav aria-label="Breadcrumb" class="border-b border-white/5 bg-ocean-950/90">
+      <ol class="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 py-3 text-xs text-slate-400 sm:px-6 lg:px-8">
+        <li>
+          <a href="/" class="hover:text-gold-400 transition-colors">Home</a>
+        </li>
+        <li aria-hidden="true" class="text-slate-600">/</li>
+        <li>
+          <a href="/directory" class="hover:text-gold-400 transition-colors">Transfer Directory</a>
+        </li>
+        <li aria-hidden="true" class="text-slate-600">/</li>
+        <li class="font-semibold text-gold-400 truncate max-w-[260px] sm:max-w-md" aria-current="page">
+          {landingPage.h1}
+        </li>
+      </ol>
+    </nav>
+
+    <section class="relative bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 border-b border-white/10">
       <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-20">
         <div>
-          <p class="mb-4 text-sm font-semibold uppercase tracking-wide text-blue-700">{landingPage.eyebrow}</p>
-          <h1 class="max-w-4xl text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">{landingPage.h1}</h1>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{landingPage.intro}</p>
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
+            <span>⚡</span>
+            <span>{landingPage.eyebrow}</span>
+          </p>
+          <h1 class="max-w-4xl text-4xl font-black leading-tight text-white font-display tracking-tight sm:text-5xl">{landingPage.h1}</h1>
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">{landingPage.intro}</p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="/transfer" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
+            <a href="/transfer" class="btn-gold inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
               {landingPage.cta}
             </a>
-            <a href="/plans" class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-700">
+            <a href="/plans" class="btn-outline-gold inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold tap-tactile">
               View plans
             </a>
           </div>
           <div class="mt-8 grid max-w-2xl grid-cols-3 gap-3 text-center text-sm">
-            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">25GB</div>
-              <div class="mt-1 text-slate-600">Free transfers</div>
+            <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
+              <div class="text-xl font-black text-gold-400 font-display">25GB</div>
+              <div class="mt-1 text-xs text-slate-300">Free transfers</div>
             </div>
-            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">3 days</div>
-              <div class="mt-1 text-slate-600">Free storage</div>
+            <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
+              <div class="text-xl font-black text-gold-400 font-display">3 days</div>
+              <div class="mt-1 text-xs text-slate-300">Free storage</div>
             </div>
-            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">5TB</div>
-              <div class="mt-1 text-slate-600">Enterprise</div>
+            <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
+              <div class="text-xl font-black text-gold-400 font-display">5TB</div>
+              <div class="mt-1 text-xs text-slate-300">Enterprise</div>
             </div>
           </div>
         </div>
 
         <div class="flex flex-col gap-6">
           <TransferEmbed client:load />
-          <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
-            <h2 class="text-sm font-bold text-slate-950 uppercase tracking-wide">Instant 3-Step Edge Transfer</h2>
-            <ol class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-700">
+          <aside class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-xl">
+            <h2 class="text-xs font-bold text-gold-400 uppercase tracking-wider label-caps">Instant 3-Step Edge Transfer</h2>
+            <ol class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-200">
               <li class="flex items-center gap-2">
-                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">1</span>
-                <span><strong>Drop</strong> files above</span>
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">1</span>
+                <span><strong class="text-white">Drop</strong> files above</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">2</span>
-                <span><strong>Line-speed</strong> upload</span>
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">2</span>
+                <span><strong class="text-white">Line-speed</strong> upload</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">3</span>
-                <span><strong>Get 1-click link</strong></span>
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">3</span>
+                <span><strong class="text-white">Get 1-click link</strong></span>
               </li>
             </ol>
           </aside>
@@ -121,56 +204,61 @@ const webAppSchema = {
     <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="grid gap-6 lg:grid-cols-3">
         {landingPage.sections.map((section) => (
-          <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 class="text-xl font-bold text-slate-950">{section.heading}</h2>
-            <p class="mt-3 leading-7 text-slate-600">{section.body}</p>
+          <article class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg">
+            <h2 class="text-xl font-bold text-white font-display">{section.heading}</h2>
+            <p class="mt-3 leading-7 text-slate-300 text-sm">{section.body}</p>
           </article>
         ))}
       </div>
     </section>
 
-    <section class="bg-white py-14">
+    <section class="bg-ocean-900/50 border-y border-white/10 py-14">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-slate-950">Compare your options</h2>
-        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200">
-          <table class="w-full border-collapse text-left text-sm">
-            <thead class="bg-slate-100 text-slate-800">
-              <tr>
-                <th class="p-4 font-semibold">Method</th>
-                <th class="p-4 font-semibold">Best for</th>
-                <th class="p-4 font-semibold">Limitation</th>
-                <th class="p-4 font-semibold">{brand.name} angle</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 bg-white">
-              {landingPage.comparison.map((row) => (
+        <span class="label-caps text-gold-400 text-xs">Head-to-Head</span>
+        <h2 class="mt-1 text-3xl font-black text-white font-display">Compare your options</h2>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-ocean-900/80 shadow-2xl backdrop-blur-2xl">
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-left text-sm text-slate-300">
+              <thead class="bg-ocean-950/90 text-slate-300 border-b border-white/10">
                 <tr>
-                  <td class="p-4 font-semibold text-slate-950">{row.method}</td>
-                  <td class="p-4 text-slate-600">{row.bestFor}</td>
-                  <td class="p-4 text-slate-600">{row.limitation}</td>
-                  <td class="p-4 text-slate-600">{row.gigaSendAngle}</td>
+                  <th class="p-4 font-semibold text-white label-caps text-xs">Method</th>
+                  <th class="p-4 font-semibold text-slate-300 label-caps text-xs">Best for</th>
+                  <th class="p-4 font-semibold text-slate-300 label-caps text-xs">Limitation</th>
+                  <th class="p-4 font-semibold text-gold-400 label-caps text-xs border-l border-gold-500/30 bg-ocean-900/90">{brand.name} angle</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody class="divide-y divide-white/10 bg-ocean-900/40">
+                {landingPage.comparison.map((row) => (
+                  <tr class="hover:bg-ocean-800/40 transition-colors">
+                    <td class="p-4 font-semibold text-white font-display">{row.method}</td>
+                    <td class="p-4 text-slate-300">{row.bestFor}</td>
+                    <td class="p-4 text-rose-400">{row.limitation}</td>
+                    <td class="p-4 font-semibold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">{row.gigaSendAngle}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
       <div>
-        <h2 class="text-3xl font-bold text-slate-950">Why this page is different</h2>
-        <p class="mt-4 leading-7 text-slate-600">{landingPage.differentiation}</p>
-        <a href="/transfer" class="mt-6 inline-flex rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700">{landingPage.cta}</a>
+        <span class="label-caps text-gold-400 text-xs">The Edge Advantage</span>
+        <h2 class="mt-1 text-3xl font-black text-white font-display">Why this page is different</h2>
+        <p class="mt-4 leading-7 text-slate-300">{landingPage.differentiation}</p>
+        <a href="/transfer" class="btn-gold mt-6 inline-flex rounded-xl px-6 py-3.5 text-sm font-bold shadow-lg shadow-gold-500/20 tap-tactile">{landingPage.cta}</a>
       </div>
 
       <div>
-        <h2 class="text-3xl font-bold text-slate-950">FAQ</h2>
+        <span class="label-caps text-gold-400 text-xs">Technical Support</span>
+        <h2 class="mt-1 text-3xl font-black text-white font-display">FAQ</h2>
         <div class="mt-6 space-y-4">
           {landingPage.faqs.map((faq) => (
-            <details class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-              <summary class="cursor-pointer font-semibold text-slate-950">{faq.question}</summary>
-              <p class="mt-3 leading-7 text-slate-600">{faq.answer}</p>
+            <details class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-md group">
+              <summary class="cursor-pointer font-semibold text-white font-display group-hover:text-gold-400 transition-colors">{faq.question}</summary>
+              <p class="mt-3 leading-7 text-slate-300 text-sm">{faq.answer}</p>
             </details>
           ))}
         </div>
@@ -183,12 +271,58 @@ const webAppSchema = {
       title="Related Transfer Solutions & Workflows"
     />
 
-    <section class="bg-blue-600 py-14 text-white">
+    <section class="bg-gradient-to-b from-ocean-900 to-ocean-950 border-t border-white/10 py-16 text-white">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold">Ready to send a large file?</h2>
-        <p class="mt-4 text-lg text-blue-100">Upload your file and send a secure download link in a few clicks.</p>
-        <a href="/transfer" class="mt-8 inline-flex rounded-lg bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">{landingPage.cta}</a>
+        <span class="label-caps text-gold-400 text-xs">Zero Egress • 335+ Edge PoPs</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-black font-display">Ready to send a large file?</h2>
+        <p class="mt-4 text-lg text-slate-300">Upload your file and send a secure download link in a few clicks.</p>
+        <a href="/transfer" class="btn-gold mt-8 inline-flex rounded-xl px-8 py-4 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">{landingPage.cta}</a>
       </div>
     </section>
+
+    <footer class="border-t border-white/10 bg-ocean-950 py-12 text-xs text-slate-400">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a href="/" class="flex items-center gap-2.5 text-base font-extrabold font-display text-white hover:text-gold-400 transition-colors">
+              <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black text-sm">G</span>
+              <span>{brand.productName}</span>
+            </a>
+            <p class="mt-3 leading-relaxed text-slate-400">
+              Line-speed multi-stream edge file transport across 335+ Cloudflare Anycast PoPs. Up to 25GB free with zero account walls.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Platform & Tools</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a class="hover:text-gold-400 transition-colors" href="/">Home</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/transfer">Start File Transfer</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/plans">Pricing & Plans</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/compare">Provider Comparisons</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Transfer Speed Calculator</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Workflow Categories</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory">All 46 Transfer Workflows</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#video-cinema">Video, Camera RAW & NLE</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#vfx-3d">3D, VFX, Game Dev & BIM</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#audio-music">Audio & DAW Sessions</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#competitor-bypass">Quota Bypass & Alternatives</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#sizes">File Size Tiers (5GB–2TB)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Resources & Support</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a class="hover:text-gold-400 transition-colors" href="/guides">Engineering Guides</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/blogs">Transfer Blog</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/contact">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </main>
 </BaseLayout>

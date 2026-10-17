@@ -2,12 +2,12 @@
 
 import React, { useId, useState } from "react";
 import Image from '@/components/compat/Image';
-import { Box, Button, Stack, Typography } from "@mui/material";
 import { useFileContext } from "@/context/FileContext";
 
 export function FileUploader() {
   const { setFiles } = useFileContext();
   const [inputKey, setInputKey] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const inputId = useId();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,42 +18,85 @@ export function FileUploader() {
     setInputKey((key) => key + 1);
   };
 
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const droppedFiles = Array.from(e.dataTransfer.files);
+      setFiles((prev) => [...prev, ...droppedFiles]);
+      setInputKey((key) => key + 1);
+    }
+  };
+
   return (
-    <Box
-      sx={{
-        border: "2px dashed",
-        borderRadius: "8px",
-        padding: "32px 24px",
-        textAlign: "center",
-        cursor: "pointer",
-        width: "100%",
-        maxWidth: "552px",
-        borderColor: "primary.main",
-        backgroundColor: "background.paper",
+    <div
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      className="w-full max-w-[552px] mx-auto rounded-[20px] px-6 py-8 text-center cursor-pointer backdrop-blur-md transition-all duration-250"
+      style={{
+        border: isDragging
+          ? "2px dashed #f7bc6a"
+          : "2px dashed rgba(247, 188, 106, 0.45)",
+        backgroundColor: isDragging
+          ? "rgba(0, 47, 77, 0.9)"
+          : "rgba(0, 29, 50, 0.7)",
+        boxShadow: isDragging
+          ? "0 0 30px rgba(247, 188, 106, 0.2)"
+          : "0 12px 32px rgba(0, 15, 28, 0.45)",
       }}
     >
-      <Image src={"/upload.svg"} alt="Upload Icon" width={36} height={36} />
-      <Typography variant="h6" gutterBottom>
-        Click to add your{" "}
-        <Typography variant="caption" fontWeight={700}>
-          files
-        </Typography>{" "}
-        or add a{" "}
-        <Typography variant="caption" fontWeight={700}>
-          folder
-        </Typography>
-      </Typography>
-      <Typography variant="body2">
-        Supports all file types, up to your available plan storage
-      </Typography>
-      <Stack direction={{ xs: "column", sm: "row" }} gap={1.5} justifyContent="center" mt={4}>
-        <Button variant="contained" color="primary" component="label" htmlFor={`${inputId}-files`}>
+      <div
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
+        style={{
+          backgroundColor: "rgba(247, 188, 106, 0.15)",
+          border: "1px solid rgba(247, 188, 106, 0.3)",
+        }}
+      >
+        <Image src={"/upload.svg"} alt="Upload Icon" width={30} height={30} />
+      </div>
+      <h3 className="text-white font-bold text-lg tracking-tight mb-1.5 font-display">
+        Click or drop to add your{" "}
+        <span className="text-[#ffddb4] font-extrabold">files</span> or{" "}
+        <span className="text-[#ffddb4] font-extrabold">folder</span>
+      </h3>
+      <p className="text-slate-300 text-[0.85rem] leading-relaxed">
+        Supports all file types at line-rate edge speeds up to your available plan storage
+      </p>
+      <div className="flex flex-col sm:flex-row gap-3 justify-center mt-7">
+        <label
+          htmlFor={`${inputId}-files`}
+          className="inline-flex items-center justify-center cursor-pointer rounded-xl px-6 py-2.5 text-sm font-bold text-[#001d32] bg-[#f7bc6a] hover:bg-[#ffddb4] transition-all"
+          style={{
+            boxShadow: "0 8px 20px rgba(247, 188, 106, 0.25)",
+          }}
+        >
           Browse files
-        </Button>
-        <Button variant="outlined" color="primary" component="label" htmlFor={`${inputId}-folder`}>
+        </label>
+        <label
+          htmlFor={`${inputId}-folder`}
+          className="inline-flex items-center justify-center cursor-pointer rounded-xl px-6 py-2.5 text-sm font-bold text-[#ffddb4] transition-all hover:bg-[#f7bc6a]/15"
+          style={{
+            border: "1px solid rgba(247, 188, 106, 0.5)",
+            backgroundColor: "rgba(0, 47, 77, 0.5)",
+          }}
+        >
           Browse folder
-        </Button>
-      </Stack>
+        </label>
+      </div>
 
       <input
         key={`files-${inputKey}`}
@@ -74,7 +117,7 @@ export function FileUploader() {
         style={visuallyHiddenInput}
         onChange={handleFileChange}
       />
-    </Box>
+    </div>
   );
 }
 
@@ -89,3 +132,4 @@ const visuallyHiddenInput: React.CSSProperties = {
   whiteSpace: "nowrap",
   width: 1,
 };
+

@@ -25,14 +25,14 @@ export default function TrustSignals() {
       {badges.map(({ label, detail, icon: Icon }) => (
         <div
           key={label}
-          className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white px-4 py-3 text-left shadow-sm"
+          className="apple-glass flex items-center gap-3 rounded-2xl border border-white/10 bg-ocean-900/80 px-4 py-3 text-left shadow-lg"
         >
-          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gold-500/15 text-gold-400 border border-gold-500/30">
             <Icon className="text-xl" />
           </div>
           <div>
-            <div className="text-sm font-bold text-gray-900">{label}</div>
-            <div className="text-xs font-medium text-gray-500">{detail}</div>
+            <div className="text-sm font-bold text-white font-display">{label}</div>
+            <div className="text-xs font-medium text-slate-300">{detail}</div>
           </div>
         </div>
       ))}

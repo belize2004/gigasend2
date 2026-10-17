@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const emailBinding = runtimeEnv?.EMAIL;
     const adminRecipients = getAdminEmails(runtimeEnv);
     if (adminRecipients.length > 0) {
-      sendEmailViaCloudflare(emailBinding, {
+      await sendEmailViaCloudflare(emailBinding, {
         from: brand.emailFrom,
         to: adminRecipients,
         subject: `[Admin Alert] Password Reset Successfully Completed: ${user.email}`,

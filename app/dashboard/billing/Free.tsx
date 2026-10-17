@@ -44,11 +44,26 @@ const Free: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold-500/15 text-gold-400 border border-gold-500/30">
+              Plan & Capacity
+            </span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Billing & Subscription</h1>
+          <p className="text-xs sm:text-sm text-slate-300 font-body mt-0.5">
+            Manage your workspace storage tier and transfer capacity.
+          </p>
+        </div>
+      </div>
+
       {/* Current Plan Card - Free */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-gray-400">
+      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Current Plan</h2>
-          <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold">
+          <h2 className="text-xl font-bold text-white font-display">Current Plan</h2>
+          <div className="bg-white/10 text-slate-200 border border-white/15 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             Free
           </div>
         </div>
@@ -56,53 +71,60 @@ const Free: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <div className="flex items-center mb-4">
-              <FiUpload className="text-gray-600 mr-2 text-xl" />
-              <h3 className="text-lg font-semibold text-gray-900">{data.planName}</h3>
+              <div className="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center mr-3 border border-sky-500/20">
+                <FiUpload className="text-lg" />
+              </div>
+              <h3 className="text-lg font-bold text-white font-display">{data.planName}</h3>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               {PLANS.free.features.map((feature, index) => (
                 <div key={index} className="flex items-center text-sm">
-                  <FiCheck className="text-gray-500 mr-2 flex-shrink-0" />
-                  <span className="text-gray-600">{feature}</span>
+                  <FiCheck className="text-emerald-400 mr-2.5 flex-shrink-0" />
+                  <span className="text-slate-300">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="space-y-4">
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+            <div className="bg-ocean-950/80 border border-white/10 rounded-2xl p-5">
               <div className="flex items-center mb-2">
-                <FiDollarSign className="text-gray-600 mr-2" />
-                <span className="font-semibold text-gray-700">Current Cost</span>
+                <FiDollarSign className="text-gold-400 mr-2" />
+                <span className="label-caps text-slate-300 text-[10px]">Current Cost</span>
               </div>
-              <p className="text-2xl font-bold text-gray-900">$0.00</p>
-              <p className="text-sm text-gray-600">Forever free</p>
+              <p className="text-3xl font-black text-white font-display tracking-tight">$0.00</p>
+              <p className="text-xs text-slate-400 mt-1">Forever free tier</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Upgrade CTA Card */}
-      <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-2xl shadow-xl p-8 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full translate-y-12 -translate-x-12"></div>
+      <div className="apple-glass bg-ocean-900/95 border border-gold-500/40 rounded-3xl shadow-2xl shadow-gold-500/10 p-8 text-white relative overflow-hidden">
+        <div className="absolute -top-12 -right-12 w-48 h-48 bg-gold-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10">
           <div className="flex items-center mb-4">
-            <FiZap className="text-yellow-300 mr-3 text-2xl" />
-            <h2 className="text-2xl font-bold">Unlock Premium Features</h2>
+            <div className="w-12 h-12 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mr-3.5 border border-gold-500/30">
+              <FiZap className="text-xl" />
+            </div>
+            <div>
+              <span className="label-caps text-gold-400 text-[10px] block">Pro Capacity</span>
+              <h2 className="text-2xl font-extrabold font-display tracking-tight">Unlock Premium Features</h2>
+            </div>
           </div>
 
-          <p className="text-blue-100 mb-6 text-lg">
-            Get unlimited storage, advanced features, and priority support with our Pro plan.
+          <p className="text-slate-300 mb-6 text-base leading-relaxed">
+            Get high-capacity storage, extended retention, and priority edge delivery with our Pro plan.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
             {premiumFeatures.map((feature, index) => (
-              <div key={index} className="flex items-center">
-                <feature.icon className={`mr-3 text-lg ${feature.highlight ? 'text-yellow-300' : 'text-blue-200'}`} />
-                <span className={feature.highlight ? 'font-semibold' : 'font-medium'}>
+              <div key={index} className="flex items-center p-3.5 rounded-2xl bg-ocean-950/70 border border-white/10">
+                <feature.icon className={`mr-3 text-lg ${feature.highlight ? 'text-gold-400' : 'text-sky-400'}`} />
+                <span className={`text-sm ${feature.highlight ? 'font-bold text-white' : 'font-medium text-slate-200'}`}>
                   {feature.text}
                 </span>
               </div>
@@ -114,7 +136,7 @@ const Free: React.FC = () => {
               onClick={
                 () => router.push('/checkout/pro')
               }
-              className="flex-1 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-200 flex items-center justify-center shadow-lg"
+              className="flex-1 btn-gold px-8 py-4 rounded-xl font-bold font-display text-sm transition-all duration-200 flex items-center justify-center shadow-lg shadow-gold-500/15 tap-tactile"
             >
               <FiTrendingUp className="mr-2" />
               Upgrade to Pro - ${PLANS.pro.price}/month
@@ -124,33 +146,33 @@ const Free: React.FC = () => {
               onClick={
                 () => router.push(`/plans`)
               }
-              className="px-6 py-4 border-2 border-white border-opacity-30 text-white rounded-xl font-semibold hover:bg-white hover:text-black hover:bg-opacity-10 transition-all duration-200">
+              className="px-6 py-4 btn-outline-gold border border-white/15 text-white rounded-xl font-semibold text-sm hover:bg-white/[0.08] transition-all duration-200 tap-tactile">
               View All Plans
             </button>
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-blue-200 text-sm">
-              ✨ <strong>Stay Tuned:</strong> Exciting offers drop regularly — keep checking back!
+            <p className="text-slate-300 text-xs">
+              ✨ <strong className="text-gold-400">Stay Tuned:</strong> Exciting offers drop regularly — keep checking back!
             </p>
           </div>
         </div>
       </div>
 
       {/* Usage Limits Warning */}
-      <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+      <div className="apple-subtle-glass bg-gold-500/10 border border-gold-500/30 rounded-2xl p-5">
         <div className="flex items-start">
-          <FiAlertTriangle className="text-orange-600 mr-3 mt-0.5" />
+          <FiAlertTriangle className="text-gold-400 mr-3.5 mt-0.5 text-lg shrink-0" />
           <div>
-            <h4 className="font-semibold text-orange-800 mb-1">Approaching Limits</h4>
-            <p className="text-sm text-orange-700 mb-2">
+            <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Approaching Limits</h4>
+            <p className="text-xs text-slate-300 mb-2">
               About to end the usage limit?
             </p>
             <button
               onClick={
                 () => router.push(`/checkout/pro`)
               }
-              className="text-orange-800 font-semibold text-sm hover:text-orange-900 underline"
+              className="text-gold-400 font-semibold text-xs hover:text-amber-300 underline transition"
             >
               Upgrade Now →
             </button>
@@ -159,12 +181,12 @@ const Free: React.FC = () => {
       </div>
 
       {/* Security Notice */}
-      <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+      <div className="apple-subtle-glass bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5">
         <div className="flex items-center">
-          <FiShield className="text-green-600 mr-3" />
+          <FiShield className="text-emerald-400 mr-3.5 text-lg shrink-0" />
           <div>
-            <h4 className="font-semibold text-green-800">Secure & Trusted</h4>
-            <p className="text-sm text-green-700">
+            <h4 className="font-bold text-emerald-400 font-display text-sm">Secure & Trusted</h4>
+            <p className="text-xs text-slate-300 mt-0.5">
               Your files are encrypted and secure. Trusted by over 10,000+ users worldwide.
             </p>
           </div>

@@ -1,37 +1,160 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ocean-50: #f0f7fd;
+  --color-ocean-100: #e0effa;
+  --color-ocean-200: #bae0f5;
+  --color-ocean-300: #7cc7ee;
+  --color-ocean-400: #38aae3;
+  --color-ocean-500: #0e8fd1;
+  --color-ocean-600: #076494;
+  --color-ocean-700: #1c5b87;
+  --color-ocean-800: #00436a;
+  --color-ocean-900: #002f4d;
+  --color-ocean-950: #001d32;
+
+  --color-gold-400: #ffddb4;
+  --color-gold-500: #f7bc6a;
+  --color-gold-600: #e5a54f;
+  --color-gold-text: #00436a;
+
+  --color-surface-bg: #001d32;
+  --color-surface-card: #002f4d;
+  --color-surface-dim: #001829;
+  --color-surface-border: rgba(255, 255, 255, 0.1);
+
+  --font-display: 'Montserrat', 'Montserrat Fallback', system-ui, -apple-system, sans-serif;
+  --font-body: 'Fira Sans', 'Fira Sans Fallback', system-ui, -apple-system, sans-serif;
+
+  --tracking-caps: 0.15em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+/* Self-Hosted Edge-Cached Fonts (0 External Roundtrips, Zero-Blocking) */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('/fonts/fira-sans-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('/fonts/fira-sans-600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-display: optional;
+  src: url('/fonts/montserrat-800.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
+  ascent-override: 96.8%;
+  descent-override: 25.1%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+@font-face {
+  font-family: 'Fira Sans Fallback';
+  src: local('Arial'), local('Helvetica'), local('sans-serif');
+  ascent-override: 93.5%;
+  descent-override: 26.5%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+:root {
+  --font-display: 'Montserrat', 'Montserrat Fallback', system-ui, -apple-system, sans-serif;
+  --font-body: 'Fira Sans', 'Fira Sans Fallback', system-ui, -apple-system, sans-serif;
+  --font-primary: var(--font-body);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: dark;
+}
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
-  font-family: var(--font-primary);
+  overflow-x: clip;
+  font-family: var(--font-body);
 }
 
 body {
-  /* color: var(--foreground);
-  background: var(--background); */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
-  color: black;
+  background-color: #001d32;
+  color: #f1f5f9;
 }
 
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.label-caps {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.btn-gold {
+  background-color: #f7bc6a;
+  color: #00436a;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.3s var(--ease-editorial);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gold:hover {
+  background-color: #ffddb4;
+  transform: scale(1.02);
+}
+
+.btn-gold:active {
+  transform: scale(0.97);
+}
+
+.btn-outline-gold {
+  border: 1px solid #f7bc6a66;
+  color: #f7bc6a;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.3s var(--ease-editorial);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-gold:hover {
+  background-color: #f7bc6a15;
+  border-color: #f7bc6a;
+}
+
+/* Apple HIG Touch & Viewport Ergonomics */
 * {
   box-sizing: border-box;
-  /* padding: 0; */
-  /* margin: 0; */
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -39,9 +162,26 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-gold-400);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Prevent disruptive iOS Safari auto-zoom on form focus */
+input, select, textarea {
+  font-size: 16px;
+}
+@media (min-width: 640px) {
+  input, select, textarea {
+    font-size: 0.875rem;
   }
 }
 
@@ -49,17 +189,36 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   transition: background-color 9999s ease-in-out 0s;
-  -webkit-text-fill-color: #000 !important;
-  /* Or whatever text color you prefer */
-  box-shadow: 0 0 0px 1000px white inset !important;
-  /* Or match your input bg color */
-}
-
-button {
-  cursor: pointer;
+  -webkit-text-fill-color: #f1f5f9 !important;
+  box-shadow: 0 0 0px 1000px #001d32 inset !important;
 }
 
 input,
 select {
-  @apply placeholder:text-gray-300
+  @apply placeholder:text-slate-400;
+}
+
+/* Apple Obsidian Glass Surfaces with Specular Inner Highlight */
+.apple-glass {
+  background: rgba(2, 17, 31, 0.75);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+}
+
+.apple-subtle-glass {
+  background: rgba(2, 17, 31, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Tactile Spring Micro-Interactions */
+.tap-tactile {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+}
+.tap-tactile:active {
+  transform: scale(0.97);
 }

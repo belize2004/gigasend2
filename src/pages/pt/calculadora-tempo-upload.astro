@@ -1,0 +1,283 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PtHeader from "../../components/PtHeader.astro";
+import PtFooter from "../../components/PtFooter.astro";
+import { ptSeoLandingPages } from "../../data/ptSeoLandingPages";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/pt/calculadora-tempo-upload`;
+const hreflang = [
+  { lang: "en", href: `${brand.siteUrl}/tools/transfer-speed-calculator` },
+  { lang: "pt-BR", href: canonical },
+  { lang: "x-default", href: `${brand.siteUrl}/tools/transfer-speed-calculator` },
+];
+
+const sizePages = ptSeoLandingPages.filter((p) => p.cluster === "capacidade-tamanho");
+
+const benchmarkTable = [
+  { size: "5 GB", starlink: "~7 min", fibra300: "~2 min 15s", fibra600: "~1 min 08s", tier: "Grátis (Até 25GB)" },
+  { size: "10 GB", starlink: "~14 min", fibra300: "~4 min 30s", fibra600: "~2 min 15s", tier: "Grátis (Até 25GB)" },
+  { size: "20 GB", starlink: "~28 min", fibra300: "~9 min", fibra600: "~4 min 30s", tier: "Grátis (Até 25GB)" },
+  { size: "25 GB", starlink: "~35 min", fibra300: "~11 min 15s", fibra600: "~5 min 38s", tier: "Teto Grátis (25GB)" },
+  { size: "50 GB", starlink: "~1h 10m", fibra300: "~22 min 30s", fibra600: "~11 min 15s", tier: "Pacote $10 / 50GB" },
+  { size: "100 GB", starlink: "~2h 20m", fibra300: "~45 min", fibra600: "~22 min 30s", tier: "Pacote $20 / 100GB" },
+  { size: "250 GB", starlink: "~5h 50m", fibra300: "~1h 52m", fibra600: "~56 min", tier: "Pacote $180 / 1TB" },
+  { size: "500 GB", starlink: "~11h 40m", fibra300: "~3h 45m", fibra600: "~1h 52m", tier: "Pacote $180 / 1TB" },
+  { size: "1 TB (1.024 GB)", starlink: "Contínuo c/ Retomada", fibra300: "~7h 30m", fibra600: "~3h 45m", tier: "Pacote $180 / 1TB" },
+];
+
+const calcSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: `${brand.productName} Brasil — Calculadora de Tempo de Upload (Claro, Vivo, Starlink)`,
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "All",
+  url: canonical,
+  inLanguage: "pt-BR",
+  description:
+    "Calcule o tempo exato para enviar arquivos pesados de 5GB, 25GB, 50GB, 100GB, 500GB e 1TB nas operadoras brasileiras (Claro, Vivo, Oi Fibra e Starlink).",
+  offers: {
+    "@type": "Offer",
+    price: "0.00",
+    priceCurrency: "USD",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
+    { "@type": "ListItem", position: 2, name: "Calculadora de Tempo de Upload", item: canonical },
+  ],
+};
+---
+
+<BaseLayout
+  title={`Calculadora de Tempo de Upload no Brasil | ${brand.productName}`}
+  description="Calcule o tempo exato para enviar arquivos de 5GB, 25GB, 50GB, 100GB, 500GB e 1TB na Claro Fibra, Vivo Fibra, Oi e Starlink via CDN em São Paulo e Rio."
+  canonical={canonical}
+  lang="pt-BR"
+  hreflang={hreflang}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(calcSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <PtHeader activeNav="calculadora" enHref="/tools/transfer-speed-calculator?lang=en" ptHref="/pt/calculadora-tempo-upload?lang=pt" />
+
+    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400">
+          ⚡ Simulador de Tempo & Custo de Transferência no Brasil
+        </span>
+        <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
+          Calculadora de Tempo de Upload (Claro, Vivo, Oi Fibra & Starlink)
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          Simule quanto tempo leva para enviar seus arquivos de vídeo 4K/RAW, ortomosaicos de drone ou projetos BIM usando os servidores CDN locais do GigaSend em São Paulo (GRU) e Rio de Janeiro (GIG).
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-8 shadow-2xl">
+        <div class="space-y-6">
+          <div>
+            <label for="calc-size-gb" class="block text-xs font-mono uppercase tracking-wider text-gold-400">
+              1. Tamanho Total do Arquivo ou Pasta: <span id="size-val" class="text-white font-bold tabular-nums">50 GB</span>
+            </label>
+            <input
+              id="calc-size-gb"
+              type="range"
+              min="1"
+              max="1000"
+              value="50"
+              aria-label="Tamanho Total do Arquivo ou Pasta em Gigabytes"
+              class="mt-3 h-7 w-full accent-amber-400 cursor-pointer touch-pan-y"
+            />
+            <div class="mt-2 grid grid-cols-3 sm:grid-cols-6 gap-2">
+              <button type="button" data-size="10" aria-pressed="false" class="preset-size tap-tactile min-h-[40px] rounded-xl border border-white/15 bg-ocean-950 px-2.5 py-1.5 text-xs font-mono text-slate-300 hover:border-gold-400 transition">10 GB</button>
+              <button type="button" data-size="25" aria-pressed="false" class="preset-size tap-tactile min-h-[40px] rounded-xl border border-white/15 bg-ocean-950 px-2.5 py-1.5 text-xs font-mono text-slate-300 hover:border-gold-400 transition">25 GB</button>
+              <button type="button" data-size="50" aria-pressed="true" class="preset-size tap-tactile min-h-[40px] rounded-xl border border-gold-400 bg-gold-500/15 px-2.5 py-1.5 text-xs font-mono font-bold text-gold-300 transition">50 GB</button>
+              <button type="button" data-size="100" aria-pressed="false" class="preset-size tap-tactile min-h-[40px] rounded-xl border border-white/15 bg-ocean-950 px-2.5 py-1.5 text-xs font-mono text-slate-300 hover:border-gold-400 transition">100 GB</button>
+              <button type="button" data-size="500" aria-pressed="false" class="preset-size tap-tactile min-h-[40px] rounded-xl border border-white/15 bg-ocean-950 px-2.5 py-1.5 text-xs font-mono text-slate-300 hover:border-gold-400 transition">500 GB</button>
+              <button type="button" data-size="1000" aria-pressed="false" class="preset-size tap-tactile min-h-[40px] rounded-xl border border-white/15 bg-ocean-950 px-2.5 py-1.5 text-xs font-mono text-slate-300 hover:border-gold-400 transition">1 TB</button>
+            </div>
+          </div>
+
+          <div>
+            <label for="calc-speed-mbps" class="block text-xs font-mono uppercase tracking-wider text-gold-400">
+              2. Velocidade de Upload da Operadora: <span id="speed-val" class="text-white font-bold tabular-nums">300 Mbps</span>
+            </label>
+            <input
+              id="calc-speed-mbps"
+              type="range"
+              min="20"
+              max="1000"
+              step="10"
+              value="300"
+              aria-label="Velocidade de Upload da Operadora em Megabits por segundo"
+              class="mt-3 h-7 w-full accent-amber-400 cursor-pointer touch-pan-y"
+            />
+            <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button type="button" data-speed="100" aria-pressed="false" class="preset-speed tap-tactile min-h-[44px] rounded-xl border border-white/15 bg-ocean-950 px-3.5 py-2.5 text-left text-xs text-slate-300 hover:border-gold-400 transition">Starlink Campo (100 Mbps)</button>
+              <button type="button" data-speed="300" aria-pressed="true" class="preset-speed tap-tactile min-h-[44px] rounded-xl border border-gold-400 bg-gold-500/15 px-3.5 py-2.5 text-left text-xs font-bold text-gold-300 transition">Vivo/Claro Fibra (300 Mbps)</button>
+              <button type="button" data-speed="600" aria-pressed="false" class="preset-speed tap-tactile min-h-[44px] rounded-xl border border-white/15 bg-ocean-950 px-3.5 py-2.5 text-left text-xs text-slate-300 hover:border-gold-400 transition">Fibra Pro SP/RJ (600 Mbps)</button>
+              <button type="button" data-speed="1000" aria-pressed="false" class="preset-speed tap-tactile min-h-[44px] rounded-xl border border-white/15 bg-ocean-950 px-3.5 py-2.5 text-left text-xs text-slate-300 hover:border-gold-400 transition">Fibra Dedicada (1 Gbps)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-ocean-950/90 p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400">Resultado via CDN São Paulo (GRU) & Rio (GIG)</span>
+            <div class="mt-3 grid grid-cols-2 gap-4">
+              <div class="rounded-xl border border-white/10 bg-ocean-900/70 p-4">
+                <div class="text-xs text-slate-300">Tempo no GigaSend (CDN BR)</div>
+                <div id="res-giga-time" class="mt-1 text-2xl sm:text-3xl font-black text-emerald-400 font-display tabular-nums">~22 min</div>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-ocean-900/70 p-4">
+                <div class="text-xs text-slate-300">Nuvem Estrangeira Comum</div>
+                <div id="res-cloud-time" class="mt-1 text-2xl sm:text-3xl font-black text-rose-300 font-display tabular-nums">~58 min</div>
+              </div>
+            </div>
+            <div class="mt-4 rounded-xl border border-gold-500/30 bg-gold-500/10 p-4">
+              <div class="text-xs text-gold-300 font-mono uppercase">Plano GigaSend Recomendado:</div>
+              <div id="res-plan" class="mt-1 text-base font-bold text-white">Pacote Pré-Pago 50 GB ($10 • Válido por 12 meses)</div>
+            </div>
+          </div>
+          <a href="/transfer" class="mt-6 btn-gold inline-flex min-h-[48px] w-full items-center justify-center rounded-xl px-5 py-3.5 text-xs font-bold tap-tactile">
+            Iniciar Transferência na Velocidade Máxima (Até 25GB Grátis)
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-10 mb-2 text-[11px] font-mono text-slate-300 sm:hidden">
+        ↔ Deslize a tabela lateralmente para comparar todas as conexões
+      </p>
+      <div class="mt-2 sm:mt-10 overflow-x-auto rounded-2xl border border-white/10 bg-ocean-900/75">
+        <table class="w-full min-w-[680px] text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-white/10 bg-ocean-950/95 text-[11px] font-mono uppercase tracking-wider text-slate-300">
+              <th scope="col" class="sticky left-0 z-10 bg-ocean-950/95 py-3.5 px-4 border-r border-white/10">Tamanho do Envio</th>
+              <th scope="col" class="py-3.5 px-4">Starlink Campo (100 Mbps)</th>
+              <th scope="col" class="py-3.5 px-4 text-emerald-400">Claro / Vivo / Oi (300 Mbps)</th>
+              <th scope="col" class="py-3.5 px-4 text-gold-400">Fibra SP & RJ (600 Mbps)</th>
+              <th scope="col" class="py-3.5 px-4">Custo GigaSend (Sem Mensalidade)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-slate-200">
+            {benchmarkTable.map((row) => (
+              <tr class="hover:bg-white/[0.02]">
+                <th scope="row" class="sticky left-0 z-10 bg-ocean-950/95 py-3 px-4 font-bold text-white font-mono border-r border-white/10 tabular-nums">{row.size}</th>
+                <td class="py-3 px-4 text-slate-300 tabular-nums">{row.starlink}</td>
+                <td class="py-3 px-4 font-semibold text-emerald-400 tabular-nums">{row.fibra300}</td>
+                <td class="py-3 px-4 font-semibold text-gold-300 tabular-nums">{row.fibra600}</td>
+                <td class="py-3 px-4 text-slate-200">{row.tier}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12">
+        <h2 class="text-2xl font-black text-white font-display">Guias de Envio Direto por Tamanho ({sizePages.length} Capacidades)</h2>
+        <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {sizePages.map((p) => (
+            <a href={`/pt/${p.slug}`} class="rounded-xl border border-white/10 bg-ocean-900/75 p-4 hover:border-gold-500/50 transition tap-tactile">
+              <div class="text-xs font-mono text-gold-400">{p.primaryKeyword}</div>
+              <div class="mt-1 text-sm font-bold text-white line-clamp-2">{p.h1}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <PtFooter />
+  </main>
+
+  <script is:inline>
+    (function () {
+      const sizeInput = document.getElementById("calc-size-gb");
+      const speedInput = document.getElementById("calc-speed-mbps");
+      const sizeVal = document.getElementById("size-val");
+      const speedVal = document.getElementById("speed-val");
+      const gigaTime = document.getElementById("res-giga-time");
+      const cloudTime = document.getElementById("res-cloud-time");
+      const resPlan = document.getElementById("res-plan");
+      const speedPresets = document.querySelectorAll(".preset-speed");
+      const sizePresets = document.querySelectorAll(".preset-size");
+
+      function fmtSeconds(sec) {
+        if (sec < 60) return "~" + Math.max(5, Math.round(sec)) + " seg";
+        const mins = Math.round(sec / 60);
+        if (mins < 60) return "~" + mins + " min";
+        const h = Math.floor(mins / 60);
+        const m = mins % 60;
+        return "~" + h + "h " + (m > 0 ? m + "m" : "");
+      }
+
+      function syncPillHighlight(buttons, attrName, activeValue) {
+        buttons.forEach((btn) => {
+          const isMatch = Number(btn.getAttribute(attrName)) === activeValue;
+          btn.setAttribute("aria-pressed", isMatch ? "true" : "false");
+          btn.classList.toggle("border-gold-400", isMatch);
+          btn.classList.toggle("bg-gold-500/15", isMatch);
+          btn.classList.toggle("text-gold-300", isMatch);
+          btn.classList.toggle("font-bold", isMatch);
+          btn.classList.toggle("border-white/15", !isMatch);
+          btn.classList.toggle("bg-ocean-950", !isMatch);
+          btn.classList.toggle("text-slate-300", !isMatch);
+        });
+      }
+
+      function update() {
+        const gb = Number(sizeInput.value || 50);
+        const mbps = Number(speedInput.value || 300);
+        sizeVal.textContent = gb === 1000 ? "1 TB (1000 GB)" : gb + " GB";
+        speedVal.textContent = mbps + " Mbps";
+
+        syncPillHighlight(sizePresets, "data-size", gb);
+        syncPillHighlight(speedPresets, "data-speed", mbps);
+
+        const megabits = gb * 8192;
+        const gigaSec = megabits / (mbps * 0.9);
+        const cloudSec = megabits / (mbps * 0.35);
+
+        gigaTime.textContent = fmtSeconds(gigaSec);
+        cloudTime.textContent = fmtSeconds(cloudSec);
+
+        if (gb <= 25) {
+          resPlan.textContent = "100% Grátis (Até 25 GB por envio • Zero Cadastro p/ Cliente)";
+        } else if (gb <= 50) {
+          resPlan.textContent = "Pacote Pré-Pago 50 GB ($10 • Válido por 12 meses sem mensalidade)";
+        } else if (gb <= 100) {
+          resPlan.textContent = "Pacote Pré-Pago 100 GB ($20 • Válido por 12 meses sem mensalidade)";
+        } else {
+          resPlan.textContent = "Pacote Pré-Pago 1 TB ($180 • Válido por 12 meses sem mensalidade)";
+        }
+      }
+
+      if (sizeInput && speedInput) {
+        sizeInput.addEventListener("input", update);
+        speedInput.addEventListener("input", update);
+        speedPresets.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            speedInput.value = btn.getAttribute("data-speed") || "300";
+            update();
+          });
+        });
+        sizePresets.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            sizeInput.value = btn.getAttribute("data-size") || "50";
+            update();
+          });
+        });
+        update();
+      }
+    })();
+  </script>
+</BaseLayout>

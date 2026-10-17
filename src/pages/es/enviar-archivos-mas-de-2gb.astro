@@ -1,0 +1,191 @@
+---
+export const prerender = true;
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EsHeader from "../../components/EsHeader.astro";
+import EsFooter from "../../components/EsFooter.astro";
+import TransferEmbed from "@/src/components/TransferEmbed";
+import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
+import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
+import { brand } from "@/lib/brand";
+
+const pageTitle = "Enviar Archivos de Más de 2 GB Gratis | Gigasend";
+const pageDescription =
+  "Aprende a enviar archivos de 5 GB, 10 GB, 25 GB o 50 GB+ sin el límite de 2 GB de WeTransfer. Hasta 25 GB gratis, sin suscripción mensual y 1 clic sin cuenta.";
+const canonical = `${brand.siteUrl}/es/enviar-archivos-mas-de-2gb`;
+
+const faqs = [
+  {
+    question: "¿Cómo enviar un archivo de más de 2 GB por internet gratis?",
+    answer:
+      "Para enviar archivos que superan los 2 GB sin pagar suscripciones mensuales, arrastra tu archivo o carpeta al navegador en Gigasend. Las entregas de hasta 25 GB son 100% gratuitas, y para volúmenes de 50 GB ($10), 100 GB ($20) o 1 TB ($180) cuentas con paquetes prepagos válidos por 12 meses.",
+  },
+  {
+    question: "¿Por qué WeTransfer solo permite enviar hasta 2 GB gratis?",
+    answer:
+      "WeTransfer impone un tope artificial de 2 GB en su cuenta gratuita para obligarte a pagar una suscripción recurrente de $23 USD al mes. Gigasend elimina esa barrera ofreciendo hasta 25 GB gratis y paquetes prepagos sin cobros mensuales.",
+  },
+  {
+    question: "¿Mi destinatario necesita descargar una app o crear una cuenta?",
+    answer:
+      "No. El destinatario simplemente hace clic en el enlace HTTPS que le envíes y descarga el archivo directamente en su navegador a velocidad máxima de fibra, sin instalar software ni crear cuentas.",
+  },
+  {
+    question: "¿Cómo pago en México, España, Colombia o Argentina si supero los 25 GB?",
+    answer:
+      "Puedes activar paquetes prepagos de 12 meses directamente con Apple Pay en 1 toque o con cualquier tarjeta de crédito o débito local a través de Stripe, sin cargos automáticos cada 30 días.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}/#webpage`,
+      url: canonical,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: "es",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}/#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio (Español)", item: `${brand.siteUrl}/es` },
+        { "@type": "ListItem", position: 2, name: "Enviar Archivos de Más de 2 GB", item: canonical },
+      ],
+    },
+    {
+      "@type": "HowTo",
+      name: "Cómo enviar archivos de más de 2 GB por internet",
+      step: [
+        {
+          "@type": "HowToStep",
+          position: 1,
+          name: "Arrastra tu archivo o carpeta",
+          text: "Suelta tu archivo pesado (de 5 GB a 500 GB+) directamente en el área de carga de Gigasend.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 2,
+          name: "Genera tu enlace cifrado Anycast",
+          text: "La red perimetral de Cloudflare procesa la subida por fragmentos paralelos con verificación SHA-256.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 3,
+          name: "Comparte el enlace de descarga directa",
+          text: "Copia el enlace y compártelo por WhatsApp o correo. Tu cliente descarga en 1 clic sin crear cuenta.",
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}/#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={canonical}
+  lang="es"
+  hreflang={[
+    { lang: "en", href: `${brand.siteUrl}/send-files-larger-than-2gb` },
+    { lang: "es", href: canonical },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt/enviar-arquivo-2gb-3gb-gratis` },
+    { lang: "x-default", href: `${brand.siteUrl}/send-files-larger-than-2gb` },
+  ]}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <div class="relative overflow-hidden bg-ocean-950 text-slate-100 min-h-screen font-body">
+    <EsHeader
+      activeNav="mas2gb"
+      enHref="/send-files-larger-than-2gb"
+      esHref="/es/enviar-archivos-mas-de-2gb"
+      ptHref="/pt/como-enviar-arquivo-maior-que-20gb"
+    />
+
+    <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
+      <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
+        <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Inicio (Español)</a>
+        <span aria-hidden="true">/</span>
+        <span class="text-slate-200 font-medium">Enviar Archivos de Más de 2 GB</span>
+      </nav>
+
+      <header class="max-w-3xl mb-12 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 label-caps shadow-lg shadow-ocean-950/60">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Sin el Límite de 2 GB de WeTransfer • Hasta 25 GB Gratis
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
+          Cómo Enviar Archivos de Más de 2 GB <span class="text-gold-400">Sin Suscripciones.</span>
+        </h1>
+
+        <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
+          <p>
+            <strong class="text-white font-display">Para enviar archivos de más de 2 GB:</strong> utiliza el motor de carga perimetral de Gigasend. Arrastra tu archivo o carpeta pesada (de 5 GB a 500 GB+) directamente al navegador. Transfiere hasta 25 GB gratis o con paquetes prepagos de 12 meses ($20/100GB • $180/1TB), sin obligar a tu cliente a registrarse.
+          </p>
+        </div>
+      </header>
+
+      <section class="mb-16">
+        <div class="text-center mb-6 space-y-3">
+          <EdgeLocationBadge client:load />
+          <div>
+            <span class="label-caps text-gold-400/90 text-xs">Supera la Barrera de 2 GB</span>
+            <p class="text-xs text-slate-400 font-body">Arrastra tus archivos pesados para generar tu enlace de descarga en 1 clic.</p>
+          </div>
+        </div>
+
+        <div class="apple-glass rounded-3xl p-4 sm:p-6 relative z-10 shadow-2xl shadow-ocean-950/90 border border-white/10">
+          <TransferEmbed client:idle />
+        </div>
+      </section>
+
+      <section class="my-20">
+        <SavingsCalculatorEs client:visible />
+      </section>
+
+      <section class="my-16">
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas Frecuentes (+2 GB)</h2>
+        <div class="space-y-4">
+          {faqs.map((faq, idx) => (
+            <details open={idx === 0} class="group rounded-2xl apple-subtle-glass border border-white/10 p-5">
+              <summary class="font-semibold text-white cursor-pointer list-none flex justify-between items-center text-base font-display min-h-[36px]">
+                <span>{faq.question}</span>
+                <span class="transition-transform group-open:rotate-180 text-gold-400 text-lg">▾</span>
+              </summary>
+              <p class="mt-3 text-slate-300 text-sm leading-relaxed border-t border-white/10 pt-3 font-body">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-16 pt-12 border-t border-white/10 space-y-6">
+        <h2 class="text-2xl font-bold text-white font-display">Guías por Capacidad en Español</h2>
+        <div class="flex flex-wrap gap-2.5">
+          <a href="/es/enviar-archivo-3gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivo de 3 GB</a>
+          <a href="/es/enviar-archivo-5gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivo de 5 GB</a>
+          <a href="/es/enviar-archivos-10gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de 10 GB</a>
+          <a href="/es/enviar-archivos-20gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de 20 GB</a>
+          <a href="/es/enviar-archivos-50gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Mandar Archivos de 50 GB</a>
+          <a href="/es/enviar-archivos-100gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de 100 GB</a>
+        </div>
+      </section>
+    </main>
+
+    <EsFooter />
+  </div>
+</BaseLayout>

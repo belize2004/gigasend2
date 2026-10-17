@@ -152,7 +152,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const adminRecipients = getAdminEmails((locals as any)?.runtime?.env);
     if (adminRecipients.length > 0) {
       const summaryList = results.map((r) => `<li>${r.email}: <strong>${r.success ? "Sent" : `Failed (${r.error})`}</strong></li>`).join("");
-      sendEmailViaCloudflare(emailBinding, {
+      await sendEmailViaCloudflare(emailBinding, {
         from: "Gigasend <no-reply@mail.gigasend.us>",
         to: adminRecipients,
         subject: `[Admin Alert] Outreach Batch Dispatched (${results.filter(r => r.success).length}/${results.length} successful)`,

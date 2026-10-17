@@ -7,30 +7,55 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  lang?: string;
+  hreflang?: Array<{ lang: string; href: string }>;
 }
 
 const {
   title = brand.productName,
   description = brand.description,
   canonical,
+  lang = "en",
+  hreflang = [],
 } = Astro.props;
 const pathname = Astro.url.pathname === "/" ? "/" : Astro.url.pathname.replace(/\/$/, "");
 const canonicalUrl = canonical ?? `${brand.siteUrl}${pathname}`;
 const pageTitle = title.replaceAll("GigaSend", brand.productName);
+const ogLocale = lang === "pt-BR" ? "pt_BR" : lang.startsWith("es") ? "es_ES" : "en_US";
+
+const defaultHreflang =
+  pathname === "/" || pathname === "/es" || pathname === "/pt"
+    ? [
+        { lang: "en", href: `${brand.siteUrl}/` },
+        { lang: "es", href: `${brand.siteUrl}/es` },
+        { lang: "pt-BR", href: `${brand.siteUrl}/pt` },
+        { lang: "x-default", href: `${brand.siteUrl}/` },
+      ]
+    : [];
+const effectiveHreflang = hreflang.length > 0 ? hreflang : defaultHreflang;
+const showBrazilBanner = Boolean((Astro.locals as Record<string, unknown>)?.showBrazilBanner);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} class="h-full antialiased scroll-smooth selection:bg-gold-500 selection:text-ocean-950 dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#001d32" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonicalUrl} />
+    {effectiveHreflang.map((alt) => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/fira-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/fira-sans-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/montserrat-800.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -44,12 +69,33 @@ const pageTitle = title.replaceAll("GigaSend", brand.productName);
     <meta name="twitter:image" content={`${brand.siteUrl}/og-image.png`} />
 
     <!-- Client-Side Website Failure Listener -->
-    <script src="/scripts/error-tracker.js" is:inline></script>
+    <script src="/scripts/error-tracker.js" async is:inline></script>
 
     <slot name="head" />
     <title>{pageTitle}</title>
   </head>
-  <body>
+  <body class="min-h-screen bg-ocean-950 text-slate-100">
+    {showBrazilBanner && (
+      <div id="br-geo-banner" class="relative z-[60] border-b border-gold-500/30 bg-ocean-900/95 px-4 py-2.5 text-center text-xs sm:text-sm text-slate-100 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <span>🇧🇷 Olá! Deseja ver esta página em Português?</span>
+          <a
+            href="/pt?lang=pt"
+            onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'"
+            class="inline-flex min-h-[40px] items-center rounded-lg bg-gold-500 px-3.5 py-1.5 text-xs font-bold text-ocean-950 shadow-sm hover:bg-gold-400 transition-colors tap-tactile"
+          >
+            Mudar para Português
+          </a>
+          <button
+            type="button"
+            onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'; document.getElementById('br-geo-banner')?.remove();"
+            class="ml-1 inline-flex min-h-[40px] items-center px-2.5 text-slate-300 hover:text-white text-xs underline tap-tactile"
+          >
+            Manter em Inglês
+          </button>
+        </div>
+      </div>
+    )}
     <slot />
     <SuggestionBox client:idle />
   </body>

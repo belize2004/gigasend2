@@ -1,5 +1,9 @@
 import type { APIRoute } from "astro";
 import { seoLandingPages } from "../data/seoLandingPages";
+import { ptSeoLandingPages } from "../data/ptSeoLandingPages";
+import { esSeoLandingPages, ES_STATIC_PATHS } from "../data/esSeoLandingPages";
+import { PT_ENGINEERING_GUIDES } from "../data/ptGuides";
+import { blogPosts } from "../data/blogPosts";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
@@ -16,16 +20,26 @@ const staticPaths = [
   "",
   "transfer",
   "plans",
-  "pricing",
   "compare",
   "directory",
+  "pt",
+  "pt/planos",
+  "pt/comparar",
+  "pt/calculadora-tempo-upload",
+  "pt/guias",
+  ...ES_STATIC_PATHS,
   "guides",
   "tools/transfer-speed-calculator",
   "blogs",
+  "contact",
   "signin",
   "signup",
+  ...blogPosts.map((post) => `blogs/${post.slug}`),
   ...guideSlugs.map((slug) => `guides/${slug}`),
+  ...PT_ENGINEERING_GUIDES.map((g) => `pt/guias/${g.slug}`),
   ...seoLandingPages.map((page) => page.slug),
+  ...ptSeoLandingPages.map((page) => `pt/${page.slug}`),
+  ...esSeoLandingPages.map((page) => `es/${page.slug}`),
 ];
 
 const today = new Date().toISOString().split("T")[0];
@@ -38,9 +52,15 @@ export const GET: APIRoute = async ({ site }) => {
       const priority =
         path === ""
           ? "1.0"
-          : path === "directory" || path === "transfer" || path === "tools/transfer-speed-calculator"
-            ? "0.9"
-            : "0.8";
+          : path === "pt" || path === "es"
+            ? "0.95"
+            : path === "directory" ||
+                path === "transfer" ||
+                path === "tools/transfer-speed-calculator" ||
+                path.startsWith("pt/") ||
+                path.startsWith("es/")
+              ? "0.9"
+              : "0.8";
       return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
     })
     .join("\n");

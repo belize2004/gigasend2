@@ -36,6 +36,8 @@ export interface PaidPlan {
   exp_month: string;
   exp_year: string;
   isFree: false;
+  isVipPartner?: boolean;
+  partnerNotes?: string;
 }
 
 export interface FreePlan {

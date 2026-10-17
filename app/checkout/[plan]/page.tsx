@@ -95,6 +95,12 @@ const CheckoutPage = () => {
 
     // Direct Stripe Hosted Checkout Session (using server STRIPE_SECRET_KEY)
     try {
+      const isPortuguese =
+        typeof document !== 'undefined' &&
+        (document.referrer.includes('/pt/') ||
+         document.referrer.endsWith('/pt') ||
+         window.location.pathname.startsWith('/pt') ||
+         document.documentElement.lang.startsWith('pt'));
       const isSpanish =
         typeof document !== 'undefined' &&
         (document.referrer.includes('/es/') ||
@@ -103,7 +109,7 @@ const CheckoutPage = () => {
 
       const res = await axios.post<{ success: boolean; url?: string; message?: string }>('/api/payment/create-checkout-session', {
         planName: selectedPlan.name,
-        locale: isSpanish ? 'es' : 'auto',
+        locale: isPortuguese ? 'pt-BR' : isSpanish ? 'es' : 'auto',
       });
       if (res.data?.url) {
         window.location.href = res.data.url;
@@ -133,20 +139,20 @@ const CheckoutPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
+    <div className="min-h-screen bg-ocean-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8 font-body">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="flex items-center mb-8">
-          <Link href="/plans" className="flex items-center mr-6">
-            <FiArrowLeft className="mr-2 text-gray-600 hover:text-gray-900 transition-colors duration-200" />
-            <span className=' text-gray-600 hover:text-gray-900 transition-colors duration-200'>
-              Back to Plans
-            </span>
+        <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+          <Link href="/plans" className="flex items-center text-xs font-semibold text-slate-300 hover:text-gold-400 transition-colors duration-200 tap-tactile">
+            <FiArrowLeft className="mr-2 text-base" />
+            <span>Back to Plans</span>
           </Link>
           <div className="flex items-center">
-            <BsArrowUpSquareFill className="text-3xl text-blue-600 mr-2" />
-            <h1 className="text-2xl font-bold text-gray-900">{brand.productName}</h1>
+            <div className="w-9 h-9 rounded-xl bg-gold-500/15 text-gold-400 flex items-center justify-center mr-2.5 border border-gold-500/20">
+              <BsArrowUpSquareFill className="text-lg text-gold-400" />
+            </div>
+            <h1 className="text-xl font-extrabold text-white font-display tracking-tight">{brand.productName}</h1>
           </div>
         </div>
 
@@ -156,33 +162,36 @@ const CheckoutPage = () => {
           <div className="space-y-6">
 
             {/* Plan Summary Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-gray-900">Order Summary</h2>
+            <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <span className="label-caps text-gold-400 text-[10px] block mb-0.5">Selected Package</span>
+                  <h2 className="text-xl font-bold text-white font-display">Order Summary</h2>
+                </div>
                 {selectedPlan.popular && (
-                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center">
-                    <FiStar className="mr-1" />
+                  <div className="bg-gold-500/15 text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center">
+                    <FiStar className="mr-1.5" />
                     Most Popular
                   </div>
                 )}
               </div>
 
-              <div className="border border-gray-200 rounded-xl p-4 mb-6">
+              <div className="bg-ocean-950/80 border border-white/10 rounded-2xl p-5 mb-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900">{selectedPlan.name} Plan</h3>
-                  <div className="flex items-center">
-                    <FiUpload className="text-blue-600 mr-1" />
-                    <span className="font-semibold text-gray-800">{selectedPlan.storage}</span>
+                  <h3 className="text-lg font-bold text-white font-display">{selectedPlan.name} Plan</h3>
+                  <div className="flex items-center px-2.5 py-1 rounded-lg bg-sky-500/15 text-sky-400 border border-sky-500/20 text-xs font-bold font-mono">
+                    <FiUpload className="mr-1.5" />
+                    <span>{selectedPlan.storage}</span>
                   </div>
                 </div>
-                <p className='text-sm text-gray-500 mb-3'>Monthly Subscription</p>
+                <p className="text-xs text-slate-400 mt-1 mb-4">Monthly Subscription</p>
 
                 {/* Features List */}
-                <div className="space-y-2 mb-4">
+                <div className="space-y-2.5">
                   {selectedPlan.features.map((feature, index) => (
                     <div key={index} className="flex items-center text-sm">
-                      <FiCheck className="text-green-500 mr-2 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <FiCheck className="text-emerald-400 mr-2.5 flex-shrink-0" />
+                      <span className="text-slate-300">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -190,20 +199,16 @@ const CheckoutPage = () => {
 
               {/* Pricing Breakdown */}
               <div className="space-y-3 text-sm">
-                <div className="flex justify-between text-gray-600">
-                  <span>
-                    {selectedPlan.name} Plan
-                  </span>
-                  <span className="font-semibold">
-                    ${currentPrice}/mo
-                  </span>
+                <div className="flex justify-between text-slate-300">
+                  <span>{selectedPlan.name} Plan</span>
+                  <span className="font-semibold font-mono text-white">${currentPrice}/mo</span>
                 </div>
 
-                <div className="border-t pt-3">
+                <div className="border-t border-white/10 pt-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-gray-900">Total</span>
+                    <span className="font-bold text-white font-display">Total Due Today</span>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-gray-900">
+                      <div className="text-3xl font-black text-gold-400 font-display tracking-tight">
                         ${currentPrice}
                       </div>
                     </div>
@@ -213,12 +218,12 @@ const CheckoutPage = () => {
             </div>
 
             {/* Security Notice */}
-            <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+            <div className="apple-subtle-glass bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5">
               <div className="flex items-center">
-                <FiShield className="text-green-600 mr-3" />
+                <FiShield className="text-emerald-400 mr-3.5 text-lg shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-green-800">Secure Payment</h4>
-                  <p className="text-sm text-green-700">
+                  <h4 className="font-bold text-emerald-400 font-display text-sm">Secure Payment</h4>
+                  <p className="text-xs text-slate-300 mt-0.5">
                     Your payment information is encrypted and secure. We use Stripe for processing.
                   </p>
                 </div>
@@ -227,31 +232,35 @@ const CheckoutPage = () => {
           </div>
 
           {/* Right Side - Payment Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Payment Details</h2>
+          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
+            <div className="mb-6">
+              <span className="label-caps text-gold-400 text-[10px] block mb-0.5">Encrypted Checkout</span>
+              <h2 className="text-xl font-bold text-white font-display">Payment Details</h2>
+            </div>
 
             {/* error */}
-            <p
-              className={`text-red-400 text-sm mb-4 transform transition-all duration-300 origin-top ${error ? 'opacity-100 scale-100' : 'opacity-0 scale-95 h-0'
-                }`}
+            <div
+              className={`rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-body transition-all duration-300 origin-top ${
+                error ? 'opacity-100 scale-100 p-4 mb-6' : 'opacity-0 scale-95 h-0 overflow-hidden p-0 mb-0 border-0'
+              }`}
             >
               {error ?? ''}
-            </p>
+            </div>
 
             <div className="space-y-6">
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address <span className='text-red-500'>*</span>
+                <label className="block label-caps text-slate-200 text-[10px] mb-2">
+                  Email Address <span className="text-rose-400">*</span>
                 </label>
                 <div className="relative">
-                  <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <FiMail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400" />
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full pl-10 pr-4 py-3 bg-ocean-950 border border-white/15 rounded-xl text-sm text-white placeholder-slate-500 focus:border-gold-500 outline-none transition-all duration-200"
                     placeholder="your@email.com"
                     required
                   />
@@ -261,21 +270,36 @@ const CheckoutPage = () => {
               {/* Card Information or Hosted Stripe Banner */}
               {stripe && elements ? (
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Card Information <span className='text-red-500'>*</span>
+                  <label className="block label-caps text-slate-200 text-[10px] mb-2">
+                    Card Information <span className="text-rose-400">*</span>
                   </label>
                   <CardElement
-                    className='border border-gray-300 rounded-xl px-3 py-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 mb-4'
+                    options={{
+                      style: {
+                        base: {
+                          color: '#f8fafc',
+                          fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+                          fontSize: '14px',
+                          '::placeholder': {
+                            color: '#64748b',
+                          },
+                        },
+                        invalid: {
+                          color: '#fb7185',
+                        },
+                      },
+                    }}
+                    className="bg-ocean-950 border border-white/15 rounded-xl px-4 py-4 focus:border-gold-500 transition-all duration-200 mb-4"
                   />
                 </div>
               ) : (
-                <div className="rounded-xl border border-blue-200 bg-blue-50/70 p-5 text-center mb-4">
-                  <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                <div className="rounded-2xl border border-gold-500/30 bg-ocean-950/80 p-6 text-center mb-4">
+                  <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/15 text-gold-400 border border-gold-500/20">
                     <FiLock className="text-xl" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900">Secure Stripe Checkout</h3>
-                  <p className="mt-1 text-xs text-slate-600">
-                    Pay securely with Credit Card, Apple Pay, or Google Pay via Stripe's encrypted checkout.
+                  <h3 className="text-base font-bold text-white font-display">Secure Stripe Checkout</h3>
+                  <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                    Pay securely with Credit Card, Apple Pay, or Google Pay via Stripe&apos;s encrypted checkout.
                   </p>
                 </div>
               )}
@@ -284,9 +308,9 @@ const CheckoutPage = () => {
               <button
                 onClick={handleCheckout}
                 disabled={loading}
-                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transform ${loading ? 'opacity-60 animate-pulse' : ''} transition-all duration-200 flex items-center justify-center cursor-pointer`}
+                className={`w-full btn-gold py-4 px-6 rounded-xl font-bold font-display text-xs shadow-lg shadow-gold-500/15 ${loading ? 'opacity-60 animate-pulse' : ''} transition-all duration-200 flex items-center justify-center cursor-pointer tap-tactile`}
               >
-                <FiLock className="mr-2" />
+                <FiLock className="mr-2 text-sm" />
                 {!loading
                   ? stripe && elements
                     ? `Complete Payment - $${currentPrice}`
@@ -296,8 +320,8 @@ const CheckoutPage = () => {
 
               {/* Security info */}
               <div className="text-center">
-                <p className="text-xs text-gray-500">
-                  Powered by <span className="font-semibold">Stripe</span> • Your payment info is secure
+                <p className="text-xs text-slate-400">
+                  Powered by <span className="font-semibold text-white">Stripe</span> • Your payment info is secure
                 </p>
               </div>
             </div>
@@ -305,18 +329,18 @@ const CheckoutPage = () => {
         </div>
 
         {/* Additional Trust Elements */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <div className="flex items-center justify-center">
-            <FiShield className="text-green-600 mr-2" />
-            <span className="text-sm text-gray-600">SSL Encrypted</span>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <div className="apple-subtle-glass border border-white/10 rounded-2xl py-3.5 px-4 flex items-center justify-center">
+            <FiShield className="text-emerald-400 mr-2" />
+            <span className="text-xs font-semibold text-slate-200">SSL Encrypted</span>
           </div>
-          <div className="flex items-center justify-center">
-            <FiZap className="text-blue-600 mr-2" />
-            <span className="text-sm text-gray-600">Instant Activation</span>
+          <div className="apple-subtle-glass border border-white/10 rounded-2xl py-3.5 px-4 flex items-center justify-center">
+            <FiZap className="text-gold-400 mr-2" />
+            <span className="text-xs font-semibold text-slate-200">Instant Activation</span>
           </div>
-          <div className="flex items-center justify-center">
-            <FiUsers className="text-purple-600 mr-2" />
-            <span className="text-sm text-gray-600">24/7 Support</span>
+          <div className="apple-subtle-glass border border-white/10 rounded-2xl py-3.5 px-4 flex items-center justify-center">
+            <FiUsers className="text-sky-400 mr-2" />
+            <span className="text-xs font-semibold text-slate-200">24/7 Support</span>
           </div>
         </div>
       </div>

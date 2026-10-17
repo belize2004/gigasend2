@@ -5,7 +5,7 @@ import { findUserById, getActiveShareUsage, getDb } from "@/lib/d1";
 import { PlanEnum, PLANS } from "@/lib/constant";
 import { stripe } from "@/lib/stripe";
 import { gbToBytes } from "@/lib/utils";
-import { getStorageLimitBytesForUser } from "@/lib/storageLimit";
+import { getStorageLimitBytesForUser, getVipGrantForUser } from "@/lib/storageLimit";
 import { json } from "@/src/lib/api";
 import { getOrCreateUserSession } from "@/src/lib/guestSession";
 import { captureMonitoringException } from "@/lib/monitoring";
@@ -52,7 +52,11 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     let planPrefix = "free";
     let userPlan = PLANS.free;
 
-    if (!session.isGuest && user.stripeCustomerId) {
+    const vipGrant = !session.isGuest ? getVipGrantForUser(user) : null;
+    if (vipGrant) {
+      userPlan = PLANS[vipGrant.plan] || PLANS.pro;
+      planPrefix = "paid";
+    } else if (!session.isGuest && user.stripeCustomerId) {
       const subscriptions = await stripe.subscriptions.list({
         customer: user.stripeCustomerId,
         status: "active",

@@ -20,7 +20,7 @@ const safeInternalLinks = internalLinks.filter((link) => {
   return normTarget !== normalizedCurrent;
 });
 
-// Curated technical guide recommendations
+// Curated technical guide & platform tool recommendations
 const guideRecommendations = [
   {
     href: "/tools/transfer-speed-calculator",
@@ -33,9 +33,34 @@ const guideRecommendations = [
     desc: "Network engineering deep-dive on TCP window scaling & latency.",
   },
   {
+    href: "/guides/large-file-transfer-cost-calculator",
+    label: "Transfer Cost Calculator",
+    desc: "Compare egress fees, courier shipping, and flat-rate edge transport.",
+  },
+  {
     href: "/guides/transfer-large-files-without-failed-uploads",
     label: "Prevent Failed Uploads",
     desc: "How chunked multi-part streaming avoids midway browser drops.",
+  },
+  {
+    href: "/guides/file-transfer-vs-cloud-storage-vs-media-review",
+    label: "Transfer vs Cloud Storage",
+    desc: "When to use ephemeral edge dispatch vs persistent cloud drives.",
+  },
+  {
+    href: "/guides/send-large-files-without-filling-computer",
+    label: "Skip Local Sync Bloat",
+    desc: "Send multi-gigabyte deliverables without exhausting local SSD disk space.",
+  },
+  {
+    href: "/compare",
+    label: "Provider Comparison Hub",
+    desc: "Head-to-head benchmarks against WeTransfer, Dropbox, MASV & Drive.",
+  },
+  {
+    href: "/directory",
+    label: "46-Workflow Directory",
+    desc: "Browse every camera RAW, NLE, 3D/VFX, BIM, and DAW transfer guide.",
   },
   {
     href: "/plans",
@@ -43,31 +68,59 @@ const guideRecommendations = [
     desc: "Free 25GB transfers with zero signup; Edge Pro 100GB & Studio 250GB.",
   },
 ];
+
+// Popular Capacity & Quota Bypass Channels quick-link strip
+const popularBypassChannels = [
+  { href: "/send-large-files-free", label: "Send Large Files Free" },
+  { href: "/free-large-file-transfer", label: "Free Large File Transfer" },
+  { href: "/wetransfer-alternative", label: "WeTransfer Alternative" },
+  { href: "/wetransfer-2gb-limit-bypass", label: "WeTransfer 2GB Bypass" },
+  { href: "/google-drive-download-quota-exceeded-fix", label: "Google Drive Quota Fix" },
+  { href: "/dropbox-file-size-limit-bypass", label: "Dropbox Size Bypass" },
+  { href: "/email-attachment-too-large-alternative", label: "Email Attachment Bypass" },
+  { href: "/send-5gb-file-free", label: "Send 5GB Free" },
+  { href: "/send-25gb-file", label: "Send 25GB Free" },
+  { href: "/send-100gb-file", label: "Send 100GB File" },
+  { href: "/send-1tb-file", label: "Send 1TB File" },
+  { href: "/fastest-way-to-send-large-files", label: "Fastest File Transfer" },
+].filter((link) => {
+  const normTarget = link.href.replace(/^\/(bypass|send)\//, "").replace(/\/$/, "").replace(/^\//, "");
+  return normTarget !== normalizedCurrent;
+});
 ---
 
-<section class="border-t border-slate-200 bg-white py-14">
+<section class="border-t border-white/10 bg-ocean-950 py-16 font-body">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-wider text-blue-600">Cross-Cluster Navigation</p>
-        <h2 class="mt-1 text-2xl font-bold text-slate-950 sm:text-3xl">{title}</h2>
+        <p class="text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">Cross-Cluster Navigation</p>
+        <h2 class="mt-1 text-2xl font-black text-white font-display sm:text-3xl">{title}</h2>
       </div>
-      <a
-        href="/directory"
-        class="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-800"
-      >
-        <span>Explore all 46 codecs & guides</span>
-        <span>→</span>
-      </a>
+      <div class="flex flex-wrap items-center gap-4">
+        <a
+          href="/compare"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-300 hover:text-gold-400 transition-colors"
+        >
+          <span>Compare providers</span>
+          <span>→</span>
+        </a>
+        <a
+          href="/directory"
+          class="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+        >
+          <span>Explore all 46 codecs & guides</span>
+          <span>→</span>
+        </a>
+      </div>
     </div>
 
     {safeInternalLinks.length > 0 && (
       <div class="mt-8">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">Complementary Transfer Channels</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 label-caps">Complementary Transfer Channels</h3>
         <div class="mt-3 flex flex-wrap gap-3">
           {safeInternalLinks.map((link) => (
             <a
-              class="rounded-lg border border-slate-300 bg-slate-50 px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-blue-500 hover:bg-white hover:text-blue-700"
+              class="apple-subtle-glass rounded-xl border border-white/10 bg-ocean-900/70 px-4 py-2.5 text-xs font-semibold text-slate-200 shadow-sm transition hover:border-gold-500/50 hover:bg-ocean-900 hover:text-gold-400 tap-tactile"
               href={link.href}
             >
               {link.label}
@@ -77,18 +130,32 @@ const guideRecommendations = [
       </div>
     )}
 
+    <div class="mt-8">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 label-caps">Popular Capacity & Quota Bypass Channels</h3>
+      <div class="mt-3 flex flex-wrap gap-2.5">
+        {popularBypassChannels.map((channel) => (
+          <a
+            class="rounded-xl border border-white/10 bg-ocean-900/50 px-3.5 py-2 text-xs font-medium text-slate-300 transition hover:border-gold-500/40 hover:bg-ocean-900 hover:text-gold-400 tap-tactile"
+            href={channel.href}
+          >
+            {channel.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
     <div class="mt-10">
-      <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">Network Engineering & Tools</h3>
-      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 label-caps">Network Engineering Guides & Tools</h3>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {guideRecommendations.map((rec) => (
           <a
             href={rec.href}
-            class="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-500 hover:shadow-md"
+            class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
           >
-            <h4 class="font-bold text-slate-950 group-hover:text-blue-600 text-sm">
+            <h4 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">
               {rec.label}
             </h4>
-            <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+            <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
               {rec.desc}
             </p>
           </a>

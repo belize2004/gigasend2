@@ -39,15 +39,21 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
 
     const origin = (site?.origin ?? brand.siteUrl).replace(/\/$/, "");
 
-    // Detect Spanish locale from request body, Referer header, or page URL
+    // Detect Spanish or Brazilian Portuguese locale from request body, Referer header, or page URL
     const referer = request.headers.get("referer") || "";
+    const isPortuguese =
+      locale === "pt" ||
+      locale === "pt-BR" ||
+      referer.includes("/pt/") ||
+      referer.includes("/pt?") ||
+      referer.endsWith("/pt");
     const isSpanish =
       locale === "es" ||
       locale === "es-419" ||
       referer.includes("/es/") ||
       referer.includes("/es?") ||
       referer.endsWith("/es");
-    const stripeLocale = isSpanish ? "es" : "auto";
+    const stripeLocale = isPortuguese ? "pt-BR" : isSpanish ? "es" : "auto";
 
     // Handle Pay-As-You-Go One-Time Packs
     const selectedPaygKey = Object.keys(PAYG_PACKS).find(
@@ -60,6 +66,7 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
         mode: "payment",
         customer: customerId || undefined,
         customer_creation: customerId ? undefined : "always",
+        allow_promotion_codes: true,
         locale: stripeLocale,
         line_items: [
           {
@@ -95,6 +102,7 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
       customer: customerId,
+      allow_promotion_codes: true,
       locale: stripeLocale,
       payment_method_collection: "always",
       line_items: [

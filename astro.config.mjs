@@ -8,6 +8,9 @@ export default defineConfig({
   site: "https://gigasend.us",
   trailingSlash: "never",
   output: "server",
+  build: {
+    inlineStylesheets: "always",
+  },
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
@@ -23,6 +26,9 @@ export default defineConfig({
     }),
   ],
   vite: {
+    build: {
+      sourcemap: true,
+    },
     resolve: {
       alias: {
         "@": fileURLToPath(new URL(".", import.meta.url)),

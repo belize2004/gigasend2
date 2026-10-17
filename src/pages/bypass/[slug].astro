@@ -53,140 +53,190 @@ const webAppSchema = {
     description: "Free large file transfers up to 25GB with 3-day storage; high-capacity edge transfers from $0.16/GB without restrictive quota limits.",
   },
 };
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: brand.siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Transfer Directory",
+      item: `${brand.siteUrl}/directory`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: landingPage.h1,
+      item: canonical,
+    },
+  ],
+};
 ---
 
 <BaseLayout title={landingPage.title} description={landingPage.metaDescription} canonical={canonical}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
-  <main class="min-h-screen bg-slate-50 text-slate-950">
-    <header class="border-b border-slate-200 bg-white">
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/85 backdrop-blur-2xl">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
-        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
-          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
-          {brand.productName}
+        <a href="/" class="flex items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile">
+          <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">G</span>
+          <span class="group-hover:text-gold-400 transition-colors">{brand.productName}</span>
         </a>
-        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
-          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
-          <a class="hover:text-blue-700" href="/plans">Plans</a>
-          <a class="hover:text-blue-700" href="/directory">Directory</a>
-          <a class="hover:text-blue-700" href="/send-large-files-free">Free transfer</a>
+        <div class="hidden items-center gap-5 text-xs font-medium text-slate-300 md:flex">
+          <a class="hover:text-gold-400 transition-colors" href="/transfer">Transfer</a>
+          <a class="hover:text-gold-400 transition-colors" href="/plans">Plans</a>
+          <a class="hover:text-gold-400 transition-colors" href="/compare">Compare</a>
+          <a class="hover:text-gold-400 transition-colors" href="/directory">Directory</a>
+          <a class="hover:text-gold-400 transition-colors" href="/guides">Guides</a>
+          <a class="hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Speed Calculator</a>
+          <a class="hover:text-gold-400 transition-colors" href="/contact">Contact</a>
+          <a class="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile" href="/transfer">Send Files</a>
         </div>
       </nav>
     </header>
 
-    <section class="bg-white">
+    <nav aria-label="Breadcrumb" class="border-b border-white/5 bg-ocean-950/90">
+      <ol class="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 py-3 text-xs text-slate-400 sm:px-6 lg:px-8">
+        <li>
+          <a href="/" class="hover:text-gold-400 transition-colors">Home</a>
+        </li>
+        <li aria-hidden="true" class="text-slate-600">/</li>
+        <li>
+          <a href="/directory" class="hover:text-gold-400 transition-colors">Transfer Directory</a>
+        </li>
+        <li aria-hidden="true" class="text-slate-600">/</li>
+        <li class="font-semibold text-gold-400 truncate max-w-[260px] sm:max-w-md" aria-current="page">
+          {landingPage.h1}
+        </li>
+      </ol>
+    </nav>
+
+    <section class="relative bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 border-b border-white/10">
       <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-20">
         <div>
-          <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400 label-caps">
             <span>Quota Bypass Guide</span>
             <span>•</span>
             <span>{landingPage.eyebrow}</span>
           </div>
-          <h1 class="max-w-4xl text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">{landingPage.h1}</h1>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{landingPage.intro}</p>
+          <h1 class="max-w-4xl text-4xl font-black leading-tight text-white font-display tracking-tight sm:text-5xl">{landingPage.h1}</h1>
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">{landingPage.intro}</p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="/transfer" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700">
+            <a href="/transfer" class="btn-gold inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
               {landingPage.cta}
             </a>
-            <a href="/plans" class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 hover:border-blue-500 hover:text-blue-700">
+            <a href="/plans" class="btn-outline-gold inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold tap-tactile">
               View storage plans
             </a>
           </div>
           <div class="mt-8 grid max-w-2xl grid-cols-3 gap-3 text-center text-sm">
-            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">25GB</div>
-              <div class="mt-1 text-slate-600">Free transfers</div>
+            <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
+              <div class="text-xl font-black text-gold-400 font-display">25GB</div>
+              <div class="mt-1 text-xs text-slate-300">Free transfers</div>
             </div>
-            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">Zero</div>
-              <div class="mt-1 text-slate-600">Download limits</div>
+            <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
+              <div class="text-xl font-black text-gold-400 font-display">Zero</div>
+              <div class="mt-1 text-xs text-slate-300">Download limits</div>
             </div>
-            <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-              <div class="text-xl font-bold text-slate-950">No Account</div>
-              <div class="mt-1 text-slate-600">Recipient download</div>
+            <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
+              <div class="text-xl font-black text-gold-400 font-display">No Account</div>
+              <div class="mt-1 text-xs text-slate-300">Recipient download</div>
             </div>
           </div>
         </div>
 
         <div class="flex flex-col gap-6">
           <TransferEmbed client:load />
-          <aside class="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-            <h2 class="text-xl font-bold text-slate-950">How to bypass upload limits with {brand.productName}</h2>
-            <ol class="mt-6 space-y-4">
+          <aside class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl">
+            <h2 class="text-xl font-bold text-white font-display">How to bypass upload limits with {brand.productName}</h2>
+            <ol class="mt-6 space-y-4 text-sm text-slate-300">
               <li class="flex gap-3">
-                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">1</span>
-                <span><strong>Select your file</strong> — No 2GB or 15GB arbitrary cutoff. Free transfers up to 10GB, paid up to 5TB.</span>
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-sm font-black text-ocean-950">1</span>
+                <span><strong class="text-white">Select your file</strong> — No 2GB or 15GB arbitrary cutoff. Free transfers up to 10GB, paid up to 5TB.</span>
               </li>
               <li class="flex gap-3">
-                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">2</span>
-                <span><strong>Direct edge upload</strong> — Uploads are streamed across Cloudflare's global edge network at line rate.</span>
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-sm font-black text-ocean-950">2</span>
+                <span><strong class="text-white">Direct edge upload</strong> — Uploads are streamed across Cloudflare's global edge network at line rate.</span>
               </li>
               <li class="flex gap-3">
-                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">3</span>
-                <span><strong>Instant share link</strong> — Recipients download directly without hitting Google Drive quotas or signup walls.</span>
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-sm font-black text-ocean-950">3</span>
+                <span><strong class="text-white">Instant share link</strong> — Recipients download directly without hitting Google Drive quotas or signup walls.</span>
               </li>
             </ol>
-            <div class="mt-6 rounded-lg bg-blue-50 p-4 text-xs text-blue-900 border border-blue-100">
-              <strong>Pro Tip:</strong> Unlike cloud storage syncing folders that consume local disk space, Gigasend is built exclusively for ephemeral point-to-point dispatch.
+            <div class="mt-6 rounded-xl bg-gold-500/10 p-4 text-xs text-gold-300 border border-gold-500/30">
+              <strong class="text-gold-400">Pro Tip:</strong> Unlike cloud storage syncing folders that consume local disk space, Gigasend is built exclusively for ephemeral point-to-point dispatch.
             </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-slate-200 bg-slate-50 py-16">
+    <section class="border-t border-white/10 bg-ocean-950 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold tracking-tight text-slate-950">Why creators switch to {brand.productName}</h2>
+        <span class="label-caps text-gold-400 text-xs">Zero Quota Bottlenecks</span>
+        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Why creators switch to {brand.productName}</h2>
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {landingPage.sections.map((section) => (
-            <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 class="text-lg font-semibold text-slate-950">{section.heading}</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-600">{section.body}</p>
+            <article class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg">
+              <h3 class="text-lg font-bold text-white font-display">{section.heading}</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-300">{section.body}</p>
             </article>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="border-t border-slate-200 bg-white py-16">
+    <section class="border-t border-white/10 bg-ocean-900/50 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold tracking-tight text-slate-950">Direct comparison vs legacy providers</h2>
-        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
-            <thead class="bg-slate-50 text-slate-900">
-              <tr>
-                <th scope="col" class="px-6 py-4 font-semibold">Service</th>
-                <th scope="col" class="px-6 py-4 font-semibold">Primary Use Case</th>
-                <th scope="col" class="px-6 py-4 font-semibold">Strict Bottleneck</th>
-                <th scope="col" class="px-6 py-4 font-semibold">{brand.productName} Advantage</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
-              {landingPage.comparison.map((row) => (
+        <span class="label-caps text-gold-400 text-xs">Head-to-Head</span>
+        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Direct comparison vs legacy providers</h2>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-ocean-900/80 shadow-2xl backdrop-blur-2xl">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-white/10 text-left text-sm text-slate-300">
+              <thead class="bg-ocean-950/90 text-slate-300">
                 <tr>
-                  <td class="whitespace-nowrap px-6 py-4 font-medium text-slate-950">{row.method}</td>
-                  <td class="px-6 py-4">{row.bestFor}</td>
-                  <td class="px-6 py-4 text-rose-700">{row.limitation}</td>
-                  <td class="px-6 py-4 font-medium text-blue-700">{row.gigaSendAngle}</td>
+                  <th scope="col" class="px-6 py-4 font-semibold text-white label-caps text-xs">Service</th>
+                  <th scope="col" class="px-6 py-4 font-semibold text-slate-300 label-caps text-xs">Primary Use Case</th>
+                  <th scope="col" class="px-6 py-4 font-semibold text-slate-300 label-caps text-xs">Strict Bottleneck</th>
+                  <th scope="col" class="px-6 py-4 font-semibold text-gold-400 label-caps text-xs border-l border-gold-500/30 bg-ocean-900/90">{brand.productName} Advantage</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody class="divide-y divide-white/10 bg-ocean-900/40 text-slate-300">
+                {landingPage.comparison.map((row) => (
+                  <tr class="hover:bg-ocean-800/40 transition-colors">
+                    <td class="whitespace-nowrap px-6 py-4 font-semibold text-white font-display">{row.method}</td>
+                    <td class="px-6 py-4 text-slate-300">{row.bestFor}</td>
+                    <td class="px-6 py-4 text-rose-400">{row.limitation}</td>
+                    <td class="px-6 py-4 font-semibold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">{row.gigaSendAngle}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-slate-200 bg-slate-50 py-16">
+    <section class="border-t border-white/10 bg-ocean-950 py-16">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold tracking-tight text-slate-950">Frequently asked questions</h2>
+        <span class="label-caps text-gold-400 text-xs">Answers & Specs</span>
+        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Frequently asked questions</h2>
         <dl class="mt-8 space-y-6">
           {landingPage.faqs.map((faq) => (
-            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <dt class="text-base font-semibold text-slate-950">{faq.question}</dt>
-              <dd class="mt-3 text-sm leading-6 text-slate-600">{faq.answer}</dd>
+            <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-md">
+              <dt class="text-base font-bold text-white font-display">{faq.question}</dt>
+              <dd class="mt-3 text-sm leading-6 text-slate-300">{faq.answer}</dd>
             </div>
           ))}
         </dl>
@@ -198,5 +248,50 @@ const webAppSchema = {
       internalLinks={landingPage.internalLinks}
       title="Related Bypass Solutions & Workflows"
     />
+
+    <footer class="border-t border-white/10 bg-ocean-950 py-12 text-xs text-slate-400">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a href="/" class="flex items-center gap-2.5 text-base font-extrabold font-display text-white hover:text-gold-400 transition-colors">
+              <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black text-sm">G</span>
+              <span>{brand.productName}</span>
+            </a>
+            <p class="mt-3 leading-relaxed text-slate-400">
+              Line-speed multi-stream edge file transport across 335+ Cloudflare Anycast PoPs. Up to 25GB free with zero account walls.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Platform & Tools</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a class="hover:text-gold-400 transition-colors" href="/">Home</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/transfer">Start File Transfer</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/plans">Pricing & Plans</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/compare">Provider Comparisons</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Transfer Speed Calculator</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Workflow Categories</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory">All 46 Transfer Workflows</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#video-cinema">Video, Camera RAW & NLE</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#vfx-3d">3D, VFX, Game Dev & BIM</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#audio-music">Audio & DAW Sessions</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#competitor-bypass">Quota Bypass & Alternatives</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#sizes">File Size Tiers (5GB–2TB)</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Resources & Support</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a class="hover:text-gold-400 transition-colors" href="/guides">Engineering Guides</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/blogs">Transfer Blog</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/contact">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </main>
 </BaseLayout>

@@ -1,0 +1,192 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PtHeader from "../../components/PtHeader.astro";
+import PtFooter from "../../components/PtFooter.astro";
+import { PT_CORE_VALUE_PROPOSITIONS, ptSeoLandingPages } from "../../data/ptSeoLandingPages";
+import { brand } from "@/lib/brand";
+
+export const prerender = true;
+
+const canonical = `${brand.siteUrl}/pt/comparar`;
+const hreflang = [
+  { lang: "en", href: `${brand.siteUrl}/compare` },
+  { lang: "pt-BR", href: canonical },
+  { lang: "x-default", href: `${brand.siteUrl}/compare` },
+];
+
+const competitorPages = ptSeoLandingPages.filter((p) => p.cluster === "concorrentes-alternativas");
+
+const matrixRows = [
+  {
+    feature: "Limite Grátis por Envio",
+    giga: "Até 25 GB Grátis",
+    wetransfer: "2 GB a 3 GB",
+    drive: "15 GB (dividido com Gmail/Fotos)",
+    dropbox: "2 GB",
+    masv: "Apenas trial único",
+  },
+  {
+    feature: "Tamanho Máximo por Link",
+    giga: "50GB, 100GB, 500GB a 2TB+",
+    wetransfer: "2 GB (Grátis) / 200 GB (Pro)",
+    drive: "Trava ZIP > 2GB e bloqueia cota 24h",
+    dropbox: "100 GB a 250 GB (exige add-on)",
+    masv: "Ilimitado (cobra por cada download)",
+  },
+  {
+    feature: "Cadastro Exigido do Cliente",
+    giga: "Zero Cadastro (1 Clique Direto)",
+    wetransfer: "Pede verificação / app em fluxos móveis",
+    drive: "Exige conta Google para arquivos >100MB",
+    dropbox: "Frequentemente pede login Dropbox",
+    masv: "Sem login",
+  },
+  {
+    feature: "Modelo de Cobrança",
+    giga: "Pré-Pago 12 Meses ($20/100GB • $180/1TB)",
+    wetransfer: "Assinatura mensal obrigatória (~$15–$25/mês)",
+    drive: "Assinatura mensal Google One / Workspace",
+    dropbox: "Assinatura mensal cara em dólar",
+    masv: "$0,25/GB ($25/100GB) cobrado POR DOWNLOAD",
+  },
+  {
+    feature: "Servidores CDN no Brasil",
+    giga: "São Paulo (GRU) & Rio (GIG) + 30 PoPs BR",
+    wetransfer: "Rotas internacionais (EUA/Europa)",
+    drive: "Lento para compactar pastas grandes",
+    dropbox: "Rotas EUA com estrangulamento de banda",
+    masv: "CDN Global",
+  },
+  {
+    feature: "Resiliência Claro / Vivo / Starlink",
+    giga: "Streaming HTTP/3 com retomada automática",
+    wetransfer: "Cai aos 99% se a conexão oscilar",
+    drive: "Falha em pastas com milhares de arquivos",
+    dropbox: "Exige instalar app desktop para estabilidade",
+    masv: "Estável, porém 25% a 300% mais caro",
+  },
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
+    { "@type": "ListItem", position: 2, name: "Comparativo de Plataformas", item: canonical },
+  ],
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "GigaSend vs WeTransfer, Google Drive, Dropbox e MASV no Brasil",
+  description:
+    "Comparativo completo no Brasil: supere o limite de 2GB do WeTransfer, o erro de cota excedida do Google Drive e a cobrança por download do MASV.",
+  url: canonical,
+  inLanguage: "pt-BR",
+  hasPart: competitorPages.map((p) => ({
+    "@type": "WebPage",
+    name: p.h1,
+    url: `${brand.siteUrl}/pt/${p.slug}`,
+  })),
+};
+---
+
+<BaseLayout
+  title={`GigaSend vs WeTransfer, Drive e MASV | ${brand.productName} Brasil`}
+  description="Comparativo no Brasil: supere o limite de 2GB do WeTransfer, a cota excedida do Google Drive e a tarifa por download do MASV com CDN SP/RJ."
+  canonical={canonical}
+  lang="pt-BR"
+  hreflang={hreflang}
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <PtHeader activeNav="comparar" enHref="/compare?lang=en" ptHref="/pt/comparar?lang=pt" />
+
+    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400">
+          🇧🇷 Comparativo Técnico & Financeiro no Brasil
+        </span>
+        <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
+          GigaSend vs WeTransfer, Google Drive, Dropbox & MASV
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          Descubra por que produtoras audiovisuais, pilotos de drone (ANAC SISANT), engenheiros BIM e agências brasileiras estão trocando assinaturas mensais e nuvens lentas pelos pacotes pré-pagos do GigaSend com CDN em São Paulo e Rio de Janeiro.
+        </p>
+      </div>
+
+      <p class="mt-8 mb-2 text-[11px] font-mono text-slate-300 sm:hidden">
+        ↔ Deslize a tabela lateralmente para comparar todos os 5 serviços
+      </p>
+      <div class="mt-2 sm:mt-10 overflow-x-auto rounded-2xl border border-white/10 bg-ocean-900/75 shadow-xl">
+        <table class="w-full min-w-[760px] text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-white/10 bg-ocean-950/95 text-[11px] font-mono uppercase tracking-wider text-slate-300">
+              <th scope="col" class="sticky left-0 z-10 bg-ocean-950/95 py-4 px-4 border-r border-white/10">Critério</th>
+              <th scope="col" class="py-4 px-4 text-gold-400 font-bold border-x border-gold-500/20 bg-ocean-900/90">GigaSend Brasil</th>
+              <th scope="col" class="py-4 px-4">WeTransfer</th>
+              <th scope="col" class="py-4 px-4">Google Drive</th>
+              <th scope="col" class="py-4 px-4">Dropbox</th>
+              <th scope="col" class="py-4 px-4">MASV (Massive)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-slate-200">
+            {matrixRows.map((row) => (
+              <tr class="hover:bg-white/[0.02]">
+                <th scope="row" class="sticky left-0 z-10 bg-ocean-950/95 py-3.5 px-4 font-bold text-white border-r border-white/10">{row.feature}</th>
+                <td class="py-3.5 px-4 font-semibold text-emerald-400 bg-emerald-500/5 border-x border-gold-500/20">{row.giga}</td>
+                <td class="py-3.5 px-4 text-slate-300">{row.wetransfer}</td>
+                <td class="py-3.5 px-4 text-slate-300">{row.drive}</td>
+                <td class="py-3.5 px-4 text-slate-300">{row.dropbox}</td>
+                <td class="py-3.5 px-4 text-slate-300">{row.masv}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-12 grid gap-6 lg:grid-cols-4">
+        {PT_CORE_VALUE_PROPOSITIONS.map((prop) => (
+          <div class="apple-glass rounded-2xl p-5">
+            <span class="inline-block rounded-md bg-gold-500/15 border border-gold-500/30 px-2 py-0.5 text-[11px] font-mono font-semibold text-gold-300">
+              {prop.badge}
+            </span>
+            <h2 class="mt-2 text-base font-bold text-gold-400 font-display">{prop.title}</h2>
+            <p class="mt-2 text-xs leading-relaxed text-slate-300">{prop.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-14">
+        <h2 class="text-2xl font-black text-white font-display">
+          Comparativos Detalhados por Concorrente ({competitorPages.length} Análises)
+        </h2>
+        <p class="mt-2 text-sm text-slate-300">
+          Clique em qualquer plataforma abaixo para ver a análise técnica completa de limites, velocidade no Brasil e custos:
+        </p>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {competitorPages.map((p) => (
+            <a
+              href={`/pt/${p.slug}`}
+              class="rounded-2xl border border-white/10 bg-ocean-900/80 p-5 hover:border-gold-500/50 transition flex flex-col justify-between tap-tactile"
+            >
+              <div>
+                <span class="text-[11px] font-mono text-gold-400">{p.primaryKeyword}</span>
+                <h3 class="mt-1 text-base font-bold text-white font-display">{p.h1}</h3>
+                <p class="mt-2 text-xs text-slate-300 line-clamp-2">{p.metaDescription}</p>
+              </div>
+              <span class="mt-4 text-xs font-bold text-gold-400">Ver comparativo completo →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <PtFooter />
+  </main>
+</BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
@@ -30,81 +31,103 @@ const articleSchema = {
   title={`File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams | ${brand.productName}`}
   description="Compare file transfer vs cloud storage vs media review tools. Learn when to use Gigasend vs Dropbox vs Frame.io in video and post-production workflows."
   canonical={canonical}
+  hreflang={[
+    { lang: "en", href: canonical },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/como-enviar-videos-4k-raw-whatsapp-email-sem-comprimir` },
+    { lang: "x-default", href: canonical },
+  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </Fragment>
 
-  <main class="min-h-screen bg-slate-50 text-slate-950">
-    <header class="border-b border-slate-200 bg-white">
+  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/85 backdrop-blur-2xl">
       <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8" aria-label="Primary">
-        <a href="/" class="flex items-center gap-2 text-xl font-bold text-slate-950">
-          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">↑</span>
-          {brand.productName}
+        <a href="/" class="flex items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile">
+          <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">G</span>
+          <span class="group-hover:text-gold-400 transition-colors">{brand.productName}</span>
         </a>
-        <div class="hidden items-center gap-6 text-sm font-medium text-slate-700 sm:flex">
-          <a class="hover:text-blue-700" href="/transfer">Transfer</a>
-          <a class="hover:text-blue-700" href="/plans">Plans</a>
-          <a class="hover:text-blue-700" href="/directory">Directory</a>
-          <a class="hover:text-blue-700" href="/guides">Guides</a>
-          <a class="hover:text-blue-700" href="/tools/transfer-speed-calculator">Calculator</a>
+        <div class="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
+          <a class="hover:text-gold-400 transition-colors" href="/transfer">Transfer</a>
+          <a class="hover:text-gold-400 transition-colors" href="/plans">Plans</a>
+          <a class="hover:text-gold-400 transition-colors" href="/compare">Compare</a>
+          <a class="hover:text-gold-400 transition-colors" href="/directory">Directory</a>
+          <a class="text-gold-400 font-bold" href="/guides">Guides</a>
+          <a class="hover:text-gold-400 transition-colors" href="/tools/transfer-speed-calculator">Speed Calculator</a>
+          <a class="hover:text-gold-400 transition-colors" href="/contact">Contact</a>
+          <a class="btn-gold px-3.5 py-2 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile" href="/transfer">Send Files</a>
         </div>
       </nav>
     </header>
 
-    <article class="bg-white py-16 sm:py-20 border-b border-slate-200">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
+      <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
+        <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
+        <li>/</li>
+        <li><a href="/guides" class="hover:text-gold-400 transition-colors">Guides</a></li>
+        <li>/</li>
+        <li class="text-gold-400 font-semibold" aria-current="page">File Transfer vs Cloud Storage vs Media Review</li>
+      </ol>
+    </nav>
+
+    <article class="bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 py-16 sm:py-20 border-b border-white/10">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700">
+        <div class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400 label-caps">
           <span>Creative Workflow Architecture</span>
         </div>
-        <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+        <h1 class="mt-4 text-4xl font-black tracking-tight text-white font-display sm:text-5xl">
           File Transfer vs Cloud Storage vs Media Review
         </h1>
-        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+        <p class="mt-4 text-lg text-slate-300 leading-relaxed">
           Many post-production and design teams mistakenly try to use one tool for everything. Understanding the distinct purpose of point-to-point dispatch, collaborative syncing, and frame-accurate review saves thousands of dollars and hours of wasted time.
         </p>
 
-        <div class="mt-8 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <table class="min-w-full divide-y divide-slate-200 text-left text-sm">
-            <thead class="bg-slate-50 text-slate-900 font-semibold">
-              <tr>
-                <th scope="col" class="px-6 py-4">Tool Category</th>
-                <th scope="col" class="px-6 py-4">Primary Purpose</th>
-                <th scope="col" class="px-6 py-4">Ideal For</th>
-                <th scope="col" class="px-6 py-4">Where It Fails</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 text-slate-700">
-              <tr>
-                <td class="px-6 py-4 font-bold text-blue-700">Point-to-Point Transfer ({brand.productName})</td>
-                <td class="px-6 py-4">Ephemeral deliverable dispatch</td>
-                <td class="px-6 py-4">Sending 25GB–5TB client packages & camera masters</td>
-                <td class="px-6 py-4 text-slate-500">Long-term permanent archival</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-slate-900">Cloud Storage (Dropbox / Google Drive)</td>
-                <td class="px-6 py-4">Synchronized workspace collaboration</td>
-                <td class="px-6 py-4">Sharing active docs, project notes, small assets</td>
-                <td class="px-6 py-4 text-rose-700">Sync conflicts, disk clogging, strict download quotas</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold text-purple-700">Media Review (Frame.io)</td>
-                <td class="px-6 py-4">Frame-accurate client feedback</td>
-                <td class="px-6 py-4">Timecode notes, client rough-cut approvals</td>
-                <td class="px-6 py-4 text-rose-700">Prohibitive storage pricing for raw camera masters</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-ocean-900/80 shadow-2xl apple-glass backdrop-blur-2xl">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-white/10 text-left text-sm text-slate-300">
+              <thead class="bg-ocean-950/90 text-slate-300 font-semibold">
+                <tr>
+                  <th scope="col" class="px-6 py-4 text-white label-caps text-xs">Tool Category</th>
+                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">Primary Purpose</th>
+                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">Ideal For</th>
+                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">Where It Fails</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/10 bg-ocean-900/40 text-slate-300">
+                <tr class="bg-ocean-900/70">
+                  <td class="px-6 py-4 font-bold text-gold-400 font-display">Point-to-Point Transfer ({brand.productName})</td>
+                  <td class="px-6 py-4 text-white">Ephemeral deliverable dispatch</td>
+                  <td class="px-6 py-4 text-slate-200">Sending 25GB–5TB client packages & camera masters</td>
+                  <td class="px-6 py-4 text-slate-400">Long-term permanent archival</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-bold text-white font-display">Cloud Storage (Dropbox / Google Drive)</td>
+                  <td class="px-6 py-4">Synchronized workspace collaboration</td>
+                  <td class="px-6 py-4">Sharing active docs, project notes, small assets</td>
+                  <td class="px-6 py-4 text-rose-400">Sync conflicts, disk clogging, strict download quotas</td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-bold text-white font-display">Media Review (Frame.io)</td>
+                  <td class="px-6 py-4">Frame-accurate client feedback</td>
+                  <td class="px-6 py-4">Timecode notes, client rough-cut approvals</td>
+                  <td class="px-6 py-4 text-rose-400">Prohibitive storage pricing for raw camera masters</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="mt-12 rounded-2xl bg-blue-600 p-8 text-white text-center">
-          <h3 class="text-2xl font-bold">Use the Right Tool for Large Deliverables</h3>
-          <p class="mt-2 text-blue-100 text-sm">
+        <div class="mt-12 apple-glass rounded-3xl border border-gold-500/30 bg-ocean-900/90 p-8 text-white text-center shadow-2xl">
+          <span class="label-caps text-gold-400 text-xs">Zero Egress • 335+ Edge PoPs</span>
+          <h3 class="mt-2 text-2xl font-black font-display">Use the Right Tool for Large Deliverables</h3>
+          <p class="mt-2 text-slate-300 text-sm">
             Clean ephemeral transfers up to 25GB free. No recipient accounts required.
           </p>
           <a
             href="/transfer"
-            class="mt-6 inline-block rounded-lg bg-white px-8 py-3 text-base font-bold text-blue-600 shadow-md hover:bg-slate-50"
+            class="btn-gold mt-6 inline-block rounded-xl px-8 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile"
           >
             Transfer Files With Gigasend
           </a>
@@ -112,28 +135,109 @@ const articleSchema = {
       </div>
     </article>
 
-    <!-- Related Workflows & Cross-Cluster Navigation -->
-    <section class="border-t border-slate-200 bg-slate-50 py-12">
+    <!-- Sibling Engineering Guides Clique -->
+    <section class="border-t border-white/10 bg-ocean-900/60 py-14">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">Related Transfer Solutions & Comparisons</h3>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/compare">
-            Competitor Comparison Matrix
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="label-caps text-gold-400 text-xs">Engineering Series</span>
+            <h2 class="mt-1 text-2xl font-black text-white font-display">More Production & Infrastructure Guides</h2>
+          </div>
+          <a href="/guides" class="text-xs font-mono font-bold text-gold-400 hover:text-gold-300 transition-colors">All 5 Guides →</a>
+        </div>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="/guides/why-large-file-transfers-are-slow" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">WAN & Infrastructure</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Why Large File Transfers Are So Slow</h3>
+            <p class="mt-1.5 text-xs text-slate-300">TCP window scaling, peering latency, and packet loss diagnostics.</p>
           </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/send-large-files-free">
-            Send Large Files Free (25GB)
+          <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs monthly subscriptions and AWS egress fees.</p>
           </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/send-large-video-files">
-            Send Large Video Files
+          <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Transfer Without Failed Uploads</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Client-side chunking, multi-part parallel streams, and auto-retry.</p>
           </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/wetransfer-alternative">
-            WeTransfer Alternative
-          </a>
-          <a class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-blue-500 hover:text-blue-700" href="/directory">
-            Full Transfer Directory
+          <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage Optimization</span>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Without Filling Your Hard Drive</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Avoid local sync cache bloat with zero-cache browser streaming.</p>
           </a>
         </div>
       </div>
     </section>
+
+    <RelatedWorkflows
+      currentSlug="guides/file-transfer-vs-cloud-storage-vs-media-review"
+      internalLinks={[
+        { href: "/compare", label: "Competitor Comparison Matrix" },
+        { href: "/send-large-files-free", label: "Send Large Files Free (25GB)" },
+        { href: "/send-large-video-files", label: "Send Large Video Files" },
+        { href: "/wetransfer-alternative", label: "WeTransfer Alternative" },
+        { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer Alternative" },
+        { href: "/directory", label: "Full Transfer Directory" },
+      ]}
+    />
+
+    <!-- Apple HIG Dark Blue SEO Footer -->
+    <footer class="border-t border-white/10 bg-ocean-950 py-14 text-xs text-slate-400">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a href="/" class="flex items-center gap-2.5 text-base font-extrabold font-display text-white">
+              <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black text-sm">G</span>
+              <span>{brand.productName}</span>
+            </a>
+            <p class="mt-3 text-slate-400 leading-relaxed">
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Platform & Tools</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/transfer" class="hover:text-gold-400 transition-colors">Send Large Files</a></li>
+              <li><a href="/plans" class="hover:text-gold-400 transition-colors">Plans & Pricing</a></li>
+              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Architecture Comparison</a></li>
+              <li><a href="/tools/transfer-speed-calculator" class="hover:text-gold-400 transition-colors">Transfer Speed Calculator</a></li>
+              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Codec & Format Directory</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Engineering Guides</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Engineering Guides</a></li>
+              <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
+              <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
+              <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
+              <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
+              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>
+              <li><a href="/contact" class="hover:text-gold-400 transition-colors">Contact Support</a></li>
+              <li><a href="/terms" class="hover:text-gold-400 transition-colors">Terms</a> · <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© {new Date().getFullYear()} {brand.productName}. Engineered on Cloudflare Edge & R2.</p>
+          <div class="flex gap-4">
+            <a href="/security" class="hover:text-gold-400 transition-colors">Security</a>
+            <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
+            <a href="/terms" class="hover:text-gold-400 transition-colors">Terms of Service</a>
+            <a href="/contact" class="hover:text-gold-400 transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </main>
 </BaseLayout>

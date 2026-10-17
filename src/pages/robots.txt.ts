@@ -17,6 +17,8 @@ export const GET: APIRoute = async ({ site }) => {
     `Sitemap: ${origin}/sitemap-index.xml`,
     `Sitemap: ${origin}/sitemap.xml`,
     `Sitemap: ${origin}/sitemap-0.xml`,
+    `Sitemap: ${origin}/sitemap-es.xml`,
+    `Sitemap: ${origin}/sitemap-pt.xml`,
   ].join("\n");
 
   return new Response(`${content}\n`, {

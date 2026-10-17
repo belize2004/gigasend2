@@ -1,8 +1,6 @@
 import React from "react";
-import { Typography, Box, Paper, Stack, IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import { FiX } from "react-icons/fi";
 import { fileTypeColor } from "./fileTypeColors";
-import mime from "mime";
 import Image from '@/components/compat/Image';
 
 interface FileProps {
@@ -29,98 +27,52 @@ export const FileDisplayItem: React.FC<FileDisplayItemProps> = ({
   file,
   onRemove,
 }) => {
-  const fileExtension = mime.getExtension(file.type);
-  const fileColor = fileExtension
-    ? fileTypeColor[fileExtension] || "primary.main"
-    : "primary.main";
-  const finalExtension =
-    fileExtension === "" ? file.name.split(".").pop() : fileExtension;
+  const nameExt = file.name.includes(".")
+    ? file.name.split(".").pop()?.toLowerCase() || ""
+    : "";
+  const mimeExt = file.type.includes("/")
+    ? file.type.split("/").pop()?.split("+")[0]?.toLowerCase() || ""
+    : "";
+  const finalExtension = nameExt || mimeExt || "file";
+  const fileColor = fileTypeColor[finalExtension] || "#f7bc6a";
 
   return (
-    <Paper
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        p: 2,
-        bgcolor: "background.default",
-        borderRadius: "12px",
-        boxShadow: "none",
-        border: "1px solid",
-        borderColor: "#E9EAEB",
-        width: "100%",
-      }}
-      elevation={1}
-      variant="outlined"
-    >
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        width="100%"
-        alignItems="flex-start"
-        gap={2}
-      >
-        <Stack
-          sx={{
-            position: "relative",
-            width: 40,
-            height: 40,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Image src="./file.svg" alt="file icon" width={33} height={33} />
-          <Box
-            sx={{
-              position: "absolute",
-              top: 1,
-              right: 1,
-              height: 16,
-              backgroundColor: fileColor,
-              borderRadius: "2px",
-              pl: "3px",
-              pr: "3px",
-            }}
+    <div className="flex flex-row justify-between items-center p-3.5 bg-[#001d32]/85 backdrop-blur-md rounded-[14px] border border-white/10 hover:border-[#f7bc6a]/40 transition-colors w-full">
+      <div className="flex flex-row justify-between w-full items-center gap-4">
+        <div className="relative w-10 h-10 rounded-[10px] bg-[#002f4d]/90 border border-white/10 flex items-center justify-center shrink-0">
+          <Image src="/file.svg" alt="file icon" width={28} height={28} />
+          <div
+            className="absolute top-0.5 right-0.5 h-[15px] rounded px-1 flex items-center justify-center"
+            style={{ backgroundColor: fileColor }}
           >
-            <Typography
-              sx={{
-                fontSize: "10px",
-                fontWeight: 600,
-                color: "#FFFFFF",
-                lineHeight: "16px",
-                textAlign: "center",
-              }}
-            >
+            <span className="text-[9px] font-bold text-white leading-[15px] text-center">
               {finalExtension?.toUpperCase()}
-            </Typography>
-          </Box>
-        </Stack>
-        <Stack flex={1}>
-          <Stack direction="row" justifyContent="space-between">
-            <Stack>
-              <Typography
-                variant="body1"
-                sx={{ wordBreak: "break-all" }}
-                fontWeight={600}
-              >
+            </span>
+          </div>
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-row justify-between items-center gap-2">
+            <div className="min-w-0 text-left">
+              <p className="break-all text-slate-50 font-semibold text-sm">
                 {file.name}
-              </Typography>
-              <Typography variant="body2">
-                <span>{formatBytes(file.size)}</span>
-              </Typography>
-            </Stack>
-            <IconButton
+              </p>
+              <span className="text-[#ffddb4] font-mono text-xs">
+                {formatBytes(file.size)}
+              </span>
+            </div>
+            <button
+              type="button"
+              aria-label={`Remove ${file.name}`}
               onClick={() => onRemove(file.name)}
-              sx={{ width: 25, height: 25 }}
+              className="w-7 h-7 rounded-full flex items-center justify-center text-slate-400 hover:text-rose-400 hover:bg-rose-500/15 transition-colors"
             >
-              <CloseIcon sx={{ width: 17, height: 17, color: "#6D6D6D" }} />
-            </IconButton>
-          </Stack>
-        </Stack>
-      </Stack>
-    </Paper>
+              <FiX className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default FileDisplayItem;
+export default FileDisplayItem;

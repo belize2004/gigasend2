@@ -25,7 +25,13 @@ const DashboardBilling: React.FC = () => {
     })()
   }, [])
 
-  if (!data) return <></>
+  if (!data) {
+    return (
+      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl p-8 text-center text-slate-300 text-sm">
+        Loading billing details...
+      </div>
+    )
+  }
 
   if (!data.isFree) {
     return <Paid data={data} onSubscriptionCancel={() => setData({ isFree: true })} />
