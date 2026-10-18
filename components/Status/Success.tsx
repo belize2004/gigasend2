@@ -1,21 +1,39 @@
 "use client";
 
 import { Button, Card, Stack, Typography } from "@mui/material";
-import Image from '@/components/compat/Image';
-import { useRouter } from '@/components/compat/navigation';
+import Image from "@/components/compat/Image";
+import { useRouter } from "@/components/compat/navigation";
 import { useEffect, useState } from "react";
-import { FiCheck, FiCopy } from "react-icons/fi";
+import { FiCheck, FiCopy, FiExternalLink } from "react-icons/fi";
 
 export const Success = () => {
   const router = useRouter();
   const [shareLink, setShareLink] = useState("");
   const [emailFailed, setEmailFailed] = useState(false);
+  const [deliveryMode, setDeliveryMode] = useState<"link" | "email">("link");
+  const [expiryDays, setExpiryDays] = useState(3);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    setShareLink(params.get("link") ?? "");
+    const link = params.get("link") ?? "";
+    const mode = params.get("mode") === "email" ? "email" : "link";
+    const days = Number(params.get("days") || 3);
+
+    setShareLink(link);
     setEmailFailed(params.get("email") === "failed");
+    setDeliveryMode(mode);
+    setExpiryDays(Number.isFinite(days) && days > 0 ? days : 3);
+
+    if (link && mode === "link" && navigator.clipboard?.writeText) {
+      navigator.clipboard
+        .writeText(link)
+        .then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 3000);
+        })
+        .catch(() => undefined);
+    }
   }, []);
 
   const copyShareLink = async () => {
@@ -75,7 +93,7 @@ export const Success = () => {
           width="100%"
         >
           <span className="label-caps text-emerald-400 text-xs px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
-            Line-Rate Edge Delivery Active
+            Line-Rate Edge Delivery Active • Valid for {expiryDays} Days
           </span>
           <Typography
             variant="h1"
@@ -83,7 +101,7 @@ export const Success = () => {
             textAlign="center"
             sx={{ color: "#FFFFFF", fontSize: { xs: "2rem", sm: "2.5rem" }, letterSpacing: "-0.02em" }}
           >
-            Transfer Ready!
+            {deliveryMode === "email" && !emailFailed ? "Email Sent & Link Ready!" : "Transfer Ready!"}
           </Typography>
           <Typography
             variant="body2"
@@ -99,9 +117,9 @@ export const Success = () => {
           >
             {emailFailed
               ? "Your upload is finished, but the recipient email could not be sent. Copy this link and send it manually."
-              : shareLink
-              ? "Your shareable link is ready. Anyone with this link can download the files at line-rate speed until it expires."
-              : "Email sent! The recipient has 3 days to download your files."}
+              : deliveryMode === "email"
+                ? `We emailed the download link to your recipient (valid for ${expiryDays} days). You can also copy the direct link below to share anywhere.`
+                : `Your shareable link is ready (valid for ${expiryDays} days). Anyone with this link can download the files at full edge speed.`}
           </Typography>
           {shareLink && (
             <Stack
@@ -110,7 +128,7 @@ export const Success = () => {
               alignItems="center"
               sx={{
                 width: "100%",
-                maxWidth: 580,
+                maxWidth: 620,
                 border: "1px solid rgba(247, 188, 106, 0.35)",
                 borderRadius: "16px",
                 backgroundColor: "rgba(0, 29, 50, 0.9)",
@@ -131,27 +149,51 @@ export const Success = () => {
               >
                 {shareLink}
               </Typography>
-              <Button
-                variant="contained"
-                type="button"
-                onClick={copyShareLink}
-                startIcon={copied ? <FiCheck /> : <FiCopy />}
-                sx={{
-                  textTransform: "none",
-                  backgroundColor: "#f7bc6a",
-                  color: "#001d32",
-                  fontWeight: 700,
-                  borderRadius: "12px",
-                  px: 2.5,
-                  py: 1.2,
-                  flexShrink: 0,
-                  "&:hover": {
-                    backgroundColor: "#ffddb4",
-                  },
-                }}
-              >
-                {copied ? "Copied!" : "Copy link"}
-              </Button>
+              <Stack direction="row" gap={1} sx={{ flexShrink: 0 }}>
+                <Button
+                  variant="contained"
+                  type="button"
+                  onClick={copyShareLink}
+                  startIcon={copied ? <FiCheck /> : <FiCopy />}
+                  sx={{
+                    textTransform: "none",
+                    backgroundColor: "#f7bc6a",
+                    color: "#001d32",
+                    fontWeight: 700,
+                    borderRadius: "12px",
+                    px: 2.5,
+                    py: 1.2,
+                    "&:hover": {
+                      backgroundColor: "#ffddb4",
+                    },
+                  }}
+                >
+                  {copied ? "Copied!" : "Copy link"}
+                </Button>
+                <Button
+                  variant="outlined"
+                  component="a"
+                  href={shareLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  startIcon={<FiExternalLink />}
+                  sx={{
+                    textTransform: "none",
+                    borderColor: "rgba(247, 188, 106, 0.4)",
+                    color: "#ffddb4",
+                    fontWeight: 700,
+                    borderRadius: "12px",
+                    px: 2,
+                    py: 1.2,
+                    "&:hover": {
+                      borderColor: "#f7bc6a",
+                      backgroundColor: "rgba(247, 188, 106, 0.12)",
+                    },
+                  }}
+                >
+                  Open
+                </Button>
+              </Stack>
             </Stack>
           )}
           <Button
@@ -178,4 +220,3 @@ export const Success = () => {
     </Card>
   );
 };
-

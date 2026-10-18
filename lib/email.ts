@@ -15,13 +15,15 @@ export function generateEmailTemplate({
     numberOfFiles,
     link,
     message,
-    fileSize
+    fileSize,
+    expiryDays = 3,
 }: {
     senderEmail: string;
     numberOfFiles: number;
     link: string;
     message?: string;
-    fileSize: number
+    fileSize: number;
+    expiryDays?: number;
 }) {
     const safeSenderEmail = escapeHtml(senderEmail);
     const safeMessage = escapeHtml(message).replaceAll("\n", "<br />");
@@ -205,7 +207,7 @@ export function generateEmailTemplate({
         }
               
               <div class="expiry-notice">
-                  <strong>Note:</strong> These download links will expire in 3 days. Please download your files before then.
+                  <strong>Note:</strong> These download links will expire in ${expiryDays} days. Please download your files before then.
               </div>
           </div>
           
@@ -225,13 +227,15 @@ export function generateEmailText({
     numberOfFiles,
     link,
     message,
-    fileSize
+    fileSize,
+    expiryDays = 3,
 }: {
     senderEmail: string;
     numberOfFiles: number;
     link: string;
     message?: string;
     fileSize: number;
+    expiryDays?: number;
 }) {
     return [
         `${senderEmail} sent you ${numberOfFiles} file${numberOfFiles === 1 ? "" : "s"} with ${brand.productName}.`,
@@ -243,7 +247,7 @@ export function generateEmailText({
         message ? "Message:" : undefined,
         message || undefined,
         "",
-        "This download link expires in 3 days.",
+        `This download link expires in ${expiryDays} days.`,
         brand.footerText,
     ].filter((line): line is string => line !== undefined).join("\n");
 }

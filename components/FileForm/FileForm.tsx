@@ -62,6 +62,12 @@ type UploadTelemetry = {
   partSize: number | null;
   resumedFromSavedSession: boolean;
   canceled: boolean;
+  transferMode: string;
+  initMs: number;
+  transferMs: number;
+  finalizeMs: number;
+  shareCreationMs: number;
+  shareId: string | null;
 };
 type InitiatedUpload = { uploadId: string; key: string; urls?: Record<string, string> };
 type UploadedFile = { key: string; uploadedSize: number };
@@ -72,6 +78,7 @@ type UploadSingleFileOptions = {
 type DeliveryMode = "email" | "link";
 
 const UPLOAD_CONCURRENCY = 8;
+const MAX_ADAPTIVE_CONCURRENCY = 12;
 const DIRECT_FILE_UPLOAD_CONCURRENCY = 8;
 const PRESIGN_BATCH_SIZE = 32;
 const PACKAGE_MULTI_FILE_UPLOADS_AS_ZIP = false;
@@ -89,10 +96,43 @@ const MAX_MULTIPART_PARTS = 10_000;
 const MAX_MULTIPART_PART_SIZE = 5 * 1024 * 1024 * 1024;
 const PART_SIZE_ALIGNMENT = 1024 * 1024;
 const SAVED_UPLOAD_SESSION_KEY = "gigasend:upload-session:v1";
-const limit = pLimit(UPLOAD_CONCURRENCY);
+const ADAPTIVE_TUNING_KEY = "gigasend:adaptive-speed-profile:v1";
+const limit = pLimit(MAX_ADAPTIVE_CONCURRENCY);
+
+function readAdaptiveTuning(): {
+  concurrency: number;
+  chunkSizeMultiplier: number;
+  presignBatchSize: number;
+} {
+  if (typeof window === "undefined") {
+    return { concurrency: UPLOAD_CONCURRENCY, chunkSizeMultiplier: 1, presignBatchSize: PRESIGN_BATCH_SIZE };
+  }
+  try {
+    const raw = window.localStorage.getItem(ADAPTIVE_TUNING_KEY);
+    if (!raw) {
+      return { concurrency: UPLOAD_CONCURRENCY, chunkSizeMultiplier: 1, presignBatchSize: PRESIGN_BATCH_SIZE };
+    }
+    const parsed = JSON.parse(raw);
+    return {
+      concurrency: Math.min(MAX_ADAPTIVE_CONCURRENCY, Math.max(4, Number(parsed.concurrency) || UPLOAD_CONCURRENCY)),
+      chunkSizeMultiplier: parsed.chunkSizeMultiplier === 0.5 || parsed.chunkSizeMultiplier === 2 ? parsed.chunkSizeMultiplier : 1,
+      presignBatchSize: Math.min(64, Math.max(16, Number(parsed.presignBatchSize) || PRESIGN_BATCH_SIZE)),
+    };
+  } catch {
+    return { concurrency: UPLOAD_CONCURRENCY, chunkSizeMultiplier: 1, presignBatchSize: PRESIGN_BATCH_SIZE };
+  }
+}
+
+function getAdaptiveConcurrency(liveRetryCount = 0): number {
+  if (liveRetryCount >= 2) {
+    return 4;
+  }
+  return readAdaptiveTuning().concurrency;
+}
 
 function getUploadPartSize(fileSize: number) {
-  const basePartSize =
+  const { chunkSizeMultiplier } = readAdaptiveTuning();
+  const rawBasePartSize =
     fileSize < SMALL_MULTIPART_THRESHOLD
       ? SMALL_MULTIPART_PART_SIZE
       : fileSize < MEDIUM_FILE_THRESHOLD
@@ -100,6 +140,7 @@ function getUploadPartSize(fileSize: number) {
         : fileSize < LARGE_FILE_THRESHOLD
           ? MEDIUM_FILE_PART_SIZE
           : LARGE_FILE_PART_SIZE;
+  const basePartSize = Math.max(SMALL_MULTIPART_PART_SIZE, Math.round(rawBasePartSize * chunkSizeMultiplier));
   const requiredPartSize = Math.ceil(fileSize / MAX_MULTIPART_PARTS);
   const alignedPartSize = Math.ceil(requiredPartSize / PART_SIZE_ALIGNMENT) * PART_SIZE_ALIGNMENT;
 
@@ -172,8 +213,15 @@ export const FileForm = () => {
     partSize: null,
     resumedFromSavedSession: false,
     canceled: false,
+    transferMode: "multipart_single",
+    initMs: 0,
+    transferMs: 0,
+    finalizeMs: 0,
+    shareCreationMs: 0,
+    shareId: null,
   });
   const [estimatedTimeLeft, setEstimatedTimeLeft] = useState<number | null>(null);
+  const [currentSpeedMBps, setCurrentSpeedMBps] = useState<number | null>(null);
   const [savedSession, setSavedSession] = useState<SavedUploadSession | null>(null);
   const [allowedLimit, setAllowedLimit] = useState(PLANS.free.storageBytes * (1024 ** 3));
   const [usageLoading, setUsageLoading] = useState(true);
@@ -191,6 +239,16 @@ export const FileForm = () => {
   const router = useRouter();
   const startTimeRef = useRef<null | number>(null)
   const partNumberRef = useRef(1);
+
+  useEffect(() => {
+    if (!uploading) return;
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [uploading]);
 
   const {
     register,
@@ -213,30 +271,60 @@ export const FileForm = () => {
       partSize: null,
       resumedFromSavedSession: false,
       canceled: false,
+      transferMode: files.length > 1 ? "multipart_parallel_files" : "multipart_single",
+      initMs: 0,
+      transferMs: 0,
+      finalizeMs: 0,
+      shareCreationMs: 0,
+      shareId: null,
     };
   };
 
   const sendTelemetry = (event: TelemetryEvent, errorMessage?: string) => {
     if (!uploadStartTimeRef.current) return;
 
-    const activeMs = Date.now() - uploadStartTimeRef.current - pausedDurationRef.current;
-    const averageMbps = activeMs > 0
-      ? (totalUploadedRef.current * 8) / (activeMs / 1000) / 1_000_000
-      : 0;
+    const activeMs = Math.max(1, Date.now() - uploadStartTimeRef.current - pausedDurationRef.current);
+    const effectiveTransferMs =
+      telemetryRef.current.transferMs > 0
+        ? telemetryRef.current.transferMs
+        : Math.max(
+            1,
+            activeMs -
+              telemetryRef.current.initMs -
+              telemetryRef.current.finalizeMs -
+              telemetryRef.current.shareCreationMs,
+          );
+    const averageMbps =
+      effectiveTransferMs > 0
+        ? (totalUploadedRef.current * 8) / (effectiveTransferMs / 1000) / 1_000_000
+        : 0;
+    const conn = typeof navigator !== "undefined" ? (navigator as any).connection : null;
+
     const payload = {
       event,
+      direction: "upload",
+      shareId: telemetryRef.current.shareId,
+      transferMode: telemetryRef.current.transferMode,
+      deliveryMode,
       fileCount: files.length,
       totalBytes: totalBytesRef.current,
       uploadedBytes: totalUploadedRef.current,
       partSize: telemetryRef.current.partSize,
-      concurrency: UPLOAD_CONCURRENCY,
+      concurrency: getAdaptiveConcurrency(telemetryRef.current.retryCount),
       completedParts: telemetryRef.current.completedParts,
       retryCount: telemetryRef.current.retryCount,
       pauseCount: telemetryRef.current.pauseCount,
       resumedFromSavedSession: telemetryRef.current.resumedFromSavedSession,
       durationMs: Math.max(0, activeMs),
       pausedMs: pausedDurationRef.current,
+      initMs: telemetryRef.current.initMs,
+      transferMs: effectiveTransferMs,
+      finalizeMs: telemetryRef.current.finalizeMs,
+      shareCreationMs: telemetryRef.current.shareCreationMs,
       averageMbps: Number(averageMbps.toFixed(2)),
+      clientConnectionType: typeof conn?.effectiveType === "string" ? conn.effectiveType : null,
+      clientDownlinkMbps: typeof conn?.downlink === "number" ? conn.downlink : null,
+      clientRttMs: typeof conn?.rtt === "number" ? conn.rtt : null,
       errorMessage,
       canceled: telemetryRef.current.canceled,
     };
@@ -246,7 +334,21 @@ export const FileForm = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
       keepalive: true,
-    }).catch((error) => console.warn("Failed to send upload telemetry:", error));
+    })
+      .then((res) => res.json().catch(() => null))
+      .then((data) => {
+        if (typeof window !== "undefined" && data?.evaluation?.recommendedTuning) {
+          try {
+            window.localStorage.setItem(
+              ADAPTIVE_TUNING_KEY,
+              JSON.stringify(data.evaluation.recommendedTuning),
+            );
+          } catch {
+            // Ignore localStorage quota errors
+          }
+        }
+      })
+      .catch((error) => console.warn("Failed to send upload telemetry:", error));
   };
 
   const getFileFingerprint = (file: File) =>
@@ -555,11 +657,13 @@ export const FileForm = () => {
     );
     const elapsed = (Date.now() - uploadStartTimeRef.current! - pauseOffset) / 1000;
 
-    if (elapsed >= 1.5 && uploaded > 0) {
-      const speed = uploaded / elapsed;
-      const timeLeft = (total - uploaded) / speed;
+    if (elapsed >= 0.4 && uploaded > 0) {
+      const speedBytesPerSec = uploaded / elapsed;
+      setCurrentSpeedMBps(Number((speedBytesPerSec / (1024 * 1024)).toFixed(1)));
+      const timeLeft = (total - uploaded) / speedBytesPerSec;
       setEstimatedTimeLeft(Math.max(0, Math.ceil(timeLeft)));
     } else {
+      setCurrentSpeedMBps(null);
       setEstimatedTimeLeft(null);
     }
   }
@@ -573,12 +677,14 @@ export const FileForm = () => {
     const totalParts = Math.max(1, Math.ceil(fileSize / partSize));
     const initialPartCount = Math.min(totalParts, PRESIGN_BATCH_SIZE * 2);
 
+    const initStart = performance.now();
     const initiateRes = await fetch("/api/uploads/initiate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fileName, contentType, fileSize, partCount: initialPartCount }),
     });
     const payload = await initiateRes.json().catch(() => null);
+    telemetryRef.current.initMs += Math.round(performance.now() - initStart);
 
     if (!initiateRes.ok) {
       throw new Error(payload?.message || payload?.error || "Failed to initiate upload");
@@ -602,6 +708,11 @@ export const FileForm = () => {
     const MAX_RETRIES = 3;
     let retries = 0;
 
+    if (files.length === 1) {
+      telemetryRef.current.transferMode = "direct_put";
+      telemetryRef.current.partSize = file.size;
+    }
+
     setUploadStatus("uploading");
     addMonitoringBreadcrumb("Direct file upload initiated", {
       fileName: file.name,
@@ -609,12 +720,14 @@ export const FileForm = () => {
       contentType,
     }, "upload");
 
+    const initStart = performance.now();
     const presignRes = await fetch("/api/uploads/presignDirect", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fileName: file.name, contentType, fileSize: file.size }),
     });
     const payload = await presignRes.json().catch(() => null);
+    telemetryRef.current.initMs += Math.round(performance.now() - initStart);
 
     if (!presignRes.ok) {
       throw new Error(payload?.message || payload?.error || `Failed to prepare upload for ${file.name}`);
@@ -630,6 +743,7 @@ export const FileForm = () => {
       }
     };
 
+    const putStart = performance.now();
     while (retries <= MAX_RETRIES) {
       await waitWhilePaused();
       if (abortRequestedRef.current) throw new Error("Upload canceled");
@@ -658,6 +772,7 @@ export const FileForm = () => {
                 totalUploadedRef.current += file.size - recorded;
               }
               delete chunkProgressRef.current[chunkKey];
+              telemetryRef.current.completedParts += 1;
               updateProgress();
               resolve();
             } else {
@@ -695,6 +810,7 @@ export const FileForm = () => {
         await new Promise((resolve) => setTimeout(resolve, 2000 * retries));
       }
     }
+    telemetryRef.current.transferMs += Math.max(1, Math.round(performance.now() - putStart));
 
     return { key: payload.key, uploadedSize: file.size };
   }
@@ -875,13 +991,14 @@ export const FileForm = () => {
     }
 
     const totalParts = Math.ceil(file.size / partSize);
+    const transferPhaseStart = performance.now();
     for (let partNumber = 1; partNumber <= totalParts; partNumber++) {
       if (uploadedPartNumbers.has(partNumber)) continue;
 
       await waitWhilePaused();
       if (abortRequestedRef.current) throw new Error("Upload canceled");
       setUploadStatus("uploading");
-      await waitForUploadSlot(uploadPromises, UPLOAD_CONCURRENCY);
+      await waitForUploadSlot(uploadPromises, getAdaptiveConcurrency(telemetryRef.current.retryCount));
 
       const start = (partNumber - 1) * partSize;
       const end = Math.min(start + partSize, file.size);
@@ -906,8 +1023,10 @@ export const FileForm = () => {
     }
 
     await Promise.all(uploadPromises);
+    telemetryRef.current.transferMs += Math.max(1, Math.round(performance.now() - transferPhaseStart));
 
     setUploadStatus("finalizing");
+    const finalizeStart = performance.now();
     const completeRes = await fetch("/api/uploads/complete", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -919,6 +1038,7 @@ export const FileForm = () => {
           .map(({ PartNumber, ETag }) => ({ PartNumber, ETag })),
       }),
     });
+    telemetryRef.current.finalizeMs += Math.round(performance.now() - finalizeStart);
     if (!completeRes.ok) {
       const completePayload = await completeRes.json().catch(() => null);
       if (shouldPersistSession || completePayload?.resetSession) {
@@ -984,6 +1104,7 @@ export const FileForm = () => {
     presignedUrlCacheRef.current.clear();
     presignedUrlBatchesRef.current.clear();
     setOverallProgress(0);
+    setCurrentSpeedMBps(null);
     setIsPaused(false);
     pausedRef.current = false;
     pauseStartedAtRef.current = null;
@@ -1025,6 +1146,7 @@ export const FileForm = () => {
       } else if (shouldUploadFilesIndividually(files.length, totalBytesRef.current)) {
         clearSavedSession();
         setUploadStatus("uploading");
+        telemetryRef.current.transferMode = "multipart_parallel_files";
         addMonitoringBreadcrumb("Large multi-file upload using direct file mode", {
           fileCount: files.length,
           totalBytes: totalBytesRef.current,
@@ -1051,6 +1173,7 @@ export const FileForm = () => {
       } else {
         clearSavedSession();
         setUploadStatus("initiating");
+        telemetryRef.current.transferMode = "stream_zip";
         const initiatedUpload = await initiateMultipartUpload(
           "giga-sender.zip",
           "application/zip",
@@ -1094,6 +1217,7 @@ export const FileForm = () => {
         deliveryMode,
         receiverDomain: deliveryMode === "email" ? data.receiverEmail?.split("@")[1] ?? "unknown" : "link-only",
       }, "upload");
+      const shareStart = performance.now();
       const shareRes = await fetch(deliveryMode === "email" ? "/api/uploads/sendEmail" : "/api/uploads/createLink", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1106,14 +1230,26 @@ export const FileForm = () => {
         }),
       });
       const sharePayload = await shareRes.json().catch(() => null);
+      telemetryRef.current.shareCreationMs = Math.round(performance.now() - shareStart);
       if (!shareRes.ok) {
         throw new Error(sharePayload?.message || sharePayload?.error || "Failed to create transfer.");
       }
+      telemetryRef.current.shareId =
+        sharePayload?.shareId ||
+        (typeof sharePayload?.link === "string" && sharePayload.link.includes("/download/")
+          ? sharePayload.link.split("/download/")[1]
+          : null);
       sendTelemetry("completed");
       setFiles([]);
       const params = new URLSearchParams();
-      if ((deliveryMode === "link" || sharePayload?.emailSent === false) && sharePayload?.link) {
+      if (sharePayload?.link) {
         params.set("link", sharePayload.link);
+      }
+      params.set("mode", deliveryMode);
+      if (sharePayload?.expiryDays) {
+        params.set("days", String(sharePayload.expiryDays));
+      } else {
+        params.set("days", String(expiryLimit));
       }
       if (sharePayload?.emailSent === false) {
         params.set("email", "failed");
@@ -1644,11 +1780,27 @@ export const FileForm = () => {
             </Box>
           </Box>
           <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }} mt={1}>
-            {uploadStatus === "sending email" ? "Sending your transfer email..." : "Streaming to Cloudflare Edge..."}
+            {uploadStatus === "sending email"
+              ? deliveryMode === "email"
+                ? "Verifying files & sending your transfer email..."
+                : "Verifying files & creating your shareable link..."
+              : uploadStatus === "finalizing"
+                ? "Assembling your transfer at the edge..."
+                : "Streaming to nearest Cloudflare Edge server..."}
           </Typography>
           {uploadStatus && (
             <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
-              Status: {isPaused ? "paused" : uploadStatus === "initiating" && overallProgress > 0 ? "uploading" : uploadStatus}
+              {isPaused
+                ? "Transfer paused — click Resume to continue"
+                : uploadStatus === "sending email"
+                  ? deliveryMode === "email"
+                    ? "Step 3 of 3: Dispatching download link email"
+                    : "Step 3 of 3: Generating instant download link"
+                  : uploadStatus === "finalizing"
+                    ? "Step 3 of 3: Verifying all uploaded pieces"
+                    : overallProgress > 0
+                      ? `Step 2 of 3: Uploading${currentSpeedMBps ? ` at ${currentSpeedMBps} MB/s` : ""}`
+                      : "Step 1 of 3: Preparing secure edge channels"}
             </Typography>
           )}
           <Stack direction="row" gap={1.5} mt={1}>
@@ -1689,19 +1841,16 @@ export const FileForm = () => {
               Cancel
             </Button>
           </Stack>
-          {estimatedTimeLeft !== null && (
-            <Stack alignItems="center" gap={0.5} mt={1}>
-              <Typography sx={{ color: "#ffddb4", fontFamily: "monospace" }} variant="body2">
-                Time remaining: {formatSeconds(estimatedTimeLeft)}
-              </Typography>
-              <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
-                Uploaded: {formatBytes(totalUploadedRef.current)} of {formatBytes(totalBytesRef.current)}
-              </Typography>
-              <Typography sx={{ color: "#94a3b8", fontSize: "0.75rem" }} variant="body2">
-                Start time: {new Date(startTimeRef.current ?? 0).toLocaleTimeString()}
-              </Typography>
-            </Stack>
-          )}
+          <Stack alignItems="center" gap={0.5} mt={1} sx={{ minHeight: 68 }}>
+            <Typography sx={{ color: "#ffddb4", fontFamily: "monospace" }} variant="body2">
+              {estimatedTimeLeft !== null
+                ? `Time remaining: ${formatSeconds(estimatedTimeLeft)}${currentSpeedMBps ? ` • ${currentSpeedMBps} MB/s` : ""}`
+                : "Calculating transfer speed..."}
+            </Typography>
+            <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
+              Uploaded: {formatBytes(totalUploadedRef.current)} of {formatBytes(totalBytesRef.current)}
+            </Typography>
+          </Stack>
         </Stack>
       )}
 

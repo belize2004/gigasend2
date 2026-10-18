@@ -23,6 +23,7 @@ import {
 import { captureMonitoringException } from "@/lib/monitoring";
 import { brand } from "@/lib/brand";
 import { formatBytes } from "@/lib/utils";
+import { recordTransferEvaluation, type EvaluateTransferInput } from "@/src/lib/transferEvaluator";
 
 const DOWNLOAD_ORIGIN = brand.downloadOrigin;
 const ZIP_DOWNLOAD_MAX_BYTES = 2 * 1024 * 1024 * 1024;
@@ -66,6 +67,35 @@ function getFileName(fileKey: string) {
   return keyName.replace(/-\d{13}-[a-zA-Z0-9]+(?=\.[^.]+$|$)/, "");
 }
 
+function renderDownloadErrorPage(title: string, message: string) {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${escapeHtml(title)} | ${brand.productName}</title>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f5f8fc; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; }
+      main { width: min(640px, 100%); background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); padding: clamp(24px, 4vw, 40px); text-align: center; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 24px; margin-bottom: 20px; }
+      .icon { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #2563eb, #a855f7); }
+      h1 { margin: 0 0 12px; font-size: clamp(24px, 4vw, 32px); }
+      p { margin: 0 0 24px; color: #4b5563; line-height: 1.6; }
+      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; font-weight: 700; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="brand"><span class="icon">↓</span><span>${brand.productName}</span></div>
+      <h1>${escapeHtml(title)}</h1>
+      <p>${escapeHtml(message)}</p>
+      <a class="button" href="/transfer">Send New Files with ${brand.productName} →</a>
+    </main>
+  </body>
+</html>`;
+}
+
 function renderDownloadPage(input: {
   downloadUrl?: string;
   expiresAt: string;
@@ -80,27 +110,27 @@ function renderDownloadPage(input: {
 
   const batchLinks = zipBatches.map((batch, index) => {
     const href = escapeHtml(`/download/${input.shareId}?zip=1&batch=${index}`);
-    return `<li><a href="${href}" download>Download ZIP part ${index + 1} of ${zipBatches.length} <span>${batch.length} files</span></a></li>`;
+    return `<li><a href="${href}" data-download-item="1" download><span>Download ZIP part ${index + 1} of ${zipBatches.length}</span> <span class="pill">${batch.length} files ↓</span></a></li>`;
   }).join("");
 
   const directDownloadLinks = input.fileKeys.map((fileKey, index) => {
     const fileName = escapeHtml(getFileName(fileKey));
     const href = escapeHtml(isSingle ? `/download/${input.shareId}?download=1` : `/download/${input.shareId}?file=${index}`);
-    return `<li><a href="${href}" download>${fileName}</a></li>`;
+    return `<li><a href="${href}" data-download-item="1" download><span>${fileName}</span> <span class="pill">Download ↓</span></a></li>`;
   }).join("");
 
   const intro = isSingle
-    ? `Your file is ready to download.`
+    ? `Your file is ready to download from the nearest Cloudflare server.`
     : input.zipAvailable
-      ? `This transfer includes ${input.fileKeys.length} files. ${brand.productName} can package them into one ZIP download for you, or you can download files individually.`
-      : `This transfer is too large to package into one ZIP. Download it in ${zipBatches.length} ZIP parts below.`;
+      ? `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download everything in one ZIP package below, or click any file to download it individually.`
+      : `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download it in ${zipBatches.length} ZIP parts below, or download individual files.`;
 
   const primaryButtonLabel = isSingle
     ? `Download File ${input.fileSize ? `(${formatBytes(input.fileSize)})` : ""}`
-    : "Download ZIP";
+    : `Download All as ZIP ${input.fileSize ? `(${formatBytes(input.fileSize)})` : ""}`;
 
   const primaryButton = safeDownloadUrl
-    ? `<a class="button" href="${safeDownloadUrl}" download>${primaryButtonLabel}</a>`
+    ? `<a class="button" id="primary-download-btn" data-original-label="${escapeHtml(primaryButtonLabel)}" href="${safeDownloadUrl}" download>${primaryButtonLabel}</a>`
     : "";
 
   const batchSection = (input.zipAvailable || isSingle) ? "" : `
@@ -115,11 +145,11 @@ function renderDownloadPage(input: {
         <ul class="files">${directDownloadLinks}</ul>
       </section>` : input.zipAvailable ? `
       <section>
-        <h2>Individual files</h2>
+        <h2>Individual files (${input.fileKeys.length})</h2>
         <ul class="files">${directDownloadLinks}</ul>
       </section>` : `
       <details>
-        <summary>Show individual file links</summary>
+        <summary>Show individual file links (${input.fileKeys.length})</summary>
         <ul class="files">${directDownloadLinks}</ul>
       </details>`;
 
@@ -132,18 +162,21 @@ function renderDownloadPage(input: {
     <style>
       :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f5f8fc; }
       body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; }
-      main { width: min(760px, 100%); background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); padding: clamp(24px, 4vw, 40px); }
+      main { width: min(760px, 100%); background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); padding: clamp(24px, 4vw, 40px); }
       .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 26px; margin-bottom: 28px; }
       .icon { width: 32px; height: 32px; border-radius: 7px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #2563eb, #a855f7); }
       h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); letter-spacing: 0; }
       p { margin: 0 0 24px; color: #4b5563; line-height: 1.55; }
       h2 { margin: 28px 0 12px; font-size: 18px; }
-      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 8px; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; font-weight: 800; text-decoration: none; box-shadow: 0 16px 30px rgba(37, 99, 235, 0.24); }
+      .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 28px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; font-weight: 800; text-decoration: none; box-shadow: 0 16px 30px rgba(37, 99, 235, 0.24); transition: opacity 0.2s, transform 0.15s; }
       .button:hover { filter: brightness(0.96); }
+      .button.is-starting { opacity: 0.88; pointer-events: none; }
+      .status-banner { display: none; margin-top: 16px; padding: 12px 16px; border-radius: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; font-size: 14px; font-weight: 600; line-height: 1.45; }
+      .status-banner.visible { display: block; }
       .files { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; max-height: min(52vh, 520px); overflow: auto; }
       h2 + .files { margin-top: 0; }
-      .files a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1d4ed8; background: #f8fafc; text-decoration: none; overflow-wrap: anywhere; }
-      .files span { color: #6b7280; font-size: 13px; white-space: nowrap; }
+      .files a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid #e5e7eb; border-radius: 10px; color: #1d4ed8; background: #f8fafc; text-decoration: none; overflow-wrap: anywhere; font-weight: 600; }
+      .files span.pill { color: #1d4ed8; background: #dbeafe; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
       .files a:hover { background: #eef4ff; border-color: #bfdbfe; }
       details { margin-top: 24px; }
       summary { cursor: pointer; color: #1d4ed8; font-weight: 700; }
@@ -154,10 +187,13 @@ function renderDownloadPage(input: {
   </head>
   <body>
     <main>
-      <div class="brand"><span class="icon">↑</span><span>${brand.productName}</span></div>
+      <div class="brand"><span class="icon">↓</span><span>${brand.productName}</span></div>
       <h1>${isSingle ? "Your file is ready" : "Your files are ready"}</h1>
       <p>${intro}</p>
       ${primaryButton}
+      <div id="download-status-banner" class="status-banner" role="status" aria-live="polite">
+        ✓ Starting your download from the nearest Cloudflare server... Check your browser's downloads bar and keep this tab open until it finishes.
+      </div>
       ${batchSection}
       ${directSection}
       <div class="footer-bar">
@@ -169,6 +205,37 @@ function renderDownloadPage(input: {
         <a class="report-link" href="mailto:${brand.contactEmail}?subject=Report%20Abuse%20-%20Transfer%20${input.shareId}" target="_blank" rel="noopener noreferrer">Report Abuse / Phishing</a>
       </div>
     </main>
+    <script>
+      (function () {
+        var btn = document.getElementById("primary-download-btn");
+        var banner = document.getElementById("download-status-banner");
+        function showFeedback(el) {
+          if (banner) banner.classList.add("visible");
+          if (el && el.id === "primary-download-btn") {
+            var orig = el.getAttribute("data-original-label") || el.textContent;
+            el.classList.add("is-starting");
+            el.textContent = "Starting download...";
+            setTimeout(function () {
+              el.classList.remove("is-starting");
+              el.textContent = orig;
+            }, 6000);
+          } else if (el) {
+            var pill = el.querySelector(".pill");
+            if (pill) {
+              pill.textContent = "Starting...";
+              setTimeout(function () { pill.textContent = "Download ↓"; }, 5000);
+            }
+          }
+        }
+        if (btn) {
+          btn.addEventListener("click", function () { showFeedback(btn); });
+        }
+        var items = document.querySelectorAll("[data-download-item]");
+        for (var i = 0; i < items.length; i++) {
+          items[i].addEventListener("click", function (e) { showFeedback(e.currentTarget); });
+        }
+      })();
+    </script>
   </body>
 </html>`;
 }
@@ -555,7 +622,43 @@ async function serveSingleFileDownload(input: {
   return Response.redirect(presignedUrl || getDownloadUrl(fileKey), 302);
 }
 
+function scheduleDownloadTelemetry(
+  locals: RuntimeLocals,
+  request: Request,
+  db: ReturnType<typeof getDb>,
+  input: Omit<EvaluateTransferInput, "direction" | "edgeColo" | "edgeCity" | "edgeCountry" | "clientRttMs">,
+) {
+  if (request.method === "HEAD") return;
+  const cf = (request as any).cf as
+    | {
+        colo?: string;
+        city?: string;
+        country?: string;
+        clientTcpRtt?: number;
+      }
+    | undefined;
+  const rayHeader = request.headers.get("cf-ray") || "";
+  const fallbackColo = rayHeader.includes("-") ? rayHeader.split("-")[1] : null;
+
+  const task = recordTransferEvaluation(db, {
+    ...input,
+    direction: "download",
+    edgeColo: cf?.colo || fallbackColo || null,
+    edgeCity: cf?.city || null,
+    edgeCountry: cf?.country || request.headers.get("cf-ipcountry") || null,
+    clientRttMs: typeof cf?.clientTcpRtt === "number" ? cf.clientTcpRtt : null,
+  }).catch((err) => {
+    console.warn("[download] Failed to record download evaluation:", err);
+  });
+
+  const waitUntil = locals?.runtime?.ctx?.waitUntil;
+  if (typeof waitUntil === "function") {
+    waitUntil.call(locals.runtime!.ctx, task);
+  }
+}
+
 export const GET: APIRoute = async ({ params, locals, url, request }) => {
+  const reqStart = performance.now();
   const id = params.id;
   if (!id) {
     return new Response("Missing download id", { status: 400 });
@@ -566,11 +669,29 @@ export const GET: APIRoute = async ({ params, locals, url, request }) => {
     const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
     const share = await findShareById(db, id);
     if (!share || !share.fileKey) {
-      return new Response("Download not found", { status: 404 });
+      return new Response(
+        renderDownloadErrorPage(
+          "Transfer Not Found",
+          "We couldn't find this transfer link. Please check the URL or ask the sender for a new link.",
+        ),
+        {
+          status: 404,
+          headers: { "Content-Type": "text/html; charset=utf-8" },
+        },
+      );
     }
 
     if (new Date(share.expiresAt) <= new Date()) {
-      return new Response("Download link expired", { status: 410 });
+      return new Response(
+        renderDownloadErrorPage(
+          "Download Link Expired",
+          "This transfer has passed its expiration date and the files have been automatically removed for security.",
+        ),
+        {
+          status: 410,
+          headers: { "Content-Type": "text/html; charset=utf-8" },
+        },
+      );
     }
 
     const fileKeys = parseFileKeys(share.fileKey);
@@ -591,12 +712,26 @@ export const GET: APIRoute = async ({ params, locals, url, request }) => {
           emailBinding,
         });
       }
-      return serveSingleFileDownload({
+      const response = await serveSingleFileDownload({
         request,
         locals: locals as RuntimeLocals,
         bucket,
         fileKey: fileKeys[0],
       });
+      const ttfbMs = Math.max(1, Math.round(performance.now() - reqStart));
+      scheduleDownloadTelemetry(locals as RuntimeLocals, request, db, {
+        shareId: share.id,
+        userId: share.userId,
+        event: response.status === 206 && !isInitialByteRequest ? "download_resumed" : "download_started",
+        transferMode: response.status === 206 ? "r2_range_206" : "single_file",
+        deliveryMode: response.status === 302 ? "presigned_redirect" : "r2_binding",
+        fileCount: 1,
+        totalBytes: share.size,
+        httpStatus: response.status,
+        ttfbMs,
+        durationMs: ttfbMs,
+      });
+      return response;
     }
 
     // 2. Multi-file specific file download requested
@@ -611,12 +746,26 @@ export const GET: APIRoute = async ({ params, locals, url, request }) => {
             emailBinding,
           });
         }
-        return serveSingleFileDownload({
+        const response = await serveSingleFileDownload({
           request,
           locals: locals as RuntimeLocals,
           bucket,
           fileKey: fileKeys[fileIndex],
         });
+        const ttfbMs = Math.max(1, Math.round(performance.now() - reqStart));
+        scheduleDownloadTelemetry(locals as RuntimeLocals, request, db, {
+          shareId: share.id,
+          userId: share.userId,
+          event: response.status === 206 && !isInitialByteRequest ? "download_resumed" : "download_started",
+          transferMode: response.status === 206 ? "r2_range_206" : "multi_file_item",
+          deliveryMode: response.status === 302 ? "presigned_redirect" : "r2_binding",
+          fileCount: 1,
+          totalBytes: share.size,
+          httpStatus: response.status,
+          ttfbMs,
+          durationMs: ttfbMs,
+        });
+        return response;
       }
     }
 
@@ -642,30 +791,55 @@ export const GET: APIRoute = async ({ params, locals, url, request }) => {
           emailBinding,
         });
       }
-      return new Response(
-        request.method === "HEAD" ? null : await streamZip(batchFileKeys, bucket),
-        {
-          headers: {
-            "Content-Type": "application/zip",
-            "Content-Disposition": buildContentDisposition(
-              `${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip`
-            ),
-            "X-Content-Type-Options": "nosniff",
-            "Cache-Control": "private, no-store",
-          },
+      const zipBody = request.method === "HEAD" ? null : await streamZip(batchFileKeys, bucket);
+      const ttfbMs = Math.max(1, Math.round(performance.now() - reqStart));
+      scheduleDownloadTelemetry(locals as RuntimeLocals, request, db, {
+        shareId: share.id,
+        userId: share.userId,
+        event: "download_started",
+        transferMode: batchIndex == null ? "zip_full" : "zip_batch",
+        deliveryMode: "zip_stream",
+        fileCount: batchFileKeys.length,
+        totalBytes: share.size,
+        httpStatus: 200,
+        ttfbMs,
+        durationMs: ttfbMs,
+      });
+      return new Response(zipBody, {
+        headers: {
+          "Content-Type": "application/zip",
+          "Content-Disposition": buildContentDisposition(
+            `${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip`
+          ),
+          "X-Content-Type-Options": "nosniff",
+          "Cache-Control": "private, no-store",
         },
-      );
+      });
     }
 
     // 4. Default: Render Download Landing Page
-    return new Response(renderDownloadPage({
+    const html = renderDownloadPage({
       downloadUrl: fileKeys.length === 1 ? `/download/${share.id}?download=1` : (zipAvailable ? `/download/${share.id}?zip=1` : undefined),
       expiresAt: share.expiresAt,
       fileKeys,
       shareId: share.id,
       zipAvailable,
       fileSize: share.size,
-    }), {
+    });
+    const ttfbMs = Math.max(1, Math.round(performance.now() - reqStart));
+    scheduleDownloadTelemetry(locals as RuntimeLocals, request, db, {
+      shareId: share.id,
+      userId: share.userId,
+      event: "page_view",
+      transferMode: "landing_page",
+      deliveryMode: "html",
+      fileCount: fileKeys.length,
+      totalBytes: share.size,
+      httpStatus: 200,
+      ttfbMs,
+      durationMs: ttfbMs,
+    });
+    return new Response(html, {
       headers: {
         "Content-Type": "text/html; charset=utf-8",
         "Cache-Control": "private, no-store",

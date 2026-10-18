@@ -484,7 +484,16 @@ export async function getAdminOverview(db: AppD1Database) {
         return null;
       }
     })(),
+    transferExperience: await (async () => {
+      try {
+        const { getTransferExperienceOverview } = await import("@/src/lib/transferEvaluator");
+        return await getTransferExperienceOverview(db, { limit: 15 });
+      } catch {
+        return null;
+      }
+    })(),
   };
 }
 
 export type { AstroCookies };
+

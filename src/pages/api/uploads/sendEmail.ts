@@ -58,14 +58,15 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const cleanFileKeys = fileKeys.filter((fileKey) => typeof fileKey === "string" && fileKey.trim().length > 0);
     if (cleanFileKeys.length === 0) return json({ error: "Missing file key" }, 400);
 
-    // Verify all files exist in R2 storage and verify actual byte count
+    // Verify all files exist in R2 storage in parallel and verify actual byte count
     const bucket = (locals as any)?.runtime?.env?.FILES;
     let verifiedTotalSize = 0;
     if (bucket) {
-      for (const key of cleanFileKeys) {
-        const head = await bucket.head(key);
+      const heads = await Promise.all(cleanFileKeys.map((key) => bucket.head(key)));
+      for (let i = 0; i < cleanFileKeys.length; i++) {
+        const head = heads[i];
         if (!head) {
-          return json({ error: `File not found in storage: ${key}. Please retry upload.` }, 400);
+          return json({ error: `File not found in storage: ${cleanFileKeys[i]}. Please retry upload.` }, 400);
         }
         verifiedTotalSize += head.size;
       }
@@ -122,6 +123,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       message,
       numberOfFiles,
       senderEmail: senderDisplayName,
+      expiryDays,
     });
     const textContent = generateEmailText({
       fileSize: effectiveFileSize,
@@ -129,6 +131,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       message,
       numberOfFiles,
       senderEmail: senderDisplayName,
+      expiryDays,
     });
 
     // Cloudflare email dispatch binding
@@ -168,34 +171,41 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         success: true,
         emailSent: false,
         link: share.link,
+        shareId: share.id,
+        expiryDays,
         message: "Transfer created! (Direct email notification could not be delivered, please share the link manually).",
       });
     }
 
     if (targetConfirmationEmail) {
-      try {
-        await sendEmailViaCloudflare(emailBinding, {
-          from: brand.emailFrom,
-          to: targetConfirmationEmail,
-          subject: `Your ${brand.productName} transfer is ready`,
-          html: generateUploadConfirmationEmail({
-            deliveryLabel: `Sent to ${receiverEmail}`,
-            fileSize: effectiveFileSize,
-            link: share.link,
-            numberOfFiles,
-          }),
-          text: generateUploadConfirmationText({
-            deliveryLabel: `Sent to ${receiverEmail}`,
-            fileSize: effectiveFileSize,
-            link: share.link,
-            numberOfFiles,
-          }),
-          headers: {
-            "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
-          },
-        });
-      } catch (confirmErr) {
+      const waitUntil = (locals as any)?.runtime?.ctx?.waitUntil;
+      const confirmPromise = sendEmailViaCloudflare(emailBinding, {
+        from: brand.emailFrom,
+        to: targetConfirmationEmail,
+        subject: `Your ${brand.productName} transfer is ready`,
+        html: generateUploadConfirmationEmail({
+          deliveryLabel: `Sent to ${receiverEmail}`,
+          fileSize: effectiveFileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        text: generateUploadConfirmationText({
+          deliveryLabel: `Sent to ${receiverEmail}`,
+          fileSize: effectiveFileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        headers: {
+          "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
+        },
+      }).catch((confirmErr) => {
         console.warn("[sendEmail] Confirmation email notice:", confirmErr);
+      });
+
+      if (typeof waitUntil === "function") {
+        waitUntil.call((locals as any).runtime.ctx, confirmPromise);
+      } else {
+        await confirmPromise;
       }
     }
 
@@ -203,6 +213,8 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       success: true,
       emailSent: true,
       link: share.link,
+      shareId: share.id,
+      expiryDays,
       message: "Download links sent to email",
     });
   } catch (error) {

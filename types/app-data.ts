@@ -71,6 +71,91 @@ export interface AdminOverviewData {
     highFitCount: number;
     topAction: string;
   } | null;
+  transferExperience?: TransferExperienceOverview | null;
+}
+
+export type ExperienceGradeCode = "A" | "B" | "C" | "D" | "F";
+
+export interface TransferStepBreakdownItem {
+  stepNumber: number;
+  label: string;
+  phaseName: string;
+  durationMs: number;
+  durationText: string;
+  percentOfTotal: number;
+  plainExplanation: string;
+}
+
+export interface AdaptiveSpeedTuning {
+  profile: "turbo_fiber" | "balanced_edge" | "stabilized_wifi";
+  label: string;
+  concurrency: number;
+  chunkSizeMultiplier: 0.5 | 1 | 2;
+  presignBatchSize: number;
+  plainExplanation: string;
+}
+
+export interface PlainEnglishTransferEvaluation {
+  grade: ExperienceGradeCode;
+  gradeLabel: string;
+  gradeColor: "emerald" | "blue" | "amber" | "orange" | "red";
+  headline: string;
+  story: string;
+  speedComparison: string;
+  edgeLocationLabel: string;
+  steps: TransferStepBreakdownItem[];
+  stepSummaryLine: string;
+  recommendations: string[];
+  recommendedTuning?: AdaptiveSpeedTuning;
+  bottleneck:
+    | "none"
+    | "client_internet"
+    | "network_instability"
+    | "zip_packaging"
+    | "server_finalize"
+    | "user_paused"
+    | "failed_transfer";
+  bottleneckLabel: string;
+}
+
+export interface TransferExperienceRecord {
+  id: string;
+  shareId?: string | null;
+  direction: "upload" | "download";
+  event: string;
+  transferMode?: string | null;
+  deliveryMode?: string | null;
+  fileCount: number;
+  totalBytes: number;
+  durationMs: number;
+  averageMbps: number;
+  retryCount: number;
+  httpStatus: number;
+  edgeLocationLabel: string;
+  grade: ExperienceGradeCode;
+  gradeLabel: string;
+  story: string;
+  stepSummaryLine: string;
+  steps: TransferStepBreakdownItem[];
+  recommendations: string[];
+  bottleneck: string;
+  bottleneckLabel: string;
+  createdAt: string;
+}
+
+export interface TransferExperienceOverview {
+  overallGradeLabel: string;
+  plainEnglishHeadline: string;
+  totalEvaluated: number;
+  completedUploads: number;
+  totalDownloads: number;
+  autoHealedRetries: number;
+  successRatePercent: number;
+  averageUploadMbps: number;
+  averageDownloadStartMs: number;
+  gradeDistribution: Record<ExperienceGradeCode, number>;
+  topActionableInsights: string[];
+  recentEvaluations: TransferExperienceRecord[];
 }
 
 export interface AdminUserData {
@@ -107,3 +192,4 @@ export interface AdminSuggestionData {
   userEmail?: string | null;
   createdAt: string;
 }
+

@@ -261,6 +261,97 @@ export default function AdminPage() {
             </section>
           )}
 
+          {data.transferExperience && (
+            <section className="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-5 border-b border-slate-100">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+                      Live Transfer Listener &amp; Plain-English Evaluator
+                    </p>
+                  </div>
+                  <h2 className="text-xl font-bold text-gray-900 mt-1">
+                    Customer Transfer Speed &amp; Experience Report
+                  </h2>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {data.transferExperience.plainEnglishHeadline}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className="rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-2 text-sm font-bold text-emerald-800">
+                    Overall Grade: {data.transferExperience.overallGradeLabel}
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
+                <div className="rounded-xl bg-slate-50 p-3.5 border border-slate-200">
+                  <p className="text-xs font-medium text-gray-500">Evaluated Events</p>
+                  <p className="text-xl font-bold text-gray-900 mt-1">{data.transferExperience.totalEvaluated}</p>
+                </div>
+                <div className="rounded-xl bg-blue-50/70 p-3.5 border border-blue-100">
+                  <p className="text-xs font-medium text-blue-700">Avg Upload Speed</p>
+                  <p className="text-xl font-bold text-blue-900 mt-1">
+                    {data.transferExperience.averageUploadMbps > 0 ? `${data.transferExperience.averageUploadMbps} Mbps` : "Ready"}
+                  </p>
+                </div>
+                <div className="rounded-xl bg-emerald-50/70 p-3.5 border border-emerald-100">
+                  <p className="text-xs font-medium text-emerald-700">Smooth Success Rate</p>
+                  <p className="text-xl font-bold text-emerald-900 mt-1">{data.transferExperience.successRatePercent}%</p>
+                </div>
+                <div className="rounded-xl bg-amber-50/70 p-3.5 border border-amber-100">
+                  <p className="text-xs font-medium text-amber-800">Auto-Healed Wi-Fi Blinks</p>
+                  <p className="text-xl font-bold text-amber-900 mt-1">{data.transferExperience.autoHealedRetries}</p>
+                </div>
+              </div>
+
+              {data.transferExperience.recentEvaluations.length > 0 && (
+                <div className="space-y-3">
+                  {data.transferExperience.recentEvaluations.slice(0, 6).map((item) => (
+                    <div
+                      key={item.id}
+                      className="rounded-xl border border-slate-200 bg-slate-50/60 p-4 space-y-2"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                              item.grade === "A"
+                                ? "bg-emerald-100 text-emerald-800"
+                                : item.grade === "B"
+                                  ? "bg-blue-100 text-blue-800"
+                                  : item.grade === "C"
+                                    ? "bg-amber-100 text-amber-800"
+                                    : "bg-red-100 text-red-800"
+                            }`}
+                          >
+                            {item.gradeLabel}
+                          </span>
+                          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                            {item.direction === "download" ? "Download" : "Upload"} • {item.edgeLocationLabel}
+                          </span>
+                        </div>
+                        <span className="text-xs text-gray-500">{formatDate(item.createdAt)}</span>
+                      </div>
+                      <p className="text-sm font-medium text-gray-900">{item.story}</p>
+                      {item.stepSummaryLine && (
+                        <p className="text-xs font-mono text-slate-600 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+                          {item.stepSummaryLine}
+                        </p>
+                      )}
+                      {item.recommendations?.[0] && (
+                        <p className="text-xs text-emerald-800 bg-emerald-50/80 px-3 py-1.5 rounded-lg border border-emerald-200">
+                          <strong>Plain-English Takeaway:</strong> {item.recommendations[0]}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          )}
+
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
             <section className="xl:col-span-2 bg-white rounded-2xl shadow-lg p-6">
               <div className="flex items-center justify-between mb-5">

@@ -54,14 +54,15 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const cleanFileKeys = fileKeys.filter((fileKey) => typeof fileKey === "string" && fileKey.trim().length > 0);
     if (cleanFileKeys.length === 0) return json({ error: "Missing file key" }, 400);
 
-    // Verify all files exist in R2 storage and verify actual byte count
+    // Verify all files exist in R2 storage in parallel and verify actual byte count
     const bucket = (locals as any)?.runtime?.env?.FILES;
     let verifiedTotalSize = 0;
     if (bucket) {
-      for (const key of cleanFileKeys) {
-        const head = await bucket.head(key);
+      const heads = await Promise.all(cleanFileKeys.map((key) => bucket.head(key)));
+      for (let i = 0; i < cleanFileKeys.length; i++) {
+        const head = heads[i];
         if (!head) {
-          return json({ error: `File not found in storage: ${key}. Please retry upload.` }, 400);
+          return json({ error: `File not found in storage: ${cleanFileKeys[i]}. Please retry upload.` }, 400);
         }
         verifiedTotalSize += head.size;
       }
@@ -104,37 +105,48 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       getLink: (shareId) => `${SITE_URL.replace(/\/$/, "")}/download/${shareId}`,
     });
 
-    // Only send confirmation to authenticated accounts with verified emails
+    // Dispatch sender confirmation email in the background so the link returns immediately
     const targetEmail = !session.isGuest && user?.email && !user.email.endsWith("@guest.gigasend.us") ? user.email : null;
     if (targetEmail) {
-      try {
-        const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
-        await sendEmailViaCloudflare(emailBinding, {
-          from: brand.emailFrom,
-          to: targetEmail,
-          subject: `Your ${brand.productName} transfer link is ready`,
-          html: generateUploadConfirmationEmail({
-            deliveryLabel: "Link created",
-            fileSize: effectiveFileSize,
-            link: share.link,
-            numberOfFiles,
-          }),
-          text: generateUploadConfirmationText({
-            deliveryLabel: "Link created",
-            fileSize: effectiveFileSize,
-            link: share.link,
-            numberOfFiles,
-          }),
-          headers: {
-            "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
-          },
-        });
-      } catch (emailErr) {
+      const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+      const waitUntil = (locals as any)?.runtime?.ctx?.waitUntil;
+      const confirmPromise = sendEmailViaCloudflare(emailBinding, {
+        from: brand.emailFrom,
+        to: targetEmail,
+        subject: `Your ${brand.productName} transfer link is ready`,
+        html: generateUploadConfirmationEmail({
+          deliveryLabel: "Link created",
+          fileSize: effectiveFileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        text: generateUploadConfirmationText({
+          deliveryLabel: "Link created",
+          fileSize: effectiveFileSize,
+          link: share.link,
+          numberOfFiles,
+        }),
+        headers: {
+          "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
+        },
+      }).catch((emailErr) => {
         console.warn("[createLink] Confirmation email notice:", emailErr);
+      });
+
+      if (typeof waitUntil === "function") {
+        waitUntil.call((locals as any).runtime.ctx, confirmPromise);
+      } else {
+        await confirmPromise;
       }
     }
 
-    return json({ success: true, message: "Shareable link created", link: share.link });
+    return json({
+      success: true,
+      message: "Shareable link created",
+      link: share.link,
+      shareId: share.id,
+      expiryDays,
+    });
   } catch (error) {
     console.error("Error creating shareable link:", error);
     captureMonitoringException(error, {

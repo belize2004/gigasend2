@@ -1,20 +1,66 @@
 "use client";
 
-import React, { useId, useState } from "react";
-import Image from '@/components/compat/Image';
+import React, { useId, useRef, useState } from "react";
+import Image from "@/components/compat/Image";
 import { useFileContext } from "@/context/FileContext";
+
+async function extractFilesFromEntry(entry: any, pathPrefix = ""): Promise<File[]> {
+  if (!entry) return [];
+
+  if (entry.isFile) {
+    return new Promise<File[]>((resolve) => {
+      entry.file(
+        (file: File) => {
+          resolve(file.size > 0 ? [file] : []);
+        },
+        () => resolve([]),
+      );
+    });
+  }
+
+  if (entry.isDirectory) {
+    const dirReader = entry.createReader();
+    const allEntries: any[] = [];
+
+    const readBatch = (): Promise<any[]> =>
+      new Promise((resolve) => {
+        dirReader.readEntries(
+          (entries: any[]) => resolve(entries || []),
+          () => resolve([]),
+        );
+      });
+
+    let batch = await readBatch();
+    while (batch.length > 0) {
+      allEntries.push(...batch);
+      batch = await readBatch();
+    }
+
+    const nestedResults = await Promise.all(
+      allEntries.map((child) =>
+        extractFilesFromEntry(child, `${pathPrefix}${entry.name}/`),
+      ),
+    );
+    return nestedResults.flat();
+  }
+
+  return [];
+}
 
 export function FileUploader() {
   const { setFiles } = useFileContext();
   const [inputKey, setInputKey] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const inputId = useId();
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
 
-    const selectedFiles = Array.from(e.target.files);
-    setFiles((prev) => [...prev, ...selectedFiles]);
+    const selectedFiles = Array.from(e.target.files).filter((file) => file.size > 0);
+    if (selectedFiles.length > 0) {
+      setFiles((prev) => [...prev, ...selectedFiles]);
+    }
     setInputKey((key) => key + 1);
   };
 
@@ -30,19 +76,45 @@ export function FileUploader() {
     setIsDragging(false);
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      const droppedFiles = Array.from(e.dataTransfer.files);
-      setFiles((prev) => [...prev, ...droppedFiles]);
-      setInputKey((key) => key + 1);
+
+    const items = e.dataTransfer.items ? Array.from(e.dataTransfer.items) : [];
+    const entries = items
+      .map((item) => (typeof (item as any).webkitGetAsEntry === "function" ? (item as any).webkitGetAsEntry() : null))
+      .filter(Boolean);
+
+    if (entries.length > 0 && entries.some((entry) => entry.isDirectory)) {
+      const extracted = (await Promise.all(entries.map((entry) => extractFilesFromEntry(entry)))).flat();
+      if (extracted.length > 0) {
+        setFiles((prev) => [...prev, ...extracted]);
+        setInputKey((key) => key + 1);
+      }
+      return;
     }
+
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const droppedFiles = Array.from(e.dataTransfer.files).filter((file) => file.size > 0);
+      if (droppedFiles.length > 0) {
+        setFiles((prev) => [...prev, ...droppedFiles]);
+        setInputKey((key) => key + 1);
+      }
+    }
+  };
+
+  const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.closest("label") || target.closest("input")) {
+      return;
+    }
+    fileInputRef.current?.click();
   };
 
   return (
     <div
+      onClick={handleContainerClick}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
@@ -99,6 +171,7 @@ export function FileUploader() {
       </div>
 
       <input
+        ref={fileInputRef}
         key={`files-${inputKey}`}
         id={`${inputId}-files`}
         type="file"
@@ -132,4 +205,3 @@ const visuallyHiddenInput: React.CSSProperties = {
   whiteSpace: "nowrap",
   width: 1,
 };
-
