@@ -39,13 +39,17 @@ function createContactEmailTemplate(data: ContactUsBody) {
 export const POST: APIRoute = async ({ request, locals }) => {
   const rawBody: any = await request.json().catch(() => ({}));
   const body: ContactUsBody = {
-    email: rawBody.email || "",
-    fullname: rawBody.fullname || rawBody.name || "Anonymous",
-    company: rawBody.company || "",
-    phoneNumber: rawBody.phoneNumber || rawBody.phone || "",
-    subject: rawBody.subject || `New ${brand.productName} contact inquiry`,
-    message: rawBody.message || "",
+    email: typeof rawBody?.email === "string" ? rawBody.email.trim() : "",
+    fullname: typeof (rawBody?.fullname || rawBody?.name) === "string" ? (rawBody.fullname || rawBody.name).trim() : "Anonymous",
+    company: typeof rawBody?.company === "string" ? rawBody.company.trim() : "",
+    phoneNumber: typeof (rawBody?.phoneNumber || rawBody?.phone) === "string" ? (rawBody.phoneNumber || rawBody.phone).trim() : "",
+    subject: typeof rawBody?.subject === "string" && rawBody.subject.trim() ? rawBody.subject.trim() : `New ${brand.productName} contact inquiry`,
+    message: typeof rawBody?.message === "string" ? rawBody.message.trim() : "",
   };
+
+  if (!body.email || !/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(body.email) || !body.message) {
+    return json({ error: "Valid email and message are required" }, 400);
+  }
 
   const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
   const adminRecipients = getAdminEmails((locals as any)?.runtime?.env);

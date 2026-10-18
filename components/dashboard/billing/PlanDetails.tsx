@@ -11,8 +11,9 @@ interface Props {
 }
 
 export default function PlanDetails({ planName, nextBillingAmount, daysUntilBilling, isVipPartner, planFeatures }: Props) {
-  const isPopular = PLANS[planName].popular;
-  const displayFeatures = planFeatures && planFeatures.length > 0 ? planFeatures : PLANS[planName].features;
+  const planDef = PLANS[planName] ?? PLANS[String(planName || "").toLowerCase() as PlanEnum] ?? PLANS.pro;
+  const isPopular = planDef.popular;
+  const displayFeatures = planFeatures && planFeatures.length > 0 ? planFeatures : planDef.features;
 
   return (
     <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden">
@@ -38,7 +39,7 @@ export default function PlanDetails({ planName, nextBillingAmount, daysUntilBill
               <FiUpload className="text-lg" />
             </div>
             <h3 className="text-lg font-bold text-white font-display">
-              {PLANS[planName].name} {isVipPartner ? "(80 GB Partner Edition)" : ""}
+              {planDef.name} {isVipPartner ? "(80 GB Partner Edition)" : ""}
             </h3>
           </div>
 

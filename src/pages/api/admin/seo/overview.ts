@@ -5,13 +5,13 @@ import { getAuthenticatedAdmin } from "@/src/lib/admin";
 import { getSeoOverview } from "@/src/lib/seo/seoAdminService";
 import { captureMonitoringException } from "@/lib/monitoring";
 
-export const GET: APIRoute = async ({ cookies, locals, request }) => {
+export const GET: APIRoute = async ({ cookies, locals }) => {
   const db = getDb(locals);
 
   // Authenticate admin (falls back gracefully in local dev if no cookie set)
-  const isDev = process.env.NODE_ENV !== "production" || request.headers.get("x-local-dev") === "true";
+  const isDev = import.meta.env.DEV;
   if (!isDev) {
-    const { response } = await getAuthenticatedAdmin(cookies, db);
+    const { response } = await getAuthenticatedAdmin(cookies, db, locals);
     if (response) return response;
   }
 

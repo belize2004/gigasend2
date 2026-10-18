@@ -248,7 +248,16 @@ export const FileForm = () => {
 
     try {
       const raw = window.localStorage.getItem(SAVED_UPLOAD_SESSION_KEY);
-      return raw ? JSON.parse(raw) as SavedUploadSession : null;
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as SavedUploadSession;
+      const maxAgeMs = 12 * 60 * 60 * 1000;
+      const isExpired = !parsed?.createdAt || Date.now() - parsed.createdAt > maxAgeMs;
+      const hasMissingEtag = Array.isArray(parsed?.parts) && parsed.parts.some((p) => !p?.ETag);
+      if (!parsed?.uploadId || !parsed?.key || isExpired || hasMissingEtag) {
+        window.localStorage.removeItem(SAVED_UPLOAD_SESSION_KEY);
+        return null;
+      }
+      return parsed;
     } catch {
       window.localStorage.removeItem(SAVED_UPLOAD_SESSION_KEY);
       return null;
@@ -387,13 +396,12 @@ export const FileForm = () => {
     const MAX_RETRIES = 3;
     let retries = 0;
 
-    await waitWhilePaused();
-    if (abortRequestedRef.current) throw new Error("Upload canceled");
-
-    const presignedUrl = await getPresignedPartUrl(uploadId, key, partNumber);
-
     while (retries <= MAX_RETRIES) {
+      await waitWhilePaused();
+      if (abortRequestedRef.current) throw new Error("Upload canceled");
+
       try {
+        const presignedUrl = await getPresignedPartUrl(uploadId, key, partNumber);
         await new Promise<void>((resolve, reject) => {
           const xhr = new XMLHttpRequest();
           activeXhrsRef.current.add(xhr);
@@ -406,7 +414,7 @@ export const FileForm = () => {
               if (eTagHeader) {
                 ETag = eTagHeader;
               }
-              if (totalUploadedRef && totalUploadedRef.current !== undefined) { // Check if exists
+              if (totalUploadedRef && totalUploadedRef.current !== undefined) {
                 totalUploadedRef.current += chunk.length;
               }
               updateProgress();
@@ -430,9 +438,11 @@ export const FileForm = () => {
           }
           xhr.send(chunk);
         });
-        // If the promise resolves, the upload was successful, break out of the retry loop
         break;
       } catch (error) {
+        if (abortRequestedRef.current || isUploadCanceled(error)) {
+          throw error;
+        }
         console.warn(`Attempt ${retries + 1} for part ${partNumber} failed:`, error);
         addMonitoringBreadcrumb("Upload part retry", {
           partNumber,
@@ -444,8 +454,7 @@ export const FileForm = () => {
         if (retries > MAX_RETRIES) {
           throw new Error(`Failed to upload part ${partNumber} after ${MAX_RETRIES} retries.`);
         }
-        // Optional: Add a delay before retrying
-        await new Promise(resolve => setTimeout(resolve, 2000 * retries)); // Exponential backoff for delay
+        await new Promise(resolve => setTimeout(resolve, 2000 * retries));
       }
     }
 
@@ -765,7 +774,14 @@ export const FileForm = () => {
       }),
     });
     if (!completeRes.ok) {
-      throw new Error(`Failed to complete upload for ${file.name}`);
+      const completePayload = await completeRes.json().catch(() => null);
+      if (shouldPersistSession || completePayload?.resetSession) {
+        clearSavedSession();
+      }
+      if (session) {
+        return uploadSingleFile(file, undefined, options);
+      }
+      throw new Error(completePayload?.error || `Failed to complete upload for ${file.name}`);
     }
 
     if (shouldPersistSession) {
@@ -783,6 +799,11 @@ export const FileForm = () => {
 
     if (usageLoading) {
       showToast("Checking your available storage. Please try again in a moment.");
+      return;
+    }
+
+    if (Array.from(files).some((f) => f.size <= 0)) {
+      showToast("Empty (0-byte) files cannot be transferred. Please remove empty files and try again.");
       return;
     }
 

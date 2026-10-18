@@ -1,8 +1,8 @@
 import type { APIRoute } from "astro";
 import { json } from "@/src/lib/api";
 
-export const POST: APIRoute = async ({ request, url }) => {
-  const secret = process.env.SANITY_WEBHOOK_SECRET;
+export const POST: APIRoute = async ({ request, url, locals }) => {
+  const secret = (locals as any)?.runtime?.env?.SANITY_WEBHOOK_SECRET || process.env.SANITY_WEBHOOK_SECRET;
   const token = url.searchParams.get("secret");
 
   if (!secret || token !== secret) {

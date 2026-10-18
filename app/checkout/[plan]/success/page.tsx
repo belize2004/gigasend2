@@ -20,12 +20,15 @@ const Page = () => {
   const [selectedPlan, setSelectedPlan] = useState(PLANS[plan]);
 
   useEffect(() => {
-    setSelectedPlan(PLANS[plan]);
-  }, [plan]);
+    const resolved = PLANS[plan];
+    setSelectedPlan(resolved);
+    if (!resolved || resolved.name === 'Free') {
+      router.push('/plans');
+    }
+  }, [plan, router]);
 
   // Redirect if no valid plan
   if (!selectedPlan || selectedPlan.name === 'Free') {
-    router.push('/plans');
     return <></>;
   }
 

@@ -3,6 +3,18 @@ export * from "./dist/_worker.js/index.js";
 
 const tailCooldowns = new Map();
 const TAIL_COOLDOWN_MS = 10 * 60 * 1000;
+const BENIGN_TAIL_OUTCOMES = new Set(["ok", "canceled", "responseStreamDisconnected"]);
+const BOT_UA_REGEX =
+  /headlesschrome|phantomjs|puppeteer|playwright|googlebot|bingbot|ahrefsbot|semrushbot|mj12bot|dotbot|petalbot|bytespider|gptbot|claudebot|perplexitybot|facebookexternalhit|twitterbot|linkedinbot|slackbot|discordbot|telegrambot|whatsapp|applebot|yandexbot|baiduspider|duckduckbot|ia_archiver|prerender|screaming frog|dataforseo|uptimerobot|pingdom|statuscake|sqlmap|nikto|nmap|masscan|zgrab/i;
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 async function ensureIncidentsTable(db) {
   if (!db) return;
@@ -56,10 +68,22 @@ async function purgeUrlCache(urlStr, env) {
 }
 
 async function recordServerIncident(env, { signature, type, message, url, userAgent, cfRay, repairStatus, repairAction }) {
-  if (!env?.DB) return;
+  if (!env?.DB) return { shouldAlert: true };
   try {
     await ensureIncidentsTable(env.DB);
-    const nowIso = new Date().toISOString();
+    const cleanSig = String(signature).slice(0, 250);
+    const existing = await env.DB.prepare(
+      `SELECT last_seen_at FROM system_error_incidents WHERE signature = ? LIMIT 1`
+    )
+      .bind(cleanSig)
+      .first()
+      .catch(() => null);
+
+    const nowMs = Date.now();
+    const prevMs = existing?.last_seen_at ? Date.parse(existing.last_seen_at) : 0;
+    const withinGlobalCooldown = Number.isFinite(prevMs) && prevMs > 0 && nowMs - prevMs < TAIL_COOLDOWN_MS;
+
+    const nowIso = new Date(nowMs).toISOString();
     await env.DB.prepare(
       `INSERT INTO system_error_incidents (
         signature, type, message, url, user_agent, last_cf_ray,
@@ -75,7 +99,7 @@ async function recordServerIncident(env, { signature, type, message, url, userAg
         last_seen_at = excluded.last_seen_at`
     )
       .bind(
-        String(signature).slice(0, 250),
+        cleanSig,
         String(type || "worker_exception"),
         String(message || "Unknown Worker failure").slice(0, 500),
         String(url || ""),
@@ -87,7 +111,11 @@ async function recordServerIncident(env, { signature, type, message, url, userAg
         nowIso
       )
       .run();
-  } catch {}
+
+    return { shouldAlert: !withinGlobalCooldown };
+  } catch {
+    return { shouldAlert: true };
+  }
 }
 
 export default {
@@ -98,9 +126,11 @@ export default {
       (url.pathname === "/api/uploads/complete" || url.pathname === "/api/uploads/presign");
     const isIdempotent = request.method === "GET" || request.method === "HEAD" || isSafeIdempotentPost;
     const isAstroAsset = url.pathname.startsWith("/_astro/");
+    const retryBackupRequest = isIdempotent ? request.clone() : null;
+    let retried = false;
 
     try {
-      let response = await astroWorker.fetch(request.clone(), env, ctx);
+      let response = await astroWorker.fetch(request, env, ctx);
 
       // 1. Self-Repair: If a /_astro/* chunk returns 404, prevent negative caching
       // and purge the Referer HTML page so stale HTML is evicted immediately.
@@ -118,10 +148,11 @@ export default {
         });
       }
 
-      // 2. Self-Repair: Retry transient 5xx on idempotent GET/HEAD requests once
-      if (isIdempotent && response.status >= 500 && !url.pathname.startsWith("/api/telemetry/")) {
+      // 2. Self-Repair: Retry transient 5xx on idempotent requests once
+      if (isIdempotent && retryBackupRequest && response.status >= 500 && !url.pathname.startsWith("/api/telemetry/")) {
+        retried = true;
         await ensureIncidentsTable(env?.DB);
-        const retryRes = await astroWorker.fetch(request.clone(), env, ctx);
+        const retryRes = await astroWorker.fetch(retryBackupRequest, env, ctx);
         if (retryRes.status < 500) {
           if (ctx?.waitUntil) {
             ctx.waitUntil(
@@ -145,8 +176,22 @@ export default {
       const contentType = response.headers.get("content-type") || "";
       if (isIdempotent && response.status === 200 && contentType.includes("text/html")) {
         const headers = new Headers(response.headers);
+        const isPrivateRoute =
+          url.pathname.startsWith("/dashboard") ||
+          url.pathname.startsWith("/checkout") ||
+          url.pathname.startsWith("/admin") ||
+          headers.has("set-cookie");
+
         if (!headers.has("Cache-Control")) {
-          headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+          headers.set(
+            "Cache-Control",
+            isPrivateRoute
+              ? "private, no-cache, no-store, must-revalidate"
+              : "public, max-age=0, must-revalidate"
+          );
+        }
+        if (!isPrivateRoute && !headers.has("Vary")) {
+          headers.set("Vary", "Cookie, CF-IPCountry");
         }
         return new Response(response.body, {
           status: response.status,
@@ -157,11 +202,11 @@ export default {
 
       return response;
     } catch (err) {
-      // Uncaught Worker Exception Self-Repair: attempt D1 heal + 1x retry for GET/HEAD
-      if (isIdempotent) {
+      // Uncaught Worker Exception Self-Repair: attempt D1 heal + 1x retry for idempotent requests if not already retried
+      if (isIdempotent && !retried && retryBackupRequest) {
         try {
           await ensureIncidentsTable(env?.DB);
-          const recovered = await astroWorker.fetch(request.clone(), env, ctx);
+          const recovered = await astroWorker.fetch(retryBackupRequest, env, ctx);
           if (ctx?.waitUntil) {
             ctx.waitUntil(
               recordServerIncident(env, {
@@ -199,27 +244,39 @@ export default {
         const status = item?.event?.response?.status || 200;
         const exceptions = Array.isArray(item?.exceptions) ? item.exceptions : [];
 
-        if (outcome === "ok" && exceptions.length === 0 && status < 500) {
+        // Ignore normal completions and client-side disconnects/aborts
+        if (BENIGN_TAIL_OUTCOMES.has(outcome) && exceptions.length === 0 && status < 500) {
           continue;
         }
+
+        const userAgent = item?.event?.request?.headers?.["user-agent"] || "cloudflare-tail";
+        const isBot = BOT_UA_REGEX.test(userAgent);
 
         const primaryException = exceptions[0];
         const errorType =
           exceptions.length > 0
             ? `tail_${primaryException.name || "exception"}`
-            : outcome !== "ok"
+            : !BENIGN_TAIL_OUTCOMES.has(outcome)
             ? `tail_${outcome}`
             : `tail_http_${status}`;
         const errorMessage =
           primaryException?.message ||
-          (outcome !== "ok" ? `Worker invocation outcome: ${outcome}` : `HTTP ${status} response on ${reqUrl}`);
+          (!BENIGN_TAIL_OUTCOMES.has(outcome)
+            ? `Worker invocation outcome: ${outcome}`
+            : `HTTP ${status} response on ${reqUrl}`);
 
-        // Execute Tail Self-Repair: purge cached entry for failing GET URL & verify D1
+        // Execute Tail Self-Repair: purge cached entry for failing GET URL & verify R2/D1
         const method = item?.event?.request?.method || "GET";
         const repairActions = [];
         if (method === "GET" && reqUrl) {
           const purged = await purgeUrlCache(reqUrl, env);
           repairActions.push(purged ? "purged_edge_cache" : "verified_edge_cache");
+        }
+        if (reqUrl.includes("/api/uploads/") && env?.FILES && typeof env.FILES.head === "function") {
+          try {
+            await env.FILES.head("__tail_healthcheck__");
+            repairActions.push("verified_r2_binding");
+          } catch {}
         }
         if (env?.DB) {
           await ensureIncidentsTable(env.DB);
@@ -229,26 +286,31 @@ export default {
         const signature = `${errorType}:${errorMessage}:${reqUrl}`;
         const repairActionText = repairActions.join(", ") || "logged_tail_incident";
 
-        await recordServerIncident(env, {
+        const { shouldAlert } = await recordServerIncident(env, {
           signature,
           type: errorType,
           message: errorMessage,
           url: reqUrl,
-          userAgent: item?.event?.request?.headers?.["user-agent"] || "cloudflare-tail",
+          userAgent,
           cfRay: item?.event?.request?.headers?.["cf-ray"] || "tail",
           repairStatus: "tail_auto_repaired",
           repairAction: repairActionText,
         });
 
-        // Rate-limited admin email alert for unrecovered server-side failures
+        // Rate-limited admin email alert for unrecovered server-side failures (skip bots)
         const now = Date.now();
         const lastSent = tailCooldowns.get(signature);
-        if ((!lastSent || now - lastSent > TAIL_COOLDOWN_MS) && env?.EMAIL?.send) {
+        if (shouldAlert && !isBot && (!lastSent || now - lastSent > TAIL_COOLDOWN_MS) && env?.EMAIL?.send) {
           tailCooldowns.set(signature, now);
           const recipients = String(env.ADMIN_EMAILS || "blainebressman@gmail.com")
             .split(",")
             .map((s) => s.trim())
             .filter(Boolean);
+
+          const safeType = escapeHtml(errorType);
+          const safeUrl = escapeHtml(reqUrl || "N/A");
+          const safeMessage = escapeHtml(errorMessage);
+          const safeRepair = escapeHtml(repairActionText);
 
           for (const to of recipients) {
             await env.EMAIL.send({
@@ -258,10 +320,10 @@ export default {
               text: `Cloudflare Tail Listener detected a server-side failure.\nType: ${errorType}\nURL: ${reqUrl}\nMessage: ${errorMessage}\nSelf-Repair Actions: ${repairActionText}`,
               html: `<div style="font-family:sans-serif;max-width:600px;padding:16px;border:1px solid #e2e8f0;border-radius:8px;">
                 <h3 style="color:#e11d48;margin-top:0;">⚡ GigaSend Cloudflare Tail Self-Repair</h3>
-                <p><strong>Type:</strong> ${errorType}</p>
-                <p><strong>URL:</strong> ${reqUrl || "N/A"}</p>
-                <p><strong>Message:</strong> ${errorMessage}</p>
-                <p style="color:#16a34a;"><strong>Self-Repair Executed:</strong> ${repairActionText}</p>
+                <p><strong>Type:</strong> ${safeType}</p>
+                <p><strong>URL:</strong> ${safeUrl}</p>
+                <p><strong>Message:</strong> ${safeMessage}</p>
+                <p style="color:#16a34a;"><strong>Self-Repair Executed:</strong> ${safeRepair}</p>
               </div>`,
             }).catch(() => {});
           }
@@ -284,7 +346,7 @@ export default {
       try {
         const { results: expiredShares = [] } = await env.DB.prepare(
           `SELECT id, file_key FROM shares
-           WHERE expires_at <= datetime('now')
+           WHERE datetime(expires_at) <= datetime('now')
              AND file_key IS NOT NULL
              AND file_key != ''
            LIMIT 100`
@@ -324,22 +386,18 @@ export default {
       // 2. Prune expired DataForSEO cache entries and stale incidents (>30 days)
       try {
         await env.DB.prepare(
-          `DELETE FROM seo_dataforseo_cache WHERE expires_at <= datetime('now')`
+          `DELETE FROM seo_dataforseo_cache WHERE datetime(expires_at) <= datetime('now')`
         ).run();
       } catch {}
 
       try {
         await env.DB.prepare(
-          `DELETE FROM system_error_incidents WHERE last_seen_at < datetime('now', '-30 days')`
+          `DELETE FROM system_error_incidents WHERE datetime(last_seen_at) < datetime('now', '-30 days')`
         ).run();
       } catch {}
     };
 
-    if (ctx?.waitUntil) {
-      ctx.waitUntil(runMaintenance());
-    } else {
-      await runMaintenance();
-    }
+    await runMaintenance();
 
     if (typeof astroWorker?.scheduled === "function") {
       return astroWorker.scheduled(controller, env, ctx);
@@ -352,4 +410,12 @@ export class WalletBalanceCoordinator {
     this.state = state;
     this.env = env;
   }
+
+  async fetch() {
+    return new Response(JSON.stringify({ status: "ok", coordinator: "WalletBalanceCoordinator" }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 }
+

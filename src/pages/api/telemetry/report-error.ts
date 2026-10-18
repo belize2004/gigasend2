@@ -28,7 +28,26 @@ const alertCooldowns = new Map<string, number>();
 const ALERT_COOLDOWN_MS = 10 * 60 * 1000;
 
 const BOT_UA_REGEX =
-  /headlesschrome|phantomjs|puppeteer|playwright|googlebot|bingbot|ahrefsbot|semrushbot|mj12bot|dotbot|petalbot|bytespider|gptbot|claudebot|perplexitybot|facebookexternalhit|twitterbot|linkedinbot|slackbot|discordbot|telegrambot|whatsapp|applebot|yandexbot|baiduspider|duckduckbot|ia_archiver|prerender|screaming frog|dataforseo|uptimerobot|pingdom|statuscake/i;
+  /headlesschrome|phantomjs|puppeteer|playwright|googlebot|bingbot|ahrefsbot|semrushbot|mj12bot|dotbot|petalbot|bytespider|gptbot|claudebot|perplexitybot|facebookexternalhit|twitterbot|linkedinbot|slackbot|discordbot|telegrambot|whatsapp|applebot|yandexbot|baiduspider|duckduckbot|ia_archiver|prerender|screaming frog|dataforseo|uptimerobot|pingdom|statuscake|sqlmap|nikto|nmap|masscan|zgrab/i;
+
+function escapeHtml(value: unknown): string {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function isFirstPartyUrl(urlStr?: string): boolean {
+  if (!urlStr) return false;
+  try {
+    const parsed = new URL(urlStr, "https://gigasend.us");
+    return /^([a-z0-9-]+\.)?gigasend\.us$/i.test(parsed.hostname) || parsed.hostname === "localhost";
+  } catch {
+    return false;
+  }
+}
 
 async function ensureIncidentsTable(db: any) {
   if (!db) return;
@@ -59,11 +78,22 @@ async function logIncidentToD1(
   cfRay: string,
   userAgent: string,
   repair: SelfRepairOutcome
-) {
-  if (!db) return;
+): Promise<{ shouldAlert: boolean }> {
+  if (!db) return { shouldAlert: true };
   try {
     await ensureIncidentsTable(db);
-    const nowIso = new Date().toISOString();
+    const cleanSig = signature.slice(0, 250);
+    const existing = await db
+      .prepare(`SELECT last_seen_at FROM system_error_incidents WHERE signature = ? LIMIT 1`)
+      .bind(cleanSig)
+      .first()
+      .catch(() => null);
+
+    const nowMs = Date.now();
+    const prevMs = existing?.last_seen_at ? Date.parse(existing.last_seen_at) : 0;
+    const withinGlobalCooldown = Number.isFinite(prevMs) && prevMs > 0 && nowMs - prevMs < ALERT_COOLDOWN_MS;
+
+    const nowIso = new Date(nowMs).toISOString();
     await db
       .prepare(
         `INSERT INTO system_error_incidents (
@@ -80,7 +110,7 @@ async function logIncidentToD1(
           last_seen_at = excluded.last_seen_at`
       )
       .bind(
-        signature.slice(0, 250),
+        cleanSig,
         payload.type || "unknown",
         String(payload.message || "").slice(0, 500),
         payload.url || "",
@@ -92,14 +122,17 @@ async function logIncidentToD1(
         nowIso
       )
       .run();
+
+    return { shouldAlert: !withinGlobalCooldown };
   } catch (err) {
     console.warn("[SELF_REPAIR] Failed to persist incident to D1:", err);
+    return { shouldAlert: true };
   }
 }
 
 async function purgePageCache(pageUrl: string, env: any): Promise<string[]> {
   const actions: string[] = [];
-  if (!pageUrl) return actions;
+  if (!pageUrl || !isFirstPartyUrl(pageUrl)) return actions;
 
   try {
     if (typeof caches !== "undefined" && (caches as any).default) {
@@ -151,7 +184,7 @@ async function runSelfRepairPlaybooks(
       source &&
       (/^(chrome|moz|safari|safari-web)-extension:\/\//i.test(source) ||
         /\/cdn-cgi\/|cloudflareinsights\.com/i.test(source) ||
-        (/^https?:\/\//i.test(source) && !/^https?:\/\/([a-z0-9-]+\.)?gigasend\.us(\/|$)/i.test(source)))
+        (/^https?:\/\//i.test(source) && !isFirstPartyUrl(source)))
     ) {
       return {
         repaired: true,
@@ -166,13 +199,12 @@ async function runSelfRepairPlaybooks(
       combined.match(/\/(?:_astro|scripts)\/[^\s"')]+\.(?:js|css)/i);
 
     const rawAssetRef = assetUrlMatch ? assetUrlMatch[0] : "";
-    const assetUrl = rawAssetRef.startsWith("http")
+    const candidateUrl = rawAssetRef.startsWith("http")
       ? rawAssetRef
       : rawAssetRef
       ? `https://gigasend.us${rawAssetRef}`
-      : payload.type === "resource_failure"
-      ? "https://gigasend.us/scripts/error-tracker.js"
-      : "";
+      : "https://gigasend.us/scripts/error-tracker.js";
+    const assetUrl = isFirstPartyUrl(candidateUrl) ? candidateUrl : "https://gigasend.us/scripts/error-tracker.js";
 
     if (assetUrl && env.ASSETS && typeof env.ASSETS.fetch === "function") {
       try {
@@ -188,12 +220,12 @@ async function runSelfRepairPlaybooks(
           };
         }
 
-        if (assetCheck.status === 404 && payload.url) {
+        if (assetCheck.status === 404 && payload.url && isFirstPartyUrl(payload.url)) {
           // Client served stale HTML referencing an old build hash -> purge page cache
           const purgeActions = await purgePageCache(payload.url, env);
           return {
             repaired: true,
-            suppressAlert: false,
+            suppressAlert: true,
             status: "healed_stale_asset_cache",
             actionTaken: `Detected stale chunk reference (${new URL(assetUrl).pathname} -> 404). Purged cached HTML for ${payload.url} (${purgeActions.join(", ") || "cache invalidated"}) + client auto-reloaded.`,
           };
@@ -209,7 +241,19 @@ async function runSelfRepairPlaybooks(
     }
   }
 
-  // Playbook 2: D1 SQLite schema / missing table self-repair
+  // Playbook 2: React Hydration Error #418 / #422 / #423 / #425 (client extension DOM mutation or stale HTML)
+  if (/Minified React error #(?:418|422|423|425)\b|Hydration failed/i.test(msg)) {
+    const purgeActions =
+      payload.url && isFirstPartyUrl(payload.url) ? await purgePageCache(payload.url, env) : [];
+    return {
+      repaired: true,
+      suppressAlert: true,
+      status: "healed_react_hydration_418",
+      actionTaken: `React 19 client hydration auto-recovered (${purgeActions.join(", ") || "verified SSR island state"}).`,
+    };
+  }
+
+  // Playbook 3: D1 SQLite schema / missing table self-repair
   if (/no such table|SQLITE_ERROR/i.test(msg) && env.DB) {
     await ensureIncidentsTable(env.DB);
     return {
@@ -232,10 +276,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const env = (locals as any)?.runtime?.env || {};
 
   try {
-    const payload: ErrorTelemetryPayload = await request.json().catch(() => ({
-      type: "unknown_parse_error",
-      message: "Could not parse error JSON payload",
-    }));
+    const payload = (await request.json().catch(() => null)) as ErrorTelemetryPayload | null;
+    if (
+      !payload ||
+      typeof payload !== "object" ||
+      (!String(payload.type || "").trim() && !String(payload.message || "").trim())
+    ) {
+      return json({ success: true, logged: false, ignored: "invalid_or_empty_payload" });
+    }
 
     const clientIp =
       request.headers.get("cf-connecting-ip") ||
@@ -257,7 +305,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         country,
         userAgent,
       }));
-      return json({ success: true, logged: true, ignored: "bot_user_agent" });
+      return json({ success: true, logged: false, ignored: "bot_user_agent" });
     }
 
     const errorKey = `${payload.type}:${payload.message || ""}${payload.source ? `:${payload.source}` : ""}`;
@@ -265,8 +313,17 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // Execute automated Cloudflare Self-Repair Playbooks
     const repair = await runSelfRepairPlaybooks(payload, env);
 
-    // Record incident and self-repair outcome in Cloudflare D1
-    await logIncidentToD1(env.DB, errorKey, payload, cfRay, userAgent, repair);
+    // If suppressed (e.g. verified healthy asset on client navigation drop or third-party script), skip D1 pollution and email
+    if (repair.suppressAlert) {
+      return json({
+        success: true,
+        logged: false,
+        selfRepair: repair,
+      });
+    }
+
+    // Record genuine incident and self-repair outcome in Cloudflare D1
+    const { shouldAlert } = await logIncidentToD1(env.DB, errorKey, payload, cfRay, userAgent, repair);
 
     // Structured server log for Cloudflare realtime streaming / tail logs
     console.error("[WEBSITE_FAILURE_LISTENER]", JSON.stringify({
@@ -279,23 +336,15 @@ export const POST: APIRoute = async ({ request, locals }) => {
       receivedAt: new Date().toISOString(),
     }));
 
-    if (repair.suppressAlert) {
-      return json({
-        success: true,
-        logged: true,
-        selfRepair: repair,
-      });
-    }
-
     // Check if email alerts are configured
     const adminEmails = env.ADMIN_EMAILS || "blainebressman@gmail.com";
     const emailBinding = env.EMAIL;
 
-    // Rate-limited email dispatch for significant errors
+    // Rate-limited email dispatch for significant errors (coordinated across isolates via D1 + L1 Map)
     const now = Date.now();
     const lastAlert = alertCooldowns.get(errorKey);
 
-    if ((!lastAlert || now - lastAlert > ALERT_COOLDOWN_MS) && adminEmails) {
+    if (shouldAlert && (!lastAlert || now - lastAlert > ALERT_COOLDOWN_MS) && adminEmails) {
       alertCooldowns.set(errorKey, now);
 
       const repairBadgeColor = repair.repaired ? "#16a34a" : "#d97706";
@@ -303,27 +352,42 @@ export const POST: APIRoute = async ({ request, locals }) => {
         ? `✅ Auto-Repaired (${repair.status})`
         : `⚠️ Monitored (${repair.status})`;
 
+      const safeType = escapeHtml(payload.type || "unknown");
+      const safeBadge = escapeHtml(repairBadgeLabel);
+      const safeAction = escapeHtml(repair.actionTaken);
+      const safeUrl = escapeHtml(payload.url || "N/A");
+      const safeHref = isFirstPartyUrl(payload.url) ? escapeHtml(payload.url) : "#";
+      const safeSource = escapeHtml(payload.source || "");
+      const safeRay = escapeHtml(cfRay);
+      const safeCountry = escapeHtml(country);
+      const safeIp = escapeHtml(clientIp);
+      const safeViewport = escapeHtml(payload.viewport || "N/A");
+      const safeUa = escapeHtml(userAgent);
+      const safeTime = escapeHtml(payload.timestamp || new Date().toISOString());
+      const safeMsg = escapeHtml(payload.message || "No error message provided");
+      const safeStack = escapeHtml(payload.stack || "");
+
       const emailHtml = `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
           <h2 style="color: #e11d48; margin-top: 0;">🚨 GigaSend Website Failure Detected</h2>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px;">
-            <tr><td style="padding: 6px 0; color: #64748b; width: 130px;"><strong>Failure Type:</strong></td><td style="color: #0f172a;">${payload.type || "unknown"}</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Self-Repair:</strong></td><td style="color: ${repairBadgeColor}; font-weight: 600;">${repairBadgeLabel}</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Repair Action:</strong></td><td style="color: #0f172a; font-size: 13px;">${repair.actionTaken}</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Page URL:</strong></td><td style="color: #0f172a;"><a href="${payload.url || "#"}">${payload.url || "N/A"}</a></td></tr>
-            ${payload.source ? `<tr><td style="padding: 6px 0; color: #64748b;"><strong>Resource URL:</strong></td><td style="color: #0f172a; font-family: monospace; font-size: 12px; word-break: break-all;">${payload.source}</td></tr>` : ""}
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>CF-Ray ID:</strong></td><td style="color: #0f172a; font-family: monospace;">${cfRay}</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Location:</strong></td><td style="color: #0f172a;">${country} (${clientIp})</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Viewport:</strong></td><td style="color: #0f172a;">${payload.viewport || "N/A"}</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>User-Agent:</strong></td><td style="color: #0f172a; font-size: 12px; word-break: break-word;">${userAgent}</td></tr>
-            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Timestamp:</strong></td><td style="color: #0f172a;">${payload.timestamp || new Date().toISOString()}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b; width: 130px;"><strong>Failure Type:</strong></td><td style="color: #0f172a;">${safeType}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Self-Repair:</strong></td><td style="color: ${repairBadgeColor}; font-weight: 600;">${safeBadge}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Repair Action:</strong></td><td style="color: #0f172a; font-size: 13px;">${safeAction}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Page URL:</strong></td><td style="color: #0f172a;"><a href="${safeHref}">${safeUrl}</a></td></tr>
+            ${safeSource ? `<tr><td style="padding: 6px 0; color: #64748b;"><strong>Resource URL:</strong></td><td style="color: #0f172a; font-family: monospace; font-size: 12px; word-break: break-all;">${safeSource}</td></tr>` : ""}
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>CF-Ray ID:</strong></td><td style="color: #0f172a; font-family: monospace;">${safeRay}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Location:</strong></td><td style="color: #0f172a;">${safeCountry} (${safeIp})</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Viewport:</strong></td><td style="color: #0f172a;">${safeViewport}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>User-Agent:</strong></td><td style="color: #0f172a; font-size: 12px; word-break: break-word;">${safeUa}</td></tr>
+            <tr><td style="padding: 6px 0; color: #64748b;"><strong>Timestamp:</strong></td><td style="color: #0f172a;">${safeTime}</td></tr>
           </table>
           <div style="background: #f8fafc; border-left: 4px solid #e11d48; padding: 12px; margin-bottom: 16px; border-radius: 4px;">
-            <p style="margin: 0; font-weight: 600; color: #0f172a; font-size: 14px;">${payload.message || "No error message provided"}</p>
+            <p style="margin: 0; font-weight: 600; color: #0f172a; font-size: 14px;">${safeMsg}</p>
           </div>
           ${
-            payload.stack
-              ? `<pre style="background: #0f172a; color: #f8fafc; padding: 12px; border-radius: 6px; font-size: 12px; overflow-x: auto; white-space: pre-wrap;">${payload.stack}</pre>`
+            safeStack
+              ? `<pre style="background: #0f172a; color: #f8fafc; padding: 12px; border-radius: 6px; font-size: 12px; overflow-x: auto; white-space: pre-wrap;">${safeStack}</pre>`
               : ""
           }
           <p style="font-size: 12px; color: #94a3b8; margin-top: 20px;">
@@ -337,7 +401,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         to: adminEmails.split(",").map((e: string) => e.trim()),
         subject: `[${repair.repaired ? "AUTO-REPAIRED" : "FAILURE ALERT"}] ${payload.type}: ${String(payload.message || "").slice(0, 55)}`,
         html: emailHtml,
-        text: `GigaSend Website Failure: ${payload.type} at ${payload.url || "N/A"}\nSelf-Repair: ${repairBadgeLabel} - ${repair.actionTaken}\nUser-Agent: ${userAgent}\nMessage: ${payload.message}\nStack: ${payload.stack || "N/A"}`,
+        text: `Gigasend Website Failure: ${payload.type} at ${payload.url || "N/A"}\nSelf-Repair: ${repairBadgeLabel} - ${repair.actionTaken}\nUser-Agent: ${userAgent}\nMessage: ${payload.message}\nStack: ${payload.stack || "N/A"}`,
       }).catch((err) => {
         console.warn("[TELEMETRY] Failed to dispatch failure email alert:", err);
       });
@@ -349,3 +413,4 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return json({ success: false, message: error?.message || "Internal error" }, 500);
   }
 };
+

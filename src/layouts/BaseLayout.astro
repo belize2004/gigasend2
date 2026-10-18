@@ -98,5 +98,8 @@ const showBrazilBanner = Boolean((Astro.locals as Record<string, unknown>)?.show
     )}
     <slot />
     <SuggestionBox client:idle />
+    <script is:inline>
+      (function(){try{var s=document.querySelectorAll("astro-island style[data-emotion]");for(var i=0;i<s.length;i++)document.head.appendChild(s[i]);}catch(e){}})();
+    </script>
   </body>
 </html>

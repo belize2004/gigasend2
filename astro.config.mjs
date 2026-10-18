@@ -11,7 +11,11 @@ export default defineConfig({
   build: {
     inlineStylesheets: "always",
   },
+  session: {
+    driver: "memory",
+  },
   adapter: cloudflare({
+    imageService: "compile",
     platformProxy: {
       enabled: true,
     },

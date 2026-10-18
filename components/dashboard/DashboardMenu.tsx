@@ -56,21 +56,17 @@ const DashboardMenu: React.FC = () => {
         {menuItems.map((item, key) => {
           const IconComponent = item.icon;
           return (
-            <button
-              key={key}
-              className={`rounded-xl transition-all duration-200 w-full tap-tactile ${item.active
+            <Link
+              key={item.href || key}
+              href={item.href}
+              className={`flex items-center px-4 py-3 text-sm rounded-xl transition-all duration-200 w-full tap-tactile ${item.active
                 ? 'btn-gold text-ocean-950 font-bold shadow-lg shadow-gold-500/20'
                 : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
-                }`}>
-              <Link
-                key={item.href}
-                href={item.href}
-                className='flex items-center px-4 py-3 text-sm'
-              >
-                <IconComponent className="mr-3 text-lg" />
-                <span className="font-semibold font-display">{item.label}</span>
-              </Link>
-            </button>
+                }`}
+            >
+              <IconComponent className="mr-3 text-lg" />
+              <span className="font-semibold font-display">{item.label}</span>
+            </Link>
           );
         })}
       </nav>

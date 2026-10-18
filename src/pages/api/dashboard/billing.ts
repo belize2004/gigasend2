@@ -8,7 +8,7 @@ import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 import type Stripe from "stripe";
 
 export const GET: APIRoute = async ({ cookies, locals }) => {
-  const userId = await getAuthenticatedUserId(cookies);
+  const userId = await getAuthenticatedUserId(cookies, locals);
   if (!userId) return unauthorized();
 
   const db = getDb(locals);
@@ -44,57 +44,71 @@ export const GET: APIRoute = async ({ cookies, locals }) => {
   }
 
   if (user.stripeCustomerId) {
-    const subscriptions = await stripe.subscriptions.list({
-      status: "active",
-      customer: user.stripeCustomerId,
-    });
+    try {
+      const subscriptions = await stripe.subscriptions.list({
+        status: "active",
+        customer: user.stripeCustomerId,
+      });
 
-    const subscription: Stripe.Subscription | undefined = subscriptions.data[0];
-    if (subscription) {
-      const planName = subscription.items.data[0].plan.nickname!.toLowerCase();
-      const subscribedPlan = PLANS[planName as PlanEnum];
-      if (!subscribedPlan) {
-        return json({ success: false, message: "Subscribed plan not found" }, 404);
-      }
+      const subscription: Stripe.Subscription | undefined = subscriptions.data[0];
+      if (subscription) {
+        const firstItem = subscription.items?.data?.[0];
+        const rawPlanName = firstItem?.plan?.nickname || firstItem?.price?.nickname || "pro";
+        const planName = rawPlanName.toLowerCase();
+        const subscribedPlan = PLANS[planName as PlanEnum] || PLANS.pro;
+        const resolvedPlanKey = (PLANS[planName as PlanEnum] ? planName : "pro") as PlanEnum;
 
-      allowedStorage = getStorageLimitBytesForUser(user, planName as PlanEnum);
-      const defaultPaymentMethodId = subscription.default_payment_method;
-      let last4 = "";
-      let exp_month = "";
-      let exp_year = "";
+        allowedStorage = getStorageLimitBytesForUser(user, resolvedPlanKey);
+        const defaultPaymentMethodId = subscription.default_payment_method;
+        let last4 = "";
+        let exp_month = "";
+        let exp_year = "";
 
-      if (defaultPaymentMethodId && typeof defaultPaymentMethodId === "string") {
-        const paymentMethod = await stripe.paymentMethods.retrieve(defaultPaymentMethodId);
-        if (paymentMethod.type === "card" && paymentMethod.card) {
-          last4 = paymentMethod.card.last4;
-          exp_month = String(paymentMethod.card.exp_month);
-          exp_year = String(paymentMethod.card.exp_year);
+        if (defaultPaymentMethodId && typeof defaultPaymentMethodId === "string") {
+          try {
+            const paymentMethod = await stripe.paymentMethods.retrieve(defaultPaymentMethodId);
+            if (paymentMethod.type === "card" && paymentMethod.card) {
+              last4 = paymentMethod.card.last4;
+              exp_month = String(paymentMethod.card.exp_month);
+              exp_year = String(paymentMethod.card.exp_year);
+            }
+          } catch (pmErr) {
+            console.warn("[billing] Stripe paymentMethod lookup failed:", pmErr);
+          }
         }
+
+        let lastPaymentDate = new Date(subscription.start_date * 1000);
+        try {
+          const invoices = await stripe.invoices.list({ subscription: subscription.id, limit: 1 });
+          const latestInvoice = invoices.data[0];
+          if (latestInvoice && latestInvoice.status === "paid" && latestInvoice.created) {
+            lastPaymentDate = new Date(latestInvoice.created * 1000);
+          }
+        } catch (invErr) {
+          console.warn("[billing] Stripe invoice lookup failed:", invErr);
+        }
+
+        const nextBillingDate = new Date(lastPaymentDate);
+        nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
+
+        const unitAmount = firstItem?.price?.unit_amount ?? firstItem?.plan?.amount ?? subscribedPlan.price * 100;
+
+        const data: PaidPlan = {
+          isFree: false,
+          planName: resolvedPlanKey,
+          planFeatures: subscribedPlan.features,
+          subscriptionStartDate: new Date(subscription.start_date * 1000).toISOString(),
+          nextBillingDate: nextBillingDate.toISOString(),
+          nextBillingAmount: unitAmount / 100,
+          last4,
+          exp_month,
+          exp_year,
+        };
+
+        return json({ success: true, data, allowedStorage, message: "Billing data retrieved" });
       }
-
-      const invoices = await stripe.invoices.list({ subscription: subscription.id, limit: 1 });
-      const latestInvoice = invoices.data[0];
-      const lastPaymentDate =
-        latestInvoice && latestInvoice.status === "paid" && latestInvoice.created
-          ? new Date(latestInvoice.created * 1000)
-          : new Date(subscription.start_date * 1000);
-
-      const nextBillingDate = new Date(lastPaymentDate);
-      nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
-
-      const data: PaidPlan = {
-        isFree: false,
-        planName: planName as PlanEnum,
-        planFeatures: subscribedPlan.features,
-        subscriptionStartDate: new Date(subscription.start_date * 1000).toISOString(),
-        nextBillingDate: nextBillingDate.toISOString(),
-        nextBillingAmount: subscription.items.data[0].price.unit_amount! / 100,
-        last4,
-        exp_month,
-        exp_year,
-      };
-
-      return json({ success: true, data, allowedStorage, message: "Billing data retrieved" });
+    } catch (stripeErr) {
+      console.warn("[billing] Stripe subscription lookup failed, falling back to free tier:", stripeErr);
     }
   }
 

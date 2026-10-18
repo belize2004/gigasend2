@@ -183,7 +183,7 @@ export async function updateUserPassword(db: AppD1Database, userId: string, pass
 export async function listActiveShares(db: AppD1Database, userId: string) {
   const { results = [] } = await db
     .prepare(
-      "SELECT id, email, expires_at, size, user_id, link, file_key, download_notified_at, created_at, updated_at FROM shares WHERE user_id = ? AND expires_at > datetime('now') ORDER BY created_at DESC",
+      "SELECT id, email, expires_at, size, user_id, link, file_key, download_notified_at, created_at, updated_at FROM shares WHERE user_id = ? AND datetime(expires_at) > datetime('now') ORDER BY created_at DESC",
     )
     .bind(userId)
     .all<ShareRow>();
@@ -193,7 +193,7 @@ export async function listActiveShares(db: AppD1Database, userId: string) {
 
 export async function getActiveShareUsage(db: AppD1Database, userId: string) {
   const row = await db
-    .prepare("SELECT COALESCE(SUM(size), 0) AS used_storage FROM shares WHERE user_id = ? AND expires_at > datetime('now')")
+    .prepare("SELECT COALESCE(SUM(size), 0) AS used_storage FROM shares WHERE user_id = ? AND datetime(expires_at) > datetime('now')")
     .bind(userId)
     .first<{ used_storage: number }>();
 
@@ -316,9 +316,9 @@ export async function getAdminOverview(db: AppD1Database) {
       SELECT
         (SELECT COUNT(*) FROM users) AS total_users,
         (SELECT COUNT(*) FROM shares) AS total_shares,
-        (SELECT COUNT(*) FROM shares WHERE expires_at > datetime('now')) AS active_shares,
-        (SELECT COUNT(*) FROM shares WHERE expires_at <= datetime('now')) AS expired_shares,
-        (SELECT COALESCE(SUM(size), 0) FROM shares WHERE expires_at > datetime('now')) AS active_storage_bytes,
+        (SELECT COUNT(*) FROM shares WHERE datetime(expires_at) > datetime('now')) AS active_shares,
+        (SELECT COUNT(*) FROM shares WHERE datetime(expires_at) <= datetime('now')) AS expired_shares,
+        (SELECT COALESCE(SUM(size), 0) FROM shares WHERE datetime(expires_at) > datetime('now')) AS active_storage_bytes,
         (SELECT COALESCE(SUM(size), 0) FROM shares) AS total_shared_bytes
       `,
     )
@@ -341,7 +341,7 @@ export async function getAdminOverview(db: AppD1Database) {
         shares.size,
         shares.expires_at,
         shares.created_at,
-        CASE WHEN shares.expires_at <= datetime('now') THEN 1 ELSE 0 END AS is_expired,
+        CASE WHEN datetime(shares.expires_at) <= datetime('now') THEN 1 ELSE 0 END AS is_expired,
         CASE WHEN shares.file_key IS NOT NULL AND shares.file_key != '' THEN 1 ELSE 0 END AS has_file_key
       FROM shares
       JOIN users ON users.id = shares.user_id

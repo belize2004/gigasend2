@@ -6,7 +6,7 @@ import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 
 export const POST: APIRoute = async ({ cookies, locals }) => {
   try {
-    const userId = await getAuthenticatedUserId(cookies);
+    const userId = await getAuthenticatedUserId(cookies, locals);
     if (!userId) return unauthorized();
 
     const db = getDb(locals);
@@ -16,11 +16,19 @@ export const POST: APIRoute = async ({ cookies, locals }) => {
       return json({ success: false, message: "No Stripe customer ID found" }, 400);
     }
 
-    const subscriptions = await stripe.subscriptions.list({
-      customer: user.stripeCustomerId,
-      status: "active",
-      limit: 1,
-    });
+    let subscriptions;
+    try {
+      subscriptions = await stripe.subscriptions.list({
+        customer: user.stripeCustomerId,
+        status: "active",
+        limit: 1,
+      });
+    } catch (err: any) {
+      if (err?.code === "resource_missing" || String(err?.message || "").includes("No such customer")) {
+        return json({ success: false, message: "No active subscriptions to cancel" }, 400);
+      }
+      throw err;
+    }
 
     if (subscriptions.data.length === 0) {
       return json({ success: false, message: "No active subscriptions to cancel" }, 400);

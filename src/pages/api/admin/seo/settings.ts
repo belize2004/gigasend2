@@ -8,7 +8,7 @@ export const GET: APIRoute = async ({ cookies, locals }) => {
 
   const isDev = !import.meta.env.PROD;
   if (!isDev) {
-    const { response } = await getAuthenticatedAdmin(cookies, db);
+    const { response } = await getAuthenticatedAdmin(cookies, db, locals);
     if (response) return response;
   }
 
@@ -22,12 +22,13 @@ export const GET: APIRoute = async ({ cookies, locals }) => {
       configMap[r.key] = r.value;
     }
 
+    const runtimeEnv = (locals as any)?.runtime?.env;
     return json({
       success: true,
       data: {
         config: configMap,
-        hasEnvLogin: Boolean(process.env.DATAFORSEO_LOGIN),
-        hasEnvPassword: Boolean(process.env.DATAFORSEO_PASSWORD),
+        hasEnvLogin: Boolean(runtimeEnv?.DATAFORSEO_LOGIN || process.env.DATAFORSEO_LOGIN),
+        hasEnvPassword: Boolean(runtimeEnv?.DATAFORSEO_PASSWORD || process.env.DATAFORSEO_PASSWORD),
       },
       message: "SEO configuration loaded",
     });
@@ -41,7 +42,7 @@ export const POST: APIRoute = async ({ cookies, locals, request }) => {
 
   const isDev = !import.meta.env.PROD;
   if (!isDev) {
-    const { response } = await getAuthenticatedAdmin(cookies, db);
+    const { response } = await getAuthenticatedAdmin(cookies, db, locals);
     if (response) return response;
   }
 

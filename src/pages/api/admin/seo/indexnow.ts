@@ -6,12 +6,12 @@ import { seoLandingPages } from "@/src/data/seoLandingPages";
 import { brand } from "@/lib/brand";
 import { INDEXNOW_KEY } from "@/src/pages/c7849e47265a468d8ff1786e680a6f43.txt";
 
-export const POST: APIRoute = async ({ cookies, locals, request }) => {
+export const POST: APIRoute = async ({ cookies, locals }) => {
   const db = getDb(locals);
 
-  const isDev = process.env.NODE_ENV !== "production" || request.headers.get("x-local-dev") === "true";
+  const isDev = import.meta.env.DEV;
   if (!isDev) {
-    const { response } = await getAuthenticatedAdmin(cookies, db);
+    const { response } = await getAuthenticatedAdmin(cookies, db, locals);
     if (response) return response;
   }
 

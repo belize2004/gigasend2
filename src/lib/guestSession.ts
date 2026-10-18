@@ -16,7 +16,7 @@ export async function findOrCreateGuestUser(db: AppD1Database, guestId: string):
 
   const email = `${guestId}@guest.gigasend.us`;
   await db
-    .prepare("INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?)")
+    .prepare("INSERT OR IGNORE INTO users (id, name, email, password) VALUES (?, ?, ?, ?)")
     .bind(guestId, "Guest User", email, "guest_ephemeral")
     .run();
 
@@ -29,8 +29,12 @@ export async function findOrCreateGuestUser(db: AppD1Database, guestId: string):
   };
 }
 
-export async function getOrCreateUserSession(cookies: AstroCookies, db: AppD1Database): Promise<UserSession> {
-  const authUserId = await getAuthenticatedUserId(cookies);
+export async function getOrCreateUserSession(
+  cookies: AstroCookies,
+  db: AppD1Database,
+  locals?: unknown
+): Promise<UserSession> {
+  const authUserId = await getAuthenticatedUserId(cookies, locals);
   if (authUserId) {
     const user = await findUserById(db, authUserId);
     if (user) {
@@ -57,3 +61,4 @@ export async function getOrCreateUserSession(cookies: AstroCookies, db: AppD1Dat
     user: guestUser,
   };
 }
+

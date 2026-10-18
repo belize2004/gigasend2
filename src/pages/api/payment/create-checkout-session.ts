@@ -7,16 +7,22 @@ import { PAYG_PACKS } from "@/lib/constant";
 
 export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
   try {
-    const { planName, packId, locale } = await request.json().catch(() => ({}));
+    const body = await request.json().catch(() => ({}));
+    const { planName, packId, locale } = (body && typeof body === "object" ? body : {}) as Record<string, any>;
     if (!planName && !packId) return json({ success: false, message: "Plan or Pack is required" }, 400);
 
-    const userId = await getAuthenticatedUserId(cookies);
+    const normalizedPlanName = typeof planName === "string" ? planName.trim() : "";
+    const normalizedPackId = typeof packId === "string" ? packId.trim() : "";
+
+    const userId = await getAuthenticatedUserId(cookies, locals);
     const db = getDb(locals);
 
     // If subscription and not logged in, require auth
     const isPaygRequest = Boolean(
-      packId ||
-      Object.keys(PAYG_PACKS).some((key) => PAYG_PACKS[key].id === planName || key === (planName || "").toLowerCase())
+      normalizedPackId ||
+      Object.keys(PAYG_PACKS).some(
+        (key) => PAYG_PACKS[key].id === normalizedPlanName || key === normalizedPlanName.toLowerCase()
+      )
     );
 
     if (!isPaygRequest && !userId) {
@@ -24,18 +30,42 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
     }
 
     let customerId: string | undefined = undefined;
+    let currentUser: Awaited<ReturnType<typeof findUserById>> = null;
     if (userId) {
-      const user = await findUserById(db, userId);
-      if (user) {
-        if (!user.stripeCustomerId) {
-          const customer = await createCustomer({ name: user.name, email: user.email });
+      currentUser = await findUserById(db, userId);
+      if (currentUser) {
+        if (!currentUser.stripeCustomerId) {
+          const customer = await createCustomer({ name: currentUser.name, email: currentUser.email });
           customerId = customer.id;
-          await updateUserStripeCustomerId(db, user.id, customerId);
+          await updateUserStripeCustomerId(db, currentUser.id, customerId);
         } else {
-          customerId = user.stripeCustomerId;
+          customerId = currentUser.stripeCustomerId;
         }
       }
     }
+
+    const createCheckoutWithCustomerRecovery = async (
+      params: Parameters<typeof stripe.checkout.sessions.create>[0]
+    ) => {
+      try {
+        return await stripe.checkout.sessions.create(params);
+      } catch (err: any) {
+        const isMissingCustomer =
+          err?.code === "resource_missing" ||
+          String(err?.message || "").includes("No such customer");
+        if (isMissingCustomer && currentUser) {
+          const freshCustomer = await createCustomer({ name: currentUser.name, email: currentUser.email });
+          customerId = freshCustomer.id;
+          await updateUserStripeCustomerId(db, currentUser.id, customerId);
+          return await stripe.checkout.sessions.create({
+            ...params,
+            customer: customerId,
+            customer_creation: undefined,
+          });
+        }
+        throw err;
+      }
+    };
 
     const origin = (site?.origin ?? brand.siteUrl).replace(/\/$/, "");
 
@@ -57,12 +87,15 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
 
     // Handle Pay-As-You-Go One-Time Packs
     const selectedPaygKey = Object.keys(PAYG_PACKS).find(
-      (key) => PAYG_PACKS[key].id === packId || PAYG_PACKS[key].id === planName || key === (planName || "").toLowerCase()
+      (key) =>
+        PAYG_PACKS[key].id === normalizedPackId ||
+        PAYG_PACKS[key].id === normalizedPlanName ||
+        key === normalizedPlanName.toLowerCase()
     );
 
     if (selectedPaygKey) {
       const pack = PAYG_PACKS[selectedPaygKey];
-      const session = await stripe.checkout.sessions.create({
+      const session = await createCheckoutWithCustomerRecovery({
         mode: "payment",
         customer: customerId || undefined,
         customer_creation: customerId ? undefined : "always",
@@ -94,12 +127,16 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
       return json({ success: true, url: session.url });
     }
 
+    if (!normalizedPlanName) {
+      return json({ success: false, message: "Valid planName is required" }, 400);
+    }
+
     // Handle Monthly Subscriptions
-    const plan = await findStripePlanByName(db, planName.toLowerCase());
-    if (!plan) return json({ success: false, message: `Plan ${planName} not found` }, 404);
+    const plan = await findStripePlanByName(db, normalizedPlanName.toLowerCase());
+    if (!plan) return json({ success: false, message: `Plan ${normalizedPlanName} not found` }, 404);
     if (plan.name === "free") return json({ success: false, message: "Cannot purchase free plan" }, 400);
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await createCheckoutWithCustomerRecovery({
       mode: "subscription",
       customer: customerId,
       allow_promotion_codes: true,
@@ -111,7 +148,7 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
           quantity: 1,
         },
       ],
-      success_url: `${origin}/checkout/${planName.toLowerCase()}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/checkout/${normalizedPlanName.toLowerCase()}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/plans`,
     });
 

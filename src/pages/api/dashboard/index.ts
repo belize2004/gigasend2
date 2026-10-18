@@ -7,7 +7,7 @@ import { getStorageLimitBytesForUser, getVipGrantForUser } from "@/lib/storageLi
 import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 
 export const GET: APIRoute = async ({ cookies, locals }) => {
-  const userId = await getAuthenticatedUserId(cookies);
+  const userId = await getAuthenticatedUserId(cookies, locals);
   if (!userId) return unauthorized();
 
   const db = getDb(locals);
@@ -20,18 +20,25 @@ export const GET: APIRoute = async ({ cookies, locals }) => {
   if (vipGrant) {
     allowedStorage = getStorageLimitBytesForUser(user, vipGrant.plan);
   } else if (user.stripeCustomerId) {
-    const subscription = await stripe.subscriptions.list({
-      status: "active",
-      customer: user.stripeCustomerId,
-      expand: ["data.items"],
-    });
-    if (subscription.data.length > 0) {
-      const planName = subscription.data[0].items.data[0].plan.nickname!.toLowerCase();
-      const subscribedPlan = PLANS[planName as PlanEnum];
-      if (!subscribedPlan) {
-        return json({ success: false, message: "Subscribed plan not found" }, 404);
+    try {
+      const subscription = await stripe.subscriptions.list({
+        status: "active",
+        customer: user.stripeCustomerId,
+        expand: ["data.items"],
+      });
+      if (subscription.data.length > 0) {
+        const rawPlanName =
+          subscription.data[0].items?.data?.[0]?.plan?.nickname ||
+          subscription.data[0].items?.data?.[0]?.price?.nickname ||
+          "";
+        const planName = rawPlanName.toLowerCase();
+        const subscribedPlan = PLANS[planName as PlanEnum];
+        if (subscribedPlan) {
+          allowedStorage = getStorageLimitBytesForUser(user, planName as PlanEnum);
+        }
       }
-      allowedStorage = getStorageLimitBytesForUser(user, planName as PlanEnum);
+    } catch (err) {
+      console.warn("[dashboard] Stripe subscription lookup failed, using default tier:", err);
     }
   }
 

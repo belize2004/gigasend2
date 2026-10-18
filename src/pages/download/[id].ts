@@ -293,6 +293,14 @@ function getUniqueFileName(fileName: string, usedFileNames: Map<string, number>)
   return `${fileName.slice(0, extIndex)} (${currentCount + 1})${fileName.slice(extIndex)}`;
 }
 
+function buildContentDisposition(rawFileName: string): string {
+  const asciiFallback = String(rawFileName || "download")
+    .replace(/[^\x20-\x7E]/g, "_")
+    .replace(/["\\]/g, "_");
+  const encoded = encodeURIComponent(rawFileName || "download");
+  return `attachment; filename="${asciiFallback}"; filename*=UTF-8''${encoded}`;
+}
+
 async function sendDownloadNotification({
   db,
   fileCount,
@@ -305,11 +313,13 @@ async function sendDownloadNotification({
   emailBinding?: any;
 }) {
   try {
-    const shouldNotify = await markShareDownloadNotified(db, share.id);
-    if (!shouldNotify) return;
+    if (!share.userId || share.userId.startsWith("guest_")) return;
 
     const sender = await findUserById(db, share.userId);
-    if (!sender) return;
+    if (!sender || !sender.email || sender.email.endsWith("@guest.gigasend.us")) return;
+
+    const shouldNotify = await markShareDownloadNotified(db, share.id);
+    if (!shouldNotify) return;
 
     const deliveryLabel = share.email === "__share_link__"
       ? "Shareable link"
@@ -355,56 +365,38 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
     return new Response("Missing download id", { status: 400 });
   }
 
-  const db = getDb(locals);
-  const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
-  const share = await findShareById(db, id);
-  if (!share || !share.fileKey) {
-    return new Response("Download not found", { status: 404 });
-  }
-
-  if (new Date(share.expiresAt) <= new Date()) {
-    return new Response("Download link expired", { status: 410 });
-  }
-
-  const fileKeys = parseFileKeys(share.fileKey);
-  const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
-  const isDirectDownload = url.searchParams.get("download") === "1";
-  const requestedFileIndex = url.searchParams.get("file");
-
-  // 1. Single file direct download requested
-  if (fileKeys.length === 1 && isDirectDownload) {
-    await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-    const fileKey = fileKeys[0];
-    const safeFileName = getFileName(fileKey).replace(/"/g, "");
-    if (bucket) {
-      const obj = await bucket.get(fileKey);
-      if (obj && obj.body) {
-        const headers = new Headers();
-        (obj as any).writeHttpMetadata?.(headers);
-        headers.set("Content-Type", "application/octet-stream");
-        headers.set("Content-Disposition", `attachment; filename="${safeFileName}"`);
-        headers.set("X-Content-Type-Options", "nosniff");
-        headers.set("Cache-Control", "private, no-store");
-        return new Response(obj.body, { headers });
-      }
+  try {
+    const db = getDb(locals);
+    const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+    const share = await findShareById(db, id);
+    if (!share || !share.fileKey) {
+      return new Response("Download not found", { status: 404 });
     }
-    return Response.redirect(getDownloadUrl(fileKey), 302);
-  }
 
-  // 2. Multi-file specific file download requested
-  if (requestedFileIndex !== null) {
-    const fileIndex = parseInt(requestedFileIndex, 10);
-    if (!isNaN(fileIndex) && fileKeys[fileIndex]) {
-      const fileKey = fileKeys[fileIndex];
-      const safeFileName = getFileName(fileKey).replace(/"/g, "");
+    if (new Date(share.expiresAt) <= new Date()) {
+      return new Response("Download link expired", { status: 410 });
+    }
+
+    const fileKeys = parseFileKeys(share.fileKey);
+    const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
+    const isDirectDownload = url.searchParams.get("download") === "1";
+    const requestedFileIndex = url.searchParams.get("file");
+
+    // 1. Single file direct download requested
+    if (fileKeys.length === 1 && isDirectDownload) {
       await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
+      const fileKey = fileKeys[0];
+      const rawFileName = getFileName(fileKey);
       if (bucket) {
         const obj = await bucket.get(fileKey);
         if (obj && obj.body) {
           const headers = new Headers();
           (obj as any).writeHttpMetadata?.(headers);
           headers.set("Content-Type", "application/octet-stream");
-          headers.set("Content-Disposition", `attachment; filename="${safeFileName}"`);
+          headers.set("Content-Disposition", buildContentDisposition(rawFileName));
+          if (typeof obj.size === "number" && obj.size >= 0) {
+            headers.set("Content-Length", String(obj.size));
+          }
           headers.set("X-Content-Type-Options", "nosniff");
           headers.set("Cache-Control", "private, no-store");
           return new Response(obj.body, { headers });
@@ -412,46 +404,84 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
       }
       return Response.redirect(getDownloadUrl(fileKey), 302);
     }
-  }
 
-  // 3. Multi-file ZIP download requested
-  const zipAvailable = share.size <= ZIP_DOWNLOAD_MAX_BYTES && fileKeys.length <= ZIP_DOWNLOAD_MAX_FILES;
-  if (url.searchParams.get("zip") === "1") {
-    const requestedBatch = url.searchParams.get("batch");
-    const batches = getZipBatches(fileKeys);
-    const batchIndex = requestedBatch == null ? null : Number(requestedBatch);
-    const batchFileKeys = batchIndex == null
-      ? fileKeys
-      : batches[batchIndex];
-
-    if (!zipAvailable && (batchIndex == null || Number.isNaN(batchIndex) || !batchFileKeys)) {
-      return Response.redirect(`/download/${share.id}`, 302);
+    // 2. Multi-file specific file download requested
+    if (requestedFileIndex !== null) {
+      const fileIndex = parseInt(requestedFileIndex, 10);
+      if (!isNaN(fileIndex) && fileKeys[fileIndex]) {
+        const fileKey = fileKeys[fileIndex];
+        const rawFileName = getFileName(fileKey);
+        await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
+        if (bucket) {
+          const obj = await bucket.get(fileKey);
+          if (obj && obj.body) {
+            const headers = new Headers();
+            (obj as any).writeHttpMetadata?.(headers);
+            headers.set("Content-Type", "application/octet-stream");
+            headers.set("Content-Disposition", buildContentDisposition(rawFileName));
+            if (typeof obj.size === "number" && obj.size >= 0) {
+              headers.set("Content-Length", String(obj.size));
+            }
+            headers.set("X-Content-Type-Options", "nosniff");
+            headers.set("Cache-Control", "private, no-store");
+            return new Response(obj.body, { headers });
+          }
+        }
+        return Response.redirect(getDownloadUrl(fileKey), 302);
+      }
     }
 
-    await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-    return new Response(await streamZip(batchFileKeys, bucket), {
+    // 3. Multi-file ZIP download requested
+    const zipAvailable = share.size <= ZIP_DOWNLOAD_MAX_BYTES && fileKeys.length <= ZIP_DOWNLOAD_MAX_FILES;
+    if (url.searchParams.get("zip") === "1") {
+      const requestedBatch = url.searchParams.get("batch");
+      const batches = getZipBatches(fileKeys);
+      const batchIndex = requestedBatch == null ? null : Number(requestedBatch);
+      const batchFileKeys = batchIndex == null
+        ? fileKeys
+        : batches[batchIndex];
+
+      if (!zipAvailable && (batchIndex == null || Number.isNaN(batchIndex) || !batchFileKeys)) {
+        return Response.redirect(`/download/${share.id}`, 302);
+      }
+
+      await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
+      return new Response(await streamZip(batchFileKeys, bucket), {
+        headers: {
+          "Content-Type": "application/zip",
+          "Content-Disposition": buildContentDisposition(
+            `${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip`
+          ),
+          "X-Content-Type-Options": "nosniff",
+          "Cache-Control": "private, no-store",
+        },
+      });
+    }
+
+    // 4. Default: Render Download Landing Page
+    return new Response(renderDownloadPage({
+      downloadUrl: fileKeys.length === 1 ? `/download/${share.id}?download=1` : (zipAvailable ? `/download/${share.id}?zip=1` : undefined),
+      expiresAt: share.expiresAt,
+      fileKeys,
+      shareId: share.id,
+      zipAvailable,
+      fileSize: share.size,
+    }), {
       headers: {
-        "Content-Type": "application/zip",
-        "Content-Disposition": `attachment; filename="${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip"`,
-        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "text/html; charset=utf-8",
         "Cache-Control": "private, no-store",
+        "X-Content-Type-Options": "nosniff",
       },
     });
+  } catch (error) {
+    console.error("Error serving download:", error);
+    captureMonitoringException(error, {
+      tags: { feature: "download", route: "download/[id]" },
+      context: { shareId: id },
+    });
+    return new Response("Unable to process download right now. Please try again in a moment.", {
+      status: 500,
+    });
   }
-
-  // 4. Default: Render Download Landing Page
-  return new Response(renderDownloadPage({
-    downloadUrl: fileKeys.length === 1 ? `/download/${share.id}?download=1` : (zipAvailable ? `/download/${share.id}?zip=1` : undefined),
-    expiresAt: share.expiresAt,
-    fileKeys,
-    shareId: share.id,
-    zipAvailable,
-    fileSize: share.size,
-  }), {
-    headers: {
-      "Content-Type": "text/html; charset=utf-8",
-      "Cache-Control": "private, no-store",
-      "X-Content-Type-Options": "nosniff",
-    },
-  });
 };
+

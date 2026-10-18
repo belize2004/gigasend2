@@ -15,7 +15,8 @@ interface ResetPasswordPayload {
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
-    const { token, password } = await request.json();
+    const body = await request.json().catch(() => ({}));
+    const { token, password } = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
 
     if (!token || typeof token !== "string") {
       return json({ success: false, message: "Valid reset token is required" }, 400);

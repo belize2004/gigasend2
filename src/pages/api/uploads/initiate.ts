@@ -25,14 +25,24 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
   try {
     const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db);
+    const session = await getOrCreateUserSession(cookies, db, locals);
     userId = session.userId;
     const user = session.user;
 
-    body = await request.json() as InitiateUploadBody;
+    const rawBody = await request.json().catch(() => null);
+    if (!rawBody || typeof rawBody !== "object") {
+      return json({ error: "Invalid JSON body" }, 400);
+    }
+    body = rawBody as InitiateUploadBody;
     const { fileName, contentType, fileSize } = body;
-    if (!fileName || !contentType || typeof fileSize !== "number") {
-      return json({ error: "Missing fileName, contentType, or fileSize" }, 400);
+    if (
+      !fileName ||
+      !contentType ||
+      typeof fileSize !== "number" ||
+      !Number.isFinite(fileSize) ||
+      fileSize <= 0
+    ) {
+      return json({ error: "Missing or invalid fileName, contentType, or fileSize" }, 400);
     }
 
     if (session.isGuest && fileSize > PLANS.free.storageBytes * 1024 * 1024 * 1024) {
@@ -57,16 +67,21 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       userPlan = PLANS[vipGrant.plan] || PLANS.pro;
       planPrefix = "paid";
     } else if (!session.isGuest && user.stripeCustomerId) {
-      const subscriptions = await stripe.subscriptions.list({
-        customer: user.stripeCustomerId,
-        status: "active",
-        expand: ["data.items"],
-      });
+      try {
+        const subscriptions = await stripe.subscriptions.list({
+          customer: user.stripeCustomerId,
+          status: "active",
+          expand: ["data.items"],
+        });
 
-      if (subscriptions.data.length > 0) {
-        const planName = subscriptions.data[0].items.data[0].plan.nickname;
-        userPlan = PLANS[planName as PlanEnum] || PLANS.free;
-        planPrefix = "paid";
+        if (subscriptions.data.length > 0) {
+          const rawNickname = subscriptions.data[0]?.items?.data[0]?.plan?.nickname;
+          const planName = (rawNickname ? rawNickname.toLowerCase() : "pro") as PlanEnum;
+          userPlan = PLANS[planName] || PLANS.free;
+          planPrefix = "paid";
+        }
+      } catch (stripeErr) {
+        console.warn("[initiate] Stripe subscription lookup fallback:", stripeErr);
       }
     }
 
@@ -105,3 +120,4 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json({ error: "Failed to initiate upload" }, 500);
   }
 };
+

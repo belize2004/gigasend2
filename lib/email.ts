@@ -393,8 +393,10 @@ export interface EmailAddress {
 export function parseEmailAddress(input?: string | EmailAddress | null): EmailAddress | null {
     if (!input) return null;
     if (typeof input === "object" && input.email) {
+        const trimmedEmail = input.email.trim();
+        if (!/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(trimmedEmail)) return null;
         return {
-            email: input.email.trim(),
+            email: trimmedEmail,
             name: input.name?.trim() || undefined,
         };
     }
@@ -405,11 +407,14 @@ export function parseEmailAddress(input?: string | EmailAddress | null): EmailAd
     if (match) {
         const name = match[1]?.trim().replace(/^["']|["']$/g, "") || undefined;
         const email = match[2]?.trim();
-        if (email) {
+        if (email && /^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(email)) {
             return { email, name };
         }
     }
-    return { email: str };
+    if (/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(str)) {
+        return { email: str };
+    }
+    return null;
 }
 
 const ALLOWED_STANDARD_HEADERS = new Set([
@@ -557,10 +562,11 @@ export async function sendEmailViaCloudflare(
         : parsedReplyTo?.email;
 
     const errors: string[] = [];
+    let forceStringAddresses = false;
 
     for (const recipient of toRecipients) {
         const messagePayload: any = {
-            from: nativeFrom,
+            from: forceStringAddresses && typeof nativeFrom === "object" ? nativeFrom.email : nativeFrom,
             to: recipient,
             subject: options.subject,
             html: options.html,
@@ -568,7 +574,8 @@ export async function sendEmailViaCloudflare(
         };
 
         if (nativeReplyTo) {
-            messagePayload.replyTo = nativeReplyTo;
+            messagePayload.replyTo =
+                forceStringAddresses && typeof nativeReplyTo === "object" ? nativeReplyTo.email : nativeReplyTo;
         }
 
         if (Object.keys(cleanHeaders).length > 0) {
@@ -582,10 +589,15 @@ export async function sendEmailViaCloudflare(
                 res?.messageId ? `(id: ${res.messageId})` : ""
             );
         } catch (err: any) {
-            if (typeof messagePayload.from === "object" && messagePayload.from?.email) {
+            const hasObjectFrom = typeof messagePayload.from === "object" && messagePayload.from?.email;
+            const hasObjectReplyTo = typeof messagePayload.replyTo === "object" && messagePayload.replyTo?.email;
+            if (hasObjectFrom || hasObjectReplyTo) {
                 try {
-                    messagePayload.from = messagePayload.from.email;
-                    if (typeof messagePayload.replyTo === "object" && messagePayload.replyTo?.email) {
+                    forceStringAddresses = true;
+                    if (hasObjectFrom) {
+                        messagePayload.from = messagePayload.from.email;
+                    }
+                    if (hasObjectReplyTo) {
                         messagePayload.replyTo = messagePayload.replyTo.email;
                     }
                     const retryRes = await emailBinding.send(messagePayload);

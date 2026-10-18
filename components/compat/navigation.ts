@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useRouter() {
   return useMemo(
@@ -18,8 +18,11 @@ export function useRouter() {
 }
 
 export function usePathname() {
-  if (typeof window === "undefined") return "/";
-  return window.location.pathname;
+  const [pathname, setPathname] = useState("/");
+  useEffect(() => {
+    setPathname(window.location.pathname);
+  }, []);
+  return pathname;
 }
 
 export function useParams<T extends Record<string, string> = Record<string, string>>() {
@@ -30,7 +33,7 @@ export function useParams<T extends Record<string, string> = Record<string, stri
   const params: Record<string, string> = {};
 
   if (segments[0] === "checkout" && segments[1]) {
-    params.plan = decodeURIComponent(segments[1]);
+    params.plan = decodeURIComponent(segments[1]).toLowerCase();
   }
 
   if (segments[0] === "blogs" && segments[1]) {

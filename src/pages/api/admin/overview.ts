@@ -4,12 +4,12 @@ import { captureMonitoringException } from "@/lib/monitoring";
 import { json } from "@/src/lib/api";
 import { getAuthenticatedAdmin } from "@/src/lib/admin";
 
-export const GET: APIRoute = async ({ cookies, locals, request }) => {
+export const GET: APIRoute = async ({ cookies, locals }) => {
   const db = getDb(locals);
-  const isDev = process.env.NODE_ENV !== "production" || request.headers.get("host")?.includes("localhost");
+  const isDev = import.meta.env.DEV;
   let user: any = null;
   if (!isDev) {
-    const auth = await getAuthenticatedAdmin(cookies, db);
+    const auth = await getAuthenticatedAdmin(cookies, db, locals);
     if (auth.response) return auth.response;
     user = auth.user;
   }

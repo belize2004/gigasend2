@@ -31,11 +31,15 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
   try {
     const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db);
+    const session = await getOrCreateUserSession(cookies, db, locals);
     userId = session.userId;
     const user = session.user;
 
-    body = await request.json() as SendEmailBody;
+    const rawBody = await request.json().catch(() => null);
+    if (!rawBody || typeof rawBody !== "object") {
+      return json({ error: "Invalid JSON body" }, 400);
+    }
+    body = rawBody as SendEmailBody;
     const { receiverEmail, senderEmail, message, fileKeys, numberOfFiles, fileSize } = body;
 
     if (
@@ -43,7 +47,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       !fileKeys ||
       !Array.isArray(fileKeys) ||
       typeof numberOfFiles !== "number" ||
-      typeof fileSize !== "number"
+      !Number.isFinite(numberOfFiles) ||
+      typeof fileSize !== "number" ||
+      !Number.isFinite(fileSize) ||
+      fileSize < 0
     ) {
       return json({ error: "Missing email, file metadata, or fileKeys" }, 400);
     }
@@ -72,7 +79,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     const isGuest = session.isGuest;
-    const userEmail = !isGuest && user?.email ? user.email : null;
+    const userEmail = !isGuest && user?.email && !user.email.endsWith("@guest.gigasend.us") ? user.email : null;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const validGuestReplyTo = isGuest && senderEmail && emailRegex.test(senderEmail) ? senderEmail : undefined;
 
@@ -84,12 +91,16 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     if (vipGrant) {
       isFreePlan = false;
     } else if (!session.isGuest && user.stripeCustomerId) {
-      const subscribedPlan = await stripe.subscriptions.list({
-        status: "active",
-        customer: user.stripeCustomerId,
-        expand: ["data.items"],
-      });
-      isFreePlan = subscribedPlan.data.length === 0;
+      try {
+        const subscribedPlan = await stripe.subscriptions.list({
+          status: "active",
+          customer: user.stripeCustomerId,
+          expand: ["data.items"],
+        });
+        isFreePlan = subscribedPlan.data.length === 0;
+      } catch (stripeErr) {
+        console.warn("[sendEmail] Stripe subscription lookup fallback:", stripeErr);
+      }
     }
 
     const expiryDays = isFreePlan ? 3 : 30;
@@ -162,26 +173,30 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     if (targetConfirmationEmail) {
-      await sendEmailViaCloudflare(emailBinding, {
-        from: brand.emailFrom,
-        to: targetConfirmationEmail,
-        subject: `Your ${brand.productName} transfer is ready`,
-        html: generateUploadConfirmationEmail({
-          deliveryLabel: `Sent to ${receiverEmail}`,
-          fileSize,
-          link: share.link,
-          numberOfFiles,
-        }),
-        text: generateUploadConfirmationText({
-          deliveryLabel: `Sent to ${receiverEmail}`,
-          fileSize,
-          link: share.link,
-          numberOfFiles,
-        }),
-        headers: {
-          "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
-        },
-      });
+      try {
+        await sendEmailViaCloudflare(emailBinding, {
+          from: brand.emailFrom,
+          to: targetConfirmationEmail,
+          subject: `Your ${brand.productName} transfer is ready`,
+          html: generateUploadConfirmationEmail({
+            deliveryLabel: `Sent to ${receiverEmail}`,
+            fileSize: effectiveFileSize,
+            link: share.link,
+            numberOfFiles,
+          }),
+          text: generateUploadConfirmationText({
+            deliveryLabel: `Sent to ${receiverEmail}`,
+            fileSize: effectiveFileSize,
+            link: share.link,
+            numberOfFiles,
+          }),
+          headers: {
+            "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
+          },
+        });
+      } catch (confirmErr) {
+        console.warn("[sendEmail] Confirmation email notice:", confirmErr);
+      }
     }
 
     return json({
@@ -205,3 +220,4 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json({ error: "Failed to send download links email" }, 500);
   }
 };
+

@@ -135,7 +135,7 @@ export default function AdminPage() {
 
   return (
     <ProtectedPage>
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
         <div className="max-w-7xl mx-auto space-y-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -384,7 +384,7 @@ export default function AdminPage() {
           </>
           )}
         </div>
-      </main>
+      </div>
     </ProtectedPage>
   );
 }

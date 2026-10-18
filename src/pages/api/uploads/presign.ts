@@ -13,10 +13,14 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
   try {
     const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db);
+    const session = await getOrCreateUserSession(cookies, db, locals);
     userId = session.userId;
 
-    body = await request.json();
+    const rawBody = await request.json().catch(() => null);
+    if (!rawBody || typeof rawBody !== "object") {
+      return json({ error: "Invalid JSON body" }, 400);
+    }
+    body = rawBody;
     const { uploadId, key, partNumber, partNumbers } = body;
     const requestedPartNumbers = Array.isArray(partNumbers) ? partNumbers : [partNumber];
 

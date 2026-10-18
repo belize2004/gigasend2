@@ -11,6 +11,8 @@
   var DEDUPE_WINDOW_MS = 60000; // 1 minute per unique error signature
   var CHUNK_RELOAD_WINDOW_MS = 60000; // 1 minute guard for stale-chunk auto-reload
   var isUnloading = false;
+  var lastNavigationIntentAt = 0;
+  var hasReloadedInMemory = false;
 
   window.addEventListener("beforeunload", function () {
     isUnloading = true;
@@ -18,6 +20,40 @@
   window.addEventListener("pagehide", function () {
     isUnloading = true;
   });
+
+  // Track link clicks and form submissions in capture phase so in-flight module imports
+  // aborted by user navigation (before beforeunload fires) are recognized as benign.
+  if (typeof document !== "undefined") {
+    document.addEventListener(
+      "click",
+      function (e) {
+        try {
+          if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          var el = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+          if (!el) return;
+          var href = el.getAttribute("href") || "";
+          var target = el.getAttribute("target") || "";
+          if (!href || href.charAt(0) === "#" || target === "_blank" || el.hasAttribute("download")) return;
+          lastNavigationIntentAt = Date.now();
+        } catch (err) {}
+      },
+      true
+    );
+    document.addEventListener(
+      "submit",
+      function () {
+        lastNavigationIntentAt = Date.now();
+      },
+      true
+    );
+  }
+
+  function isNavigatingOrOffline() {
+    if (isUnloading) return true;
+    if (lastNavigationIntentAt && Date.now() - lastNavigationIntentAt < 5000) return true;
+    if (typeof navigator !== "undefined" && navigator.onLine === false) return true;
+    return false;
+  }
 
   /**
    * Hoist inline Emotion SSR <style data-emotion> tags out of <astro-island> into <head>
@@ -37,6 +73,20 @@
     hoistEmotionStyles();
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", hoistEmotionStyles, { once: true });
+      if (typeof MutationObserver !== "undefined" && document.documentElement) {
+        var observer = new MutationObserver(function () {
+          hoistEmotionStyles();
+        });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+        document.addEventListener(
+          "DOMContentLoaded",
+          function () {
+            observer.disconnect();
+            hoistEmotionStyles();
+          },
+          { once: true }
+        );
+      }
     }
   }
 
@@ -64,13 +114,13 @@
 
   /**
    * Returns true if the dynamic import error should be suppressed
-   * (either due to page unload/hidden tab or because we triggered a one-time recovery reload).
+   * (either due to page unload/navigation/hidden tab or because we triggered a one-time recovery reload).
    */
   function handleDynamicImportRecovery(message) {
     if (!isDynamicImportError(message)) return false;
 
-    // Aborted module fetches while navigating away or in backgrounded/closing tabs are benign
-    if (isUnloading || (typeof document !== "undefined" && document.visibilityState === "hidden")) {
+    // Aborted module fetches while navigating away, offline, or in backgrounded/closing tabs are benign
+    if (isNavigatingOrOffline() || (typeof document !== "undefined" && document.visibilityState === "hidden")) {
       return true;
     }
 
@@ -84,7 +134,11 @@
         return true;
       }
     } catch (e) {
-      // sessionStorage unavailable (e.g., strict privacy mode) — suppress first occurrence if unloading
+      // sessionStorage unavailable (e.g., strict privacy mode) — suppress first occurrence
+      if (!hasReloadedInMemory) {
+        hasReloadedInMemory = true;
+        return true;
+      }
     }
 
     return false;
@@ -112,7 +166,7 @@
 
   function shouldIgnore(source, message) {
     if (!message && !source) return true;
-    if (isUnloading || isBotUserAgent()) return true;
+    if (isNavigatingOrOffline() || isBotUserAgent()) return true;
     if (typeof document !== "undefined" && document.visibilityState === "hidden") return true;
 
     var str = (String(source) + " " + String(message)).toLowerCase();
@@ -130,12 +184,22 @@
       return true;
     }
 
+    // If React hydration #418/#422/#423/#425 occurs, hoist any remaining Emotion styles and ignore
+    // since React 19 automatically recovers on the client (commonly triggered by Translate/Grammarly/DarkReader DOM injections).
+    if (
+      str.indexOf("minified react error #418") !== -1 ||
+      str.indexOf("minified react error #422") !== -1 ||
+      str.indexOf("minified react error #423") !== -1 ||
+      str.indexOf("minified react error #425") !== -1
+    ) {
+      hoistEmotionStyles();
+      return true;
+    }
+
     // Ignore common benign third-party or network interruption errors
     if (
       str.indexOf("resizeobserver loop") !== -1 ||
-      (str.indexOf("script error.") !== -1 && !source) ||
-      (str.indexOf("load failed") !== -1 && isUnloading) ||
-      (str.indexOf("networkerror when attempting to fetch resource") !== -1 && isUnloading)
+      (str.indexOf("script error.") !== -1 && !source)
     ) {
       return true;
     }
@@ -281,8 +345,9 @@
   window.reportCustomError = function (error, context) {
     try {
       var message = typeof error === "string" ? error : error.message || "Custom error";
+      if (shouldIgnore("", message)) return;
       var stack = error && error.stack ? String(error.stack) : "";
-      sendReport({
+      recordAndSend({
         type: "custom_error",
         message: message,
         stack: stack,
@@ -294,3 +359,4 @@
     } catch (e) {}
   };
 })();
+

@@ -171,9 +171,9 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
       LEFT JOIN seo_keywords parent ON parent.id = k.parent_gsc_keyword_id
       LEFT JOIN seo_keyword_clusters c ON c.id = k.cluster_id
       LEFT JOIN (
-        SELECT keyword_id, clicks, impressions, ctr, position
+        SELECT keyword_id, SUM(clicks) AS clicks, SUM(impressions) AS impressions, AVG(ctr) AS ctr, AVG(position) AS position
         FROM seo_gsc_query_metrics
-        ORDER BY date DESC
+        GROUP BY keyword_id
       ) g ON g.keyword_id = k.id
       LEFT JOIN seo_keyword_metrics m ON m.keyword_id = k.id
       ORDER BY k.opportunity_score DESC

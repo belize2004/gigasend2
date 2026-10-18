@@ -48,7 +48,7 @@ const CheckoutPage = () => {
     });
   };
 
-  const monthlyPrice = selectedPlan.price;
+  const monthlyPrice = selectedPlan?.price ?? 0;
   const currentPrice = monthlyPrice;
 
   const handleCheckout = async () => {
@@ -129,12 +129,15 @@ const CheckoutPage = () => {
   };
 
   useEffect(() => {
-    setSelectedPlan(PLANS[plan]);
-  }, [plan])
+    const resolved = PLANS[plan];
+    setSelectedPlan(resolved);
+    if (!resolved || resolved.name === 'Free') {
+      router.push('/plans');
+    }
+  }, [plan, router]);
 
   // undefined plan
   if (!selectedPlan || selectedPlan.name == 'Free') {
-    router.push('/plans');
     return <></>
   }
 

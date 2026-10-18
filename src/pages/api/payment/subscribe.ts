@@ -12,11 +12,19 @@ import { getAuthenticatedUserId, json, unauthorized } from "@/src/lib/api";
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
-    const userId = await getAuthenticatedUserId(cookies);
+    const userId = await getAuthenticatedUserId(cookies, locals);
     if (!userId) return unauthorized();
 
     const db = getDb(locals);
-    const { paymentMethod, planName }: SubscriptionRequestBody = await request.json();
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object") {
+      return json({ success: false, message: "Invalid JSON body" }, 400);
+    }
+    const { paymentMethod, planName } = body as Partial<SubscriptionRequestBody>;
+    if (!planName || typeof planName !== "string" || !paymentMethod?.id) {
+      return json({ success: false, message: "Payment method and plan name are required" }, 400);
+    }
+
     const user = await findUserById(db, userId);
     if (!user) return json({ success: false, message: "User not found" }, 404);
 
@@ -27,23 +35,35 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       await updateUserStripeCustomerId(db, user.id, customerId);
     }
 
-    const subscriptions = await stripe.subscriptions.list({
-      customer: customerId,
-      status: "active",
-      expand: ["data.items"],
-    });
+    let subscriptions;
+    try {
+      subscriptions = await stripe.subscriptions.list({
+        customer: customerId,
+        status: "active",
+        expand: ["data.items"],
+      });
+    } catch (err: any) {
+      if (err?.code === "resource_missing" || String(err?.message || "").includes("No such customer")) {
+        const customer = await createCustomer({ name: user.name, email: user.email });
+        customerId = customer.id;
+        await updateUserStripeCustomerId(db, user.id, customerId);
+        subscriptions = { data: [] };
+      } else {
+        throw err;
+      }
+    }
 
     if (subscriptions.data.length > 0) {
-      const activePlanName = subscriptions.data[0].items.data[0].plan.nickname;
+      const activePlanName = subscriptions.data[0].items?.data?.[0]?.plan?.nickname || "Pro";
       return json(
         { success: false, message: `You already have an active plan : ${activePlanName}` },
         400,
       );
     }
 
-    await stripe.paymentMethods.attach(paymentMethod?.id as string, { customer: customerId });
+    await stripe.paymentMethods.attach(paymentMethod.id, { customer: customerId });
     await stripe.customers.update(customerId, {
-      invoice_settings: { default_payment_method: paymentMethod?.id as string },
+      invoice_settings: { default_payment_method: paymentMethod.id },
     });
 
     const plan = await findStripePlanByName(db, planName.toLowerCase());

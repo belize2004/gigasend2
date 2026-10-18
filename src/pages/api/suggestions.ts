@@ -47,8 +47,9 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: SuggestionBody = {};
 
   try {
-    body = await request.json() as SuggestionBody;
-    const message = body.message?.trim();
+    const raw = await request.json().catch(() => ({}));
+    body = (raw && typeof raw === "object" ? raw : {}) as SuggestionBody;
+    const message = typeof body.message === "string" ? body.message.trim() : "";
 
     if (!message) {
       return json({ success: false, message: "Suggestion is required" }, 400);
@@ -59,7 +60,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     const db = getDb(locals);
-    userId = await getAuthenticatedUserId(cookies).catch(() => null);
+    userId = await getAuthenticatedUserId(cookies, locals).catch(() => null);
     const user = userId ? await findUserById(db, userId) : null;
     const userAgent = request.headers.get("user-agent");
     const pageUrl = body.pageUrl?.slice(0, 500) ?? null;

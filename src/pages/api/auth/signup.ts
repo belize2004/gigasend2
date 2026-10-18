@@ -13,9 +13,13 @@ import {
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
-    const { name, email, password } = await request.json();
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object") {
+      return json({ success: false, message: "Invalid JSON body" }, 400);
+    }
+    const { name, email, password } = body as Record<string, unknown>;
 
-    if (!name || !email || !password) {
+    if (!name || typeof name !== "string" || !email || typeof email !== "string" || !password || typeof password !== "string") {
       return json({ success: false, message: "Missing fields" }, 400);
     }
 

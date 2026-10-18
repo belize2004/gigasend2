@@ -7,9 +7,9 @@ import { getSeoOverview } from "@/src/lib/seo/seoAdminService";
 export const POST: APIRoute = async ({ cookies, locals, request }) => {
   const db = getDb(locals);
 
-  const isDev = process.env.NODE_ENV !== "production" || request.headers.get("x-local-dev") === "true";
+  const isDev = import.meta.env.DEV;
   if (!isDev) {
-    const { response } = await getAuthenticatedAdmin(cookies, db);
+    const { response } = await getAuthenticatedAdmin(cookies, db, locals);
     if (response) return response;
   }
 

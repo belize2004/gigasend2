@@ -7,9 +7,13 @@ import { json, setAuthCookie } from "@/src/lib/api";
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
-    const { email, password } = await request.json();
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object") {
+      return json({ success: false, message: "Invalid JSON body" }, 400);
+    }
+    const { email, password } = body as Record<string, unknown>;
 
-    if (!email || !password) {
+    if (!email || typeof email !== "string" || !password || typeof password !== "string") {
       return json({ success: false, message: "Missing fields" }, 400);
     }
 

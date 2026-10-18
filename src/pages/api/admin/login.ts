@@ -6,11 +6,12 @@ import { json } from "@/src/lib/api";
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
-    const { password } = await request.json();
-    if (!password) return json({ success: false, message: "Admin password is required" }, 400);
+    const body = await request.json().catch(() => ({}));
+    const { password } = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
+    if (!password || typeof password !== "string") return json({ success: false, message: "Admin password is required" }, 400);
 
     const db = getDb(locals);
-    const { response, user } = await createAdminSession(cookies, db, password);
+    const { response, user } = await createAdminSession(cookies, db, password, locals);
     if (response) return response;
 
     return json({

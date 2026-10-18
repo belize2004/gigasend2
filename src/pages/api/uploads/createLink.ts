@@ -28,18 +28,25 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
   try {
     const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db);
+    const session = await getOrCreateUserSession(cookies, db, locals);
     userId = session.userId;
     const user = session.user;
 
-    body = await request.json() as CreateLinkBody;
-    const { fileKeys, numberOfFiles, fileSize, senderEmail } = body;
+    const rawBody = await request.json().catch(() => null);
+    if (!rawBody || typeof rawBody !== "object") {
+      return json({ error: "Invalid JSON body" }, 400);
+    }
+    body = rawBody as CreateLinkBody;
+    const { fileKeys, numberOfFiles, fileSize } = body;
 
     if (
       !fileKeys ||
       !Array.isArray(fileKeys) ||
       typeof numberOfFiles !== "number" ||
-      typeof fileSize !== "number"
+      !Number.isFinite(numberOfFiles) ||
+      typeof fileSize !== "number" ||
+      !Number.isFinite(fileSize) ||
+      fileSize < 0
     ) {
       return json({ error: "Missing file metadata or fileKeys" }, 400);
     }
@@ -72,12 +79,16 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     if (vipGrant) {
       isFreePlan = false;
     } else if (!session.isGuest && user.stripeCustomerId) {
-      const subscribedPlan = await stripe.subscriptions.list({
-        status: "active",
-        customer: user.stripeCustomerId,
-        expand: ["data.items"],
-      });
-      isFreePlan = subscribedPlan.data.length === 0;
+      try {
+        const subscribedPlan = await stripe.subscriptions.list({
+          status: "active",
+          customer: user.stripeCustomerId,
+          expand: ["data.items"],
+        });
+        isFreePlan = subscribedPlan.data.length === 0;
+      } catch (stripeErr) {
+        console.warn("[createLink] Stripe subscription lookup fallback:", stripeErr);
+      }
     }
 
     const expiryDays = isFreePlan ? 3 : 30;
@@ -94,29 +105,33 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     });
 
     // Only send confirmation to authenticated accounts with verified emails
-    const targetEmail = !session.isGuest && user?.email ? user.email : null;
+    const targetEmail = !session.isGuest && user?.email && !user.email.endsWith("@guest.gigasend.us") ? user.email : null;
     if (targetEmail) {
-      const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
-      await sendEmailViaCloudflare(emailBinding, {
-        from: brand.emailFrom,
-        to: targetEmail,
-        subject: `Your ${brand.productName} transfer link is ready`,
-        html: generateUploadConfirmationEmail({
-          deliveryLabel: "Link created",
-          fileSize: effectiveFileSize,
-          link: share.link,
-          numberOfFiles,
-        }),
-        text: generateUploadConfirmationText({
-          deliveryLabel: "Link created",
-          fileSize: effectiveFileSize,
-          link: share.link,
-          numberOfFiles,
-        }),
-        headers: {
-          "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
-        },
-      });
+      try {
+        const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
+        await sendEmailViaCloudflare(emailBinding, {
+          from: brand.emailFrom,
+          to: targetEmail,
+          subject: `Your ${brand.productName} transfer link is ready`,
+          html: generateUploadConfirmationEmail({
+            deliveryLabel: "Link created",
+            fileSize: effectiveFileSize,
+            link: share.link,
+            numberOfFiles,
+          }),
+          text: generateUploadConfirmationText({
+            deliveryLabel: "Link created",
+            fileSize: effectiveFileSize,
+            link: share.link,
+            numberOfFiles,
+          }),
+          headers: {
+            "X-Entity-Ref-ID": `${share.id}-sender-confirmation`,
+          },
+        });
+      } catch (emailErr) {
+        console.warn("[createLink] Confirmation email notice:", emailErr);
+      }
     }
 
     return json({ success: true, message: "Shareable link created", link: share.link });
@@ -134,3 +149,4 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json({ error: "Failed to create shareable link" }, 500);
   }
 };
+

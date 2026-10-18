@@ -12,21 +12,42 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
   try {
     const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db);
+    const session = await getOrCreateUserSession(cookies, db, locals);
     userId = session.userId;
 
-    body = await request.json();
+    const rawBody = await request.json().catch(() => null);
+    if (!rawBody || typeof rawBody !== "object") {
+      return json({ error: "Invalid JSON body" }, 400);
+    }
+    body = rawBody;
     const { uploadId, key } = body;
     if (!uploadId || !key) {
       return json({ error: "Missing uploadId or key" }, 400);
     }
 
-    const command = new AbortMultipartUploadCommand({
-      Bucket: r2BucketName,
-      Key: key,
-      UploadId: uploadId,
-    });
-    await r2Client.send(command);
+    try {
+      const command = new AbortMultipartUploadCommand({
+        Bucket: r2BucketName,
+        Key: key,
+        UploadId: uploadId,
+      });
+      await r2Client.send(command);
+    } catch (abortErr: any) {
+      const errName = String(abortErr?.name || abortErr?.Code || "");
+      if (errName === "NoSuchUpload" || String(abortErr?.message || "").includes("NoSuchUpload")) {
+        return json({ message: "Upload already aborted or closed" });
+      }
+      const filesBinding = (locals as any)?.runtime?.env?.FILES;
+      if (filesBinding && typeof filesBinding.resumeMultipartUpload === "function") {
+        try {
+          await filesBinding.resumeMultipartUpload(key, uploadId).abort();
+          return json({ message: "Upload aborted" });
+        } catch {
+          return json({ message: "Upload already aborted or closed" });
+        }
+      }
+      throw abortErr;
+    }
 
     return json({ message: "Upload aborted" });
   } catch (error) {
@@ -42,4 +63,5 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json({ error: "Failed to abort upload" }, 500);
   }
 };
+
 
