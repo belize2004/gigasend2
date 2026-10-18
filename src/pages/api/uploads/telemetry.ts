@@ -97,7 +97,8 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     });
 
     const waitUntil = (locals as RuntimeLocals)?.runtime?.ctx?.waitUntil;
-    const persistTask = recordTransferEvaluation(db, evalInput).catch((err) => {
+    const runtimeEnv = (locals as any)?.runtime?.env as Record<string, any> | undefined;
+    const persistTask = recordTransferEvaluation(db, evalInput, runtimeEnv).catch((err) => {
       console.warn("[telemetry] Failed to persist transfer evaluation:", err);
     });
 

@@ -640,14 +640,19 @@ function scheduleDownloadTelemetry(
   const rayHeader = request.headers.get("cf-ray") || "";
   const fallbackColo = rayHeader.includes("-") ? rayHeader.split("-")[1] : null;
 
-  const task = recordTransferEvaluation(db, {
-    ...input,
-    direction: "download",
-    edgeColo: cf?.colo || fallbackColo || null,
-    edgeCity: cf?.city || null,
-    edgeCountry: cf?.country || request.headers.get("cf-ipcountry") || null,
-    clientRttMs: typeof cf?.clientTcpRtt === "number" ? cf.clientTcpRtt : null,
-  }).catch((err) => {
+  const runtimeEnv = (locals as any)?.runtime?.env as Record<string, any> | undefined;
+  const task = recordTransferEvaluation(
+    db,
+    {
+      ...input,
+      direction: "download",
+      edgeColo: cf?.colo || fallbackColo || null,
+      edgeCity: cf?.city || null,
+      edgeCountry: cf?.country || request.headers.get("cf-ipcountry") || null,
+      clientRttMs: typeof cf?.clientTcpRtt === "number" ? cf.clientTcpRtt : null,
+    },
+    runtimeEnv,
+  ).catch((err) => {
     console.warn("[download] Failed to record download evaluation:", err);
   });
 

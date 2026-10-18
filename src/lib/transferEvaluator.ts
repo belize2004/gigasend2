@@ -1,4 +1,6 @@
 import type { AppD1Database } from "@/lib/d1";
+import { brand } from "@/lib/brand";
+import { sendEmailViaCloudflare } from "@/lib/email";
 import { formatBytes } from "@/lib/utils";
 import type {
   AdaptiveSpeedTuning,
@@ -573,9 +575,217 @@ export async function ensureTransferTelemetryTable(db: AppD1Database): Promise<v
   tableEnsured = true;
 }
 
+function escapeEmailHtml(value = ""): string {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+export async function sendTransferEvaluationEmail(
+  runtimeEnv: Record<string, any> | undefined,
+  input: EvaluateTransferInput,
+  evaluation: PlainEnglishTransferEvaluation,
+): Promise<void> {
+  const emailBinding = runtimeEnv?.EMAIL;
+  if (!emailBinding || typeof emailBinding.send !== "function") return;
+
+  const direction = input.direction === "download" ? "download" : "upload";
+  // Send email for every upload transfer (completed, failed, canceled) and every initial download_started
+  const shouldEmail =
+    direction === "upload" ||
+    (direction === "download" && input.event === "download_started");
+
+  if (!shouldEmail) return;
+
+  const recipients = String(
+    runtimeEnv?.ADMIN_EMAILS || "blainebressman@gmail.com,info@gigasend.us",
+  )
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  if (recipients.length === 0) return;
+
+  const totalBytes = Math.max(0, Number(input.totalBytes || 0));
+  const sizeText = formatBytes(totalBytes);
+  const fileCount = Math.max(1, Number(input.fileCount || 1));
+  const fileNoun = fileCount === 1 ? "1 file" : `${fileCount} files`;
+  const directionLabel = direction === "download" ? "Download" : "Upload";
+  const badgeEmoji =
+    evaluation.grade === "A" || evaluation.grade === "B"
+      ? direction === "download"
+        ? "📥"
+        : "✅"
+      : evaluation.grade === "F"
+        ? "⚠️"
+        : "📊";
+
+  const badgeBg =
+    evaluation.gradeColor === "emerald"
+      ? "#059669"
+      : evaluation.gradeColor === "blue"
+        ? "#2563eb"
+        : evaluation.gradeColor === "amber" || evaluation.gradeColor === "orange"
+          ? "#d97706"
+          : "#dc2626";
+
+  const subject = `${badgeEmoji} [GigaSend ${evaluation.gradeLabel}] ${directionLabel} Report • ${sizeText} (${evaluation.edgeLocationLabel})`;
+
+  const stepsHtml = evaluation.steps
+    .map(
+      (step) => `
+      <tr>
+        <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; font-weight: 700; color: #0f172a; font-size: 13px; white-space: nowrap;">
+          ${escapeEmailHtml(step.label)}
+        </td>
+        <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #475569; font-size: 13px;">
+          ${escapeEmailHtml(step.plainExplanation)}
+        </td>
+      </tr>`,
+    )
+    .join("");
+
+  const tuningHtml = evaluation.recommendedTuning
+    ? `
+    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 14px 16px; margin-bottom: 18px;">
+      <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #166534; margin-bottom: 4px;">
+        ⚡ Automatic Speed Tuner (Applied for Next Transfer)
+      </div>
+      <div style="font-size: 14px; font-weight: 700; color: #14532d; margin-bottom: 4px;">
+        ${escapeEmailHtml(evaluation.recommendedTuning.label)}
+      </div>
+      <div style="font-size: 13px; color: #166534; line-height: 1.5;">
+        ${escapeEmailHtml(evaluation.recommendedTuning.plainExplanation)}
+      </div>
+    </div>`
+    : "";
+
+  const recommendationsHtml = evaluation.recommendations
+    .map(
+      (rec) =>
+        `<li style="margin-bottom: 6px; color: #334155; font-size: 13px; line-height: 1.5;">${escapeEmailHtml(rec)}</li>`,
+    )
+    .join("");
+
+  const shareLinkHtml = input.shareId
+    ? `<a href="${brand.siteUrl}/download/${encodeURIComponent(input.shareId)}" style="display: inline-block; background: #2563eb; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 10px 16px; border-radius: 8px; margin-right: 10px;">View Transfer Link &rarr;</a>`
+    : "";
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>${escapeEmailHtml(subject)}</title>
+</head>
+<body style="margin: 0; padding: 20px; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0f172a;">
+  <div style="max-width: 640px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);">
+    <div style="background: linear-gradient(135deg, #0f172a, #1e293b); padding: 20px 24px; color: #ffffff;">
+      <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; font-weight: 700; margin-bottom: 6px;">
+        GigaSend Live Transfer Experience Report
+      </div>
+      <div style="font-size: 20px; font-weight: 800; margin-bottom: 10px;">
+        ${escapeEmailHtml(evaluation.headline)}
+      </div>
+      <span style="display: inline-block; background: ${badgeBg}; color: #ffffff; font-weight: 800; font-size: 12px; padding: 5px 12px; border-radius: 999px;">
+        Grade: ${escapeEmailHtml(evaluation.gradeLabel)}
+      </span>
+      <span style="display: inline-block; background: rgba(255,255,255,0.12); color: #e2e8f0; font-weight: 600; font-size: 12px; padding: 5px 12px; border-radius: 999px; margin-left: 6px;">
+        ${escapeEmailHtml(directionLabel)} • ${escapeEmailHtml(fileNoun)} (${escapeEmailHtml(sizeText)})
+      </span>
+    </div>
+
+    <div style="padding: 24px;">
+      <div style="background: #f8fafc; border-left: 4px solid #2563eb; border-radius: 8px; padding: 14px 16px; margin-bottom: 18px;">
+        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 4px;">
+          What Happened (In Plain English)
+        </div>
+        <div style="font-size: 15px; line-height: 1.55; color: #0f172a; font-weight: 600;">
+          ${escapeEmailHtml(evaluation.story)}
+        </div>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 18px; background: #f8fafc; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0;">
+        <tr>
+          <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #64748b; font-weight: 700;">Speed Summary</td>
+          <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 13px; color: #0f172a; font-weight: 700;">${escapeEmailHtml(evaluation.speedComparison)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 12px; color: #64748b; font-weight: 700;">Nearest Cloudflare Edge</td>
+          <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 13px; color: #0f172a; font-weight: 600;">${escapeEmailHtml(evaluation.edgeLocationLabel)}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 14px; font-size: 12px; color: #64748b; font-weight: 700;">Primary Speed Factor</td>
+          <td style="padding: 10px 14px; font-size: 13px; color: #0f172a; font-weight: 600;">${escapeEmailHtml(evaluation.bottleneckLabel)}</td>
+        </tr>
+      </table>
+
+      <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #475569; margin-bottom: 8px;">
+        Step-by-Step Time Breakdown
+      </div>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 18px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+        ${stepsHtml}
+      </table>
+
+      ${tuningHtml}
+
+      <div style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #475569; margin-bottom: 8px;">
+        Plain-English Takeaways
+      </div>
+      <ul style="margin: 0 0 20px 0; padding-left: 20px;">
+        ${recommendationsHtml}
+      </ul>
+
+      <div style="padding-top: 14px; border-top: 1px solid #e2e8f0;">
+        ${shareLinkHtml}
+        <a href="${brand.siteUrl}/admin" style="display: inline-block; background: #0f172a; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 13px; padding: 10px 16px; border-radius: 8px;">Open Admin Transfer Report &rarr;</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`;
+
+  const text = [
+    `GigaSend Live Transfer Experience Report`,
+    `Grade: ${evaluation.gradeLabel}`,
+    `Type: ${directionLabel} (${fileNoun}, ${sizeText})`,
+    `Edge Location: ${evaluation.edgeLocationLabel}`,
+    ``,
+    `What Happened:`,
+    evaluation.story,
+    ``,
+    `Step-by-Step Breakdown:`,
+    ...evaluation.steps.map((s) => `- ${s.label} (${s.plainExplanation})`),
+    ...(evaluation.recommendedTuning
+      ? [
+          ``,
+          `Automatic Speed Tuner:`,
+          `${evaluation.recommendedTuning.label} — ${evaluation.recommendedTuning.plainExplanation}`,
+        ]
+      : []),
+    ``,
+    `Takeaways:`,
+    ...evaluation.recommendations.map((r) => `* ${r}`),
+    ...(input.shareId ? [``, `Transfer Link: ${brand.siteUrl}/download/${input.shareId}`] : []),
+    `Admin Report: ${brand.siteUrl}/admin`,
+  ].join("\n");
+
+  await sendEmailViaCloudflare(emailBinding, {
+    to: recipients,
+    subject,
+    html,
+    text,
+  }).catch((err) => {
+    console.warn("[transfer-evaluator] Failed to send transfer report email:", err);
+  });
+}
+
 export async function recordTransferEvaluation(
   db: AppD1Database,
   input: EvaluateTransferInput,
+  runtimeEnv?: Record<string, any>,
 ): Promise<{ id: string; evaluation: PlainEnglishTransferEvaluation }> {
   const evaluation = evaluateTransferExperience(input);
   const id = crypto.randomUUID();
@@ -645,6 +855,10 @@ export async function recordTransferEvaluation(
       now,
     )
     .run();
+
+  if (runtimeEnv) {
+    await sendTransferEvaluationEmail(runtimeEnv, input, evaluation);
+  }
 
   return { id, evaluation };
 }
