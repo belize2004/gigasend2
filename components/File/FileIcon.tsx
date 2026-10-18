@@ -2,6 +2,7 @@ import React from "react";
 import { FiX } from "react-icons/fi";
 import { fileTypeColor } from "./fileTypeColors";
 import Image from '@/components/compat/Image';
+import { formatBytes } from "@/lib/utils";
 
 interface FileProps {
   name: string;
@@ -12,15 +13,6 @@ interface FileProps {
 interface FileDisplayItemProps {
   file: FileProps;
   onRemove: (id: string) => void;
-}
-
-function formatBytes(bytes: number, decimals = 2) {
-  if (bytes === 0) return "0 Bytes";
-  const k = 1024;
-  const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ["Bytes", "KB", "MB", "GB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
 
 export const FileDisplayItem: React.FC<FileDisplayItemProps> = ({
@@ -40,7 +32,7 @@ export const FileDisplayItem: React.FC<FileDisplayItemProps> = ({
     <div className="flex flex-row justify-between items-center p-3.5 bg-[#001d32]/85 backdrop-blur-md rounded-[14px] border border-white/10 hover:border-[#f7bc6a]/40 transition-colors w-full">
       <div className="flex flex-row justify-between w-full items-center gap-4">
         <div className="relative w-10 h-10 rounded-[10px] bg-[#002f4d]/90 border border-white/10 flex items-center justify-center shrink-0">
-          <Image src="/file.svg" alt="file icon" width={28} height={28} />
+          <Image src="/file.svg" alt="" aria-hidden="true" width={28} height={28} />
           <div
             className="absolute top-0.5 right-0.5 h-[15px] rounded px-1 flex items-center justify-center"
             style={{ backgroundColor: fileColor }}

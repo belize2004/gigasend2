@@ -3,10 +3,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PtHeader from "../../components/PtHeader.astro";
 import PtFooter from "../../components/PtFooter.astro";
 import { PT_CORE_VALUE_PROPOSITIONS, ptSeoLandingPages } from "../../data/ptSeoLandingPages";
+import { getLanguageSwitchPaths } from "../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
 
+const langPaths = getLanguageSwitchPaths("/pt/comparar");
 const canonical = `${brand.siteUrl}/pt/comparar`;
 const hreflang = [
   { lang: "en", href: `${brand.siteUrl}/compare` },
@@ -18,52 +20,52 @@ const competitorPages = ptSeoLandingPages.filter((p) => p.cluster === "concorren
 
 const matrixRows = [
   {
-    feature: "Limite Grátis por Envio",
-    giga: "Até 25 GB Grátis",
+    feature: "Limite grátis por envio",
+    giga: "Até 10 GB grátis (3 dias)",
     wetransfer: "2 GB a 3 GB",
-    drive: "15 GB (dividido com Gmail/Fotos)",
+    drive: "15 GB (dividido com Gmail e Fotos)",
     dropbox: "2 GB",
-    masv: "Apenas trial único",
+    masv: "Apenas avaliação única",
   },
   {
-    feature: "Tamanho Máximo por Link",
-    giga: "50GB, 100GB, 500GB a 2TB+",
-    wetransfer: "2 GB (Grátis) / 200 GB (Pro)",
-    drive: "Trava ZIP > 2GB e bloqueia cota 24h",
-    dropbox: "100 GB a 250 GB (exige add-on)",
+    feature: "Tamanho máximo por link",
+    giga: "50 GB, 100 GB, 500 GB a 5 TB",
+    wetransfer: "2 GB (grátis) / 200 GB (Pro)",
+    drive: "Trava ZIP > 2 GB e bloqueia cota por 24 h",
+    dropbox: "100 GB a 250 GB (exige complemento)",
     masv: "Ilimitado (cobra por cada download)",
   },
   {
-    feature: "Cadastro Exigido do Cliente",
-    giga: "Zero Cadastro (1 Clique Direto)",
-    wetransfer: "Pede verificação / app em fluxos móveis",
-    drive: "Exige conta Google para arquivos >100MB",
-    dropbox: "Frequentemente pede login Dropbox",
+    feature: "Cadastro exigido do destinatário",
+    giga: "Zero cadastro (1 clique direto)",
+    wetransfer: "Pede verificação ou app em fluxos móveis",
+    drive: "Exige conta Google para arquivos > 100 MB",
+    dropbox: "Frequentemente pede login no Dropbox",
     masv: "Sem login",
   },
   {
-    feature: "Modelo de Cobrança",
-    giga: "Pré-Pago 12 Meses ($20/100GB • $180/1TB)",
-    wetransfer: "Assinatura mensal obrigatória (~$15–$25/mês)",
+    feature: "Modelo de cobrança",
+    giga: "Pré-pago de 12 meses (US$ 20/100 GB • US$ 180/1 TB)",
+    wetransfer: "Assinatura mensal obrigatória (~US$ 15–US$ 25/mês)",
     drive: "Assinatura mensal Google One / Workspace",
     dropbox: "Assinatura mensal cara em dólar",
-    masv: "$0,25/GB ($25/100GB) cobrado POR DOWNLOAD",
+    masv: "US$ 0,25/GB (US$ 25/100 GB) cobrado por download",
   },
   {
     feature: "Servidores CDN no Brasil",
-    giga: "São Paulo (GRU) & Rio (GIG) + 30 PoPs BR",
+    giga: "São Paulo (GRU) e Rio (GIG) + 30 PoPs no Brasil",
     wetransfer: "Rotas internacionais (EUA/Europa)",
     drive: "Lento para compactar pastas grandes",
-    dropbox: "Rotas EUA com estrangulamento de banda",
-    masv: "CDN Global",
+    dropbox: "Rotas nos EUA com estrangulamento de banda",
+    masv: "CDN global",
   },
   {
-    feature: "Resiliência Claro / Vivo / Starlink",
+    feature: "Resiliência em Claro, Vivo e Starlink",
     giga: "Streaming HTTP/3 com retomada automática",
     wetransfer: "Cai aos 99% se a conexão oscilar",
     drive: "Falha em pastas com milhares de arquivos",
     dropbox: "Exige instalar app desktop para estabilidade",
-    masv: "Estável, porém 25% a 300% mais caro",
+    masv: "Estável, porém de 25% a 300% mais caro",
   },
 ];
 
@@ -72,16 +74,16 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
-    { "@type": "ListItem", position: 2, name: "Comparativo de Plataformas", item: canonical },
+    { "@type": "ListItem", position: 2, name: "Comparativo de plataformas", item: canonical },
   ],
 };
 
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "GigaSend vs WeTransfer, Google Drive, Dropbox e MASV no Brasil",
+  name: "Gigasend vs WeTransfer, Google Drive, Dropbox e MASV no Brasil",
   description:
-    "Comparativo completo no Brasil: supere o limite de 2GB do WeTransfer, o erro de cota excedida do Google Drive e a cobrança por download do MASV.",
+    "Comparativo completo no Brasil: supere o limite de 2 GB do WeTransfer, o erro de cota excedida do Google Drive e a cobrança por download do MASV.",
   url: canonical,
   inLanguage: "pt-BR",
   hasPart: competitorPages.map((p) => ({
@@ -93,30 +95,31 @@ const collectionSchema = {
 ---
 
 <BaseLayout
-  title={`GigaSend vs WeTransfer, Drive e MASV | ${brand.productName} Brasil`}
-  description="Comparativo no Brasil: supere o limite de 2GB do WeTransfer, a cota excedida do Google Drive e a tarifa por download do MASV com CDN SP/RJ."
+  title={`Gigasend vs WeTransfer, Drive e MASV | ${brand.productName} Brasil`}
+  description="Comparativo no Brasil: supere o limite de 2 GB do WeTransfer, a cota excedida do Google Drive e a tarifa por download do MASV com CDN SP/RJ."
   canonical={canonical}
   lang="pt-BR"
   hreflang={hreflang}
 >
   <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   </Fragment>
 
   <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
-    <PtHeader activeNav="comparar" enHref="/compare?lang=en" ptHref="/pt/comparar?lang=pt" />
+    <PtHeader activeNav="comparar" enHref={langPaths.enHref} esHref={langPaths.esHref} ptHref={langPaths.ptHref} />
 
     <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <span class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400">
-          🇧🇷 Comparativo Técnico & Financeiro no Brasil
+          🇧🇷 Comparativo técnico e financeiro no Brasil
         </span>
         <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
-          GigaSend vs WeTransfer, Google Drive, Dropbox & MASV
+          Gigasend vs WeTransfer, Google Drive, Dropbox e MASV
         </h1>
         <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-          Descubra por que produtoras audiovisuais, pilotos de drone (ANAC SISANT), engenheiros BIM e agências brasileiras estão trocando assinaturas mensais e nuvens lentas pelos pacotes pré-pagos do GigaSend com CDN em São Paulo e Rio de Janeiro.
+          Descubra por que produtoras audiovisuais, pilotos de drone (ANAC SISANT), engenheiros BIM e agências brasileiras estão trocando assinaturas mensais e nuvens lentas pelos pacotes pré-pagos do Gigasend com CDN em São Paulo e Rio de Janeiro.
         </p>
       </div>
 
@@ -128,7 +131,7 @@ const collectionSchema = {
           <thead>
             <tr class="border-b border-white/10 bg-ocean-950/95 text-[11px] font-mono uppercase tracking-wider text-slate-300">
               <th scope="col" class="sticky left-0 z-10 bg-ocean-950/95 py-4 px-4 border-r border-white/10">Critério</th>
-              <th scope="col" class="py-4 px-4 text-gold-400 font-bold border-x border-gold-500/20 bg-ocean-900/90">GigaSend Brasil</th>
+              <th scope="col" class="py-4 px-4 text-gold-400 font-bold border-x border-gold-500/20 bg-ocean-900/90">Gigasend Brasil</th>
               <th scope="col" class="py-4 px-4">WeTransfer</th>
               <th scope="col" class="py-4 px-4">Google Drive</th>
               <th scope="col" class="py-4 px-4">Dropbox</th>
@@ -164,7 +167,7 @@ const collectionSchema = {
 
       <div class="mt-14">
         <h2 class="text-2xl font-black text-white font-display">
-          Comparativos Detalhados por Concorrente ({competitorPages.length} Análises)
+          Comparativos detalhados por concorrente ({competitorPages.length} análises)
         </h2>
         <p class="mt-2 text-sm text-slate-300">
           Clique em qualquer plataforma abaixo para ver a análise técnica completa de limites, velocidade no Brasil e custos:

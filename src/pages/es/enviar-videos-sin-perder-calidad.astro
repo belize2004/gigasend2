@@ -8,9 +8,9 @@ import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
 import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { brand } from "@/lib/brand";
 
-const pageTitle = "Enviar Videos Pesados Sin Perder Calidad | Gigasend";
+const pageTitle = "Enviar videos pesados sin perder calidad | Gigasend";
 const pageDescription =
-  "Transfiere videos 4K/8K, Apple ProRes, Blackmagic RAW (BRAW) y RED R3D sin compresión y con verificación SHA-256 bit a bit. Hasta 25 GB gratis.";
+  "Transfiere videos 4K/8K, Apple ProRes, Blackmagic RAW (BRAW) y RED R3D sin compresión y con verificación SHA-256 bit a bit. Hasta 10 GB gratis.";
 const canonical = `${brand.siteUrl}/es/enviar-videos-sin-perder-calidad`;
 
 const faqs = [
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "¿Cuánto cuesta enviar proyectos de video de 50 GB, 100 GB o 500 GB?",
     answer:
-      "Hasta 25 GB el envío es 100% gratuito. Para rodajes mayores, activas paquetes prepagos de $10 (50 GB), $20 (100 GB) o $180 (1 TB) con validez de 12 meses y sin pagar suscripciones mensuales.",
+      "Hasta 10 GB el envío es 100 % gratuito (con 3 días de retención). Para rodajes mayores, activas paquetes prepagos de 10 US$ (50 GB), 20 US$ (100 GB) o 180 US$ (1 TB) con validez de 12 meses y sin pagar suscripciones mensuales.",
   },
 ];
 
@@ -47,7 +47,7 @@ const jsonLd = {
       "@id": `${canonical}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio (Español)", item: `${brand.siteUrl}/es` },
-        { "@type": "ListItem", position: 2, name: "Enviar Videos Sin Perder Calidad", item: canonical },
+        { "@type": "ListItem", position: 2, name: "Enviar videos sin perder calidad", item: canonical },
       ],
     },
     {
@@ -88,20 +88,20 @@ const jsonLd = {
     />
 
     <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
-      <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
+      <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
         <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Inicio (Español)</a>
         <span aria-hidden="true">/</span>
-        <span class="text-slate-200 font-medium">Enviar Videos Sin Perder Calidad</span>
+        <span class="text-slate-200 font-medium">Enviar videos sin perder calidad</span>
       </nav>
 
       <header class="max-w-3xl mb-12 space-y-4">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 label-caps shadow-lg shadow-ocean-950/60">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          Integridad SHA-256 Bit a Bit • ProRes, BRAW, R3D y 4K/8K Master
+          Integridad SHA-256 bit a bit • ProRes, BRAW, R3D y 4K/8K Master
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
-          Envía Videos Pesados <span class="text-gold-400">Sin Perder Calidad.</span>
+          Envía videos pesados <span class="text-gold-400">sin perder calidad.</span>
         </h1>
 
         <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
@@ -111,12 +111,12 @@ const jsonLd = {
         </div>
       </header>
 
-      <section class="mb-16">
+      <section id="uploader" class="mb-16">
         <div class="text-center mb-6 space-y-3">
           <EdgeLocationBadge client:load />
           <div>
-            <span class="label-caps text-gold-400/90 text-xs">Transmisión Binaria Sin Recodificación</span>
-            <p class="text-xs text-slate-400 font-body">Sube tus clips o carpetas de rodaje manteniendo el 100% del rango dinámico y metadatos.</p>
+            <span class="label-caps text-gold-400/90 text-xs">Transmisión binaria sin recodificación</span>
+            <p class="text-xs text-slate-400 font-body">Sube tus clips o carpetas de rodaje manteniendo el 100 % del rango dinámico y metadatos.</p>
           </div>
         </div>
 
@@ -130,7 +130,7 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas Frecuentes de Video y Cine</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas frecuentes de video y cine</h2>
         <div class="space-y-4">
           {faqs.map((faq, idx) => (
             <details open={idx === 0} class="group rounded-2xl apple-subtle-glass border border-white/10 p-5">
@@ -145,13 +145,13 @@ const jsonLd = {
       </section>
 
       <section class="mt-16 pt-12 border-t border-white/10 space-y-6">
-        <h2 class="text-2xl font-bold text-white font-display">Formatos Audiovisuales Relacionados</h2>
+        <h2 class="text-2xl font-bold text-white font-display">Formatos audiovisuales relacionados</h2>
         <div class="flex flex-wrap gap-2.5">
-          <a href="/es/enviar-archivos-prores" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos ProRes 4K</a>
-          <a href="/es/transferir-proyectos-premiere-pro" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Transferir Proyectos Premiere Pro</a>
-          <a href="/es/transferir-proyectos-davinci-resolve" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Proyectos DaVinci Resolve & BRAW</a>
-          <a href="/es/enviar-video-mp4-5gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Video MP4 de Más de 5 GB</a>
-          <a href="/es/enviar-archivos-whatsapp-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Video Pesado por WhatsApp Sin Comprimir</a>
+          <a href="/es/enviar-archivos-prores" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar archivos ProRes 4K</a>
+          <a href="/es/transferir-proyectos-premiere-pro" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Transferir proyectos Premiere Pro</a>
+          <a href="/es/transferir-proyectos-davinci-resolve" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Proyectos DaVinci Resolve y BRAW</a>
+          <a href="/es/enviar-video-mp4-5gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar video MP4 de más de 5 GB</a>
+          <a href="/es/enviar-archivos-whatsapp-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Video pesado por WhatsApp sin comprimir</a>
         </div>
       </section>
     </main>

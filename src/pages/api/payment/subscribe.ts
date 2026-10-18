@@ -18,15 +18,15 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const db = getDb(locals);
     const body = await request.json().catch(() => null);
     if (!body || typeof body !== "object") {
-      return json({ success: false, message: "Invalid JSON body" }, 400);
+      return json({ success: false, message: "Please select a plan and enter your payment details to continue." }, 400);
     }
     const { paymentMethod, planName } = body as Partial<SubscriptionRequestBody>;
     if (!planName || typeof planName !== "string" || !paymentMethod?.id) {
-      return json({ success: false, message: "Payment method and plan name are required" }, 400);
+      return json({ success: false, message: "Please select a plan and enter your payment details to continue." }, 400);
     }
 
     const user = await findUserById(db, userId);
-    if (!user) return json({ success: false, message: "User not found" }, 404);
+    if (!user) return json({ success: false, message: "We couldn’t find your account. Please sign in again." }, 404);
 
     let customerId = user.stripeCustomerId;
     if (!customerId) {
@@ -56,7 +56,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     if (subscriptions.data.length > 0) {
       const activePlanName = subscriptions.data[0].items?.data?.[0]?.plan?.nickname || "Pro";
       return json(
-        { success: false, message: `You already have an active plan : ${activePlanName}` },
+        { success: false, message: `You’re already subscribed to the ${activePlanName} plan.` },
         400,
       );
     }
@@ -68,9 +68,9 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
 
     const plan = await findStripePlanByName(db, planName.toLowerCase());
 
-    if (!plan) return json({ success: false, message: "Plan not found" }, 404);
+    if (!plan) return json({ success: false, message: "The selected plan wasn’t found." }, 404);
     if (plan.name === "free") {
-      return json({ success: false, message: "Can not purchase free plan" }, 400);
+      return json({ success: false, message: "The Free plan is already included with your account." }, 400);
     }
 
     await stripe.subscriptions.create({
@@ -78,9 +78,9 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       items: [{ plan: plan.planId }],
     });
 
-    return json({ success: true, message: `Successfully subscribed to ${planName} plan` });
+    return json({ success: true, message: `You’re now subscribed to the ${planName} plan.` });
   } catch (error) {
-    const stripeError = (error as StripeError)?.message || "Something went wrong";
+    const stripeError = (error as StripeError)?.message || "Something went wrong while processing your payment. Please try again.";
     return json({ success: false, message: stripeError }, 500);
   }
 };

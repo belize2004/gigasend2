@@ -65,7 +65,7 @@ export default function SpeedCalculator() {
 
       <div className="border-b border-white/10 pb-6 text-center relative z-10">
         <span className="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-          ⚡ INTERACTIVE ESTIMATION TOOL
+          <span aria-hidden="true">⚡</span> INTERACTIVE ESTIMATION TOOL
         </span>
         <h1 className="mt-3 text-3xl font-black text-white font-display tracking-tight sm:text-4xl">
           File Transfer Speed & Upload Time Calculator
@@ -171,7 +171,7 @@ export default function SpeedCalculator() {
             <div className="rounded-xl border border-gold-500/40 bg-ocean-900/90 p-4 shadow-md">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">✓</span>
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950" aria-hidden="true">✓</span>
                   <div>
                     <h4 className="text-sm font-bold text-white font-display">Gigasend Edge Multi-Part (Cloudflare Anycast)</h4>
                     <p className="text-xs text-slate-300">Direct chunking across 335+ edge PoPs with parallel TCP streams</p>
@@ -188,7 +188,7 @@ export default function SpeedCalculator() {
             <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-slate-400">•</span>
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-slate-400" aria-hidden="true">•</span>
                   <div>
                     <h4 className="text-sm font-bold text-slate-200 font-display">Legacy Cloud Storage (AWS S3 / WeTransfer)</h4>
                     <p className="text-xs text-slate-400">High round-trip latency & TCP slow-start window throttling</p>
@@ -213,7 +213,7 @@ export default function SpeedCalculator() {
           {/* Time Saved Highlight */}
           {timeSavedSec > 0 && (
             <div className="mt-4 text-center text-xs text-slate-300">
-              ⚡ Uploading via Gigasend saves you roughly{" "}
+              <span aria-hidden="true">⚡</span> Uploading via Gigasend saves you roughly{" "}
               <strong className="text-gold-400 font-mono">{formatDuration(timeSavedSec)}</strong> compared to single-region legacy uploads.
             </div>
           )}
@@ -228,7 +228,7 @@ export default function SpeedCalculator() {
             Transfer {fileSizeGB >= 1000 ? `${(fileSizeGB / 1000).toFixed(1)} TB` : `${fileSizeGB} GB`} with Gigasend Now →
           </a>
           <p className="mt-2.5 text-xs text-slate-400 font-mono">
-            Free up to 10GB • No software install • In-browser parallel stream
+            Free up to 10 GB • No software install • In-browser parallel stream
           </p>
         </div>
       </div>

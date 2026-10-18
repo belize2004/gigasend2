@@ -67,7 +67,7 @@ const SignupPage = () => {
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
-        setError("An unexpected error occurred.");
+        setError("Couldn’t create your account. Please check your connection and try again.");
       }
     } finally {
       setLoading(false)
@@ -76,9 +76,9 @@ const SignupPage = () => {
 
   const passwordRequirements = [
     { text: 'At least 8 characters', met: formData.password.length >= 8 },
-    { text: 'Contains uppercase letter', met: /[A-Z]/.test(formData.password) },
-    { text: 'Contains lowercase letter', met: /[a-z]/.test(formData.password) },
-    { text: 'Contains number', met: /\d/.test(formData.password) }
+    { text: 'One uppercase letter', met: /[A-Z]/.test(formData.password) },
+    { text: 'One lowercase letter', met: /[a-z]/.test(formData.password) },
+    { text: 'One number', met: /\d/.test(formData.password) }
   ];
 
   return (
@@ -96,7 +96,7 @@ const SignupPage = () => {
             </div>
             <span className="label-caps text-gold-400 text-xs block mb-2">Cloudflare Edge Delivery</span>
             <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mb-4">
-              Join thousands of users
+              Built for Creative Teams and Studios
             </h2>
             <p className="text-base text-slate-300 mb-8 leading-relaxed">
               Start sharing files securely with our professional edge platform.
@@ -110,7 +110,7 @@ const SignupPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white font-display text-sm">Lightning Fast Uploads</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Share files instantly with our optimized edge infrastructure</p>
+                  <p className="text-slate-300 text-xs mt-0.5">Share files instantly with our optimized edge infrastructure.</p>
                 </div>
               </div>
               <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
@@ -119,7 +119,7 @@ const SignupPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white font-display text-sm">Enterprise Security</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Your files are protected with bank-level encryption</p>
+                  <p className="text-slate-300 text-xs mt-0.5">Your files are protected with 256-bit TLS encryption.</p>
                 </div>
               </div>
               <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
@@ -128,15 +128,15 @@ const SignupPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white font-display text-sm">Team Collaboration</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Work together seamlessly with advanced sharing tools</p>
+                  <p className="text-slate-300 text-xs mt-0.5">Work together seamlessly with advanced sharing tools.</p>
                 </div>
               </div>
             </div>
 
             {/* Trust indicators */}
             <div className="mt-8 p-6 apple-glass rounded-2xl border border-white/10 shadow-xl">
-              <h4 className="font-bold text-white font-display text-sm mb-1.5">Trusted by professionals</h4>
-              <p className="text-xs text-slate-300">A private file delivery workspace for SBVisual client handoffs.</p>
+              <h4 className="font-bold text-white font-display text-sm mb-1.5">Trusted by Creative Professionals</h4>
+              <p className="text-xs text-slate-300">Deliver uncompressed video, RAW photography, and project archives with zero recipient friction.</p>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ const SignupPage = () => {
                 Create Account
               </h2>
               <p className="text-sm text-slate-300 font-body">
-                Join us and start sharing files securely
+                Create your free account to start sending up to 10 GB immediately.
               </p>
             </div>
 
@@ -214,7 +214,7 @@ const SignupPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full pl-10 pr-4 py-3 bg-ocean-950 border border-white/15 rounded-xl text-sm text-white placeholder-slate-500 focus:border-gold-500 outline-none transition-all duration-200 font-body"
-                    placeholder="Enter your email"
+                    placeholder="name@example.com"
                     required
                   />
                 </div>
@@ -241,6 +241,7 @@ const SignupPage = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     className="absolute right-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors duration-200"
                   >
                     {showPassword ? <FiEyeOff /> : <FiEye />}
@@ -268,7 +269,7 @@ const SignupPage = () => {
                 disabled={loading}
                 className={`w-full btn-gold py-3.5 px-6 rounded-xl font-bold font-display text-xs shadow-lg shadow-gold-500/15 transition-all duration-200 flex items-center justify-center tap-tactile ${loading ? 'opacity-80 animate-pulse' : ''}`}
               >
-                {!loading ? 'Create Account' : 'Creating Account'}
+                {!loading ? 'Create Account' : 'Creating Account…'}
                 {!loading && <FiArrowRight className="ml-2" />}
               </button>
             </form>
@@ -278,7 +279,7 @@ const SignupPage = () => {
               <p className="text-xs text-slate-300">
                 Already have an account?{' '}
                 <Link href={searchSuffix ? `/signin${searchSuffix}` : "/signin"} >
-                  <span className="text-gold-400 hover:text-amber-300 font-semibold transition-colors duration-200">Sign in here</span>
+                  <span className="text-gold-400 hover:text-amber-300 font-semibold transition-colors duration-200">Sign In</span>
                 </Link>
               </p>
             </div>

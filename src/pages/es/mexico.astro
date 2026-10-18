@@ -8,26 +8,26 @@ import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
 import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { brand } from "@/lib/brand";
 
-const pageTitle = "Enviar Archivos Grandes en México (CDMX/MTY) | Gigasend";
+const pageTitle = "Enviar archivos grandes en México (CDMX/MTY) | Gigasend";
 const pageDescription =
-  "Transfiere videos 4K y archivos pesados en México sin límite de 2 GB vía nodos Anycast en CDMX, Guadalajara, Monterrey y Querétaro. Hasta 25 GB gratis.";
+  "Transfiere videos 4K y archivos pesados en México sin el límite de 2 GB vía nodos Anycast en CDMX, Guadalajara, Monterrey y Querétaro. Hasta 10 GB gratis.";
 const canonical = `${brand.siteUrl}/es/mexico`;
 
 const faqs = [
   {
     question: "¿Qué tan rápido sube un archivo en Telmex Infinitum, Totalplay o Izzi?",
     answer:
-      "Al conectarse directamente a los nodos perimetrales de Cloudflare en Ciudad de México (MEX), Guadalajara (GDL), Monterrey (MTY) y Querétaro (QRO), Gigasend satura el ancho de banda de tu fibra local sin cruzar hasta servidores lejanos.",
+      "Al conectarse directamente a los nodos perimetrales en Ciudad de México (MEX), Guadalajara (GDL), Monterrey (MTY) y Querétaro (QRO), Gigasend aprovecha el máximo ancho de banda de tu fibra local sin cruzar hasta servidores lejanos.",
   },
   {
     question: "¿Cómo pago desde México sin suscripciones mensuales forzosas?",
     answer:
-      "Puedes enviar hasta 25 GB totalmente gratis. Si necesitas paquetes de 50 GB ($10), 100 GB ($20) o 1 TB ($180) válidos por 12 meses, pagas en un toque con Apple Pay o tarjetas mexicanas (BBVA, Banamex, Santander, Nu) vía Stripe.",
+      "Puedes enviar hasta 10 GB totalmente gratis (retención de 3 días). Si necesitas paquetes de 50 GB (10 US$), 100 GB (20 US$), 1 TB (180 US$) o 5 TB (800 US$) válidos por 12 meses, pagas en un toque con Apple Pay o tarjetas mexicanas (BBVA, Banamex, Santander, Nu) vía Stripe.",
   },
   {
-    question: "¿Puedo mandar el enlace de descarga por WhatsApp a mi cliente?",
+    question: "¿Puedo mandar el enlace de descarga por WhatsApp a mi destinatario?",
     answer:
-      "Sí. Generas un enlace directo HTTPS que pegas en WhatsApp o correo. Tu cliente descarga el video 4K, proyecto BIM o galería RAW con 1 clic sin perder calidad y sin crear cuenta.",
+      "Sí. Generas un enlace directo HTTPS que pegas en WhatsApp o correo. Tu destinatario descarga el video 4K, proyecto BIM o galería RAW con 1 clic sin perder calidad y sin crear cuenta.",
   },
 ];
 
@@ -47,7 +47,7 @@ const jsonLd = {
       "@id": `${canonical}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio (Español)", item: `${brand.siteUrl}/es` },
-        { "@type": "ListItem", position: 2, name: "Infraestructura Regional", item: `${brand.siteUrl}/es` },
+        { "@type": "ListItem", position: 2, name: "Infraestructura regional", item: `${brand.siteUrl}/es` },
         { "@type": "ListItem", position: 3, name: "México (MEX / GDL / MTY)", item: canonical },
       ],
     },
@@ -69,20 +69,26 @@ const jsonLd = {
   description={pageDescription}
   canonical={canonical}
   lang="es-MX"
-  hreflang={[{ lang: "es-MX", href: canonical }, { lang: "es", href: `${brand.siteUrl}/es` }]}
+  hreflang={[
+    { lang: "en", href: `${brand.siteUrl}/` },
+    { lang: "es-MX", href: canonical },
+    { lang: "es", href: `${brand.siteUrl}/es` },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt` },
+    { lang: "x-default", href: `${brand.siteUrl}/` },
+  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
   <div class="relative overflow-hidden bg-ocean-950 text-slate-100 min-h-screen font-body">
-    <EsHeader activeNav="mexico" enHref="/?lang=en" esHref="/es/mexico" ptHref="/pt/transferencia-arquivos-grandes-sao-paulo-sp-cdn" />
+    <EsHeader activeNav="mexico" enHref="/" esHref="/es/mexico" ptHref="/pt" />
 
     <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
-      <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
+      <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
         <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Inicio (Español)</a>
         <span aria-hidden="true">/</span>
-        <span class="text-slate-400">Infraestructura Perimetral</span>
+        <span class="text-slate-400">Infraestructura perimetral</span>
         <span aria-hidden="true">/</span>
         <span class="text-slate-200 font-medium">México 🇲🇽</span>
       </nav>
@@ -94,21 +100,21 @@ const jsonLd = {
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
-          Envía Archivos Pesados en México <span class="text-gold-400">Sin Límites ni Mensualidades.</span>
+          Envía archivos pesados en México <span class="text-gold-400">sin límites ni mensualidades.</span>
         </h1>
 
         <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
           <p>
-            <strong class="text-white font-display">Para mandar archivos grandes en México:</strong> conéctate directamente a los centros de datos perimetrales en CDMX, Guadalajara, Monterrey y Querétaro. Transfiere hasta 25 GB gratis o hasta 500 GB+ con paquetes de 12 meses en Telmex, Totalplay, Izzi o Starlink sin obligar a tu cliente a crear cuenta.
+            <strong class="text-white font-display">Para mandar archivos grandes en México:</strong> conéctate directamente a los centros de datos perimetrales en CDMX, Guadalajara, Monterrey y Querétaro. Transfiere hasta 10 GB gratis (retención de 3 días) o hasta 5 TB con paquetes de 12 meses (10 US$ / 50 GB • 20 US$ / 100 GB • 180 US$ / 1 TB) en Telmex, Totalplay, Izzi o Starlink sin obligar a tu destinatario a crear cuenta.
           </p>
         </div>
       </header>
 
-      <section class="mb-16">
+      <section id="uploader" class="mb-16">
         <div class="text-center mb-6 space-y-3">
           <EdgeLocationBadge client:load />
           <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga Perimetral México</span>
+            <span class="label-caps text-gold-400/90 text-xs">Carga perimetral en México</span>
             <p class="text-xs text-slate-400 font-body">Arrastra archivos o carpetas para transferir a máxima velocidad local.</p>
           </div>
         </div>
@@ -119,12 +125,12 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de Presencia Perimetral en México</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de presencia perimetral en México</h2>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">MEX & QRO • CENTRO</span>
             <h3 class="text-lg font-bold text-white font-display">CDMX y Querétaro</h3>
-            <p class="text-xs text-slate-300 font-body leading-relaxed">Baja latencia directa con Telmex, Totalplay e Izzi para casas productoras, agencias y despachos en el Valle de México y Bajío.</p>
+            <p class="text-xs text-slate-300 font-body leading-relaxed">Baja latencia directa con Telmex, Totalplay e Izzi para casas productoras, agencias y despachos en el Valle de México y el Bajío.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">GDL • OCCIDENTE</span>
@@ -144,7 +150,7 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas Frecuentes en México</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas frecuentes en México</h2>
         <div class="space-y-4">
           {faqs.map((faq, idx) => (
             <details open={idx === 0} class="group rounded-2xl apple-subtle-glass border border-white/10 p-5">
@@ -159,13 +165,13 @@ const jsonLd = {
       </section>
 
       <section class="mt-16 pt-12 border-t border-white/10 space-y-6">
-        <h2 class="text-2xl font-bold text-white font-display">Flujos Populares en México</h2>
+        <h2 class="text-2xl font-bold text-white font-display">Flujos populares en México</h2>
         <div class="flex flex-wrap gap-2.5">
-          <a href="/es/enviar-archivos-whatsapp-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Mandar Video Pesado por WhatsApp</a>
-          <a href="/es/enviar-video-largo-correo" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Video Largo por Correo</a>
-          <a href="/es/enviar-archivos-10gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de 10 GB Gratis</a>
-          <a href="/es/programas-como-wetransfer" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Programas Como WeTransfer Sin Límite</a>
-          <a href="/es/enviar-fotos-raw-clientes" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Mandar Fotos RAW Sin Comprimir</a>
+          <a href="/es/enviar-archivos-whatsapp-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Mandar video pesado por WhatsApp</a>
+          <a href="/es/enviar-video-largo-correo" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar video largo por correo</a>
+          <a href="/es/enviar-archivos-10gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar archivos de 10 GB gratis</a>
+          <a href="/es/programas-como-wetransfer" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Programas como WeTransfer sin límite</a>
+          <a href="/es/enviar-fotos-raw-clientes" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Mandar fotos RAW sin comprimir</a>
         </div>
       </section>
     </main>

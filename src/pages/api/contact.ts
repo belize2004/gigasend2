@@ -48,7 +48,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
   };
 
   if (!body.email || !/^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(body.email) || !body.message) {
-    return json({ error: "Valid email and message are required" }, 400);
+    return json({ error: "Please enter a valid email address and message." }, 400);
   }
 
   const emailBinding = (locals as any)?.runtime?.env?.EMAIL;
@@ -74,8 +74,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
         hasCompany: Boolean(body.company),
       },
     });
-    return json({ error: "Failed to send email" }, 500);
+    return json({ error: "Couldn’t send your message. Please try again or email us directly at info@gigasend.us." }, 500);
   }
 
-  return json({ message: "Inquiry Sent" });
+  return json({ message: "Thanks for reaching out. We’ve received your message and will reply soon." });
 };

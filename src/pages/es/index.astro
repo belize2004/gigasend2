@@ -18,9 +18,9 @@ const groupedSpanishPages = esSeoLandingPages.reduce((acc: Record<string, typeof
 const categoryEntries = Object.entries(groupedSpanishPages);
 const totalSpanishCount = esSeoLandingPages.length + 7;
 
-const pageTitle = "Enviar Archivos Grandes Gratis (Hasta 25 GB) | Gigasend";
+const pageTitle = "Enviar archivos grandes gratis (hasta 10 GB) | Gigasend";
 const pageDescription =
-  "Transfiere archivos de 5 GB a 500 GB+ y videos 4K/8K sin compresión en España y Latinoamérica. Hasta 25 GB gratis, sin suscripción mensual y 1 clic sin cuenta.";
+  "Transfiere archivos de 5 GB a 500 GB+ y videos 4K/8K sin compresión en España y Latinoamérica. Hasta 10 GB gratis (retención de 3 días), sin suscripción mensual y descarga en 1 clic sin cuenta.";
 const canonical = `${brand.siteUrl}/es`;
 
 const faqs = [
@@ -32,12 +32,12 @@ const faqs = [
   {
     question: "¿Cómo funciona el pago y qué métodos se aceptan en España y Latinoamérica?",
     answer:
-      "Envías hasta 25 GB completamente gratis. Para volúmenes mayores, no hay cuotas fijas mensuales: activas paquetes prepagos ($10/50GB, $20/100GB o $180/1TB) válidos por 12 meses mediante Stripe y Apple Pay en España, México, Colombia, Argentina, Chile y Perú.",
+      "Envías hasta 10 GB completamente gratis con retención de 3 días. Para volúmenes mayores, puedes elegir planes mensuales desde 10 US$/mes (30 GB, retención de 30 días) o paquetes prepagos sin cuotas fijas mensuales: 50 GB (10 US$ · 0,20 US$/GB), 100 GB (20 US$ · 0,20 US$/GB), 1 TB (180 US$ · 0,18 US$/GB) o 5 TB (800 US$ · 0,16 US$/GB), válidos por 12 meses mediante Stripe y Apple Pay.",
   },
   {
     question: "¿Mi destinatario necesita crear una cuenta para descargar?",
     answer:
-      "No. Tu cliente o destinatario no necesita registrarse, instalar aplicaciones ni introducir contraseñas. Simplemente hace clic en el enlace y descarga a la velocidad máxima de su conexión de fibra.",
+      "No. Tu destinatario no necesita registrarse, instalar aplicaciones ni introducir contraseñas. Simplemente hace clic en el enlace y descarga a la velocidad máxima de su conexión de fibra.",
   },
   {
     question: "¿Qué ocurre si mi conexión a internet se interrumpe durante la subida?",
@@ -115,34 +115,34 @@ const jsonLd = {
       <header class="text-center max-w-4xl mx-auto mb-12 space-y-6">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 label-caps shadow-lg shadow-ocean-950/60">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Red Anycast 335+ Ciudades • Hasta 25 GB Gratis • Sin Cuotas Mensuales
+          Red Anycast en más de 335 ciudades • Hasta 10 GB gratis • Latencia &lt; 15 ms
         </div>
 
         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.06] font-display">
-          Envía archivos grandes. <span class="text-gold-400">Sin límites ni suscripciones.</span>
+          Envía archivos grandes. <span class="text-gold-400">Sin límites ni suscripciones forzosas.</span>
         </h1>
 
         <p class="text-lg sm:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-body">
-          Las plataformas heredadas te bloquean en 2 GB o te cobran $23 USD cada mes. Gigasend opera sobre la red perimetral Anycast de Cloudflare en España y Latinoamérica: envía hasta 25 GB gratis o paquetes prepagos de 12 meses ($20/100GB • $180/1TB).
+          Las plataformas tradicionales te bloquean en 2 GB o te cobran 23 US$ cada mes. Gigasend opera sobre nuestra red perimetral Anycast en España y Latinoamérica: envía hasta 10 GB gratis (retención de 3 días) o activa paquetes prepagos de 12 meses (10 US$ / 50 GB • 20 US$ / 100 GB • 180 US$ / 1 TB).
         </p>
 
         <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
-          <a href="#uploader-stage" class="btn-gold min-h-[48px] inline-flex items-center px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-            Arrastra Archivos para Entregar ↓
+          <a href="#uploader" class="btn-gold min-h-[48px] inline-flex items-center px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
+            Arrastra archivos para entregar ↓
           </a>
           <a href="#comparativa-espanol" class="btn-outline-gold min-h-[48px] inline-flex items-center px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold tap-tactile">
-            Ver Comparativa sin Suscripción →
+            Ver comparativa sin suscripción →
           </a>
         </div>
       </header>
 
       <!-- Primary Dropzone Stage -->
-      <section id="uploader-stage" class="max-w-3xl mx-auto mb-20">
-        <div class="text-center mb-6 space-y-3">
+      <section id="uploader" class="max-w-3xl mx-auto mb-20">
+        <div id="uploader-stage" class="text-center mb-6 space-y-3">
           <EdgeLocationBadge client:load />
           <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga Directa en Navegador • Envía 5 GB a 500 GB+</span>
-            <p class="text-xs text-slate-400 font-body">Sin software de escritorio. Los archivos fluyen directamente al nodo perimetral más cercano (MAD, BCN, MEX, BOG, EZE, SCL).</p>
+            <span class="label-caps text-gold-400/90 text-xs">Carga directa en el navegador • Envía de 5 GB a 5 TB</span>
+            <p class="text-xs text-slate-400 font-body">Sin software de escritorio. Los archivos fluyen directamente al nodo perimetral más cercano (MAD, BCN, MEX, BOG, EZE, SCL) con latencia inferior a 15 ms.</p>
           </div>
         </div>
 
@@ -156,16 +156,16 @@ const jsonLd = {
             Sin transcodificación
           </div>
           <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
-            <span class="block text-gold-400 font-bold text-sm mb-0.5 font-display">Hasta 25 GB Gratis</span>
-            $20/100GB • $180/1TB
+            <span class="block text-gold-400 font-bold text-sm mb-0.5 font-display">Hasta 10 GB gratis</span>
+            Retención de 3 días
           </div>
           <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
-            <span class="block text-white font-bold text-sm mb-0.5 font-display">1-Clic Descarga</span>
-            Cliente sin registro
+            <span class="block text-white font-bold text-sm mb-0.5 font-display">Descarga en 1 clic</span>
+            Destinatario sin registro
           </div>
           <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
-            <span class="block text-gold-400 font-bold text-sm mb-0.5 font-display">12 Meses</span>
-            Vigencia de saldo
+            <span class="block text-gold-400 font-bold text-sm mb-0.5 font-display">12 meses</span>
+            Vigencia de paquetes
           </div>
         </div>
       </section>
@@ -173,13 +173,42 @@ const jsonLd = {
       <!-- Comparison Section -->
       <section id="comparativa-espanol" class="max-w-4xl mx-auto mb-24">
         <div class="text-center mb-12 space-y-2">
-          <span class="label-caps text-ocean-400">Comparativa de Fricción</span>
+          <span class="label-caps text-ocean-400">Comparativa de plataformas</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-display">
-            Por qué los profesionales abandonan WeTransfer y las nubes tradicionales
+            Gigasend frente a las nubes tradicionales
           </h2>
           <p class="text-slate-400 text-sm font-body max-w-xl mx-auto">
-            Compara la fricción de las plataformas heredadas con la entrega perimetral directa de Gigasend.
+            Compara las limitaciones de las plataformas tradicionales con la entrega perimetral directa de Gigasend.
           </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-white/10 bg-ocean-900/50 mb-8">
+          <table class="w-full min-w-[600px] text-left text-xs sm:text-sm divide-y divide-white/10">
+            <thead class="bg-ocean-950/90 text-slate-300">
+              <tr>
+                <th scope="col" class="p-4 font-bold text-white">Criterio</th>
+                <th scope="col" class="p-4 font-bold text-gold-400">Gigasend</th>
+                <th scope="col" class="p-4 font-bold text-slate-300">WeTransfer / Dropbox</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 text-slate-200">
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Límite gratuito</th>
+                <td class="p-4 text-emerald-400 font-semibold">Hasta 10 GB gratis (retención de 3 días)</td>
+                <td class="p-4 text-slate-300">2 GB a 3 GB</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Precio inicial</th>
+                <td class="p-4 text-emerald-400 font-semibold">Desde 10 US$ (50 GB por 12 meses o plan Starter de 30 GB/mes)</td>
+                <td class="p-4 text-slate-300">Suscripción recurrente de ~23 US$/mes</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Descarga para el destinatario</th>
+                <td class="p-4 text-emerald-400 font-semibold">1 clic directo en el navegador sin crear cuenta</td>
+                <td class="p-4 text-slate-300">Exige registro, verificación o consume la cuota del destinatario</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
@@ -191,15 +220,15 @@ const jsonLd = {
             <ul class="space-y-3.5 text-sm text-slate-300 font-body">
               <li class="flex items-start gap-2.5">
                 <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span><strong>Límite artificial de 2 GB:</strong> Si tu video pesa 2.1 GB, te bloquean hasta que compres una suscripción de $23 USD/mes.</span>
+                <span><strong>Límite artificial de 2 GB:</strong> si tu video pesa 2,1 GB, te bloquean hasta que contrates una suscripción de 23 US$/mes.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span><strong>Cargos mensuales recurrentes:</strong> Cobran cada 30 días en dólares, incluso durante los meses en que no envías nada.</span>
+                <span><strong>Cargos mensuales recurrentes:</strong> cobran cada 30 días en dólares, incluso durante los meses en que no envías archivos.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span><strong>Fricción para el cliente:</strong> Exigen cuentas de Google o contraseñas solo para descargar una entrega.</span>
+                <span><strong>Fricción para el destinatario:</strong> exigen cuentas de Google o contraseñas solo para descargar una entrega.</span>
               </li>
             </ul>
           </div>
@@ -207,20 +236,20 @@ const jsonLd = {
           <div class="rounded-2xl p-7 bg-ocean-900/60 border border-gold-500/40 backdrop-blur-md shadow-xl shadow-ocean-950/60 space-y-4">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold text-sm">✓</div>
-              <h3 class="text-lg font-bold text-gold-400 font-display">El estándar Gigasend</h3>
+              <h3 class="text-lg font-bold text-gold-400 font-display">El estándar de Gigasend</h3>
             </div>
             <ul class="space-y-3.5 text-sm text-slate-200 font-body">
               <li class="flex items-start gap-2.5">
                 <span class="text-gold-400 font-bold mt-0.5">✓</span>
-                <span><strong>Hasta 25 GB Gratis:</strong> Envía paquetes de 10 GB, 25 GB, 50 GB o 500 GB+ de una sola vez sin contratos.</span>
+                <span><strong>Hasta 10 GB gratis:</strong> envía paquetes de hasta 10 GB sin costo (3 días de retención) o hasta 5 TB con planes y paquetes prepagos.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-gold-400 font-bold mt-0.5">✓</span>
-                <span><strong>Prepago 12 Meses con Apple Pay:</strong> Paquetes de $20/100GB o $180/1TB cuyos créditos duran un año entero.</span>
+                <span><strong>Prepago de 12 meses con Apple Pay:</strong> paquetes de 50 GB (10 US$), 100 GB (20 US$), 1 TB (180 US$) o 5 TB (800 US$) cuyos créditos duran un año entero.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-gold-400 font-bold mt-0.5">✓</span>
-                <span><strong>Descarga inmediata sin cuenta:</strong> Tu cliente hace clic y descarga directo a velocidad de fibra.</span>
+                <span><strong>Descarga inmediata sin cuenta:</strong> tu destinatario hace clic y descarga directamente a velocidad de fibra.</span>
               </li>
             </ul>
           </div>
@@ -230,8 +259,8 @@ const jsonLd = {
       <!-- Interactive Localized Spanish Savings & Velocity Calculator -->
       <section class="max-w-4xl mx-auto mb-24">
         <div class="text-center mb-8 space-y-2">
-          <span class="label-caps text-gold-400">Simulador de Velocidad</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">Calculadora de Entrega y Velocidad</h2>
+          <span class="label-caps text-gold-400">Simulador de velocidad</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">Calculadora de entrega y velocidad</h2>
           <p class="text-slate-400 text-sm font-body">Comprueba cuánto tiempo y dinero ahorras en cada entrega frente a servicios con sobrecostos.</p>
         </div>
         <SavingsCalculatorEs client:visible />
@@ -240,8 +269,8 @@ const jsonLd = {
       <!-- FAQ Section (First item open by default per Apple HIG) -->
       <section class="max-w-3xl mx-auto mb-16">
         <div class="text-center mb-8 space-y-2">
-          <span class="label-caps text-ocean-400">Respuestas Claras</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">Preguntas Frecuentes</h2>
+          <span class="label-caps text-ocean-400">Respuestas claras</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">Preguntas frecuentes</h2>
         </div>
         <div class="space-y-4">
           {faqs.map((faq, idx) => (
@@ -261,12 +290,12 @@ const jsonLd = {
       <!-- Section A: Nodos Regionales y Guías Principales en Español -->
       <section class="max-w-5xl mx-auto mb-20 pt-8 border-t border-white/10">
         <div class="text-center mb-10 space-y-2">
-          <span class="label-caps text-gold-400">Infraestructura Local y Guías Maestras</span>
+          <span class="label-caps text-gold-400">Infraestructura local y guías maestras</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">
-            Nodos Regionales y Guías Principales en Español
+            Nodos regionales y guías principales en español
           </h2>
           <p class="text-slate-400 text-sm font-body max-w-2xl mx-auto">
-            Conéctate directamente al punto de presencia perimetral Anycast de Cloudflare más cercano en tu país o consulta nuestras guías técnicas principales.
+            Conéctate directamente al punto de presencia perimetral Anycast más cercano en tu país o consulta nuestras guías técnicas principales.
           </p>
         </div>
 
@@ -285,7 +314,7 @@ const jsonLd = {
               </p>
             </div>
             <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar Nodo México →
+              Explorar nodo de México →
             </span>
           </a>
 
@@ -299,11 +328,11 @@ const jsonLd = {
                 Transferencia en España
               </h3>
               <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Conexión directa a ESpanix y CATNIX en Madrid, Barcelona y Valencia a velocidad de fibra gigabit y cumplimiento RGPD.
+                Conexión directa a ESpanix y CATNIX en Madrid, Barcelona y Valencia a velocidad de fibra gigabit y cumplimiento del RGPD.
               </p>
             </div>
             <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar Nodo España →
+              Explorar nodo de España →
             </span>
           </a>
 
@@ -321,7 +350,7 @@ const jsonLd = {
               </p>
             </div>
             <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar Nodo Colombia →
+              Explorar nodo de Colombia →
             </span>
           </a>
 
@@ -339,7 +368,7 @@ const jsonLd = {
               </p>
             </div>
             <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar Nodo Argentina →
+              Explorar nodo de Argentina →
             </span>
           </a>
 
@@ -347,17 +376,17 @@ const jsonLd = {
             <div class="space-y-2">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold text-emerald-400">SHA-256 • 4K/8K RAW</span>
-                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía Pilar</span>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía pilar</span>
               </div>
               <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Enviar Videos Sin Perder Calidad
+                Enviar videos sin perder calidad
               </h3>
               <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Transfiere masters ProRes 422/4444, BRAW, R3D y MP4 bit a bit sin compresión ni recodificación automática.
+                Transfiere másters ProRes 422/4444, BRAW, R3D y MP4 bit a bit sin compresión ni recodificación automática.
               </p>
             </div>
             <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Ver Guía de Video Sin Compresión →
+              Ver guía de video sin compresión →
             </span>
           </a>
 
@@ -365,28 +394,28 @@ const jsonLd = {
             <div class="space-y-2">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono font-bold text-emerald-400">5 GB A 500 GB+</span>
-                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía Pilar</span>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía pilar</span>
               </div>
               <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Enviar Archivos de Más de 2 GB
+                Enviar archivos de más de 2 GB
               </h3>
               <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Supera el límite artificial de 2 GB de WeTransfer sin pagar suscripciones mensuales de $23 USD.
+                Supera el límite artificial de 2 GB de WeTransfer sin pagar suscripciones mensuales de 23 US$.
               </p>
             </div>
             <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Ver Guía +2 GB Sin Suscripción →
+              Ver guía de +2 GB sin suscripción →
             </span>
           </a>
         </div>
       </section>
 
       <!-- Section B: Directorio Completo de Transferencia en Español (Progressive Disclosure: open={idx === 0}) -->
-      <section class="max-w-5xl mx-auto mb-12 pt-8 border-t border-white/10">
+      <section id="guias-completas" class="max-w-5xl mx-auto mb-12 pt-8 border-t border-white/10">
         <div class="text-center mb-10 space-y-2">
-          <span class="label-caps text-ocean-400">Índice Completo • {totalSpanishCount} Soluciones Especializadas</span>
+          <span class="label-caps text-ocean-400">Índice completo • {totalSpanishCount} soluciones especializadas</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">
-            Directorio Completo de Transferencia en Español ({totalSpanishCount} Soluciones)
+            Directorio completo de transferencia en español ({totalSpanishCount} soluciones)
           </h2>
           <p class="text-slate-400 text-sm font-body max-w-2xl mx-auto">
             Accede directamente a cada flujo de trabajo por tamaño de archivo, formato profesional, software de edición, industria o comparativa técnica.
@@ -401,7 +430,7 @@ const jsonLd = {
                   <span class="w-2 h-2 rounded-full bg-gold-400"></span>
                   <span>{category}</span>
                   <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-ocean-900/90 text-gold-400 border border-gold-500/20">
-                    {items.length} guías
+                    {items.length} {items.length === 1 ? "guía" : "guías"}
                   </span>
                 </span>
                 <span class="transition-transform group-open:rotate-180 text-gold-400 text-lg">▾</span>

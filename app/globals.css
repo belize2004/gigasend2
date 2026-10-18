@@ -115,8 +115,6 @@ h1, h2, h3, h4, h5, h6, .font-display {
   background-color: #f7bc6a;
   color: #00436a;
   font-family: var(--font-display);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   font-weight: 700;
   transition: all 0.3s var(--ease-editorial);
   display: inline-flex;
@@ -137,8 +135,6 @@ h1, h2, h3, h4, h5, h6, .font-display {
   border: 1px solid #f7bc6a66;
   color: #f7bc6a;
   font-family: var(--font-display);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   font-weight: 700;
   transition: all 0.3s var(--ease-editorial);
   display: inline-flex;

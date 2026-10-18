@@ -18,23 +18,23 @@ const {
 } = Astro.props;
 
 const navItems = [
-  { id: "hub", label: `Central Español (${totalSpanishCount})`, shortLabel: `Español (${totalSpanishCount})`, href: "/es" },
+  { id: "hub", label: `Central en español (${totalSpanishCount})`, shortLabel: `Español (${totalSpanishCount})`, href: "/es" },
   { id: "mexico", label: "🇲🇽 México", shortLabel: "🇲🇽 México", href: "/es/mexico" },
   { id: "espana", label: "🇪🇸 España", shortLabel: "🇪🇸 España", href: "/es/espana" },
   { id: "colombia", label: "🇨🇴 Colombia", shortLabel: "🇨🇴 Colombia", href: "/es/colombia" },
   { id: "argentina", label: "🇦🇷 Argentina", shortLabel: "🇦🇷 Argentina", href: "/es/argentina" },
-  { id: "mas2gb", label: "+2 GB Gratis", shortLabel: "+2 GB Gratis", href: "/es/enviar-archivos-mas-de-2gb" },
+  { id: "mas2gb", label: "+2 GB gratis", shortLabel: "+2 GB gratis", href: "/es/enviar-archivos-mas-de-2gb" },
   { id: "videos", label: "Videos 4K/RAW", shortLabel: "Videos 4K", href: "/es/enviar-videos-sin-perder-calidad" },
 ];
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/90 backdrop-blur-2xl">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegación Principal en Español">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegación principal en español">
     <a
       href="/es"
       class="flex min-h-[44px] items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile"
     >
-      <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
+      <span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-900 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
         G
       </span>
       <span class="group-hover:text-gold-400 transition-colors">
@@ -69,7 +69,7 @@ const navItems = [
           href={enHref}
           onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'"
           class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors tap-tactile"
-          title="Switch to English"
+          title="Cambiar a inglés (English)"
         >
           EN
         </a>
@@ -86,24 +86,24 @@ const navItems = [
           href={ptHref}
           onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'"
           class="inline-flex min-h-[36px] min-w-[36px] items-center justify-center rounded-lg px-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors tap-tactile"
-          title="Mudar para Português (Brasil)"
+          title="Cambiar a portugués (Português)"
         >
           PT
         </a>
       </div>
 
       <a
-        class="btn-gold inline-flex min-h-[44px] items-center justify-center px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile"
-        href="/transfer"
+        class="btn btn-primary btn-sm btn-gold inline-flex min-h-[44px] items-center justify-center px-4 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-gold-500/10 tap-tactile"
+        href="/es#uploader"
       >
-        Enviar Archivos
+        Enviar archivos
       </a>
     </div>
   </nav>
 
   <!-- Mobile & Tablet Sub-Navigation Strip (<1280px) so 375px iPhone viewports have full 40pt+ access to all hubs -->
   <nav
-    aria-label="Navegación Rápida Móvil en Español"
+    aria-label="Navegación rápida móvil en español"
     class="xl:hidden border-t border-white/10 bg-ocean-950/95 px-4 py-1.5 overflow-x-auto no-scrollbar"
   >
     <div class="mx-auto flex max-w-7xl items-center gap-2 whitespace-nowrap text-xs font-medium">

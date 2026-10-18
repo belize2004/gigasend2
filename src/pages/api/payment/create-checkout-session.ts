@@ -9,7 +9,7 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
   try {
     const body = await request.json().catch(() => ({}));
     const { planName, packId, locale } = (body && typeof body === "object" ? body : {}) as Record<string, any>;
-    if (!planName && !packId) return json({ success: false, message: "Plan or Pack is required" }, 400);
+    if (!planName && !packId) return json({ success: false, message: "Please select a plan or delivery pack to continue." }, 400);
 
     const normalizedPlanName = typeof planName === "string" ? planName.trim() : "";
     const normalizedPackId = typeof packId === "string" ? packId.trim() : "";
@@ -128,13 +128,13 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
     }
 
     if (!normalizedPlanName) {
-      return json({ success: false, message: "Valid planName is required" }, 400);
+      return json({ success: false, message: "Please select a plan or delivery pack to continue." }, 400);
     }
 
     // Handle Monthly Subscriptions
     const plan = await findStripePlanByName(db, normalizedPlanName.toLowerCase());
-    if (!plan) return json({ success: false, message: `Plan ${normalizedPlanName} not found` }, 404);
-    if (plan.name === "free") return json({ success: false, message: "Cannot purchase free plan" }, 400);
+    if (!plan) return json({ success: false, message: `The selected plan (${normalizedPlanName}) wasn’t found.` }, 404);
+    if (plan.name === "free") return json({ success: false, message: "The Free plan is already included with your account." }, 400);
 
     const session = await createCheckoutWithCustomerRecovery({
       mode: "subscription",
@@ -155,6 +155,6 @@ export const POST: APIRoute = async ({ request, cookies, locals, site }) => {
     return json({ success: true, url: session.url });
   } catch (error: any) {
     console.error("Stripe checkout error:", error);
-    return json({ success: false, message: error.message || "Failed to create checkout session" }, 500);
+    return json({ success: false, message: error.message || "Couldn’t start checkout. Please try again." }, 500);
   }
 };

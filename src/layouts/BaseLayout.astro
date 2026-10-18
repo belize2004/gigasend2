@@ -78,26 +78,29 @@ const showBrazilBanner = Boolean((Astro.locals as Record<string, unknown>)?.show
     {showBrazilBanner && (
       <div id="br-geo-banner" class="relative z-[60] border-b border-gold-500/30 bg-ocean-900/95 px-4 py-2.5 text-center text-xs sm:text-sm text-slate-100 backdrop-blur-xl">
         <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 sm:gap-3">
-          <span>🇧🇷 Olá! Deseja ver esta página em Português?</span>
+          <span>🇧🇷 Olá! Deseja ver esta página em português?</span>
           <a
             href="/pt?lang=pt"
             onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'"
             class="inline-flex min-h-[40px] items-center rounded-lg bg-gold-500 px-3.5 py-1.5 text-xs font-bold text-ocean-950 shadow-sm hover:bg-gold-400 transition-colors tap-tactile"
           >
-            Mudar para Português
+            Mudar para português
           </a>
           <button
             type="button"
             onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'; document.getElementById('br-geo-banner')?.remove();"
             class="ml-1 inline-flex min-h-[40px] items-center px-2.5 text-slate-300 hover:text-white text-xs underline tap-tactile"
           >
-            Manter em Inglês
+            Manter em inglês
           </button>
         </div>
       </div>
     )}
     <slot />
-    <SuggestionBox client:idle />
+    <SuggestionBox
+      client:idle
+      lang={Astro.url.pathname.startsWith("/es") ? "es" : Astro.url.pathname.startsWith("/pt") ? "pt" : "en"}
+    />
     <script is:inline>
       (function(){try{var s=document.querySelectorAll("astro-island style[data-emotion]");for(var i=0;i<s.length;i++)document.head.appendChild(s[i]);}catch(e){}})();
     </script>

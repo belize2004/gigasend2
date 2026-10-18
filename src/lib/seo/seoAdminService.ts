@@ -28,6 +28,8 @@ export interface KeywordRecord {
   gscCtr: number;
   gscPosition: number;
   // Market Metrics
+  locationName: string;
+  languageName: string;
   searchVolume: number | null;
   cpc: number | null;
   competition: number | null;
@@ -39,6 +41,23 @@ export interface KeywordRecord {
   visibilityCoverageScore: number;
   visibilityCoverageLabel: string;
   retrievedAt: string;
+  serpSnapshot?: {
+    gigasendRank: number | null;
+    gigasendUrl: string | null;
+    totalResults: number;
+    serpFeatures: string[];
+    retrievedAt: string;
+    results: Array<{
+      position: number;
+      domain: string;
+      url: string;
+      title: string;
+      snippet: string;
+      resultType: string;
+      isGigasend: boolean;
+      isCompetitor: boolean;
+    }>;
+  } | null;
 }
 
 export interface OpportunityCardData {
@@ -156,6 +175,8 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
         COALESCE(g.impressions, 0) AS gsc_impressions,
         COALESCE(g.ctr, 0) AS gsc_ctr,
         COALESCE(g.position, 0) AS gsc_position,
+        COALESCE(m.location_name, 'United States') AS location_name,
+        COALESCE(m.language_name, 'English') AS language_name,
         m.search_volume,
         m.cpc,
         m.competition,
@@ -181,11 +202,89 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
     )
     .all<any>();
 
+  // 1b. Fetch SERP snapshots and SERP results
+  const { results: rawSnapshots = [] } = await db
+    .prepare(
+      `
+      SELECT id, keyword_id, gigasend_rank, gigasend_url, total_results, serp_features_json, retrieved_at
+      FROM seo_serp_snapshots
+      ORDER BY retrieved_at DESC
+      `
+    )
+    .all<any>();
+
+  const { results: rawSerpResults = [] } = await db
+    .prepare(
+      `
+      SELECT snapshot_id, keyword_id, position, domain, url, title, snippet, result_type, is_gigasend, is_competitor
+      FROM seo_serp_results
+      ORDER BY position ASC
+      `
+    )
+    .all<any>();
+
+  const resultsBySnapshotId = new Map<
+    string,
+    Array<{
+      position: number;
+      domain: string;
+      url: string;
+      title: string;
+      snippet: string;
+      resultType: string;
+      isGigasend: boolean;
+      isCompetitor: boolean;
+    }>
+  >();
+
+  for (const r of rawSerpResults) {
+    const list = resultsBySnapshotId.get(r.snapshot_id) || [];
+    list.push({
+      position: Number(r.position ?? list.length + 1),
+      domain: r.domain || "",
+      url: r.url || "",
+      title: r.title || "",
+      snippet: r.snippet || "",
+      resultType: r.result_type || "organic",
+      isGigasend: Boolean(r.is_gigasend),
+      isCompetitor: Boolean(r.is_competitor),
+    });
+    resultsBySnapshotId.set(r.snapshot_id, list);
+  }
+
+  const snapshotByKeywordId = new Map<string, KeywordRecord["serpSnapshot"]>();
+  for (const s of rawSnapshots) {
+    if (snapshotByKeywordId.has(s.keyword_id)) continue;
+    let features: string[] = [];
+    try {
+      if (s.serp_features_json) {
+        features = JSON.parse(s.serp_features_json);
+      }
+    } catch {
+      features = [];
+    }
+    snapshotByKeywordId.set(s.keyword_id, {
+      gigasendRank: s.gigasend_rank !== null && s.gigasend_rank !== undefined ? Number(s.gigasend_rank) : null,
+      gigasendUrl: s.gigasend_url || null,
+      totalResults: Number(s.total_results ?? 0),
+      serpFeatures: Array.isArray(features) ? features : [],
+      retrievedAt: s.retrieved_at || "",
+      results: resultsBySnapshotId.get(s.id) || [],
+    });
+  }
+
   const keywords: KeywordRecord[] = rawKeywords.map((r: any) => {
-    let monthlyHistory = [];
+    let monthlyHistory: Array<{ year: number; month: number; search_volume: number }> = [];
     try {
       if (r.monthly_volume_history_json) {
-        monthlyHistory = JSON.parse(r.monthly_volume_history_json);
+        const parsed = JSON.parse(r.monthly_volume_history_json);
+        if (Array.isArray(parsed)) {
+          monthlyHistory = parsed.map((h: any) => ({
+            year: Number(h.year ?? h.y ?? 2026),
+            month: Number(h.month ?? h.m ?? 1),
+            search_volume: Number(h.search_volume ?? h.v ?? 0),
+          }));
+        }
       }
     } catch {
       monthlyHistory = [];
@@ -216,6 +315,8 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
       gscImpressions: Number(r.gsc_impressions ?? 0),
       gscCtr: Number(r.gsc_ctr ?? 0),
       gscPosition: Number(r.gsc_position ?? 0),
+      locationName: r.location_name || "United States",
+      languageName: r.language_name || "English",
       searchVolume: r.search_volume !== null ? Number(r.search_volume) : null,
       cpc: r.cpc !== null ? Number(r.cpc) : null,
       competition: r.competition !== null ? Number(r.competition) : null,
@@ -227,6 +328,7 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
       visibilityCoverageScore: Number(r.visibility_coverage_score ?? 0),
       visibilityCoverageLabel: r.visibility_coverage_label || "",
       retrievedAt: r.retrieved_at,
+      serpSnapshot: snapshotByKeywordId.get(r.id) || null,
     };
   });
 
@@ -268,43 +370,66 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
       },
     }));
 
-  // 3. Page-Level Aggregation
+  // 3. Page-Level Aggregation across mapped target_landing_page and GSC landing_page
   const { results: rawPages = [] } = await db
     .prepare(
       `
       SELECT
-        COALESCE(g.landing_page, 'https://gigasend.us/') AS landing_page,
+        COALESCE(k.target_landing_page, g.landing_page, 'https://gigasend.us/') AS landing_page,
         COUNT(DISTINCT k.id) AS query_count,
-        SUM(g.clicks) AS total_clicks,
-        SUM(g.impressions) AS total_impressions,
-        AVG(g.position) AS avg_position,
+        COUNT(DISTINCT k.cluster_id) AS distinct_clusters,
+        SUM(COALESCE(g.clicks, 0)) AS total_clicks,
+        SUM(COALESCE(g.impressions, 0)) AS total_impressions,
+        AVG(CASE WHEN g.position > 0 THEN g.position ELSE NULL END) AS avg_position,
         SUM(COALESCE(m.search_volume, 0)) AS total_volume,
         AVG(k.opportunity_score) AS avg_opp_score
       FROM seo_keywords k
-      JOIN seo_gsc_query_metrics g ON g.keyword_id = k.id
+      LEFT JOIN seo_gsc_query_metrics g ON g.keyword_id = k.id
       LEFT JOIN seo_keyword_metrics m ON m.keyword_id = k.id
-      GROUP BY g.landing_page
-      ORDER BY total_impressions DESC
-      LIMIT 20
+      GROUP BY COALESCE(k.target_landing_page, g.landing_page, 'https://gigasend.us/')
+      ORDER BY total_impressions DESC, total_volume DESC
+      LIMIT 40
       `
     )
     .all<any>();
 
-  const pageIntelligence: PageIntelligenceData[] = rawPages.map((p: any) => ({
-    landingPage: p.landing_page,
-    rankingQueriesCount: Number(p.query_count ?? 0),
-    totalClicks: Number(p.total_clicks ?? 0),
-    totalImpressions: Number(p.total_impressions ?? 0),
-    avgPosition: Number(Number(p.avg_position ?? 0).toFixed(1)),
-    representedSearchVolume: Number(p.total_volume ?? 0),
-    avgOpportunityScore: Math.round(Number(p.avg_opp_score ?? 0)),
-    topKeywords: keywords
-      .filter((k) => k.gscImpressions > 0)
-      .slice(0, 3)
-      .map((k) => k.query),
-    cannibalizationRisk: false,
-    recommendedFocus: "Optimize titles and metadata to increase click-through rate.",
-  }));
+  const pageIntelligence: PageIntelligenceData[] = rawPages.map((p: any) => {
+    const pageUrl = String(p.landing_page || "https://gigasend.us/");
+    const pageKeywords = keywords
+      .filter(
+        (k) =>
+          k.targetLandingPage === pageUrl ||
+          (pageUrl === "https://gigasend.us/" && !k.targetLandingPage)
+      )
+      .sort((a, b) => (b.searchVolume ?? 0) - (a.searchVolume ?? 0));
+
+    const distinctClusters = Number(p.distinct_clusters ?? 1);
+    const hasCannibalizationStatus = pageKeywords.some(
+      (k) => k.opportunityStatus === "CANNIBALIZATION RISK"
+    );
+    const cannibalizationRisk =
+      hasCannibalizationStatus || (distinctClusters >= 4 && pageKeywords.length >= 12);
+
+    const topKws = pageKeywords.slice(0, 3).map((k) => k.query);
+    const recommendedFocus = cannibalizationRisk
+      ? `Multiple distinct clusters (${distinctClusters}) mapped to ${pageUrl}. Review canonical split and H2 anchor targeting.`
+      : topKws.length > 0
+      ? `Optimize H1/H2 & FAQ schema for "${topKws[0]}" (${(pageKeywords[0]?.searchVolume ?? 0).toLocaleString()} searches/mo).`
+      : "Optimize titles and metadata to increase click-through rate.";
+
+    return {
+      landingPage: pageUrl,
+      rankingQueriesCount: Number(p.query_count ?? 0),
+      totalClicks: Number(p.total_clicks ?? 0),
+      totalImpressions: Number(p.total_impressions ?? 0),
+      avgPosition: Number(Number(p.avg_position ?? 0).toFixed(1)),
+      representedSearchVolume: Number(p.total_volume ?? 0),
+      avgOpportunityScore: Math.round(Number(p.avg_opp_score ?? 0)),
+      topKeywords: topKws,
+      cannibalizationRisk,
+      recommendedFocus,
+    };
+  });
 
   // 4. Competitors
   const { results: rawCompetitors = [] } = await db
@@ -358,7 +483,7 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
       ? Math.round(keywords.reduce((sum, k) => sum + k.opportunityScore, 0) / totalKeywords)
       : 0;
 
-  // 7. Request logs stats
+  // 7. Request logs stats (exclude IndexNow broadcast pings from DataForSEO API metrics)
   const reqStats = await db
     .prepare(
       `
@@ -368,6 +493,7 @@ export async function getSeoOverview(db: AppD1Database): Promise<SeoOverviewData
         SUM(CASE WHEN cache_hit = 1 THEN 1 ELSE 0 END) AS cache_hits,
         MAX(created_at) AS last_sync
       FROM seo_dataforseo_requests
+      WHERE endpoint NOT LIKE '%indexnow%'
       `
     )
     .first<any>();

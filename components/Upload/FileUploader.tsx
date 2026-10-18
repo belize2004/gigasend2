@@ -47,12 +47,51 @@ async function extractFilesFromEntry(entry: any, pathPrefix = ""): Promise<File[
   return [];
 }
 
-export function FileUploader() {
+export function FileUploader({ locale: propLocale }: { locale?: "en" | "es" | "pt" } = {}) {
   const { setFiles } = useFileContext();
   const [inputKey, setInputKey] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [detectedLocale, setDetectedLocale] = useState<"en" | "es" | "pt">(propLocale ?? "en");
   const inputId = useId();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  React.useEffect(() => {
+    if (propLocale) {
+      setDetectedLocale(propLocale);
+      return;
+    }
+    if (typeof window !== "undefined") {
+      const path = window.location.pathname;
+      if (path === "/es" || path.startsWith("/es/")) {
+        setDetectedLocale("es");
+      } else if (path === "/pt" || path.startsWith("/pt/")) {
+        setDetectedLocale("pt");
+      }
+    }
+  }, [propLocale]);
+
+  const activeLocale = propLocale ?? detectedLocale;
+
+  const copy = {
+    en: {
+      heading: "Drag and drop files or folders here, or choose below",
+      helper: "All file types and folders supported up to your available storage limit.",
+      chooseFiles: "Choose Files",
+      chooseFolder: "Choose Folder",
+    },
+    es: {
+      heading: "Arrastra archivos o carpetas aquí, o selecciónalos",
+      helper: "Admite cualquier tipo de archivo o carpeta hasta el límite disponible en tu plan.",
+      chooseFiles: "Seleccionar archivos",
+      chooseFolder: "Seleccionar carpeta",
+    },
+    pt: {
+      heading: "Arraste arquivos ou pastas aqui ou selecione abaixo",
+      helper: "Compatível com todos os tipos de arquivo e pastas até o limite disponível no seu plano.",
+      chooseFiles: "Selecionar arquivos",
+      chooseFolder: "Selecionar pasta",
+    },
+  }[activeLocale];
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
@@ -138,15 +177,13 @@ export function FileUploader() {
           border: "1px solid rgba(247, 188, 106, 0.3)",
         }}
       >
-        <Image src={"/upload.svg"} alt="Upload Icon" width={30} height={30} />
+        <Image src={"/upload.svg"} alt="" aria-hidden="true" width={30} height={30} />
       </div>
       <h3 className="text-white font-bold text-lg tracking-tight mb-1.5 font-display">
-        Click or drop to add your{" "}
-        <span className="text-[#ffddb4] font-extrabold">files</span> or{" "}
-        <span className="text-[#ffddb4] font-extrabold">folder</span>
+        {copy.heading}
       </h3>
       <p className="text-slate-300 text-[0.85rem] leading-relaxed">
-        Supports all file types at line-rate edge speeds up to your available plan storage
+        {copy.helper}
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center mt-7">
         <label
@@ -156,7 +193,7 @@ export function FileUploader() {
             boxShadow: "0 8px 20px rgba(247, 188, 106, 0.25)",
           }}
         >
-          Browse files
+          {copy.chooseFiles}
         </label>
         <label
           htmlFor={`${inputId}-folder`}
@@ -166,7 +203,7 @@ export function FileUploader() {
             backgroundColor: "rgba(0, 47, 77, 0.5)",
           }}
         >
-          Browse folder
+          {copy.chooseFolder}
         </label>
       </div>
 

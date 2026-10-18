@@ -49,20 +49,20 @@ const howToSchema = {
 
 const faqs = [
   {
-    question: "How long does it take to upload a 10GB file on gigabit internet?",
-    answer: "On a full 1 Gbps fiber uplink, a 10GB file uploads in approximately 85 to 95 seconds under unthrottled line-rate conditions with ~92% edge multi-part efficiency.",
+    question: "How long does it take to upload a 10 GB file on gigabit internet?",
+    answer: "On a full 1 Gbps fiber uplink, a 10 GB file uploads in approximately 85 to 95 seconds under unthrottled line-rate conditions with ~92% edge multi-part efficiency.",
   },
   {
     question: "Why is my real upload speed slower than my internet speed test?",
     answer: "Speed tests measure ping to local ISP servers, whereas cloud uploads encounter WAN latency, single-stream TCP window limits, and server-side ingress throttling. Connecting directly to Anycast edge nodes minimizes this penalty.",
   },
   {
-    question: "What is the fastest way to upload a 100GB file?",
+    question: "What is the fastest way to upload a 100 GB file?",
     answer: "Multi-stream HTTP/3 parallel chunking connected to an Anycast edge point of presence is the fastest way, eliminating round-trip bottlenecks and packet drop penalties.",
   },
   {
     question: "How does file size affect transfer reliability?",
-    answer: "As payload sizes grow beyond 10GB, single-stream HTTP uploads have an exponential probability of packet drop socket timeouts unless chunked resumability and multi-part upload streaming are used.",
+    answer: "As payload sizes grow beyond 10 GB, single-stream HTTP uploads have an exponential probability of packet drop socket timeouts unless chunked resumability and multi-part upload streaming are used.",
   },
 ];
 
@@ -82,7 +82,7 @@ const faqSchema = {
 
 <BaseLayout
   title={`File Transfer Speed Calculator: Estimate Upload Times | ${brand.productName}`}
-  description="Calculate exact upload and download times for 1GB to 2TB files across 10 Mbps to 10 Gbps uplinks. Real-world transfer duration with TCP overhead calculations."
+  description="Calculate exact upload and download times for 1 GB to 2 TB files across 10 Mbps to 10 Gbps uplinks. Real-world transfer duration with TCP overhead calculations."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -129,9 +129,9 @@ const faqSchema = {
     <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
         <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li><a href="/guides" class="hover:text-gold-400 transition-colors">Tools & Guides</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li class="text-gold-400 font-semibold" aria-current="page">Transfer Speed Calculator</li>
       </ol>
     </nav>
@@ -237,15 +237,15 @@ const faqSchema = {
           <ul class="mt-6 space-y-4 text-sm text-slate-300">
             <li class="flex gap-3">
               <span class="font-bold text-gold-400 font-mono">1.</span>
-              <span><strong class="text-white">Round-Trip Time (RTT) & TCP Slow-Start:</strong> Legacy cloud services (such as AWS S3 or Google Drive) terminate uploads in distant centralized data centers (e.g. us-east-1). If you are 50ms away, every lost packet forces TCP to halve its congestion window, drastically dropping throughput.</span>
+              <span><strong class="text-white">Round-Trip Time (RTT) & TCP Slow-Start:</strong> Legacy cloud services (such as AWS S3 or Google Drive) terminate uploads in distant centralized data centers (e.g. us-east-1). If you are 50 ms away, every lost packet forces TCP to halve its congestion window, drastically dropping throughput.</span>
             </li>
             <li class="flex gap-3">
               <span class="font-bold text-gold-400 font-mono">2.</span>
-              <span><strong class="text-white">Single-Threaded HTTP Uploads:</strong> Traditional web forms upload entire files as a single continuous byte stream. If a 45GB upload encounters a 2-second Wi-Fi hiccup at 98%, the connection drops and must be restarted from zero.</span>
+              <span><strong class="text-white">Single-Threaded HTTP Uploads:</strong> Traditional web forms upload entire files as a single continuous byte stream. If a 45 GB upload encounters a 2-second Wi-Fi hiccup at 98%, the connection drops and must be restarted from zero.</span>
             </li>
             <li class="flex gap-3">
               <span class="font-bold text-gold-400 font-mono">3.</span>
-              <span><strong class="text-white">The Gigasend Edge Advantage:</strong> Gigasend solves this by splitting files client-side into secure chunks and streaming them concurrently to the nearest Cloudflare Anycast edge node (over 335+ cities globally). Latency drops to &lt;15ms, eliminating packet-loss slowdowns and maximizing your pipe.</span>
+              <span><strong class="text-white">The Gigasend Edge Advantage:</strong> Gigasend solves this by splitting files client-side into secure chunks and streaming them concurrently to the nearest Cloudflare Anycast edge node (over 335+ cities globally). Latency drops to &lt;15 ms, eliminating packet-loss slowdowns and maximizing your pipe.</span>
             </li>
           </ul>
         </div>
@@ -296,7 +296,7 @@ const faqSchema = {
           <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
             <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs monthly subscriptions and AWS egress fees.</p>
+            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs. monthly subscriptions and AWS egress fees.</p>
           </a>
           <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
@@ -305,8 +305,8 @@ const faqSchema = {
           </a>
           <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Architecture</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs Cloud vs Review</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs sync vs review.</p>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs. Cloud vs. Review</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs. sync vs. review.</p>
           </a>
           <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage</span>
@@ -322,10 +322,10 @@ const faqSchema = {
       internalLinks={[
         { href: "/fastest-way-to-send-large-files", label: "Fastest Way to Send Large Files" },
         { href: "/fast-large-file-transfer", label: "Fast Large File Transfer" },
-        { href: "/send-25gb-file", label: "Send 25GB File Free" },
-        { href: "/send-100gb-file", label: "Send 100GB File" },
-        { href: "/send-1tb-file", label: "Send 1TB File" },
-        { href: "/compare", label: "Cloudflare Edge vs AWS Relays" },
+        { href: "/send-10gb-file-free", label: "Send 10 GB File Free" },
+        { href: "/send-100gb-file", label: "Send 100 GB File" },
+        { href: "/send-1tb-file", label: "Send 1 TB File" },
+        { href: "/compare", label: "Cloudflare Edge vs. AWS Relays" },
       ]}
     />
 
@@ -337,11 +337,11 @@ const faqSchema = {
           Test Your Transfer Speed Now
         </h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-          Send up to 25GB 100% free with zero registration, or transfer massive 2TB project payloads across global Anycast edge nodes.
+          Send up to 10 GB 100% free with zero registration, or transfer massive 2 TB project payloads across global Anycast edge nodes.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <a href="/transfer" class="btn-gold rounded-xl px-8 py-4 text-xs font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-            Send 25GB Free
+            Send 10 GB Free
           </a>
           <a href="/directory" class="btn-outline-gold rounded-xl px-8 py-4 text-xs font-bold tap-tactile">
             Explore Transfer Directory
@@ -360,7 +360,7 @@ const faqSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -380,14 +380,14 @@ const faqSchema = {
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
               <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
             </ul>
           </div>
           <div>
             <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
               <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

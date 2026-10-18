@@ -58,12 +58,12 @@ const DashboardHome: React.FC = () => {
       {/* Storage Usage Card */}
       <Usage allowedStorage={data.allowedStorage} usedStorage={data.usedStorage} />
 
-      {/* Active Shares */}
+      {/* Active Transfers */}
       <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
             <span className="label-caps text-gold-400 text-[10px] block mb-0.5">Live Delivery</span>
-            <h2 className="text-xl font-bold text-white font-display">Active Shares</h2>
+            <h2 className="text-xl font-bold text-white font-display">Active Transfers</h2>
           </div>
           <div className="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {activeShares.length} Active
@@ -78,19 +78,19 @@ const DashboardHome: React.FC = () => {
           </div>
         ) : (
           <EmptyShares
-            title="No Active Shares"
-            description="You don't have any active shares at the moment. Create a new share to get started."
+            title="No Active Transfers"
+            description="Files you send will appear here while their download links are active."
             icon={FiUpload}
           />
         )}
       </div>
 
-      {/* Expired Shares */}
+      {/* Expired Transfers */}
       <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
             <span className="label-caps text-slate-400 text-[10px] block mb-0.5">Archive History</span>
-            <h2 className="text-xl font-bold text-white font-display">Expired Shares</h2>
+            <h2 className="text-xl font-bold text-white font-display">Expired Transfers</h2>
           </div>
           <div className="bg-rose-500/15 text-rose-400 border border-rose-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {expiredShares.length} Expired
@@ -105,9 +105,10 @@ const DashboardHome: React.FC = () => {
           </div>
         ) : (
           <EmptyShares
-            title="No Expired Shares"
-            description="You don't have any expired shares. This is good - all your shares are still active!"
+            title="No Expired Transfers"
+            description="Transfers that pass their expiration date will be listed here."
             icon={FiInbox}
+            showAction={false}
           />
         )}
       </div>

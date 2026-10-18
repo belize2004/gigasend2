@@ -4,6 +4,7 @@ import PtHeader from "../../../components/PtHeader.astro";
 import PtFooter from "../../../components/PtFooter.astro";
 import { PT_ENGINEERING_GUIDES, ptGuideMap } from "../../../data/ptGuides";
 import { PT_CORE_VALUE_PROPOSITIONS } from "../../../data/ptSeoLandingPages";
+import { getLanguageSwitchPaths } from "../../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
 import TransferEmbed from "@/src/components/TransferEmbed";
 
@@ -22,6 +23,7 @@ if (!guide) {
   return Astro.redirect("/pt/guias");
 }
 
+const langPaths = getLanguageSwitchPaths(`/pt/guias/${guide.slug}`);
 const canonical = `${brand.siteUrl}/pt/guias/${guide.slug}`;
 const enCanonical = `${brand.siteUrl}${guide.enEquivalent}`;
 const hreflang = [
@@ -67,7 +69,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
-    { "@type": "ListItem", position: 2, name: "Guias Técnicos", item: `${brand.siteUrl}/pt/guias` },
+    { "@type": "ListItem", position: 2, name: "Guias técnicos", item: `${brand.siteUrl}/pt/guias` },
     { "@type": "ListItem", position: 3, name: guide.h1, item: canonical },
   ],
 };
@@ -81,6 +83,7 @@ const breadcrumbSchema = {
   hreflang={hreflang}
 >
   <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
@@ -88,15 +91,16 @@ const breadcrumbSchema = {
   <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
     <PtHeader
       activeNav="guias"
-      enHref={`${guide.enEquivalent}?lang=en`}
-      ptHref={`/pt/guias/${guide.slug}?lang=pt`}
+      enHref={langPaths.enHref}
+      esHref={langPaths.esHref}
+      ptHref={langPaths.ptHref}
     />
 
     <article class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <nav aria-label="Breadcrumb" class="text-xs font-mono text-slate-300 mb-6 flex flex-wrap items-center gap-1">
+      <nav aria-label="Caminho de navegação" class="text-xs font-mono text-slate-300 mb-6 flex flex-wrap items-center gap-1">
         <a href="/pt" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Brasil (pt-BR)</a>
         <span class="text-slate-500">/</span>
-        <a href="/pt/guias" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Guias Técnicos</a>
+        <a href="/pt/guias" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Guias técnicos</a>
         <span class="text-slate-500">/</span>
         <span class="text-gold-400 px-1.5" aria-current="page">{guide.primaryKeyword}</span>
       </nav>
@@ -133,14 +137,14 @@ const breadcrumbSchema = {
         ))}
       </div>
 
-      <div class="mt-12 rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-8">
+      <div id="uploader-stage" class="mt-12 rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-8 scroll-mt-24">
         <div class="grid gap-8 lg:grid-cols-[1fr_1fr] items-center">
           <div>
             <h2 class="text-2xl font-black text-white font-display">
-              Coloque em Prática: Envie Até 25 GB Grátis (ou 50GB–500GB+ num Link)
+              Coloque em prática: envie até 10 GB grátis (ou 50 GB–500 GB+ num link)
             </h2>
             <p class="mt-2 text-sm text-slate-300">
-              Conecte-se diretamente aos nós de borda de São Paulo (GRU) e Rio de Janeiro (GIG) com Zero Cadastro para o Cliente.
+              Conecte-se diretamente aos nós de borda de São Paulo (GRU) e Rio de Janeiro (GIG) com zero cadastro para o destinatário.
             </p>
             <div class="mt-5 flex flex-wrap gap-2.5">
               {guide.relatedPtSlugs.map((link) => (
@@ -160,7 +164,7 @@ const breadcrumbSchema = {
       </div>
 
       <section class="mt-14 border-t border-white/10 pt-10">
-        <h2 class="text-xl font-bold text-white font-display">Outros Guias Técnicos de Engenharia em Português</h2>
+        <h2 class="text-xl font-bold text-white font-display">Outros guias técnicos de engenharia em português</h2>
         <div class="mt-5 grid gap-4 sm:grid-cols-2">
           {otherGuides.map((g) => (
             <a

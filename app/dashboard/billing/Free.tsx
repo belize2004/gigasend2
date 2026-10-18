@@ -22,10 +22,9 @@ const Free: React.FC = () => {
   const data = {
     planName: 'Free Plan',
     planFeatures: [
-      '1GB Storage',
-      '5 Shares per month',
-      'Basic file types only',
-      '3-day file retention'
+      '10 GB storage',
+      '3-day file retention',
+      'Email support'
     ],
     billingCycleDuration: 'Free',
     nextBillingDate: '',
@@ -36,10 +35,10 @@ const Free: React.FC = () => {
 
   // Premium plan features for comparison
   const premiumFeatures = [
-    { icon: FiZap, text: 'More than 10Gb Storage', highlight: true },
-    { icon: FiCalendar, text: 'Upto 30 days retention', highlight: true },
-    { icon: FiUsers, text: 'Unlimited Shares', highlight: false },
-    { icon: FiRefreshCw, text: 'Reclaimable', highlight: false },
+    { icon: FiZap, text: '80 GB active storage', highlight: true },
+    { icon: FiCalendar, text: '30-day file retention', highlight: true },
+    { icon: FiUsers, text: 'Unlimited transfers', highlight: false },
+    { icon: FiRefreshCw, text: 'Automatic storage reclamation', highlight: false },
   ];
 
   return (
@@ -139,7 +138,7 @@ const Free: React.FC = () => {
               className="flex-1 btn-gold px-8 py-4 rounded-xl font-bold font-display text-sm transition-all duration-200 flex items-center justify-center shadow-lg shadow-gold-500/15 tap-tactile"
             >
               <FiTrendingUp className="mr-2" />
-              Upgrade to Pro - ${PLANS.pro.price}/month
+              Upgrade to Pro — ${PLANS.pro.price}/month
               <FiArrowRight className="ml-2" />
             </button>
             <button
@@ -153,7 +152,7 @@ const Free: React.FC = () => {
 
           <div className="mt-6 text-center">
             <p className="text-slate-300 text-xs">
-              ✨ <strong className="text-gold-400">Stay Tuned:</strong> Exciting offers drop regularly — keep checking back!
+              Need project-based capacity without a monthly plan? Explore Pay-As-You-Go packs.
             </p>
           </div>
         </div>
@@ -164,9 +163,9 @@ const Free: React.FC = () => {
         <div className="flex items-start">
           <FiAlertTriangle className="text-gold-400 mr-3.5 mt-0.5 text-lg shrink-0" />
           <div>
-            <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Approaching Limits</h4>
+            <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Need More Space?</h4>
             <p className="text-xs text-slate-300 mb-2">
-              About to end the usage limit?
+              Upgrade to Pro for 80 GB of storage and 30-day link retention.
             </p>
             <button
               onClick={
@@ -187,7 +186,7 @@ const Free: React.FC = () => {
           <div>
             <h4 className="font-bold text-emerald-400 font-display text-sm">Secure & Trusted</h4>
             <p className="text-xs text-slate-300 mt-0.5">
-              Your files are encrypted and secure. Trusted by over 10,000+ users worldwide.
+              Your files are protected with 256-bit TLS encryption and trusted by over 10,000 creators and teams worldwide.
             </p>
           </div>
         </div>

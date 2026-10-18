@@ -11,7 +11,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
   headline: "How to Transfer Large Files Without Failed Uploads",
-  description: "Learn how client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50GB+ uploads on unstable connections.",
+  description: "Learn how client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50 GB+ uploads on unstable connections.",
   url: canonical,
   author: {
     "@type": "Organization",
@@ -29,11 +29,11 @@ const articleSchema = {
 
 <BaseLayout
   title={`How to Transfer Large Files Without Failed Uploads | ${brand.productName}`}
-  description="Stop failed 50GB+ file uploads. How client-side chunking, multi-part streams, and edge resume logic ensure 100% upload completion."
+  description="Stop failed 50 GB+ file uploads. How client-side chunking, multi-part streams, and edge resume logic ensure 100% upload completion."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/como-entregar-mapeamento-drone-anac-sisant-ortomosaico-lidar` },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai` },
     { lang: "x-default", href: canonical },
   ]}
 >
@@ -65,9 +65,9 @@ const articleSchema = {
     <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
         <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li><a href="/guides" class="hover:text-gold-400 transition-colors">Guides</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li class="text-gold-400 font-semibold" aria-current="page">Transfer Large Files Without Failed Uploads</li>
       </ol>
     </nav>
@@ -81,13 +81,13 @@ const articleSchema = {
           How to Transfer Large Files Without Failed Uploads
         </h1>
         <p class="mt-4 text-lg text-slate-300 leading-relaxed">
-          There is nothing more frustrating than waiting 90 minutes for a 45GB file upload, only for the browser to display "Upload Failed — Network Error" at 96%. Here is why single-socket transfers fail and how modern multi-part streaming guarantees completion.
+          There is nothing more frustrating than waiting 90 minutes for a 45 GB file upload, only for the browser to display "Upload Failed — Network Error" at 96%. Here is why single-socket transfers fail and how modern multi-part streaming guarantees completion.
         </p>
 
         <div class="mt-8 max-w-none space-y-6 text-slate-300 leading-relaxed">
           <h2 class="text-2xl font-bold text-white font-display">The Fragility of Monolithic HTTP Uploads</h2>
           <p>
-            Standard file upload widgets treat a 100GB archive as a single continuous byte stream. If your connection drops for even two seconds—due to a DHCP renewal, Wi-Fi interference, or ISP micro-drop—the TCP connection terminates with a <code class="px-2 py-0.5 rounded bg-ocean-900 border border-white/10 text-gold-400 font-mono text-xs">Broken pipe</code> error. Because the server only received partial unindexed bytes, it has no choice but to discard the entire file.
+            Standard file upload widgets treat a 100 GB archive as a single continuous byte stream. If your connection drops for even two seconds—due to a DHCP renewal, Wi-Fi interference, or ISP micro-drop—the TCP connection terminates with a <code class="px-2 py-0.5 rounded bg-ocean-900 border border-white/10 text-gold-400 font-mono text-xs">Broken pipe</code> error. Because the server only received partial unindexed bytes, it has no choice but to discard the entire file.
           </p>
 
           <h2 class="text-2xl font-bold text-white font-display">How Multi-Part Resilient Transfer Works</h2>
@@ -95,24 +95,24 @@ const articleSchema = {
             To eliminate failed uploads, Gigasend incorporates enterprise multi-part streaming:
           </p>
           <ul class="list-disc pl-5 space-y-3 text-slate-300">
-            <li><strong class="text-white">Client-Side Slicing:</strong> In the browser, files are partitioned into uniform 50MB–100MB blocks.</li>
+            <li><strong class="text-white">Client-Side Slicing:</strong> In the browser, files are partitioned into uniform 50 MB–100 MB blocks.</li>
             <li><strong class="text-white">Independent Block Checksums:</strong> Each block receives a cryptographic hash before transmission.</li>
-            <li><strong class="text-white">Automatic Retry Logic:</strong> If an individual block fails due to a packet drop, only that 50MB segment is retried, not the entire 45GB file.</li>
+            <li><strong class="text-white">Automatic Retry Logic:</strong> If an individual block fails due to a packet drop, only that 50 MB segment is retried, not the entire 45 GB file.</li>
             <li><strong class="text-white">Edge Assembly:</strong> Cloudflare edge nodes assemble the verified blocks directly into durable R2 storage.</li>
           </ul>
         </div>
 
         <div class="mt-12 apple-glass rounded-3xl border border-gold-500/30 bg-ocean-900/90 p-8 text-white text-center shadow-2xl">
           <span class="label-caps text-gold-400 text-xs">3x Auto-Retry • Anycast Edge</span>
-          <h3 class="mt-2 text-2xl font-black font-display">Never Suffer a Failed Upload Again</h3>
+          <h3 class="mt-2 text-2xl font-black font-display">Upload Large Files Reliably Every Time</h3>
           <p class="mt-2 text-slate-300 text-sm">
-            Transfer up to 25GB free with automatic retry logic and edge Anycast multi-part resilience.
+            Transfer up to 10 GB free with automatic retry logic and edge Anycast multi-part resilience.
           </p>
           <a
             href="/transfer"
             class="btn-gold mt-6 inline-block rounded-xl px-8 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile"
           >
-            Start Resilient Transfer (25GB Free)
+            Start Resilient Transfer (10 GB Free)
           </a>
         </div>
       </div>
@@ -137,12 +137,12 @@ const articleSchema = {
           <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
             <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs monthly subscriptions and AWS egress fees.</p>
+            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs. monthly subscriptions and AWS egress fees.</p>
           </a>
           <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Workflow Architecture</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs Cloud Storage vs Review</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs sync vs review.</p>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs. Cloud Storage vs. Review</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs. sync vs. review.</p>
           </a>
           <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage Optimization</span>
@@ -159,8 +159,8 @@ const articleSchema = {
         { href: "/fast-large-file-transfer", label: "Fast Large File Transfer" },
         { href: "/fastest-way-to-send-large-files", label: "Fastest Way to Send Large Files" },
         { href: "/tools/transfer-speed-calculator", label: "Transfer Speed Calculator" },
-        { href: "/send-25gb-file", label: "Send 25GB File Free" },
-        { href: "/send-100gb-file", label: "Send 100GB File" },
+        { href: "/send-10gb-file-free", label: "Send 10 GB File Free" },
+        { href: "/send-100gb-file", label: "Send 100 GB File" },
         { href: "/directory", label: "Full Transfer Directory" },
       ]}
     />
@@ -175,7 +175,7 @@ const articleSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -195,14 +195,14 @@ const articleSchema = {
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
               <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
             </ul>
           </div>
           <div>
             <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
               <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

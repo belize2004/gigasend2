@@ -5,5 +5,5 @@ import { clearAdminSession } from "@/src/lib/admin";
 export const POST: APIRoute = async ({ cookies }) => {
   clearAuthCookie(cookies);
   clearAdminSession(cookies);
-  return json({ success: true, message: "SignOut successful" });
+  return json({ success: true, message: "Signed out successfully." });
 };

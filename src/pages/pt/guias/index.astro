@@ -4,10 +4,12 @@ import PtHeader from "../../../components/PtHeader.astro";
 import PtFooter from "../../../components/PtFooter.astro";
 import { PT_ENGINEERING_GUIDES } from "../../../data/ptGuides";
 import { PT_CORE_VALUE_PROPOSITIONS } from "../../../data/ptSeoLandingPages";
+import { getLanguageSwitchPaths } from "../../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
 
+const langPaths = getLanguageSwitchPaths("/pt/guias");
 const canonical = `${brand.siteUrl}/pt/guias`;
 const hreflang = [
   { lang: "en", href: `${brand.siteUrl}/guides` },
@@ -18,9 +20,9 @@ const hreflang = [
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: `${brand.productName} Brasil — Guias Técnicos de Transferência de Arquivos Pesados`,
+  name: `${brand.productName} Brasil — Guias técnicos de transferência de arquivos pesados`,
   description:
-    "Manuais de engenharia em português sobre envio de arquivos grandes (50GB–500GB+), drones ANAC SISANT, vídeos 4K/RAW e upload na Claro, Vivo e Starlink.",
+    "Manuais de engenharia em português sobre envio de arquivos grandes (50 GB–500 GB+), drones ANAC SISANT, vídeos 4K/RAW e upload na Claro, Vivo e Starlink.",
   url: canonical,
   inLanguage: "pt-BR",
   hasPart: PT_ENGINEERING_GUIDES.map((g) => ({
@@ -35,36 +37,37 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
-    { "@type": "ListItem", position: 2, name: "Guias Técnicos", item: canonical },
+    { "@type": "ListItem", position: 2, name: "Guias técnicos", item: canonical },
   ],
 };
 ---
 
 <BaseLayout
-  title={`Guias Técnicos de Transferência no Brasil | ${brand.productName}`}
-  description="Manuais técnicos em português sobre transferência de arquivos grandes (50GB a 500GB+), drones ANAC SISANT, vídeos 4K/RAW e upload na Claro, Vivo e Starlink."
+  title={`Guias técnicos de transferência no Brasil | ${brand.productName}`}
+  description="Manuais técnicos em português sobre transferência de arquivos grandes (50 GB a 500 GB+), drones ANAC SISANT, vídeos 4K/RAW e upload na Claro, Vivo e Starlink."
   canonical={canonical}
   lang="pt-BR"
   hreflang={hreflang}
 >
   <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
   <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
-    <PtHeader activeNav="guias" enHref="/guides?lang=en" ptHref="/pt/guias?lang=pt" />
+    <PtHeader activeNav="guias" enHref={langPaths.enHref} esHref={langPaths.esHref} ptHref={langPaths.ptHref} />
 
     <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
         <span class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400">
-          📚 Biblioteca de Engenharia & Fluxos B2B no Brasil
+          📚 Biblioteca de engenharia e fluxos B2B no Brasil
         </span>
         <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
-          Guias Técnicos de Transferência de Arquivos Pesados
+          Guias técnicos de transferência de arquivos pesados
         </h1>
         <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-          Aprenda como eliminar quedas de upload em 99% nas operadoras brasileiras, entregar levantamentos de drones (ANAC SISANT) e vídeos 4K/RAW sem compressão e economizar até 80% sem assinaturas mensais.
+          Aprenda como eliminar quedas de upload aos 99% nas operadoras brasileiras, entregar levantamentos de drones (ANAC SISANT) e vídeos 4K/RAW sem compressão e economizar até 80% sem assinaturas mensais.
         </p>
       </div>
 

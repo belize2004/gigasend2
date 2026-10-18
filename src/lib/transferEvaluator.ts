@@ -363,7 +363,7 @@ export function evaluateTransferExperience(
       steps,
       stepSummaryLine: steps.map((s) => s.label).join(" · "),
       recommendations: [
-        "If the sender selects the same file again, GigaSend's automatic crash recovery will resume from the pieces that already finished.",
+        "If the sender selects the same file again, Gigasend's automatic crash recovery will resume from the pieces that already finished.",
         retryCount > 0
           ? `The sender's network dropped ${retryCount} times before failing — switching to a stable Wi-Fi or wired connection will prevent interruptions.`
           : "Verify that the file is not empty (0 bytes) and that the sender has enough storage space remaining.",
@@ -425,7 +425,7 @@ export function evaluateTransferExperience(
     bottleneck = "network_instability";
     bottleneckLabel = `Sender Wi-Fi blinked (${retryCount} auto-healed ${retryCount === 1 ? "retry" : "retries"})`;
     recommendations.push(
-      `The sender's internet connection blinked ${retryCount} time${retryCount === 1 ? "" : "s"}, but GigaSend automatically re-sent only the affected chunk so the upload finished without starting over.`,
+      `The sender's internet connection blinked ${retryCount} time${retryCount === 1 ? "" : "s"}, but Gigasend automatically re-sent only the affected chunk so the upload finished without starting over.`,
     );
   }
 
@@ -632,7 +632,7 @@ export async function sendTransferEvaluationEmail(
           ? "#d97706"
           : "#dc2626";
 
-  const subject = `${badgeEmoji} [GigaSend ${evaluation.gradeLabel}] ${directionLabel} Report • ${sizeText} (${evaluation.edgeLocationLabel})`;
+  const subject = `${badgeEmoji} [Gigasend ${evaluation.gradeLabel}] ${directionLabel} Report • ${sizeText} (${evaluation.edgeLocationLabel})`;
 
   const stepsHtml = evaluation.steps
     .map(
@@ -684,7 +684,7 @@ export async function sendTransferEvaluationEmail(
   <div style="max-width: 640px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);">
     <div style="background: linear-gradient(135deg, #0f172a, #1e293b); padding: 20px 24px; color: #ffffff;">
       <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; font-weight: 700; margin-bottom: 6px;">
-        GigaSend Live Transfer Experience Report
+        Gigasend Live Transfer Experience Report
       </div>
       <div style="font-size: 20px; font-weight: 800; margin-bottom: 10px;">
         ${escapeEmailHtml(evaluation.headline)}
@@ -748,7 +748,7 @@ export async function sendTransferEvaluationEmail(
 </html>`;
 
   const text = [
-    `GigaSend Live Transfer Experience Report`,
+    `Gigasend Live Transfer Experience Report`,
     `Grade: ${evaluation.gradeLabel}`,
     `Type: ${directionLabel} (${fileNoun}, ${sizeText})`,
     `Edge Location: ${evaluation.edgeLocationLabel}`,

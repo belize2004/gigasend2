@@ -47,7 +47,7 @@ const webAppSchema = {
     "@type": "Offer",
     price: "0.00",
     priceCurrency: "USD",
-    description: "Free large file transfers up to 25GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
+    description: "Free large file transfers up to 10 GB with 3-day storage; high-capacity edge transfers from $0.16/GB.",
   },
 };
 const breadcrumbSchema = {
@@ -149,7 +149,7 @@ const breadcrumbSchema = {
       <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-20">
         <div>
           <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-            <span>⚡</span>
+            <span aria-hidden="true">⚡</span>
             <span>{landingPage.eyebrow}</span>
           </p>
           <h1 class="max-w-4xl text-4xl font-black leading-tight text-white font-display tracking-tight sm:text-5xl">{landingPage.h1}</h1>
@@ -159,20 +159,20 @@ const breadcrumbSchema = {
               {landingPage.cta}
             </a>
             <a href="/plans" class="btn-outline-gold inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold tap-tactile">
-              View plans
+              View Plans
             </a>
           </div>
           <div class="mt-8 grid max-w-2xl grid-cols-3 gap-3 text-center text-sm">
             <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
-              <div class="text-xl font-black text-gold-400 font-display">25GB</div>
+              <div class="text-xl font-black text-gold-400 font-display">10 GB</div>
               <div class="mt-1 text-xs text-slate-300">Free transfers</div>
             </div>
             <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
-              <div class="text-xl font-black text-gold-400 font-display">3 days</div>
+              <div class="text-xl font-black text-gold-400 font-display">3 Days</div>
               <div class="mt-1 text-xs text-slate-300">Free storage</div>
             </div>
             <div class="apple-glass rounded-xl border border-white/10 bg-ocean-900/80 p-4">
-              <div class="text-xl font-black text-gold-400 font-display">5TB</div>
+              <div class="text-xl font-black text-gold-400 font-display">5 TB</div>
               <div class="mt-1 text-xs text-slate-300">Enterprise</div>
             </div>
           </div>
@@ -185,15 +185,15 @@ const breadcrumbSchema = {
             <ol class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-200">
               <li class="flex items-center gap-2">
                 <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">1</span>
-                <span><strong class="text-white">Drop</strong> files above</span>
+                <span><strong class="text-white">Select</strong> your files</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">2</span>
-                <span><strong class="text-white">Line-speed</strong> upload</span>
+                <span><strong class="text-white">Upload</strong> at line speed</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950">3</span>
-                <span><strong class="text-white">Get 1-click link</strong></span>
+                <span><strong class="text-white">Share</strong> your download link</span>
               </li>
             </ol>
           </aside>
@@ -204,7 +204,7 @@ const breadcrumbSchema = {
     <section class="border-t border-white/10 bg-ocean-950 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <span class="label-caps text-gold-400 text-xs">Zero-Egress Edge Architecture</span>
-        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Why choose {brand.productName} for large transfers</h2>
+        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Why Choose {brand.productName} for Large Transfers</h2>
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {landingPage.sections.map((section) => (
             <article class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg">
@@ -219,7 +219,7 @@ const breadcrumbSchema = {
     <section class="border-t border-white/10 bg-ocean-900/50 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <span class="label-caps text-gold-400 text-xs">Head-to-Head</span>
-        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Compare delivery methods</h2>
+        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Compare Delivery Methods</h2>
         <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-ocean-900/80 shadow-2xl backdrop-blur-2xl">
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-white/10 text-left text-sm text-slate-300">
@@ -228,7 +228,7 @@ const breadcrumbSchema = {
                   <th scope="col" class="px-6 py-4 font-semibold text-white label-caps text-xs">Method</th>
                   <th scope="col" class="px-6 py-4 font-semibold text-slate-300 label-caps text-xs">Best for</th>
                   <th scope="col" class="px-6 py-4 font-semibold text-slate-300 label-caps text-xs">Limitation</th>
-                  <th scope="col" class="px-6 py-4 font-semibold text-gold-400 label-caps text-xs border-l border-gold-500/30 bg-ocean-900/90">{brand.productName} advantage</th>
+                  <th scope="col" class="px-6 py-4 font-semibold text-gold-400 label-caps text-xs border-l border-gold-500/30 bg-ocean-900/90">Why {brand.productName}</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/10 bg-ocean-900/40 text-slate-300">
@@ -250,7 +250,7 @@ const breadcrumbSchema = {
     <section class="border-t border-white/10 bg-ocean-950 py-16">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <span class="label-caps text-gold-400 text-xs">Answers & Specs</span>
-        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Frequently asked questions</h2>
+        <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">Frequently Asked Questions</h2>
         <dl class="mt-8 space-y-6">
           {landingPage.faqs.map((faq) => (
             <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-md">
@@ -277,7 +277,7 @@ const breadcrumbSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 leading-relaxed text-slate-400">
-              Line-speed multi-stream edge file transport across 335+ Cloudflare Anycast PoPs. Up to 25GB free with zero account walls.
+              Line-speed multi-stream edge file transport across 335+ Cloudflare Anycast PoPs. Up to 10 GB free with zero account walls.
             </p>
           </div>
           <div>
@@ -293,12 +293,12 @@ const breadcrumbSchema = {
           <div>
             <h3 class="font-bold uppercase tracking-wider text-white label-caps text-[11px]">Workflow Categories</h3>
             <ul class="mt-3 space-y-2">
-              <li><a class="hover:text-gold-400 transition-colors" href="/directory">All 46 Transfer Workflows</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory">All Transfer Workflows</a></li>
               <li><a class="hover:text-gold-400 transition-colors" href="/directory#video-cinema">Video, Camera RAW & NLE</a></li>
               <li><a class="hover:text-gold-400 transition-colors" href="/directory#vfx-3d">3D, VFX, Game Dev & BIM</a></li>
               <li><a class="hover:text-gold-400 transition-colors" href="/directory#audio-music">Audio & DAW Sessions</a></li>
               <li><a class="hover:text-gold-400 transition-colors" href="/directory#competitor-bypass">Quota Bypass & Alternatives</a></li>
-              <li><a class="hover:text-gold-400 transition-colors" href="/directory#sizes">File Size Tiers (5GB–2TB)</a></li>
+              <li><a class="hover:text-gold-400 transition-colors" href="/directory#sizes">File Size Tiers (5 GB–2 TB)</a></li>
             </ul>
           </div>
           <div>

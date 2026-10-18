@@ -72,7 +72,8 @@ export const Success = () => {
         <Stack position="relative" height={55} width={"100%"} top={-150}>
           <Image
             src={"/success.png"}
-            alt="Success Icon"
+            alt=""
+            aria-hidden="true"
             width={336}
             height={336}
             style={{
@@ -93,7 +94,7 @@ export const Success = () => {
           width="100%"
         >
           <span className="label-caps text-emerald-400 text-xs px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
-            Line-Rate Edge Delivery Active • Valid for {expiryDays} Days
+            Ready to Share • Expires in {expiryDays} {expiryDays === 1 ? "Day" : "Days"}
           </span>
           <Typography
             variant="h1"
@@ -101,7 +102,7 @@ export const Success = () => {
             textAlign="center"
             sx={{ color: "#FFFFFF", fontSize: { xs: "2rem", sm: "2.5rem" }, letterSpacing: "-0.02em" }}
           >
-            {deliveryMode === "email" && !emailFailed ? "Email Sent & Link Ready!" : "Transfer Ready!"}
+            {deliveryMode === "email" && !emailFailed ? "Email Sent and Link Ready" : "Transfer Ready"}
           </Typography>
           <Typography
             variant="body2"
@@ -118,8 +119,8 @@ export const Success = () => {
             {emailFailed
               ? "Your upload is finished, but the recipient email could not be sent. Copy this link and send it manually."
               : deliveryMode === "email"
-                ? `We emailed the download link to your recipient (valid for ${expiryDays} days). You can also copy the direct link below to share anywhere.`
-                : `Your shareable link is ready (valid for ${expiryDays} days). Anyone with this link can download the files at full edge speed.`}
+                ? `We emailed the download link to your recipient (valid for ${expiryDays} ${expiryDays === 1 ? "day" : "days"}). You can also copy the direct link below to share anywhere.`
+                : `Your shareable link is ready (valid for ${expiryDays} ${expiryDays === 1 ? "day" : "days"}). Anyone with this link can download the files at full speed.`}
           </Typography>
           {shareLink && (
             <Stack
@@ -168,7 +169,7 @@ export const Success = () => {
                     },
                   }}
                 >
-                  {copied ? "Copied!" : "Copy link"}
+                  {copied ? "Copied" : "Copy Link"}
                 </Button>
                 <Button
                   variant="outlined"
@@ -213,7 +214,7 @@ export const Success = () => {
               },
             }}
           >
-            Send Another Package →
+            Send More Files
           </Button>
         </Stack>
       </Stack>

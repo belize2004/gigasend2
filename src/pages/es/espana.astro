@@ -8,26 +8,26 @@ import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
 import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { brand } from "@/lib/brand";
 
-const pageTitle = "Enviar Archivos Grandes en España (MAD/BCN) | Gigasend";
+const pageTitle = "Enviar archivos grandes en España (MAD/BCN) | Gigasend";
 const pageDescription =
-  "Transfiere videos 4K y archivos de más de 2 GB en España a velocidad de fibra vía nodos Anycast en Madrid, Barcelona y Valencia. Hasta 25 GB gratis.";
+  "Transfiere vídeos 4K y archivos de más de 2 GB en España a velocidad de fibra vía nodos Anycast en Madrid, Barcelona y Valencia. Hasta 10 GB gratis.";
 const canonical = `${brand.siteUrl}/es/espana`;
 
 const faqs = [
   {
     question: "¿Dónde se procesan mis transferencias dentro de España?",
     answer:
-      "Tus archivos ingresan directamente en los centros perimetrales de Cloudflare en Madrid (MAD), Barcelona (BCN) o Valencia (VLC), conectados a ESpanix y CATNIX para evitar latencia transatlántica.",
+      "Tus archivos se suben directamente en los centros perimetrales de Madrid (MAD), Barcelona (BCN) o Valencia (VLC), conectados a ESpanix y CATNIX para evitar la latencia transatlántica.",
   },
   {
     question: "¿Cómo pago desde España y qué métodos se aceptan?",
     answer:
-      "Envías hasta 25 GB completamente gratis. Para paquetes prepagos de 12 meses ($10/50GB, $20/100GB, $180/1TB), puedes pagar al instante con Apple Pay o cualquier tarjeta Visa/Mastercard europea vía Stripe, sin cuotas fijas mensuales.",
+      "Envías hasta 10 GB completamente gratis (retención de 3 días). Para paquetes prepagos de 12 meses —50 GB por 10 US$ (~9,20 €), 100 GB por 20 US$ (~18,40 €), 1 TB por 180 US$ (~165 €) o 5 TB por 800 US$—, puedes pagar al instante con Apple Pay o cualquier tarjeta Visa/Mastercard europea vía Stripe, sin cuotas fijas mensuales.",
   },
   {
     question: "¿Cumple con el RGPD (GDPR) para empresas y estudios españoles?",
     answer:
-      "Sí. Toda la transmisión está cifrada con TLS 1.3 y los datos en reposo se almacenan con cifrado AES-256 en almacenamiento perimetral seguro de Cloudflare, cumpliendo con los estándares europeos de privacidad.",
+      "Sí. Toda la transmisión está cifrada con TLS 1.3 y los datos en reposo se almacenan con cifrado AES-256 en almacenamiento perimetral seguro, cumpliendo con los estándares europeos de privacidad.",
   },
 ];
 
@@ -47,7 +47,7 @@ const jsonLd = {
       "@id": `${canonical}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio (Español)", item: `${brand.siteUrl}/es` },
-        { "@type": "ListItem", position: 2, name: "Infraestructura Regional", item: `${brand.siteUrl}/es` },
+        { "@type": "ListItem", position: 2, name: "Infraestructura regional", item: `${brand.siteUrl}/es` },
         { "@type": "ListItem", position: 3, name: "España (MAD / BCN / VLC)", item: canonical },
       ],
     },
@@ -69,20 +69,26 @@ const jsonLd = {
   description={pageDescription}
   canonical={canonical}
   lang="es-ES"
-  hreflang={[{ lang: "es-ES", href: canonical }, { lang: "es", href: `${brand.siteUrl}/es` }]}
+  hreflang={[
+    { lang: "en", href: `${brand.siteUrl}/` },
+    { lang: "es-ES", href: canonical },
+    { lang: "es", href: `${brand.siteUrl}/es` },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt` },
+    { lang: "x-default", href: `${brand.siteUrl}/` },
+  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
   <div class="relative overflow-hidden bg-ocean-950 text-slate-100 min-h-screen font-body">
-    <EsHeader activeNav="espana" enHref="/?lang=en" esHref="/es/espana" ptHref="/pt/transferencia-arquivos-grandes-sao-paulo-sp-cdn" />
+    <EsHeader activeNav="espana" enHref="/" esHref="/es/espana" ptHref="/pt" />
 
     <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
-      <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
+      <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
         <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Inicio (Español)</a>
         <span aria-hidden="true">/</span>
-        <span class="text-slate-400">Infraestructura Perimetral</span>
+        <span class="text-slate-400">Infraestructura perimetral</span>
         <span aria-hidden="true">/</span>
         <span class="text-slate-200 font-medium">España 🇪🇸</span>
       </nav>
@@ -94,21 +100,21 @@ const jsonLd = {
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
-          Envía Archivos Grandes en España <span class="text-gold-400">a Velocidad Gigabit.</span>
+          Envía archivos grandes en España <span class="text-gold-400">a velocidad gigabit.</span>
         </h1>
 
         <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
           <p>
-            <strong class="text-white font-display">Para transferir archivos pesados en España:</strong> aprovecha la red perimetral Anycast de Cloudflare conectada directamente a ESpanix y CATNIX (Movistar Fibra, MasOrange, Vodafone, Digi). Sube videos 4K, brutos ProRes y proyectos completos con hasta 25 GB gratis y sin cuotas mensuales de $23 USD.
+            <strong class="text-white font-display">Para transferir archivos pesados en España:</strong> aprovecha nuestra red perimetral Anycast conectada directamente a ESpanix y CATNIX (Movistar Fibra, MasOrange, Vodafone, Digi). Sube vídeos 4K, brutos ProRes y proyectos completos con hasta 10 GB gratis (retención de 3 días) o paquetes prepagos desde 10 US$ (~9,20 €) sin cuotas mensuales recurrentes.
           </p>
         </div>
       </header>
 
-      <section class="mb-16">
+      <section id="uploader" class="mb-16">
         <div class="text-center mb-6 space-y-3">
           <EdgeLocationBadge client:load />
           <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga Perimetral España</span>
+            <span class="label-caps text-gold-400/90 text-xs">Carga perimetral en España</span>
             <p class="text-xs text-slate-400 font-body">Arrastra archivos o carpetas para transferir por fibra óptica a velocidad de línea.</p>
           </div>
         </div>
@@ -119,22 +125,22 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de Presencia Perimetral en España</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de presencia perimetral en España</h2>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">MAD • MADRID</span>
-            <h3 class="text-lg font-bold text-white font-display">Hub Central Ibérico</h3>
-            <p class="text-xs text-slate-300 font-body leading-relaxed">Conexión directa con ESpanix y los principales operadores de fibra en la península para transferencias de menos de 10ms.</p>
+            <h3 class="text-lg font-bold text-white font-display">Hub central ibérico</h3>
+            <p class="text-xs text-slate-300 font-body leading-relaxed">Conexión directa con ESpanix y los principales operadores de fibra en la península para transferencias de menos de 10 ms.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">BCN • BARCELONA</span>
-            <h3 class="text-lg font-bold text-white font-display">Arco Mediterráneo</h3>
+            <h3 class="text-lg font-bold text-white font-display">Arco mediterráneo</h3>
             <p class="text-xs text-slate-300 font-body leading-relaxed">Enrutamiento optimizado mediante CATNIX para estudios de diseño, agencias de publicidad y productoras audiovisuales catalanas.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">VLC • VALENCIA</span>
             <h3 class="text-lg font-bold text-white font-display">Nodo Levante</h3>
-            <p class="text-xs text-slate-300 font-body leading-relaxed">Baja latencia y reanudación automática de bloques para envíos directos a clientes en toda la Comunidad Valenciana y Andalucía.</p>
+            <p class="text-xs text-slate-300 font-body leading-relaxed">Baja latencia y reanudación automática de bloques para envíos directos a destinatarios en toda la Comunidad Valenciana y Andalucía.</p>
           </div>
         </div>
       </section>
@@ -144,7 +150,7 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas Frecuentes en España</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas frecuentes en España</h2>
         <div class="space-y-4">
           {faqs.map((faq, idx) => (
             <details open={idx === 0} class="group rounded-2xl apple-subtle-glass border border-white/10 p-5">
@@ -159,13 +165,13 @@ const jsonLd = {
       </section>
 
       <section class="mt-16 pt-12 border-t border-white/10 space-y-6">
-        <h2 class="text-2xl font-bold text-white font-display">Flujos Destacados en España</h2>
+        <h2 class="text-2xl font-bold text-white font-display">Flujos destacados en España</h2>
         <div class="flex flex-wrap gap-2.5">
-          <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Videos 4K Sin Perder Calidad</a>
-          <a href="/es/enviar-archivos-mas-de-2gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de Más de 2 GB</a>
+          <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar vídeos 4K sin perder calidad</a>
+          <a href="/es/enviar-archivos-mas-de-2gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar archivos de más de 2 GB</a>
           <a href="/es/alternativas-a-wetransfer" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Alternativas a WeTransfer en España</a>
-          <a href="/es/enviar-archivos-10gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de 10 GB Gratis</a>
-          <a href="/es/transferir-archivos-cad-bim" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Transferir Modelos BIM y AutoCAD</a>
+          <a href="/es/enviar-archivos-10gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar archivos de 10 GB gratis</a>
+          <a href="/es/transferir-archivos-cad-bim" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Transferir modelos BIM y AutoCAD</a>
         </div>
       </section>
     </main>

@@ -6,9 +6,9 @@ import { FiShield, FiZap, FiGlobe, FiArrowUpRight } from "react-icons/fi";
 const coreLinks = [
   { href: "/", label: "Home" },
   { href: "/transfer", label: "Start File Transfer" },
-  { href: "/plans", label: "Plans & PAYG Pricing" },
+  { href: "/plans", label: "Plans & Pricing" },
   { href: "/compare", label: "Provider Comparison" },
-  { href: "/directory", label: "46-Workflow Directory" },
+  { href: "/directory", label: "Workflow Directory" },
   { href: "/guides", label: "Engineering Guides" },
   { href: "/tools/transfer-speed-calculator", label: "Transfer Speed Calculator" },
   { href: "/blogs", label: "Engineering Blog" },
@@ -19,7 +19,7 @@ const coreLinks = [
 
 const quotaBypassLinks = [
   { href: "/wetransfer-alternative", label: "WeTransfer Alternative" },
-  { href: "/wetransfer-2gb-limit-bypass", label: "WeTransfer 2GB Limit Bypass" },
+  { href: "/wetransfer-2gb-limit-bypass", label: "WeTransfer 2 GB Limit Bypass" },
   { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer Alternative" },
   { href: "/dropbox-file-size-limit-bypass", label: "Dropbox File Size Limit Bypass" },
   { href: "/google-drive-download-quota-exceeded-fix", label: "Google Drive Quota Exceeded Fix" },
@@ -41,14 +41,14 @@ const proWorkflowLinks = [
 ];
 
 const payloadAndGuidesLinks = [
-  { href: "/send-5gb-file-free", label: "Send 5GB File Free" },
-  { href: "/send-10gb-file-free", label: "Send 10GB File Free" },
-  { href: "/send-25gb-file", label: "Send 25GB File Online" },
-  { href: "/send-50gb-file", label: "Send 50GB File Online" },
-  { href: "/send-100gb-file", label: "Send 100GB File Online" },
-  { href: "/send-500gb-file", label: "Send 500GB File Online" },
-  { href: "/send-1tb-file", label: "Send 1TB File Online" },
-  { href: "/send-2tb-file", label: "Send 2TB File Online" },
+  { href: "/send-5gb-file-free", label: "Send 5 GB File Free" },
+  { href: "/send-10gb-file-free", label: "Send 10 GB File Free" },
+  { href: "/send-25gb-file", label: "Send 25 GB File Online" },
+  { href: "/send-50gb-file", label: "Send 50 GB File Online" },
+  { href: "/send-100gb-file", label: "Send 100 GB File Online" },
+  { href: "/send-500gb-file", label: "Send 500 GB File Online" },
+  { href: "/send-1tb-file", label: "Send 1 TB File Online" },
+  { href: "/send-2tb-file", label: "Send 2 TB File Online" },
   { href: "/guides/why-large-file-transfers-are-slow", label: "Guide: Why File Transfers Are Slow" },
   { href: "/guides/large-file-transfer-cost-calculator", label: "Guide: Cloud Egress Cost Breakdown" },
   { href: "/guides/transfer-large-files-without-failed-uploads", label: "Guide: Prevent Failed Uploads" },
@@ -66,7 +66,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12 border-b border-white/10 items-start">
           <div className="lg:col-span-6 space-y-4">
             <a href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-ocean-950 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300">
+              <div
+                aria-hidden="true"
+                className="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-ocean-950 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300"
+              >
                 G
               </div>
               <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
@@ -74,17 +77,17 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-sm text-slate-300 max-w-xl leading-relaxed">
-              {brand.description} Deliver 5GB to 2TB+ media packages, camera RAW, and CAD/BIM archives with 8x parallel multipart streaming and zero cloud egress markups.
+              {brand.description} Deliver 10 GB free up to 5 TB media packages, camera RAW, and CAD/BIM archives with 8x parallel multipart streaming and zero cloud egress fees.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-1">
               <span className="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
-                <FiShield className="text-sm" /> TLS 1.3 &amp; AES-256-GCM
+                <FiShield className="text-sm" aria-hidden="true" /> TLS 1.3 &amp; AES-256-GCM
               </span>
               <span className="inline-flex items-center gap-1.5 text-gold-400 font-medium">
-                <FiZap className="text-sm" /> 8x Parallel Multipart Ingest
+                <FiZap className="text-sm" aria-hidden="true" /> 8x Parallel Multipart Upload
               </span>
               <span className="inline-flex items-center gap-1.5 text-sky-400 font-medium">
-                <FiGlobe className="text-sm" /> 335+ Anycast Edge PoPs
+                <FiGlobe className="text-sm" aria-hidden="true" /> 335+ Global Edge Locations
               </span>
             </div>
           </div>
@@ -94,19 +97,19 @@ export default function Footer() {
               href="/directory"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ocean-900/90 border border-white/10 hover:border-gold-500/40 text-xs font-semibold text-white hover:text-gold-400 transition-all"
             >
-              Browse All 46 Transfer Workflows <FiArrowUpRight />
+              Browse All Transfer Workflows <FiArrowUpRight aria-hidden="true" />
             </a>
             <a
               href="/tools/transfer-speed-calculator"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ocean-900/90 border border-white/10 hover:border-gold-500/40 text-xs font-semibold text-white hover:text-gold-400 transition-all"
             >
-              Transfer Speed &amp; Egress Calculator <FiArrowUpRight />
+              Transfer Speed &amp; Cost Calculator <FiArrowUpRight aria-hidden="true" />
             </a>
             <a
               href="/guides"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ocean-900/90 border border-white/10 hover:border-gold-500/40 text-xs font-semibold text-white hover:text-gold-400 transition-all"
             >
-              Engineering Guides <FiArrowUpRight />
+              Engineering Guides <FiArrowUpRight aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -197,7 +200,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center gap-5">
             <a href="/directory" className="hover:text-gold-400 transition-colors">
-              All 46 Workflows
+              All Transfer Workflows
             </a>
             <a href="/guides" className="hover:text-gold-400 transition-colors">
               Architecture Guides

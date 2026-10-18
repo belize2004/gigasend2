@@ -57,9 +57,9 @@ const AuthLoader = () => {
 
         {/* Loading Text */}
         <div className="space-y-2">
-          <h2 className="text-xl font-bold font-display text-white">Authenticating</h2>
+          <h2 className="text-xl font-bold font-display text-white">Signing In…</h2>
           <p className="text-slate-300 text-sm">
-            Verifying your credentials securely...
+            Checking your account session.
           </p>
         </div>
 

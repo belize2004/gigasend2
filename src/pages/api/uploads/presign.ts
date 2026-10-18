@@ -16,23 +16,23 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     userId = session.userId;
 
     if (!rawBody || typeof rawBody !== "object") {
-      return json({ error: "Invalid JSON body" }, 400);
+      return json({ error: "Couldn’t prepare the upload connection. Please try again." }, 400);
     }
     body = rawBody;
     const { uploadId, key, partNumber, partNumbers } = body;
     const requestedPartNumbers = Array.isArray(partNumbers) ? partNumbers : [partNumber];
 
     if (!uploadId || !key || requestedPartNumbers.length === 0 || requestedPartNumbers.some((value) => value == null)) {
-      return json({ error: "Missing uploadId, key, or partNumber" }, 400);
+      return json({ error: "Couldn’t prepare the upload connection. Please select the file and try again." }, 400);
     }
 
     if (requestedPartNumbers.length > MAX_PRESIGN_BATCH_SIZE) {
-      return json({ error: `Too many part numbers requested (max ${MAX_PRESIGN_BATCH_SIZE})` }, 400);
+      return json({ error: `Too many upload parts requested at once (maximum ${MAX_PRESIGN_BATCH_SIZE}).` }, 400);
     }
 
     const partNos = requestedPartNumbers.map((value) => Number(value));
     if (partNos.some((partNo) => !Number.isInteger(partNo) || partNo < 1 || partNo > 10_000)) {
-      return json({ error: "Invalid partNumber" }, 400);
+      return json({ error: "Couldn’t prepare the upload connection due to an invalid part number." }, 400);
     }
 
     const urlMap = await presignParts(key, uploadId, partNos);
@@ -50,6 +50,6 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         partNumber: body.partNumber,
       },
     });
-    return json({ error: "Failed to generate presigned URL" }, 500);
+    return json({ error: "Couldn’t prepare the upload connection. Check your internet connection and try again." }, 500);
   }
 };

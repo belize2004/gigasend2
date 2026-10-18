@@ -8,11 +8,13 @@ import {
   PT_CLUSTER_METADATA,
 } from "../../data/ptSeoLandingPages";
 import { PT_ENGINEERING_GUIDES } from "../../data/ptGuides";
+import { getLanguageSwitchPaths } from "../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
 import TransferEmbed from "@/src/components/TransferEmbed";
 
 export const prerender = true;
 
+const langPaths = getLanguageSwitchPaths("/pt");
 const canonical = `${brand.siteUrl}/pt`;
 const hreflang = [
   { lang: "en", href: `${brand.siteUrl}/` },
@@ -28,9 +30,9 @@ const clusters = PT_CLUSTER_METADATA.map((meta) => ({
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: `${brand.productName} Brasil — Central de Transferência de Arquivos Pesados (${ptSeoLandingPages.length} Soluções)`,
+  name: `${brand.productName} Brasil — Central de transferência de arquivos pesados (${ptSeoLandingPages.length} soluções)`,
   description:
-    "Envie arquivos pesados de até 25GB grátis ou 50GB–500GB+ no Brasil sem cadastro para o cliente. Pacotes de 12 meses ($20/100GB • $180/1TB) e CDN SP/RJ.",
+    "Envie arquivos pesados de até 10 GB grátis ou 50 GB–500 GB+ no Brasil sem cadastro para o destinatário. Pacotes de 12 meses (US$ 20/100 GB • US$ 180/1 TB) e CDN SP/RJ.",
   url: canonical,
   inLanguage: "pt-BR",
   hasPart: [
@@ -49,51 +51,52 @@ const collectionSchema = {
 ---
 
 <BaseLayout
-  title={`Enviar Arquivos Pesados no Brasil (Até 25GB Grátis) | ${brand.productName}`}
-  description="Transfira 50GB, 100GB ou 500GB num único link no Brasil (até 25GB grátis). Zero cadastro para o cliente, CDN SP/RJ e pacotes de 12 meses ($20/100GB • $180/1TB)."
+  title={`Enviar arquivos pesados no Brasil (até 10 GB grátis) | ${brand.productName}`}
+  description="Transfira 50 GB, 100 GB ou 500 GB num único link no Brasil (até 10 GB grátis). Zero cadastro para o destinatário, CDN SP/RJ e pacotes de 12 meses (US$ 20/100 GB • US$ 180/1 TB)."
   canonical={canonical}
   lang="pt-BR"
   hreflang={hreflang}
 >
   <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   </Fragment>
 
   <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
-    <PtHeader activeNav="hub" enHref="/?lang=en" ptHref="/pt?lang=pt" />
+    <PtHeader activeNav="hub" enHref={langPaths.enHref} esHref={langPaths.esHref} ptHref={langPaths.ptHref} />
 
     <section class="relative bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 border-b border-white/10">
       <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-20">
         <div>
           <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
             <span>🇧🇷</span>
-            <span>CDN Local São Paulo & Rio de Janeiro • Sem Timeouts (Claro, Vivo, Starlink)</span>
+            <span>CDN local em São Paulo e Rio de Janeiro • Sem timeouts (Claro, Vivo, Starlink)</span>
           </div>
           <h1 class="max-w-4xl text-4xl font-black leading-tight text-white font-display tracking-tight sm:text-5xl">
-            Transferência de Arquivos Pesados no <span class="text-gold-400">Brasil.</span>
+            Transferência de arquivos pesados no <span class="text-gold-400">Brasil.</span>
           </h1>
           <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Transfira <strong>50GB, 100GB ou 500GB em um único link seguro</strong> (com até <strong>25 GB grátis</strong>) e <strong>Zero Cadastro para o Cliente</strong>: o cliente clica no link e o download começa direto na velocidade máxima, sem exigir login ou criação de conta. Pacotes pré-pagos (<strong>$20 por 100GB / $180 por 1TB</strong>) válidos por 12 meses inteiros — chega de pagar mensalidades em meses sem gravações.
+            Transfira <strong>50 GB, 100 GB ou 500 GB em um único link seguro</strong> (com até <strong>10 GB grátis</strong> por 3 dias) e <strong>zero cadastro para o destinatário</strong>: o cliente clica no link e o download começa direto na velocidade máxima, sem exigir login ou criação de conta. Pacotes pré-pagos (<strong>US$ 20 por 100 GB / US$ 180 por 1 TB</strong>) válidos por 12 meses inteiros — chega de pagar mensalidades em meses sem gravações.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="/transfer" class="btn-gold inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-              Enviar Arquivos Agora (Até 25 GB Grátis)
+            <a href="#uploader-stage" class="btn-gold inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
+              Enviar arquivos agora (até 10 GB grátis)
             </a>
             <a href="/pt/planos" class="btn-outline-gold inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold tap-tactile">
-              Pacotes Pré-Pagos ($20 / 100GB • $180 / 1TB)
+              Pacotes pré-pagos (US$ 20 / 100 GB • US$ 180 / 1 TB)
             </a>
           </div>
           <div class="mt-8 grid max-w-2xl grid-cols-2 sm:grid-cols-4 gap-3 text-center text-sm">
             <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">Zero Login</div>
-              <div class="mt-1 text-[11px] text-slate-300">Download direto p/ cliente</div>
+              <div class="text-lg font-black text-gold-400 font-display">Zero login</div>
+              <div class="mt-1 text-[11px] text-slate-300">Download direto para o destinatário</div>
             </div>
             <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">$20 / 100GB</div>
-              <div class="mt-1 text-[11px] text-slate-300">$180 / 1TB (12 meses)</div>
+              <div class="text-lg font-black text-gold-400 font-display">US$ 20 / 100 GB</div>
+              <div class="mt-1 text-[11px] text-slate-300">US$ 180 / 1 TB (12 meses)</div>
             </div>
             <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">SP & RJ</div>
+              <div class="text-lg font-black text-gold-400 font-display">SP e RJ</div>
               <div class="mt-1 text-[11px] text-slate-300">CDN na borda sem timeout</div>
             </div>
             <div class="apple-glass rounded-xl p-3.5">
@@ -104,7 +107,7 @@ const collectionSchema = {
 
           <div class="mt-8">
             <p class="text-[11px] font-mono uppercase tracking-wider text-slate-300 mb-2.5">
-              Navegue pelos 6 Clusters de Transferência ({ptSeoLandingPages.length} Fluxos Dedicados):
+              Navegue pelos 6 clusters de transferência ({ptSeoLandingPages.length} fluxos dedicados):
             </p>
             <div class="flex flex-wrap gap-2">
               {clusters.map((cluster) => (
@@ -121,7 +124,7 @@ const collectionSchema = {
           </div>
         </div>
 
-        <div class="flex flex-col gap-6">
+        <div id="uploader-stage" class="flex flex-col gap-6 scroll-mt-24">
           <TransferEmbed client:load />
         </div>
       </div>
@@ -130,9 +133,9 @@ const collectionSchema = {
     <section class="border-b border-white/10 bg-ocean-900/50 py-14">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl">
-          <span class="label-caps text-gold-400 text-xs">Por Que Produtoras e Engenheiros no Brasil Escolhem o {brand.productName}</span>
+          <span class="label-caps text-gold-400 text-xs">Por que produtoras e engenheiros no Brasil escolhem o {brand.productName}</span>
           <h2 class="mt-1 text-2xl sm:text-3xl font-black text-white font-display">
-            4 Diferenciais de Borda para Entregas Pesadas no Brasil
+            4 diferenciais de borda para entregas pesadas no Brasil
           </h2>
         </div>
         <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -222,9 +225,9 @@ const collectionSchema = {
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <span class="label-caps text-gold-400 text-xs">Biblioteca de Engenharia & Redes no Brasil</span>
+            <span class="label-caps text-gold-400 text-xs">Biblioteca de engenharia e redes no Brasil</span>
             <h2 class="mt-1 text-2xl sm:text-3xl font-black text-white font-display">
-              Guias Técnicos de Transferência de Arquivos Pesados
+              Guias técnicos de transferência de arquivos pesados
             </h2>
           </div>
           <a href="/pt/guias" class="inline-flex min-h-[44px] items-center text-xs font-bold text-gold-400 hover:underline">

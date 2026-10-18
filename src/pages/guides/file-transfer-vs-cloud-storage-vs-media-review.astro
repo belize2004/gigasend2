@@ -10,8 +10,8 @@ const canonical = `${brand.siteUrl}/guides/file-transfer-vs-cloud-storage-vs-med
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  headline: "File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams",
-  description: "When to use point-to-point file transfer (Gigasend) vs cloud storage sync (Google Drive/Dropbox) vs video review (Frame.io).",
+  headline: "File Transfer vs. Cloud Storage vs. Media Review: The Right Tool for Creative Teams",
+  description: "When to use point-to-point file transfer (Gigasend) vs. cloud storage sync (Google Drive/Dropbox) vs. video review (Frame.io).",
   url: canonical,
   author: {
     "@type": "Organization",
@@ -28,8 +28,8 @@ const articleSchema = {
 ---
 
 <BaseLayout
-  title={`File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams | ${brand.productName}`}
-  description="Compare file transfer vs cloud storage vs media review tools. Learn when to use Gigasend vs Dropbox vs Frame.io in video and post-production workflows."
+  title={`File Transfer vs. Cloud Storage vs. Media Review: The Right Tool for Creative Teams | ${brand.productName}`}
+  description="Compare file transfer vs. cloud storage vs. media review tools. Learn when to use Gigasend vs. Dropbox vs. Frame.io in video and post-production workflows."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -65,10 +65,10 @@ const articleSchema = {
     <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
         <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li><a href="/guides" class="hover:text-gold-400 transition-colors">Guides</a></li>
-        <li>/</li>
-        <li class="text-gold-400 font-semibold" aria-current="page">File Transfer vs Cloud Storage vs Media Review</li>
+        <li aria-hidden="true">/</li>
+        <li class="text-gold-400 font-semibold" aria-current="page">File Transfer vs. Cloud Storage vs. Media Review</li>
       </ol>
     </nav>
 
@@ -78,7 +78,7 @@ const articleSchema = {
           <span>Creative Workflow Architecture</span>
         </div>
         <h1 class="mt-4 text-4xl font-black tracking-tight text-white font-display sm:text-5xl">
-          File Transfer vs Cloud Storage vs Media Review
+          File Transfer vs. Cloud Storage vs. Media Review
         </h1>
         <p class="mt-4 text-lg text-slate-300 leading-relaxed">
           Many post-production and design teams mistakenly try to use one tool for everything. Understanding the distinct purpose of point-to-point dispatch, collaborative syncing, and frame-accurate review saves thousands of dollars and hours of wasted time.
@@ -99,7 +99,7 @@ const articleSchema = {
                 <tr class="bg-ocean-900/70">
                   <td class="px-6 py-4 font-bold text-gold-400 font-display">Point-to-Point Transfer ({brand.productName})</td>
                   <td class="px-6 py-4 text-white">Ephemeral deliverable dispatch</td>
-                  <td class="px-6 py-4 text-slate-200">Sending 25GB–5TB client packages & camera masters</td>
+                  <td class="px-6 py-4 text-slate-200">Sending 10 GB–5 TB client packages & camera masters</td>
                   <td class="px-6 py-4 text-slate-400">Long-term permanent archival</td>
                 </tr>
                 <tr>
@@ -123,13 +123,13 @@ const articleSchema = {
           <span class="label-caps text-gold-400 text-xs">Zero Egress • 335+ Edge PoPs</span>
           <h3 class="mt-2 text-2xl font-black font-display">Use the Right Tool for Large Deliverables</h3>
           <p class="mt-2 text-slate-300 text-sm">
-            Clean ephemeral transfers up to 25GB free. No recipient accounts required.
+            Clean ephemeral transfers up to 10 GB free. No recipient accounts required.
           </p>
           <a
             href="/transfer"
             class="btn-gold mt-6 inline-block rounded-xl px-8 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile"
           >
-            Transfer Files With Gigasend
+            Transfer Files with Gigasend
           </a>
         </div>
       </div>
@@ -154,7 +154,7 @@ const articleSchema = {
           <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
             <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs monthly subscriptions and AWS egress fees.</p>
+            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs. monthly subscriptions and AWS egress fees.</p>
           </a>
           <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
@@ -174,7 +174,7 @@ const articleSchema = {
       currentSlug="guides/file-transfer-vs-cloud-storage-vs-media-review"
       internalLinks={[
         { href: "/compare", label: "Competitor Comparison Matrix" },
-        { href: "/send-large-files-free", label: "Send Large Files Free (25GB)" },
+        { href: "/send-large-files-free", label: "Send Large Files Free (10 GB)" },
         { href: "/send-large-video-files", label: "Send Large Video Files" },
         { href: "/wetransfer-alternative", label: "WeTransfer Alternative" },
         { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer Alternative" },
@@ -192,7 +192,7 @@ const articleSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -212,14 +212,14 @@ const articleSchema = {
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
               <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
             </ul>
           </div>
           <div>
             <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
               <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

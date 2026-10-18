@@ -9,24 +9,24 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
     const body = await request.json().catch(() => null);
     if (!body || typeof body !== "object") {
-      return json({ success: false, message: "Invalid JSON body" }, 400);
+      return json({ success: false, message: "Please enter both your email address and password." }, 400);
     }
     const { email, password } = body as Record<string, unknown>;
 
     if (!email || typeof email !== "string" || !password || typeof password !== "string") {
-      return json({ success: false, message: "Missing fields" }, 400);
+      return json({ success: false, message: "Please enter both your email address and password." }, 400);
     }
 
     const db = getDb(locals);
 
     const user = await findUserByEmail(db, email);
     if (!user) {
-      return json({ success: false, message: "Invalid email or password" }, 401);
+      return json({ success: false, message: "Incorrect email or password. Please try again." }, 401);
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return json({ success: false, message: "Invalid email or password" }, 401);
+      return json({ success: false, message: "Incorrect email or password. Please try again." }, 401);
     }
 
     const secretKey = getJwtSecret((locals as any)?.runtime?.env);
@@ -39,10 +39,10 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json({
       success: true,
       data: { _id: user.id, email: user.email },
-      message: "Login successful",
+      message: "Signed in successfully.",
     });
   } catch (err: any) {
     console.error("Sign-in error:", err);
-    return json({ success: false, message: "Failed to sign in. Please try again." }, 500);
+    return json({ success: false, message: "Couldn’t sign you in. Please try again." }, 500);
   }
 };

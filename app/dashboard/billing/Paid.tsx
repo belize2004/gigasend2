@@ -38,7 +38,7 @@ export default function Paid(
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Billing & Subscription</h1>
           <p className="text-xs sm:text-sm text-slate-300 font-body mt-0.5">
             {data.isVipPartner
-              ? "VIP Influencer Partner access granted with 80 GB storage and 30-day retention through October 18, 2027."
+              ? "Complimentary Partner access with 80 GB of storage and 30-day file retention through October 18, 2027."
               : "Manage your active plan, billing schedule, and subscription preferences."}
           </p>
         </div>

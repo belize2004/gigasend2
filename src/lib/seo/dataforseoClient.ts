@@ -137,6 +137,26 @@ export class DataForSeoClient {
     return Boolean(this.login && this.password);
   }
 
+  /**
+   * Loads DataForSEO credentials from D1 seo_config table if not already provided via env/config
+   */
+  public async loadCredentialsFromDb(): Promise<void> {
+    if (this.hasCredentials() || !this.db) return;
+    try {
+      const { results = [] } = await this.db
+        .prepare(
+          "SELECT key, value FROM seo_config WHERE key IN ('dataforseo_login', 'dataforseo_password')"
+        )
+        .all<{ key: string; value: string }>();
+      for (const r of results) {
+        if (r.key === "dataforseo_login" && r.value) this.login = r.value;
+        if (r.key === "dataforseo_password" && r.value) this.password = r.value;
+      }
+    } catch {
+      // ignore if seo_config not available
+    }
+  }
+
   private getAuthHeader(): string {
     if (!this.login || !this.password) return "";
     const token = Buffer.from(`${this.login}:${this.password}`).toString("base64");
@@ -222,6 +242,8 @@ export class DataForSeoClient {
   ): Promise<Map<string, SearchVolumeItem>> {
     const results = new Map<string, SearchVolumeItem>();
     if (keywords.length === 0) return results;
+
+    await this.loadCredentialsFromDb();
 
     const uncached: string[] = [];
     for (const kw of keywords) {
@@ -345,6 +367,8 @@ export class DataForSeoClient {
     const results = new Map<string, SearchIntentItem>();
     if (keywords.length === 0) return results;
 
+    await this.loadCredentialsFromDb();
+
     const uncached: string[] = [];
     for (const kw of keywords) {
       const cacheKey = `intent_${languageCode || languageName}_${kw.toLowerCase().trim()}`;
@@ -458,6 +482,8 @@ export class DataForSeoClient {
     const results = new Map<string, KeywordDifficultyItem>();
     if (keywords.length === 0) return results;
 
+    await this.loadCredentialsFromDb();
+
     const uncached: string[] = [];
     for (const kw of keywords) {
       const cacheKey = `kd_${locationName}_${kw.toLowerCase().trim()}`;
@@ -565,6 +591,7 @@ export class DataForSeoClient {
     locationCode = this.defaultLocationCode,
     languageCode = this.defaultLanguageCode
   ): Promise<SerpSnapshotItem> {
+    await this.loadCredentialsFromDb();
     const norm = keyword.toLowerCase().trim();
     const cacheKey = `serp_${locationName}_${norm}`;
     const cached = await this.getFromCache<SerpSnapshotItem>(cacheKey);
@@ -686,6 +713,7 @@ export class DataForSeoClient {
     locationCode = this.defaultLocationCode,
     languageCode = this.defaultLanguageCode
   ): Promise<KeywordSuggestionItem[]> {
+    await this.loadCredentialsFromDb();
     const norm = keyword.toLowerCase().trim();
     const cacheKey = `sugg_${locationName}_${norm}_${limit}`;
     const cached = await this.getFromCache<KeywordSuggestionItem[]>(cacheKey);
@@ -777,6 +805,7 @@ export class DataForSeoClient {
     locationCode?: number;
     languageCode?: string;
   }): Promise<KeywordSuggestionItem[]> {
+    await this.loadCredentialsFromDb();
     const maxKd = options.maxKd ?? 25;
     const limit = options.limit ?? 100;
     const locationName = options.locationName || this.defaultLocationName;

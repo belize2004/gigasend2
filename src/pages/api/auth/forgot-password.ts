@@ -11,7 +11,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const { email } = await request.json().catch(() => ({}));
 
     if (!email || typeof email !== "string" || !email.includes("@")) {
-      return json({ success: false, message: "A valid email address is required" }, 400);
+      return json({ success: false, message: "Please enter a valid email address." }, 400);
     }
 
     const cleanEmail = email.trim().toLowerCase();
@@ -22,7 +22,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     if (!user) {
       return json({
         success: true,
-        message: "If an account exists with that email, a password reset link has been sent.",
+        message: "If an account exists for that email, we sent a password reset link.",
       });
     }
 
@@ -111,10 +111,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     return json({
       success: true,
-      message: "If an account exists with that email, a password reset link has been sent.",
+      message: "If an account exists for that email, we sent a password reset link.",
     });
   } catch (err: any) {
     console.error("Forgot password error:", err);
-    return json({ success: false, message: "Failed to process password reset. Please try again." }, 500);
+    return json({ success: false, message: "Couldn’t send the reset link. Please try again." }, 500);
   }
 };

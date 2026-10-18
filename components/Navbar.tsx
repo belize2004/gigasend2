@@ -53,7 +53,10 @@ const Navbar = () => {
             href="/"
             className="flex items-center gap-3 group tap-tactile text-left"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-ocean-950 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300">
+            <div
+              aria-hidden="true"
+              className="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-ocean-950 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300"
+            >
               G
             </div>
             <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
@@ -143,6 +146,7 @@ const Navbar = () => {
                 onClick={() => setLangCookie('en')}
                 className={`inline-flex min-h-[32px] min-w-[32px] items-center justify-center rounded-lg px-2 transition-colors ${!isPt && !isEs ? 'bg-gold-500/15 font-bold text-gold-400' : 'text-slate-300 hover:bg-white/5 hover:text-white'}`}
                 aria-current={!isPt && !isEs ? 'true' : undefined}
+                aria-label="English"
                 title="English"
               >
                 EN
@@ -152,6 +156,7 @@ const Navbar = () => {
                 onClick={() => setLangCookie('es')}
                 className={`inline-flex min-h-[32px] min-w-[32px] items-center justify-center rounded-lg px-2 transition-colors ${isEs ? 'bg-gold-500/15 font-bold text-gold-400' : 'text-slate-300 hover:bg-white/5 hover:text-white'}`}
                 aria-current={isEs ? 'true' : undefined}
+                aria-label="Español"
                 title="Español"
               >
                 ES
@@ -161,6 +166,7 @@ const Navbar = () => {
                 onClick={() => setLangCookie('pt')}
                 className={`inline-flex min-h-[32px] min-w-[32px] items-center justify-center rounded-lg px-2 transition-colors ${isPt ? 'bg-gold-500/15 font-bold text-gold-400' : 'text-slate-300 hover:bg-white/5 hover:text-white'}`}
                 aria-current={isPt ? 'true' : undefined}
+                aria-label="Português"
                 title="Português"
               >
                 PT
@@ -172,7 +178,7 @@ const Navbar = () => {
                 className="btn-outline-gold px-4 py-2 rounded-xl text-xs tap-tactile"
               >
                 <FiLogOut className="mr-1.5 text-sm" />
-                Logout
+                Sign Out
               </button>
             ) : (
               <>
@@ -204,6 +210,9 @@ const Navbar = () => {
                 href={`${enPath}?lang=en`}
                 onClick={() => setLangCookie('en')}
                 className={`inline-flex min-h-[32px] min-w-[30px] items-center justify-center rounded-lg px-1.5 ${!isPt && !isEs ? 'bg-gold-500/15 font-bold text-gold-400' : 'text-slate-300 hover:text-white'}`}
+                aria-current={!isPt && !isEs ? 'true' : undefined}
+                aria-label="English"
+                title="English"
               >
                 EN
               </a>
@@ -211,6 +220,9 @@ const Navbar = () => {
                 href={`${esPath}?lang=es`}
                 onClick={() => setLangCookie('es')}
                 className={`inline-flex min-h-[32px] min-w-[30px] items-center justify-center rounded-lg px-1.5 ${isEs ? 'bg-gold-500/15 font-bold text-gold-400' : 'text-slate-300 hover:text-white'}`}
+                aria-current={isEs ? 'true' : undefined}
+                aria-label="Español"
+                title="Español"
               >
                 ES
               </a>
@@ -218,6 +230,9 @@ const Navbar = () => {
                 href={`${ptPath}?lang=pt`}
                 onClick={() => setLangCookie('pt')}
                 className={`inline-flex min-h-[32px] min-w-[30px] items-center justify-center rounded-lg px-1.5 ${isPt ? 'bg-gold-500/15 font-bold text-gold-400' : 'text-slate-300 hover:text-white'}`}
+                aria-current={isPt ? 'true' : undefined}
+                aria-label="Português"
+                title="Português"
               >
                 PT
               </a>
@@ -226,6 +241,7 @@ const Navbar = () => {
               onClick={toggleMenu}
               className="p-2 rounded-xl text-slate-300 hover:text-gold-400 hover:bg-white/5 border border-white/10 transition-colors duration-200 tap-tactile"
               aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <FiX className="text-2xl" /> : <FiMenu className="text-2xl" />}
             </button>
@@ -311,7 +327,7 @@ const Navbar = () => {
                   className="w-full btn-outline-gold px-4 py-3 rounded-xl text-xs tap-tactile"
                 >
                   <FiLogOut className="mr-2 text-sm" />
-                  Logout
+                  Sign Out
                 </button>
               ) : (
                 <>

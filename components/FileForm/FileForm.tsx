@@ -188,8 +188,9 @@ function isUploadRejected(error: unknown) {
   throw error;
 }
 
-export const FileForm = () => {
+export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" } = {}) => {
   const { files, setFiles } = useFileContext();
+  const [detectedLocale, setDetectedLocale] = useState<"en" | "es" | "pt">(propLocale ?? "en");
   const [overallProgress, setOverallProgress] = useState<number>(0);
   const [uploading, setUploading] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -239,6 +240,23 @@ export const FileForm = () => {
   const router = useRouter();
   const startTimeRef = useRef<null | number>(null)
   const partNumberRef = useRef(1);
+
+  useEffect(() => {
+    if (propLocale) {
+      setDetectedLocale(propLocale);
+      return;
+    }
+    if (typeof window !== "undefined") {
+      const path = window.location.pathname;
+      if (path === "/es" || path.startsWith("/es/")) {
+        setDetectedLocale("es");
+      } else if (path === "/pt" || path.startsWith("/pt/")) {
+        setDetectedLocale("pt");
+      }
+    }
+  }, [propLocale]);
+
+  const activeLocale = propLocale ?? detectedLocale;
 
   useEffect(() => {
     if (!uploading) return;
@@ -497,7 +515,7 @@ export const FileForm = () => {
             partNumber: batchStart,
             status: presignRes.status,
           }, "upload");
-          throw new Error(payload?.message || payload?.error || `Failed to presign batch starting at ${batchStart}`);
+          throw new Error(payload?.message || payload?.error || "Couldn’t prepare the upload connection. Check your internet connection and try again.");
         }
 
         const urls: Record<string, string> = payload?.urls ?? {};
@@ -538,7 +556,7 @@ export const FileForm = () => {
     const urls = await fetchPresignBatch(uploadId, key, batchStart, totalParts);
     const presignedUrl = urls[String(partNumber)] ?? presignedUrlCacheRef.current.get(cacheKey);
     if (!presignedUrl) {
-      throw new Error(`Failed to presign part ${partNumber}`);
+      throw new Error("Couldn’t prepare the upload connection. Check your internet connection and try again.");
     }
 
     return presignedUrl;
@@ -603,13 +621,13 @@ export const FileForm = () => {
               resolve();
             } else {
               rollbackPartialProgress();
-              reject(new Error(`Upload failed for part ${partNumber} with status ${xhr.status}`));
+              reject(new Error("The upload was interrupted after several attempts. Your progress is saved—select the file again to resume."));
             }
           };
           xhr.onerror = () => {
             activeXhrsRef.current.delete(xhr);
             rollbackPartialProgress();
-            reject(new Error("Network error during upload"));
+            reject(new Error("Connection lost during the upload. Check your internet connection and try again."));
           };
           xhr.onabort = () => {
             activeXhrsRef.current.delete(xhr);
@@ -637,7 +655,7 @@ export const FileForm = () => {
         retries++;
         telemetryRef.current.retryCount += 1;
         if (retries > MAX_RETRIES) {
-          throw new Error(`Failed to upload part ${partNumber} after ${MAX_RETRIES} retries.`);
+          throw new Error("The upload was interrupted after several attempts. Your progress is saved—select the file again to resume.");
         }
         await new Promise(resolve => setTimeout(resolve, 2000 * retries));
       }
@@ -687,11 +705,11 @@ export const FileForm = () => {
     telemetryRef.current.initMs += Math.round(performance.now() - initStart);
 
     if (!initiateRes.ok) {
-      throw new Error(payload?.message || payload?.error || "Failed to initiate upload");
+      throw new Error(payload?.message || payload?.error || `Couldn’t start the transfer for ${fileName}. Please wait a moment and try again.`);
     }
 
     if (!payload?.uploadId || !payload?.key) {
-      throw new Error("Failed to prepare upload");
+      throw new Error(`Couldn’t start the transfer for ${fileName}. Please wait a moment and try again.`);
     }
 
     if (payload.urls && typeof payload.urls === "object") {
@@ -730,7 +748,7 @@ export const FileForm = () => {
     telemetryRef.current.initMs += Math.round(performance.now() - initStart);
 
     if (!presignRes.ok) {
-      throw new Error(payload?.message || payload?.error || `Failed to prepare upload for ${file.name}`);
+      throw new Error(payload?.message || payload?.error || `Couldn’t start the transfer for ${file.name}. Please wait a moment and try again.`);
     }
 
     const chunkKey = `direct:${ payload.key || file.name }`;
@@ -777,13 +795,13 @@ export const FileForm = () => {
               resolve();
             } else {
               rollbackDirectProgress();
-              reject(new Error(`Upload failed for ${file.name} with status ${xhr.status}`));
+              reject(new Error(`Couldn’t upload ${file.name}. Check your connection and try again.`));
             }
           };
           xhr.onerror = () => {
             activeXhrsRef.current.delete(xhr);
             rollbackDirectProgress();
-            reject(new Error("Network error during upload"));
+            reject(new Error("Connection lost during the upload. Check your internet connection and try again."));
           };
           xhr.onabort = () => {
             activeXhrsRef.current.delete(xhr);
@@ -930,7 +948,7 @@ export const FileForm = () => {
       }),
     });
     if (!completeRes.ok) {
-      throw new Error(`Failed to complete upload for ${fileName}`);
+      throw new Error(`Couldn’t finalize ${fileName}. Please try uploading the file again.`);
     }
 
     return { key, uploadedSize };
@@ -971,7 +989,7 @@ export const FileForm = () => {
       key = initiatedUpload.key;
     }
     if (!uploadId || !key) {
-      throw new Error("Failed to prepare resumable upload");
+      throw new Error(`Couldn’t start the transfer for ${file.name}. Please wait a moment and try again.`);
     }
 
     const nextSession: SavedUploadSession = session ?? {
@@ -1047,7 +1065,7 @@ export const FileForm = () => {
       if (session) {
         return uploadSingleFile(file, undefined, options);
       }
-      throw new Error(completePayload?.error || `Failed to complete upload for ${file.name}`);
+      throw new Error(completePayload?.error || `Couldn’t finalize ${file.name}. Please try uploading the file again.`);
     }
 
     if (shouldPersistSession) {
@@ -1059,7 +1077,7 @@ export const FileForm = () => {
 
   const onSubmit = async (data: UploadFormData) => {
     if (!files || files.length === 0) {
-      showToast("Please select at least one file.");
+      showToast("Select at least one file to transfer.");
       return;
     }
 
@@ -1082,12 +1100,12 @@ export const FileForm = () => {
     }
 
     if (deliveryMode === "email" && !data.receiverEmail) {
-      showToast("Please enter a receiver email or choose Share link.");
+      showToast("Enter the recipient’s email address or switch to Share Link.");
       return;
     }
 
     if (deliveryMode === "email" && !auth && !data.senderEmail) {
-      showToast("Please enter your email so the recipient knows who sent this.");
+      showToast("Enter your email address so the recipient knows who sent the files.");
       return;
     }
 
@@ -1174,8 +1192,9 @@ export const FileForm = () => {
         clearSavedSession();
         setUploadStatus("initiating");
         telemetryRef.current.transferMode = "stream_zip";
+        const zipFileName = `${brand.zipFilenamePrefix}.zip`;
         const initiatedUpload = await initiateMultipartUpload(
-          "giga-sender.zip",
+          zipFileName,
           "application/zip",
           totalBytesRef.current,
         );
@@ -1184,7 +1203,7 @@ export const FileForm = () => {
         const zipWriter = new ZipWriter(writable);
         const uploadStreamPromise = uploadReadableStream(
           readable,
-          "giga-sender.zip",
+          zipFileName,
           "application/zip",
           totalBytesRef.current,
           initiatedUpload,
@@ -1232,7 +1251,7 @@ export const FileForm = () => {
       const sharePayload = await shareRes.json().catch(() => null);
       telemetryRef.current.shareCreationMs = Math.round(performance.now() - shareStart);
       if (!shareRes.ok) {
-        throw new Error(sharePayload?.message || sharePayload?.error || "Failed to create transfer.");
+        throw new Error(sharePayload?.message || sharePayload?.error || "Couldn’t create your transfer link. Check your connection and try again.");
       }
       telemetryRef.current.shareId =
         sharePayload?.shareId ||
@@ -1276,10 +1295,11 @@ export const FileForm = () => {
           resumedFromSavedSession: telemetryRef.current.resumedFromSavedSession,
         },
       });
+      const fallbackErrorMsg = "Something went wrong while sending your files. Check your connection and try again.";
       if (!abortRequestedRef.current) {
-        sendTelemetry("failed", err.message ?? "Unexpected error");
+        sendTelemetry("failed", err.message ?? fallbackErrorMsg);
       }
-      showToast(err.message ?? "Unexpected error");
+      showToast(err.message ?? fallbackErrorMsg);
     } finally {
       resumeUpload();
       activeSessionRef.current = null;
@@ -1299,7 +1319,7 @@ export const FileForm = () => {
       return;
     }
 
-    showToast(formErrors.receiverEmail?.message?.toString() ?? "Please check the transfer details.");
+    showToast(formErrors.receiverEmail?.message?.toString() ?? "Enter a valid email address to send your transfer.");
   };
 
   useEffect(() => {
@@ -1339,10 +1359,139 @@ export const FileForm = () => {
   }, [])
 
   useEffect(() => {
+    const intlLocale = activeLocale === "es" ? "es-ES" : activeLocale === "pt" ? "pt-BR" : "en-US";
     setExpiryDateText(
-      new Date(Date.now() + expiryLimit * 24 * 60 * 60 * 1000).toDateString()
+      new Date(Date.now() + expiryLimit * 24 * 60 * 60 * 1000).toLocaleDateString(intlLocale, {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      })
     );
-  }, [expiryLimit]);
+  }, [expiryLimit, activeLocale]);
+
+  const savedSessionBytes = savedSession
+    ? savedSession.parts.reduce((sum, part) => sum + part.size, 0)
+    : 0;
+
+  const uiCopy = {
+    en: {
+      kicker: "Fast, Encrypted File Delivery",
+      emptyHeading: "No Files Selected",
+      selectedHeading: `${files.length} Selected ${files.length === 1 ? "File" : "Files"}`,
+      emptyStorageLoading: "Checking available storage…",
+      emptyStorageReady: `Up to ${formatBytes(allowedLimit)} available on your plan`,
+      selectedStorageLoading: `${getSizeInReadableFormat(files)} selected. Checking available storage…`,
+      selectedStorageReady: `${getSizeInReadableFormat(files)} selected of ${formatBytes(allowedLimit)} remaining`,
+      resumableHint: `Previous upload saved (${formatBytes(savedSessionBytes)}). Start the transfer to resume where you left off.`,
+      modeEmailTab: "Email Recipient",
+      modeLinkTab: "Share Link",
+      modeEmailTitle: "Email Delivery",
+      modeLinkTitle: "Shareable Link",
+      modeEmailDesc: "We’ll email a download link to your recipient and notify you when they download your files.",
+      modeLinkDesc: "Upload your files to get a shareable download link you can send anywhere.",
+      recipientEmailLabel: "Recipient’s email",
+      recipientEmailPlaceholder: "client@studio.com",
+      senderEmailLabel: "Your email",
+      senderEmailPlaceholder: "you@studio.com",
+      senderEmailHelper: "Shown to the recipient so they know who sent the files.",
+      messageLabel: "Message (optional)",
+      messagePlaceholder: "Add an optional delivery note…",
+      instantLinkTitle: "Instant Link Sharing",
+      instantLinkBody: `Upload your files once and get a secure, high-speed download link from ${brand.productName}—no recipient account required.`,
+      expiryText: expiryDateText
+        ? `Expires ${expiryDateText}`
+        : `Expires in ${expiryLimit} ${expiryLimit === 1 ? "day" : "days"}`,
+      cancelBtn: "Cancel",
+      submitBtn:
+        deliveryMode === "link"
+          ? files.length > 1
+            ? `Create Link for ${files.length} Files`
+            : "Create Share Link"
+          : files.length > 1
+            ? `Send ${files.length} Files`
+            : "Send Files",
+      pauseBtn: "Pause",
+      resumeBtn: "Resume",
+    },
+    es: {
+      kicker: "Entrega de archivos rápida y cifrada",
+      emptyHeading: "Ningún archivo seleccionado",
+      selectedHeading: `${files.length} ${files.length === 1 ? "archivo seleccionado" : "archivos seleccionados"}`,
+      emptyStorageLoading: "Comprobando almacenamiento disponible…",
+      emptyStorageReady: `Hasta ${formatBytes(allowedLimit)} disponibles en tu plan`,
+      selectedStorageLoading: `${getSizeInReadableFormat(files)} seleccionados. Comprobando espacio…`,
+      selectedStorageReady: `${getSizeInReadableFormat(files)} seleccionados de ${formatBytes(allowedLimit)} disponibles`,
+      resumableHint: `Subida anterior guardada (${formatBytes(savedSessionBytes)}). Inicia la transferencia para reanudar donde la dejaste.`,
+      modeEmailTab: "Enviar por correo",
+      modeLinkTab: "Crear enlace",
+      modeEmailTitle: "Entrega por correo",
+      modeLinkTitle: "Enlace para compartir",
+      modeEmailDesc: "Enviaremos un enlace de descarga al destinatario y te avisaremos cuando descargue tus archivos.",
+      modeLinkDesc: "Sube tus archivos para obtener un enlace de descarga que puedes compartir donde quieras.",
+      recipientEmailLabel: "Correo del destinatario",
+      recipientEmailPlaceholder: "cliente@estudio.com",
+      senderEmailLabel: "Tu correo electrónico",
+      senderEmailPlaceholder: "tu@estudio.com",
+      senderEmailHelper: "Se mostrará al destinatario para que sepa quién envió los archivos.",
+      messageLabel: "Mensaje (opcional)",
+      messagePlaceholder: "Añade una nota opcional para el destinatario…",
+      instantLinkTitle: "Enlace directo al instante",
+      instantLinkBody: `Sube tus archivos una sola vez y obtén un enlace de descarga seguro y de alta velocidad con ${brand.productName}, sin que el destinatario necesite crear una cuenta.`,
+      expiryText: expiryDateText
+        ? `Vence el ${expiryDateText}`
+        : `Vence en ${expiryLimit} ${expiryLimit === 1 ? "día" : "días"}`,
+      cancelBtn: "Cancelar",
+      submitBtn:
+        deliveryMode === "link"
+          ? files.length > 1
+            ? `Crear enlace para ${files.length} archivos`
+            : "Subir y obtener enlace"
+          : files.length > 1
+            ? `Enviar ${files.length} archivos`
+            : "Enviar archivos",
+      pauseBtn: "Pausar",
+      resumeBtn: "Reanudar",
+    },
+    pt: {
+      kicker: "Envio de arquivos rápido e criptografado",
+      emptyHeading: "Nenhum arquivo selecionado",
+      selectedHeading: `${files.length} ${files.length === 1 ? "arquivo selecionado" : "arquivos selecionados"}`,
+      emptyStorageLoading: "Verificando armazenamento disponível…",
+      emptyStorageReady: `Até ${formatBytes(allowedLimit)} disponíveis no seu plano`,
+      selectedStorageLoading: `${getSizeInReadableFormat(files)} selecionados. Verificando espaço…`,
+      selectedStorageReady: `${getSizeInReadableFormat(files)} selecionados de ${formatBytes(allowedLimit)} disponíveis`,
+      resumableHint: `Envio anterior salvo (${formatBytes(savedSessionBytes)}). Inicie a transferência para retomar de onde parou.`,
+      modeEmailTab: "Enviar por e-mail",
+      modeLinkTab: "Gerar link",
+      modeEmailTitle: "Entrega por e-mail",
+      modeLinkTitle: "Link compartilhável",
+      modeEmailDesc: "Enviaremos um link de download ao destinatário e avisaremos quando seus arquivos forem baixados.",
+      modeLinkDesc: "Envie seus arquivos para gerar um link de download que você pode compartilhar onde quiser.",
+      recipientEmailLabel: "E-mail do destinatário",
+      recipientEmailPlaceholder: "cliente@estudio.com",
+      senderEmailLabel: "Seu e-mail",
+      senderEmailPlaceholder: "voce@estudio.com",
+      senderEmailHelper: "Mostrado ao destinatário para identificar quem enviou os arquivos.",
+      messageLabel: "Mensagem (opcional)",
+      messagePlaceholder: "Adicione uma mensagem opcional para o destinatário…",
+      instantLinkTitle: "Link de compartilhamento instantâneo",
+      instantLinkBody: `Envie seus arquivos uma única vez e receba um link de download seguro e de alta velocidade com o ${brand.productName}, sem exigir cadastro do destinatário.`,
+      expiryText: expiryDateText
+        ? `Expira em ${expiryDateText}`
+        : `Expira em ${expiryLimit} ${expiryLimit === 1 ? "dia" : "dias"}`,
+      cancelBtn: "Cancelar",
+      submitBtn:
+        deliveryMode === "link"
+          ? files.length > 1
+            ? `Gerar link para ${files.length} arquivos`
+            : "Enviar e gerar link"
+          : files.length > 1
+            ? `Enviar ${files.length} arquivos`
+            : "Enviar arquivos",
+      pauseBtn: "Pausar",
+      resumeBtn: "Retomar",
+    },
+  }[activeLocale];
 
   return (
     <Card
@@ -1385,7 +1534,7 @@ export const FileForm = () => {
               </Typography>
             )}
             <span className="label-caps text-gold-400 text-[10px]">
-              Zero-Egress Edge Transfer • 335+ Anycast PoPs
+              {uiCopy.kicker}
             </span>
           </Stack>
 
@@ -1402,21 +1551,25 @@ export const FileForm = () => {
             <Stack gap={2} width={{ xs: "100%", md: "50%" }}>
               <Stack gap={0.5}>
                 <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
-                  {files.length} Selected File{files.length !== 1 ? "s" : ""}
+                  {files.length === 0 ? uiCopy.emptyHeading : uiCopy.selectedHeading}
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
-                  {usageLoading
-                    ? `${getSizeInReadableFormat(files)} selected. Checking available storage...`
-                    : `${getSizeInReadableFormat(files)} selected of ${formatBytes(allowedLimit)} remaining`}
+                  {files.length === 0
+                    ? usageLoading
+                      ? uiCopy.emptyStorageLoading
+                      : uiCopy.emptyStorageReady
+                    : usageLoading
+                      ? uiCopy.selectedStorageLoading
+                      : uiCopy.selectedStorageReady}
                 </Typography>
                 {savedSession && (
                   <Typography variant="body2" sx={{ color: "#ffddb4", fontWeight: 600, fontSize: "0.8rem" }}>
-                    Resumable upload found: {formatBytes(savedSession.parts.reduce((sum, part) => sum + part.size, 0))} saved
+                    {uiCopy.resumableHint}
                   </Typography>
                 )}
               </Stack>
               <Stack gap={2}>
-                <FileUploader />
+                <FileUploader locale={activeLocale} />
                 <FileList />
               </Stack>
             </Stack>
@@ -1434,6 +1587,7 @@ export const FileForm = () => {
               >
                 <Button
                   type="button"
+                  aria-pressed={deliveryMode === "email"}
                   onClick={() => setDeliveryMode("email")}
                   variant={deliveryMode === "email" ? "contained" : "text"}
                   sx={{
@@ -1455,10 +1609,11 @@ export const FileForm = () => {
                         }),
                   }}
                 >
-                  Email recipient
+                  {uiCopy.modeEmailTab}
                 </Button>
                 <Button
                   type="button"
+                  aria-pressed={deliveryMode === "link"}
                   onClick={() => {
                     setDeliveryMode("link");
                     setValue("receiverEmail", "", { shouldDirty: false, shouldValidate: false });
@@ -1484,17 +1639,15 @@ export const FileForm = () => {
                         }),
                   }}
                 >
-                  Share link
+                  {uiCopy.modeLinkTab}
                 </Button>
               </Stack>
               <Stack gap={0.5}>
                 <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
-                  {deliveryMode === "email" ? "Email Delivery" : "Shareable Edge Link"}
+                  {deliveryMode === "email" ? uiCopy.modeEmailTitle : uiCopy.modeLinkTitle}
                 </Typography>
                 <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
-                  {deliveryMode === "email"
-                    ? "We will notify you when your files get downloaded"
-                    : "Upload now and copy an expiring line-rate download link after transfer"}
+                  {deliveryMode === "email" ? uiCopy.modeEmailDesc : uiCopy.modeLinkDesc}
                 </Typography>
               </Stack>
               <Stack
@@ -1510,11 +1663,12 @@ export const FileForm = () => {
                 {deliveryMode === "email" ? (
                   <>
                     <FormControl fullWidth variant="outlined">
-                      <FormLabel sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
-                        Receiver&apos;s email
+                      <FormLabel htmlFor="transfer-recipient-email" sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
+                        {uiCopy.recipientEmailLabel}
                       </FormLabel>
                       <TextField
-                        placeholder="e.g., client@studio.com"
+                        id="transfer-recipient-email"
+                        placeholder={uiCopy.recipientEmailPlaceholder}
                         {...register("receiverEmail")}
                         error={!!errors.receiverEmail}
                         helperText={
@@ -1538,17 +1692,18 @@ export const FileForm = () => {
                     </FormControl>
                     {!auth && (
                       <FormControl fullWidth variant="outlined">
-                        <FormLabel sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
-                          Your email (sender)
+                        <FormLabel htmlFor="transfer-sender-email" sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
+                          {uiCopy.senderEmailLabel}
                         </FormLabel>
                         <TextField
-                          placeholder="e.g., you@studio.com"
+                          id="transfer-sender-email"
+                          placeholder={uiCopy.senderEmailPlaceholder}
                           {...register("senderEmail")}
                           error={!!errors.senderEmail}
                           helperText={
                             errors.senderEmail
                               ? errors.senderEmail.message
-                              : "Recipient will see this sender email"
+                              : uiCopy.senderEmailHelper
                           }
                           sx={{
                             "& .MuiOutlinedInput-root": {
@@ -1571,11 +1726,12 @@ export const FileForm = () => {
                       </FormControl>
                     )}
                     <FormControl fullWidth variant="outlined">
-                      <FormLabel sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
-                        Your message
+                      <FormLabel htmlFor="transfer-message" sx={{ color: "#cbd5e1", fontSize: "0.8rem", fontWeight: 600, mb: 0.75, "&.Mui-focused": { color: "#ffddb4" } }}>
+                        {uiCopy.messageLabel}
                       </FormLabel>
                       <TextField
-                        placeholder="Add an optional delivery note..."
+                        id="transfer-message"
+                        placeholder={uiCopy.messagePlaceholder}
                         multiline
                         sx={{
                           "& .MuiOutlinedInput-root": {
@@ -1611,10 +1767,10 @@ export const FileForm = () => {
                     }}
                   >
                     <Typography variant="body2" fontWeight={700} sx={{ color: "#ffddb4" }}>
-                      ⚡ Instant Zero-Egress Link Sharing
+                      {uiCopy.instantLinkTitle}
                     </Typography>
                     <Typography variant="body2" sx={{ color: "#cbd5e1", lineHeight: 1.6, fontSize: "0.85rem" }}>
-                      Your files stream directly to the nearest Cloudflare edge node at line speed. Once finished, {brand.productName} gives you a 1-click secure link you can send anywhere—no recipient account required.
+                      {uiCopy.instantLinkBody}
                     </Typography>
                   </Stack>
                 )}
@@ -1644,7 +1800,7 @@ export const FileForm = () => {
             >
               <Stack>
                 <Typography variant="subtitle1" suppressHydrationWarning sx={{ color: "#ffddb4", fontWeight: 700, fontSize: "0.9rem" }}>
-                  {expiryDateText ? `Expires on ${expiryDateText}` : `Expires in ${expiryLimit} days`}
+                  {uiCopy.expiryText}
                 </Typography>
                 <TermsConditions sx={{ fontSize: "12px", color: "#94a3b8" }} />
               </Stack>
@@ -1669,7 +1825,7 @@ export const FileForm = () => {
                     },
                   }}
                 >
-                  Cancel
+                  {uiCopy.cancelBtn}
                 </Button>
                 <Button
                   variant="contained"
@@ -1704,7 +1860,7 @@ export const FileForm = () => {
                     },
                   }}
                 >
-                  {deliveryMode === "link" ? "Upload and create link" : "Transfer"} {files.length > 1 ? `${files.length} files` : "file"}
+                  {uiCopy.submitBtn}
                 </Button>
               </Stack>
             </Stack>
@@ -1782,25 +1938,25 @@ export const FileForm = () => {
           <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }} mt={1}>
             {uploadStatus === "sending email"
               ? deliveryMode === "email"
-                ? "Verifying files & sending your transfer email..."
-                : "Verifying files & creating your shareable link..."
+                ? "Sending transfer email…"
+                : "Creating your shareable link…"
               : uploadStatus === "finalizing"
-                ? "Assembling your transfer at the edge..."
-                : "Streaming to nearest Cloudflare Edge server..."}
+                ? "Finalizing your transfer…"
+                : "Uploading your files…"}
           </Typography>
           {uploadStatus && (
             <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
               {isPaused
-                ? "Transfer paused — click Resume to continue"
+                ? "Transfer paused — select Resume to continue"
                 : uploadStatus === "sending email"
                   ? deliveryMode === "email"
-                    ? "Step 3 of 3: Dispatching download link email"
-                    : "Step 3 of 3: Generating instant download link"
+                    ? "Step 3 of 3: Sending download link email"
+                    : "Step 3 of 3: Creating shareable download link"
                   : uploadStatus === "finalizing"
-                    ? "Step 3 of 3: Verifying all uploaded pieces"
+                    ? "Step 3 of 3: Verifying uploaded files"
                     : overallProgress > 0
-                      ? `Step 2 of 3: Uploading${currentSpeedMBps ? ` at ${currentSpeedMBps} MB/s` : ""}`
-                      : "Step 1 of 3: Preparing secure edge channels"}
+                      ? `Step 2 of 3: Uploading${currentSpeedMBps ? ` at ${currentSpeedMBps} MB/s` : "…"}`
+                      : "Step 1 of 3: Preparing secure upload"}
             </Typography>
           )}
           <Stack direction="row" gap={1.5} mt={1}>
@@ -1818,7 +1974,7 @@ export const FileForm = () => {
                 "&:hover": { backgroundColor: "#ffddb4" },
               }}
             >
-              {isPaused ? "Resume" : "Pause"}
+              {isPaused ? uiCopy.resumeBtn : uiCopy.pauseBtn}
             </Button>
             <Button
               variant="outlined"
@@ -1838,14 +1994,14 @@ export const FileForm = () => {
                 },
               }}
             >
-              Cancel
+              {uiCopy.cancelBtn}
             </Button>
           </Stack>
           <Stack alignItems="center" gap={0.5} mt={1} sx={{ minHeight: 68 }}>
             <Typography sx={{ color: "#ffddb4", fontFamily: "monospace" }} variant="body2">
               {estimatedTimeLeft !== null
                 ? `Time remaining: ${formatSeconds(estimatedTimeLeft)}${currentSpeedMBps ? ` • ${currentSpeedMBps} MB/s` : ""}`
-                : "Calculating transfer speed..."}
+                : "Calculating transfer speed…"}
             </Typography>
             <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
               Uploaded: {formatBytes(totalUploadedRef.current)} of {formatBytes(totalBytesRef.current)}
@@ -1872,12 +2028,12 @@ export const FileForm = () => {
         }}
       >
         <DialogTitle sx={{ fontWeight: 800, fontSize: "1.35rem", pb: 1, color: "#FFFFFF" }}>
-          Upgrade Required for Large Transfer
+          Need More Space for This Transfer?
         </DialogTitle>
         <DialogContent>
           <Typography variant="body2" sx={{ mb: 2, color: "#cbd5e1", lineHeight: 1.6 }}>
-            Your selected transfer is <strong style={{ color: "#ffddb4" }}>{getSizeInReadableFormat(files)}</strong>, which exceeds your available storage ({formatBytes(allowedLimit)}).
-            Choose a high-speed plan to transfer your file immediately with zero compression and line-rate edge speeds.
+            Your selection (<strong style={{ color: "#ffddb4" }}>{getSizeInReadableFormat(files)}</strong>) exceeds your remaining storage ({formatBytes(allowedLimit)}).
+            Upgrade your plan to send larger transfers immediately.
           </Typography>
 
           <Stack gap={1.5} sx={{ mt: 2 }}>
@@ -1990,7 +2146,7 @@ export const FileForm = () => {
         }}
       >
         <DialogTitle sx={{ fontWeight: 800, fontSize: "1.25rem", pb: 1, color: "#FFFFFF" }}>
-          Deliver Your Transfer
+          Sign In to Send Your Transfer
         </DialogTitle>
         <DialogContent>
           <Typography variant="body2" sx={{ mb: 2, color: "#cbd5e1", lineHeight: 1.6 }}>

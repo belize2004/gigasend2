@@ -5,14 +5,14 @@ import { blogPosts } from "@/src/data/blogPosts";
 import { brand } from "@/lib/brand";
 ---
 
-<BaseLayout title="Blog | GigaSend" canonical={`${brand.siteUrl}/blogs`}>
+<BaseLayout title={`Blog | ${brand.productName}`} canonical={`${brand.siteUrl}/blogs`}>
   <AppLayout client:load>
     <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
       <!-- Breadcrumb Navigation -->
       <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
         <ol class="mx-auto flex max-w-5xl items-center gap-2 text-xs font-mono text-slate-400">
           <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-          <li>/</li>
+          <li aria-hidden="true">/</li>
           <li class="text-gold-400 font-semibold" aria-current="page">Blog</li>
         </ol>
       </nav>
@@ -30,7 +30,9 @@ import { brand } from "@/lib/brand";
 
         {blogPosts.length === 0 ? (
           <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-8 text-center">
-            <p class="text-slate-300 text-lg">No blog posts available right now. Please check back later.</p>
+            <p class="text-slate-300 text-lg">
+              No articles have been published yet. In the meantime, explore our <a href="/guides" class="text-gold-400 hover:text-gold-300 underline">Engineering Guides</a>.
+            </p>
           </div>
         ) : (
           <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -87,7 +89,7 @@ import { brand } from "@/lib/brand";
             <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
               <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
-              <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go rates vs recurring subscriptions and cloud egress fees.</p>
+              <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go rates vs. recurring subscriptions and cloud egress fees.</p>
             </a>
             <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
@@ -96,8 +98,8 @@ import { brand } from "@/lib/brand";
             </a>
             <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Workflow Architecture</span>
-              <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs Cloud Storage vs Review</h3>
-              <p class="mt-1.5 text-xs text-slate-300">When to use ephemeral transfer vs cloud sync vs video review.</p>
+              <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs. Cloud Storage vs. Review</h3>
+              <p class="mt-1.5 text-xs text-slate-300">When to use ephemeral transfer vs. cloud sync vs. video review.</p>
             </a>
             <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage Optimization</span>
@@ -107,7 +109,7 @@ import { brand } from "@/lib/brand";
             <a href="/tools/transfer-speed-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Interactive Tool</span>
               <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Transfer Speed Calculator</h3>
-              <p class="mt-1.5 text-xs text-slate-300">Calculate exact upload durations for 1GB to 2TB across 10M–10G uplinks.</p>
+              <p class="mt-1.5 text-xs text-slate-300">Calculate exact upload durations for 1 GB to 2 TB across 10 Mbps to 10 Gbps uplinks.</p>
             </a>
           </div>
 
@@ -119,10 +121,10 @@ import { brand } from "@/lib/brand";
               Codec & Format Directory
             </a>
             <a href="/compare" class="apple-subtle-glass rounded-xl border border-white/10 bg-ocean-900/70 px-4 py-2 text-xs font-semibold text-slate-200 hover:border-gold-500/50 hover:text-gold-400 transition tap-tactile">
-              Cloudflare Edge vs AWS Relays
+              Cloudflare Edge vs. AWS Relays
             </a>
             <a href="/send-large-files-free" class="apple-subtle-glass rounded-xl border border-white/10 bg-ocean-900/70 px-4 py-2 text-xs font-semibold text-slate-200 hover:border-gold-500/50 hover:text-gold-400 transition tap-tactile">
-              Send Large Files Free (25GB)
+              Send Large Files Free (10 GB)
             </a>
           </div>
         </div>
@@ -138,7 +140,7 @@ import { brand } from "@/lib/brand";
                 <span>{brand.productName}</span>
               </a>
               <p class="mt-3 text-slate-400 leading-relaxed">
-                Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+                Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
               </p>
             </div>
             <div>
@@ -158,14 +160,14 @@ import { brand } from "@/lib/brand";
                 <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
                 <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
                 <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-                <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+                <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
                 <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
               </ul>
             </div>
             <div>
               <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
               <ul class="mt-3 space-y-2">
-                <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+                <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
                 <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
                 <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
                 <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

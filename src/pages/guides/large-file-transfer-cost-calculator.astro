@@ -32,10 +32,10 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How much does it cost to send a 50GB file online?",
+      name: "How much does it cost to send a 50 GB file online?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "With legacy providers like WeTransfer or Dropbox, you are required to subscribe to an annual $144–$240 plan just to send a single large file. With Gigasend, transfers under 25GB are 100% free, and larger sizes cost a simple $12–$29/mo flat tier or unmetered edge routing.",
+        text: "With legacy providers like WeTransfer or Dropbox, you are required to subscribe to an annual $144–$240 plan just to send a single large file. With Gigasend, transfers up to 10 GB are 100% free, and 50 GB transfers cost just $10 via a Pay-As-You-Go pack ($0.20/GB) or flexible monthly plans starting at $10/month.",
       },
     },
     {
@@ -43,7 +43,7 @@ const faqSchema = {
       name: "What are cloud egress fees and why do they increase file transfer costs?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Traditional cloud providers (AWS S3, Google Cloud, Azure) charge between $0.05 and $0.09 per Gigabyte whenever someone downloads your file (egress). If 5 clients download a 100GB video deliverable, you pay an extra $45 just in bandwidth fees. Gigasend operates with zero egress surcharges.",
+        text: "Traditional cloud providers (AWS S3, Google Cloud, Azure) charge between $0.05 and $0.09 per Gigabyte whenever someone downloads your file (egress). If 5 clients download a 100 GB video deliverable, you pay an extra $45 just in bandwidth fees. Gigasend operates with zero egress surcharges.",
       },
     },
     {
@@ -60,7 +60,7 @@ const faqSchema = {
 
 <BaseLayout
   title={`Large File Transfer Cost Calculator — Free Online Estimator | ${brand.productName}`}
-  description="Calculate exact costs to send 50GB to 5TB files. Compare pay-as-you-go rates vs WeTransfer, Dropbox, and cloud storage subscriptions instantly."
+  description="Calculate exact costs to send 50 GB to 5 TB files. Compare pay-as-you-go rates vs. WeTransfer, Dropbox, and cloud storage subscriptions instantly."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -97,9 +97,9 @@ const faqSchema = {
     <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
         <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li><a href="/guides" class="hover:text-gold-400 transition-colors">Guides</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li class="text-gold-400 font-semibold" aria-current="page">Large File Transfer Cost Calculator</li>
       </ol>
     </nav>
@@ -113,29 +113,29 @@ const faqSchema = {
           Large File Transfer Cost Calculator (PAYG vs. Subscriptions)
         </h1>
         <p class="mt-4 text-lg text-slate-300 leading-relaxed">
-          How much are you really paying to deliver 50GB to 5TB files to your clients? An unvarnished financial breakdown comparing monthly recurring subscriptions, hidden cloud egress fees, and modern pay-as-you-go delivery.
+          How much are you really paying to deliver 50 GB to 5 TB files to your clients? An unvarnished financial breakdown comparing monthly recurring subscriptions, hidden cloud egress fees, and modern pay-as-you-go delivery.
         </p>
 
         <div class="mt-6 flex items-center gap-3 border-y border-white/10 py-4 text-xs text-slate-400 font-mono">
           <span>Published by Growth & Pricing Architecture</span>
-          <span>•</span>
+          <span aria-hidden="true">•</span>
           <span>Updated October 2026</span>
-          <span>•</span>
+          <span aria-hidden="true">•</span>
           <span class="text-gold-400">5 min read</span>
         </div>
 
         <div class="mt-8 max-w-none space-y-6 text-slate-300 leading-relaxed">
           <h2 class="text-2xl font-bold text-white font-display">1. The "Ghost Subscription" Trap in Creative Workflows</h2>
           <p>
-            Most video editors, photographers, and audio engineers do not transfer 100GB of client files every single day. Work moves in project bursts: two weeks of production, followed by client deliverable handoff, followed by a gap between jobs.
+            Most video editors, photographers, and audio engineers do not transfer 100 GB of client files every single day. Work moves in project bursts: two weeks of production, followed by client deliverable handoff, followed by a gap between jobs.
           </p>
           <p>
-            Yet traditional transfer services charge <strong class="text-white">\$12 to \$25 per user, every single month (\$144 to \$300/year)</strong>, regardless of whether you sent 10 transfers or zero transfers that month. Over three years, an independent freelancer pays nearly \$1,000 just for the capability to generate download links.
+            Yet traditional transfer services charge <strong class="text-white">$12 to $25 per user, every single month ($144 to $300/year)</strong>, regardless of whether you sent 10 transfers or zero transfers that month. Over three years, an independent freelancer pays nearly $1,000 just for the capability to generate download links.
           </p>
 
-          <h2 class="text-2xl font-bold text-white font-display">2. Real Cost Breakdown: Sending a 50GB Delivery to 3 Clients</h2>
+          <h2 class="text-2xl font-bold text-white font-display">2. Real Cost Breakdown: Sending a 50 GB Delivery to 3 Clients</h2>
           <p>
-            When delivering a 50GB finished video master or multi-track audio stem archive to 3 team members or clients, here is how the real costs stack up:
+            When delivering a 50 GB finished video master or multi-track audio stem archive to 3 team members or clients, here is how the real costs stack up:
           </p>
         </div>
 
@@ -154,26 +154,26 @@ const faqSchema = {
               <tbody class="divide-y divide-white/10 bg-ocean-900/40 text-slate-300">
                 <tr>
                   <td class="px-6 py-4 font-bold text-white font-display">WeTransfer Pro</td>
-                  <td class="px-6 py-4 font-mono">\$12 / month</td>
-                  <td class="px-6 py-4 text-emerald-400">\$0 (Included)</td>
-                  <td class="px-6 py-4 font-semibold text-rose-400 font-mono">\$144 / year</td>
+                  <td class="px-6 py-4 font-mono">$12 / month</td>
+                  <td class="px-6 py-4 text-emerald-400">$0 (Included)</td>
+                  <td class="px-6 py-4 font-semibold text-rose-400 font-mono">$144 / year</td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 font-bold text-white font-display">Dropbox Business</td>
-                  <td class="px-6 py-4 font-mono">\$20 / user / mo</td>
-                  <td class="px-6 py-4 text-emerald-400">\$0 (Included)</td>
-                  <td class="px-6 py-4 font-semibold text-rose-400 font-mono">\$240 / year</td>
+                  <td class="px-6 py-4 font-mono">$20 / user / mo</td>
+                  <td class="px-6 py-4 text-emerald-400">$0 (Included)</td>
+                  <td class="px-6 py-4 font-semibold text-rose-400 font-mono">$240 / year</td>
                 </tr>
                 <tr>
                   <td class="px-6 py-4 font-bold text-white font-display">AWS S3 Direct</td>
-                  <td class="px-6 py-4 font-mono">\$1.15 storage</td>
-                  <td class="px-6 py-4 text-rose-400 font-mono">\$13.50 (150GB @ \$0.09/GB)</td>
+                  <td class="px-6 py-4 font-mono">$1.15 storage</td>
+                  <td class="px-6 py-4 text-rose-400 font-mono">$13.50 (150 GB @ $0.09/GB)</td>
                   <td class="px-6 py-4 font-semibold text-amber-400">Variable + Complex</td>
                 </tr>
                 <tr class="bg-ocean-900/90 border-l-2 border-gold-500">
                   <td class="px-6 py-4 font-bold text-gold-400 font-display">{brand.productName}</td>
-                  <td class="px-6 py-4 font-semibold text-gold-400 font-mono">Free up to 25GB / \$12 Pro</td>
-                  <td class="px-6 py-4 font-semibold text-emerald-400">\$0 Egress Surcharges</td>
+                  <td class="px-6 py-4 font-semibold text-gold-400 font-mono">Free up to 10 GB / from $10/mo or $0.16/GB</td>
+                  <td class="px-6 py-4 font-semibold text-emerald-400">$0 Egress Surcharges</td>
                   <td class="px-6 py-4 font-bold text-gold-400">Save 60% – 85%</td>
                 </tr>
               </tbody>
@@ -184,10 +184,10 @@ const faqSchema = {
         <div class="mt-8 max-w-none space-y-6 text-slate-300 leading-relaxed">
           <h2 class="text-2xl font-bold text-white font-display">3. The Zero-Egress Economics of Cloudflare R2</h2>
           <p>
-            Unlike Amazon AWS, Microsoft Azure, or Google Cloud—which charge between \$0.05 and \$0.09 per Gigabyte every time a recipient clicks download—Gigasend is built natively on <strong class="text-gold-400">Cloudflare R2 object storage</strong>.
+            Unlike Amazon AWS, Microsoft Azure, or Google Cloud—which charge between $0.05 and $0.09 per Gigabyte every time a recipient clicks download—Gigasend is built natively on <strong class="text-gold-400">Cloudflare R2 object storage</strong>.
           </p>
           <p>
-            Cloudflare does not charge egress bandwidth fees. That architectural advantage allows Gigasend to offer 100% free transfers up to 25GB without annoying watermarks, speed throttling, or download caps for your recipients.
+            Cloudflare does not charge egress bandwidth fees. That architectural advantage allows Gigasend to offer 100% free transfers up to 10 GB without watermarks, speed throttling, or download caps for your recipients—plus Pay-As-You-Go credit packs starting at $10 for 50 GB ($0.20/GB down to $0.16/GB).
           </p>
         </div>
 
@@ -208,14 +208,14 @@ const faqSchema = {
           <span class="label-caps text-gold-400 text-xs">Zero Egress • Transparent Tiers</span>
           <h3 class="mt-2 text-2xl font-black font-display">Try Transparent Transfer Pricing</h3>
           <p class="mt-2 text-slate-300 text-sm">
-            Send up to 25GB completely free with 3 days storage, or view our straightforward high-capacity tiers.
+            Send up to 10 GB completely free with 3-day storage, or view our straightforward high-capacity tiers.
           </p>
           <div class="mt-6 flex flex-wrap justify-center gap-4">
             <a
               href="/transfer"
               class="btn-gold rounded-xl px-8 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile"
             >
-              Start Free Transfer (25GB)
+              Start Free Transfer (10 GB)
             </a>
             <a
               href="/plans"
@@ -251,8 +251,8 @@ const faqSchema = {
           </a>
           <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Workflow Architecture</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs Cloud Storage vs Review</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs sync vs review.</p>
+            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs. Cloud Storage vs. Review</h3>
+            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs. sync vs. review.</p>
           </a>
           <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage Optimization</span>
@@ -266,7 +266,7 @@ const faqSchema = {
     <RelatedWorkflows
       currentSlug="guides/large-file-transfer-cost-calculator"
       internalLinks={[
-        { href: "/plans", label: "Plans & Pricing (Free 25GB to 5TB)" },
+        { href: "/plans", label: "Plans & Pricing (Free 10 GB to 5 TB)" },
         { href: "/compare", label: "Competitor Comparison Matrix" },
         { href: "/tools/transfer-speed-calculator", label: "Transfer Speed Calculator" },
         { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer Alternative" },
@@ -285,7 +285,7 @@ const faqSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -305,14 +305,14 @@ const faqSchema = {
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
               <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
             </ul>
           </div>
           <div>
             <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
               <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

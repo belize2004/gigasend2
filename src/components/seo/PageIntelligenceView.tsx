@@ -84,6 +84,20 @@ export default function PageIntelligenceView({ pages }: PageIntelligenceViewProp
                 <span className="font-semibold text-gray-800">Action Strategy: </span>
                 {p.recommendedFocus}
               </p>
+
+              {p.topKeywords && p.topKeywords.length > 0 && (
+                <div className="flex items-center gap-1.5 flex-wrap pt-1">
+                  <span className="text-[11px] font-semibold text-gray-400">Top Queries:</span>
+                  {p.topKeywords.map((kw, kIdx) => (
+                    <span
+                      key={kIdx}
+                      className="text-[11px] font-medium text-gray-700 bg-gray-100 px-2 py-0.5 rounded-full"
+                    >
+                      {kw}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Metrics Breakdown */}

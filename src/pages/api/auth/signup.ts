@@ -15,12 +15,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
     const body = await request.json().catch(() => null);
     if (!body || typeof body !== "object") {
-      return json({ success: false, message: "Invalid JSON body" }, 400);
+      return json({ success: false, message: "Please enter your name, email address, and password." }, 400);
     }
     const { name, email, password } = body as Record<string, unknown>;
 
     if (!name || typeof name !== "string" || !email || typeof email !== "string" || !password || typeof password !== "string") {
-      return json({ success: false, message: "Missing fields" }, 400);
+      return json({ success: false, message: "Please enter your name, email address, and password." }, 400);
     }
 
     const db = getDb(locals);
@@ -48,11 +48,11 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         return json({
           success: true,
           data: { _id: userExists.id, email: userExists.email },
-          message: "Welcome to Gigasend! Your VIP Pro account is now active.",
+          message: "Welcome to Gigasend! Your Partner Pro account is now active.",
         });
       }
 
-      return json({ success: false, message: "User already exists" }, 409);
+      return json({ success: false, message: "An account with this email already exists. Try signing in instead." }, 409);
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -104,14 +104,14 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     return json(
       {
         success: true,
-        message: "User created successfully",
+        message: "Account created successfully.",
         data: { _id: newUser.id, email: newUser.email },
       },
       201,
     );
   } catch (err: any) {
     console.error("Sign-up error:", err);
-    return json({ success: false, message: "Failed to create account. Please try again." }, 500);
+    return json({ success: false, message: "Couldn’t create your account. Please try again." }, 500);
   }
 };
 

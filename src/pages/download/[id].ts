@@ -110,7 +110,7 @@ function renderDownloadPage(input: {
 
   const batchLinks = zipBatches.map((batch, index) => {
     const href = escapeHtml(`/download/${input.shareId}?zip=1&batch=${index}`);
-    return `<li><a href="${href}" data-download-item="1" download><span>Download ZIP part ${index + 1} of ${zipBatches.length}</span> <span class="pill">${batch.length} files ↓</span></a></li>`;
+    return `<li><a href="${href}" data-download-item="1" download><span>Download ZIP Part ${index + 1} of ${zipBatches.length}</span> <span class="pill">${batch.length} ${batch.length === 1 ? "file" : "files"} ↓</span></a></li>`;
   }).join("");
 
   const directDownloadLinks = input.fileKeys.map((fileKey, index) => {
@@ -120,9 +120,9 @@ function renderDownloadPage(input: {
   }).join("");
 
   const intro = isSingle
-    ? `Your file is ready to download from the nearest Cloudflare server.`
+    ? `Your file is ready to download.`
     : input.zipAvailable
-      ? `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download everything in one ZIP package below, or click any file to download it individually.`
+      ? `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download everything in one ZIP package below, or select any file to download it individually.`
       : `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download it in ${zipBatches.length} ZIP parts below, or download individual files.`;
 
   const primaryButtonLabel = isSingle
@@ -135,21 +135,21 @@ function renderDownloadPage(input: {
 
   const batchSection = (input.zipAvailable || isSingle) ? "" : `
       <section>
-        <h2>ZIP parts</h2>
+        <h2>ZIP Parts</h2>
         <ul class="files">${batchLinks}</ul>
       </section>`;
 
   const directSection = isSingle ? `
       <section>
-        <h2>File details</h2>
+        <h2>File Details</h2>
         <ul class="files">${directDownloadLinks}</ul>
       </section>` : input.zipAvailable ? `
       <section>
-        <h2>Individual files (${input.fileKeys.length})</h2>
+        <h2>Individual Files (${input.fileKeys.length})</h2>
         <ul class="files">${directDownloadLinks}</ul>
       </section>` : `
       <details>
-        <summary>Show individual file links (${input.fileKeys.length})</summary>
+        <summary>Show Individual File Links (${input.fileKeys.length})</summary>
         <ul class="files">${directDownloadLinks}</ul>
       </details>`;
 
@@ -187,12 +187,12 @@ function renderDownloadPage(input: {
   </head>
   <body>
     <main>
-      <div class="brand"><span class="icon">↓</span><span>${brand.productName}</span></div>
-      <h1>${isSingle ? "Your file is ready" : "Your files are ready"}</h1>
+      <div class="brand"><span class="icon" aria-hidden="true">↓</span><span>${brand.productName}</span></div>
+      <h1>${isSingle ? "Your File Is Ready" : "Your Files Are Ready"}</h1>
       <p>${intro}</p>
       ${primaryButton}
       <div id="download-status-banner" class="status-banner" role="status" aria-live="polite">
-        ✓ Starting your download from the nearest Cloudflare server... Check your browser's downloads bar and keep this tab open until it finishes.
+        ✓ Starting your download… Check your browser’s downloads bar and keep this tab open until it finishes.
       </div>
       ${batchSection}
       ${directSection}
@@ -666,7 +666,16 @@ export const GET: APIRoute = async ({ params, locals, url, request }) => {
   const reqStart = performance.now();
   const id = params.id;
   if (!id) {
-    return new Response("Missing download id", { status: 400 });
+    return new Response(
+      renderDownloadErrorPage(
+        "Invalid Download Link",
+        "This download link is incomplete or invalid. Please check the URL or ask the sender for a new link.",
+      ),
+      {
+        status: 400,
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      },
+    );
   }
 
   try {
@@ -857,9 +866,16 @@ export const GET: APIRoute = async ({ params, locals, url, request }) => {
       tags: { feature: "download", route: "download/[id]" },
       context: { shareId: id },
     });
-    return new Response("Unable to process download right now. Please try again in a moment.", {
-      status: 500,
-    });
+    return new Response(
+      renderDownloadErrorPage(
+        "Download Temporarily Unavailable",
+        "We couldn't prepare your download right now. Please refresh the page or try again in a moment.",
+      ),
+      {
+        status: 500,
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      },
+    );
   }
 };
 

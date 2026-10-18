@@ -80,12 +80,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     userId = session.userId;
 
     if (!rawBody || typeof rawBody !== "object") {
-      return json({ error: "Invalid JSON body" }, 400);
+      return json({ error: "Couldn’t finalize the upload. Please try uploading the file again." }, 400);
     }
     body = rawBody;
     const { uploadId, key, parts } = body;
     if (!uploadId || !key || !Array.isArray(parts) || parts.length === 0) {
-      return json({ error: "Missing uploadId, key, or parts" }, 400);
+      return json({ error: "Couldn’t finalize the upload because some file parts were missing. Please try uploading the file again." }, 400);
     }
 
     const filesBinding = (locals as any)?.runtime?.env?.FILES;
@@ -145,7 +145,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       }
       return json(
         {
-          error: "No valid uploaded parts found for this upload session",
+          error: "Couldn’t verify the uploaded file parts. Please try uploading the file again.",
           code: "InvalidPart",
           resetSession: true,
         },
@@ -220,7 +220,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         const status = errName === "NoSuchUpload" || errName === "NoSuchKey" ? 404 : 400;
         return json(
           {
-            error: `Upload session could not be finalized (${errName}). Please retry the upload.`,
+            error: "Couldn’t finalize the upload session. Please try uploading the file again.",
             code: errName,
             resetSession: true,
           },
@@ -242,7 +242,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         partCount: Array.isArray(body.parts) ? body.parts.length : undefined,
       },
     });
-    return json({ error: "Failed to complete upload" }, 500);
+    return json({ error: "Couldn’t finalize the upload. Please try uploading the file again." }, 500);
   }
 };
 

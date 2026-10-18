@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   try {
     const rawBody = await request.json().catch(() => null);
     if (!rawBody || typeof rawBody !== "object") {
-      return json({ error: "Invalid JSON body" }, 400);
+      return json({ error: "Couldn’t start the upload. Please select a valid file and try again." }, 400);
     }
     body = rawBody as InitiateUploadBody;
     const { fileName, contentType, fileSize, partCount, partNumbers } = body;
@@ -39,7 +39,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       !Number.isFinite(fileSize) ||
       fileSize <= 0
     ) {
-      return json({ error: "Missing or invalid fileName, contentType, or fileSize" }, 400);
+      return json({ error: "Please select a valid, non-empty file to upload." }, 400);
     }
 
     if (fileSize > MAX_SINGLE_FILE_UPLOAD_BYTES) {
@@ -138,7 +138,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         fileSize: body.fileSize,
       },
     });
-    return json({ error: "Failed to initiate upload" }, 500);
+    return json({ error: "Couldn’t start the upload. Please wait a moment and try again." }, 500);
   }
 };
 

@@ -22,7 +22,7 @@ export const InitialUpload = () => {
       <Stack
         sx={{ padding: "24px", justifyContent: "center", alignItems: "center" }}
       >
-        <Image src="/logo.png" alt="logo" width={168} height={36} />
+        <Image src="/logo.png" alt="Gigasend" width={168} height={36} />
       </Stack>
       <FileUploader />
       <TermsConditions sx={{ color: "#cbd5e1" }} />

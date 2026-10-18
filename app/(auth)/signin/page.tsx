@@ -60,9 +60,9 @@ const LoginPage = () => {
     setForgotMessage(null);
     try {
       const res = await axios.post('/api/auth/forgot-password', { email: forgotEmail });
-      setForgotMessage({ text: res.data.message || 'If an account exists, a reset link was sent.', success: true });
+      setForgotMessage({ text: res.data.message || 'If an account exists for that email, we sent a password reset link.', success: true });
     } catch {
-      setForgotMessage({ text: 'Failed to send reset link. Please try again.', success: false });
+      setForgotMessage({ text: 'Couldn’t send the reset link. Please try again.', success: false });
     } finally {
       setForgotLoading(false);
     }
@@ -90,7 +90,7 @@ const LoginPage = () => {
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
-        setError("An unexpected error occurred.");
+        setError("Couldn’t sign you in. Please check your connection and try again.");
       }
     } finally {
       setLoading(false)
@@ -112,7 +112,7 @@ const LoginPage = () => {
             </div>
             <span className="label-caps text-gold-400 text-xs block mb-2">Workspace Access</span>
             <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mb-4">
-              Welcome back!
+              Welcome Back
             </h2>
             <p className="text-base text-slate-300 mb-8 leading-relaxed">
               Sign in to access your files and continue sharing with zero cloud egress.
@@ -126,7 +126,7 @@ const LoginPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white font-display text-sm">Lightning Fast Uploads</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Share files instantly with our optimized edge infrastructure</p>
+                  <p className="text-slate-300 text-xs mt-0.5">Share files instantly with our optimized edge infrastructure.</p>
                 </div>
               </div>
               <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
@@ -135,7 +135,7 @@ const LoginPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white font-display text-sm">Enterprise Security</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Your files are protected with bank-level encryption</p>
+                  <p className="text-slate-300 text-xs mt-0.5">Your files are protected with 256-bit TLS encryption.</p>
                 </div>
               </div>
               <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
@@ -144,7 +144,7 @@ const LoginPage = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-white font-display text-sm">Team Collaboration</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Work together seamlessly with advanced sharing tools</p>
+                  <p className="text-slate-300 text-xs mt-0.5">Work together seamlessly with advanced sharing tools.</p>
                 </div>
               </div>
             </div>
@@ -170,12 +170,12 @@ const LoginPage = () => {
               <div className="w-14 h-14 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mb-6 border border-gold-500/20">
                 <FiLock className="w-6 h-6" />
               </div>
-              <span className="label-caps text-gold-400 text-xs">Authenticated Console</span>
+              <span className="label-caps text-gold-400 text-xs">Account Access</span>
               <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mt-1 mb-2">
                 Sign In
               </h2>
               <p className="text-sm text-slate-300 font-body">
-                Enter your credentials to access your account
+                Enter your email and password to access your workspace.
               </p>
             </div>
 
@@ -204,7 +204,7 @@ const LoginPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full pl-10 pr-4 py-3 bg-ocean-950 border border-white/15 rounded-xl text-sm text-white placeholder-slate-500 focus:border-gold-500 outline-none transition-all duration-200 font-body"
-                    placeholder="Enter your email"
+                    placeholder="name@example.com"
                     required
                   />
                 </div>
@@ -224,12 +224,13 @@ const LoginPage = () => {
                     value={formData.password}
                     onChange={handleInputChange}
                     className="w-full pl-10 pr-12 py-3 bg-ocean-950 border border-white/15 rounded-xl text-sm text-white placeholder-slate-500 focus:border-gold-500 outline-none transition-all duration-200 font-body"
-                    placeholder="Enter your password"
+                    placeholder="••••••••"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     className="absolute right-3.5 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors duration-200"
                   >
                     {showPassword ? <FiEyeOff /> : <FiEye />}
@@ -258,7 +259,7 @@ const LoginPage = () => {
                 disabled={loading}
                 className={`w-full btn-gold py-3.5 px-6 rounded-xl font-bold font-display text-xs shadow-lg shadow-gold-500/15 transition-all duration-200 flex items-center justify-center tap-tactile ${loading ? 'animate-pulse opacity-80' : ''}`}
               >
-                {!loading ? 'Sign In' : 'Signing In'}
+                {!loading ? 'Sign In' : 'Signing In…'}
                 {!loading && <FiArrowRight className="ml-2" />}
               </button>
             </form>
@@ -269,7 +270,7 @@ const LoginPage = () => {
                 Don&apos;t have an account?{' '}
                 <Link href={searchSuffix ? `/signup${searchSuffix}` : "/signup"}>
                   <span className="text-gold-400 hover:text-amber-300 font-semibold transition-colors duration-200">
-                    Sign up here
+                    Create an Account
                   </span>
                 </Link>
               </p>
@@ -302,7 +303,7 @@ const LoginPage = () => {
 
             <form onSubmit={handleForgotSubmit} className="space-y-4">
               <div>
-                <label className="block label-caps text-slate-200 text-[10px] mb-2">Email address</label>
+                <label className="block label-caps text-slate-200 text-[10px] mb-2">Email Address</label>
                 <input
                   type="email"
                   value={forgotEmail}
@@ -328,7 +329,7 @@ const LoginPage = () => {
                   disabled={forgotLoading}
                   className="flex-1 py-2.5 px-3 btn-gold rounded-xl font-semibold text-xs transition disabled:opacity-50 tap-tactile"
                 >
-                  {forgotLoading ? 'Sending...' : 'Send Link'}
+                  {forgotLoading ? 'Sending…' : 'Send Reset Link'}
                 </button>
               </div>
             </form>

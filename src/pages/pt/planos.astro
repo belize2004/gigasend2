@@ -3,11 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PtHeader from "../../components/PtHeader.astro";
 import PtFooter from "../../components/PtFooter.astro";
 import { PT_CORE_VALUE_PROPOSITIONS } from "../../data/ptSeoLandingPages";
+import { getLanguageSwitchPaths } from "../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
 import TransferEmbed from "@/src/components/TransferEmbed";
 
 export const prerender = true;
 
+const langPaths = getLanguageSwitchPaths("/pt/planos");
 const canonical = `${brand.siteUrl}/pt/planos`;
 const hreflang = [
   { lang: "en", href: `${brand.siteUrl}/plans` },
@@ -18,7 +20,7 @@ const hreflang = [
 const pricingSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: `${brand.productName} Brasil — Planos Pré-Pagos Sem Assinatura Mensal`,
+  name: `${brand.productName} Brasil — Planos pré-pagos sem assinatura mensal`,
   applicationCategory: "BusinessApplication",
   operatingSystem: "All",
   url: canonical,
@@ -26,37 +28,44 @@ const pricingSchema = {
   offers: {
     "@type": "AggregateOffer",
     lowPrice: "0.00",
-    highPrice: "180.00",
+    highPrice: "800.00",
     priceCurrency: "USD",
-    offerCount: 4,
+    offerCount: 5,
     offers: [
       {
         "@type": "Offer",
-        name: "Plano Grátis (Até 25GB por Transferência)",
+        name: "Plano grátis (até 10 GB por transferência)",
         price: "0.00",
         priceCurrency: "USD",
-        description: "Envie até 25GB gratuitamente com download direto sem cadastro para o cliente e CDN em São Paulo e Rio.",
+        description: "Envie até 10 GB gratuitamente (retenção de 3 dias) com download direto sem cadastro para o destinatário e CDN em São Paulo e Rio.",
       },
       {
         "@type": "Offer",
-        name: "Pacote Pré-Pago 50GB (Validade 12 Meses)",
+        name: "Pacote pré-pago 50 GB (validade de 12 meses)",
         price: "10.00",
         priceCurrency: "USD",
-        description: "Pacote de 50GB válido por 12 meses inteiros sem assinatura mensal.",
+        description: "Pacote de 50 GB válido por 12 meses inteiros sem assinatura mensal.",
       },
       {
         "@type": "Offer",
-        name: "Pacote Pré-Pago 100GB (Validade 12 Meses)",
+        name: "Pacote pré-pago 100 GB (validade de 12 meses)",
         price: "20.00",
         priceCurrency: "USD",
-        description: "Pacote de 100GB por $20 válido por 12 meses inteiros sem assinatura mensal.",
+        description: "Pacote de 100 GB por US$ 20 válido por 12 meses inteiros sem assinatura mensal.",
       },
       {
         "@type": "Offer",
-        name: "Pacote Pré-Pago 1TB / 1.000GB (Validade 12 Meses)",
+        name: "Pacote pré-pago 1 TB / 1.000 GB (validade de 12 meses)",
         price: "180.00",
         priceCurrency: "USD",
-        description: "Pacote profissional de 1TB por $180 válido por 12 meses inteiros para produtoras, drones e engenharia.",
+        description: "Pacote profissional de 1 TB por US$ 180 válido por 12 meses inteiros para produtoras, drones e engenharia.",
+      },
+      {
+        "@type": "Offer",
+        name: "Pacote corporativo 5 TB (validade de 12 meses)",
+        price: "800.00",
+        priceCurrency: "USD",
+        description: "Pacote corporativo de 5 TB por US$ 800 (US$ 0,16/GB) válido por 12 meses inteiros.",
       },
     ],
   },
@@ -67,23 +76,23 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
-    { "@type": "ListItem", position: 2, name: "Planos Pré-Pagos", item: canonical },
+    { "@type": "ListItem", position: 2, name: "Planos pré-pagos", item: canonical },
   ],
 };
 
 const plans = [
   {
-    name: "Grátis (Avaliação Real)",
-    price: "$0",
-    period: "Sem cartão • Imediato",
-    capacity: "Até 25 GB",
-    badge: "12,5x Maior que o WeTransfer Grátis",
+    name: "Grátis (avaliação real)",
+    price: "US$ 0",
+    period: "Sem cartão • Retenção de 3 dias",
+    capacity: "Até 10 GB",
+    badge: "5x maior que o WeTransfer grátis",
     highlight: false,
-    ctaText: "Começar Grátis (Até 25GB)",
-    ctaHref: "/transfer",
+    ctaText: "Começar grátis (até 10 GB)",
+    ctaHref: "#uploader-stage",
     features: [
-      "Envie arquivos ou pastas de até 25 GB grátis",
-      "Zero Cadastro para o Cliente baixar (1 clique)",
+      "Envie arquivos ou pastas de até 10 GB grátis (retenção de 3 dias)",
+      "Zero cadastro para o destinatário baixar (1 clique)",
       "Servidores CDN locais em São Paulo (GRU) e Rio (GIG)",
       "Retomada automática contra quedas (Claro, Vivo, Starlink)",
       "Validação de integridade SHA-256 bit a bit",
@@ -91,83 +100,84 @@ const plans = [
   },
   {
     name: "Pacote 50 GB",
-    price: "$10",
+    price: "US$ 10",
     period: "Pagamento único • Válido por 12 meses",
-    capacity: "50 GB de Transferência",
-    badge: "Sem Assinatura Mensal",
+    capacity: "50 GB de transferência",
+    badge: "Sem assinatura mensal",
     highlight: false,
-    ctaText: "Ativar Pacote de 50 GB ($10)",
+    ctaText: "Ativar pacote de 50 GB (US$ 10)",
     ctaHref: "/plans",
     features: [
       "Transfira até 50 GB em um único link ou vários envios",
       "Créditos válidos por 12 meses inteiros (não expiram no fim do mês)",
-      "Zero Cadastro para o Cliente (download direto sem login)",
+      "Zero cadastro para o destinatário (download direto sem login)",
       "CDN de alta velocidade em São Paulo e Rio de Janeiro",
       "Ideal para projetos pontuais de vídeo 4K, BIM e topografia",
     ],
   },
   {
     name: "Pacote 100 GB",
-    price: "$20",
+    price: "US$ 20",
     period: "Pagamento único • Válido por 12 meses",
-    capacity: "100 GB de Transferência",
-    badge: "Mais Popular no Brasil",
+    capacity: "100 GB de transferência",
+    badge: "Mais popular no Brasil",
     highlight: true,
-    ctaText: "Ativar Pacote de 100 GB ($20)",
+    ctaText: "Ativar pacote de 100 GB (US$ 20)",
     ctaHref: "/plans",
     features: [
-      "Apenas $0,20 por GB (20% mais barato que o MASV)",
+      "Apenas US$ 0,20 por GB (20% mais barato que o MASV)",
       "Sem cobrança extra quando vários clientes baixam o mesmo link",
       "Validade de 12 meses inteiros — zero mensalidade recorrente",
-      "Zero Cadastro para o Cliente + página limpa corporativa",
+      "Zero cadastro para o destinatário + página limpa corporativa",
       "Perfeito para produtoras audiovisuais, drones ANAC e agências",
     ],
   },
   {
     name: "Pacote Pro 1 TB",
-    price: "$180",
+    price: "US$ 180",
     period: "Pagamento único • Válido por 12 meses",
     capacity: "1 TB (1.024 GB)",
-    badge: "Melhor Custo por GB ($0,18/GB)",
+    badge: "Melhor custo por GB (US$ 0,18/GB)",
     highlight: false,
-    ctaText: "Ativar Pacote de 1 TB ($180)",
+    ctaText: "Ativar pacote de 1 TB (US$ 180)",
     ctaHref: "/plans",
     features: [
-      "Transfira pacotes massivos de 100GB, 250GB ou 500GB+ num único link",
-      "Substitui o envio de HDs externos e SSDs via Sedex/Motoboy",
-      "Validade de 12 meses inteiros para usar conforme a demanda de obras/voos",
+      "Transfira pacotes massivos de 100 GB, 250 GB ou 500 GB+ num único link",
+      "Substitui o envio de HDs externos e SSDs via Sedex/motoboy",
+      "Validade de 12 meses inteiros para usar conforme a demanda de obras e voos",
       "Aceleração máxima HTTP/3 nos nós de São Paulo (GRU) e Rio (GIG)",
-      "Suporte prioritário para fluxos RAW, LiDAR, DCP e bancos SQL",
+      "Pacote corporativo de 5 TB também disponível por US$ 800 (US$ 0,16/GB)",
     ],
   },
 ];
 ---
 
 <BaseLayout
-  title={`Planos Pré-Pagos ($20/100GB • $180/1TB) | ${brand.productName} Brasil`}
-  description="Pague apenas pelo que enviar no Brasil: até 25GB grátis ou pacotes de 12 meses ($10/50GB, $20/100GB, $180/1TB). Zero cadastro para o cliente e CDN SP/RJ."
+  title={`Planos pré-pagos (US$ 20/100 GB • US$ 180/1 TB) | ${brand.productName} Brasil`}
+  description="Pague apenas pelo que enviar no Brasil: até 10 GB grátis ou pacotes de 12 meses (US$ 10/50 GB, US$ 20/100 GB, US$ 180/1 TB, US$ 800/5 TB). Zero cadastro para o destinatário e CDN SP/RJ."
   canonical={canonical}
   lang="pt-BR"
   hreflang={hreflang}
 >
   <Fragment slot="head">
+    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
   <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
-    <PtHeader activeNav="planos" enHref="/plans?lang=en" ptHref="/pt/planos?lang=pt" />
+    <PtHeader activeNav="planos" enHref={langPaths.enHref} esHref={langPaths.esHref} ptHref={langPaths.ptHref} />
 
     <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <span class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400">
-          🇧🇷 Pague Pelo Que Enviar • Zero Assinatura Mensal
+          🇧🇷 Pague pelo que enviar • Sem renovação automática nem cobranças surpresa
         </span>
         <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white font-display tracking-tight">
-          Chega de Pagar Mensalidades em Meses Sem Gravações ou Obras.
+          Chega de pagar mensalidades em meses sem gravações ou obras.
         </h1>
         <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-          Comece enviando <strong>até 25 GB grátis</strong>. Quando precisar transferir 50GB, 100GB ou 500GB+, ative um pacote pré-pago com <strong>validade de 12 meses inteiros</strong> e <strong>Zero Cadastro para o Cliente</strong>.
+          Comece enviando <strong>até 10 GB grátis</strong> (com retenção de 3 dias). Quando precisar transferir 50 GB, 100 GB ou 500 GB+, ative um pacote pré-pago com <strong>validade de 12 meses inteiros</strong> (ou assinaturas mensais de 30 dias a partir de US$ 10/mês) e <strong>zero cadastro para o destinatário</strong>.
         </p>
       </div>
 
@@ -215,21 +225,21 @@ const plans = [
         ))}
       </div>
 
-      <div class="mt-14 rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-10">
+      <div id="uploader-stage" class="mt-14 rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-10 scroll-mt-24">
         <div class="grid gap-8 lg:grid-cols-[1fr_1fr] items-center">
           <div>
             <h2 class="text-2xl sm:text-3xl font-black text-white font-display">
-              Teste Agora Mesmo: Envie Até 25 GB Grátis Direto do Navegador
+              Teste agora mesmo: envie até 10 GB grátis direto do navegador
             </h2>
             <p class="mt-3 text-sm text-slate-300 leading-relaxed">
               Sem cartão de crédito e sem obrigar seu cliente a criar conta. Conectado diretamente aos servidores CDN de São Paulo (GRU) e Rio de Janeiro (GIG).
             </p>
             <div class="mt-6 flex flex-wrap gap-3 text-xs">
               <a href="/pt/comparar" class="inline-flex min-h-[44px] items-center rounded-xl border border-white/15 bg-ocean-950 px-4 py-2 text-gold-400 hover:border-gold-400 font-semibold tap-tactile">
-                Ver Comparativo vs WeTransfer/Drive/MASV →
+                Ver comparativo vs WeTransfer, Drive e MASV →
               </a>
               <a href="/pt/calculadora-tempo-upload" class="inline-flex min-h-[44px] items-center rounded-xl border border-white/15 bg-ocean-950 px-4 py-2 text-slate-200 hover:border-gold-400 hover:text-gold-400 tap-tactile">
-                Calcular Tempo de Upload na Fibra →
+                Calcular tempo de upload na fibra →
               </a>
             </div>
           </div>

@@ -26,32 +26,36 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 function validateContactForm(data: FormData): FormErrors {
   const errors: FormErrors = {};
   const name = data.name.trim();
-  if (!name) errors.name = 'Full name is required';
-  else if (name.length < 2) errors.name = 'Name must be at least 2 characters';
-  else if (name.length > 50) errors.name = 'Name must not exceed 50 characters';
+  if (!name) errors.name = 'Please enter your full name.';
+  else if (name.length < 2) errors.name = 'Enter a name with at least 2 characters.';
+  else if (name.length > 50) errors.name = 'Keep your name under 50 characters.';
 
   const email = data.email.trim();
-  if (!email) errors.email = 'Email address is required';
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Please enter a valid email address';
+  if (!email) errors.email = 'Please enter your email address.';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Enter a valid email address, like name@example.com.';
 
   if (data.company && data.company.length > 100) {
-    errors.company = 'Company name must not exceed 100 characters';
+    errors.company = 'Keep your company name under 100 characters.';
   }
 
   const phone = data.phone.trim();
-  if (!/^[\+]?[0-9\(\)\-\s]*$/.test(phone)) errors.phone = 'Please enter a valid phone number';
-  else if (phone.length < 10) errors.phone = 'Phone number must be at least 10 digits';
-  else if (phone.length > 20) errors.phone = 'Phone number must not exceed 20 characters';
+  if (phone.length > 0) {
+    if (!/^[\+]?[0-9\(\)\-\s]*$/.test(phone) || phone.length < 10) {
+      errors.phone = 'Enter a valid phone number with at least 10 digits.';
+    } else if (phone.length > 20) {
+      errors.phone = 'Keep your phone number under 20 characters.';
+    }
+  }
 
   const subject = data.subject.trim();
-  if (!subject) errors.subject = 'Subject is required';
-  else if (subject.length < 5) errors.subject = 'Subject must be at least 5 characters';
-  else if (subject.length > 100) errors.subject = 'Subject must not exceed 100 characters';
+  if (!subject) errors.subject = 'Please enter a subject.';
+  else if (subject.length < 5) errors.subject = 'Enter a subject with at least 5 characters.';
+  else if (subject.length > 100) errors.subject = 'Keep your subject under 100 characters.';
 
   const message = data.message.trim();
-  if (!message) errors.message = 'Message is required';
-  else if (message.length < 10) errors.message = 'Message must be at least 10 characters';
-  else if (message.length > 1000) errors.message = 'Message must not exceed 1000 characters';
+  if (!message) errors.message = 'Please enter your message.';
+  else if (message.length < 10) errors.message = 'Enter a message with at least 10 characters.';
+  else if (message.length > 1000) errors.message = 'Keep your message under 1,000 characters.';
 
   return errors;
 }
@@ -114,12 +118,12 @@ const ContactForm = () => {
     <section id="contact" className="py-20 bg-ocean-950 text-slate-100 font-body">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="label-caps text-gold-400 text-xs block mb-2">Support & Inquiries</span>
+          <span className="label-caps text-gold-400 text-xs block mb-2">Support &amp; Inquiries</span>
           <h2 className="text-4xl font-extrabold text-white font-display tracking-tight mb-4">
             Get in Touch
           </h2>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Have questions? We&lsquo;d love to hear from you. Send us a message and we&lsquo;ll respond as soon as possible.
+            Have questions? We&rsquo;d love to hear from you. Send us a message and we&rsquo;ll respond as soon as possible.
           </p>
         </div>
 
@@ -128,11 +132,11 @@ const ContactForm = () => {
             {/* Name and Email Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative">
-                <label htmlFor="name" className="block label-caps text-slate-200 text-[10px] mb-2">
+                <label htmlFor="name" className="block text-xs font-semibold text-slate-200 mb-2">
                   Full Name *
                 </label>
                 <div className="relative">
-                  <FiUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                  <FiUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
                   <input
                     type="text"
                     id="name"
@@ -140,23 +144,23 @@ const ContactForm = () => {
                     className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
                       errors.name ? 'border-rose-500/60' : 'border-white/15'
                     }`}
-                    placeholder="Enter your full name"
+                    placeholder="Jane Doe"
                   />
                 </div>
                 {errors.name && (
                   <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" />
+                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
                     {errors.name}
                   </p>
                 )}
               </div>
 
               <div className="relative">
-                <label htmlFor="email" className="block label-caps text-slate-200 text-[10px] mb-2">
+                <label htmlFor="email" className="block text-xs font-semibold text-slate-200 mb-2">
                   Email Address *
                 </label>
                 <div className="relative">
-                  <FiMail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                  <FiMail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
                   <input
                     type="email"
                     id="email"
@@ -164,12 +168,12 @@ const ContactForm = () => {
                     className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
                       errors.email ? 'border-rose-500/60' : 'border-white/15'
                     }`}
-                    placeholder="Enter your email address"
+                    placeholder="you@company.com"
                   />
                 </div>
                 {errors.email && (
                   <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" />
+                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
                     {errors.email}
                   </p>
                 )}
@@ -179,11 +183,11 @@ const ContactForm = () => {
             {/* Company and Phone Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative">
-                <label htmlFor="company" className="block label-caps text-slate-200 text-[10px] mb-2">
+                <label htmlFor="company" className="block text-xs font-semibold text-slate-200 mb-2">
                   Company
                 </label>
                 <div className="relative">
-                  <BsBuildings className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                  <BsBuildings className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
                   <input
                     type="text"
                     id="company"
@@ -191,23 +195,23 @@ const ContactForm = () => {
                     className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
                       errors.company ? 'border-rose-500/60' : 'border-white/15'
                     }`}
-                    placeholder="Enter your company name"
+                    placeholder="Studio or organization (optional)"
                   />
                 </div>
                 {errors.company && (
                   <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" />
+                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
                     {errors.company}
                   </p>
                 )}
               </div>
 
               <div className="relative">
-                <label htmlFor="phone" className="block label-caps text-slate-200 text-[10px] mb-2">
+                <label htmlFor="phone" className="block text-xs font-semibold text-slate-200 mb-2">
                   Phone Number
                 </label>
                 <div className="relative">
-                  <FiPhone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                  <FiPhone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
                   <input
                     type="tel"
                     id="phone"
@@ -215,12 +219,12 @@ const ContactForm = () => {
                     className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
                       errors.phone ? 'border-rose-500/60' : 'border-white/15'
                     }`}
-                    placeholder="Enter your phone number"
+                    placeholder="+1 (555) 000-0000 (optional)"
                   />
                 </div>
                 {errors.phone && (
                   <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" />
+                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
                     {errors.phone}
                   </p>
                 )}
@@ -229,11 +233,11 @@ const ContactForm = () => {
 
             {/* Subject */}
             <div className="relative">
-              <label htmlFor="subject" className="block label-caps text-slate-200 text-[10px] mb-2">
+              <label htmlFor="subject" className="block text-xs font-semibold text-slate-200 mb-2">
                 Subject *
               </label>
               <div className="relative">
-                <FiMessageSquare className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                <FiMessageSquare className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
                 <input
                   type="text"
                   id="subject"
@@ -241,12 +245,12 @@ const ContactForm = () => {
                   className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
                     errors.subject ? 'border-rose-500/60' : 'border-white/15'
                   }`}
-                  placeholder="What's this about?"
+                  placeholder="What’s this about?"
                 />
               </div>
               {errors.subject && (
                 <p className="mt-2 text-xs text-rose-400 flex items-center">
-                  <FiAlertCircle className="mr-1.5" />
+                  <FiAlertCircle className="mr-1.5" aria-hidden="true" />
                   {errors.subject}
                 </p>
               )}
@@ -255,11 +259,11 @@ const ContactForm = () => {
             {/* Message */}
             <div className="relative">
               <div className="flex justify-between items-center mb-2">
-                <label htmlFor="message" className="block label-caps text-slate-200 text-[10px]">
+                <label htmlFor="message" className="block text-xs font-semibold text-slate-200">
                   Message *
                 </label>
                 <span className="text-xs text-slate-400 font-mono">
-                  {messageValue.length}/1000
+                  {messageValue.length}/1,000
                 </span>
               </div>
               <textarea
@@ -269,11 +273,11 @@ const ContactForm = () => {
                 className={`w-full px-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm resize-none ${
                   errors.message ? 'border-rose-500/60' : 'border-white/15'
                 }`}
-                placeholder="Tell us more about your inquiry..."
+                placeholder="Tell us more about your inquiry…"
               />
               {errors.message && (
                 <p className="mt-2 text-xs text-rose-400 flex items-center">
-                  <FiAlertCircle className="mr-1.5" />
+                  <FiAlertCircle className="mr-1.5" aria-hidden="true" />
                   {errors.message}
                 </p>
               )}
@@ -281,16 +285,16 @@ const ContactForm = () => {
 
             {/* Submit Status Messages */}
             {submitStatus === 'success' && (
-              <div className="flex items-center bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 text-emerald-300 text-sm">
-                <FiCheck className="mr-3 text-emerald-400 shrink-0" />
-                <span>Thank you! Your message has been sent successfully. We&lsquo;ll get back to you soon.</span>
+              <div role="status" className="flex items-center bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 text-emerald-300 text-sm">
+                <FiCheck className="mr-3 text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>Thanks for reaching out. We&rsquo;ve received your message and will reply soon.</span>
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="flex items-center bg-rose-500/10 border border-rose-500/30 rounded-2xl p-4 text-rose-300 text-sm">
-                <FiAlertCircle className="mr-3 text-rose-400 shrink-0" />
-                <span>Oops! Something went wrong. Please try again later.</span>
+              <div role="alert" className="flex items-center bg-rose-500/10 border border-rose-500/30 rounded-2xl p-4 text-rose-300 text-sm">
+                <FiAlertCircle className="mr-3 text-rose-400 shrink-0" aria-hidden="true" />
+                <span>Couldn&rsquo;t send your message. Please try again or email us directly at {brand.contactEmail}.</span>
               </div>
             )}
 
@@ -305,12 +309,12 @@ const ContactForm = () => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-ocean-950 mr-2"></div>
-                    Sending...
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-ocean-950 mr-2" aria-hidden="true"></div>
+                    Sending…
                   </>
                 ) : (
                   <>
-                    <FiSend className="mr-2" />
+                    <FiSend className="mr-2" aria-hidden="true" />
                     Send Message
                   </>
                 )}
@@ -323,7 +327,7 @@ const ContactForm = () => {
         <div className="mt-12 grid grid-cols-1 gap-8 text-center">
           <div className="apple-glass bg-ocean-900/90 border border-white/10 p-6 sm:p-8 rounded-3xl shadow-xl">
             <div className="bg-gold-500/15 text-gold-400 border border-gold-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <FiMail className="text-xl" />
+              <FiMail className="text-xl" aria-hidden="true" />
             </div>
             <h3 className="font-bold text-white font-display text-base mb-1">Email Us</h3>
             <p className="text-sm text-slate-300 font-mono">{brand.contactEmail}</p>

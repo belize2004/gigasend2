@@ -53,7 +53,7 @@ const CheckoutPage = () => {
 
   const handleCheckout = async () => {
     if (!formData.email) {
-      setError('Email is required.');
+      setError('Enter your email address to continue.');
       return;
     }
 
@@ -85,7 +85,7 @@ const CheckoutPage = () => {
           if (axiosError.response) {
             setError(axiosError.response.data.message);
           } else {
-            setError("An unexpected error occurred.");
+            setError("Something went wrong while processing your payment. Please try again.");
           }
           setLoading(false);
           return;
@@ -115,13 +115,13 @@ const CheckoutPage = () => {
         window.location.href = res.data.url;
         return;
       }
-      setError(res.data?.message || 'Unable to start Stripe checkout session.');
+      setError(res.data?.message || 'Couldn’t open checkout. Please refresh the page and try again.');
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       if (axiosError.response) {
         setError(axiosError.response.data.message);
       } else {
-        setError("Unable to initiate Stripe checkout.");
+        setError("Couldn’t open checkout. Please refresh the page and try again.");
       }
     } finally {
       setLoading(false);
@@ -302,7 +302,7 @@ const CheckoutPage = () => {
                   </div>
                   <h3 className="text-base font-bold text-white font-display">Secure Stripe Checkout</h3>
                   <p className="mt-1.5 text-xs text-slate-300 leading-relaxed">
-                    Pay securely with Credit Card, Apple Pay, or Google Pay via Stripe&apos;s encrypted checkout.
+                    Pay securely with a credit card, Apple Pay, or Google Pay through Stripe.
                   </p>
                 </div>
               )}
@@ -316,9 +316,9 @@ const CheckoutPage = () => {
                 <FiLock className="mr-2 text-sm" />
                 {!loading
                   ? stripe && elements
-                    ? `Complete Payment - $${currentPrice}`
-                    : `Proceed to Stripe Checkout - $${currentPrice}/mo →`
-                  : 'Redirecting to Stripe...'}
+                    ? `Complete Payment — $${currentPrice}`
+                    : `Continue to Checkout — $${currentPrice}/mo`
+                  : 'Opening Checkout…'}
               </button>
 
               {/* Security info */}

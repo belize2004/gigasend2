@@ -4,18 +4,18 @@ import { FiCheckCircle, FiClock, FiShield } from "react-icons/fi";
 export default function TrustSignals() {
   const badges = [
     {
-      label: "256-bit TLS encryption",
-      detail: "Secure uploads and downloads",
+      label: "End-to-End Protection",
+      detail: "Encrypted in transit and at rest",
       icon: FiShield,
     },
     {
-      label: "Cloudflare-backed uptime",
-      detail: "Built on a global edge network",
+      label: "Global Edge Network",
+      detail: "Fast downloads from 335+ cities",
       icon: FiCheckCircle,
     },
     {
-      label: "Expiring download links",
-      detail: "Control access after sending",
+      label: "Expiring Download Links",
+      detail: "Set custom access windows",
       icon: FiClock,
     },
   ];

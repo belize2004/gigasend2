@@ -8,21 +8,21 @@ import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
 import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { brand } from "@/lib/brand";
 
-const pageTitle = "Enviar Archivos Grandes en Colombia (BOG/MDE) | Gigasend";
+const pageTitle = "Enviar archivos grandes en Colombia (BOG/MDE) | Gigasend";
 const pageDescription =
-  "Transfiere archivos pesados de 10 GB a 500 GB+ en Colombia a través del NAP Colombia en Bogotá, Medellín, Cali y Barranquilla. Hasta 25 GB gratis.";
+  "Transfiere archivos pesados de 10 GB a 500 GB+ en Colombia a través del NAP Colombia en Bogotá, Medellín, Cali y Barranquilla. Hasta 10 GB gratis.";
 const canonical = `${brand.siteUrl}/es/colombia`;
 
 const faqs = [
   {
     question: "¿Cómo evita Gigasend los cortes de subida en Claro, Movistar, ETB y Tigo?",
     answer:
-      "Al conectarse a los nodos locales de Cloudflare en Bogotá (BOG), Medellín (MDE), Cali (CLO) y Barranquilla (BAQ), los fragmentos viajan por el NAP Colombia con menos de 12ms de latencia y reanudación automática de bloques.",
+      "Al conectarse a los nodos locales de Cloudflare en Bogotá (BOG), Medellín (MDE), Cali (CLO) y Barranquilla (BAQ), los fragmentos viajan por el NAP Colombia con menos de 12 ms de latencia y reanudación automática de bloques.",
   },
   {
     question: "¿Puedo enviar archivos de 20 GB o 50 GB sin pagar suscripción mensual?",
     answer:
-      "Sí. Las transferencias de hasta 25 GB son gratuitas. Para paquetes de 50 GB ($10), 100 GB ($20) o 1 TB ($180), tus créditos duran 12 meses enteros sin cobros recurrentes.",
+      "Sí. Las transferencias de hasta 10 GB son gratuitas (con 3 días de retención). Para paquetes de 50 GB (10 US$), 100 GB (20 US$) o 1 TB (180 US$), tus créditos duran 12 meses enteros sin cobros recurrentes.",
   },
   {
     question: "¿Mi cliente en Colombia necesita cuenta para descargar?",
@@ -47,7 +47,7 @@ const jsonLd = {
       "@id": `${canonical}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio (Español)", item: `${brand.siteUrl}/es` },
-        { "@type": "ListItem", position: 2, name: "Infraestructura Regional", item: `${brand.siteUrl}/es` },
+        { "@type": "ListItem", position: 2, name: "Infraestructura regional", item: `${brand.siteUrl}/es` },
         { "@type": "ListItem", position: 3, name: "Colombia (BOG / MDE / CLO)", item: canonical },
       ],
     },
@@ -69,20 +69,26 @@ const jsonLd = {
   description={pageDescription}
   canonical={canonical}
   lang="es-CO"
-  hreflang={[{ lang: "es-CO", href: canonical }, { lang: "es", href: `${brand.siteUrl}/es` }]}
+  hreflang={[
+    { lang: "en", href: `${brand.siteUrl}/` },
+    { lang: "es-CO", href: canonical },
+    { lang: "es", href: `${brand.siteUrl}/es` },
+    { lang: "pt-BR", href: `${brand.siteUrl}/pt` },
+    { lang: "x-default", href: `${brand.siteUrl}/` },
+  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
   <div class="relative overflow-hidden bg-ocean-950 text-slate-100 min-h-screen font-body">
-    <EsHeader activeNav="colombia" enHref="/?lang=en" esHref="/es/colombia" ptHref="/pt/transferencia-arquivos-grandes-sao-paulo-sp-cdn" />
+    <EsHeader activeNav="colombia" enHref="/" esHref="/es/colombia" ptHref="/pt" />
 
     <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
-      <nav aria-label="Migas de pan" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
+      <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
         <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Inicio (Español)</a>
         <span aria-hidden="true">/</span>
-        <span class="text-slate-400">Infraestructura Perimetral</span>
+        <span class="text-slate-400">Infraestructura perimetral</span>
         <span aria-hidden="true">/</span>
         <span class="text-slate-200 font-medium">Colombia 🇨🇴</span>
       </nav>
@@ -94,21 +100,21 @@ const jsonLd = {
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
-          Envía Archivos Pesados en Colombia <span class="text-gold-400">Vía NAP Colombia.</span>
+          Envía archivos pesados en Colombia <span class="text-gold-400">vía NAP Colombia.</span>
         </h1>
 
         <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
           <p>
-            <strong class="text-white font-display">Para mandar archivos de 10 GB a 500 GB+ en Colombia:</strong> utiliza la red perimetral de Gigasend con presencia directa en Bogotá, Medellín, Cali y Barranquilla. Envía hasta 25 GB gratis sin contratos mensuales y con descarga directa en 1 clic.
+            <strong class="text-white font-display">Para mandar archivos de 10 GB a 500 GB+ en Colombia:</strong> utiliza la red perimetral de Gigasend con presencia directa en Bogotá, Medellín, Cali y Barranquilla. Envía hasta 10 GB gratis sin contratos mensuales y con descarga directa en 1 clic.
           </p>
         </div>
       </header>
 
-      <section class="mb-16">
+      <section id="uploader" class="mb-16">
         <div class="text-center mb-6 space-y-3">
           <EdgeLocationBadge client:load />
           <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga Perimetral Colombia</span>
+            <span class="label-caps text-gold-400/90 text-xs">Carga perimetral en Colombia</span>
             <p class="text-xs text-slate-400 font-body">Arrastra archivos o carpetas para transferir por fibra óptica local.</p>
           </div>
         </div>
@@ -119,16 +125,16 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de Presencia Perimetral en Colombia</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de presencia perimetral en Colombia</h2>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">BOG • BOGOTÁ</span>
-            <h3 class="text-lg font-bold text-white font-display">NAP Colombia Central</h3>
+            <h3 class="text-lg font-bold text-white font-display">NAP Colombia central</h3>
             <p class="text-xs text-slate-300 font-body leading-relaxed">Peering directo con ETB Fibra, Claro y Movistar para productoras de cine, televisión y firmas de ingeniería en la capital.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
             <span class="text-xs text-gold-400 font-mono font-bold">MDE • MEDELLÍN</span>
-            <h3 class="text-lg font-bold text-white font-display">Hub Innovación Antioquia</h3>
+            <h3 class="text-lg font-bold text-white font-display">Hub de innovación en Antioquia</h3>
             <p class="text-xs text-slate-300 font-body leading-relaxed">Transferencia acelerada para estudios creativos, arquitectura BIM y levantamientos con drones en el Valle de Aburrá.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
@@ -144,7 +150,7 @@ const jsonLd = {
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas Frecuentes en Colombia</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas frecuentes en Colombia</h2>
         <div class="space-y-4">
           {faqs.map((faq, idx) => (
             <details open={idx === 0} class="group rounded-2xl apple-subtle-glass border border-white/10 p-5">
@@ -159,12 +165,12 @@ const jsonLd = {
       </section>
 
       <section class="mt-16 pt-12 border-t border-white/10 space-y-6">
-        <h2 class="text-2xl font-bold text-white font-display">Flujos Destacados en Colombia</h2>
+        <h2 class="text-2xl font-bold text-white font-display">Flujos destacados en Colombia</h2>
         <div class="flex flex-wrap gap-2.5">
-          <a href="/es/enviar-archivos-50gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Cómo Mandar Archivos de 50 GB</a>
-          <a href="/es/enviar-carpetas-pesadas" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Carpetas Pesadas por Internet</a>
-          <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Videos 4K Sin Perder Calidad</a>
-          <a href="/es/enviar-archivos-mas-de-2gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar Archivos de Más de 2 GB</a>
+          <a href="/es/enviar-archivos-50gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Cómo mandar archivos de 50 GB</a>
+          <a href="/es/enviar-carpetas-pesadas" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar carpetas pesadas por internet</a>
+          <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar videos 4K sin perder calidad</a>
+          <a href="/es/enviar-archivos-mas-de-2gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar archivos de más de 2 GB</a>
         </div>
       </section>
     </main>

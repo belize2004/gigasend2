@@ -95,7 +95,7 @@ export const PLANS: Record<PlanEnum, Plan> = {
       'Priority support',
       'Team onboarding',
     ],
-    buttonText: 'Ask for pricing',
+    buttonText: 'Contact Sales',
     buttonStyle: 'bg-slate-900 text-white hover:bg-slate-800',
     contactSales: true,
   }
@@ -122,12 +122,12 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     storage: '50 GB',
     rate: '$0.20/GB',
     popular: false,
-    description: 'Perfect for 1-2 urgent client project deliveries',
+    description: 'Ideal for 1–2 client project deliveries',
     features: [
       '50 GB downloaded delivery',
-      'Credits valid for a full 12 months',
-      'Deducted only upon successful download',
-      'Recipients download with zero logins',
+      'Valid for 12 months',
+      'Used only when files are downloaded',
+      'No account required for recipients',
       'Cloudflare Anycast edge-accelerated',
       'No monthly recurring commitment'
     ],
@@ -144,9 +144,9 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     description: 'Most popular for active freelance video editors',
     features: [
       '100 GB downloaded delivery',
-      'Credits valid for a full 12 months',
-      'Deducted only upon successful download',
-      'Recipients download with zero logins',
+      'Valid for 12 months',
+      'Used only when files are downloaded',
+      'No account required for recipients',
       'Cloudflare Anycast edge-accelerated',
       'No monthly recurring commitment'
     ],
@@ -164,7 +164,7 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     features: [
       '1,000 GB (1 TB) downloaded delivery',
       '10% volume discount ($0.18/GB)',
-      'Credits valid for a full 12 months',
+      'Valid for 12 months',
       'Optional auto-reload top-up',
       'Priority edge routing',
       'No monthly recurring commitment'
@@ -183,7 +183,7 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     features: [
       '5,000 GB (5 TB) downloaded delivery',
       '20% volume discount ($0.16/GB)',
-      'Credits valid for a full 12 months',
+      'Valid for 12 months',
       'Dedicated enterprise edge routing',
       'Priority support & invoicing',
       'No monthly recurring commitment'

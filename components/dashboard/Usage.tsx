@@ -15,7 +15,7 @@ export default function Usage({ usedStorage, allowedStorage }: Props) {
       <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
       <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="label-caps text-sky-400 text-[10px] block mb-0.5">Active R2 Storage</span>
+          <span className="label-caps text-sky-400 text-[10px] block mb-0.5">Workspace Capacity</span>
           <h2 className="text-xl font-bold text-white font-display">Storage Usage</h2>
         </div>
         <div className="w-11 h-11 rounded-2xl bg-sky-500/15 text-sky-400 border border-sky-500/20 flex items-center justify-center">

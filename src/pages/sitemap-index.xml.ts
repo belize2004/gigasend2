@@ -21,10 +21,6 @@ export const GET: APIRoute = async ({ site }) => {
     <loc>${origin}/sitemap-pt.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
-  <sitemap>
-    <loc>${origin}/sitemap.xml</loc>
-    <lastmod>${today}</lastmod>
-  </sitemap>
 </sitemapindex>
 `;
 

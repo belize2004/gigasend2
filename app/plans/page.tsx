@@ -60,10 +60,10 @@ const PricingPlans = () => {
         window.location.href = data.url;
         return;
       }
-      alert(data.message || 'Unable to start Stripe checkout session.');
+      alert(data.message || 'Couldn’t start checkout. Please check your connection and try again.');
     } catch (err: any) {
       console.error('PAYG checkout error:', err);
-      alert('An unexpected error occurred. Please try again.');
+      alert('Couldn’t start checkout. Please check your connection and try again.');
     } finally {
       setLoadingPack(null);
     }
@@ -87,7 +87,7 @@ const PricingPlans = () => {
           </div>
 
           <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Choose flexible monthly capacity or zero-expiry Pay-As-You-Go delivery packs. Built on Cloudflare&apos;s zero-egress edge network across 335+ global cities.
+            Choose a monthly plan or prepaid Pay-As-You-Go delivery packs valid for 12 months—powered by our global edge network across 335+ cities.
           </p>
 
           {/* Pricing Model Segmented Toggle */}
@@ -272,7 +272,7 @@ const PricingPlans = () => {
                     {loadingPack === pack.id ? (
                       <>
                         <span className="w-3.5 h-3.5 border-2 border-current border-t-transparent rounded-full animate-spin"></span>
-                        <span>Connecting to Stripe...</span>
+                        <span>Preparing Checkout…</span>
                       </>
                     ) : (
                       <>
@@ -292,7 +292,7 @@ const PricingPlans = () => {
                 How Pay-As-You-Go Credits Work
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
-                Uploads and generating share links are always free. Credits deduct from your balance only when your recipient successfully downloads the file. Unused credits remain active for 365 days.
+                Uploading files and creating share links are always free. Credits are deducted only when a recipient downloads your files, and remain valid for 12 months.
               </p>
             </div>
           </div>

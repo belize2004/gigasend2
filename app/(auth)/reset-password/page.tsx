@@ -19,7 +19,7 @@ export default function ResetPasswordPage() {
       if (tokenParam) {
         setToken(tokenParam);
       } else {
-        setError("Invalid or missing reset token. Please request a new link.");
+        setError("This password reset link is invalid or has expired. Please request a new link from the Sign In page.");
       }
     }
   }, []);
@@ -29,7 +29,7 @@ export default function ResetPasswordPage() {
     setError("");
 
     if (!token) {
-      setError("Missing reset token. Please request a new link from the login page.");
+      setError("This password reset link is invalid or has expired. Please request a new link from the Sign In page.");
       return;
     }
 
@@ -55,7 +55,7 @@ export default function ResetPasswordPage() {
       const data = await res.json();
 
       if (!res.ok || !data.success) {
-        setError(data.message || "Failed to update password. Your link may have expired.");
+        setError(data.message || "Couldn’t update your password. This reset link may have expired.");
         setLoading(false);
         return;
       }
@@ -65,7 +65,7 @@ export default function ResetPasswordPage() {
         window.location.href = "/transfer";
       }, 1500);
     } catch {
-      setError("A network error occurred. Please try again.");
+      setError("Couldn’t connect to the server. Check your internet connection and try again.");
       setLoading(false);
     }
   };
@@ -97,7 +97,7 @@ export default function ResetPasswordPage() {
         {success && (
           <div className="mb-5 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl flex items-center gap-2.5 text-xs text-emerald-300">
             <FiCheckCircle className="w-4 h-4 flex-shrink-0 text-emerald-400" />
-            <span>Password updated! Redirecting you now...</span>
+            <span>Password updated. Redirecting you now…</span>
           </div>
         )}
 
@@ -122,6 +122,7 @@ export default function ResetPasswordPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition"
                 >
                   {showPassword ? <FiEyeOff /> : <FiEye />}
@@ -153,7 +154,7 @@ export default function ResetPasswordPage() {
               disabled={loading || !token}
               className="w-full mt-2 py-3.5 px-6 btn-gold font-bold font-display rounded-xl shadow-lg shadow-gold-500/15 transition disabled:opacity-50 text-xs tap-tactile"
             >
-              {loading ? "Updating Password..." : "Set New Password"}
+              {loading ? "Updating Password…" : "Update Password"}
             </button>
           </form>
         )}

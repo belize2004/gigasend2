@@ -78,7 +78,7 @@ const DashboardMenu: React.FC = () => {
           className="flex items-center w-full px-4 py-3 text-slate-400 hover:bg-rose-500/10 hover:text-rose-400 rounded-xl transition-all duration-200 text-sm tap-tactile"
         >
           <FiLogOut className="mr-3 text-lg" />
-          <span className="font-semibold font-display">Logout</span>
+          <span className="font-semibold font-display">Sign Out</span>
         </button>
       </div>
     </div>

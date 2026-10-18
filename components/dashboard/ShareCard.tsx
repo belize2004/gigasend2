@@ -61,7 +61,8 @@ export default function ShareCard(share: Props) {
                 ? 'bg-rose-500/15 text-rose-300 border-rose-500/30 hover:bg-rose-500/25'
                 : 'bg-white/[0.06] text-gold-400 border-white/10 hover:bg-white/[0.12] hover:text-amber-300'
               }`}
-            title="Copy link"
+            aria-label={copied ? "Link copied" : "Copy download link"}
+            title={copied ? "Link copied" : "Copy download link"}
           >
             {copied ? <FiCheck size={16} /> : <FiCopy size={16} />}
           </button>

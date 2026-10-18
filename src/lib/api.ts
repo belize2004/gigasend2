@@ -38,5 +38,5 @@ export function clearAuthCookie(cookies: AstroCookies) {
 }
 
 export function unauthorized() {
-  return json({ success: false, message: "Authentication failed" }, 401);
+  return json({ success: false, message: "Please sign in to continue." }, 401);
 }

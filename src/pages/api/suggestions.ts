@@ -52,11 +52,11 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const message = typeof body.message === "string" ? body.message.trim() : "";
 
     if (!message) {
-      return json({ success: false, message: "Suggestion is required" }, 400);
+      return json({ success: false, message: "Please enter your feedback before submitting." }, 400);
     }
 
     if (message.length > MAX_SUGGESTION_LENGTH) {
-      return json({ success: false, message: `Suggestion must be ${MAX_SUGGESTION_LENGTH} characters or less` }, 400);
+      return json({ success: false, message: `Keep your feedback under ${MAX_SUGGESTION_LENGTH.toLocaleString()} characters.` }, 400);
     }
 
     const db = getDb(locals);
@@ -95,7 +95,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       },
     });
 
-    return json({ success: true, message: "Suggestion sent" });
+    return json({ success: true, message: "Thank you for your feedback." });
   } catch (error) {
     console.error("Suggestion submission failed:", error);
     captureMonitoringException(error, {
@@ -106,6 +106,6 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
         pageUrl: body.pageUrl,
       },
     });
-    return json({ success: false, message: "Failed to send suggestion" }, 500);
+    return json({ success: false, message: "Couldn’t send your feedback. Please check your connection and try again." }, 500);
   }
 };

@@ -11,26 +11,26 @@ const guides = [
     slug: "why-large-file-transfers-are-slow",
     title: "Why Large File Transfers Are So Slow (And How to Fix It)",
     category: "WAN & Infrastructure",
-    description: "Diagnosing TCP window scaling, peering latency, and packet loss bottlenecks on 25GB–2TB file transfers—plus how to achieve line-rate edge speeds.",
+    description: "Diagnosing TCP window scaling, peering latency, and packet loss bottlenecks on 25 GB–2 TB file transfers—plus how to achieve line-rate edge speeds.",
     readTime: "6 min read",
   },
   {
     slug: "large-file-transfer-cost-calculator",
     title: "Large File Transfer Cost Calculator (PAYG vs. Subscriptions)",
     category: "Cost & Billing",
-    description: "Compare the real cost of sending 50GB to 5TB files. Pay-as-you-go pricing vs WeTransfer, Dropbox, and cloud storage egress fees.",
+    description: "Compare the real cost of sending 50 GB to 5 TB files. Pay-as-you-go pricing vs. WeTransfer, Dropbox, and cloud storage egress fees.",
     readTime: "5 min read",
   },
   {
     slug: "transfer-large-files-without-failed-uploads",
     title: "How to Transfer Large Files Without Failed Uploads",
     category: "Reliability & Resilience",
-    description: "How client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50GB+ uploads on unstable connections.",
+    description: "How client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50 GB+ uploads on unstable connections.",
     readTime: "4 min read",
   },
   {
     slug: "file-transfer-vs-cloud-storage-vs-media-review",
-    title: "File Transfer vs Cloud Storage vs Media Review: The Right Tool for Creative Teams",
+    title: "File Transfer vs. Cloud Storage vs. Media Review: The Right Tool for Creative Teams",
     category: "Workflow Architecture",
     description: "When to use ephemeral point-to-point transfer (Gigasend) versus persistent cloud storage (Google Drive/Dropbox) versus frame-by-frame review (Frame.io).",
     readTime: "7 min read",
@@ -39,7 +39,7 @@ const guides = [
     slug: "send-large-files-without-filling-computer",
     title: "How to Send Large Files Without Filling Up Your Hard Drive",
     category: "Storage Optimization",
-    description: "Stop cloud sync apps from cloning 200GB project folders onto your local SSD. How direct browser streaming protects disk space.",
+    description: "Stop cloud sync apps from cloning 200 GB project folders onto your local SSD. How direct browser streaming protects disk space.",
     readTime: "4 min read",
   },
 ];
@@ -87,7 +87,7 @@ const guides = [
     <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
         <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li class="text-gold-400 font-semibold" aria-current="page">Guides</li>
       </ol>
     </nav>
@@ -96,7 +96,7 @@ const guides = [
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl">
           <p class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-            <span>⚡</span>
+            <span aria-hidden="true">⚡</span>
             <span>Technical Resource Center</span>
           </p>
           <h1 class="mt-4 text-4xl font-black tracking-tight text-white font-display sm:text-5xl">
@@ -130,8 +130,8 @@ const guides = [
                 </p>
               </div>
               <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono font-bold text-gold-400">
-                <span>Read guide</span>
-                <span class="transition-transform group-hover:translate-x-1">→</span>
+                <span>Read Guide</span>
+                <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
               </div>
             </a>
           ))}
@@ -152,7 +152,7 @@ const guides = [
             </a>
             <a href="/directory" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <h3 class="font-bold text-white group-hover:text-gold-400 font-display transition-colors">Codec & Software Directory</h3>
-              <p class="mt-2 text-sm text-slate-300">Browse 46 optimized channels for BRAW, RED R3D, DaVinci, Blender, Ableton, and more.</p>
+              <p class="mt-2 text-sm text-slate-300">Browse dedicated workflows for BRAW, RED R3D, DaVinci Resolve, Blender, Ableton, and more.</p>
             </a>
             <a href="/compare" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <h3 class="font-bold text-white group-hover:text-gold-400 font-display transition-colors">Competitor Matrix</h3>
@@ -170,8 +170,8 @@ const guides = [
           <h2 class="mt-1 text-2xl font-black text-white font-display">Key Production & Capacity Workflows</h2>
           <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <a href="/send-large-files-free" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Large Files Free (Up to 25GB)</h3>
-              <p class="mt-1.5 text-xs text-slate-300">Zero-egress 25GB free transfers with 3-day retention and no account required.</p>
+              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Large Files Free (Up to 10 GB)</h3>
+              <p class="mt-1.5 text-xs text-slate-300">Zero-egress 10 GB free transfers with 3-day retention and no account required.</p>
             </a>
             <a href="/free-large-file-transfer" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Free Large File Transfer Service</h3>
@@ -179,7 +179,7 @@ const guides = [
             </a>
             <a href="/wetransfer-alternative" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">WeTransfer Alternative</h3>
-              <p class="mt-1.5 text-xs text-slate-300">Bypass the 2GB WeTransfer cap with 25GB free transfers and $0.16–$0.20/GB PAYG.</p>
+              <p class="mt-1.5 text-xs text-slate-300">Bypass the 2 GB WeTransfer cap with 10 GB free transfers and $0.16–$0.20/GB PAYG.</p>
             </a>
             <a href="/send-large-video-files" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
               <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Large Video Files</h3>
@@ -193,16 +193,16 @@ const guides = [
               <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Revit (.RVT) & BIM Models</h3>
               <p class="mt-1.5 text-xs text-slate-300">Dispatch federated BIM models, point clouds, and CAD packages across engineering teams.</p>
             </a>
-            <a href="/send-25gb-file" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send 25GB File Free</h3>
-              <p class="mt-1.5 text-xs text-slate-300">Full 25GB capacity tier included free with sub-15ms Anycast edge ingestion.</p>
+            <a href="/send-10gb-file-free" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
+              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send 10 GB File Free</h3>
+              <p class="mt-1.5 text-xs text-slate-300">Full 10 GB capacity tier included free with sub-15 ms Anycast edge ingestion.</p>
             </a>
             <a href="/send-100gb-file" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send 100GB File</h3>
-              <p class="mt-1.5 text-xs text-slate-300">High-capacity 100GB multi-part delivery for commercial shoots and VFX turnovers.</p>
+              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send 100 GB File</h3>
+              <p class="mt-1.5 text-xs text-slate-300">High-capacity 100 GB multi-part delivery for commercial shoots and VFX turnovers.</p>
             </a>
             <a href="/send-1tb-file" class="group apple-subtle-glass rounded-2xl border border-white/10 bg-ocean-900/70 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send 1TB File</h3>
+              <h3 class="font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send 1 TB File</h3>
               <p class="mt-1.5 text-xs text-slate-300">Enterprise terabyte-scale delivery saving $70/TB over AWS-taxed transfer tools.</p>
             </a>
           </div>
@@ -220,7 +220,7 @@ const guides = [
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -240,14 +240,14 @@ const guides = [
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
               <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
             </ul>
           </div>
           <div>
             <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
               <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

@@ -185,13 +185,13 @@ export function generateEmailTemplate({
               </div>
               
               <div class="file-count">
-                  <span>${numberOfFiles} files shared</span>
+                  <span>${numberOfFiles} ${numberOfFiles === 1 ? "file" : "files"} shared</span>
               </div>
               
               <div class="files-container">
                   <div class="file-item">
                       <div class="file-icon">
-                          <img src="https://res.cloudinary.com/dj3vgnj0u/image/upload/v1747313102/yfhlce4k1h0qkjfph3xk.png" alt="file" />
+                          <img src="https://res.cloudinary.com/dj3vgnj0u/image/upload/v1747313102/yfhlce4k1h0qkjfph3xk.png" alt="" />
                       </div>
                       <div class="file-size">${formatBytes(fileSize)}</div>
                       <a href="${link}" class="download-button" style="color:white;" target="_blank">Download</a>
@@ -207,7 +207,7 @@ export function generateEmailTemplate({
         }
               
               <div class="expiry-notice">
-                  <strong>Note:</strong> These download links will expire in ${expiryDays} days. Please download your files before then.
+                  <strong>Note:</strong> This download link expires in ${expiryDays} ${expiryDays === 1 ? "day" : "days"}. Please download your files before then.
               </div>
           </div>
           
@@ -247,7 +247,7 @@ export function generateEmailText({
         message ? "Message:" : undefined,
         message || undefined,
         "",
-        `This download link expires in ${expiryDays} days.`,
+        `This download link expires in ${expiryDays} ${expiryDays === 1 ? "day" : "days"}.`,
         brand.footerText,
     ].filter((line): line is string => line !== undefined).join("\n");
 }
@@ -285,7 +285,7 @@ export function generateUploadConfirmationEmail({
                   <p style="margin:0;"><strong>Size:</strong> ${formatBytes(fileSize)}</p>
               </div>
               <p style="margin:0 0 22px;line-height:1.6;">You can use the transfer link below to verify or share it.</p>
-              <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">Open transfer</a>
+              <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">View Transfer</a>
           </div>
           <div style="padding:16px 28px;border-top:1px solid #eef2f7;background:#f8fafc;font-size:12px;color:#64748b;">
               ${brand.footerText}
@@ -346,14 +346,14 @@ export function generateDownloadNotificationEmail({
               <h1 style="margin:0;font-size:22px;color:#111827;">Your transfer was downloaded</h1>
           </div>
           <div style="padding:28px;">
-              <p style="margin:0 0 18px;line-height:1.6;">Someone opened the download for your ${brand.productName} transfer.</p>
+              <p style="margin:0 0 18px;line-height:1.6;">A recipient started downloading your ${brand.productName} transfer.</p>
               <div style="background:#f8fafc;border-left:4px solid #16a34a;border-radius:8px;padding:16px;margin-bottom:22px;">
                   <p style="margin:0 0 8px;"><strong>Delivery:</strong> ${safeDeliveryLabel}</p>
                   <p style="margin:0 0 8px;"><strong>Files:</strong> ${numberOfFiles}</p>
                   <p style="margin:0;"><strong>Size:</strong> ${formatBytes(fileSize)}</p>
               </div>
               <p style="margin:0 0 22px;line-height:1.6;">This notification is sent once per transfer.</p>
-              <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">Open transfer</a>
+              <a href="${link}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 18px;">View Transfer</a>
           </div>
           <div style="padding:16px 28px;border-top:1px solid #eef2f7;background:#f8fafc;font-size:12px;color:#64748b;">
               ${brand.footerText}
@@ -663,7 +663,7 @@ export function generateWelcomeEmailHtml(name: string) {
         What you can do with your account:
       </p>
       <ul style="margin: 0; padding-left: 20px; color: #334155; font-size: 14px; line-height: 1.6;">
-        <li style="margin-bottom: 8px;"><strong>Deliver Large Files Quickly:</strong> Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling up to 25 GB.</li>
+        <li style="margin-bottom: 8px;"><strong>Deliver Large Files Quickly:</strong> Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling—starting with 10 GB free.</li>
         <li style="margin-bottom: 8px;"><strong>Share Anywhere:</strong> Send download links straight to clients' inboxes or generate a secure direct link.</li>
         <li><strong>Manage Transfers:</strong> Track and organize your active transfers right from your <a href="https://gigasend.us/dashboard" style="color: #2563eb; text-decoration: none;">Dashboard</a>.</li>
       </ul>
@@ -693,7 +693,7 @@ export function generateWelcomeEmailText(name: string) {
 Welcome to Gigasend! Your account is ready for fast, reliable file delivery across 335+ global edge locations.
 
 What you can do with your account:
-1. Deliver Large Files Quickly: Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling up to 25 GB.
+1. Deliver Large Files Quickly: Transfer multi-gigabyte videos, photos, archives, and project files with zero bandwidth throttling—starting with 10 GB free.
 2. Share Anywhere: Send download links straight to clients' inboxes or generate a secure direct link.
 3. Manage Transfers: Track and organize your active transfers right from your Dashboard (https://gigasend.us/dashboard).
 

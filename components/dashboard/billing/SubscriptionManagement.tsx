@@ -40,10 +40,10 @@ export default function SubscriptionManagement({
     try {
       // Handle successful cancellation
       await axios.post('/api/payment/cancel')
-      alert('Your subscription has been cancelled successfully.');
+      alert('Your subscription has been canceled.');
       onSubscriptionCancel();
     } catch (error) {
-      alert(`Error: Failed to cancel subscription.`);
+      alert(`Couldn’t cancel your subscription. Please try again or contact support.`);
       console.error('Failed to cancel subscription:', error);
     } finally {
       setIsCancelling(false);
@@ -61,7 +61,7 @@ export default function SubscriptionManagement({
             <div className="flex items-start">
               <FiAlertTriangle className="text-gold-400 mr-3.5 mt-0.5 text-lg shrink-0" />
               <div>
-                <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Before you cancel</h4>
+                <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Before You Cancel</h4>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   You&apos;ll lose access to all premium features and your files will be removed after the current billing period ends.
                 </p>
@@ -89,7 +89,7 @@ export default function SubscriptionManagement({
             </div>
 
             <p className="text-sm text-slate-300 mb-6 leading-relaxed">
-              Are you sure you want to cancel your subscription? This action cannot be undone and you&apos;ll lose access to all premium features.
+              If you cancel now, your workspace will return to the Free plan (10 GB storage, 3-day retention). You can resubscribe at any time.
             </p>
 
             <div className="flex space-x-3">
@@ -105,7 +105,7 @@ export default function SubscriptionManagement({
                 disabled={isCancelling}
                 className="flex-1 px-4 py-2.5 bg-rose-600 text-white rounded-xl font-bold font-display text-xs hover:bg-rose-500 transition-all duration-200 disabled:opacity-50 tap-tactile"
               >
-                {isCancelling ? 'Cancelling...' : 'Yes, Cancel'}
+                {isCancelling ? 'Canceling…' : 'Cancel Subscription'}
               </button>
             </div>
           </div>

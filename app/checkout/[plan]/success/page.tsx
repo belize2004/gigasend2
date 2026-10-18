@@ -64,10 +64,10 @@ const Page = () => {
           {/* Success Message */}
           <span className="label-caps text-emerald-400 text-xs block mb-1">Subscription Active</span>
           <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mb-3">
-            Payment Successful! 🎉
+            You’re Subscribed to {selectedPlan.name}
           </h2>
           <p className="text-base text-slate-300 mb-8 max-w-lg mx-auto">
-            Congratulations! Your subscription has been activated successfully.
+            Your plan is active and your expanded storage is ready to use.
           </p>
 
           {/* Plan Details Card */}
@@ -104,7 +104,7 @@ const Page = () => {
             {/* Features */}
             <div className="text-left max-w-md mx-auto">
               <h4 className="label-caps text-slate-300 text-[10px] mb-3 text-center">
-                What&apos;s included
+                What&apos;s Included
               </h4>
               <div className="space-y-2.5">
                 {selectedPlan.features.map((feature, index) => (
@@ -131,7 +131,7 @@ const Page = () => {
               onClick={handleTransferRedirect}
               className="btn-outline-gold border border-white/15 text-white py-4 px-6 rounded-xl font-bold font-display text-xs hover:bg-white/[0.08] transition-all duration-200 flex items-center justify-center tap-tactile"
             >
-              Start Transferring Files
+              Send Files
               <FiUpload className="ml-2 text-sm" />
             </button>
           </div>
@@ -145,7 +145,7 @@ const Page = () => {
             </div>
             <h4 className="font-bold text-white font-display text-sm mb-1">Instant Access</h4>
             <p className="text-xs text-slate-300">
-              Your plan is active immediately
+              Your plan is active immediately.
             </p>
           </div>
           
@@ -155,7 +155,7 @@ const Page = () => {
             </div>
             <h4 className="font-bold text-white font-display text-sm mb-1">Ready to Upload</h4>
             <p className="text-xs text-slate-300">
-              Start sending files right away
+              Start sending files right away.
             </p>
           </div>
           
@@ -165,7 +165,7 @@ const Page = () => {
             </div>
             <h4 className="font-bold text-white font-display text-sm mb-1">24/7 Support</h4>
             <p className="text-xs text-slate-300">
-              We&apos;re here to help anytime
+              We&apos;re here to help anytime.
             </p>
           </div>
         </div>

@@ -273,7 +273,9 @@ export default function KeywordDetailModal({
                   <span className="text-2xl font-bold text-blue-950 mt-1 block">
                     {keyword.searchVolume !== null ? keyword.searchVolume.toLocaleString() : "0"}
                   </span>
-                  <span className="text-[11px] text-blue-700">US English</span>
+                  <span className="text-[11px] text-blue-700">
+                    {keyword.locationName} ({keyword.languageName})
+                  </span>
                 </div>
 
                 <div className="p-4 bg-blue-50/50 rounded-2xl border border-blue-100">
@@ -305,12 +307,12 @@ export default function KeywordDetailModal({
               {keyword.monthlyVolumeHistory && keyword.monthlyVolumeHistory.length > 0 && (
                 <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100">
                   <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block mb-3">
-                    12-Month Historical Search Demand (DataForSEO)
+                    Historical Search Demand (DataForSEO)
                   </span>
                   <div className="flex items-end gap-1.5 h-20 pt-2">
                     {keyword.monthlyVolumeHistory.map((m, idx) => {
-                      const maxVol = Math.max(...keyword.monthlyVolumeHistory.map((h) => h.search_volume), 1);
-                      const heightPct = Math.max(10, Math.round((m.search_volume / maxVol) * 100));
+                      const maxVol = Math.max(...keyword.monthlyVolumeHistory.map((h) => h.search_volume || 0), 1);
+                      const heightPct = Math.max(10, Math.round(((m.search_volume || 0) / maxVol) * 100));
                       return (
                         <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative">
                           <div
@@ -334,53 +336,99 @@ export default function KeywordDetailModal({
           {/* TAB 4: SERP COMPOSITION */}
           {activeTab === "serp" && (
             <div className="space-y-4">
-              <div className="p-4 bg-purple-50/50 border border-purple-100 rounded-2xl">
-                <span className="text-xs font-bold text-purple-900 uppercase tracking-wider block">
-                  Observed SERP Analysis (DataForSEO Advanced SERP)
-                </span>
-                <p className="text-xs text-purple-950/80 mt-1">
-                  Live snapshot of organic competitors and search features ranking for this query in the United States.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                {[
-                  { pos: 1, domain: "wetransfer.com", title: "WeTransfer | Send Large Files Fast Online", tag: "Direct Product Competitor" },
-                  { pos: 2, domain: keyword.gscPosition <= 3 ? "gigasend.us" : "masv.io", title: keyword.gscPosition <= 3 ? "Send Large Files Fast | Gigasend" : "MASV | Large File Transfer for Creators", tag: keyword.gscPosition <= 3 ? "GigaSend Result" : "Direct Product Competitor" },
-                  { pos: 3, domain: "filemail.com", title: "Filemail | Send Large Files Online Free", tag: "Direct Product Competitor" },
-                  { pos: 4, domain: "reddit.com", title: "Best tools for transferring 20GB+ files without cloud drive sync : r/editors", tag: "Forum/UGC (High Attainability)" },
-                  { pos: 5, domain: "fromsmash.com", title: "Smash | File Transfer Without Limits", tag: "Direct Product Competitor" },
-                ].map((item) => (
-                  <div
-                    key={item.pos}
-                    className={`p-3 rounded-2xl border flex items-center justify-between gap-3 ${
-                      item.domain === "gigasend.us"
-                        ? "bg-emerald-50 border-emerald-200"
-                        : "bg-gray-50/80 border-gray-100"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-xs font-bold text-gray-700 flex-shrink-0">
-                        {item.pos}
-                      </span>
-                      <div>
-                        <div className="text-xs font-semibold text-gray-900">{item.title}</div>
-                        <div className="text-[11px] text-gray-500">{item.domain}</div>
-                      </div>
-                    </div>
-
-                    <span
-                      className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${
-                        item.domain === "gigasend.us"
-                          ? "bg-emerald-600 text-white"
-                          : "bg-gray-200 text-gray-700"
-                      }`}
-                    >
-                      {item.tag}
+              <div className="p-4 bg-purple-50/50 border border-purple-100 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span className="text-xs font-bold text-purple-900 uppercase tracking-wider block">
+                    Observed SERP Analysis (DataForSEO Advanced SERP)
+                  </span>
+                  <p className="text-xs text-purple-950/80 mt-1">
+                    {keyword.serpSnapshot
+                      ? `Captured snapshot of organic competitors and search features ranking in ${keyword.locationName} (${keyword.languageName}).`
+                      : `Target market: ${keyword.locationName} (${keyword.languageName}). Run Level 2 SERP Intelligence to capture live top-10 rankings for this query.`}
+                  </p>
+                </div>
+                {keyword.serpSnapshot && (
+                  <div className="text-right flex-shrink-0">
+                    <span className="text-[10px] font-semibold uppercase text-purple-700 block">
+                      GigaSend Rank
+                    </span>
+                    <span className="text-sm font-bold text-purple-950">
+                      {keyword.serpSnapshot.gigasendRank
+                        ? `#${keyword.serpSnapshot.gigasendRank}`
+                        : "Unranked in Top 20"}
                     </span>
                   </div>
-                ))}
+                )}
               </div>
+
+              {keyword.serpSnapshot && keyword.serpSnapshot.serpFeatures.length > 0 && (
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-[11px] font-semibold text-gray-500 mr-1">SERP Features:</span>
+                  {keyword.serpSnapshot.serpFeatures.map((feat) => (
+                    <span
+                      key={feat}
+                      className="text-[10px] font-medium text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-100"
+                    >
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {keyword.serpSnapshot && keyword.serpSnapshot.results.length > 0 ? (
+                <div className="space-y-2">
+                  {keyword.serpSnapshot.results.map((item) => (
+                    <div
+                      key={item.position}
+                      className={`p-3 rounded-2xl border flex items-center justify-between gap-3 ${
+                        item.isGigasend
+                          ? "bg-emerald-50 border-emerald-200"
+                          : "bg-gray-50/80 border-gray-100"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span className="w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-xs font-bold text-gray-700 flex-shrink-0">
+                          {item.position}
+                        </span>
+                        <div className="min-w-0">
+                          <div className="text-xs font-semibold text-gray-900 truncate">{item.title}</div>
+                          <div className="text-[11px] text-gray-500 truncate">
+                            {item.domain} • {item.url}
+                          </div>
+                        </div>
+                      </div>
+
+                      <span
+                        className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full flex-shrink-0 ${
+                          item.isGigasend
+                            ? "bg-emerald-600 text-white"
+                            : item.isCompetitor
+                            ? "bg-blue-100 text-blue-800"
+                            : "bg-gray-200 text-gray-700"
+                        }`}
+                      >
+                        {item.isGigasend
+                          ? "GigaSend Result"
+                          : item.isCompetitor
+                          ? "Tracked Competitor"
+                          : item.resultType}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100 text-center space-y-1">
+                  <div className="text-xs font-semibold text-gray-700">
+                    No SERP Snapshot Captured Yet for "{keyword.query}"
+                  </div>
+                  <p className="text-[11px] text-gray-500">
+                     SERP snapshots are selectively pulled for seed and striking-distance queries to conserve DataForSEO API budget. Target landing page:{" "}
+                    <span className="font-mono text-gray-700">
+                      {keyword.targetLandingPage || "/"}
+                    </span>
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -392,7 +440,7 @@ export default function KeywordDetailModal({
                   Origin & Lineage Trace
                 </span>
                 <p className="text-xs text-amber-950/80 mt-1">
-                  Every keyword in the database maintains verifiable provenance back to Google Search Console reality.
+                  Every keyword in the database maintains verifiable provenance back to Google Search Console or regional DataForSEO seed clusters.
                 </p>
               </div>
 
@@ -407,12 +455,24 @@ export default function KeywordDetailModal({
                       <p className="text-sm text-gray-800 mt-0.5">
                         This query was directly queried by users on Google and displayed GigaSend in search results (observed {keyword.gscImpressions} impressions in GSC).
                       </p>
+                    ) : keyword.parentGscQuery ? (
+                      <p className="text-sm text-gray-800 mt-0.5">
+                        This keyword was discovered through DataForSEO research expanded from seed query:{" "}
+                        <span className="font-semibold text-purple-700">
+                          "{keyword.parentGscQuery}"
+                        </span>
+                        .
+                      </p>
                     ) : (
                       <p className="text-sm text-gray-800 mt-0.5">
-                        This keyword was discovered through DataForSEO research expanded from GSC seed query:{" "}
+                        Discovered via DataForSEO Labs Low-KD Market Discovery in{" "}
                         <span className="font-semibold text-purple-700">
-                          "{keyword.parentGscQuery || "30gb file transfer"}"
-                        </span>
+                          {keyword.locationName} ({keyword.languageName})
+                        </span>{" "}
+                        within the <strong>{keyword.clusterName}</strong> vertical and mapped to{" "}
+                        <code className="text-xs bg-white px-1.5 py-0.5 rounded border border-gray-200">
+                          {keyword.targetLandingPage || "/"}
+                        </code>
                         .
                       </p>
                     )}

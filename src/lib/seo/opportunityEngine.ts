@@ -115,6 +115,8 @@ export const CLUSTERS = [
 export function normalizeKeyword(query: string): string {
   return query
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/['’"“”]/g, "")
     .replace(/[^a-z0-9\s-]/g, " ")
     .replace(/\s+/g, " ")
@@ -131,7 +133,7 @@ export function generateKeywordId(query: string): string {
 }
 
 /**
- * Assigns a keyword to one of GigaSend's defined topic clusters
+ * Assigns a keyword to one of GigaSend's defined topic clusters (EN, PT-BR, ES)
  */
 export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
   const norm = normalizeKeyword(query);
@@ -148,7 +150,23 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
     norm.includes("animation") ||
     norm.includes("cinema") ||
     norm.includes("raw") ||
-    norm.includes("footage")
+    norm.includes("footage") ||
+    norm.includes("prores") ||
+    norm.includes("4k") ||
+    norm.includes("8k") ||
+    norm.includes("davinci") ||
+    norm.includes("premiere") ||
+    norm.includes("final cut") ||
+    norm.includes("fcpbundle") ||
+    norm.includes("mxf") ||
+    norm.includes("openexr") ||
+    norm.includes("blender") ||
+    norm.includes("revit") ||
+    norm.includes("bim") ||
+    norm.includes("cad") ||
+    norm.includes("zip") ||
+    norm.includes("carpetas") ||
+    norm.includes("pastas")
   ) {
     return CLUSTERS[1]; // File Type
   }
@@ -159,7 +177,18 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
     norm.includes("colorist") ||
     norm.includes("client") ||
     norm.includes("customer") ||
-    norm.includes("media companies")
+    norm.includes("media companies") ||
+    norm.includes("cliente") ||
+    norm.includes("clientes") ||
+    norm.includes("drone") ||
+    norm.includes("ortomosaico") ||
+    norm.includes("ortofoto") ||
+    norm.includes("aerofotogrametria") ||
+    norm.includes("topografia") ||
+    norm.includes("lidar") ||
+    norm.includes("nuvem de pontos") ||
+    norm.includes("produtora") ||
+    norm.includes("empresas")
   ) {
     return CLUSTERS[2]; // Profession
   }
@@ -171,7 +200,17 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
     norm.includes("resume") ||
     norm.includes("latency") ||
     norm.includes("egress") ||
-    norm.includes("sync")
+    norm.includes("sync") ||
+    norm.includes("cota de download") ||
+    norm.includes("whatsapp") ||
+    norm.includes("correo") ||
+    norm.includes("email") ||
+    norm.includes("gmail") ||
+    norm.includes("outlook") ||
+    norm.includes("queda") ||
+    norm.includes("travado") ||
+    norm.includes("timeout") ||
+    norm.includes("starlink")
   ) {
     return CLUSTERS[3]; // Problem
   }
@@ -182,7 +221,21 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
     norm.includes("dropbox") ||
     norm.includes("mimecast") ||
     norm.includes("frame io") ||
+    norm.includes("swisstransfer") ||
+    norm.includes("smash") ||
+    norm.includes("transfernow") ||
+    norm.includes("sendgb") ||
+    norm.includes("google drive") ||
+    norm.includes("onedrive") ||
+    norm.includes("mega nz") ||
+    norm.includes("mediafire") ||
     norm.includes("alternative") ||
+    norm.includes("alternativa") ||
+    norm.includes("alternativas") ||
+    norm.includes("parecidos") ||
+    norm.includes("substituto") ||
+    norm.includes("burlar") ||
+    norm.includes("superar") ||
     norm.includes("vs")
   ) {
     return CLUSTERS[4]; // Competitor
@@ -193,7 +246,12 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
     norm.includes("cost") ||
     norm.includes("pricing") ||
     norm.includes("cheap") ||
-    norm.includes("free")
+    norm.includes("free") ||
+    norm.includes("gratis") ||
+    norm.includes("sem mensalidade") ||
+    norm.includes("pago por uso") ||
+    norm.includes("sin pagar suscripcion") ||
+    norm.includes("sem assinatura")
   ) {
     return CLUSTERS[5]; // Price / Business Model
   }
@@ -201,15 +259,20 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
     norm.includes("streaming") ||
     norm.includes("cloud storage") ||
     norm.includes("secure") ||
-    norm.includes("edge")
+    norm.includes("edge") ||
+    norm.includes("cdn") ||
+    norm.includes("seguro")
   ) {
     return CLUSTERS[6]; // Security & Infra
   }
   if (
     norm.startsWith("how to") ||
+    norm.startsWith("como ") ||
     norm.startsWith("why") ||
+    norm.startsWith("por que") ||
     norm.startsWith("where to") ||
-    norm.includes("guide")
+    norm.includes("guide") ||
+    norm.includes("guia")
   ) {
     return CLUSTERS[7]; // Educational
   }
@@ -218,7 +281,7 @@ export function classifyTopicCluster(query: string): typeof CLUSTERS[number] {
 }
 
 /**
- * Calculates GigaSend Product Fit Score (0–100)
+ * Calculates GigaSend Product Fit Score (0–100) across EN, PT-BR, and ES
  * Evaluates how strongly a search indicates a person who needs GigaSend's service.
  */
 export function calculateProductFit(query: string): number {
@@ -231,27 +294,94 @@ export function calculateProductFit(query: string): number {
   }
 
   // Large file transfer core value (+30)
-  if (/\b(\d+gb|\d+\s*gb|\d+tb)\b/.test(norm) || norm.includes("large file") || norm.includes("big file") || norm.includes("heavy file")) {
+  if (
+    /\b(\d+gb|\d+\s*gb|\d+tb)\b/.test(norm) ||
+    norm.includes("large file") ||
+    norm.includes("big file") ||
+    norm.includes("heavy file") ||
+    norm.includes("arquivos pesados") ||
+    norm.includes("arquivo pesado") ||
+    norm.includes("arquivos grandes") ||
+    norm.includes("arquivo grande") ||
+    norm.includes("archivos grandes") ||
+    norm.includes("archivos pesados") ||
+    norm.includes("archivo pesado") ||
+    norm.includes("carpetas pesadas")
+  ) {
     score += 30;
   }
 
   // Transfer / Send intent (+25)
-  if (norm.includes("send") || norm.includes("transfer") || norm.includes("deliver") || norm.includes("upload") || norm.includes("share")) {
+  if (
+    norm.includes("send") ||
+    norm.includes("transfer") ||
+    norm.includes("deliver") ||
+    norm.includes("upload") ||
+    norm.includes("share") ||
+    norm.includes("enviar") ||
+    norm.includes("transferir") ||
+    norm.includes("compartilhar") ||
+    norm.includes("mandar") ||
+    norm.includes("entregar") ||
+    norm.includes("compartir")
+  ) {
     score += 25;
   }
 
-  // High-value media / creative formats (+20)
-  if (norm.includes("video") || norm.includes("braw") || norm.includes("r3d") || norm.includes("animation") || norm.includes("ptx")) {
+  // High-value media / creative / GIS formats (+20)
+  if (
+    norm.includes("video") ||
+    norm.includes("braw") ||
+    norm.includes("r3d") ||
+    norm.includes("animation") ||
+    norm.includes("ptx") ||
+    norm.includes("prores") ||
+    norm.includes("4k") ||
+    norm.includes("8k") ||
+    norm.includes("raw") ||
+    norm.includes("ortomosaico") ||
+    norm.includes("geotiff") ||
+    norm.includes("lidar") ||
+    norm.includes("drone") ||
+    norm.includes("davinci") ||
+    norm.includes("premiere") ||
+    norm.includes("revit") ||
+    norm.includes("bim")
+  ) {
     score += 20;
   }
 
   // Pain point solving (+15)
-  if (norm.includes("too large") || norm.includes("failed") || norm.includes("slow") || norm.includes("egress") || norm.includes("resume")) {
+  if (
+    norm.includes("too large") ||
+    norm.includes("failed") ||
+    norm.includes("slow") ||
+    norm.includes("egress") ||
+    norm.includes("resume") ||
+    norm.includes("sem perder qualidade") ||
+    norm.includes("sin perder calidad") ||
+    norm.includes("sem comprimir") ||
+    norm.includes("sin comprimir") ||
+    norm.includes("limite") ||
+    norm.includes("cota") ||
+    norm.includes("queda") ||
+    norm.includes("starlink")
+  ) {
     score += 15;
   }
 
   // Commercial / pricing / alternative intent (+15)
-  if (norm.includes("pay as you go") || norm.includes("no subscription") || norm.includes("alternative") || norm.includes("free")) {
+  if (
+    norm.includes("pay as you go") ||
+    norm.includes("no subscription") ||
+    norm.includes("alternative") ||
+    norm.includes("alternativa") ||
+    norm.includes("alternativas") ||
+    norm.includes("free") ||
+    norm.includes("gratis") ||
+    norm.includes("sem mensalidade") ||
+    norm.includes("pago por uso")
+  ) {
     score += 15;
   }
 
@@ -261,7 +391,15 @@ export function calculateProductFit(query: string): number {
   }
 
   // Client/customer file delivery (+15)
-  if (norm.includes("client") || norm.includes("customer")) {
+  if (
+    norm.includes("client") ||
+    norm.includes("customer") ||
+    norm.includes("cliente") ||
+    norm.includes("clientes") ||
+    norm.includes("sem cadastro") ||
+    norm.includes("sin registro") ||
+    norm.includes("sin cuenta")
+  ) {
     score += 15;
   }
 
@@ -471,6 +609,8 @@ export function scoreKeywordOpportunity(input: KeywordScoringInput): KeywordScor
 
   if (input.isCannibalized) {
     status = "CANNIBALIZATION RISK";
+  } else if (input.origin === "gsc" && input.gscImpressions >= 1 && (input.searchVolume === 0 || input.searchVolume === null)) {
+    status = "GSC-VALIDATED LONG TAIL";
   } else if (input.gscPosition >= 3.5 && input.gscPosition <= 20 && input.gscImpressions >= 2) {
     status = "STRIKING DISTANCE";
   } else if ((input.searchVolume ?? 0) >= 800 && input.gscImpressions <= 10 && productFit >= 50) {

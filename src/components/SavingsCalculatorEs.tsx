@@ -19,17 +19,17 @@ interface PresetOption {
 }
 
 const FILE_SIZE_PRESETS: PresetOption[] = [
-  { label: "25 GB (Gratis)", value: 25 },
+  { label: "10 GB (Gratis)", value: 10 },
+  { label: "50 GB (10 US$)", value: 50 },
   { label: "100 GB (DaVinci / RAW)", value: 100 },
-  { label: "250 GB (Master 4K)", value: 250 },
-  { label: "500 GB (Proyecto Cine)", value: 500 },
+  { label: "500 GB (Proyecto cine)", value: 500 },
 ];
 
 const SENDER_SPEED_PRESETS: PresetOption[] = [
   { label: "50 Mbps (Wi-Fi / 4G)", value: 50 },
   { label: "100 Mbps (Starlink)", value: 100 },
   { label: "300 Mbps (Fibra)", value: 300 },
-  { label: "1,000 Mbps (Gigabit)", value: 1000 },
+  { label: "1.000 Mbps (Gigabit)", value: 1000 },
 ];
 
 function formatDuration(totalSeconds: number): string {
@@ -66,48 +66,52 @@ export default function SavingsCalculatorEs() {
   const totalVolumeGB = fileSizeGB * recipientsCount;
 
   let gigasendRate = 0.2;
-  let tierName = "Paquete Creador (100 GB)";
-  let discountLabel = "Validez 12 Meses • Sin Suscripción";
+  let tierName = "Paquete Creador (100 GB — 20 US$)";
+  let discountLabel = "Validez de 12 meses • 0,20 US$/GB";
 
-  if (fileSizeGB <= 25) {
+  if (fileSizeGB <= 10) {
     gigasendRate = 0;
-    tierName = "Plan Gratuito (Hasta 25 GB)";
-    discountLabel = "$0 USD • 100% Gratis";
+    tierName = "Plan gratuito (hasta 10 GB)";
+    discountLabel = "0 US$ • 100 % gratis (retención de 3 días)";
+  } else if (totalVolumeGB <= 50) {
+    gigasendRate = 0.2;
+    tierName = "Paquete Inicial (50 GB — 10 US$)";
+    discountLabel = "Validez de 12 meses • 0,20 US$/GB";
   } else if (totalVolumeGB >= 2000) {
     gigasendRate = 0.16;
-    tierName = "Paquete Business (5 TB)";
-    discountLabel = "20% de Ahorro por Volumen";
+    tierName = "Paquete Business (5 TB — 800 US$)";
+    discountLabel = "20 % de ahorro por volumen • 0,16 US$/GB";
   } else if (totalVolumeGB >= 500) {
     gigasendRate = 0.18;
-    tierName = "Paquete Estudio (1 TB — $180)";
-    discountLabel = "10% de Ahorro por Volumen";
+    tierName = "Paquete Estudio (1 TB — 180 US$)";
+    discountLabel = "10 % de ahorro por volumen • 0,18 US$/GB";
   }
 
-  const gigasendCost = fileSizeGB <= 25 ? 0 : totalVolumeGB * gigasendRate;
+  const gigasendCost = fileSizeGB <= 10 ? 0 : totalVolumeGB * gigasendRate;
   const masvCost = totalVolumeGB * 0.25;
   const savingsAmount = Math.max(0, masvCost - gigasendCost);
   const savingsPct =
     masvCost > 0 ? Math.round((savingsAmount / masvCost) * 100) : 0;
 
-  let equivalentWork = `~${Math.round(fileSizeGB * 25)} Fotos RAW sin comprimir`;
+  let equivalentWork = `~${Math.round(fileSizeGB * 25)} fotos RAW sin comprimir`;
   if (fileSizeGB >= 250) {
-    equivalentWork = `~${(fileSizeGB / 150).toFixed(1)} Largometrajes Master 4K ProRes`;
+    equivalentWork = `~${(fileSizeGB / 150).toFixed(1)} largometrajes máster 4K ProRes`;
   } else if (fileSizeGB >= 50) {
-    equivalentWork = `~${Math.round(fileSizeGB / 15)} Proyectos de Video de Alto Bitrate`;
+    equivalentWork = `~${Math.round(fileSizeGB / 15)} proyectos de video de alto bitrate`;
   }
 
-  let bottleneckText = "Perfil Perimetral Equilibrado";
+  let bottleneckText = "Perfil perimetral equilibrado";
   let bottleneckDescription =
-    "Tu velocidad de subida y la descarga del cliente están optimizadas para transmisión simétrica en los nodos Anycast de España y Latinoamérica.";
+    "Tu velocidad de subida y la descarga del destinatario están optimizadas para transmisión simétrica en los nodos Anycast de España y Latinoamérica.";
   let bottleneckSeverity: "info" | "warning" | "success" = "info";
 
   if (senderMbps < 100) {
-    bottleneckText = "Cuello de Botella: Velocidad de Subida Local";
+    bottleneckText = "Cuello de botella: velocidad de subida local";
     bottleneckDescription =
       "Conéctate por cable Ethernet Gigabit o red de 5 GHz. El motor multiparte de Gigasend protegerá tu envío ante microcortes.";
     bottleneckSeverity = "warning";
   } else if (senderMbps >= 500) {
-    bottleneckText = "Canal WAN de Ultra Velocidad Activo";
+    bottleneckText = "Canal WAN de ultra velocidad activo";
     bottleneckDescription =
       "Los fragmentos paralelos HTTP/3 saturarán tu conexión de fibra óptica directamente hacia el nodo local más cercano (MAD, MEX, BOG, EZE, SCL).";
     bottleneckSeverity = "success";
@@ -120,10 +124,10 @@ export default function SavingsCalculatorEs() {
         <div className="space-y-1">
           <span className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-gold-400">
             <FiActivity className="text-emerald-400" />
-            Simulador Interactivo en Español
+            Simulador interactivo en español
           </span>
           <h3 className="text-xl sm:text-2xl font-extrabold text-white font-display">
-            Calculadora de Velocidad y Ahorro Cloud
+            Calculadora de velocidad y ahorro en la nube
           </h3>
         </div>
 
@@ -144,7 +148,7 @@ export default function SavingsCalculatorEs() {
             }`}
           >
             <FiClock />
-            Tiempo y Velocidad
+            Tiempo y velocidad
           </button>
           <button
             type="button"
@@ -158,7 +162,7 @@ export default function SavingsCalculatorEs() {
             }`}
           >
             <FiTrendingDown />
-            Costo y Ahorro
+            Costo y ahorro
           </button>
         </div>
       </div>
@@ -173,7 +177,7 @@ export default function SavingsCalculatorEs() {
                 htmlFor="es-calc-size"
                 className="text-sm font-bold text-white font-display"
               >
-                1. Tamaño del Paquete a Enviar
+                1. Tamaño del paquete a enviar
               </label>
               <span className="text-2xl font-extrabold text-gold-400 font-display tabular-nums">
                 {fileSizeGB} GB
@@ -211,7 +215,7 @@ export default function SavingsCalculatorEs() {
               <div className="flex justify-between text-[11px] font-mono text-slate-400 mt-1.5">
                 <span>5 GB</span>
                 <span className="text-emerald-400 font-semibold">{equivalentWork}</span>
-                <span>1,000 GB (1 TB)</span>
+                <span>1.000 GB (1 TB)</span>
               </div>
             </div>
           </div>
@@ -223,7 +227,7 @@ export default function SavingsCalculatorEs() {
                   htmlFor="es-calc-speed"
                   className="text-sm font-bold text-white font-display"
                 >
-                  2. Tu Velocidad de Internet (Subida)
+                  2. Tu velocidad de internet (subida)
                 </label>
                 <span className="text-xl font-extrabold text-emerald-400 font-display tabular-nums">
                   {senderMbps} Mbps
@@ -266,7 +270,7 @@ export default function SavingsCalculatorEs() {
                   htmlFor="es-calc-down"
                   className="text-xs font-medium text-slate-300"
                 >
-                  Velocidad de Descarga del Cliente:
+                  Velocidad de descarga del destinatario:
                 </label>
                 <div className="flex items-center gap-3">
                   <input
@@ -293,10 +297,10 @@ export default function SavingsCalculatorEs() {
                   className="text-sm font-bold text-white font-display flex items-center gap-2"
                 >
                   <FiUsers className="text-gold-400" />
-                  2. Número de Destinatarios / Descargas
+                  2. Número de destinatarios / descargas
                 </label>
                 <span className="text-xl font-extrabold text-gold-400 font-display tabular-nums">
-                  {recipientsCount} {recipientsCount === 1 ? "cliente" : "clientes"}
+                  {recipientsCount} {recipientsCount === 1 ? "destinatario" : "destinatarios"}
                 </span>
               </div>
               <input
@@ -312,7 +316,7 @@ export default function SavingsCalculatorEs() {
               <p className="text-xs text-slate-300">
                 Volumen total transferido:{" "}
                 <strong className="text-white tabular-nums">{totalVolumeGB} GB</strong>{" "}
-                sin cargos de salida cloud ni suscripciones mensuales.
+                sin cargos de salida en la nube ni suscripciones mensuales.
               </p>
             </div>
           )}
@@ -352,25 +356,25 @@ export default function SavingsCalculatorEs() {
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-xl bg-ocean-900/70 border border-white/10 p-3.5">
               <span className="block text-[11px] text-slate-400 font-mono uppercase">
-                Tiempo de Subida
+                Tiempo de subida
               </span>
               <span className="mt-1 block text-xl font-extrabold text-emerald-400 font-display tabular-nums">
                 {formatDuration(uploadSeconds)}
               </span>
               <span className="text-[11px] text-slate-400">
-                Vía Anycast Local
+                Vía Anycast local
               </span>
             </div>
 
             <div className="rounded-xl bg-ocean-900/70 border border-white/10 p-3.5">
               <span className="block text-[11px] text-slate-400 font-mono uppercase">
-                Descarga Cliente
+                Descarga para el destinatario
               </span>
               <span className="mt-1 block text-xl font-extrabold text-white font-display tabular-nums">
                 {formatDuration(downloadSecondsPerRecipient)}
               </span>
               <span className="text-[11px] text-slate-400">
-                1 Clic • Sin Cuenta
+                1 clic • Sin cuenta
               </span>
             </div>
           </div>
@@ -378,18 +382,18 @@ export default function SavingsCalculatorEs() {
           <div className="rounded-xl bg-gold-500/10 border border-gold-500/30 p-4 space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-200">
-                Costo Estimado en Gigasend:
+                Costo estimado en Gigasend:
               </span>
               <span className="text-2xl font-extrabold text-gold-400 font-display tabular-nums">
-                {fileSizeGB <= 25 ? "GRATIS ($0)" : `$${gigasendCost.toFixed(2)} USD`}
+                {fileSizeGB <= 10 ? "Gratis (0 US$)" : `${gigasendCost.toFixed(2)} US$`}
               </span>
             </div>
             <div className="flex items-center justify-between text-xs text-slate-400">
-              <span>vs. MASV ($0.25/GB) o WeTransfer Pro ($276/año):</span>
+              <span>vs. MASV (0,25 US$/GB) o WeTransfer Pro (276 US$/año):</span>
               <span className="text-emerald-400 font-bold tabular-nums">
-                {fileSizeGB <= 25
-                  ? "Ahorras 100%"
-                  : `Ahorras $${savingsAmount.toFixed(2)} (${savingsPct}%)`}
+                {fileSizeGB <= 10
+                  ? "Ahorras 100 %"
+                  : `Ahorras ${savingsAmount.toFixed(2)} US$ (${savingsPct} %)`}
               </span>
             </div>
           </div>
@@ -397,7 +401,7 @@ export default function SavingsCalculatorEs() {
           <ul className="space-y-2 text-xs text-slate-300">
             <li className="flex items-center gap-2">
               <FiCheckCircle className="text-emerald-400 shrink-0" />
-              <span>Sin registro ni contraseña obligatoria para tu cliente</span>
+              <span>Sin registro ni contraseña obligatoria para tu destinatario</span>
             </li>
             <li className="flex items-center gap-2">
               <FiShield className="text-gold-400 shrink-0" />
@@ -410,11 +414,10 @@ export default function SavingsCalculatorEs() {
           </ul>
 
           <a
-            href="/transfer"
+            href="#uploader"
             className="btn-gold w-full min-h-[48px] px-5 py-3 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-gold-500/15 inline-flex items-center justify-center gap-2 tap-tactile"
           >
-            <span>Transferir {fileSizeGB} GB Sin Compresión Ahora</span>
-            <FiArrowRight />
+            <span>Probar Gigasend gratis (hasta 10 GB) →</span>
           </a>
         </div>
       </div>

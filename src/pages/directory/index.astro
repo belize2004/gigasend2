@@ -41,7 +41,7 @@ const categories = [
     id: "sizes",
     title: "File Size Capacity Tiers",
     icon: "📦",
-    description: "Direct upload channels optimized for exact capacity limits from 5GB free tiers to 2TB multi-part transfers.",
+    description: "Direct upload channels optimized for exact capacity limits from 5 GB free tiers to 2 TB multi-part transfers.",
     keywords: ["5gb", "10gb", "15gb", "20gb", "25gb", "30gb", "50gb", "100gb", "500gb", "1tb", "2tb", "larger-than-2gb"],
   },
 ];
@@ -72,7 +72,7 @@ const collectionSchema = {
 
 <BaseLayout
   title={`File Transfer Directory & Codec Solutions | ${brand.productName}`}
-  description="Browse specialized high-capacity file transfer destinations. Send BRAW, RED R3D, Blender, DaVinci, Ableton, and bypass 2GB upload quotas directly."
+  description="Browse specialized high-capacity file transfer destinations. Send BRAW, RED R3D, Blender, DaVinci Resolve, Ableton, and bypass 2 GB upload quotas directly."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -136,7 +136,7 @@ const collectionSchema = {
     <nav aria-label="Breadcrumb" class="border-b border-white/10 bg-ocean-950/90 px-4 py-3 sm:px-6 lg:px-8">
       <ol class="mx-auto flex max-w-7xl items-center gap-2 text-xs font-mono text-slate-400">
         <li><a href="/" class="hover:text-gold-400 transition-colors">Home</a></li>
-        <li>/</li>
+        <li aria-hidden="true">/</li>
         <li class="text-gold-400 font-semibold" aria-current="page">Directory</li>
       </ol>
     </nav>
@@ -149,10 +149,10 @@ const collectionSchema = {
           Enterprise Transfer Index • 335+ Edge PoPs
         </div>
         <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white font-display">
-          Large File Transfer <span class="text-gold-400">Directory.</span>
+          Large File Transfer <span class="text-gold-400">Directory</span>
         </h1>
         <p class="mx-auto max-w-2xl text-lg text-slate-300 leading-relaxed">
-          Engineered transfer channels optimized for exact media formats, creative applications, and high-volume data payloads up to 5TB. Powered by Cloudflare's 335+ edge PoPs with zero file compression.
+          Engineered transfer channels optimized for exact media formats, creative applications, and high-volume data payloads up to 5 TB. Powered by Cloudflare's 335+ edge PoPs with zero file compression.
         </p>
 
         <!-- Category Quick Navigation Pills -->
@@ -162,7 +162,7 @@ const collectionSchema = {
               href={`#${cat.id}`}
               class="px-4 py-2 rounded-xl bg-ocean-900/80 border border-white/10 hover:border-gold-500/60 text-slate-200 hover:text-gold-400 transition text-xs font-mono flex items-center gap-2 shadow-sm tap-tactile"
             >
-              <span>{cat.icon}</span>
+              <span aria-hidden="true">{cat.icon}</span>
               <span class="font-bold">{cat.title}</span>
               <span class="text-gold-400 text-[10px] bg-ocean-950 px-1.5 py-0.5 rounded-md border border-ocean-800">{cat.pages.length}</span>
             </a>
@@ -171,10 +171,10 @@ const collectionSchema = {
 
         <div class="pt-4 flex flex-wrap justify-center gap-4">
           <a href="/transfer" class="btn-gold inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-xs font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-            Transfer files now
+            Transfer Files Now
           </a>
           <a href="/plans" class="btn-outline-gold inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-xs font-bold tap-tactile">
-            View storage tiers
+            View Storage Tiers
           </a>
         </div>
       </div>
@@ -188,7 +188,7 @@ const collectionSchema = {
             <div class="border-b border-white/10 pb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <div class="flex items-center gap-3">
-                  <span class="text-2xl">{cat.icon}</span>
+                  <span class="text-2xl" aria-hidden="true">{cat.icon}</span>
                   <h2 class="text-2xl font-black text-white font-display">{cat.title}</h2>
                   <span class="px-2.5 py-0.5 rounded-full bg-ocean-800 border border-gold-500/30 text-gold-400 text-xs font-mono">
                     {cat.pages.length} Guides
@@ -215,8 +215,8 @@ const collectionSchema = {
                     </p>
                   </div>
                   <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-                    <span>Send this format</span>
-                    <span class="transition-transform group-hover:translate-x-1">→</span>
+                    <span>Send This Format</span>
+                    <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
                   </div>
                 </a>
               ))}
@@ -228,7 +228,7 @@ const collectionSchema = {
           <div class="apple-glass rounded-3xl border border-white/10 bg-ocean-900/80 p-8 shadow-2xl">
             <div class="border-b border-white/10 pb-5">
               <div class="flex items-center gap-3">
-                <span class="text-2xl">🚀</span>
+                <span class="text-2xl" aria-hidden="true">🚀</span>
                 <h2 class="text-2xl font-black text-white font-display">Core Transfer Utilities</h2>
                 <span class="px-2.5 py-0.5 rounded-full bg-ocean-800 border border-gold-500/30 text-gold-400 text-xs font-mono">
                   {generalPages.length} Guides
@@ -254,8 +254,8 @@ const collectionSchema = {
                     </p>
                   </div>
                   <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-                    <span>Send now</span>
-                    <span class="transition-transform group-hover:translate-x-1">→</span>
+                    <span>Send Now</span>
+                    <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
                   </div>
                 </a>
               ))}
@@ -280,7 +280,7 @@ const collectionSchema = {
           </div>
           <a href="/guides" class="inline-flex items-center gap-2 text-xs font-mono font-bold text-gold-400 hover:text-gold-300 transition-colors">
             <span>All Production & Engineering Guides</span>
-            <span>→</span>
+            <span aria-hidden="true">→</span>
           </a>
         </div>
 
@@ -293,7 +293,7 @@ const collectionSchema = {
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Explore Guides Hub</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
@@ -301,11 +301,11 @@ const collectionSchema = {
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">WAN & Infrastructure</span>
               <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Why Large File Transfers Are So Slow (And How to Fix It)</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Diagnose TCP window scaling, peering latency, and packet loss bottlenecks on 25GB–2TB file transfers.</p>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Diagnose TCP window scaling, peering latency, and packet loss bottlenecks on 25 GB–2 TB file transfers.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Read Engineering Guide</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
@@ -313,11 +313,11 @@ const collectionSchema = {
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Cost & Billing</span>
               <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Large File Transfer Cost Calculator (PAYG vs. Subscriptions)</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Compare pay-as-you-go pricing vs WeTransfer, Dropbox, and cloud egress surcharges for 50GB–5TB deliveries.</p>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Compare pay-as-you-go pricing vs. WeTransfer, Dropbox, and cloud egress surcharges for 50 GB–5 TB deliveries.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Read Cost Analysis</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
@@ -325,23 +325,23 @@ const collectionSchema = {
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Reliability & Resilience</span>
               <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">How to Transfer Large Files Without Failed Uploads</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">How client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50GB+ uploads.</p>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">How client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50 GB+ uploads.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Read Reliability Guide</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
           <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Workflow Architecture</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">File Transfer vs Cloud Storage vs Media Review</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">When to use ephemeral point-to-point transfer vs persistent cloud sync vs frame-accurate review tools.</p>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">File Transfer vs. Cloud Storage vs. Media Review</h3>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">When to use ephemeral point-to-point transfer vs. persistent cloud sync vs. frame-accurate review tools.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Read Workflow Guide</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
@@ -349,11 +349,11 @@ const collectionSchema = {
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Storage Optimization</span>
               <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">How to Send Large Files Without Filling Up Your Hard Drive</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Stop cloud sync apps from cloning 200GB project folders onto your local SSD with direct browser streaming.</p>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Stop cloud sync apps from cloning 200 GB project folders onto your local SSD with direct browser streaming.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Read Storage Guide</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
@@ -361,23 +361,23 @@ const collectionSchema = {
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Interactive Telemetry</span>
               <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Large File Transfer Speed Calculator</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Calculate exact upload times for 1GB to 2TB payloads across 10 Mbps to 10 Gbps pipes with TCP overhead.</p>
+              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Calculate exact upload times for 1 GB to 2 TB payloads across 10 Mbps to 10 Gbps pipes with TCP overhead.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Launch Calculator</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
           <a href="/compare" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <div>
               <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Architecture Matrix</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Cloudflare Edge vs AWS Relays Comparison</h3>
+              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Cloudflare Edge vs. AWS Relays Comparison</h3>
               <p class="mt-2 text-xs text-slate-300 leading-relaxed">Compare Gigasend's zero-egress edge architecture against MASV, WeTransfer, Dropbox, and Google Drive.</p>
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>View Comparison Matrix</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
 
@@ -389,7 +389,7 @@ const collectionSchema = {
             </div>
             <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
               <span>Read Blog Articles</span>
-              <span class="transition-transform group-hover:translate-x-1">→</span>
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </div>
           </a>
         </div>
@@ -409,19 +409,19 @@ const collectionSchema = {
               {ptSeoLandingPages.length} localized Portuguese solutions engineered for Brazil's 186,000+ ANAC SISANT commercial drone operators, GIS orthomosaic & LiDAR engineers, 4K/RAW audiovisual studios, and BIM engineering teams across 30+ Brazilian Cloudflare Edge PoPs.
             </p>
           </div>
-          <a href="/pt" class="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors">
+          <a href="/pt" class="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors" lang="pt-BR">
             <span>Acessar Central Brasil (/pt)</span>
-            <span>→</span>
+            <span aria-hidden="true">→</span>
           </a>
         </div>
 
         {PT_CLUSTER_METADATA.map((cluster) => {
           const clusterPages = ptSeoLandingPages.filter((p) => p.cluster === cluster.id);
           return (
-            <div id={`pt-${cluster.id}`} class="space-y-4">
+            <div id={`pt-${cluster.id}`} class="space-y-4" lang="pt-BR">
               <div class="flex items-center justify-between border-b border-white/10 pb-3">
                 <div class="flex items-center gap-2.5">
-                  <span class="text-xl">{cluster.icon}</span>
+                  <span class="text-xl" aria-hidden="true">{cluster.icon}</span>
                   <h3 class="text-lg font-bold text-white font-display">{cluster.title}</h3>
                 </div>
                 <span class="rounded-full bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[11px] font-mono text-gold-400">
@@ -447,7 +447,7 @@ const collectionSchema = {
                     </div>
                     <div class="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
                       <span class="truncate max-w-[180px]">/pt/{ptPage.slug}</span>
-                      <span class="transition-transform group-hover:translate-x-1">→</span>
+                      <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
                     </div>
                   </a>
                 ))}
@@ -463,17 +463,17 @@ const collectionSchema = {
       <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <span class="label-caps text-gold-400 text-xs">Zero Egress • Instant Edge Links</span>
         <h2 class="mt-2 text-3xl font-black tracking-tight text-white font-display sm:text-5xl">
-          Ready to send your large files?
+          Ready to Send Your Large Files?
         </h2>
         <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-          Upload up to 25GB 100% free with no account required, or transfer up to 5TB with custom storage expiration.
+          Upload up to 10 GB 100% free with no account required, or transfer up to 5 TB with custom storage expiration.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <a href="/transfer" class="btn-gold rounded-xl px-8 py-4 text-xs font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-            Start free transfer
+            Start Free Transfer
           </a>
           <a href="/plans" class="btn-outline-gold rounded-xl px-8 py-4 text-xs font-bold tap-tactile">
-            See all plans
+            View All Plans
           </a>
         </div>
       </div>
@@ -489,7 +489,7 @@ const collectionSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 25GB free.
+              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -509,14 +509,14 @@ const collectionSchema = {
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
-              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs Cloud vs Review</a></li>
+              <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
               <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
             </ul>
           </div>
           <div>
             <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Popular Workflows & Support</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (25GB)</a></li>
+              <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
               <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>

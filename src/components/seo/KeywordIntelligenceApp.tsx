@@ -211,7 +211,7 @@ export default function KeywordIntelligenceApp() {
               <span className="text-xl font-bold text-blue-900 mt-0.5 block">
                 {Math.round(data.summary.totalRepresentedDemand / 1000)}K/mo
               </span>
-              <span className="text-[10px] text-blue-600 font-medium">US search volume</span>
+              <span className="text-[10px] text-blue-600 font-medium">Global search volume (US, BR, ES)</span>
             </div>
 
             <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-2xs">

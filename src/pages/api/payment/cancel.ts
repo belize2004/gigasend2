@@ -11,9 +11,9 @@ export const POST: APIRoute = async ({ cookies, locals }) => {
 
     const db = getDb(locals);
     const user = await findUserById(db, userId);
-    if (!user) return json({ success: false, message: "User not found" }, 404);
+    if (!user) return json({ success: false, message: "We couldn’t find your account. Please sign in again." }, 404);
     if (!user.stripeCustomerId) {
-      return json({ success: false, message: "No Stripe customer ID found" }, 400);
+      return json({ success: false, message: "No active subscription was found for your account." }, 400);
     }
 
     let subscriptions;
@@ -25,23 +25,23 @@ export const POST: APIRoute = async ({ cookies, locals }) => {
       });
     } catch (err: any) {
       if (err?.code === "resource_missing" || String(err?.message || "").includes("No such customer")) {
-        return json({ success: false, message: "No active subscriptions to cancel" }, 400);
+        return json({ success: false, message: "No active subscription was found for your account." }, 400);
       }
       throw err;
     }
 
     if (subscriptions.data.length === 0) {
-      return json({ success: false, message: "No active subscriptions to cancel" }, 400);
+      return json({ success: false, message: "No active subscription was found for your account." }, 400);
     }
 
     const canceled = await stripe.subscriptions.cancel(subscriptions.data[0].id);
     return json({
       success: true,
-      message: "Subscription cancelled successfully",
+      message: "Your subscription has been canceled.",
       subscription: canceled,
     });
   } catch (error) {
-    const stripeError = (error as StripeError)?.message || "Something went wrong";
+    const stripeError = (error as StripeError)?.message || "Couldn’t cancel your subscription. Please try again.";
     return json({ success: false, message: stripeError }, 500);
   }
 };
