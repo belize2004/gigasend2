@@ -4,9 +4,15 @@ import {
   findUserById,
   getDb,
   markShareDownloadNotified,
+  type R2BucketBinding,
+  type R2Range,
   type RuntimeLocals,
 } from "@/lib/d1";
-import { r2BucketName, r2Client } from "@/lib/r2Client";
+import {
+  createPresignedDownloadUrl,
+  r2BucketName,
+  r2Client,
+} from "@/lib/r2Client";
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { configure, ZipWriter } from "@zip.js/zip.js";
 import {
@@ -178,31 +184,56 @@ function getZipBatches(fileKeys: string[]) {
   return batches;
 }
 
-type R2BucketBinding = {
-  get: (key: string) => Promise<{ body: ReadableStream<Uint8Array> | null } | null>;
-};
+async function openFileStream(
+  fileKey: string,
+  bucket?: R2BucketBinding,
+): Promise<ReadableStream<Uint8Array> | null> {
+  if (bucket) {
+    return getR2BindingStream(bucket, fileKey);
+  }
+  return getS3ObjectStream(fileKey);
+}
 
 async function streamZip(fileKeys: string[], bucket?: R2BucketBinding) {
-  const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>();
+  const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>(
+    undefined,
+    { highWaterMark: 16 },
+    { highWaterMark: 16 },
+  );
   const zipWriter = new ZipWriter(writable);
 
   (async () => {
+    let nextStreamPromise: Promise<ReadableStream<Uint8Array> | null> | null =
+      fileKeys.length > 0 ? openFileStream(fileKeys[0], bucket) : null;
+
     try {
       const usedFileNames = new Map<string, number>();
-      for (const fileKey of fileKeys) {
-        const readable = bucket
-          ? await getR2BindingStream(bucket, fileKey)
-          : await getS3ObjectStream(fileKey);
-        if (!readable) throw new Error(`Unable to read ${fileKey}`);
+      for (let i = 0; i < fileKeys.length; i++) {
+        const fileKey = fileKeys[i];
+        const currentPromise = nextStreamPromise ?? openFileStream(fileKey, bucket);
+
+        // Immediately prefetch the next file's R2 stream in parallel while current file streams
+        nextStreamPromise =
+          i + 1 < fileKeys.length
+            ? openFileStream(fileKeys[i + 1], bucket)
+            : null;
+
+        const fileReadable = await currentPromise;
+        if (!fileReadable) throw new Error(`Unable to read ${fileKey}`);
 
         const fileName = getUniqueFileName(getFileName(fileKey), usedFileNames);
-        await zipWriter.add(fileName, readable, {
+        await zipWriter.add(fileName, fileReadable, {
           level: 0,
           useCompressionStream: false,
           useWebWorkers: false,
         });
       }
     } catch (error) {
+      if (nextStreamPromise) {
+        nextStreamPromise
+          .then((s) => s?.cancel().catch(() => {}))
+          .catch(() => {});
+      }
       console.error("Failed to stream download ZIP:", error);
     } finally {
       await zipWriter.close().catch((error) => {
@@ -359,7 +390,172 @@ async function sendDownloadNotification({
   }
 }
 
-export const GET: APIRoute = async ({ params, locals, url }) => {
+function scheduleDownloadNotification(
+  locals: RuntimeLocals,
+  params: {
+    db: ReturnType<typeof getDb>;
+    fileCount: number;
+    share: NonNullable<Awaited<ReturnType<typeof findShareById>>>;
+    emailBinding?: unknown;
+  },
+) {
+  const promise = sendDownloadNotification(params);
+  const waitUntil = locals.runtime?.ctx?.waitUntil;
+  if (typeof waitUntil === "function") {
+    waitUntil.call(locals.runtime?.ctx, promise);
+  } else {
+    promise.catch((err) => {
+      console.error("Background download notification error:", err);
+    });
+  }
+}
+
+function parseHttpRangeHeader(
+  rangeHeader: string | null,
+  totalSize: number,
+): { offset: number; length: number } | "unsatisfiable" | null {
+  if (!rangeHeader || !rangeHeader.startsWith("bytes=")) return null;
+  const spec = rangeHeader.slice("bytes=".length).trim();
+  if (!spec || spec.includes(",")) return null;
+
+  const [startStr, endStr] = spec.split("-");
+  if (startStr === "" && endStr !== "") {
+    const suffixLength = Number(endStr);
+    if (!Number.isFinite(suffixLength) || suffixLength <= 0) return "unsatisfiable";
+    if (totalSize === 0) return "unsatisfiable";
+    const length = Math.min(suffixLength, totalSize);
+    return { offset: totalSize - length, length };
+  }
+
+  const start = Number(startStr);
+  const end = endStr === "" ? totalSize - 1 : Number(endStr);
+  if (
+    !Number.isFinite(start) ||
+    !Number.isFinite(end) ||
+    start < 0 ||
+    start >= totalSize ||
+    end < start
+  ) {
+    return "unsatisfiable";
+  }
+
+  const clampedEnd = Math.min(end, totalSize - 1);
+  return { offset: start, length: clampedEnd - start + 1 };
+}
+
+async function serveSingleFileDownload(input: {
+  request: Request;
+  locals: RuntimeLocals;
+  bucket?: R2BucketBinding;
+  fileKey: string;
+}): Promise<Response> {
+  const { request, locals, bucket, fileKey } = input;
+  const rawFileName = getFileName(fileKey);
+  const contentDisposition = buildContentDisposition(rawFileName);
+  const isHead = request.method === "HEAD";
+  const url = new URL(request.url);
+  const preferPresignedRedirect = url.searchParams.get("redirect") === "1";
+
+  // Option B: Native Cloudflare R2 Worker Binding with HTTP Range (206), ETag, and HEAD support
+  if (bucket && !preferPresignedRedirect) {
+    if (isHead && typeof bucket.head === "function") {
+      const meta = await bucket.head(fileKey);
+      if (meta) {
+        const headers = new Headers();
+        meta.writeHttpMetadata?.(headers);
+        headers.set("Content-Type", "application/octet-stream");
+        headers.set("Content-Disposition", contentDisposition);
+        headers.set("Accept-Ranges", "bytes");
+        if (typeof meta.size === "number") headers.set("Content-Length", String(meta.size));
+        if (meta.httpEtag) headers.set("ETag", meta.httpEtag);
+        if (meta.uploaded) headers.set("Last-Modified", meta.uploaded.toUTCString());
+        headers.set("X-Content-Type-Options", "nosniff");
+        headers.set("Cache-Control", "private, no-store");
+        return new Response(null, { status: 200, headers });
+      }
+    }
+
+    const rangeHeader = request.headers.get("range");
+    const ifRangeHeader = request.headers.get("if-range");
+
+    const obj = await bucket.get(
+      fileKey,
+      rangeHeader ? { range: request.headers } : undefined,
+    );
+
+    if (obj) {
+      const headers = new Headers();
+      obj.writeHttpMetadata?.(headers);
+      headers.set("Content-Type", "application/octet-stream");
+      headers.set("Content-Disposition", contentDisposition);
+      headers.set("Accept-Ranges", "bytes");
+      if (obj.httpEtag) headers.set("ETag", obj.httpEtag);
+      if (obj.uploaded) headers.set("Last-Modified", obj.uploaded.toUTCString());
+      headers.set("X-Content-Type-Options", "nosniff");
+      headers.set("Cache-Control", "private, no-store");
+
+      const totalSize = typeof obj.size === "number" ? obj.size : 0;
+
+      const ifRangeValid =
+        !ifRangeHeader ||
+        ifRangeHeader === obj.httpEtag ||
+        ifRangeHeader === obj.etag ||
+        (obj.uploaded && ifRangeHeader === obj.uploaded.toUTCString());
+
+      if (rangeHeader && ifRangeValid) {
+        const parsedRange = parseHttpRangeHeader(rangeHeader, totalSize);
+        if (parsedRange === "unsatisfiable") {
+          await obj.body?.cancel().catch(() => {});
+          headers.set("Content-Range", `bytes */${totalSize}`);
+          headers.delete("Content-Length");
+          return new Response(null, { status: 416, headers });
+        }
+
+        const r2Range: R2Range | undefined = obj.range;
+        const offset =
+          typeof r2Range?.offset === "number"
+            ? r2Range.offset
+            : parsedRange?.offset ?? 0;
+        const length =
+          typeof r2Range?.length === "number"
+            ? r2Range.length
+            : parsedRange?.length ?? totalSize - offset;
+
+        if (length > 0 && offset + length <= totalSize) {
+          headers.set(
+            "Content-Range",
+            `bytes ${offset}-${offset + length - 1}/${totalSize}`,
+          );
+          headers.set("Content-Length", String(length));
+          return new Response(isHead ? null : obj.body, {
+            status: 206,
+            headers,
+          });
+        }
+      }
+
+      if (totalSize >= 0) {
+        headers.set("Content-Length", String(totalSize));
+      }
+      return new Response(isHead ? null : obj.body, {
+        status: 200,
+        headers,
+      });
+    }
+  }
+
+  // Option A: Presigned R2 Direct Edge Download (302 Redirect with Content-Disposition)
+  const presignedUrl = await createPresignedDownloadUrl({
+    fileKey,
+    contentDisposition,
+    expiresIn: 3600,
+    runtimeEnv: locals.runtime?.env as Record<string, unknown> | undefined,
+  });
+
+  return Response.redirect(presignedUrl || getDownloadUrl(fileKey), 302);
+}
+
+export const GET: APIRoute = async ({ params, locals, url, request }) => {
   const id = params.id;
   if (!id) {
     return new Response("Missing download id", { status: 400 });
@@ -381,53 +577,46 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
     const bucket = (locals as RuntimeLocals).runtime?.env?.FILES;
     const isDirectDownload = url.searchParams.get("download") === "1";
     const requestedFileIndex = url.searchParams.get("file");
+    const rangeHeader = request.headers.get("range");
+    const isInitialByteRequest =
+      request.method === "GET" && (!rangeHeader || rangeHeader.startsWith("bytes=0-"));
 
     // 1. Single file direct download requested
     if (fileKeys.length === 1 && isDirectDownload) {
-      await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-      const fileKey = fileKeys[0];
-      const rawFileName = getFileName(fileKey);
-      if (bucket) {
-        const obj = await bucket.get(fileKey);
-        if (obj && obj.body) {
-          const headers = new Headers();
-          (obj as any).writeHttpMetadata?.(headers);
-          headers.set("Content-Type", "application/octet-stream");
-          headers.set("Content-Disposition", buildContentDisposition(rawFileName));
-          if (typeof obj.size === "number" && obj.size >= 0) {
-            headers.set("Content-Length", String(obj.size));
-          }
-          headers.set("X-Content-Type-Options", "nosniff");
-          headers.set("Cache-Control", "private, no-store");
-          return new Response(obj.body, { headers });
-        }
+      if (isInitialByteRequest) {
+        scheduleDownloadNotification(locals as RuntimeLocals, {
+          db,
+          fileCount: fileKeys.length,
+          share,
+          emailBinding,
+        });
       }
-      return Response.redirect(getDownloadUrl(fileKey), 302);
+      return serveSingleFileDownload({
+        request,
+        locals: locals as RuntimeLocals,
+        bucket,
+        fileKey: fileKeys[0],
+      });
     }
 
     // 2. Multi-file specific file download requested
     if (requestedFileIndex !== null) {
       const fileIndex = parseInt(requestedFileIndex, 10);
       if (!isNaN(fileIndex) && fileKeys[fileIndex]) {
-        const fileKey = fileKeys[fileIndex];
-        const rawFileName = getFileName(fileKey);
-        await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-        if (bucket) {
-          const obj = await bucket.get(fileKey);
-          if (obj && obj.body) {
-            const headers = new Headers();
-            (obj as any).writeHttpMetadata?.(headers);
-            headers.set("Content-Type", "application/octet-stream");
-            headers.set("Content-Disposition", buildContentDisposition(rawFileName));
-            if (typeof obj.size === "number" && obj.size >= 0) {
-              headers.set("Content-Length", String(obj.size));
-            }
-            headers.set("X-Content-Type-Options", "nosniff");
-            headers.set("Cache-Control", "private, no-store");
-            return new Response(obj.body, { headers });
-          }
+        if (isInitialByteRequest) {
+          scheduleDownloadNotification(locals as RuntimeLocals, {
+            db,
+            fileCount: fileKeys.length,
+            share,
+            emailBinding,
+          });
         }
-        return Response.redirect(getDownloadUrl(fileKey), 302);
+        return serveSingleFileDownload({
+          request,
+          locals: locals as RuntimeLocals,
+          bucket,
+          fileKey: fileKeys[fileIndex],
+        });
       }
     }
 
@@ -445,17 +634,27 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
         return Response.redirect(`/download/${share.id}`, 302);
       }
 
-      await sendDownloadNotification({ db, fileCount: fileKeys.length, share, emailBinding });
-      return new Response(await streamZip(batchFileKeys, bucket), {
-        headers: {
-          "Content-Type": "application/zip",
-          "Content-Disposition": buildContentDisposition(
-            `${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip`
-          ),
-          "X-Content-Type-Options": "nosniff",
-          "Cache-Control": "private, no-store",
+      if (request.method === "GET") {
+        scheduleDownloadNotification(locals as RuntimeLocals, {
+          db,
+          fileCount: fileKeys.length,
+          share,
+          emailBinding,
+        });
+      }
+      return new Response(
+        request.method === "HEAD" ? null : await streamZip(batchFileKeys, bucket),
+        {
+          headers: {
+            "Content-Type": "application/zip",
+            "Content-Disposition": buildContentDisposition(
+              `${brand.zipFilenamePrefix}-${share.id}${batchIndex == null ? "" : `-part-${batchIndex + 1}-of-${batches.length}`}.zip`
+            ),
+            "X-Content-Type-Options": "nosniff",
+            "Cache-Control": "private, no-store",
+          },
         },
-      });
+      );
     }
 
     // 4. Default: Render Download Landing Page
@@ -484,4 +683,6 @@ export const GET: APIRoute = async ({ params, locals, url }) => {
     });
   }
 };
+
+export const HEAD: APIRoute = GET;
 

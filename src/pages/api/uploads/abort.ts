@@ -1,8 +1,7 @@
 import type { APIRoute } from "astro";
 import { AbortMultipartUploadCommand } from "@aws-sdk/client-s3";
 import { r2BucketName, r2Client } from "@/lib/r2Client";
-import { getDb } from "@/lib/d1";
-import { getOrCreateUserSession } from "@/src/lib/guestSession";
+import { getFastSessionIdentity } from "@/src/lib/guestSession";
 import { json } from "@/src/lib/api";
 import { captureMonitoringException } from "@/lib/monitoring";
 
@@ -11,11 +10,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: { uploadId?: string; key?: string } = {};
 
   try {
-    const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db, locals);
+    const [session, rawBody] = await Promise.all([
+      getFastSessionIdentity(cookies, locals),
+      request.json().catch(() => null),
+    ]);
     userId = session.userId;
 
-    const rawBody = await request.json().catch(() => null);
     if (!rawBody || typeof rawBody !== "object") {
       return json({ error: "Invalid JSON body" }, 400);
     }

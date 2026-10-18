@@ -1,14 +1,12 @@
 import type { APIRoute } from "astro";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { r2BucketName, r2Client } from "@/lib/r2Client";
-import { findUserById, getActiveShareUsage, getDb } from "@/lib/d1";
+import { presignPutObject } from "@/lib/r2Client";
+import { getDb } from "@/lib/d1";
 import { PlanEnum, PLANS } from "@/lib/constant";
 import { stripe } from "@/lib/stripe";
 import { getStorageLimitBytesForUser, getVipGrantForUser } from "@/lib/storageLimit";
 import { captureMonitoringException } from "@/lib/monitoring";
 import { json } from "@/src/lib/api";
-import { getOrCreateUserSession } from "@/src/lib/guestSession";
+import { getOrCreateUserSessionWithUsage } from "@/src/lib/guestSession";
 import { createUploadKey } from "@/src/lib/uploadKeys";
 
 interface PresignDirectBody {
@@ -24,11 +22,6 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: Partial<PresignDirectBody> = {};
 
   try {
-    const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db, locals);
-    userId = session.userId;
-    const user = session.user;
-
     const rawBody = await request.json().catch(() => null);
     if (!rawBody || typeof rawBody !== "object") {
       return json({ error: "Invalid JSON body" }, 400);
@@ -50,14 +43,20 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       return json({ error: "Direct uploads are limited to 100 MB" }, 413);
     }
 
+    const db = getDb(locals);
+    const session = await getOrCreateUserSessionWithUsage(cookies, db, locals);
+    userId = session.userId;
+    const { user, usedLimit } = session;
+    const isGuestUser = session.isGuest || user.email.endsWith("@guest.gigasend.us");
+
     let planPrefix = "free";
     let userPlan = PLANS.free;
 
-    const vipGrant = !session.isGuest ? getVipGrantForUser(user) : null;
+    const vipGrant = !isGuestUser ? getVipGrantForUser(user) : null;
     if (vipGrant) {
       userPlan = PLANS[vipGrant.plan] || PLANS.pro;
       planPrefix = "paid";
-    } else if (!session.isGuest && user.stripeCustomerId) {
+    } else if (!isGuestUser && user.stripeCustomerId) {
       try {
         const subscriptions = await stripe.subscriptions.list({
           customer: user.stripeCustomerId,
@@ -76,7 +75,6 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
       }
     }
 
-    const usedLimit = await getActiveShareUsage(db, userId);
     const totalLimit = getStorageLimitBytesForUser(user, userPlan.name.toLowerCase() as PlanEnum);
     const remainingLimit = Math.max(0, totalLimit - usedLimit);
 
@@ -88,13 +86,7 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     }
 
     const key = createUploadKey(fileName, planPrefix);
-    const command = new PutObjectCommand({
-      Bucket: r2BucketName,
-      Key: key,
-      ContentType: contentType,
-      ContentLength: fileSize,
-    });
-    const url = await getSignedUrl(r2Client, command, { expiresIn: 3600 });
+    const url = await presignPutObject(key, contentType, fileSize, 3600);
 
     return json({ url, key });
   } catch (error) {

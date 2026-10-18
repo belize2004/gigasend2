@@ -1,10 +1,7 @@
 import type { APIRoute } from "astro";
-import { UploadPartCommand } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { r2BucketName, r2Client } from "@/lib/r2Client";
-import { getDb } from "@/lib/d1";
+import { MAX_PRESIGN_BATCH_SIZE, presignParts } from "@/lib/r2Client";
 import { json } from "@/src/lib/api";
-import { getOrCreateUserSession } from "@/src/lib/guestSession";
+import { getFastSessionIdentity } from "@/src/lib/guestSession";
 import { captureMonitoringException } from "@/lib/monitoring";
 
 export const POST: APIRoute = async ({ request, cookies, locals }) => {
@@ -12,11 +9,12 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
   let body: { uploadId?: string; key?: string; partNumber?: number; partNumbers?: number[] } = {};
 
   try {
-    const db = getDb(locals);
-    const session = await getOrCreateUserSession(cookies, db, locals);
+    const [session, rawBody] = await Promise.all([
+      getFastSessionIdentity(cookies, locals),
+      request.json().catch(() => null),
+    ]);
     userId = session.userId;
 
-    const rawBody = await request.json().catch(() => null);
     if (!rawBody || typeof rawBody !== "object") {
       return json({ error: "Invalid JSON body" }, 400);
     }
@@ -24,31 +22,20 @@ export const POST: APIRoute = async ({ request, cookies, locals }) => {
     const { uploadId, key, partNumber, partNumbers } = body;
     const requestedPartNumbers = Array.isArray(partNumbers) ? partNumbers : [partNumber];
 
-    if (!uploadId || !key || requestedPartNumbers.some((value) => value == null)) {
+    if (!uploadId || !key || requestedPartNumbers.length === 0 || requestedPartNumbers.some((value) => value == null)) {
       return json({ error: "Missing uploadId, key, or partNumber" }, 400);
     }
 
-    if (requestedPartNumbers.length > 16) {
-      return json({ error: "Too many part numbers requested" }, 400);
+    if (requestedPartNumbers.length > MAX_PRESIGN_BATCH_SIZE) {
+      return json({ error: `Too many part numbers requested (max ${MAX_PRESIGN_BATCH_SIZE})` }, 400);
     }
 
     const partNos = requestedPartNumbers.map((value) => Number(value));
-    if (partNos.some((partNo) => Number.isNaN(partNo) || partNo < 1 || partNo > 10_000)) {
+    if (partNos.some((partNo) => !Number.isInteger(partNo) || partNo < 1 || partNo > 10_000)) {
       return json({ error: "Invalid partNumber" }, 400);
     }
 
-    const urls = await Promise.all(partNos.map(async (partNo) => {
-      const command = new UploadPartCommand({
-        Bucket: r2BucketName,
-        Key: key,
-        UploadId: uploadId,
-        PartNumber: partNo,
-      });
-      const url = await getSignedUrl(r2Client, command, { expiresIn: 3600 });
-      return [String(partNo), url] as const;
-    }));
-
-    const urlMap = Object.fromEntries(urls);
+    const urlMap = await presignParts(key, uploadId, partNos);
     return json({
       url: urlMap[String(partNos[0])],
       urls: urlMap,

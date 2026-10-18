@@ -63,7 +63,7 @@ type UploadTelemetry = {
   resumedFromSavedSession: boolean;
   canceled: boolean;
 };
-type InitiatedUpload = { uploadId: string; key: string };
+type InitiatedUpload = { uploadId: string; key: string; urls?: Record<string, string> };
 type UploadedFile = { key: string; uploadedSize: number };
 type UploadSingleFileOptions = {
   persistSession?: boolean;
@@ -72,15 +72,19 @@ type UploadSingleFileOptions = {
 type DeliveryMode = "email" | "link";
 
 const UPLOAD_CONCURRENCY = 8;
-const DIRECT_FILE_UPLOAD_CONCURRENCY = 10;
-const PRESIGN_BATCH_SIZE = 8;
-const PACKAGE_MULTI_FILE_UPLOADS_AS_ZIP = true;
-const MULTI_FILE_DIRECT_UPLOAD_COUNT_THRESHOLD = 100;
-const MULTI_FILE_DIRECT_UPLOAD_SIZE_THRESHOLD = 2 * 1024 * 1024 * 1024;
-const DIRECT_PUT_FILE_SIZE_THRESHOLD = 100 * 1024 * 1024;
+const DIRECT_FILE_UPLOAD_CONCURRENCY = 8;
+const PRESIGN_BATCH_SIZE = 32;
+const PACKAGE_MULTI_FILE_UPLOADS_AS_ZIP = false;
+const MULTI_FILE_DIRECT_UPLOAD_COUNT_THRESHOLD = 1;
+const MULTI_FILE_DIRECT_UPLOAD_SIZE_THRESHOLD = 0;
+const DIRECT_PUT_FILE_SIZE_THRESHOLD = 16 * 1024 * 1024;
+const SMALL_MULTIPART_PART_SIZE = 8 * 1024 * 1024;
 const MIN_PART_SIZE = 16 * 1024 * 1024;
+const MEDIUM_FILE_PART_SIZE = 32 * 1024 * 1024;
 const LARGE_FILE_PART_SIZE = 64 * 1024 * 1024;
-const LARGE_FILE_THRESHOLD = 1024 * 1024 * 1024;
+const SMALL_MULTIPART_THRESHOLD = 64 * 1024 * 1024;
+const MEDIUM_FILE_THRESHOLD = 512 * 1024 * 1024;
+const LARGE_FILE_THRESHOLD = 2 * 1024 * 1024 * 1024;
 const MAX_MULTIPART_PARTS = 10_000;
 const MAX_MULTIPART_PART_SIZE = 5 * 1024 * 1024 * 1024;
 const PART_SIZE_ALIGNMENT = 1024 * 1024;
@@ -88,7 +92,14 @@ const SAVED_UPLOAD_SESSION_KEY = "gigasend:upload-session:v1";
 const limit = pLimit(UPLOAD_CONCURRENCY);
 
 function getUploadPartSize(fileSize: number) {
-  const basePartSize = fileSize >= LARGE_FILE_THRESHOLD ? LARGE_FILE_PART_SIZE : MIN_PART_SIZE;
+  const basePartSize =
+    fileSize < SMALL_MULTIPART_THRESHOLD
+      ? SMALL_MULTIPART_PART_SIZE
+      : fileSize < MEDIUM_FILE_THRESHOLD
+        ? MIN_PART_SIZE
+        : fileSize < LARGE_FILE_THRESHOLD
+          ? MEDIUM_FILE_PART_SIZE
+          : LARGE_FILE_PART_SIZE;
   const requiredPartSize = Math.ceil(fileSize / MAX_MULTIPART_PARTS);
   const alignedPartSize = Math.ceil(requiredPartSize / PART_SIZE_ALIGNMENT) * PART_SIZE_ALIGNMENT;
 
@@ -150,6 +161,7 @@ export const FileForm = () => {
   const pausedDurationRef = useRef(0);
   const pauseResolversRef = useRef<Array<() => void>>([]);
   const activeXhrsRef = useRef<Set<XMLHttpRequest>>(new Set());
+  const presignedUrlCacheRef = useRef<Map<string, string>>(new Map());
   const presignedUrlBatchesRef = useRef<Map<string, Promise<Record<string, string>>>>(new Map());
   const activeSessionRef = useRef<SavedUploadSession | null>(null);
   const abortRequestedRef = useRef(false);
@@ -264,10 +276,12 @@ export const FileForm = () => {
     }
   };
 
-  const writeSavedSession = (session: SavedUploadSession) => {
+  const writeSavedSession = (session: SavedUploadSession, updateState = false) => {
     if (typeof window === "undefined") return;
     window.localStorage.setItem(SAVED_UPLOAD_SESSION_KEY, JSON.stringify(session));
-    setSavedSession(session);
+    if (updateState) {
+      setSavedSession(session);
+    }
   };
 
   const clearSavedSession = () => {
@@ -352,38 +366,75 @@ export const FileForm = () => {
     pauseResolversRef.current.splice(0).forEach((resolve) => resolve());
   };
 
-  async function getPresignedPartUrl(uploadId: string, key: string, partNumber: number): Promise<string> {
-    const batchStart = Math.floor((partNumber - 1) / PRESIGN_BATCH_SIZE) * PRESIGN_BATCH_SIZE + 1;
+  function fetchPresignBatch(
+    uploadId: string,
+    key: string,
+    batchStart: number,
+    totalParts?: number,
+  ): Promise<Record<string, string>> {
     const batchKey = `${uploadId}:${key}:${batchStart}`;
-    let batchPromise = presignedUrlBatchesRef.current.get(batchKey);
+    const existing = presignedUrlBatchesRef.current.get(batchKey);
+    if (existing) return existing;
 
-    if (!batchPromise) {
-      const partNumbers = Array.from({ length: PRESIGN_BATCH_SIZE }, (_, index) => batchStart + index);
-      batchPromise = fetch("/api/uploads/presign", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uploadId, key, partNumbers }),
+    const maxPart = totalParts
+      ? Math.min(batchStart + PRESIGN_BATCH_SIZE - 1, totalParts)
+      : batchStart + PRESIGN_BATCH_SIZE - 1;
+    const count = Math.max(0, maxPart - batchStart + 1);
+    if (count === 0) return Promise.resolve({});
+
+    const partNumbers = Array.from({ length: count }, (_, index) => batchStart + index);
+    const batchPromise = fetch("/api/uploads/presign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uploadId, key, partNumbers }),
+    })
+      .then(async (presignRes) => {
+        const payload = await presignRes.json().catch(() => null);
+        if (!presignRes.ok) {
+          addMonitoringBreadcrumb("Upload part presign failed", {
+            partNumber: batchStart,
+            status: presignRes.status,
+          }, "upload");
+          throw new Error(payload?.message || payload?.error || `Failed to presign batch starting at ${batchStart}`);
+        }
+
+        const urls: Record<string, string> = payload?.urls ?? {};
+        for (const [partNo, url] of Object.entries(urls)) {
+          presignedUrlCacheRef.current.set(`${uploadId}:${key}:${partNo}`, url);
+        }
+        return urls;
       })
-        .then(async (presignRes) => {
-          const payload = await presignRes.json().catch(() => null);
-          if (!presignRes.ok) {
-            addMonitoringBreadcrumb("Upload part presign failed", {
-              partNumber,
-              status: presignRes.status,
-            }, "upload");
-            throw new Error(payload?.message || payload?.error || `Failed to presign part ${partNumber}`);
-          }
+      .catch((err) => {
+        presignedUrlBatchesRef.current.delete(batchKey);
+        throw err;
+      });
 
-          return payload?.urls ?? {};
-        })
-        .finally(() => {
-          presignedUrlBatchesRef.current.delete(batchKey);
-        });
-      presignedUrlBatchesRef.current.set(batchKey, batchPromise);
+    presignedUrlBatchesRef.current.set(batchKey, batchPromise);
+    return batchPromise;
+  }
+
+  async function getPresignedPartUrl(
+    uploadId: string,
+    key: string,
+    partNumber: number,
+    totalParts?: number,
+  ): Promise<string> {
+    const cacheKey = `${uploadId}:${key}:${partNumber}`;
+    const cachedUrl = presignedUrlCacheRef.current.get(cacheKey);
+    const batchStart = Math.floor((partNumber - 1) / PRESIGN_BATCH_SIZE) * PRESIGN_BATCH_SIZE + 1;
+
+    // Proactive lookahead prefetch for the next batch when crossing 50% of current batch
+    if (
+      partNumber - batchStart >= Math.floor(PRESIGN_BATCH_SIZE / 2) &&
+      (!totalParts || batchStart + PRESIGN_BATCH_SIZE <= totalParts)
+    ) {
+      void fetchPresignBatch(uploadId, key, batchStart + PRESIGN_BATCH_SIZE, totalParts).catch(() => {});
     }
 
-    const urls = await batchPromise;
-    const presignedUrl = urls[String(partNumber)];
+    if (cachedUrl) return cachedUrl;
+
+    const urls = await fetchPresignBatch(uploadId, key, batchStart, totalParts);
+    const presignedUrl = urls[String(partNumber)] ?? presignedUrlCacheRef.current.get(cacheKey);
     if (!presignedUrl) {
       throw new Error(`Failed to presign part ${partNumber}`);
     }
@@ -391,22 +442,49 @@ export const FileForm = () => {
     return presignedUrl;
   }
 
-  async function uploadChunkToS3(chunk: Uint8Array, uploadId: string, key: string, partNumber: number): Promise<string> {
+  async function uploadChunkToS3(
+    chunk: Blob | Uint8Array,
+    uploadId: string,
+    key: string,
+    partNumber: number,
+    totalParts?: number,
+  ): Promise<string> {
     let ETag: string = '';
     const MAX_RETRIES = 3;
     let retries = 0;
+    const chunkByteLength = chunk instanceof Blob ? chunk.size : chunk.byteLength;
+    const chunkKey = `${uploadId}:${partNumber}`;
+
+    const rollbackPartialProgress = () => {
+      const partial = chunkProgressRef.current[chunkKey] ?? 0;
+      if (partial > 0) {
+        totalUploadedRef.current = Math.max(0, totalUploadedRef.current - partial);
+        delete chunkProgressRef.current[chunkKey];
+        updateProgress();
+      }
+    };
 
     while (retries <= MAX_RETRIES) {
       await waitWhilePaused();
       if (abortRequestedRef.current) throw new Error("Upload canceled");
 
       try {
-        const presignedUrl = await getPresignedPartUrl(uploadId, key, partNumber);
+        const presignedUrl = await getPresignedPartUrl(uploadId, key, partNumber, totalParts);
         await new Promise<void>((resolve, reject) => {
           const xhr = new XMLHttpRequest();
           activeXhrsRef.current.add(xhr);
           xhr.open("PUT", presignedUrl);
           xhr.setRequestHeader("Content-Type", "application/octet-stream");
+          xhr.upload.onprogress = (event) => {
+            if (!event.lengthComputable) return;
+            const prev = chunkProgressRef.current[chunkKey] ?? 0;
+            const delta = Math.max(0, event.loaded - prev);
+            if (delta > 0) {
+              chunkProgressRef.current[chunkKey] = event.loaded;
+              totalUploadedRef.current += delta;
+              updateProgress();
+            }
+          };
           xhr.onload = () => {
             activeXhrsRef.current.delete(xhr);
             if (xhr.status >= 200 && xhr.status < 300) {
@@ -414,21 +492,26 @@ export const FileForm = () => {
               if (eTagHeader) {
                 ETag = eTagHeader;
               }
-              if (totalUploadedRef && totalUploadedRef.current !== undefined) {
-                totalUploadedRef.current += chunk.length;
+              const recorded = chunkProgressRef.current[chunkKey] ?? 0;
+              if (chunkByteLength > recorded) {
+                totalUploadedRef.current += chunkByteLength - recorded;
               }
+              delete chunkProgressRef.current[chunkKey];
               updateProgress();
               resolve();
             } else {
+              rollbackPartialProgress();
               reject(new Error(`Upload failed for part ${partNumber} with status ${xhr.status}`));
             }
           };
           xhr.onerror = () => {
             activeXhrsRef.current.delete(xhr);
+            rollbackPartialProgress();
             reject(new Error("Network error during upload"));
           };
           xhr.onabort = () => {
             activeXhrsRef.current.delete(xhr);
+            rollbackPartialProgress();
             reject(new Error("Upload canceled"));
           };
           if (abortRequestedRef.current) {
@@ -447,7 +530,7 @@ export const FileForm = () => {
         addMonitoringBreadcrumb("Upload part retry", {
           partNumber,
           attempt: retries + 1,
-          chunkBytes: chunk.length,
+          chunkBytes: chunkByteLength,
         }, "upload");
         retries++;
         telemetryRef.current.retryCount += 1;
@@ -464,7 +547,7 @@ export const FileForm = () => {
   function updateProgress() {
     const uploaded = totalUploadedRef.current;
     const total = totalBytesRef.current;
-    const progress = (uploaded / total) * 100;
+    const progress = total > 0 ? (uploaded / total) * 100 : 0;
     setOverallProgress(Math.min(progress, 100));
 
     const pauseOffset = pausedDurationRef.current + (
@@ -472,7 +555,7 @@ export const FileForm = () => {
     );
     const elapsed = (Date.now() - uploadStartTimeRef.current! - pauseOffset) / 1000;
 
-    if (elapsed >= 5 && uploaded > 0) {
+    if (elapsed >= 1.5 && uploaded > 0) {
       const speed = uploaded / elapsed;
       const timeLeft = (total - uploaded) / speed;
       setEstimatedTimeLeft(Math.max(0, Math.ceil(timeLeft)));
@@ -486,10 +569,14 @@ export const FileForm = () => {
     contentType: string,
     fileSize: number,
   ): Promise<InitiatedUpload> {
+    const partSize = getUploadPartSize(fileSize);
+    const totalParts = Math.max(1, Math.ceil(fileSize / partSize));
+    const initialPartCount = Math.min(totalParts, PRESIGN_BATCH_SIZE * 2);
+
     const initiateRes = await fetch("/api/uploads/initiate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fileName, contentType, fileSize }),
+      body: JSON.stringify({ fileName, contentType, fileSize, partCount: initialPartCount }),
     });
     const payload = await initiateRes.json().catch(() => null);
 
@@ -501,7 +588,13 @@ export const FileForm = () => {
       throw new Error("Failed to prepare upload");
     }
 
-    return { uploadId: payload.uploadId, key: payload.key };
+    if (payload.urls && typeof payload.urls === "object") {
+      for (const [partNo, url] of Object.entries(payload.urls as Record<string, string>)) {
+        presignedUrlCacheRef.current.set(`${payload.uploadId}:${payload.key}:${partNo}`, url);
+      }
+    }
+
+    return { uploadId: payload.uploadId, key: payload.key, urls: payload.urls };
   }
 
   async function uploadDirectFile(file: File): Promise<UploadedFile> {
@@ -527,6 +620,16 @@ export const FileForm = () => {
       throw new Error(payload?.message || payload?.error || `Failed to prepare upload for ${file.name}`);
     }
 
+    const chunkKey = `direct:${ payload.key || file.name }`;
+    const rollbackDirectProgress = () => {
+      const partial = chunkProgressRef.current[chunkKey] ?? 0;
+      if (partial > 0) {
+        totalUploadedRef.current = Math.max(0, totalUploadedRef.current - partial);
+        delete chunkProgressRef.current[chunkKey];
+        updateProgress();
+      }
+    };
+
     while (retries <= MAX_RETRIES) {
       await waitWhilePaused();
       if (abortRequestedRef.current) throw new Error("Upload canceled");
@@ -537,28 +640,53 @@ export const FileForm = () => {
           activeXhrsRef.current.add(xhr);
           xhr.open("PUT", payload.url);
           xhr.setRequestHeader("Content-Type", contentType);
+          xhr.upload.onprogress = (event) => {
+            if (!event.lengthComputable) return;
+            const prev = chunkProgressRef.current[chunkKey] ?? 0;
+            const delta = Math.max(0, event.loaded - prev);
+            if (delta > 0) {
+              chunkProgressRef.current[chunkKey] = event.loaded;
+              totalUploadedRef.current += delta;
+              updateProgress();
+            }
+          };
           xhr.onload = () => {
             activeXhrsRef.current.delete(xhr);
             if (xhr.status >= 200 && xhr.status < 300) {
-              totalUploadedRef.current += file.size;
+              const recorded = chunkProgressRef.current[chunkKey] ?? 0;
+              if (file.size > recorded) {
+                totalUploadedRef.current += file.size - recorded;
+              }
+              delete chunkProgressRef.current[chunkKey];
               updateProgress();
               resolve();
             } else {
+              rollbackDirectProgress();
               reject(new Error(`Upload failed for ${file.name} with status ${xhr.status}`));
             }
           };
           xhr.onerror = () => {
             activeXhrsRef.current.delete(xhr);
+            rollbackDirectProgress();
             reject(new Error("Network error during upload"));
           };
           xhr.onabort = () => {
             activeXhrsRef.current.delete(xhr);
+            rollbackDirectProgress();
             reject(new Error("Upload canceled"));
           };
+          if (abortRequestedRef.current) {
+            xhr.abort();
+            reject(new Error("Upload canceled"));
+            return;
+          }
           xhr.send(file);
         });
         break;
       } catch (error) {
+        if (abortRequestedRef.current || isUploadCanceled(error)) {
+          throw error;
+        }
         retries++;
         telemetryRef.current.retryCount += 1;
         if (retries > MAX_RETRIES || abortRequestedRef.current) {
@@ -603,23 +731,41 @@ export const FileForm = () => {
       parts: [],
       createdAt: Date.now(),
     };
-    let buffer = new Uint8Array(0);
+    const pendingChunks: Uint8Array[] = [];
+    let pendingBytes = 0;
+
+    const takeBytes = (size: number): Uint8Array => {
+      const out = new Uint8Array(size);
+      let offset = 0;
+      while (offset < size && pendingChunks.length > 0) {
+        const head = pendingChunks[0];
+        const needed = size - offset;
+        if (head.byteLength <= needed) {
+          out.set(head, offset);
+          offset += head.byteLength;
+          pendingChunks.shift();
+        } else {
+          out.set(head.subarray(0, needed), offset);
+          pendingChunks[0] = head.subarray(needed);
+          offset += needed;
+        }
+      }
+      pendingBytes -= size;
+      return out;
+    };
 
     while (true) {
       await waitWhilePaused();
       const { value, done } = await reader.read();
       if (abortRequestedRef.current) throw new Error("Upload canceled");
       if (done) break;
-      if (!value) continue;
+      if (!value || value.byteLength === 0) continue;
 
-      const newBuffer = new Uint8Array(buffer.length + value.length);
-      newBuffer.set(buffer);
-      newBuffer.set(value, buffer.length);
-      buffer = newBuffer;
+      pendingChunks.push(value);
+      pendingBytes += value.byteLength;
 
-      while (buffer.length >= partSize) {
-        const chunk = buffer.slice(0, partSize);
-        buffer = buffer.slice(partSize);
+      while (pendingBytes >= partSize) {
+        const chunk = takeBytes(partSize);
         setUploadStatus("uploading");
 
         const currPart = partNumberRef.current++;
@@ -628,7 +774,7 @@ export const FileForm = () => {
           return uploadChunkToS3(chunk, uploadId, key, currPart).then((etag) => {
             partsList.push({ PartNumber: currPart, ETag: etag });
             telemetryRef.current.completedParts += 1;
-            uploadedSize += chunk.length;
+            uploadedSize += chunk.byteLength;
           });
         }).catch(isUploadRejected);
 
@@ -640,15 +786,15 @@ export const FileForm = () => {
 
     await Promise.all(uploadPromises);
 
-    if (buffer.length > 0) {
-      const finalChunk = buffer;
+    if (pendingBytes > 0) {
+      const finalChunk = takeBytes(pendingBytes);
       const currPart = partNumberRef.current++;
       const finalPromise = limit(async () => {
         await waitWhilePaused();
         return uploadChunkToS3(finalChunk, uploadId, key, currPart).then((etag) => {
           partsList.push({ PartNumber: currPart, ETag: etag });
           telemetryRef.current.completedParts += 1;
-          uploadedSize += finalChunk.length;
+          uploadedSize += finalChunk.byteLength;
         });
       }).catch(isUploadRejected);
       uploadPromises.push(finalPromise);
@@ -724,7 +870,7 @@ export const FileForm = () => {
       createdAt: Date.now(),
     };
     if (shouldPersistSession) {
-      writeSavedSession(nextSession);
+      writeSavedSession(nextSession, true);
       activeSessionRef.current = nextSession;
     }
 
@@ -739,18 +885,18 @@ export const FileForm = () => {
 
       const start = (partNumber - 1) * partSize;
       const end = Math.min(start + partSize, file.size);
-      const chunk = new Uint8Array(await file.slice(start, end).arrayBuffer());
+      const chunkBlob = file.slice(start, end);
 
       const uploadPromise = limit(async () => {
         await waitWhilePaused();
-        return uploadChunkToS3(chunk, uploadId, key, partNumber).then((etag) => {
-          const uploadedPart = { PartNumber: partNumber, ETag: etag, size: chunk.length };
+        return uploadChunkToS3(chunkBlob, uploadId, key, partNumber, totalParts).then((etag) => {
+          const uploadedPart = { PartNumber: partNumber, ETag: etag, size: chunkBlob.size };
           partsList.push(uploadedPart);
           telemetryRef.current.completedParts += 1;
-          uploadedSize += chunk.length;
+          uploadedSize += chunkBlob.size;
           if (shouldPersistSession) {
             nextSession.parts = partsList.sort((a, b) => a.PartNumber - b.PartNumber);
-            writeSavedSession(nextSession);
+            writeSavedSession(nextSession, false);
           }
         });
       }).catch(isUploadRejected);
@@ -835,6 +981,7 @@ export const FileForm = () => {
     setUploading(true);
     abortRequestedRef.current = false;
     resetTelemetry();
+    presignedUrlCacheRef.current.clear();
     presignedUrlBatchesRef.current.clear();
     setOverallProgress(0);
     setIsPaused(false);
@@ -870,7 +1017,9 @@ export const FileForm = () => {
           ? savedSession
           : undefined;
         telemetryRef.current.resumedFromSavedSession = Boolean(matchingSession);
-        const uploadedFile = await uploadSingleFile(file, matchingSession);
+        const uploadedFile = !matchingSession && file.size <= DIRECT_PUT_FILE_SIZE_THRESHOLD
+          ? await uploadDirectFile(file)
+          : await uploadSingleFile(file, matchingSession);
         uploadedFileKeys = [uploadedFile.key];
         uploadedSize = uploadedFile.uploadedSize;
       } else if (shouldUploadFilesIndividually(files.length, totalBytesRef.current)) {
@@ -926,7 +1075,7 @@ export const FileForm = () => {
           if (abortRequestedRef.current) throw new Error("Upload canceled");
           await zipWriter.add(file.name, file.stream(), {
             level: 0,
-            bufferedWrite: true,
+            bufferedWrite: false,
             useCompressionStream: false
           });
         }
@@ -962,17 +1111,15 @@ export const FileForm = () => {
       }
       sendTelemetry("completed");
       setFiles([]);
-      setTimeout(() => {
-        const params = new URLSearchParams();
-        if ((deliveryMode === "link" || sharePayload?.emailSent === false) && sharePayload?.link) {
-          params.set("link", sharePayload.link);
-        }
-        if (sharePayload?.emailSent === false) {
-          params.set("email", "failed");
-        }
-        const successQuery = params.toString() ? `?${params.toString()}` : "";
-        router.push(`/success${successQuery}`);
-      }, 1000);
+      const params = new URLSearchParams();
+      if ((deliveryMode === "link" || sharePayload?.emailSent === false) && sharePayload?.link) {
+        params.set("link", sharePayload.link);
+      }
+      if (sharePayload?.emailSent === false) {
+        params.set("email", "failed");
+      }
+      const successQuery = params.toString() ? `?${params.toString()}` : "";
+      router.push(`/success${successQuery}`);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);

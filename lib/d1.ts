@@ -88,15 +88,52 @@ type AppD1PreparedStatement = {
   run: () => Promise<{ meta?: { changes?: number } }>;
 };
 
+export interface R2Range {
+  offset?: number;
+  length?: number;
+  suffix?: number;
+}
+
+export interface R2ObjectMeta {
+  key?: string;
+  size?: number;
+  etag?: string;
+  httpEtag?: string;
+  uploaded?: Date;
+  range?: R2Range;
+  writeHttpMetadata?: (headers: Headers) => void;
+}
+
+export interface R2ObjectBody extends R2ObjectMeta {
+  body: ReadableStream<Uint8Array> | null;
+}
+
+export interface R2BucketBinding {
+  head?: (key: string) => Promise<R2ObjectMeta | null>;
+  get: (
+    key: string,
+    options?: {
+      range?: Headers | R2Range;
+      onlyIf?: Headers;
+    },
+  ) => Promise<R2ObjectBody | null>;
+}
+
 export interface RuntimeLocals {
   runtime?: {
     env?: {
       DB?: AppD1Database;
-      FILES?: {
-        get: (key: string) => Promise<{
-          body: ReadableStream<Uint8Array> | null;
-        } | null>;
+      FILES?: R2BucketBinding;
+      EMAIL?: {
+        send: (message: unknown) => Promise<{ messageId?: string }>;
       };
+      R2_ACCOUNT_ID?: string;
+      R2_ACCESS_KEY_ID?: string;
+      R2_SECRET_ACCESS_KEY?: string;
+      R2_BUCKET_NAME?: string;
+    };
+    ctx?: {
+      waitUntil?: (promise: Promise<unknown>) => void;
     };
   };
 }
