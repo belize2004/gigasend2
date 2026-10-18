@@ -99,84 +99,17 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-ocean-950 text-slate-100 flex items-center justify-center py-12 px-4 font-body">
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        {/* Left Side - Branding & Features */}
-        <div className="hidden lg:block">
-          <div className="text-left">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mr-4 border border-gold-500/20">
-                <BsArrowUpSquareFill className="text-2xl text-gold-400" />
-              </div>
-              <h1 className="text-4xl font-extrabold text-white font-display tracking-tight">{brand.productName}</h1>
-            </div>
-            <span className="label-caps text-gold-400 text-xs block mb-2">Workspace Access</span>
-            <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mb-4">
-              Welcome Back
-            </h2>
-            <p className="text-base text-slate-300 mb-8 leading-relaxed">
-              Sign in to access your files and continue sharing with zero cloud egress.
-            </p>
-
-            {/* Feature highlights */}
-            <div className="space-y-4">
-              <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
-                <div className="bg-gold-500/15 text-gold-400 rounded-xl w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <FiZap className="text-xl" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white font-display text-sm">Lightning Fast Uploads</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Share files instantly with our optimized edge infrastructure.</p>
-                </div>
-              </div>
-              <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
-                <div className="bg-emerald-500/15 text-emerald-400 rounded-xl w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <FiShield className="text-xl" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white font-display text-sm">Enterprise Security</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Your files are protected with 256-bit TLS encryption.</p>
-                </div>
-              </div>
-              <div className="flex items-center p-4 rounded-2xl apple-subtle-glass border border-white/10">
-                <div className="bg-sky-500/15 text-sky-400 rounded-xl w-12 h-12 flex items-center justify-center mr-4 shrink-0">
-                  <FiUsers className="text-xl" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white font-display text-sm">Team Collaboration</h3>
-                  <p className="text-slate-300 text-xs mt-0.5">Work together seamlessly with advanced sharing tools.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side - Login Form */}
-        <div className="w-full max-w-md mx-auto lg:mx-0">
-          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-8 sm:p-10 backdrop-blur-2xl">
-
-            {/* Mobile branding */}
-            <div className="lg:hidden text-center mb-6">
-              <div className="flex items-center justify-center mb-3">
-                <div className="w-10 h-10 rounded-xl bg-gold-500/15 text-gold-400 flex items-center justify-center mr-2.5 border border-gold-500/20">
-                  <BsArrowUpSquareFill className="text-xl text-gold-400" />
-                </div>
-                <h1 className="text-2xl font-extrabold text-white font-display tracking-tight">{brand.productName}</h1>
-              </div>
-            </div>
+      <div className="w-full max-w-md mx-auto">
+        <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-8 sm:p-10 backdrop-blur-2xl">
 
             {/* Icon Badge & Form Header */}
-            <div className="mb-8 text-left">
-              <div className="w-14 h-14 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mb-6 border border-gold-500/20">
-                <FiLock className="w-6 h-6" />
+            <div className="mb-8 text-center">
+              <div className="w-12 h-12 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mx-auto mb-4 border border-gold-500/20">
+                <BsArrowUpSquareFill className="text-2xl text-gold-400" />
               </div>
-              <span className="label-caps text-gold-400 text-xs">Account Access</span>
-              <h2 className="text-3xl font-extrabold text-white font-display tracking-tight mt-1 mb-2">
-                Sign In
-              </h2>
-              <p className="text-sm text-slate-300 font-body">
-                Enter your email and password to access your workspace.
-              </p>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">
+                Sign In to {brand.productName}
+              </h1>
             </div>
 
             {/* error */}
@@ -276,7 +209,6 @@ const LoginPage = () => {
               </p>
             </div>
 
-          </div>
         </div>
       </div>
 

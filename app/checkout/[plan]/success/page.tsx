@@ -120,53 +120,20 @@ const Page = () => {
           {/* Action Buttons */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <button
-              onClick={handleDashboardRedirect}
-              className="btn-gold py-4 px-6 rounded-xl font-bold font-display text-xs shadow-lg shadow-gold-500/15 transition-all duration-200 flex items-center justify-center tap-tactile"
-            >
-              Go to Dashboard
-              <FiArrowRight className="ml-2 text-sm" />
-            </button>
-
-            <button
               onClick={handleTransferRedirect}
-              className="btn-outline-gold border border-white/15 text-white py-4 px-6 rounded-xl font-bold font-display text-xs hover:bg-white/[0.08] transition-all duration-200 flex items-center justify-center tap-tactile"
+              className="btn-gold py-4 px-6 rounded-xl font-bold font-display text-xs shadow-lg shadow-gold-500/15 transition-all duration-200 flex items-center justify-center tap-tactile"
             >
               Send Files
               <FiUpload className="ml-2 text-sm" />
             </button>
-          </div>
-        </div>
 
-        {/* Additional Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-center">
-          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-2xl p-5 shadow-xl">
-            <div className="w-11 h-11 rounded-xl bg-gold-500/15 text-gold-400 border border-gold-500/20 flex items-center justify-center mx-auto mb-3">
-              <FiZap className="text-xl" />
-            </div>
-            <h4 className="font-bold text-white font-display text-sm mb-1">Instant Access</h4>
-            <p className="text-xs text-slate-300">
-              Your plan is active immediately.
-            </p>
-          </div>
-          
-          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-2xl p-5 shadow-xl">
-            <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto mb-3">
-              <FiUpload className="text-xl" />
-            </div>
-            <h4 className="font-bold text-white font-display text-sm mb-1">Ready to Upload</h4>
-            <p className="text-xs text-slate-300">
-              Start sending files right away.
-            </p>
-          </div>
-          
-          <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-2xl p-5 shadow-xl">
-            <div className="w-11 h-11 rounded-xl bg-sky-500/15 text-sky-400 border border-sky-500/20 flex items-center justify-center mx-auto mb-3">
-              <FiUsers className="text-xl" />
-            </div>
-            <h4 className="font-bold text-white font-display text-sm mb-1">24/7 Support</h4>
-            <p className="text-xs text-slate-300">
-              We&apos;re here to help anytime.
-            </p>
+            <button
+              onClick={handleDashboardRedirect}
+              className="btn-outline-gold border border-white/15 text-white py-4 px-6 rounded-xl font-bold font-display text-xs hover:bg-white/[0.08] transition-all duration-200 flex items-center justify-center tap-tactile"
+            >
+              View Dashboard
+              <FiArrowRight className="ml-2 text-sm" />
+            </button>
           </div>
         </div>
 

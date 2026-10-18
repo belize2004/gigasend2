@@ -4,13 +4,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EsHeader from "../../components/EsHeader.astro";
 import EsFooter from "../../components/EsFooter.astro";
 import TransferEmbed from "@/src/components/TransferEmbed";
-import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
-import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { esSeoLandingPages } from "../../data/esSeoLandingPages";
 import { brand } from "@/lib/brand";
 
 const groupedSpanishPages = esSeoLandingPages.reduce((acc: Record<string, typeof esSeoLandingPages>, p) => {
-  const cat = p.category || "Guías en Español";
+  const cat = p.category || "Guías en español";
   if (!acc[cat]) acc[cat] = [];
   acc[cat].push(p);
   return acc;
@@ -20,29 +18,29 @@ const totalSpanishCount = esSeoLandingPages.length + 7;
 
 const pageTitle = "Enviar archivos grandes gratis (hasta 10 GB) | Gigasend";
 const pageDescription =
-  "Transfiere archivos de 5 GB a 500 GB+ y videos 4K/8K sin compresión en España y Latinoamérica. Hasta 10 GB gratis (retención de 3 días), sin suscripción mensual y descarga en 1 clic sin cuenta.";
+  "Comparte vídeos 4K, carpetas pesadas y proyectos creativos de hasta 5 TB sin comprimir. Tus primeros 10 GB son gratis (retención de 3 días) y el destinatario descarga sin registrarse.";
 const canonical = `${brand.siteUrl}/es`;
 
 const faqs = [
   {
-    question: "¿Cómo enviar archivos grandes o videos pesados sin perder calidad?",
+    question: "¿Cómo enviar archivos grandes o vídeos pesados sin perder calidad?",
     answer:
-      "Arrastra tu archivo o carpeta directamente a Gigasend. El motor perimetral Anycast transmite tus datos bit a bit con verificación hash SHA-256 sin comprimir, transcodificar ni alterar los colores de tu video.",
+      "Arrastra tu archivo o carpeta directamente a Gigasend. Tus datos se transfieren bit a bit con verificación SHA-256 sin comprimir, recodificar ni alterar la calidad original de tus vídeos.",
   },
   {
-    question: "¿Cómo funciona el pago y qué métodos se aceptan en España y Latinoamérica?",
+    question: "¿Cuánto cuesta y qué opciones de pago existen en España y Latinoamérica?",
     answer:
-      "Envías hasta 10 GB completamente gratis con retención de 3 días. Para volúmenes mayores, puedes elegir planes mensuales desde 10 US$/mes (30 GB, retención de 30 días) o paquetes prepagos sin cuotas fijas mensuales: 50 GB (10 US$ · 0,20 US$/GB), 100 GB (20 US$ · 0,20 US$/GB), 1 TB (180 US$ · 0,18 US$/GB) o 5 TB (800 US$ · 0,16 US$/GB), válidos por 12 meses mediante Stripe y Apple Pay.",
+      "Envías hasta 10 GB completamente gratis con retención de 3 días. Para archivos más pesados, ofrecemos planes mensuales desde 10 US$/mes (30 GB, retención de 30 días) o paquetes prepagos válidos por 12 meses sin cargos recurrentes: 50 GB (10 US$ · 0,20 US$/GB), 100 GB (20 US$ · 0,20 US$/GB), 1 TB (180 US$ · 0,18 US$/GB) y 5 TB (800 US$ · 0,16 US$/GB).",
   },
   {
-    question: "¿Mi destinatario necesita crear una cuenta para descargar?",
+    question: "¿El destinatario necesita crear una cuenta para descargar?",
     answer:
-      "No. Tu destinatario no necesita registrarse, instalar aplicaciones ni introducir contraseñas. Simplemente hace clic en el enlace y descarga a la velocidad máxima de su conexión de fibra.",
+      "No. Tu destinatario no necesita registrarse ni instalar programas. Solo abre el enlace y descarga el archivo completo en un clic sin cargos adicionales por descarga.",
   },
   {
-    question: "¿Qué ocurre si mi conexión a internet se interrumpe durante la subida?",
+    question: "¿Qué pasa si mi conexión a internet se corta durante la subida?",
     answer:
-      "Gigasend cuenta con reintento automático de bloques y función de reanudación directamente en el navegador. La subida continúa desde el último fragmento verificado sin reiniciar desde cero.",
+      "Gigasend cuenta con subida con reanudación automática en el navegador. Si tu conexión se interrumpe, la transferencia continúa exactamente donde se quedó sin empezar desde cero.",
   },
 ];
 
@@ -110,166 +108,209 @@ const jsonLd = {
   <div class="relative overflow-hidden bg-ocean-950 text-slate-100 min-h-screen font-body">
     <EsHeader activeNav="hub" enHref="/?lang=en" esHref="/es" ptHref="/pt" />
 
-    <main class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24">
-      <!-- Hero Header -->
-      <header class="text-center max-w-4xl mx-auto mb-12 space-y-6">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 label-caps shadow-lg shadow-ocean-950/60">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Red Anycast en más de 335 ciudades • Hasta 10 GB gratis • Latencia &lt; 15 ms
+    <main id="main-content" class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24">
+      <!-- Hero + Immediate Uploader -->
+      <header class="text-center max-w-3xl mx-auto mb-10 space-y-5">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          Hasta 10 GB gratis • Retención de 3 días • Sin registro para descargar
         </div>
 
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.06] font-display">
-          Envía archivos grandes. <span class="text-gold-400">Sin límites ni suscripciones forzosas.</span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.08] font-display">
+          Envía archivos grandes. <span class="text-gold-400">Así de simple.</span>
         </h1>
 
-        <p class="text-lg sm:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-body">
-          Las plataformas tradicionales te bloquean en 2 GB o te cobran 23 US$ cada mes. Gigasend opera sobre nuestra red perimetral Anycast en España y Latinoamérica: envía hasta 10 GB gratis (retención de 3 días) o activa paquetes prepagos de 12 meses (10 US$ / 50 GB • 20 US$ / 100 GB • 180 US$ / 1 TB).
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-body">
+          Comparte vídeos 4K, carpetas pesadas y proyectos creativos de hasta 5 TB sin comprimir. Tus primeros 10 GB son gratis y el destinatario descarga sin registrarse.
         </p>
-
-        <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
-          <a href="#uploader" class="btn-gold min-h-[48px] inline-flex items-center px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-            Arrastra archivos para entregar ↓
-          </a>
-          <a href="#comparativa-espanol" class="btn-outline-gold min-h-[48px] inline-flex items-center px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold tap-tactile">
-            Ver comparativa sin suscripción →
-          </a>
-        </div>
       </header>
 
       <!-- Primary Dropzone Stage -->
       <section id="uploader" class="max-w-3xl mx-auto mb-20">
-        <div id="uploader-stage" class="text-center mb-6 space-y-3">
-          <EdgeLocationBadge client:load />
-          <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga directa en el navegador • Envía de 5 GB a 5 TB</span>
-            <p class="text-xs text-slate-400 font-body">Sin software de escritorio. Los archivos fluyen directamente al nodo perimetral más cercano (MAD, BCN, MEX, BOG, EZE, SCL) con latencia inferior a 15 ms.</p>
-          </div>
-        </div>
-
-        <div class="apple-glass rounded-3xl p-4 sm:p-6 relative z-10 shadow-2xl shadow-ocean-950/90 border border-white/10">
+        <div id="uploader-stage" class="apple-glass rounded-3xl p-4 sm:p-6 relative z-10 shadow-2xl shadow-ocean-950/90 border border-white/10">
           <TransferEmbed client:idle />
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 text-center text-xs text-slate-400">
-          <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
-            <span class="block text-white font-bold text-sm mb-0.5 font-display">Integridad SHA-256</span>
-            Sin transcodificación
-          </div>
+        <div class="grid grid-cols-3 gap-4 mt-6 text-center text-xs text-slate-300">
           <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
             <span class="block text-gold-400 font-bold text-sm mb-0.5 font-display">Hasta 10 GB gratis</span>
             Retención de 3 días
           </div>
           <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
-            <span class="block text-white font-bold text-sm mb-0.5 font-display">Descarga en 1 clic</span>
-            Destinatario sin registro
+            <span class="block text-white font-bold text-sm mb-0.5 font-display">Calidad original</span>
+            Sin compresión ni pérdida
           </div>
           <div class="p-3.5 rounded-xl apple-subtle-glass border border-white/10">
-            <span class="block text-gold-400 font-bold text-sm mb-0.5 font-display">12 meses</span>
-            Vigencia de paquetes
+            <span class="block text-white font-bold text-sm mb-0.5 font-display">Descarga en 1 clic</span>
+            Sin cuenta para el cliente
           </div>
         </div>
       </section>
 
-      <!-- Comparison Section -->
-      <section id="comparativa-espanol" class="max-w-4xl mx-auto mb-24">
-        <div class="text-center mb-12 space-y-2">
-          <span class="label-caps text-ocean-400">Comparativa de plataformas</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-display">
-            Gigasend frente a las nubes tradicionales
+      <!-- Clean Comparison Section -->
+      <section id="comparativa-espanol" class="max-w-4xl mx-auto mb-20">
+        <div class="text-center mb-10 space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-display">
+            Por qué los equipos eligen Gigasend
           </h2>
           <p class="text-slate-400 text-sm font-body max-w-xl mx-auto">
-            Compara las limitaciones de las plataformas tradicionales con la entrega perimetral directa de Gigasend.
+            Compara Gigasend frente a WeTransfer y las nubes tradicionales.
           </p>
         </div>
 
-        <div class="overflow-x-auto rounded-2xl border border-white/10 bg-ocean-900/50 mb-8">
+        <div class="overflow-x-auto rounded-2xl border border-white/10 bg-ocean-900/50">
           <table class="w-full min-w-[600px] text-left text-xs sm:text-sm divide-y divide-white/10">
             <thead class="bg-ocean-950/90 text-slate-300">
               <tr>
-                <th scope="col" class="p-4 font-bold text-white">Criterio</th>
+                <th scope="col" class="p-4 font-bold text-white">Característica</th>
                 <th scope="col" class="p-4 font-bold text-gold-400">Gigasend</th>
-                <th scope="col" class="p-4 font-bold text-slate-300">WeTransfer / Dropbox</th>
+                <th scope="col" class="p-4 font-bold text-slate-300">WeTransfer</th>
+                <th scope="col" class="p-4 font-bold text-slate-300">Google Drive / Dropbox</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-white/10 text-slate-200">
               <tr>
-                <th scope="row" class="p-4 font-semibold text-white">Límite gratuito</th>
-                <td class="p-4 text-emerald-400 font-semibold">Hasta 10 GB gratis (retención de 3 días)</td>
+                <th scope="row" class="p-4 font-semibold text-white">Envío gratuito</th>
+                <td class="p-4 text-emerald-400 font-semibold">Hasta 10 GB gratis (3 días)</td>
                 <td class="p-4 text-slate-300">2 GB a 3 GB</td>
+                <td class="p-4 text-slate-300">Comparte la cuota de tu cuenta</td>
               </tr>
               <tr>
-                <th scope="row" class="p-4 font-semibold text-white">Precio inicial</th>
-                <td class="p-4 text-emerald-400 font-semibold">Desde 10 US$ (50 GB por 12 meses o plan Starter de 30 GB/mes)</td>
-                <td class="p-4 text-slate-300">Suscripción recurrente de ~23 US$/mes</td>
+                <th scope="row" class="p-4 font-semibold text-white">Opciones de pago</th>
+                <td class="p-4 text-emerald-400 font-semibold">Desde 10 US$ (50 GB por 12 meses o 30 GB/mes)</td>
+                <td class="p-4 text-slate-300">Suscripción mensual fija (~23 US$/mes)</td>
+                <td class="p-4 text-slate-300">Suscripción mensual obligatoria</td>
               </tr>
               <tr>
-                <th scope="row" class="p-4 font-semibold text-white">Descarga para el destinatario</th>
-                <td class="p-4 text-emerald-400 font-semibold">1 clic directo en el navegador sin crear cuenta</td>
-                <td class="p-4 text-slate-300">Exige registro, verificación o consume la cuota del destinatario</td>
+                <th scope="row" class="p-4 font-semibold text-white">Experiencia del destinatario</th>
+                <td class="p-4 text-emerald-400 font-semibold">Descarga en 1 clic sin registro</td>
+                <td class="p-4 text-slate-300">Enlace con vencimiento corto</td>
+                <td class="p-4 text-slate-300">Suele pedir cuenta o permisos</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Estabilidad de subida</th>
+                <td class="p-4 text-emerald-400 font-semibold">Subida con reanudación automática</td>
+                <td class="p-4 text-slate-300">Sensible a microcortes</td>
+                <td class="p-4 text-slate-300">Lento con carpetas grandes</td>
               </tr>
             </tbody>
           </table>
         </div>
+      </section>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="rounded-2xl p-7 bg-ocean-900/40 border border-red-500/25 backdrop-blur-md space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 font-bold text-sm">✕</div>
-              <h3 class="text-lg font-bold text-red-300 font-display">El modelo tradicional (WeTransfer / Dropbox)</h3>
-            </div>
-            <ul class="space-y-3.5 text-sm text-slate-300 font-body">
-              <li class="flex items-start gap-2.5">
-                <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span><strong>Límite artificial de 2 GB:</strong> si tu video pesa 2,1 GB, te bloquean hasta que contrates una suscripción de 23 US$/mes.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span><strong>Cargos mensuales recurrentes:</strong> cobran cada 30 días en dólares, incluso durante los meses en que no envías archivos.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span><strong>Fricción para el destinatario:</strong> exigen cuentas de Google o contraseñas solo para descargar una entrega.</span>
-              </li>
-            </ul>
-          </div>
+      <!-- Regional Hubs & Core Guides -->
+      <section class="max-w-5xl mx-auto mb-20 pt-8 border-t border-white/10">
+        <div class="text-center mb-10 space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">
+            Regiones y guías destacadas
+          </h2>
+          <p class="text-slate-400 text-sm font-body max-w-2xl mx-auto">
+            Servidores locales de alta velocidad en España y Latinoamérica con precios claros en cada país.
+          </p>
+        </div>
 
-          <div class="rounded-2xl p-7 bg-ocean-900/60 border border-gold-500/40 backdrop-blur-md shadow-xl shadow-ocean-950/60 space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold text-sm">✓</div>
-              <h3 class="text-lg font-bold text-gold-400 font-display">El estándar de Gigasend</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <a href="/es/mexico" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-gold-400">México</span>
+                <span class="text-lg">🇲🇽</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
+                Enviar archivos en México
+              </h3>
+              <p class="text-xs text-slate-300 font-body leading-relaxed">
+                Servidores locales de alta velocidad en Ciudad de México, Guadalajara, Monterrey y Querétaro.
+              </p>
             </div>
-            <ul class="space-y-3.5 text-sm text-slate-200 font-body">
-              <li class="flex items-start gap-2.5">
-                <span class="text-gold-400 font-bold mt-0.5">✓</span>
-                <span><strong>Hasta 10 GB gratis:</strong> envía paquetes de hasta 10 GB sin costo (3 días de retención) o hasta 5 TB con planes y paquetes prepagos.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-gold-400 font-bold mt-0.5">✓</span>
-                <span><strong>Prepago de 12 meses con Apple Pay:</strong> paquetes de 50 GB (10 US$), 100 GB (20 US$), 1 TB (180 US$) o 5 TB (800 US$) cuyos créditos duran un año entero.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <span class="text-gold-400 font-bold mt-0.5">✓</span>
-                <span><strong>Descarga inmediata sin cuenta:</strong> tu destinatario hace clic y descarga directamente a velocidad de fibra.</span>
-              </li>
-            </ul>
-          </div>
+            <span class="text-xs font-semibold text-gold-400">Ver guía de México →</span>
+          </a>
+
+          <a href="/es/espana" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-gold-400">España</span>
+                <span class="text-lg">🇪🇸</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
+                Enviar archivos en España
+              </h3>
+              <p class="text-xs text-slate-300 font-body leading-relaxed">
+                Servidores locales de alta velocidad en Madrid, Barcelona y Valencia con cumplimiento del RGPD.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-gold-400">Ver guía de España →</span>
+          </a>
+
+          <a href="/es/colombia" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-gold-400">Colombia</span>
+                <span class="text-lg">🇨🇴</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
+                Enviar archivos en Colombia
+              </h3>
+              <p class="text-xs text-slate-300 font-body leading-relaxed">
+                Servidores locales de alta velocidad en Bogotá, Medellín, Cali y Barranquilla con subida estable.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-gold-400">Ver guía de Colombia →</span>
+          </a>
+
+          <a href="/es/argentina" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-gold-400">Argentina</span>
+                <span class="text-lg">🇦🇷</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
+                Enviar archivos en Argentina
+              </h3>
+              <p class="text-xs text-slate-300 font-body leading-relaxed">
+                Servidores locales en Buenos Aires, Córdoba y Rosario con paquetes prepagos de 12 meses sin cargos mensuales fijos.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-gold-400">Ver guía de Argentina →</span>
+          </a>
+
+          <a href="/es/enviar-videos-sin-perder-calidad" class="group p-6 rounded-2xl apple-glass border border-gold-500/30 hover:border-gold-400 transition-all flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-emerald-400">4K / 8K RAW</span>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía destacada</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
+                Enviar vídeos sin perder calidad
+              </h3>
+              <p class="text-xs text-slate-300 font-body leading-relaxed">
+                Comparte archivos ProRes, BRAW, R3D y MP4 en su calidad original sin compresión ni recodificación.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-gold-400">Ver guía de vídeo →</span>
+          </a>
+
+          <a href="/es/enviar-archivos-mas-de-2gb" class="group p-6 rounded-2xl apple-glass border border-gold-500/30 hover:border-gold-400 transition-all flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold text-emerald-400">5 GB a 5 TB</span>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía destacada</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
+                Enviar archivos de más de 2 GB
+              </h3>
+              <p class="text-xs text-slate-300 font-body leading-relaxed">
+                Supera el límite de 2 GB con 10 GB gratis y paquetes prepagos válidos por 12 meses.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-gold-400">Ver guía de más de 2 GB →</span>
+          </a>
         </div>
       </section>
 
-      <!-- Interactive Localized Spanish Savings & Velocity Calculator -->
-      <section class="max-w-4xl mx-auto mb-24">
-        <div class="text-center mb-8 space-y-2">
-          <span class="label-caps text-gold-400">Simulador de velocidad</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">Calculadora de entrega y velocidad</h2>
-          <p class="text-slate-400 text-sm font-body">Comprueba cuánto tiempo y dinero ahorras en cada entrega frente a servicios con sobrecostos.</p>
-        </div>
-        <SavingsCalculatorEs client:visible />
-      </section>
-
-      <!-- FAQ Section (First item open by default per Apple HIG) -->
+      <!-- FAQ Section -->
       <section class="max-w-3xl mx-auto mb-16">
         <div class="text-center mb-8 space-y-2">
-          <span class="label-caps text-ocean-400">Respuestas claras</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">Preguntas frecuentes</h2>
         </div>
         <div class="space-y-4">
@@ -287,145 +328,21 @@ const jsonLd = {
         </div>
       </section>
 
-      <!-- Section A: Nodos Regionales y Guías Principales en Español -->
-      <section class="max-w-5xl mx-auto mb-20 pt-8 border-t border-white/10">
-        <div class="text-center mb-10 space-y-2">
-          <span class="label-caps text-gold-400">Infraestructura local y guías maestras</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">
-            Nodos regionales y guías principales en español
-          </h2>
-          <p class="text-slate-400 text-sm font-body max-w-2xl mx-auto">
-            Conéctate directamente al punto de presencia perimetral Anycast más cercano en tu país o consulta nuestras guías técnicas principales.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <a href="/es/mexico" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-gold-400">MEX • GDL • MTY • QRO</span>
-                <span class="text-lg">🇲🇽</span>
-              </div>
-              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Transferencia en México
-              </h3>
-              <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Nodos Anycast locales en Ciudad de México, Guadalajara, Monterrey y Querétaro sin salir a servidores lejanos.
-              </p>
-            </div>
-            <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar nodo de México →
-            </span>
-          </a>
-
-          <a href="/es/espana" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-gold-400">MAD • BCN • VLC</span>
-                <span class="text-lg">🇪🇸</span>
-              </div>
-              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Transferencia en España
-              </h3>
-              <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Conexión directa a ESpanix y CATNIX en Madrid, Barcelona y Valencia a velocidad de fibra gigabit y cumplimiento del RGPD.
-              </p>
-            </div>
-            <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar nodo de España →
-            </span>
-          </a>
-
-          <a href="/es/colombia" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-gold-400">BOG • MDE • CLO • BAQ</span>
-                <span class="text-lg">🇨🇴</span>
-              </div>
-              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Transferencia en Colombia
-              </h3>
-              <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Interconexión directa al NAP Colombia en Bogotá, Medellín, Cali y Barranquilla sin caídas internacionales.
-              </p>
-            </div>
-            <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar nodo de Colombia →
-            </span>
-          </a>
-
-          <a href="/es/argentina" class="group p-6 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-gold-400">EZE • COR • ROS</span>
-                <span class="text-lg">🇦🇷</span>
-              </div>
-              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Transferencia en Argentina
-              </h3>
-              <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Rutas CABASE en Buenos Aires, Córdoba y Rosario con saldo prepago válido por 12 meses sin suscripciones fijas en dólares.
-              </p>
-            </div>
-            <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Explorar nodo de Argentina →
-            </span>
-          </a>
-
-          <a href="/es/enviar-videos-sin-perder-calidad" class="group p-6 rounded-2xl apple-glass border border-gold-500/30 hover:border-gold-400 transition-all flex flex-col justify-between space-y-3">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-emerald-400">SHA-256 • 4K/8K RAW</span>
-                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía pilar</span>
-              </div>
-              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Enviar videos sin perder calidad
-              </h3>
-              <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Transfiere másters ProRes 422/4444, BRAW, R3D y MP4 bit a bit sin compresión ni recodificación automática.
-              </p>
-            </div>
-            <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Ver guía de video sin compresión →
-            </span>
-          </a>
-
-          <a href="/es/enviar-archivos-mas-de-2gb" class="group p-6 rounded-2xl apple-glass border border-gold-500/30 hover:border-gold-400 transition-all flex flex-col justify-between space-y-3">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-mono font-bold text-emerald-400">5 GB A 500 GB+</span>
-                <span class="text-xs px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 font-bold">Guía pilar</span>
-              </div>
-              <h3 class="text-lg font-bold text-white group-hover:text-gold-400 transition-colors font-display">
-                Enviar archivos de más de 2 GB
-              </h3>
-              <p class="text-xs text-slate-300 font-body leading-relaxed">
-                Supera el límite artificial de 2 GB de WeTransfer sin pagar suscripciones mensuales de 23 US$.
-              </p>
-            </div>
-            <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-              Ver guía de +2 GB sin suscripción →
-            </span>
-          </a>
-        </div>
-      </section>
-
-      <!-- Section B: Directorio Completo de Transferencia en Español (Progressive Disclosure: open={idx === 0}) -->
+      <!-- Collapsible Workflow Directory (#guias-completas) -->
       <section id="guias-completas" class="max-w-5xl mx-auto mb-12 pt-8 border-t border-white/10">
-        <div class="text-center mb-10 space-y-2">
-          <span class="label-caps text-ocean-400">Índice completo • {totalSpanishCount} soluciones especializadas</span>
+        <div class="text-center mb-8 space-y-2">
           <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">
-            Directorio completo de transferencia en español ({totalSpanishCount} soluciones)
+            Guías por flujo de trabajo ({totalSpanishCount})
           </h2>
           <p class="text-slate-400 text-sm font-body max-w-2xl mx-auto">
-            Accede directamente a cada flujo de trabajo por tamaño de archivo, formato profesional, software de edición, industria o comparativa técnica.
+            Selecciona una categoría para explorar guías específicas por tamaño de archivo, formato profesional o industria.
           </p>
         </div>
 
-        <div class="space-y-4">
-          {categoryEntries.map(([category, items], idx) => (
-            <details open={idx === 0} class="group rounded-2xl apple-subtle-glass p-6 border border-white/10">
-              <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center text-lg font-display min-h-[44px]">
+        <div class="space-y-3">
+          {categoryEntries.map(([category, items]) => (
+            <details class="group rounded-2xl apple-subtle-glass p-5 border border-white/10">
+              <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center text-base font-display min-h-[44px]">
                 <span class="flex items-center gap-3">
                   <span class="w-2 h-2 rounded-full bg-gold-400"></span>
                   <span>{category}</span>

@@ -15,8 +15,7 @@ export default function Usage({ usedStorage, allowedStorage }: Props) {
       <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-sky-500/10 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
       <div className="flex items-center justify-between mb-5">
         <div>
-          <span className="label-caps text-sky-400 text-[10px] block mb-0.5">Workspace Capacity</span>
-          <h2 className="text-xl font-bold text-white font-display">Storage Usage</h2>
+          <h2 className="text-xl font-bold text-white font-display">Storage</h2>
         </div>
         <div className="w-11 h-11 rounded-2xl bg-sky-500/15 text-sky-400 border border-sky-500/20 flex items-center justify-center">
           <FiHardDrive className="text-xl" />
@@ -45,14 +44,12 @@ export default function Usage({ usedStorage, allowedStorage }: Props) {
         </div>
 
         <div className="flex justify-between items-center">
-          <span className="text-xs text-slate-400 font-mono">{usagePercentage.toFixed(1)}% used</span>
-          {usagePercentage > 90 ? (
+          <span className="text-xs text-slate-400 font-mono">{usagePercentage.toFixed(0)}% used</span>
+          {usagePercentage > 90 && (
             <div className="flex items-center text-rose-400 text-xs font-semibold">
               <FiAlertCircle className="mr-1.5" />
               <span>Storage almost full</span>
             </div>
-          ) : (
-            <span className="text-[11px] text-emerald-400 font-mono">Zero Cloud Egress</span>
           )}
         </div>
       </div>

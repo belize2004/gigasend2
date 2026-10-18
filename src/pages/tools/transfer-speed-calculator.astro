@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SpeedCalculator from "../../components/SpeedCalculator";
-import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
@@ -26,23 +25,23 @@ const webAppSchema = {
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to Calculate Large File Transfer Times Over WAN",
-  description: "Calculate your realistic upload duration by balancing payload size, network bandwidth, and edge multi-part efficiency.",
+  name: "How to Estimate Large File Transfer Times",
+  description: "Estimate realistic upload durations by selecting your file size and internet upload speed.",
   step: [
     {
       "@type": "HowToStep",
-      name: "Select your total file payload",
-      text: "Convert your file or project archive size to Megabits (1 GB = 8,192 Megabits).",
+      name: "Select your file size",
+      text: "Choose your file or archive size from 1 GB up to 2 TB.",
     },
     {
       "@type": "HowToStep",
-      name: "Determine sustained upload bandwidth",
-      text: "Input your actual sustained upload speed in Mbps rather than peak burst advertised speed.",
+      name: "Select your upload speed",
+      text: "Choose your internet upload connection speed in Mbps or Gbps.",
     },
     {
       "@type": "HowToStep",
-      name: "Account for protocol overhead and latency",
-      text: "Factor in TCP handshakes, window scaling, and packet loss (standard HTTP transfers achieve ~65% efficiency, while edge multi-part achieves ~92%).",
+      name: "Compare transfer times",
+      text: "Review the estimated transfer duration with parallel multi-stream upload compared to a standard single-stream cloud upload.",
     },
   ],
 };
@@ -50,19 +49,15 @@ const howToSchema = {
 const faqs = [
   {
     question: "How long does it take to upload a 10 GB file on gigabit internet?",
-    answer: "On a full 1 Gbps fiber uplink, a 10 GB file uploads in approximately 85 to 95 seconds under unthrottled line-rate conditions with ~92% edge multi-part efficiency.",
+    answer: "On a 1 Gbps fiber connection, a 10 GB file uploads in about 90 seconds with Gigasend's parallel multi-stream uploader.",
   },
   {
-    question: "Why is my real upload speed slower than my internet speed test?",
-    answer: "Speed tests measure ping to local ISP servers, whereas cloud uploads encounter WAN latency, single-stream TCP window limits, and server-side ingress throttling. Connecting directly to Anycast edge nodes minimizes this penalty.",
+    question: "Why is my upload slower than my internet speed test?",
+    answer: "Speed tests connect to a nearby local server, while standard cloud uploads use a single connection to a distant data center.",
   },
   {
-    question: "What is the fastest way to upload a 100 GB file?",
-    answer: "Multi-stream HTTP/3 parallel chunking connected to an Anycast edge point of presence is the fastest way, eliminating round-trip bottlenecks and packet drop penalties.",
-  },
-  {
-    question: "How does file size affect transfer reliability?",
-    answer: "As payload sizes grow beyond 10 GB, single-stream HTTP uploads have an exponential probability of packet drop socket timeouts unless chunked resumability and multi-part upload streaming are used.",
+    question: "What happens if my internet connection drops during a large upload?",
+    answer: "Gigasend splits files into smaller blocks and automatically retries interrupted blocks without restarting your entire upload.",
   },
 ];
 
@@ -81,8 +76,8 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title={`File Transfer Speed Calculator: Estimate Upload Times | ${brand.productName}`}
-  description="Calculate exact upload and download times for 1 GB to 2 TB files across 10 Mbps to 10 Gbps uplinks. Real-world transfer duration with TCP overhead calculations."
+  title={`File Transfer Speed Calculator — Estimate Upload Times | ${brand.productName}`}
+  description="Estimate upload and download times for 1 GB to 2 TB files across 10 Mbps to 10 Gbps connections. Compare parallel multi-stream transfers with standard cloud uploads."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -139,6 +134,15 @@ const faqSchema = {
     <!-- Calculator Hero -->
     <section class="py-12 sm:py-16 bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center mb-10">
+          <span class="label-caps text-gold-400 text-xs">Free Transfer Utility</span>
+          <h1 class="mt-2 text-3xl font-black tracking-tight text-white font-display sm:text-5xl">
+            File Transfer Speed Calculator
+          </h1>
+          <p class="mt-3 text-base text-slate-300">
+            See how long your large files will take to upload and how parallel streaming speeds up delivery.
+          </p>
+        </div>
         <SpeedCalculator client:load />
       </div>
     </section>
@@ -146,12 +150,12 @@ const faqSchema = {
     <!-- Reference Table -->
     <section class="border-t border-white/10 bg-ocean-950 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <span class="label-caps text-gold-400 text-xs">Bandwidth Telemetry Matrix</span>
+        <span class="label-caps text-gold-400 text-xs">Quick Reference</span>
         <h2 class="mt-1 text-3xl font-black tracking-tight text-white font-display">
-          Quick Upload Time Reference Chart
+          Upload Time Reference Chart
         </h2>
         <p class="mt-2 text-base text-slate-300">
-          Estimated real-world upload durations across standard studio and home fiber bandwidth tiers.
+          Estimated upload times across common home and studio internet speeds.
         </p>
 
         <div class="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-ocean-900/80 shadow-2xl apple-glass backdrop-blur-2xl">
@@ -159,62 +163,48 @@ const faqSchema = {
             <table class="min-w-full divide-y divide-white/10 text-left text-sm text-slate-300">
               <thead class="bg-ocean-950/90 text-slate-300 font-semibold">
                 <tr>
-                  <th scope="col" class="px-6 py-4 text-white label-caps text-xs">Payload Size</th>
-                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">50 Mbps (Cable)</th>
-                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">100 Mbps (Broadband)</th>
-                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">300 Mbps (Fiber)</th>
-                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">1 Gbps (Gigabit)</th>
-                  <th scope="col" class="px-6 py-4 text-gold-400 label-caps text-xs border-l border-gold-500/30 bg-ocean-900/90">10 Gbps (Dedicated)</th>
+                  <th scope="col" class="px-6 py-4 text-white label-caps text-xs">File Size</th>
+                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">50 Mbps</th>
+                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">100 Mbps</th>
+                  <th scope="col" class="px-6 py-4 text-slate-300 label-caps text-xs">500 Mbps</th>
+                  <th scope="col" class="px-6 py-4 text-gold-400 label-caps text-xs border-l border-gold-500/30 bg-ocean-900/90">1 Gbps</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/10 bg-ocean-900/40 text-slate-300 font-mono text-xs sm:text-sm">
                 <tr class="hover:bg-ocean-800/40 transition-colors">
-                  <td class="px-6 py-4 font-bold text-white font-display">5 GB</td>
-                  <td class="px-6 py-4">~14 min</td>
-                  <td class="px-6 py-4">~7 min</td>
-                  <td class="px-6 py-4">~2.5 min</td>
-                  <td class="px-6 py-4">~45 sec</td>
-                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~5 sec</td>
+                  <td class="px-6 py-4 font-bold text-white font-display">2 GB</td>
+                  <td class="px-6 py-4">~6 min</td>
+                  <td class="px-6 py-4">~3 min</td>
+                  <td class="px-6 py-4">~35 sec</td>
+                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~18 sec</td>
                 </tr>
                 <tr class="hover:bg-ocean-800/40 transition-colors">
                   <td class="px-6 py-4 font-bold text-white font-display">10 GB</td>
                   <td class="px-6 py-4">~28 min</td>
                   <td class="px-6 py-4">~14 min</td>
-                  <td class="px-6 py-4">~5 min</td>
-                  <td class="px-6 py-4">~1.5 min</td>
-                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~9 sec</td>
-                </tr>
-                <tr class="hover:bg-ocean-800/40 transition-colors">
-                  <td class="px-6 py-4 font-bold text-white font-display">25 GB</td>
-                  <td class="px-6 py-4">~1 hr 10 min</td>
-                  <td class="px-6 py-4">~35 min</td>
-                  <td class="px-6 py-4">~12 min</td>
-                  <td class="px-6 py-4">~3.5 min</td>
-                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~22 sec</td>
+                  <td class="px-6 py-4">~3 min</td>
+                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~1.5 min</td>
                 </tr>
                 <tr class="hover:bg-ocean-800/40 transition-colors">
                   <td class="px-6 py-4 font-bold text-white font-display">50 GB</td>
                   <td class="px-6 py-4">~2 hr 20 min</td>
                   <td class="px-6 py-4">~1 hr 10 min</td>
-                  <td class="px-6 py-4">~24 min</td>
-                  <td class="px-6 py-4">~7 min</td>
-                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~45 sec</td>
+                  <td class="px-6 py-4">~15 min</td>
+                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~7 min</td>
                 </tr>
                 <tr class="hover:bg-ocean-800/40 transition-colors">
-                  <td class="px-6 py-4 font-bold text-white font-display">100 GB</td>
-                  <td class="px-6 py-4">~4 hr 40 min</td>
-                  <td class="px-6 py-4">~2 hr 20 min</td>
-                  <td class="px-6 py-4">~48 min</td>
-                  <td class="px-6 py-4">~14 min</td>
-                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~1.5 min</td>
+                  <td class="px-6 py-4 font-bold text-white font-display">250 GB</td>
+                  <td class="px-6 py-4">~11.5 hr</td>
+                  <td class="px-6 py-4">~5 hr 50 min</td>
+                  <td class="px-6 py-4">~1 hr 10 min</td>
+                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~35 min</td>
                 </tr>
                 <tr class="hover:bg-ocean-800/40 transition-colors">
-                  <td class="px-6 py-4 font-bold text-white font-display">1 TB (1000 GB)</td>
+                  <td class="px-6 py-4 font-bold text-white font-display">1 TB</td>
                   <td class="px-6 py-4">~48 hr</td>
                   <td class="px-6 py-4">~24 hr</td>
-                  <td class="px-6 py-4">~8 hr</td>
-                  <td class="px-6 py-4">~2.5 hr</td>
-                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~15 min</td>
+                  <td class="px-6 py-4">~4 hr 45 min</td>
+                  <td class="px-6 py-4 font-bold text-gold-400 border-l border-gold-500/30 bg-ocean-900/60">~2.5 hr</td>
                 </tr>
               </tbody>
             </table>
@@ -223,49 +213,48 @@ const faqSchema = {
       </div>
     </section>
 
-    <!-- Technical Guide / E-E-A-T Content -->
+    <!-- 3 Concise Human-Benefit Cards + 3 Concise FAQs -->
     <section class="border-t border-white/10 bg-ocean-900/50 py-16">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-16">
         <div>
-          <span class="label-caps text-gold-400 text-xs">WAN Protocol Deep-Dive</span>
-          <h2 class="mt-1 text-2xl font-black text-white font-display sm:text-3xl">
-            Why Do Large File Transfers Feel Slower Than Your Advertised Speed?
-          </h2>
-          <p class="mt-4 text-base leading-relaxed text-slate-300">
-            When you purchase a 1 Gbps broadband plan, internet service providers quote line-rate burst speeds. However, when uploading massive 4K video clips, raw camera rushes, or 3D scene files, standard browser uploads rarely achieve full speed due to fundamental protocol bottlenecks:
-          </p>
-          <ul class="mt-6 space-y-4 text-sm text-slate-300">
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-400 font-mono">1.</span>
-              <span><strong class="text-white">Round-Trip Time (RTT) & TCP Slow-Start:</strong> Legacy cloud services (such as AWS S3 or Google Drive) terminate uploads in distant centralized data centers (e.g. us-east-1). If you are 50 ms away, every lost packet forces TCP to halve its congestion window, drastically dropping throughput.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-400 font-mono">2.</span>
-              <span><strong class="text-white">Single-Threaded HTTP Uploads:</strong> Traditional web forms upload entire files as a single continuous byte stream. If a 45 GB upload encounters a 2-second Wi-Fi hiccup at 98%, the connection drops and must be restarted from zero.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-gold-400 font-mono">3.</span>
-              <span><strong class="text-white">The Gigasend Edge Advantage:</strong> Gigasend solves this by splitting files client-side into secure chunks and streaming them concurrently to the nearest Cloudflare Anycast edge node (over 335+ cities globally). Latency drops to &lt;15 ms, eliminating packet-loss slowdowns and maximizing your pipe.</span>
-            </li>
-          </ul>
+          <div class="text-center max-w-2xl mx-auto">
+            <span class="label-caps text-gold-400 text-xs">Built for Speed</span>
+            <h2 class="mt-1 text-2xl font-black text-white font-display sm:text-3xl">
+              Why {brand.productName} Uploads Faster
+            </h2>
+          </div>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg">
+              <h3 class="text-lg font-bold text-white font-display">Nearest Regional Server</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+                Files upload directly to the closest server among 335+ global locations, minimizing long-distance lag.
+              </p>
+            </div>
+
+            <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg">
+              <h3 class="text-lg font-bold text-white font-display">Parallel Multi-Stream Upload</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+                Large files are split into concurrent blocks that upload simultaneously to maximize your internet speed.
+              </p>
+            </div>
+
+            <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-lg">
+              <h3 class="text-lg font-bold text-white font-display">Automatic Pause & Resume</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+                If your Wi-Fi drops briefly, only the affected block retries—your upload never restarts from zero.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl">
-          <h3 class="text-xl font-bold text-white font-display">How Gigasend Calculates Transfer Speed</h3>
-          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
-            The formula calculates the wire-time in bits:
-          </p>
-          <pre class="mt-3 rounded-xl bg-ocean-950 border border-gold-500/30 p-4 font-mono text-xs text-gold-400 overflow-x-auto">Time (seconds) = (File Size in GB × 8,192 Megabits) ÷ (Upload Speed in Mbps × TCP Efficiency)</pre>
-          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
-            While legacy web uploaders suffer from ~65% efficiency due to high RTT, Gigasend's multi-part parallel edge architecture maintains sustained efficiency near 92% of your physical bandwidth ceiling.
-          </p>
-        </div>
-
-        <!-- FAQs -->
-        <div>
-          <span class="label-caps text-gold-400 text-xs">Technical Support</span>
-          <h3 class="mt-1 text-2xl font-black text-white font-display">Transfer Speed & Network FAQs</h3>
-          <dl class="mt-6 space-y-6">
+        <!-- 3 Concise FAQs -->
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center">
+            <span class="label-caps text-gold-400 text-xs">Common Questions</span>
+            <h2 class="mt-1 text-2xl font-black text-white font-display">Transfer Speed FAQs</h2>
+          </div>
+          <dl class="mt-8 space-y-4">
             {faqs.map((faq) => (
               <div class="apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-md">
                 <dt class="text-base font-bold text-white font-display">{faq.question}</dt>
@@ -277,74 +266,22 @@ const faqSchema = {
       </div>
     </section>
 
-    <!-- Complete Engineering Guides Clique -->
-    <section class="border-t border-white/10 bg-ocean-900/60 py-14">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between">
-          <div>
-            <span class="label-caps text-gold-400 text-xs">Engineering Series</span>
-            <h2 class="mt-1 text-2xl font-black text-white font-display">Deep-Dive Transfer Engineering Guides</h2>
-          </div>
-          <a href="/guides" class="text-xs font-mono font-bold text-gold-400 hover:text-gold-300 transition-colors">All 5 Guides →</a>
-        </div>
-        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          <a href="/guides/why-large-file-transfers-are-slow" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">WAN & Latency</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Why Large File Transfers Are So Slow</h3>
-            <p class="mt-1.5 text-xs text-slate-300">TCP window scaling, peering latency, and packet loss diagnostics.</p>
-          </a>
-          <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs. monthly subscriptions and AWS egress fees.</p>
-          </a>
-          <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Transfer Without Failed Uploads</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Client-side chunking, multi-part parallel streams, and auto-retry.</p>
-          </a>
-          <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Architecture</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">File Transfer vs. Cloud vs. Review</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Choosing the right tool for point-to-point delivery vs. sync vs. review.</p>
-          </a>
-          <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage</span>
-            <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Without Filling Your Hard Drive</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Avoid local sync cache bloat with zero-cache browser streaming.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <RelatedWorkflows
-      currentSlug="tools/transfer-speed-calculator"
-      internalLinks={[
-        { href: "/fastest-way-to-send-large-files", label: "Fastest Way to Send Large Files" },
-        { href: "/fast-large-file-transfer", label: "Fast Large File Transfer" },
-        { href: "/send-10gb-file-free", label: "Send 10 GB File Free" },
-        { href: "/send-100gb-file", label: "Send 100 GB File" },
-        { href: "/send-1tb-file", label: "Send 1 TB File" },
-        { href: "/compare", label: "Cloudflare Edge vs. AWS Relays" },
-      ]}
-    />
-
     <!-- Bottom Action CTA -->
     <section class="border-t border-white/10 bg-gradient-to-b from-ocean-900 to-ocean-950 py-20">
-      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-        <span class="label-caps text-gold-400 text-xs">335+ Anycast Edge Locations</span>
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <span class="label-caps text-gold-400 text-xs">10 GB Free • 3-Day Retention</span>
         <h2 class="mt-2 text-3xl font-black tracking-tight text-white font-display sm:text-4xl">
           Test Your Transfer Speed Now
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-          Send up to 10 GB 100% free with zero registration, or transfer massive 2 TB project payloads across global Anycast edge nodes.
+        <p class="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-slate-300">
+          Send up to 10 GB free with no account required, or scale up to 5 TB with monthly plans and pay-as-you-go credit packs.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <a href="/transfer" class="btn-gold rounded-xl px-8 py-4 text-xs font-bold shadow-xl shadow-gold-500/20 tap-tactile">
             Send 10 GB Free
           </a>
-          <a href="/directory" class="btn-outline-gold rounded-xl px-8 py-4 text-xs font-bold tap-tactile">
-            Explore Transfer Directory
+          <a href="/plans" class="btn-outline-gold rounded-xl px-8 py-4 text-xs font-bold tap-tactile">
+            View Plans & Pricing
           </a>
         </div>
       </div>
@@ -360,7 +297,7 @@ const faqSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
+              Fast, reliable large file transfer across 335+ global server locations. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -368,20 +305,20 @@ const faqSchema = {
             <ul class="mt-3 space-y-2">
               <li><a href="/transfer" class="hover:text-gold-400 transition-colors">Send Large Files</a></li>
               <li><a href="/plans" class="hover:text-gold-400 transition-colors">Plans & Pricing</a></li>
-              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Architecture Comparison</a></li>
+              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Provider Comparison</a></li>
               <li><a href="/tools/transfer-speed-calculator" class="hover:text-gold-400 transition-colors">Transfer Speed Calculator</a></li>
-              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Codec & Format Directory</a></li>
+              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Workflow & Codec Directory</a></li>
             </ul>
           </div>
           <div>
-            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Engineering Guides</h3>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Guides</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Engineering Guides</a></li>
+              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Guides</a></li>
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
               <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
-              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
+              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Send Without Filling Disk Space</a></li>
             </ul>
           </div>
           <div>
@@ -390,14 +327,14 @@ const faqSchema = {
               <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
-              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>
+              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Blog</a></li>
               <li><a href="/contact" class="hover:text-gold-400 transition-colors">Contact Support</a></li>
               <li><a href="/terms" class="hover:text-gold-400 transition-colors">Terms</a> · <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy</a></li>
             </ul>
           </div>
         </div>
         <div class="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} {brand.productName}. Engineered on Cloudflare Edge & R2.</p>
+          <p>© {new Date().getFullYear()} {brand.productName}. All rights reserved.</p>
           <div class="flex gap-4">
             <a href="/security" class="hover:text-gold-400 transition-colors">Security</a>
             <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
@@ -409,3 +346,4 @@ const faqSchema = {
     </footer>
   </main>
 </BaseLayout>
+

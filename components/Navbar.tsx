@@ -4,18 +4,9 @@ import React, { useEffect, useState } from 'react';
 import {
   FiMenu,
   FiX,
-  FiHome,
-  FiCreditCard,
-  FiGrid,
-  FiSend,
   FiLogIn,
   FiUserPlus,
   FiLogOut,
-  FiFileText,
-  FiMail,
-  FiLayers,
-  FiCompass,
-  FiBookOpen,
 } from 'react-icons/fi';
 import { brand } from '@/lib/brand';
 import { getLanguageSwitchPaths } from '@/src/data/languageSwitchPaths';
@@ -64,72 +55,39 @@ const Navbar = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-5">
-            <a
-              href="/"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
-            >
-              <FiHome className="mr-1.5 text-gold-400/80" />
-              Home
-            </a>
+          {/* Desktop Navigation — 4 icon-free links */}
+          <div className="hidden lg:flex items-center space-x-7">
             <a
               href="/transfer"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
+              className="text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
             >
-              <FiSend className="mr-1.5 text-gold-400/80" />
-              Transfer
+              Send Files
             </a>
             <a
               href="/plans"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
+              className="text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
             >
-              <FiCreditCard className="mr-1.5 text-gold-400/80" />
-              Plans
-            </a>
-            <a
-              href="/compare"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
-            >
-              <FiLayers className="mr-1.5 text-gold-400/80" />
-              Compare
-            </a>
-            <a
-              href="/directory"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
-            >
-              <FiCompass className="mr-1.5 text-gold-400/80" />
-              Directory
+              Pricing
             </a>
             <a
               href="/guides"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
+              className="text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
             >
-              <FiBookOpen className="mr-1.5 text-gold-400/80" />
               Guides
             </a>
             <a
-              href="/blogs"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
-            >
-              <FiFileText className="mr-1.5 text-gold-400/80" />
-              Blog
-            </a>
-            <a
               href="/contact"
-              className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
+              className="text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
             >
-              <FiMail className="mr-1.5 text-gold-400/80" />
-              Contact
+              Support
             </a>
 
-            {/* Conditional navigation items for logged in users */}
+            {/* Conditional navigation item for signed-in users */}
             {auth && (
               <a
                 href="/dashboard"
-                className="flex items-center text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
+                className="text-sm text-slate-300 hover:text-gold-400 transition-colors duration-200 font-medium tap-tactile"
               >
-                <FiGrid className="mr-1.5 text-gold-400/80" />
                 Dashboard
               </a>
             )}
@@ -177,7 +135,7 @@ const Navbar = () => {
                 onClick={handleLogout}
                 className="btn-outline-gold px-4 py-2 rounded-xl text-xs tap-tactile"
               >
-                <FiLogOut className="mr-1.5 text-sm" />
+                <FiLogOut className="mr-1.5 text-sm" aria-hidden="true" />
                 Sign Out
               </button>
             ) : (
@@ -186,14 +144,14 @@ const Navbar = () => {
                   href="/signin"
                   className="flex items-center px-3.5 py-2 rounded-xl text-sm text-slate-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-200 font-medium tap-tactile"
                 >
-                  <FiLogIn className="mr-1.5 text-gold-400" />
+                  <FiLogIn className="mr-1.5 text-gold-400" aria-hidden="true" />
                   Sign In
                 </a>
                 <a
                   href="/signup"
                   className="btn-gold text-ocean-950 px-4 py-2 rounded-xl text-xs shadow-md shadow-gold-500/15 tap-tactile flex items-center"
                 >
-                  <FiUserPlus className="mr-1.5 text-sm" />
+                  <FiUserPlus className="mr-1.5 text-sm" aria-hidden="true" />
                   Sign Up
                 </a>
               </>
@@ -248,73 +206,40 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Mobile Navigation Menu — 4 icon-free links */}
         <div className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-[40rem] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
           <div className="px-3 pt-3 pb-5 space-y-1.5 bg-ocean-950/95 backdrop-blur-2xl border-t border-white/10">
             <a
-              href="/"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
-            >
-              <FiHome className="mr-2.5 text-gold-400" />
-              Home
-            </a>
-            <a
               href="/transfer"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
+              className="w-full block text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
             >
-              <FiSend className="mr-2.5 text-gold-400" />
-              Transfer
+              Send Files
             </a>
             <a
               href="/plans"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
+              className="w-full block text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
             >
-              <FiCreditCard className="mr-2.5 text-gold-400" />
-              Plans
-            </a>
-            <a
-              href="/compare"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
-            >
-              <FiLayers className="mr-2.5 text-gold-400" />
-              Compare
-            </a>
-            <a
-              href="/directory"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
-            >
-              <FiCompass className="mr-2.5 text-gold-400" />
-              Directory
+              Pricing
             </a>
             <a
               href="/guides"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
+              className="w-full block text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
             >
-              <FiBookOpen className="mr-2.5 text-gold-400" />
               Guides
             </a>
             <a
-              href="/blogs"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
-            >
-              <FiFileText className="mr-2.5 text-gold-400" />
-              Blog
-            </a>
-            <a
               href="/contact"
-              className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
+              className="w-full block text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
             >
-              <FiMail className="mr-2.5 text-gold-400" />
-              Contact
+              Support
             </a>
 
-            {/* Conditional mobile navigation items */}
+            {/* Conditional mobile navigation item */}
             {auth && (
               <a
                 href="/dashboard"
-                className="w-full flex items-center text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
+                className="w-full block text-slate-300 hover:text-gold-400 hover:bg-white/5 px-3 py-2.5 rounded-xl transition-all duration-200 font-medium tap-tactile"
               >
-                <FiGrid className="mr-2.5 text-gold-400" />
                 Dashboard
               </a>
             )}
@@ -326,7 +251,7 @@ const Navbar = () => {
                   onClick={handleLogout}
                   className="w-full btn-outline-gold px-4 py-3 rounded-xl text-xs tap-tactile"
                 >
-                  <FiLogOut className="mr-2 text-sm" />
+                  <FiLogOut className="mr-2 text-sm" aria-hidden="true" />
                   Sign Out
                 </button>
               ) : (
@@ -335,14 +260,14 @@ const Navbar = () => {
                     href="/signin"
                     className="w-full flex items-center justify-center text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-3 rounded-xl transition-all duration-200 font-medium tap-tactile"
                   >
-                    <FiLogIn className="mr-2 text-gold-400" />
+                    <FiLogIn className="mr-2 text-gold-400" aria-hidden="true" />
                     Sign In
                   </a>
                   <a
                     href="/signup"
                     className="w-full btn-gold text-ocean-950 px-4 py-3 rounded-xl text-xs shadow-md shadow-gold-500/15 tap-tactile flex items-center justify-center"
                   >
-                    <FiUserPlus className="mr-2 text-sm" />
+                    <FiUserPlus className="mr-2 text-sm" aria-hidden="true" />
                     Sign Up
                   </a>
                 </>

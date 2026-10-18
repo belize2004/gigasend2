@@ -75,22 +75,23 @@ function renderDownloadErrorPage(title: string, message: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(title)} | ${brand.productName}</title>
     <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f5f8fc; }
-      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; }
-      main { width: min(640px, 100%); background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); padding: clamp(24px, 4vw, 40px); text-align: center; }
-      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 24px; margin-bottom: 20px; }
-      .icon { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #2563eb, #a855f7); }
-      h1 { margin: 0 0 12px; font-size: clamp(24px, 4vw, 32px); }
-      p { margin: 0 0 24px; color: #4b5563; line-height: 1.6; }
-      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; font-weight: 700; text-decoration: none; }
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #f8fafc; background: #001d32; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; background: radial-gradient(circle at 50% 0%, #002b49 0%, #001d32 70%); }
+      main { width: min(600px, 100%); background: rgba(0, 43, 73, 0.88); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; box-shadow: 0 24px 64px rgba(0, 15, 28, 0.7); padding: clamp(28px, 4vw, 44px); text-align: center; backdrop-filter: blur(20px); }
+      .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; margin-bottom: 24px; color: #ffffff; }
+      .icon { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; color: #001d32; background: linear-gradient(135deg, #f7bc6a, #e5a93c); font-weight: 800; }
+      h1 { margin: 0 0 12px; font-size: clamp(24px, 4vw, 32px); color: #ffffff; letter-spacing: -0.02em; }
+      p { margin: 0 0 28px; color: #cbd5e1; line-height: 1.6; }
+      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 12px; background: #f7bc6a; color: #001d32; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+      .button:hover { background: #ffddb4; }
     </style>
   </head>
   <body>
     <main>
-      <div class="brand"><span class="icon">↓</span><span>${brand.productName}</span></div>
+      <div class="brand"><span class="icon" aria-hidden="true">↓</span><span>${brand.productName}</span></div>
       <h1>${escapeHtml(title)}</h1>
       <p>${escapeHtml(message)}</p>
-      <a class="button" href="/transfer">Send New Files with ${brand.productName} →</a>
+      <a class="button" href="/transfer">Send Files with ${brand.productName}</a>
     </main>
   </body>
 </html>`;
@@ -107,6 +108,11 @@ function renderDownloadPage(input: {
   const safeDownloadUrl = input.downloadUrl ? escapeHtml(input.downloadUrl) : "";
   const isSingle = input.fileKeys.length === 1;
   const zipBatches = getZipBatches(input.fileKeys);
+  const expiryDateFormatted = new Date(input.expiresAt).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 
   const batchLinks = zipBatches.map((batch, index) => {
     const href = escapeHtml(`/download/${input.shareId}?zip=1&batch=${index}`);
@@ -119,15 +125,17 @@ function renderDownloadPage(input: {
     return `<li><a href="${href}" data-download-item="1" download><span>${fileName}</span> <span class="pill">Download ↓</span></a></li>`;
   }).join("");
 
+  const heroHeading = isSingle
+    ? escapeHtml(getFileName(input.fileKeys[0]))
+    : "Your Files Are Ready";
+
   const intro = isSingle
-    ? `Your file is ready to download.`
-    : input.zipAvailable
-      ? `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download everything in one ZIP package below, or select any file to download it individually.`
-      : `This transfer includes ${input.fileKeys.length} files${input.fileSize ? ` (${formatBytes(input.fileSize)})` : ""}. Download it in ${zipBatches.length} ZIP parts below, or download individual files.`;
+    ? `${input.fileSize ? `${escapeHtml(formatBytes(input.fileSize))} • ` : ""}Available until ${escapeHtml(expiryDateFormatted)}`
+    : `${input.fileKeys.length} files${input.fileSize ? ` • ${escapeHtml(formatBytes(input.fileSize))}` : ""} • Available until ${escapeHtml(expiryDateFormatted)}`;
 
   const primaryButtonLabel = isSingle
-    ? `Download File ${input.fileSize ? `(${formatBytes(input.fileSize)})` : ""}`
-    : `Download All as ZIP ${input.fileSize ? `(${formatBytes(input.fileSize)})` : ""}`;
+    ? `Download${input.fileSize ? ` (${escapeHtml(formatBytes(input.fileSize))})` : ""}`
+    : `Download All as ZIP${input.fileSize ? ` (${escapeHtml(formatBytes(input.fileSize))})` : ""}`;
 
   const primaryButton = safeDownloadUrl
     ? `<a class="button" id="primary-download-btn" data-original-label="${escapeHtml(primaryButtonLabel)}" href="${safeDownloadUrl}" download>${primaryButtonLabel}</a>`
@@ -139,11 +147,7 @@ function renderDownloadPage(input: {
         <ul class="files">${batchLinks}</ul>
       </section>`;
 
-  const directSection = isSingle ? `
-      <section>
-        <h2>File Details</h2>
-        <ul class="files">${directDownloadLinks}</ul>
-      </section>` : input.zipAvailable ? `
+  const directSection = isSingle ? "" : input.zipAvailable ? `
       <section>
         <h2>Individual Files (${input.fileKeys.length})</h2>
         <ul class="files">${directDownloadLinks}</ul>
@@ -160,35 +164,35 @@ function renderDownloadPage(input: {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Download Files | ${brand.productName}</title>
     <style>
-      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f5f8fc; }
-      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; }
-      main { width: min(760px, 100%); background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12); padding: clamp(24px, 4vw, 40px); }
-      .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 26px; margin-bottom: 28px; }
-      .icon { width: 32px; height: 32px; border-radius: 7px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #2563eb, #a855f7); }
-      h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 42px); letter-spacing: 0; }
-      p { margin: 0 0 24px; color: #4b5563; line-height: 1.55; }
-      h2 { margin: 28px 0 12px; font-size: 18px; }
-      .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 28px; border-radius: 10px; background: linear-gradient(135deg, #2563eb, #a855f7); color: #fff; font-weight: 800; text-decoration: none; box-shadow: 0 16px 30px rgba(37, 99, 235, 0.24); transition: opacity 0.2s, transform 0.15s; }
-      .button:hover { filter: brightness(0.96); }
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #f8fafc; background: #001d32; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 32px 16px; background: radial-gradient(circle at 50% 0%, #002b49 0%, #001d32 70%); }
+      main { width: min(680px, 100%); background: rgba(0, 43, 73, 0.88); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; box-shadow: 0 24px 64px rgba(0, 15, 28, 0.7); padding: clamp(28px, 4vw, 44px); backdrop-filter: blur(20px); }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; margin-bottom: 28px; color: #ffffff; }
+      .icon { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; color: #001d32; background: linear-gradient(135deg, #f7bc6a, #e5a93c); font-weight: 800; }
+      h1 { margin: 0 0 8px; font-size: clamp(24px, 4vw, 36px); letter-spacing: -0.02em; color: #ffffff; overflow-wrap: anywhere; }
+      p { margin: 0 0 24px; color: #cbd5e1; line-height: 1.55; font-size: 15px; }
+      h2 { margin: 28px 0 12px; font-size: 16px; color: #ffddb4; font-weight: 700; }
+      .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px; border-radius: 12px; background: #f7bc6a; color: #001d32; font-weight: 800; text-decoration: none; box-shadow: 0 12px 24px rgba(247, 188, 106, 0.25); transition: background 0.2s, opacity 0.2s; }
+      .button:hover { background: #ffddb4; }
       .button.is-starting { opacity: 0.88; pointer-events: none; }
-      .status-banner { display: none; margin-top: 16px; padding: 12px 16px; border-radius: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; font-size: 14px; font-weight: 600; line-height: 1.45; }
+      .status-banner { display: none; margin-top: 16px; padding: 12px 16px; border-radius: 12px; background: rgba(16, 185, 129, 0.14); border: 1px solid rgba(16, 185, 129, 0.35); color: #6ee7b7; font-size: 14px; font-weight: 600; line-height: 1.45; }
       .status-banner.visible { display: block; }
-      .files { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 10px; max-height: min(52vh, 520px); overflow: auto; }
+      .files { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 10px; max-height: min(50vh, 460px); overflow: auto; }
       h2 + .files { margin-top: 0; }
-      .files a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid #e5e7eb; border-radius: 10px; color: #1d4ed8; background: #f8fafc; text-decoration: none; overflow-wrap: anywhere; font-weight: 600; }
-      .files span.pill { color: #1d4ed8; background: #dbeafe; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
-      .files a:hover { background: #eef4ff; border-color: #bfdbfe; }
+      .files a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; color: #f8fafc; background: rgba(0, 29, 50, 0.85); text-decoration: none; overflow-wrap: anywhere; font-weight: 600; transition: border-color 0.2s, background 0.2s; }
+      .files span.pill { color: #001d32; background: #f7bc6a; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+      .files a:hover { background: rgba(0, 29, 50, 1); border-color: rgba(247, 188, 106, 0.45); }
       details { margin-top: 24px; }
-      summary { cursor: pointer; color: #1d4ed8; font-weight: 700; }
-      .footer-bar { margin-top: 32px; padding-top: 16px; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #6b7280; flex-wrap: wrap; gap: 12px; }
-      .report-link { color: #9ca3af; text-decoration: none; }
-      .report-link:hover { color: #ef4444; text-decoration: underline; }
+      summary { cursor: pointer; color: #ffddb4; font-weight: 700; }
+      .footer-bar { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #94a3b8; flex-wrap: wrap; gap: 12px; }
+      .report-link { color: #94a3b8; text-decoration: none; }
+      .report-link:hover { color: #fb7185; text-decoration: underline; }
     </style>
   </head>
   <body>
     <main>
       <div class="brand"><span class="icon" aria-hidden="true">↓</span><span>${brand.productName}</span></div>
-      <h1>${isSingle ? "Your File Is Ready" : "Your Files Are Ready"}</h1>
+      <h1>${heroHeading}</h1>
       <p>${intro}</p>
       ${primaryButton}
       <div id="download-status-banner" class="status-banner" role="status" aria-live="polite">
@@ -197,11 +201,7 @@ function renderDownloadPage(input: {
       ${batchSection}
       ${directSection}
       <div class="footer-bar">
-        <span>Available until ${escapeHtml(new Date(input.expiresAt).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        }))}</span>
+        <span>Available until ${escapeHtml(expiryDateFormatted)}</span>
         <a class="report-link" href="mailto:${brand.contactEmail}?subject=Report%20Abuse%20-%20Transfer%20${input.shareId}" target="_blank" rel="noopener noreferrer">Report Abuse / Phishing</a>
       </div>
     </main>
@@ -214,7 +214,7 @@ function renderDownloadPage(input: {
           if (el && el.id === "primary-download-btn") {
             var orig = el.getAttribute("data-original-label") || el.textContent;
             el.classList.add("is-starting");
-            el.textContent = "Starting download...";
+            el.textContent = "Starting download…";
             setTimeout(function () {
               el.classList.remove("is-starting");
               el.textContent = orig;
@@ -222,7 +222,7 @@ function renderDownloadPage(input: {
           } else if (el) {
             var pill = el.querySelector(".pill");
             if (pill) {
-              pill.textContent = "Starting...";
+              pill.textContent = "Starting…";
               setTimeout(function () { pill.textContent = "Download ↓"; }, 5000);
             }
           }

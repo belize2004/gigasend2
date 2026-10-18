@@ -1,59 +1,34 @@
 "use client";
 import React from "react";
 import { brand } from "@/lib/brand";
-import { FiShield, FiZap, FiGlobe, FiArrowUpRight } from "react-icons/fi";
 
-const coreLinks = [
-  { href: "/", label: "Home" },
-  { href: "/transfer", label: "Start File Transfer" },
-  { href: "/plans", label: "Plans & Pricing" },
-  { href: "/compare", label: "Provider Comparison" },
-  { href: "/directory", label: "Workflow Directory" },
-  { href: "/guides", label: "Engineering Guides" },
-  { href: "/tools/transfer-speed-calculator", label: "Transfer Speed Calculator" },
-  { href: "/blogs", label: "Engineering Blog" },
-  { href: "/contact", label: "Contact Support" },
-  { href: "/signin", label: "Sign In" },
-  { href: "/signup", label: "Create Free Account" },
+const productLinks = [
+  { href: "/transfer", label: "Send Files" },
+  { href: "/plans", label: "Pricing & Plans" },
+  { href: "/tools/transfer-speed-calculator", label: "Speed Calculator" },
+  { href: "/directory", label: "All Workflows" },
 ];
 
-const quotaBypassLinks = [
-  { href: "/wetransfer-alternative", label: "WeTransfer Alternative" },
-  { href: "/wetransfer-2gb-limit-bypass", label: "WeTransfer 2 GB Limit Bypass" },
-  { href: "/dropbox-transfer-alternative", label: "Dropbox Transfer Alternative" },
-  { href: "/dropbox-file-size-limit-bypass", label: "Dropbox File Size Limit Bypass" },
-  { href: "/google-drive-download-quota-exceeded-fix", label: "Google Drive Quota Exceeded Fix" },
-  { href: "/email-attachment-too-large-alternative", label: "Email Attachment Too Large Fix" },
-  { href: "/send-large-files-free", label: "Send Large Files Free" },
-  { href: "/free-large-file-transfer", label: "Free Large File Transfer" },
+const compareLinks = [
+  { href: "/wetransfer-alternative", label: `${brand.productName} vs. WeTransfer` },
+  { href: "/send-large-files-without-dropbox", label: `${brand.productName} vs. Dropbox` },
+  { href: "/send-large-files-without-google-drive", label: `${brand.productName} vs. Google Drive` },
+  { href: "/frame-io-alternative-for-file-delivery", label: `${brand.productName} vs. Frame.io` },
+  { href: "/compare", label: "Full Comparison" },
 ];
 
-const proWorkflowLinks = [
-  { href: "/send-large-video-files", label: "Send Large Video Files" },
-  { href: "/transfer-davinci-resolve-project", label: "Transfer DaVinci Resolve Project" },
-  { href: "/transfer-premiere-pro-project", label: "Transfer Premiere Pro Project" },
-  { href: "/share-final-cut-pro-fcpbundle", label: "Share Final Cut Pro .fcpbundle" },
-  { href: "/send-braw-video-files", label: "Send Blackmagic BRAW Footage" },
-  { href: "/transfer-r3d-raw-footage", label: "Transfer RED R3D RAW Footage" },
-  { href: "/deliver-arri-raw-footage", label: "Deliver ARRI RAW Footage" },
-  { href: "/send-revit-rvt-bim-models", label: "Send Revit .RVT & BIM Models" },
-  { href: "/how-to-transfer-unreal-engine-project", label: "Transfer Unreal Engine 5 Project" },
+const resourceLinks = [
+  { href: "/guides", label: "Creator Guides" },
+  { href: "/blogs", label: "Blog" },
+  { href: "/contact", label: "Help & Support" },
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/privacy", label: "Privacy Policy" },
 ];
 
-const payloadAndGuidesLinks = [
-  { href: "/send-5gb-file-free", label: "Send 5 GB File Free" },
-  { href: "/send-10gb-file-free", label: "Send 10 GB File Free" },
-  { href: "/send-25gb-file", label: "Send 25 GB File Online" },
-  { href: "/send-50gb-file", label: "Send 50 GB File Online" },
-  { href: "/send-100gb-file", label: "Send 100 GB File Online" },
-  { href: "/send-500gb-file", label: "Send 500 GB File Online" },
-  { href: "/send-1tb-file", label: "Send 1 TB File Online" },
-  { href: "/send-2tb-file", label: "Send 2 TB File Online" },
-  { href: "/guides/why-large-file-transfers-are-slow", label: "Guide: Why File Transfers Are Slow" },
-  { href: "/guides/large-file-transfer-cost-calculator", label: "Guide: Cloud Egress Cost Breakdown" },
-  { href: "/guides/transfer-large-files-without-failed-uploads", label: "Guide: Prevent Failed Uploads" },
-  { href: "/guides/file-transfer-vs-cloud-storage-vs-media-review", label: "Guide: Transfer vs Storage vs Review" },
-  { href: "/guides/send-large-files-without-filling-computer", label: "Guide: Zero Local Disk Sync" },
+const languageLinks = [
+  { href: "/", label: "English" },
+  { href: "/es", label: "Español" },
+  { href: "/pt", label: "Português (Brasil)" },
 ];
 
 export default function Footer() {
@@ -61,68 +36,34 @@ export default function Footer() {
 
   return (
     <footer className="bg-ocean-950 border-t border-white/10 text-slate-300 font-body">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        {/* Top Brand & Architecture Summary */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12 border-b border-white/10 items-start">
-          <div className="lg:col-span-6 space-y-4">
-            <a href="/" className="inline-flex items-center gap-3 group">
-              <div
-                aria-hidden="true"
-                className="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-ocean-950 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300"
-              >
-                G
-              </div>
-              <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
-                {brand.productName}
-              </span>
-            </a>
-            <p className="text-sm text-slate-300 max-w-xl leading-relaxed">
-              {brand.description} Deliver 10 GB free up to 5 TB media packages, camera RAW, and CAD/BIM archives with 8x parallel multipart streaming and zero cloud egress fees.
-            </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-1">
-              <span className="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
-                <FiShield className="text-sm" aria-hidden="true" /> TLS 1.3 &amp; AES-256-GCM
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-gold-400 font-medium">
-                <FiZap className="text-sm" aria-hidden="true" /> 8x Parallel Multipart Upload
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-sky-400 font-medium">
-                <FiGlobe className="text-sm" aria-hidden="true" /> 335+ Global Edge Locations
-              </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-12">
+        {/* Top Brand Lockup & Calm Tagline */}
+        <div className="pb-10 border-b border-white/10 space-y-3">
+          <a href="/" className="inline-flex items-center gap-3 group">
+            <div
+              aria-hidden="true"
+              className="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-ocean-950 font-black font-display text-base shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300"
+            >
+              G
             </div>
-          </div>
-
-          <div className="lg:col-span-6 flex flex-wrap lg:justify-end gap-3">
-            <a
-              href="/directory"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ocean-900/90 border border-white/10 hover:border-gold-500/40 text-xs font-semibold text-white hover:text-gold-400 transition-all"
-            >
-              Browse All Transfer Workflows <FiArrowUpRight aria-hidden="true" />
-            </a>
-            <a
-              href="/tools/transfer-speed-calculator"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ocean-900/90 border border-white/10 hover:border-gold-500/40 text-xs font-semibold text-white hover:text-gold-400 transition-all"
-            >
-              Transfer Speed &amp; Cost Calculator <FiArrowUpRight aria-hidden="true" />
-            </a>
-            <a
-              href="/guides"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ocean-900/90 border border-white/10 hover:border-gold-500/40 text-xs font-semibold text-white hover:text-gold-400 transition-all"
-            >
-              Engineering Guides <FiArrowUpRight aria-hidden="true" />
-            </a>
-          </div>
+            <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
+              {brand.productName}
+            </span>
+          </a>
+          <p className="text-sm text-slate-300 max-w-md leading-relaxed">
+            Fast, private file delivery up to 5 TB. No recipient accounts required.
+          </p>
         </div>
 
-        {/* 4-Column SEO Hub-and-Spoke Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 py-12 border-b border-white/10">
-          {/* Column 1: Brand & Core Platform */}
+        {/* 4 Curated Columns (~16 Links Total) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 py-12 border-b border-white/10">
+          {/* Column 1: Product */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-gold-400 font-display mb-4">
-              Brand &amp; Core Platform
+              Product
             </h3>
             <ul className="space-y-2.5 text-sm">
-              {coreLinks.map((item) => (
+              {productLinks.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
@@ -135,13 +76,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Quota Bypass & Alternatives */}
+          {/* Column 2: Compare */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-gold-400 font-display mb-4">
-              Quota Bypass &amp; Alternatives
+              Compare
             </h3>
             <ul className="space-y-2.5 text-sm">
-              {quotaBypassLinks.map((item) => (
+              {compareLinks.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
@@ -154,13 +95,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Pro Media & CAD Workflows */}
+          {/* Column 3: Resources */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-gold-400 font-display mb-4">
-              Pro Media &amp; CAD Workflows
+              Resources
             </h3>
             <ul className="space-y-2.5 text-sm">
-              {proWorkflowLinks.map((item) => (
+              {resourceLinks.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
@@ -173,13 +114,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Payload Sizes & Engineering Guides */}
+          {/* Column 4: Languages */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-gold-400 font-display mb-4">
-              Payload Sizes &amp; Engineering Guides
+              Languages
             </h3>
             <ul className="space-y-2.5 text-sm">
-              {payloadAndGuidesLinks.map((item) => (
+              {languageLinks.map((item) => (
                 <li key={item.href}>
                   <a
                     href={item.href}
@@ -193,23 +134,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Legal & Contact Bar */}
+        {/* Simplified Bottom Legal & Contact Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p suppressHydrationWarning>
             &copy; {year} {brand.productName}. {brand.footerText}
           </p>
           <div className="flex flex-wrap items-center gap-5">
-            <a href="/directory" className="hover:text-gold-400 transition-colors">
-              All Transfer Workflows
+            <a href="/terms" className="hover:text-gold-400 transition-colors">
+              Terms
             </a>
-            <a href="/guides" className="hover:text-gold-400 transition-colors">
-              Architecture Guides
-            </a>
-            <a href="/compare" className="hover:text-gold-400 transition-colors">
-              Compare Providers
-            </a>
-            <a href="/plans" className="hover:text-gold-400 transition-colors">
-              Pricing
+            <a href="/privacy" className="hover:text-gold-400 transition-colors">
+              Privacy
             </a>
             <a href={`mailto:${brand.contactEmail}`} className="hover:text-gold-400 transition-colors">
               {brand.contactEmail}

@@ -3,10 +3,8 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PtHeader from "../../../components/PtHeader.astro";
 import PtFooter from "../../../components/PtFooter.astro";
 import { PT_ENGINEERING_GUIDES, ptGuideMap } from "../../../data/ptGuides";
-import { PT_CORE_VALUE_PROPOSITIONS } from "../../../data/ptSeoLandingPages";
 import { getLanguageSwitchPaths } from "../../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
-import TransferEmbed from "@/src/components/TransferEmbed";
 
 export const prerender = true;
 
@@ -32,7 +30,7 @@ const hreflang = [
   { lang: "x-default", href: enCanonical },
 ];
 
-const otherGuides = PT_ENGINEERING_GUIDES.filter((g) => g.slug !== guide.slug);
+const otherGuides = PT_ENGINEERING_GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3);
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -68,8 +66,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Brasil (pt-BR)", item: `${brand.siteUrl}/pt` },
-    { "@type": "ListItem", position: 2, name: "Guias técnicos", item: `${brand.siteUrl}/pt/guias` },
+    { "@type": "ListItem", position: 1, name: "Brasil", item: `${brand.siteUrl}/pt` },
+    { "@type": "ListItem", position: 2, name: "Guias", item: `${brand.siteUrl}/pt/guias` },
     { "@type": "ListItem", position: 3, name: guide.h1, item: canonical },
   ],
 };
@@ -88,7 +86,7 @@ const breadcrumbSchema = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
-  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+  <main id="main-content" class="min-h-screen bg-ocean-950 text-slate-100 font-body">
     <PtHeader
       activeNav="guias"
       enHref={langPaths.enHref}
@@ -96,11 +94,11 @@ const breadcrumbSchema = {
       ptHref={langPaths.ptHref}
     />
 
-    <article class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <nav aria-label="Caminho de navegação" class="text-xs font-mono text-slate-300 mb-6 flex flex-wrap items-center gap-1">
-        <a href="/pt" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Brasil (pt-BR)</a>
+    <article class="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <nav aria-label="Caminho de navegação" class="text-xs text-slate-300 mb-6 flex flex-wrap items-center gap-1">
+        <a href="/pt" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Brasil</a>
         <span class="text-slate-500">/</span>
-        <a href="/pt/guias" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Guias técnicos</a>
+        <a href="/pt/guias" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400">Guias</a>
         <span class="text-slate-500">/</span>
         <span class="text-gold-400 px-1.5" aria-current="page">{guide.primaryKeyword}</span>
       </nav>
@@ -127,45 +125,28 @@ const breadcrumbSchema = {
         ))}
       </div>
 
-      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {PT_CORE_VALUE_PROPOSITIONS.map((prop) => (
-          <div class="apple-glass rounded-2xl p-4">
-            <span class="inline-block rounded bg-gold-500/15 px-2 py-0.5 text-[11px] font-mono text-gold-300">{prop.badge}</span>
-            <h3 class="mt-2 text-sm font-bold text-gold-400">{prop.title}</h3>
-            <p class="mt-1 text-xs text-slate-300 leading-relaxed">{prop.description}</p>
-          </div>
-        ))}
-      </div>
-
-      <div id="uploader-stage" class="mt-12 rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-8 scroll-mt-24">
-        <div class="grid gap-8 lg:grid-cols-[1fr_1fr] items-center">
-          <div>
-            <h2 class="text-2xl font-black text-white font-display">
-              Coloque em prática: envie até 10 GB grátis (ou 50 GB–500 GB+ num link)
-            </h2>
-            <p class="mt-2 text-sm text-slate-300">
-              Conecte-se diretamente aos nós de borda de São Paulo (GRU) e Rio de Janeiro (GIG) com zero cadastro para o destinatário.
-            </p>
-            <div class="mt-5 flex flex-wrap gap-2.5">
-              {guide.relatedPtSlugs.map((link) => (
-                <a
-                  href={link.href}
-                  class="inline-flex min-h-[44px] items-center rounded-xl border border-white/15 bg-ocean-950 px-3.5 py-2 text-xs text-gold-300 hover:border-gold-400 transition tap-tactile"
-                >
-                  {link.label} →
-                </a>
-              ))}
-            </div>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-ocean-950 p-4">
-            <TransferEmbed client:load />
-          </div>
+      <!-- Compact CTA Callout Banner -->
+      <div class="mt-12 rounded-3xl border border-gold-500/30 bg-ocean-900/80 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl">
+          <h2 class="text-xl sm:text-2xl font-black text-white font-display">
+            Envie até 10 GB grátis agora mesmo
+          </h2>
+          <p class="text-sm text-slate-300">
+            Compartilhe arquivos e pastas de até 5 TB com servidores locais em São Paulo e Rio de Janeiro e download em 1 clique sem cadastro.
+          </p>
         </div>
+        <a
+          href="/pt#uploader-stage"
+          class="btn-gold shrink-0 inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile"
+        >
+          Enviar arquivos grátis →
+        </a>
       </div>
 
+      <!-- 3 Related Guides -->
       <section class="mt-14 border-t border-white/10 pt-10">
-        <h2 class="text-xl font-bold text-white font-display">Outros guias técnicos de engenharia em português</h2>
-        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <h2 class="text-xl font-bold text-white font-display">Outros guias práticos</h2>
+        <div class="mt-5 grid gap-4 sm:grid-cols-3">
           {otherGuides.map((g) => (
             <a
               href={`/pt/guias/${g.slug}`}

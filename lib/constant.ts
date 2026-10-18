@@ -124,12 +124,9 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     popular: false,
     description: 'Ideal for 1–2 client project deliveries',
     features: [
-      '50 GB downloaded delivery',
+      '50 GB download capacity',
       'Valid for 12 months',
-      'Used only when files are downloaded',
-      'No account required for recipients',
-      'Cloudflare Anycast edge-accelerated',
-      'No monthly recurring commitment'
+      'Protected, expiring share links'
     ],
     buttonText: 'Buy 50 GB ($10)',
     buttonStyle: 'bg-blue-600 text-white hover:bg-blue-700'
@@ -143,12 +140,9 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     popular: true,
     description: 'Most popular for active freelance video editors',
     features: [
-      '100 GB downloaded delivery',
+      '100 GB download capacity',
       'Valid for 12 months',
-      'Used only when files are downloaded',
-      'No account required for recipients',
-      'Cloudflare Anycast edge-accelerated',
-      'No monthly recurring commitment'
+      'Protected, expiring share links'
     ],
     buttonText: 'Buy 100 GB ($20)',
     buttonStyle: 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
@@ -162,12 +156,9 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     popular: false,
     description: 'High-volume pack with 10% volume discount',
     features: [
-      '1,000 GB (1 TB) downloaded delivery',
-      '10% volume discount ($0.18/GB)',
+      '1 TB download capacity',
       'Valid for 12 months',
-      'Optional auto-reload top-up',
-      'Priority edge routing',
-      'No monthly recurring commitment'
+      'Protected, expiring share links'
     ],
     buttonText: 'Buy 1 TB ($180)',
     buttonStyle: 'bg-indigo-600 text-white hover:bg-indigo-700'
@@ -181,12 +172,9 @@ export const PAYG_PACKS: Record<string, PaygPack> = {
     popular: false,
     description: 'Studio & commercial production tier (20% off)',
     features: [
-      '5,000 GB (5 TB) downloaded delivery',
-      '20% volume discount ($0.16/GB)',
+      '5 TB download capacity',
       'Valid for 12 months',
-      'Dedicated enterprise edge routing',
-      'Priority support & invoicing',
-      'No monthly recurring commitment'
+      'Priority support & custom links'
     ],
     buttonText: 'Buy 5 TB ($800)',
     buttonStyle: 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600'

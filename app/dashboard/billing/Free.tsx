@@ -157,40 +157,6 @@ const Free: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Usage Limits Warning */}
-      <div className="apple-subtle-glass bg-gold-500/10 border border-gold-500/30 rounded-2xl p-5">
-        <div className="flex items-start">
-          <FiAlertTriangle className="text-gold-400 mr-3.5 mt-0.5 text-lg shrink-0" />
-          <div>
-            <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Need More Space?</h4>
-            <p className="text-xs text-slate-300 mb-2">
-              Upgrade to Pro for 80 GB of storage and 30-day link retention.
-            </p>
-            <button
-              onClick={
-                () => router.push(`/checkout/pro`)
-              }
-              className="text-gold-400 font-semibold text-xs hover:text-amber-300 underline transition"
-            >
-              Upgrade Now →
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Security Notice */}
-      <div className="apple-subtle-glass bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5">
-        <div className="flex items-center">
-          <FiShield className="text-emerald-400 mr-3.5 text-lg shrink-0" />
-          <div>
-            <h4 className="font-bold text-emerald-400 font-display text-sm">Secure & Trusted</h4>
-            <p className="text-xs text-slate-300 mt-0.5">
-              Your files are protected with 256-bit TLS encryption and trusted by over 10,000 creators and teams worldwide.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 

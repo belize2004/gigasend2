@@ -4,8 +4,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EsHeader from "../../components/EsHeader.astro";
 import EsFooter from "../../components/EsFooter.astro";
 import TransferEmbed from "@/src/components/TransferEmbed";
-import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
-import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { esSeoLandingPages, type EsSeoLandingPage } from "../../data/esSeoLandingPages";
 import { brand } from "@/lib/brand";
 
@@ -33,14 +31,8 @@ for (let offset = 1; offset <= 4; offset++) {
   }
 }
 
-for (let offset = 1; relatedMap.size < 6 && offset <= esSeoLandingPages.length; offset++) {
-  const candidate = esSeoLandingPages[(currentIdx * 7 + offset) % esSeoLandingPages.length];
-  if (candidate && candidate.slug !== page.slug && !relatedMap.has(candidate.slug)) {
-    relatedMap.set(candidate.slug, candidate);
-  }
-}
-
-const relatedSpanishPages = Array.from(relatedMap.values()).slice(0, 6);
+const relatedSpanishPages = Array.from(relatedMap.values()).slice(0, 3);
+const benefitPoints = (page.gigasendSolutionPoints || []).slice(0, 3);
 
 const hreflang = page.isCanonicalEnPair
   ? [
@@ -69,14 +61,14 @@ const jsonLd = {
         {
           "@type": "ListItem",
           position: 1,
-          name: "Inicio (Español)",
+          name: "Español",
           item: `${brand.siteUrl}/es`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: page.category || "Guías",
-          item: `${brand.siteUrl}/es`,
+          item: `${brand.siteUrl}/es#guias-completas`,
         },
         {
           "@type": "ListItem",
@@ -85,21 +77,6 @@ const jsonLd = {
           item: canonical,
         },
       ],
-    },
-    {
-      "@type": "WebApplication",
-      name: `${brand.productName} — ${page.h1}`,
-      url: canonical,
-      inLanguage: "es",
-      applicationCategory: "UtilitiesApplication",
-      operatingSystem: "All",
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "USD",
-        lowPrice: "0.00",
-        highPrice: "180.00",
-        offerCount: 4,
-      },
     },
     {
       "@type": "FAQPage",
@@ -136,85 +113,32 @@ const jsonLd = {
       ptHref={page.ptEquivalent}
     />
 
-    <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
-      <!-- Accessible 44pt Breadcrumb Navigation -->
-      <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
-        <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">
-          Inicio (Español)
-        </a>
-        <span aria-hidden="true">/</span>
-        <span class="text-slate-400">{page.category || "Guías"}</span>
-        <span aria-hidden="true">/</span>
-        <span class="text-slate-200 font-medium">{page.h1}</span>
-      </nav>
+    <main id="main-content" class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-24">
+      <!-- Section 1: 2-Column Hero + Immediate Uploader -->
+      <section class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20">
+        <div class="lg:col-span-6 space-y-5">
+          <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400">
+            <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">
+              Español
+            </a>
+            <span aria-hidden="true">/</span>
+            <a href="/es#guias-completas" class="min-h-[44px] px-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">
+              {page.category || "Guías"}
+            </a>
+            <span aria-hidden="true">/</span>
+            <span class="text-slate-200 font-medium">{page.h1}</span>
+          </nav>
 
-      <!-- Hero Header & Position 0 Snippet -->
-      <header class="max-w-3xl mb-12 space-y-4">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 label-caps shadow-lg shadow-ocean-950/60">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          {page.pillBadge}
-        </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight font-display">
+            {page.h1}
+          </h1>
 
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
-          {page.h1}
-        </h1>
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+            {page.directAnswer}
+          </p>
 
-        <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
-          <p>{page.directAnswer}</p>
-        </div>
-      </header>
-
-      <!-- Active Dropzone -->
-      <section id="uploader" class="mb-16">
-        <div class="text-center mb-6 space-y-3">
-          <EdgeLocationBadge client:load />
-          <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga perimetral Gigasend</span>
-            <p class="text-xs text-slate-400 font-body">
-              Arrastra tus archivos o carpetas para transferir inmediatamente a través de nuestra red Anycast global.
-            </p>
-          </div>
-        </div>
-
-        <div class="apple-glass rounded-3xl p-4 sm:p-6 relative z-10 shadow-2xl shadow-ocean-950/90 border border-white/10">
-          <TransferEmbed client:idle />
-        </div>
-
-        <div class="flex flex-wrap items-center justify-between gap-4 mt-4 px-2 text-xs text-slate-400 font-body">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>Cifrado TLS 1.3 + AES-256 • Hasta 10 GB gratis (retención de 3 días)</span>
-          </div>
-          <div class="flex items-center gap-1.5 text-gold-400/90">
-            <span>Descarga en 1 clic sin registro • Apple Pay y tarjetas locales</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Comparison Trap vs Solution -->
-      <section class="grid md:grid-cols-2 gap-6 my-16">
-        <div class="rounded-2xl p-7 bg-ocean-900/40 border border-red-500/25 backdrop-blur-md space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 font-bold text-sm">✕</div>
-            <h2 class="text-lg font-bold text-red-300 font-display">{page.legacyTrapTitle}</h2>
-          </div>
-          <ul class="space-y-3.5 text-sm text-slate-300 font-body">
-            {(page.legacyTrapPoints || []).map((pt) => (
-              <li class="flex items-start gap-2.5">
-                <span class="text-red-400 font-bold mt-0.5">✕</span>
-                <span>{pt}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="rounded-2xl p-7 bg-ocean-900/60 border border-gold-500/40 backdrop-blur-md shadow-xl shadow-ocean-950/60 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400 font-bold text-sm">✓</div>
-            <h2 class="text-lg font-bold text-gold-400 font-display">{page.gigasendSolutionTitle}</h2>
-          </div>
-          <ul class="space-y-3.5 text-sm text-slate-200 font-body">
-            {(page.gigasendSolutionPoints || []).map((pt) => (
+          <ul class="space-y-3 pt-2 text-sm text-slate-200">
+            {benefitPoints.map((pt) => (
               <li class="flex items-start gap-2.5">
                 <span class="text-gold-400 font-bold mt-0.5">✓</span>
                 <span>{pt}</span>
@@ -222,36 +146,66 @@ const jsonLd = {
             ))}
           </ul>
         </div>
-      </section>
 
-      <!-- Technical Specifications -->
-      {page.specs && (
-        <section class="my-16">
-          <h2 class="text-2xl font-bold text-white mb-6 font-display">Especificaciones de entrega</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {page.specs.map((spec) => (
-              <div class="p-4 rounded-xl apple-subtle-glass border border-white/10 text-center">
-                <span class="block text-xs text-slate-400 mb-1 font-body">{spec.label}</span>
-                <span class="text-lg font-bold text-gold-400 font-display tabular-nums">{spec.value}</span>
-              </div>
-            ))}
+        <div id="uploader" class="lg:col-span-6">
+          <div class="apple-glass rounded-3xl p-4 sm:p-6 relative z-10 shadow-2xl shadow-ocean-950/90 border border-white/10">
+            <TransferEmbed client:idle />
           </div>
-        </section>
-      )}
-
-      <!-- Localized Spanish Savings & Velocity Calculator -->
-      <section class="my-20">
-        <div class="mb-8">
-          <h2 class="text-2xl font-bold text-white mb-2 font-display">Calculadora de ahorro y velocidad</h2>
-          <p class="text-slate-400 text-sm font-body">Calcula tu tiempo de subida y ahorro frente a suscripciones mensuales.</p>
+          <p class="mt-3 text-center text-xs text-slate-400">
+            Hasta 10 GB gratis (retención de 3 días) • Descarga en 1 clic sin registro • Cifrado TLS 1.3 + AES-256
+          </p>
         </div>
-        <SavingsCalculatorEs client:visible />
       </section>
 
-      <!-- FAQ Section (First open by default per Apple HIG) -->
+      <!-- Section 2: 4-Row Comparison Table -->
+      <section class="mb-20">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 font-display">
+          Por qué los equipos se pasan a Gigasend
+        </h2>
+        <div class="overflow-x-auto rounded-2xl border border-white/10 bg-ocean-900/50">
+          <table class="w-full min-w-[600px] text-left text-xs sm:text-sm divide-y divide-white/10">
+            <thead class="bg-ocean-950/90 text-slate-300">
+              <tr>
+                <th scope="col" class="p-4 font-bold text-white">Característica</th>
+                <th scope="col" class="p-4 font-bold text-gold-400">Gigasend</th>
+                <th scope="col" class="p-4 font-bold text-slate-300">WeTransfer</th>
+                <th scope="col" class="p-4 font-bold text-slate-300">Google Drive / Dropbox</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 text-slate-200">
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Envío gratuito</th>
+                <td class="p-4 text-emerald-400 font-semibold">Hasta 10 GB gratis (retención de 3 días)</td>
+                <td class="p-4 text-slate-300">2 GB a 3 GB</td>
+                <td class="p-4 text-slate-300">Consume el espacio de tu cuenta</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Planes y recargas</th>
+                <td class="p-4 text-emerald-400 font-semibold">Desde 10 US$ (50 GB por 12 meses o 30 GB/mes)</td>
+                <td class="p-4 text-slate-300">Suscripción mensual de ~23 US$/mes</td>
+                <td class="p-4 text-slate-300">Suscripción mensual recurrente</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Descarga para el cliente</th>
+                <td class="p-4 text-emerald-400 font-semibold">1 clic sin crear cuenta ni iniciar sesión</td>
+                <td class="p-4 text-slate-300">Caduca rápido en plan gratuito</td>
+                <td class="p-4 text-slate-300">Suele pedir cuenta o permisos de acceso</td>
+              </tr>
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-white">Calidad y estabilidad</th>
+                <td class="p-4 text-emerald-400 font-semibold">Sin compresión y con reanudación automática</td>
+                <td class="p-4 text-slate-300">Se interrumpe ante cortes de red</td>
+                <td class="p-4 text-slate-300">Falla al comprimir carpetas grandes en ZIP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3: FAQ Accordion -->
       {page.faqs && page.faqs.length > 0 && (
-        <section class="my-16">
-          <h2 class="text-2xl font-bold text-white mb-6 font-display">Preguntas frecuentes</h2>
+        <section class="mb-20">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6 font-display">Preguntas frecuentes</h2>
           <div class="space-y-4">
             {page.faqs.map((faq, idx) => (
               <details open={idx === 0} class="group rounded-2xl apple-subtle-glass border border-white/10 p-5 transition-colors hover:border-gold-500/30">
@@ -268,27 +222,26 @@ const jsonLd = {
         </section>
       )}
 
-      <!-- Related Spanish Pages & Regional Hubs Mesh -->
-      <section class="mt-20 pt-12 border-t border-white/10">
-        <div class="mb-8 space-y-2">
-          <span class="label-caps text-gold-400">Red perimetral en español</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-display">
-            Soluciones de transferencia relacionadas y nodos regionales
+      <!-- Section 4: 3 Curated Related Links -->
+      <section class="pt-10 border-t border-white/10">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-white font-display">
+            Guías relacionadas
           </h2>
-          <p class="text-slate-400 text-sm font-body">
-            Explora guías especializadas para otros tamaños, formatos profesionales y puntos de presencia locales Anycast.
-          </p>
+          <a href="/es#guias-completas" class="text-xs font-semibold text-gold-400 hover:underline min-h-[44px] inline-flex items-center">
+            Ver todas las guías en español →
+          </a>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+        <div class="grid sm:grid-cols-3 gap-4">
           {relatedSpanishPages.map((rel) => (
             <a
               href={`/es/${rel.slug}`}
               class="group p-5 rounded-2xl apple-glass border border-white/10 hover:border-gold-500/50 transition-all flex flex-col justify-between space-y-3 tap-tactile"
             >
               <div class="space-y-1.5">
-                <span class="text-[11px] font-mono font-bold text-gold-400/90 uppercase tracking-wider">
-                  {rel.category || "Guía técnica"}
+                <span class="text-[11px] font-mono font-bold text-gold-400/90">
+                  {rel.category || "Guía"}
                 </span>
                 <h3 class="text-base font-bold text-white group-hover:text-gold-400 transition-colors font-display leading-snug">
                   {rel.h1}
@@ -297,41 +250,11 @@ const jsonLd = {
                   {rel.metaDescription}
                 </p>
               </div>
-              <span class="text-xs font-semibold text-gold-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Ver solución →
+              <span class="text-xs font-semibold text-gold-400">
+                Leer guía →
               </span>
             </a>
           ))}
-        </div>
-
-        <!-- Quick-Link Pills to Spanish Hubs & Pillars (44pt minimum touch targets) -->
-        <div class="p-6 rounded-2xl apple-subtle-glass border border-white/10 space-y-4">
-          <span class="block text-xs font-mono uppercase tracking-wider text-slate-400">
-            Nodos regionales Anycast y guías maestras
-          </span>
-          <div class="flex flex-wrap gap-2.5">
-            <a href="/es" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-gold-500/30 text-xs font-semibold text-gold-400 transition-colors tap-tactile">
-              🏠 Gigasend en español (/es)
-            </a>
-            <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 hover:border-gold-500/40 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">
-              🎬 Enviar videos sin perder calidad
-            </a>
-            <a href="/es/enviar-archivos-mas-de-2gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 hover:border-gold-500/40 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">
-              📦 Enviar archivos de más de 2 GB
-            </a>
-            <a href="/es/mexico" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 hover:border-gold-500/40 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">
-              🇲🇽 Nodo México
-            </a>
-            <a href="/es/espana" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 hover:border-gold-500/40 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">
-              🇪🇸 Nodo España
-            </a>
-            <a href="/es/colombia" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 hover:border-gold-500/40 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">
-              🇨🇴 Nodo Colombia
-            </a>
-            <a href="/es/argentina" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 hover:border-gold-500/40 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">
-              🇦🇷 Nodo Argentina
-            </a>
-          </div>
         </div>
       </section>
     </main>

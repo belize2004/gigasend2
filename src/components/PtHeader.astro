@@ -1,5 +1,4 @@
 ---
-import { ptSeoLandingPages } from "../data/ptSeoLandingPages";
 import { brand } from "@/lib/brand";
 
 interface Props {
@@ -12,15 +11,19 @@ interface Props {
 const { activeNav = "slug", enHref, esHref = "/es", ptHref } = Astro.props;
 
 const navItems = [
-  { id: "hub", label: `Central Brasil (${ptSeoLandingPages.length})`, shortLabel: `Central BR (${ptSeoLandingPages.length})`, href: "/pt" },
-  { id: "planos", label: "Planos pré-pagos", shortLabel: "Planos", href: "/pt/planos" },
-  { id: "comparar", label: "Comparar", shortLabel: "Comparar", href: "/pt/comparar" },
-  { id: "calculadora", label: "Calculadora", shortLabel: "Calculadora", href: "/pt/calculadora-tempo-upload" },
-  { id: "guias", label: "Guias técnicos", shortLabel: "Guias", href: "/pt/guias" },
+  { id: "hub", label: "Enviar", shortLabel: "Enviar", href: "/pt#uploader-stage" },
+  { id: "planos", label: "Planos", shortLabel: "Planos", href: "/pt/planos" },
+  { id: "guias", label: "Guias", shortLabel: "Guias", href: "/pt/guias" },
 ];
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/90 backdrop-blur-2xl">
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-xl focus:bg-gold-500 focus:px-4 focus:py-2.5 focus:text-xs focus:font-bold focus:text-ocean-950"
+  >
+    Pular para o conteúdo
+  </a>
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegação principal">
     <a
       href="/pt"
@@ -35,7 +38,7 @@ const navItems = [
     </a>
 
     <div class="flex items-center gap-2 sm:gap-4 text-xs font-medium text-slate-300">
-      <div class="hidden xl:flex items-center gap-1">
+      <div class="hidden md:flex items-center gap-1">
         {navItems.map((item) => (
           <a
             href={item.href}
@@ -92,10 +95,9 @@ const navItems = [
     </div>
   </nav>
 
-  <!-- Mobile & Tablet Sub-Navigation Strip (<1280px) so 375px iPhone viewports have full 44pt access to all hubs -->
   <nav
     aria-label="Navegação rápida móvel"
-    class="xl:hidden border-t border-white/10 bg-ocean-950/95 px-4 py-1.5 overflow-x-auto no-scrollbar"
+    class="md:hidden border-t border-white/10 bg-ocean-950/95 px-4 py-1.5 overflow-x-auto no-scrollbar"
   >
     <div class="mx-auto flex max-w-7xl items-center gap-2 whitespace-nowrap text-xs font-medium">
       {navItems.map((item) => (

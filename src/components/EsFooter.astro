@@ -1,74 +1,58 @@
 ---
-import { esSeoLandingPages } from "../data/esSeoLandingPages";
 import { brand } from "@/lib/brand";
-
-const totalSpanishCount = esSeoLandingPages.length + 7;
 ---
 
 <footer class="border-t border-white/10 bg-ocean-950/95 py-12 text-xs text-slate-400 font-body">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <a href="/es" class="inline-flex min-h-[44px] items-center gap-2.5 font-bold text-white font-display text-sm">
           <span aria-hidden="true" class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 text-ocean-950 font-black text-xs">
             G
           </span>
-          <span>{brand.productName} en español</span>
+          <span>{brand.productName}</span>
         </a>
         <p class="mt-2 leading-relaxed">
-          Transferencia de archivos pesados con hasta 10 GB gratis (retención de 3 días), descarga en 1 clic sin registro, paquetes prepagos de 12 meses (10 US$ / 50 GB • 20 US$ / 100 GB • 180 US$ / 1 TB • 800 US$ / 5 TB) y servidores CDN Anycast en Madrid, Ciudad de México, Bogotá, Buenos Aires y Santiago.
+          Envía archivos pesados con hasta 10 GB gratis (retención de 3 días), descarga en un clic sin registro y paquetes prepagos válidos por 12 meses con servidores locales de alta velocidad en España y Latinoamérica.
         </p>
       </div>
 
       <div>
         <p class="font-bold text-white font-display tracking-wider text-xs">
-          Regiones y comparativas
+          Regiones
         </p>
         <ul class="mt-3 space-y-1.5">
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es">Central en español ({totalSpanishCount} guías)</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/mexico">🇲🇽 Nodo México (MEX • GDL • MTY)</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/espana">🇪🇸 Nodo España (MAD • BCN • VLC)</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/colombia">🇨🇴 Nodo Colombia (BOG • MDE • CLO)</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/argentina">🇦🇷 Nodo Argentina (EZE • COR • ROS)</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es">Central en español</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/mexico">🇲🇽 México</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/espana">🇪🇸 España</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/colombia">🇨🇴 Colombia</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/argentina">🇦🇷 Argentina</a></li>
         </ul>
       </div>
 
       <div>
         <p class="font-bold text-white font-display tracking-wider text-xs">
-          Capacidades y tamaños
+          Casos de uso y guías
         </p>
         <ul class="mt-3 space-y-1.5">
           <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-mas-de-2gb">Enviar archivos de más de 2 GB</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-10gb">Enviar archivos de 10 GB gratis</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-20gb">Enviar archivos de 20 GB</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-50gb">Mandar archivos de 50 GB (10 US$)</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-100gb">Enviar archivos de 100 GB (20 US$)</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-videos-sin-perder-calidad">Vídeos 4K y 8K sin comprimir</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/alternativas-a-wetransfer">Alternativa a WeTransfer</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-sin-registro">Enviar archivos sin registro</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es#guias-completas">Todas las guías en español</a></li>
         </ul>
       </div>
 
       <div>
         <p class="font-bold text-white font-display tracking-wider text-xs">
-          Soluciones populares
+          Producto y legal
         </p>
         <ul class="mt-3 space-y-1.5">
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/alternativas-a-wetransfer">Alternativas a WeTransfer gratis</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/superar-limite-2gb-wetransfer">Superar el límite de 2 GB de WeTransfer</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-whatsapp-sin-perder-calidad">Videos 4K por WhatsApp sin comprimir</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-video-largo-correo">Enviar un video largo por correo</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/transferencia-archivos-pago-por-uso">Pago por uso (sin suscripción)</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="font-bold text-white font-display tracking-wider text-xs">
-          Formatos profesionales
-        </p>
-        <ul class="mt-3 space-y-1.5">
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-videos-sin-perder-calidad">Videos 4K/8K sin perder calidad</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-prores">Apple ProRes 422 HQ y RAW</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/transferir-proyectos-davinci-resolve">DaVinci Resolve y BRAW</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/transferir-archivos-cad-bim">Proyectos AutoCAD y Revit BIM</a></li>
-          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/es/enviar-archivos-sin-registro">Entrega ejecutiva sin registro</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/plans">Planes y precios</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/compare">Comparar servicios</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/security">Seguridad y privacidad</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/terms">Términos de servicio</a></li>
+          <li><a class="inline-flex min-h-[36px] items-center hover:text-gold-400 transition-colors" href="/privacy">Política de privacidad</a></li>
         </ul>
       </div>
     </div>
@@ -81,27 +65,21 @@ const totalSpanishCount = esSeoLandingPages.length + 7;
           href="/?lang=en"
           onclick="document.cookie='gigasend_lang=en; path=/; max-age=31536000; SameSite=Lax'"
         >
-          🇺🇸 English (Global)
+          🇺🇸 English
         </a>
         <a
           class="inline-flex min-h-[40px] items-center text-gold-400 font-bold"
           href="/es"
           onclick="document.cookie='gigasend_lang=es; path=/; max-age=31536000; SameSite=Lax'"
         >
-          🇪🇸 Español ({totalSpanishCount} páginas)
+          🇪🇸 Español
         </a>
         <a
           class="inline-flex min-h-[40px] items-center hover:text-gold-400 transition-colors"
           href="/pt"
           onclick="document.cookie='gigasend_lang=pt; path=/; max-age=31536000; SameSite=Lax'"
         >
-          🇧🇷 Português (Brasil)
-        </a>
-        <a class="inline-flex min-h-[40px] items-center hover:text-gold-400 transition-colors" href="/directory">
-          Directorio completo
-        </a>
-        <a class="inline-flex min-h-[40px] items-center hover:text-gold-400 transition-colors" href="/es#guias-completas">
-          Todas las guías en español
+          🇧🇷 Português
         </a>
       </div>
     </div>

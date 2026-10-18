@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { seoLandingPages } from "../../data/seoLandingPages";
-import { ptSeoLandingPages, PT_CLUSTER_METADATA } from "../../data/ptSeoLandingPages";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
@@ -27,21 +26,21 @@ const categories = [
     id: "audio-music",
     title: "Audio Engineering & Music Stems",
     icon: "🎚️",
-    description: "Collaborate on DAWs and send uncompressed 24-bit/96kHz multitrack audio stems with zero data loss.",
+    description: "Collaborate on DAWs and send uncompressed 24-bit/96 kHz multitrack audio stems with zero data loss.",
     keywords: ["protools", "ableton", "logic-pro", "stems"],
   },
   {
     id: "competitor-bypass",
-    title: "Quota Bypass & Cloud Alternatives",
+    title: "Platform Limits & Cloud Alternatives",
     icon: "⚡",
-    description: "Instant alternatives when legacy cloud storage, email, or free tools hit hard upload and download limits.",
+    description: "Instant alternatives when cloud storage, email, or free tools hit upload and download limits.",
     keywords: ["wetransfer", "google-drive", "dropbox", "email-attachment", "alternative", "bypass"],
   },
   {
     id: "sizes",
     title: "File Size Capacity Tiers",
     icon: "📦",
-    description: "Direct upload channels optimized for exact capacity limits from 5 GB free tiers to 2 TB multi-part transfers.",
+    description: "Direct upload channels for exact file sizes from 5 GB free transfers up to 2 TB packages.",
     keywords: ["5gb", "10gb", "15gb", "20gb", "25gb", "30gb", "50gb", "100gb", "500gb", "1tb", "2tb", "larger-than-2gb"],
   },
 ];
@@ -64,15 +63,15 @@ const generalPages = seoLandingPages.filter((page) => !matchedSlugs.has(page.slu
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: `${brand.productName} File Transfer Directory`,
-  description: "Browse optimized transfer destinations for high-capacity media files, 3D projects, cinema RAW codecs, and cloud quota bypasses.",
+  name: `${brand.productName} Workflow & Codec Directory`,
+  description: "Browse transfer workflows for high-capacity media files, 3D projects, cinema RAW codecs, and cloud alternatives.",
   url: canonical,
 };
 ---
 
 <BaseLayout
-  title={`File Transfer Directory & Codec Solutions | ${brand.productName}`}
-  description="Browse specialized high-capacity file transfer destinations. Send BRAW, RED R3D, Blender, DaVinci Resolve, Ableton, and bypass 2 GB upload quotas directly."
+  title={`Workflow & Codec Directory | ${brand.productName}`}
+  description="Browse specialized file transfer workflows. Send BRAW, RED R3D, Blender, DaVinci Resolve, Ableton, and overcome 2 GB upload limits directly."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -142,25 +141,24 @@ const collectionSchema = {
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-16 px-6 bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 text-center border-b border-white/10">
+    <section class="relative pt-16 pb-14 px-6 bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 text-center border-b border-white/10">
       <div class="mx-auto max-w-4xl space-y-5">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-800/80 border border-gold-500/30 text-gold-400 label-caps text-xs shadow-lg shadow-ocean-950/60">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Enterprise Transfer Index • 335+ Edge PoPs
+          Workflow & Codec Directory
         </div>
         <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white font-display">
           Large File Transfer <span class="text-gold-400">Directory</span>
         </h1>
         <p class="mx-auto max-w-2xl text-lg text-slate-300 leading-relaxed">
-          Engineered transfer channels optimized for exact media formats, creative applications, and high-volume data payloads up to 5 TB. Powered by Cloudflare's 335+ edge PoPs with zero file compression.
+          Browse dedicated transfer workflows for camera RAW formats, creative applications, and large file sizes from 10 GB free up to 5 TB.
         </p>
 
         <!-- Category Quick Navigation Pills -->
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+        <div class="pt-3 flex flex-wrap items-center justify-center gap-2.5">
           {groupedPages.map((cat) => (
             <a
               href={`#${cat.id}`}
-              class="px-4 py-2 rounded-xl bg-ocean-900/80 border border-white/10 hover:border-gold-500/60 text-slate-200 hover:text-gold-400 transition text-xs font-mono flex items-center gap-2 shadow-sm tap-tactile"
+              class="px-3.5 py-2 rounded-xl bg-ocean-900/80 border border-white/10 hover:border-gold-500/60 text-slate-200 hover:text-gold-400 transition text-xs font-mono flex items-center gap-2 shadow-sm tap-tactile"
             >
               <span aria-hidden="true">{cat.icon}</span>
               <span class="font-bold">{cat.title}</span>
@@ -168,56 +166,41 @@ const collectionSchema = {
             </a>
           ))}
         </div>
-
-        <div class="pt-4 flex flex-wrap justify-center gap-4">
-          <a href="/transfer" class="btn-gold inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-xs font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-            Transfer Files Now
-          </a>
-          <a href="/plans" class="btn-outline-gold inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-xs font-bold tap-tactile">
-            View Storage Tiers
-          </a>
-        </div>
       </div>
     </section>
 
-    <!-- Categories Grid -->
-    <section class="py-16 sm:py-20 bg-ocean-950">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
+    <!-- Compact Apple Support-Style Directory Rows -->
+    <section class="py-14 bg-ocean-950">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-12">
         {groupedPages.map((cat) => (
-          <div id={cat.id} class="apple-glass rounded-3xl border border-white/10 bg-ocean-900/80 p-8 shadow-2xl">
-            <div class="border-b border-white/10 pb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div id={cat.id} class="apple-glass rounded-3xl border border-white/10 bg-ocean-900/80 p-6 sm:p-8 shadow-2xl">
+            <div class="border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
-                <div class="flex items-center gap-3">
-                  <span class="text-2xl" aria-hidden="true">{cat.icon}</span>
-                  <h2 class="text-2xl font-black text-white font-display">{cat.title}</h2>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-xl" aria-hidden="true">{cat.icon}</span>
+                  <h2 class="text-xl sm:text-2xl font-black text-white font-display">{cat.title}</h2>
                   <span class="px-2.5 py-0.5 rounded-full bg-ocean-800 border border-gold-500/30 text-gold-400 text-xs font-mono">
-                    {cat.pages.length} Guides
+                    {cat.pages.length}
                   </span>
                 </div>
-                <p class="mt-2 text-sm text-slate-300">{cat.description}</p>
+                <p class="mt-1.5 text-sm text-slate-300">{cat.description}</p>
               </div>
             </div>
-            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="mt-4 grid gap-2.5 sm:grid-cols-2">
               {cat.pages.map((page) => (
                 <a
                   href={`/${page.slug}`}
-                  class="group flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-950/60 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 hover:shadow-xl tap-tactile"
+                  class="group flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-ocean-950/60 px-4 py-3.5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
                 >
-                  <div>
-                    <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">
-                      {page.eyebrow}
-                    </span>
-                    <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">
+                  <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-white group-hover:text-gold-400 font-display transition-colors truncate">
                       {page.h1}
                     </h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-300 line-clamp-2">
+                    <p class="mt-0.5 text-xs text-slate-400 truncate">
                       {page.intro}
                     </p>
                   </div>
-                  <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-                    <span>Send This Format</span>
-                    <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-                  </div>
+                  <span class="shrink-0 text-sm font-mono font-bold text-gold-400 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
                 </a>
               ))}
             </div>
@@ -225,38 +208,32 @@ const collectionSchema = {
         ))}
 
         {generalPages.length > 0 && (
-          <div class="apple-glass rounded-3xl border border-white/10 bg-ocean-900/80 p-8 shadow-2xl">
-            <div class="border-b border-white/10 pb-5">
-              <div class="flex items-center gap-3">
-                <span class="text-2xl" aria-hidden="true">🚀</span>
-                <h2 class="text-2xl font-black text-white font-display">Core Transfer Utilities</h2>
+          <div class="apple-glass rounded-3xl border border-white/10 bg-ocean-900/80 p-6 sm:p-8 shadow-2xl">
+            <div class="border-b border-white/10 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="text-xl" aria-hidden="true">🚀</span>
+                <h2 class="text-xl sm:text-2xl font-black text-white font-display">Core Transfer Workflows</h2>
                 <span class="px-2.5 py-0.5 rounded-full bg-ocean-800 border border-gold-500/30 text-gold-400 text-xs font-mono">
-                  {generalPages.length} Guides
+                  {generalPages.length}
                 </span>
               </div>
-              <p class="mt-2 text-sm text-slate-300">General high-performance large file dispatch solutions.</p>
+              <p class="mt-1.5 text-sm text-slate-300">General high-speed file transfer workflows and comparisons.</p>
             </div>
-            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="mt-4 grid gap-2.5 sm:grid-cols-2">
               {generalPages.map((page) => (
                 <a
                   href={`/${page.slug}`}
-                  class="group flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-950/60 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 hover:shadow-xl tap-tactile"
+                  class="group flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-ocean-950/60 px-4 py-3.5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
                 >
-                  <div>
-                    <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">
-                      {page.eyebrow}
-                    </span>
-                    <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">
+                  <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-white group-hover:text-gold-400 font-display transition-colors truncate">
                       {page.h1}
                     </h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-300 line-clamp-2">
+                    <p class="mt-0.5 text-xs text-slate-400 truncate">
                       {page.intro}
                     </p>
                   </div>
-                  <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-                    <span>Send Now</span>
-                    <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-                  </div>
+                  <span class="shrink-0 text-sm font-mono font-bold text-gold-400 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
                 </a>
               ))}
             </div>
@@ -265,210 +242,70 @@ const collectionSchema = {
       </div>
     </section>
 
-    <!-- Engineering Guides, Cost Calculators & Architecture Comparisons -->
-    <section class="border-t border-white/10 bg-ocean-900/60 py-16 sm:py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 border-b border-white/10 pb-6">
+    <!-- Sleek 2-Card "Available in Español & Português" Banner -->
+    <section class="border-t border-white/10 bg-ocean-900/60 py-14 px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-6xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <span class="label-caps text-gold-400 text-xs">Technical Resource Hub</span>
-            <h2 class="mt-1 text-3xl font-black text-white font-display">
-              Engineering Guides, Cost Calculators & Architecture Comparisons
-            </h2>
-            <p class="mt-2 text-sm text-slate-300 max-w-2xl">
-              Explore deep-dive WAN latency diagnostics, zero-egress cost models, and interactive throughput tools for post-production and engineering teams.
-            </p>
-          </div>
-          <a href="/guides" class="inline-flex items-center gap-2 text-xs font-mono font-bold text-gold-400 hover:text-gold-300 transition-colors">
-            <span>All Production & Engineering Guides</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <a href="/guides" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Resource Index</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">All Production & Engineering Guides</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Browse all technical architecture guides, WAN latency tutorials, and studio workflow breakdowns.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Explore Guides Hub</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/guides/why-large-file-transfers-are-slow" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">WAN & Infrastructure</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Why Large File Transfers Are So Slow (And How to Fix It)</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Diagnose TCP window scaling, peering latency, and packet loss bottlenecks on 25 GB–2 TB file transfers.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Read Engineering Guide</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Cost & Billing</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Large File Transfer Cost Calculator (PAYG vs. Subscriptions)</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Compare pay-as-you-go pricing vs. WeTransfer, Dropbox, and cloud egress surcharges for 50 GB–5 TB deliveries.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Read Cost Analysis</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Reliability & Resilience</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">How to Transfer Large Files Without Failed Uploads</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">How client-side chunking, multi-part parallel streams, and automatic resumption prevent failed 50 GB+ uploads.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Read Reliability Guide</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Workflow Architecture</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">File Transfer vs. Cloud Storage vs. Media Review</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">When to use ephemeral point-to-point transfer vs. persistent cloud sync vs. frame-accurate review tools.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Read Workflow Guide</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Storage Optimization</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">How to Send Large Files Without Filling Up Your Hard Drive</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Stop cloud sync apps from cloning 200 GB project folders onto your local SSD with direct browser streaming.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Read Storage Guide</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/tools/transfer-speed-calculator" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Interactive Telemetry</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Large File Transfer Speed Calculator</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Calculate exact upload times for 1 GB to 2 TB payloads across 10 Mbps to 10 Gbps pipes with TCP overhead.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Launch Calculator</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/compare" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Architecture Matrix</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Cloudflare Edge vs. AWS Relays Comparison</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Compare Gigasend's zero-egress edge architecture against MASV, WeTransfer, Dropbox, and Google Drive.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>View Comparison Matrix</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-
-          <a href="/blogs" class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
-            <div>
-              <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400 font-mono">Engineering Dispatches</span>
-              <h3 class="mt-3 text-base font-bold text-white group-hover:text-gold-400 font-display transition-colors">Gigasend Engineering & Workflow Blog</h3>
-              <p class="mt-2 text-xs text-slate-300 leading-relaxed">Read articles on zero-egress infrastructure, post-production file delivery, and remote studio pipelines.</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-              <span>Read Blog Articles</span>
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Brazil (pt-BR) Localized Fleet Section -->
-    <section id="brazil-pt" class="border-t border-white/10 bg-ocean-950 py-16 px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-7xl space-y-12">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/10 pb-6">
-          <div>
-            <span class="label-caps text-gold-400 text-xs">🇧🇷 International Edge Fleet • Português (pt-BR) • {ptSeoLandingPages.length} Páginas</span>
+            <span class="label-caps text-gold-400 text-xs">International Directories</span>
             <h2 class="mt-1 text-2xl sm:text-3xl font-black text-white font-display">
-              Brazil File Transfer, Drone GIS, Cinema RAW & BIM Directory
+              Available in Español & Português
             </h2>
-            <p class="mt-2 max-w-3xl text-sm text-slate-300">
-              {ptSeoLandingPages.length} localized Portuguese solutions engineered for Brazil's 186,000+ ANAC SISANT commercial drone operators, GIS orthomosaic & LiDAR engineers, 4K/RAW audiovisual studios, and BIM engineering teams across 30+ Brazilian Cloudflare Edge PoPs.
+            <p class="mt-1.5 text-sm text-slate-300">
+              Explore localized file transfer guides and regional workflows in Spanish and Brazilian Portuguese.
             </p>
           </div>
-          <a href="/pt" class="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors" lang="pt-BR">
-            <span>Acessar Central Brasil (/pt)</span>
-            <span aria-hidden="true">→</span>
-          </a>
         </div>
 
-        {PT_CLUSTER_METADATA.map((cluster) => {
-          const clusterPages = ptSeoLandingPages.filter((p) => p.cluster === cluster.id);
-          return (
-            <div id={`pt-${cluster.id}`} class="space-y-4" lang="pt-BR">
-              <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                <div class="flex items-center gap-2.5">
-                  <span class="text-xl" aria-hidden="true">{cluster.icon}</span>
-                  <h3 class="text-lg font-bold text-white font-display">{cluster.title}</h3>
-                </div>
-                <span class="rounded-full bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[11px] font-mono text-gold-400">
-                  {clusterPages.length} fluxos
-                </span>
-              </div>
-              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {clusterPages.map((ptPage) => (
-                  <a
-                    href={`/pt/${ptPage.slug}`}
-                    class="group apple-glass flex flex-col justify-between rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
-                  >
-                    <div>
-                      <span class="inline-block rounded-md bg-gold-500/10 border border-gold-500/30 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-gold-400">
-                        {ptPage.primaryKeyword}
-                      </span>
-                      <h4 class="mt-2.5 text-sm font-bold text-white group-hover:text-gold-400 font-display transition-colors">
-                        {ptPage.h1}
-                      </h4>
-                      <p class="mt-1.5 text-xs text-slate-300 line-clamp-2 leading-relaxed">
-                        {ptPage.metaDescription}
-                      </p>
-                    </div>
-                    <div class="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs font-mono font-semibold text-gold-400">
-                      <span class="truncate max-w-[180px]">/pt/{ptPage.slug}</span>
-                      <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <a
+            href="/es"
+            lang="es"
+            class="group apple-glass flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
+          >
+            <div>
+              <span class="text-xs font-mono font-semibold text-gold-400 uppercase tracking-wider">Español (/es)</span>
+              <h3 class="mt-1.5 text-lg font-bold text-white group-hover:text-gold-400 font-display transition-colors">
+                Directorio de transferencia de archivos grandes
+              </h3>
+              <p class="mt-1 text-xs text-slate-300">
+                Envía hasta 10 GB gratis y explora alternativas a WeTransfer, Google Drive y Dropbox en español.
+              </p>
             </div>
-          );
-        })}
+            <span class="shrink-0 text-lg font-mono font-bold text-gold-400 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="/pt"
+            lang="pt-BR"
+            class="group apple-glass flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-ocean-900/80 p-6 shadow-xl transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
+          >
+            <div>
+              <span class="text-xs font-mono font-semibold text-gold-400 uppercase tracking-wider">Português (/pt)</span>
+              <h3 class="mt-1.5 text-lg font-bold text-white group-hover:text-gold-400 font-display transition-colors">
+                Central de transferência de arquivos pesados
+              </h3>
+              <p class="mt-1 text-xs text-slate-300">
+                Envie até 10 GB grátis e acesse guias de vídeo 4K/RAW, mapeamento com drones, GIS e BIM em português.
+              </p>
+            </div>
+            <span class="shrink-0 text-lg font-mono font-bold text-gold-400 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Bottom CTA Banner -->
-    <section class="border-t border-white/10 bg-gradient-to-b from-ocean-900 to-ocean-950 py-20">
-      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-        <span class="label-caps text-gold-400 text-xs">Zero Egress • Instant Edge Links</span>
-        <h2 class="mt-2 text-3xl font-black tracking-tight text-white font-display sm:text-5xl">
+    <section class="border-t border-white/10 bg-gradient-to-b from-ocean-900 to-ocean-950 py-16">
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <span class="label-caps text-gold-400 text-xs">10 GB Free • 3-Day Retention</span>
+        <h2 class="mt-2 text-3xl font-black tracking-tight text-white font-display sm:text-4xl">
           Ready to Send Your Large Files?
         </h2>
-        <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-          Upload up to 10 GB 100% free with no account required, or transfer up to 5 TB with custom storage expiration.
+        <p class="mx-auto mt-3 max-w-2xl text-base sm:text-lg text-slate-300">
+          Upload up to 10 GB free with no account required, or transfer up to 5 TB with flexible monthly plans and credit packs.
         </p>
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <div class="mt-7 flex flex-wrap justify-center gap-4">
           <a href="/transfer" class="btn-gold rounded-xl px-8 py-4 text-xs font-bold shadow-xl shadow-gold-500/20 tap-tactile">
             Start Free Transfer
           </a>
@@ -489,7 +326,7 @@ const collectionSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
+              Fast, reliable large file transfer across 335+ global server locations. Send up to 10 GB free.
             </p>
           </div>
           <div>
@@ -497,20 +334,20 @@ const collectionSchema = {
             <ul class="mt-3 space-y-2">
               <li><a href="/transfer" class="hover:text-gold-400 transition-colors">Send Large Files</a></li>
               <li><a href="/plans" class="hover:text-gold-400 transition-colors">Plans & Pricing</a></li>
-              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Architecture Comparison</a></li>
+              <li><a href="/compare" class="hover:text-gold-400 transition-colors">Provider Comparison</a></li>
               <li><a href="/tools/transfer-speed-calculator" class="hover:text-gold-400 transition-colors">Transfer Speed Calculator</a></li>
-              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Codec & Format Directory</a></li>
+              <li><a href="/directory" class="hover:text-gold-400 transition-colors">Workflow & Codec Directory</a></li>
             </ul>
           </div>
           <div>
-            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Engineering Guides</h3>
+            <h3 class="font-bold text-white uppercase tracking-wider font-mono text-[11px]">Guides</h3>
             <ul class="mt-3 space-y-2">
-              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Engineering Guides</a></li>
+              <li><a href="/guides" class="hover:text-gold-400 transition-colors">All Guides</a></li>
               <li><a href="/guides/why-large-file-transfers-are-slow" class="hover:text-gold-400 transition-colors">Why Transfers Are Slow</a></li>
               <li><a href="/guides/large-file-transfer-cost-calculator" class="hover:text-gold-400 transition-colors">Transfer Cost Calculator</a></li>
               <li><a href="/guides/transfer-large-files-without-failed-uploads" class="hover:text-gold-400 transition-colors">Prevent Failed Uploads</a></li>
               <li><a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="hover:text-gold-400 transition-colors">Transfer vs. Cloud vs. Review</a></li>
-              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Zero-Cache Browser Streaming</a></li>
+              <li><a href="/guides/send-large-files-without-filling-computer" class="hover:text-gold-400 transition-colors">Send Without Filling Disk Space</a></li>
             </ul>
           </div>
           <div>
@@ -519,14 +356,14 @@ const collectionSchema = {
               <li><a href="/send-large-files-free" class="hover:text-gold-400 transition-colors">Send Large Files Free (10 GB)</a></li>
               <li><a href="/wetransfer-alternative" class="hover:text-gold-400 transition-colors">WeTransfer Alternative</a></li>
               <li><a href="/send-large-video-files" class="hover:text-gold-400 transition-colors">Send Large Video Files</a></li>
-              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Engineering Blog</a></li>
+              <li><a href="/blogs" class="hover:text-gold-400 transition-colors">Blog</a></li>
               <li><a href="/contact" class="hover:text-gold-400 transition-colors">Contact Support</a></li>
               <li><a href="/terms" class="hover:text-gold-400 transition-colors">Terms</a> · <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy</a></li>
             </ul>
           </div>
         </div>
         <div class="mt-10 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} {brand.productName}. Engineered on Cloudflare Edge & R2.</p>
+          <p>© {new Date().getFullYear()} {brand.productName}. All rights reserved.</p>
           <div class="flex gap-4">
             <a href="/security" class="hover:text-gold-400 transition-colors">Security</a>
             <a href="/privacy-policy" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
@@ -538,3 +375,4 @@ const collectionSchema = {
     </footer>
   </main>
 </BaseLayout>
+

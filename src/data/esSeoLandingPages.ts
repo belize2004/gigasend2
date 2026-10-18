@@ -34,20 +34,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 3 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 3 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 3 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 3 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 3 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 3 gb",
     "directAnswer": "Para enviar un archivo de 3 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar un archivo de 3 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 3 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos de 3 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -78,7 +78,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -91,7 +91,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 3 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 3 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 3 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 3 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 3 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 3 gb",
     "directAnswer": "Para transferir un archivo de 3 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -103,7 +103,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos de 3 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -148,20 +148,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 3 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 3 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 3 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 3 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 3 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 3 gb",
     "directAnswer": "Para compartir un archivo de 3 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Archivos de 3 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 3 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -192,7 +192,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -205,7 +205,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 4 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 4 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 4 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 4 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 4 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 4 gb",
     "directAnswer": "Para enviar un archivo de 4 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -217,7 +217,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos de 4 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -262,7 +262,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 4 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 4 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 4 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 4 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 4 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 4 gb",
     "directAnswer": "Para transferir un archivo de 4 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -274,7 +274,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos de 4 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -319,20 +319,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 4 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 4 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 4 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 4 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 4 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 4 gb",
     "directAnswer": "Para compartir un archivo de 4 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir un archivo de 4 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 4 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos de 4 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -363,7 +363,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -376,7 +376,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 5 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 5 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 5 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 5 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 5 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 5 gb",
     "directAnswer": "Para enviar un archivo de 5 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -388,7 +388,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -433,20 +433,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 5 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 5 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 5 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 5 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 5 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 5 gb",
     "directAnswer": "Para transferir un archivo de 5 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir un archivo de 5 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 5 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos de 5 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -477,7 +477,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -490,7 +490,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 5 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 5 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 5 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 5 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 5 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 5 gb",
     "directAnswer": "Para compartir un archivo de 5 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -502,7 +502,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos de 5 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -547,7 +547,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 6 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 6 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 6 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 6 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 6 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 6 gb",
     "directAnswer": "Para enviar un archivo de 6 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -559,7 +559,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de 6 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -604,20 +604,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 6 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 6 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 6 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 6 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 6 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 6 gb",
     "directAnswer": "Para transferir un archivo de 6 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Archivos de 6 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 6 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -648,7 +648,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -661,7 +661,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 6 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 6 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 6 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 6 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 6 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 6 gb",
     "directAnswer": "Para compartir un archivo de 6 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -673,7 +673,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos de 6 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -718,20 +718,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 7 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 7 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 7 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 7 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 7 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 7 gb",
     "directAnswer": "Para enviar un archivo de 7 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar un archivo de 7 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 7 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos de 7 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -762,7 +762,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -775,7 +775,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 7 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 7 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 7 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 7 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 7 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 7 gb",
     "directAnswer": "Para transferir un archivo de 7 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -787,7 +787,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos de 7 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -832,7 +832,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 7 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 7 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 7 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 7 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 7 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 7 gb",
     "directAnswer": "Para compartir un archivo de 7 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -844,7 +844,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -889,20 +889,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 8 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 8 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 8 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 8 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 8 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 8 gb",
     "directAnswer": "Para enviar un archivo de 8 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar un archivo de 8 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 8 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos de 8 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -933,7 +933,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -946,7 +946,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 8 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 8 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 8 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 8 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 8 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 8 gb",
     "directAnswer": "Para transferir un archivo de 8 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -958,7 +958,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos de 8 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1003,20 +1003,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 8 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 8 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 8 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 8 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 8 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 8 gb",
     "directAnswer": "Para compartir un archivo de 8 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir un archivo de 8 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 8 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos de 8 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1047,7 +1047,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1060,7 +1060,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 9 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 9 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 9 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 9 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 9 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 9 gb",
     "directAnswer": "Para enviar un archivo de 9 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -1072,7 +1072,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1117,7 +1117,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 9 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 9 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 9 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 9 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 9 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 9 gb",
     "directAnswer": "Para transferir un archivo de 9 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -1129,7 +1129,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos de 9 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1174,20 +1174,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 9 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 9 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 9 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 9 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 9 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 9 gb",
     "directAnswer": "Para compartir un archivo de 9 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir un archivo de 9 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 9 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos de 9 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1218,7 +1218,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1231,7 +1231,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 10 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 10 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 10 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a enviar un archivo de 10 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 10 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 10 gb",
     "directAnswer": "Para enviar un archivo de 10 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -1243,7 +1243,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de 10 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1288,20 +1288,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 10 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 10 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 10 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a transferir un archivo de 10 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 10 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 10 gb",
     "directAnswer": "Para transferir un archivo de 10 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Archivos de 10 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 10 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1332,7 +1332,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1345,7 +1345,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 10 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 10 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 10 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast 100 % gratis (hasta 10 GB).",
+    "metaDescription": "Aprende a compartir un archivo de 10 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo 100 % gratis (hasta 10 GB).",
     "pillBadge": "Carga Perimetral Directa • Paquete de 10 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 10 gb",
     "directAnswer": "Para compartir un archivo de 10 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare 100 % gratis (hasta 10 GB con 3 días de retención) o con paquetes prepagos válidos durante 12 meses.",
@@ -1357,7 +1357,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos de 10 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1402,7 +1402,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 12 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 12 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 12 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $1.92 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 12 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $1.92 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 12 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 12 gb",
     "directAnswer": "Para enviar un archivo de 12 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $1.92 con saldo válido durante 12 meses.",
@@ -1414,7 +1414,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos de 12 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1459,20 +1459,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 12 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 12 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 12 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $1.92 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 12 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $1.92 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 12 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 12 gb",
     "directAnswer": "Para transferir un archivo de 12 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $1.92 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir un archivo de 12 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 12 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos de 12 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1503,7 +1503,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1516,7 +1516,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 12 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 12 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 12 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $1.92 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 12 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $1.92 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 12 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 12 gb",
     "directAnswer": "Para compartir un archivo de 12 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $1.92 con saldo válido durante 12 meses.",
@@ -1528,7 +1528,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1573,20 +1573,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 14 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 14 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 14 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.24 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 14 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.24 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 14 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 14 gb",
     "directAnswer": "Para enviar un archivo de 14 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.24 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar un archivo de 14 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 14 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos de 14 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1617,7 +1617,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1630,7 +1630,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 14 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 14 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 14 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.24 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 14 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.24 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 14 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 14 gb",
     "directAnswer": "Para transferir un archivo de 14 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.24 con saldo válido durante 12 meses.",
@@ -1642,7 +1642,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos de 14 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1687,7 +1687,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 14 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 14 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 14 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.24 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 14 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.24 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 14 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 14 gb",
     "directAnswer": "Para compartir un archivo de 14 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.24 con saldo válido durante 12 meses.",
@@ -1699,7 +1699,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos de 14 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1744,20 +1744,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 15 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 15 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 15 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.40 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 15 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.40 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 15 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 15 gb",
     "directAnswer": "Para enviar un archivo de 15 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.40 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos de 15 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 15 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1788,7 +1788,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1801,7 +1801,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 15 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 15 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 15 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.40 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 15 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.40 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 15 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 15 gb",
     "directAnswer": "Para transferir un archivo de 15 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.40 con saldo válido durante 12 meses.",
@@ -1813,7 +1813,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos de 15 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1858,20 +1858,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 15 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 15 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 15 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.40 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 15 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.40 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 15 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 15 gb",
     "directAnswer": "Para compartir un archivo de 15 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.40 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir un archivo de 15 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 15 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos de 15 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -1902,7 +1902,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -1915,7 +1915,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 16 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 16 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 16 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.56 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 16 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.56 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 16 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 16 gb",
     "directAnswer": "Para enviar un archivo de 16 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.56 con saldo válido durante 12 meses.",
@@ -1927,7 +1927,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de 16 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -1972,7 +1972,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 16 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 16 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 16 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.56 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 16 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.56 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 16 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 16 gb",
     "directAnswer": "Para transferir un archivo de 16 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.56 con saldo válido durante 12 meses.",
@@ -1984,7 +1984,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2029,20 +2029,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 16 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 16 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 16 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.56 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 16 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.56 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 16 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 16 gb",
     "directAnswer": "Para compartir un archivo de 16 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.56 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir un archivo de 16 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 16 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos de 16 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2073,7 +2073,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2086,7 +2086,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 18 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 18 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 18 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.88 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 18 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.88 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 18 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 18 gb",
     "directAnswer": "Para enviar un archivo de 18 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.88 con saldo válido durante 12 meses.",
@@ -2098,7 +2098,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos de 18 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2143,20 +2143,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 18 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 18 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 18 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.88 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 18 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.88 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 18 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 18 gb",
     "directAnswer": "Para transferir un archivo de 18 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.88 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir un archivo de 18 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 18 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos de 18 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2187,7 +2187,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2200,7 +2200,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 18 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 18 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 18 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $2.88 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 18 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $2.88 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 18 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 18 gb",
     "directAnswer": "Para compartir un archivo de 18 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $2.88 con saldo válido durante 12 meses.",
@@ -2212,7 +2212,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2257,7 +2257,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 20 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 20 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 20 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $3.20 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 20 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $3.20 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 20 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 20 gb",
     "directAnswer": "Para enviar un archivo de 20 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $3.20 con saldo válido durante 12 meses.",
@@ -2269,7 +2269,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos de 20 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2314,20 +2314,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 20 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 20 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 20 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $3.20 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 20 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $3.20 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 20 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 20 gb",
     "directAnswer": "Para transferir un archivo de 20 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $3.20 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir un archivo de 20 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 20 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos de 20 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2358,7 +2358,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2371,7 +2371,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 20 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 20 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 20 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $3.20 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 20 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $3.20 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 20 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 20 gb",
     "directAnswer": "Para compartir un archivo de 20 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $3.20 con saldo válido durante 12 meses.",
@@ -2383,7 +2383,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos de 20 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2428,20 +2428,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 25 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 25 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 25 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $4.00 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 25 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $4.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 25 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 25 gb",
     "directAnswer": "Para enviar un archivo de 25 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $4.00 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos de 25 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 25 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2472,7 +2472,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2485,7 +2485,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 25 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 25 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 25 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $4.00 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 25 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $4.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 25 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 25 gb",
     "directAnswer": "Para transferir un archivo de 25 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $4.00 con saldo válido durante 12 meses.",
@@ -2497,7 +2497,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos de 25 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2542,7 +2542,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 25 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 25 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 25 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $4.00 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 25 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $4.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 25 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 25 gb",
     "directAnswer": "Para compartir un archivo de 25 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $4.00 con saldo válido durante 12 meses.",
@@ -2554,7 +2554,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos de 25 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2599,20 +2599,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 30 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 30 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 30 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $4.80 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 30 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $4.80 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 30 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 30 gb",
     "directAnswer": "Para enviar un archivo de 30 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $4.80 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar un archivo de 30 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 30 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de 30 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2643,7 +2643,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2656,7 +2656,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 30 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 30 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 30 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $4.80 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 30 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $4.80 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 30 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 30 gb",
     "directAnswer": "Para transferir un archivo de 30 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $4.80 con saldo válido durante 12 meses.",
@@ -2668,7 +2668,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2713,20 +2713,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 30 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 30 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 30 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $4.80 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 30 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $4.80 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 30 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 30 gb",
     "directAnswer": "Para compartir un archivo de 30 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $4.80 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir un archivo de 30 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 30 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos de 30 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2757,7 +2757,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2770,7 +2770,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 40 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 40 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 40 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $6.40 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 40 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $6.40 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 40 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 40 gb",
     "directAnswer": "Para enviar un archivo de 40 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $6.40 con saldo válido durante 12 meses.",
@@ -2782,7 +2782,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos de 40 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2827,7 +2827,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 40 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 40 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 40 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $6.40 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 40 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $6.40 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 40 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 40 gb",
     "directAnswer": "Para transferir un archivo de 40 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $6.40 con saldo válido durante 12 meses.",
@@ -2839,7 +2839,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos de 40 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2884,20 +2884,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 40 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 40 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 40 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $6.40 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 40 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $6.40 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 40 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 40 gb",
     "directAnswer": "Para compartir un archivo de 40 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $6.40 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Archivos de 40 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 40 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -2928,7 +2928,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -2941,7 +2941,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 50 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 50 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 50 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $8.00 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 50 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $8.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 50 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 50 gb",
     "directAnswer": "Para enviar un archivo de 50 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $8.00 con saldo válido durante 12 meses.",
@@ -2953,7 +2953,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos de 50 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -2998,20 +2998,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 50 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 50 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 50 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $8.00 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 50 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $8.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 50 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 50 gb",
     "directAnswer": "Para transferir un archivo de 50 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $8.00 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir un archivo de 50 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 50 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos de 50 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3042,7 +3042,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3055,7 +3055,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 50 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 50 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 50 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $8.00 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 50 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $8.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 50 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 50 gb",
     "directAnswer": "Para compartir un archivo de 50 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $8.00 con saldo válido durante 12 meses.",
@@ -3067,7 +3067,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos de 50 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3112,7 +3112,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 60 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 60 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 60 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $9.60 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 60 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $9.60 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 60 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 60 gb",
     "directAnswer": "Para enviar un archivo de 60 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $9.60 con saldo válido durante 12 meses.",
@@ -3124,7 +3124,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3169,20 +3169,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 60 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 60 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 60 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $9.60 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 60 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $9.60 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 60 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 60 gb",
     "directAnswer": "Para transferir un archivo de 60 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $9.60 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir un archivo de 60 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 60 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos de 60 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3213,7 +3213,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3226,7 +3226,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 60 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 60 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 60 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $9.60 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 60 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $9.60 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 60 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 60 gb",
     "directAnswer": "Para compartir un archivo de 60 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $9.60 con saldo válido durante 12 meses.",
@@ -3238,7 +3238,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos de 60 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3283,20 +3283,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 75 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 75 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 75 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $12.00 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 75 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $12.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 75 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 75 gb",
     "directAnswer": "Para enviar un archivo de 75 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $12.00 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar un archivo de 75 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 75 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de 75 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3327,7 +3327,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3340,7 +3340,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 75 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 75 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 75 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $12.00 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 75 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $12.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 75 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 75 gb",
     "directAnswer": "Para transferir un archivo de 75 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $12.00 con saldo válido durante 12 meses.",
@@ -3352,7 +3352,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3397,7 +3397,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 75 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 75 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 75 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $12.00 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 75 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $12.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 75 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 75 gb",
     "directAnswer": "Para compartir un archivo de 75 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $12.00 con saldo válido durante 12 meses.",
@@ -3409,7 +3409,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos de 75 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3454,20 +3454,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 80 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 80 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 80 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $12.80 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 80 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $12.80 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 80 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 80 gb",
     "directAnswer": "Para enviar un archivo de 80 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $12.80 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar un archivo de 80 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar un archivo de 80 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos de 80 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3498,7 +3498,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3511,7 +3511,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 80 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 80 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 80 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $12.80 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 80 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $12.80 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 80 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 80 gb",
     "directAnswer": "Para transferir un archivo de 80 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $12.80 con saldo válido durante 12 meses.",
@@ -3523,7 +3523,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos de 80 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3568,20 +3568,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 80 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 80 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 80 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $12.80 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 80 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $12.80 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 80 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 80 gb",
     "directAnswer": "Para compartir un archivo de 80 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $12.80 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Archivos de 80 GB Sin Suscripciones",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 80 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3612,7 +3612,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3625,7 +3625,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 100 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 100 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 100 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $16.00 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 100 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $16.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 100 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 100 gb",
     "directAnswer": "Para enviar un archivo de 100 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $16.00 con saldo válido durante 12 meses.",
@@ -3637,7 +3637,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos de 100 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3682,7 +3682,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 100 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 100 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 100 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $16.00 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 100 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $16.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 100 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 100 gb",
     "directAnswer": "Para transferir un archivo de 100 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $16.00 con saldo válido durante 12 meses.",
@@ -3694,7 +3694,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos de 100 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3739,20 +3739,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 100 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 100 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 100 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $16.00 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 100 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $16.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 100 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 100 gb",
     "directAnswer": "Para compartir un archivo de 100 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $16.00 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir un archivo de 100 gb\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir un archivo de 100 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos de 100 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3783,7 +3783,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3796,7 +3796,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 150 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 150 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 150 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $24.00 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 150 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $24.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 150 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 150 gb",
     "directAnswer": "Para enviar un archivo de 150 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $24.00 con saldo válido durante 12 meses.",
@@ -3808,7 +3808,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3853,20 +3853,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Transferir Archivos de 150 GB Sin Suscripciones",
     "metaTitle": "Cómo Transferir Archivos de 150 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a transferir un archivo de 150 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $24.00 con Apple Pay.",
+    "metaDescription": "Aprende a transferir un archivo de 150 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $24.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 150 GB • Cero Suscripciones",
     "targetKeyword": "cómo transferir un archivo de 150 gb",
     "directAnswer": "Para transferir un archivo de 150 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $24.00 con saldo válido durante 12 meses.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir un archivo de 150 gb",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir un archivo de 150 gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos de 150 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -3897,7 +3897,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El destinatario descarga directamente desde su navegador (Chrome, Safari, Edge, Firefox) a velocidad gigabit sin crear cuenta ni instalar aplicaciones."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -3910,7 +3910,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Compartir Archivos de 150 GB Sin Suscripciones",
     "metaTitle": "Cómo Compartir Archivos de 150 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a compartir un archivo de 150 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $24.00 con Apple Pay.",
+    "metaDescription": "Aprende a compartir un archivo de 150 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $24.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 150 GB • Cero Suscripciones",
     "targetKeyword": "cómo compartir un archivo de 150 gb",
     "directAnswer": "Para compartir un archivo de 150 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $24.00 con saldo válido durante 12 meses.",
@@ -3922,7 +3922,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos de 150 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -3967,7 +3967,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Cómo Enviar Archivos de 200 GB Sin Suscripciones",
     "metaTitle": "Cómo Enviar Archivos de 200 GB Sin Suscripciones | Gigasend",
-    "metaDescription": "Aprende a enviar un archivo de 200 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Velocidad Anycast desde $32.00 con Apple Pay.",
+    "metaDescription": "Aprende a enviar un archivo de 200 GB sin pagar suscripciones fijas ni sufrir límites de 2 GB. Envío directo desde $32.00 con Apple Pay.",
     "pillBadge": "Carga Perimetral Directa • Paquete de 200 GB • Cero Suscripciones",
     "targetKeyword": "cómo enviar un archivo de 200 gb",
     "directAnswer": "Para enviar un archivo de 200 GB sin límites artificiales de subida ni pagar mensualidades fijas, utiliza Gigasend. Arrastra tu archivo o carpeta al navegador, genera tu enlace seguro y transfiere a través de más de 335 puntos perimetrales Cloudflare por aproximadamente $32.00 con saldo válido durante 12 meses.",
@@ -3979,7 +3979,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de 200 GB Sin Suscripciones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4031,13 +4031,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos ProRes 422 Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos prores 422 sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4055,7 +4055,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4068,7 +4068,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4093,7 +4093,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos ProRes 422 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4112,7 +4112,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4145,13 +4145,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir archivos prores 422 sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos prores 422 sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos ProRes 422 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4169,7 +4169,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4182,7 +4182,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4207,7 +4207,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos ProRes 4444 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4226,7 +4226,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4264,7 +4264,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4283,7 +4283,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4316,13 +4316,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir archivos prores 4444 sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos prores 4444 sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos ProRes 4444 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4340,7 +4340,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4353,7 +4353,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4378,7 +4378,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos Blackmagic BRAW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4397,7 +4397,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4430,13 +4430,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir archivos blackmagic braw sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos blackmagic braw sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos Blackmagic BRAW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4454,7 +4454,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4467,7 +4467,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4492,7 +4492,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4511,7 +4511,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4549,7 +4549,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos REDCODE R3D Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4568,7 +4568,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4601,13 +4601,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir archivos redcode r3d sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos redcode r3d sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos REDCODE R3D Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4625,7 +4625,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4638,7 +4638,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4663,7 +4663,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos REDCODE R3D Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4682,7 +4682,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4715,13 +4715,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Sony XAVC Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos sony xavc sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4739,7 +4739,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4752,7 +4752,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4777,7 +4777,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos Sony XAVC Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4796,7 +4796,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4834,7 +4834,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos Sony XAVC Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4853,7 +4853,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4886,13 +4886,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar archivos arriraw sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos arriraw sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos ARRIRAW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -4910,7 +4910,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -4923,7 +4923,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -4948,7 +4948,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -4967,7 +4967,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5000,13 +5000,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir archivos arriraw sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos arriraw sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos ARRIRAW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5024,7 +5024,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5037,7 +5037,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5062,7 +5062,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos Canon CR3 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5081,7 +5081,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5119,7 +5119,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos Canon CR3 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5138,7 +5138,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5171,13 +5171,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Archivos Canon CR3 Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos canon cr3 sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5195,7 +5195,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5208,7 +5208,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5233,7 +5233,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Sony ARW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5252,7 +5252,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5285,13 +5285,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir archivos sony arw sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos sony arw sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos Sony ARW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5309,7 +5309,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5322,7 +5322,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5347,7 +5347,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos Sony ARW Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5366,7 +5366,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5404,7 +5404,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5423,7 +5423,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5456,13 +5456,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir archivos nikon nef sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos nikon nef sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos Nikon NEF Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5480,7 +5480,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5493,7 +5493,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5518,7 +5518,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos Nikon NEF Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5537,7 +5537,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5570,13 +5570,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar archivos fuji raf sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos fuji raf sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos Fuji RAF Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5594,7 +5594,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5607,7 +5607,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5632,7 +5632,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5651,7 +5651,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5689,7 +5689,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos Fuji RAF Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5708,7 +5708,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5741,13 +5741,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar archivos adobe dng sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos adobe dng sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos Adobe DNG Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5765,7 +5765,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5778,7 +5778,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5803,7 +5803,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos Adobe DNG Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5822,7 +5822,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5855,13 +5855,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Archivos Adobe DNG Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos adobe dng sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -5879,7 +5879,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5892,7 +5892,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -5917,7 +5917,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos OpenEXR 32-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5936,7 +5936,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -5974,7 +5974,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos OpenEXR 32-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -5993,7 +5993,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6026,13 +6026,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir archivos openexr 32-bit sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos openexr 32-bit sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos OpenEXR 32-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6050,7 +6050,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6063,7 +6063,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6088,7 +6088,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6107,7 +6107,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6140,13 +6140,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir archivos tiff 16-bit sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos tiff 16-bit sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos TIFF 16-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6164,7 +6164,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6177,7 +6177,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6202,7 +6202,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos TIFF 16-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6221,7 +6221,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6259,7 +6259,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos WAV 24/32-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6278,7 +6278,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6311,13 +6311,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Archivos WAV 24/32-bit Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos wav 24/32-bit sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6335,7 +6335,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6348,7 +6348,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6373,7 +6373,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos WAV 24/32-bit Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6392,7 +6392,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6425,13 +6425,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar archivos flac hi-res sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos flac hi-res sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos FLAC Hi-Res Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6449,7 +6449,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6462,7 +6462,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6487,7 +6487,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos FLAC Hi-Res Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6506,7 +6506,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6544,7 +6544,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6563,7 +6563,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6596,13 +6596,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar archivos blender .blend sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos blender .blend sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Blender .blend Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6620,7 +6620,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6633,7 +6633,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6658,7 +6658,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos Blender .blend Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6677,7 +6677,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6710,13 +6710,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir archivos blender .blend sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos blender .blend sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos Blender .blend Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6734,7 +6734,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6747,7 +6747,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6772,7 +6772,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6791,7 +6791,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6829,7 +6829,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos Unreal Engine Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6848,7 +6848,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6881,13 +6881,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir archivos unreal engine sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos unreal engine sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos Unreal Engine Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -6905,7 +6905,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6918,7 +6918,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -6943,7 +6943,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos Pro Tools .ptx Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -6962,7 +6962,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -6995,13 +6995,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Archivos Pro Tools .ptx Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos pro tools .ptx sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7019,7 +7019,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7032,7 +7032,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7057,7 +7057,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Archivos Pro Tools .ptx Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7076,7 +7076,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7114,7 +7114,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos AutoCAD DWG Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7133,7 +7133,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7166,13 +7166,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir archivos autocad dwg sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir archivos autocad dwg sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos AutoCAD DWG Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7190,7 +7190,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7203,7 +7203,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7228,7 +7228,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7247,7 +7247,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7280,13 +7280,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar archivos revit rvt sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos revit rvt sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Revit RVT Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7304,7 +7304,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7317,7 +7317,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7342,7 +7342,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos Revit RVT Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7361,7 +7361,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7399,7 +7399,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Archivos Revit RVT Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7418,7 +7418,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7451,13 +7451,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Photoshop PSB Sin Compresión Ni Pérdida",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar archivos photoshop psb sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7475,7 +7475,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7488,7 +7488,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7513,7 +7513,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos Photoshop PSB Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7532,7 +7532,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7565,13 +7565,13 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir archivos photoshop psb sin perder calidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir archivos photoshop psb sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Archivos Photoshop PSB Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7589,7 +7589,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7602,7 +7602,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Sí. Puedes arrastrar carpetas enteras de tarjetas de cámara (hasta 100 TB) preservando la estructura de directorios intacta."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7627,7 +7627,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos Video 4K MP4 Sin Compresión Ni Pérdida",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7646,7 +7646,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7684,7 +7684,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7703,7 +7703,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Red de Distribución",
-        "value": "335+ Ciudades Anycast"
+        "value": "335+ Servidores Globales"
       }
     ],
     "faqs": [
@@ -7732,17 +7732,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de DaVinci Resolve (.dra / .drp) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Coloristas y Postproducción • Preserva .dra / .drp • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de davinci resolve",
-    "directAnswer": "Para enviar un proyecto completo de DaVinci Resolve (.dra / .drp) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de DaVinci Resolve (.dra / .drp) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar proyecto de davinci resolve",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de davinci resolve\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Proyectos de DaVinci Resolve Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7773,7 +7773,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7789,7 +7789,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de DaVinci Resolve (.dra / .drp) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Coloristas y Postproducción • Preserva .dra / .drp • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de davinci resolve",
-    "directAnswer": "Para transferir un proyecto completo de DaVinci Resolve (.dra / .drp) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de DaVinci Resolve (.dra / .drp) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir proyecto de davinci resolve",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de davinci resolve\" y exigen suscripciones de 23 US$/mes.",
@@ -7798,7 +7798,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Proyectos de DaVinci Resolve Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7846,17 +7846,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de DaVinci Resolve (.dra / .drp) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Coloristas y Postproducción • Preserva .dra / .drp • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de davinci resolve",
-    "directAnswer": "Para compartir un proyecto completo de DaVinci Resolve (.dra / .drp) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de DaVinci Resolve (.dra / .drp) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir proyecto de davinci resolve\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de davinci resolve\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Proyectos de DaVinci Resolve Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -7887,7 +7887,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -7903,7 +7903,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Premiere Pro (.prproj y brutos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Editores de Video • Preserva .prproj y brutos • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de adobe premiere pro",
-    "directAnswer": "Para enviar un proyecto completo de Adobe Premiere Pro (.prproj y brutos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Adobe Premiere Pro (.prproj y brutos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de Adobe Premiere Pro Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de adobe premiere pro\" y exigen suscripciones de 23 US$/mes.",
@@ -7912,7 +7912,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -7960,7 +7960,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Premiere Pro (.prproj y brutos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Editores de Video • Preserva .prproj y brutos • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de adobe premiere pro",
-    "directAnswer": "Para transferir un proyecto completo de Adobe Premiere Pro (.prproj y brutos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Adobe Premiere Pro (.prproj y brutos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir proyecto de adobe premiere pro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de adobe premiere pro\" y exigen suscripciones de 23 US$/mes.",
@@ -7969,7 +7969,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Proyectos de Adobe Premiere Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8017,17 +8017,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Premiere Pro (.prproj y brutos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Editores de Video • Preserva .prproj y brutos • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de adobe premiere pro",
-    "directAnswer": "Para compartir un proyecto completo de Adobe Premiere Pro (.prproj y brutos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Adobe Premiere Pro (.prproj y brutos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir proyecto de adobe premiere pro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de adobe premiere pro\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Proyectos de Adobe Premiere Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8058,7 +8058,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8074,7 +8074,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Final Cut Pro (.fcpxml y bibliotecas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Creadores en Mac • Preserva .fcpxml y bibliotecas • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de final cut pro",
-    "directAnswer": "Para enviar un proyecto completo de Final Cut Pro (.fcpxml y bibliotecas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Final Cut Pro (.fcpxml y bibliotecas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar proyecto de final cut pro\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de final cut pro\" y exigen suscripciones de 23 US$/mes.",
@@ -8083,7 +8083,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Proyectos de Final Cut Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8131,17 +8131,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Final Cut Pro (.fcpxml y bibliotecas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Creadores en Mac • Preserva .fcpxml y bibliotecas • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de final cut pro",
-    "directAnswer": "Para transferir un proyecto completo de Final Cut Pro (.fcpxml y bibliotecas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Final Cut Pro (.fcpxml y bibliotecas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Proyectos de Final Cut Pro Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de final cut pro\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8172,7 +8172,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8188,7 +8188,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Final Cut Pro (.fcpxml y bibliotecas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Creadores en Mac • Preserva .fcpxml y bibliotecas • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de final cut pro",
-    "directAnswer": "Para compartir un proyecto completo de Final Cut Pro (.fcpxml y bibliotecas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Final Cut Pro (.fcpxml y bibliotecas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir proyecto de final cut pro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de final cut pro\" y exigen suscripciones de 23 US$/mes.",
@@ -8197,7 +8197,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Proyectos de Final Cut Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8245,7 +8245,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe After Effects (.aep y cachés) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Animadores y Motion Designers • Preserva .aep y cachés • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de adobe after effects",
-    "directAnswer": "Para enviar un proyecto completo de Adobe After Effects (.aep y cachés) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Adobe After Effects (.aep y cachés) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar proyecto de adobe after effects",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de adobe after effects\" y exigen suscripciones de 23 US$/mes.",
@@ -8254,7 +8254,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Proyectos de Adobe After Effects Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8302,17 +8302,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe After Effects (.aep y cachés) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Animadores y Motion Designers • Preserva .aep y cachés • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de adobe after effects",
-    "directAnswer": "Para transferir un proyecto completo de Adobe After Effects (.aep y cachés) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Adobe After Effects (.aep y cachés) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir proyecto de adobe after effects\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de adobe after effects\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Proyectos de Adobe After Effects Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8343,7 +8343,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8359,7 +8359,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe After Effects (.aep y cachés) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Animadores y Motion Designers • Preserva .aep y cachés • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de adobe after effects",
-    "directAnswer": "Para compartir un proyecto completo de Adobe After Effects (.aep y cachés) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Adobe After Effects (.aep y cachés) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Proyectos de Adobe After Effects Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de adobe after effects\" y exigen suscripciones de 23 US$/mes.",
@@ -8368,7 +8368,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8416,17 +8416,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Blender 3D (.blend y texturas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Artistas 3D y VFX • Preserva .blend y texturas • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de blender 3d",
-    "directAnswer": "Para enviar un proyecto completo de Blender 3D (.blend y texturas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Blender 3D (.blend y texturas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar proyecto de blender 3d",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de blender 3d\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Proyectos de Blender 3D Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8457,7 +8457,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8473,7 +8473,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Blender 3D (.blend y texturas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Artistas 3D y VFX • Preserva .blend y texturas • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de blender 3d",
-    "directAnswer": "Para transferir un proyecto completo de Blender 3D (.blend y texturas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Blender 3D (.blend y texturas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir proyecto de blender 3d",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de blender 3d\" y exigen suscripciones de 23 US$/mes.",
@@ -8482,7 +8482,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Proyectos de Blender 3D Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8530,7 +8530,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Blender 3D (.blend y texturas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Artistas 3D y VFX • Preserva .blend y texturas • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de blender 3d",
-    "directAnswer": "Para compartir un proyecto completo de Blender 3D (.blend y texturas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Blender 3D (.blend y texturas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir proyecto de blender 3d\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de blender 3d\" y exigen suscripciones de 23 US$/mes.",
@@ -8539,7 +8539,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Proyectos de Blender 3D Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8587,17 +8587,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Cinema 4D (.c4d y recursos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores de Animación 3D • Preserva .c4d y recursos • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de cinema 4d",
-    "directAnswer": "Para enviar un proyecto completo de Cinema 4D (.c4d y recursos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Cinema 4D (.c4d y recursos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de Cinema 4D Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de cinema 4d\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8628,7 +8628,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8644,7 +8644,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Cinema 4D (.c4d y recursos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores de Animación 3D • Preserva .c4d y recursos • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de cinema 4d",
-    "directAnswer": "Para transferir un proyecto completo de Cinema 4D (.c4d y recursos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Cinema 4D (.c4d y recursos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir proyecto de cinema 4d",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de cinema 4d\" y exigen suscripciones de 23 US$/mes.",
@@ -8653,7 +8653,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Proyectos de Cinema 4D Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8701,17 +8701,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Cinema 4D (.c4d y recursos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores de Animación 3D • Preserva .c4d y recursos • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de cinema 4d",
-    "directAnswer": "Para compartir un proyecto completo de Cinema 4D (.c4d y recursos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Cinema 4D (.c4d y recursos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir proyecto de cinema 4d",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de cinema 4d\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Proyectos de Cinema 4D Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8742,7 +8742,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8758,7 +8758,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Avid Pro Tools (.ptx y audios) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Ingenieros de Mezcla • Preserva .ptx y audios • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de avid pro tools",
-    "directAnswer": "Para enviar un proyecto completo de Avid Pro Tools (.ptx y audios) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Avid Pro Tools (.ptx y audios) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar proyecto de avid pro tools\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de avid pro tools\" y exigen suscripciones de 23 US$/mes.",
@@ -8767,7 +8767,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Proyectos de Avid Pro Tools Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8815,7 +8815,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Avid Pro Tools (.ptx y audios) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Ingenieros de Mezcla • Preserva .ptx y audios • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de avid pro tools",
-    "directAnswer": "Para transferir un proyecto completo de Avid Pro Tools (.ptx y audios) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Avid Pro Tools (.ptx y audios) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Proyectos de Avid Pro Tools Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de avid pro tools\" y exigen suscripciones de 23 US$/mes.",
@@ -8824,7 +8824,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8872,17 +8872,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Avid Pro Tools (.ptx y audios) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Ingenieros de Mezcla • Preserva .ptx y audios • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de avid pro tools",
-    "directAnswer": "Para compartir un proyecto completo de Avid Pro Tools (.ptx y audios) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Avid Pro Tools (.ptx y audios) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir proyecto de avid pro tools",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de avid pro tools\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Proyectos de Avid Pro Tools Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -8913,7 +8913,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -8929,7 +8929,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Apple Logic Pro (.logicx) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Productores Musicales • Preserva .logicx • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de apple logic pro",
-    "directAnswer": "Para enviar un proyecto completo de Apple Logic Pro (.logicx) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Apple Logic Pro (.logicx) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar proyecto de apple logic pro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de apple logic pro\" y exigen suscripciones de 23 US$/mes.",
@@ -8938,7 +8938,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Proyectos de Apple Logic Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -8986,17 +8986,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Apple Logic Pro (.logicx) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Productores Musicales • Preserva .logicx • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de apple logic pro",
-    "directAnswer": "Para transferir un proyecto completo de Apple Logic Pro (.logicx) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Apple Logic Pro (.logicx) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir proyecto de apple logic pro\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de apple logic pro\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Proyectos de Apple Logic Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9027,7 +9027,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9043,7 +9043,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Apple Logic Pro (.logicx) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Productores Musicales • Preserva .logicx • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de apple logic pro",
-    "directAnswer": "Para compartir un proyecto completo de Apple Logic Pro (.logicx) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Apple Logic Pro (.logicx) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Proyectos de Apple Logic Pro Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de apple logic pro\" y exigen suscripciones de 23 US$/mes.",
@@ -9052,7 +9052,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9100,7 +9100,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Ableton Live (.als y samples) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Productores de Música Electrónica • Preserva .als y samples • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de ableton live",
-    "directAnswer": "Para enviar un proyecto completo de Ableton Live (.als y samples) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Ableton Live (.als y samples) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar proyecto de ableton live",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de ableton live\" y exigen suscripciones de 23 US$/mes.",
@@ -9109,7 +9109,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Proyectos de Ableton Live Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9157,17 +9157,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Ableton Live (.als y samples) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Productores de Música Electrónica • Preserva .als y samples • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de ableton live",
-    "directAnswer": "Para transferir un proyecto completo de Ableton Live (.als y samples) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Ableton Live (.als y samples) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir proyecto de ableton live",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de ableton live\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Proyectos de Ableton Live Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9198,7 +9198,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9214,7 +9214,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Ableton Live (.als y samples) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Productores de Música Electrónica • Preserva .als y samples • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de ableton live",
-    "directAnswer": "Para compartir un proyecto completo de Ableton Live (.als y samples) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Ableton Live (.als y samples) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir proyecto de ableton live\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de ableton live\" y exigen suscripciones de 23 US$/mes.",
@@ -9223,7 +9223,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Proyectos de Ableton Live Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9271,17 +9271,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de FL Studio (.flp y wavs) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Beatmakers y Productores • Preserva .flp y wavs • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de fl studio",
-    "directAnswer": "Para enviar un proyecto completo de FL Studio (.flp y wavs) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de FL Studio (.flp y wavs) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de FL Studio Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de fl studio\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9312,7 +9312,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9328,7 +9328,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de FL Studio (.flp y wavs) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Beatmakers y Productores • Preserva .flp y wavs • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de fl studio",
-    "directAnswer": "Para transferir un proyecto completo de FL Studio (.flp y wavs) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de FL Studio (.flp y wavs) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir proyecto de fl studio",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de fl studio\" y exigen suscripciones de 23 US$/mes.",
@@ -9337,7 +9337,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Proyectos de FL Studio Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9385,7 +9385,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de FL Studio (.flp y wavs) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Beatmakers y Productores • Preserva .flp y wavs • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de fl studio",
-    "directAnswer": "Para compartir un proyecto completo de FL Studio (.flp y wavs) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de FL Studio (.flp y wavs) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir proyecto de fl studio",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de fl studio\" y exigen suscripciones de 23 US$/mes.",
@@ -9394,7 +9394,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Proyectos de FL Studio Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9442,17 +9442,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Autodesk AutoCAD (.dwg y referencias) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Arquitectos e Ingenieros • Preserva .dwg y referencias • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de autodesk autocad",
-    "directAnswer": "Para enviar un proyecto completo de Autodesk AutoCAD (.dwg y referencias) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Autodesk AutoCAD (.dwg y referencias) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar proyecto de autodesk autocad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de autodesk autocad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Proyectos de Autodesk AutoCAD Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9483,7 +9483,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9499,7 +9499,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Autodesk AutoCAD (.dwg y referencias) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Arquitectos e Ingenieros • Preserva .dwg y referencias • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de autodesk autocad",
-    "directAnswer": "Para transferir un proyecto completo de Autodesk AutoCAD (.dwg y referencias) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Autodesk AutoCAD (.dwg y referencias) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Proyectos de Autodesk AutoCAD Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de autodesk autocad\" y exigen suscripciones de 23 US$/mes.",
@@ -9508,7 +9508,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9556,17 +9556,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Autodesk AutoCAD (.dwg y referencias) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Arquitectos e Ingenieros • Preserva .dwg y referencias • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de autodesk autocad",
-    "directAnswer": "Para compartir un proyecto completo de Autodesk AutoCAD (.dwg y referencias) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Autodesk AutoCAD (.dwg y referencias) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir proyecto de autodesk autocad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de autodesk autocad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Proyectos de Autodesk AutoCAD Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9597,7 +9597,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9613,7 +9613,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Autodesk Revit (.rvt y modelos BIM) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Coordinadores BIM • Preserva .rvt y modelos BIM • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de autodesk revit",
-    "directAnswer": "Para enviar un proyecto completo de Autodesk Revit (.rvt y modelos BIM) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Autodesk Revit (.rvt y modelos BIM) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar proyecto de autodesk revit",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de autodesk revit\" y exigen suscripciones de 23 US$/mes.",
@@ -9622,7 +9622,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Proyectos de Autodesk Revit Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9670,7 +9670,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Autodesk Revit (.rvt y modelos BIM) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Coordinadores BIM • Preserva .rvt y modelos BIM • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de autodesk revit",
-    "directAnswer": "Para transferir un proyecto completo de Autodesk Revit (.rvt y modelos BIM) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Autodesk Revit (.rvt y modelos BIM) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir proyecto de autodesk revit\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de autodesk revit\" y exigen suscripciones de 23 US$/mes.",
@@ -9679,7 +9679,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Proyectos de Autodesk Revit Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9727,17 +9727,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Autodesk Revit (.rvt y modelos BIM) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Coordinadores BIM • Preserva .rvt y modelos BIM • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de autodesk revit",
-    "directAnswer": "Para compartir un proyecto completo de Autodesk Revit (.rvt y modelos BIM) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Autodesk Revit (.rvt y modelos BIM) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Proyectos de Autodesk Revit Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de autodesk revit\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9768,7 +9768,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9784,7 +9784,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Unreal Engine 5 (.uproject) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Estudios de Videojuegos • Preserva .uproject • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de unreal engine 5",
-    "directAnswer": "Para enviar un proyecto completo de Unreal Engine 5 (.uproject) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Unreal Engine 5 (.uproject) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar proyecto de unreal engine 5",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de unreal engine 5\" y exigen suscripciones de 23 US$/mes.",
@@ -9793,7 +9793,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Proyectos de Unreal Engine 5 Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9841,17 +9841,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Unreal Engine 5 (.uproject) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Estudios de Videojuegos • Preserva .uproject • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de unreal engine 5",
-    "directAnswer": "Para transferir un proyecto completo de Unreal Engine 5 (.uproject) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Unreal Engine 5 (.uproject) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir proyecto de unreal engine 5",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de unreal engine 5\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Proyectos de Unreal Engine 5 Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -9882,7 +9882,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -9898,7 +9898,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Unreal Engine 5 (.uproject) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Estudios de Videojuegos • Preserva .uproject • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de unreal engine 5",
-    "directAnswer": "Para compartir un proyecto completo de Unreal Engine 5 (.uproject) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Unreal Engine 5 (.uproject) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir proyecto de unreal engine 5\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de unreal engine 5\" y exigen suscripciones de 23 US$/mes.",
@@ -9907,7 +9907,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Proyectos de Unreal Engine 5 Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -9955,7 +9955,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Unity Engine (Assets y builds) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Desarrolladores de Juegos • Preserva Assets y builds • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de unity engine",
-    "directAnswer": "Para enviar un proyecto completo de Unity Engine (Assets y builds) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Unity Engine (Assets y builds) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de Unity Engine Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de unity engine\" y exigen suscripciones de 23 US$/mes.",
@@ -9964,7 +9964,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10012,17 +10012,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Unity Engine (Assets y builds) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Desarrolladores de Juegos • Preserva Assets y builds • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de unity engine",
-    "directAnswer": "Para transferir un proyecto completo de Unity Engine (Assets y builds) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Unity Engine (Assets y builds) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir proyecto de unity engine",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de unity engine\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Proyectos de Unity Engine Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10053,7 +10053,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10069,7 +10069,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Unity Engine (Assets y builds) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Desarrolladores de Juegos • Preserva Assets y builds • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de unity engine",
-    "directAnswer": "Para compartir un proyecto completo de Unity Engine (Assets y builds) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Unity Engine (Assets y builds) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir proyecto de unity engine",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de unity engine\" y exigen suscripciones de 23 US$/mes.",
@@ -10078,7 +10078,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Proyectos de Unity Engine Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10126,17 +10126,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Photoshop (.psb y capas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Retocadores y Diseñadores • Preserva .psb y capas • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de adobe photoshop",
-    "directAnswer": "Para enviar un proyecto completo de Adobe Photoshop (.psb y capas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Adobe Photoshop (.psb y capas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar proyecto de adobe photoshop\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de adobe photoshop\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Proyectos de Adobe Photoshop Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10167,7 +10167,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10183,7 +10183,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Photoshop (.psb y capas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Retocadores y Diseñadores • Preserva .psb y capas • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de adobe photoshop",
-    "directAnswer": "Para transferir un proyecto completo de Adobe Photoshop (.psb y capas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Adobe Photoshop (.psb y capas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Proyectos de Adobe Photoshop Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de adobe photoshop\" y exigen suscripciones de 23 US$/mes.",
@@ -10192,7 +10192,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10240,7 +10240,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Photoshop (.psb y capas) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Retocadores y Diseñadores • Preserva .psb y capas • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de adobe photoshop",
-    "directAnswer": "Para compartir un proyecto completo de Adobe Photoshop (.psb y capas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Adobe Photoshop (.psb y capas) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir proyecto de adobe photoshop",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de adobe photoshop\" y exigen suscripciones de 23 US$/mes.",
@@ -10249,7 +10249,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Proyectos de Adobe Photoshop Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10297,17 +10297,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Illustrator (.ai y vectores) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores Gráficos • Preserva .ai y vectores • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de adobe illustrator",
-    "directAnswer": "Para enviar un proyecto completo de Adobe Illustrator (.ai y vectores) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Adobe Illustrator (.ai y vectores) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar proyecto de adobe illustrator",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de adobe illustrator\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Proyectos de Adobe Illustrator Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10338,7 +10338,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10354,7 +10354,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Illustrator (.ai y vectores) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores Gráficos • Preserva .ai y vectores • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de adobe illustrator",
-    "directAnswer": "Para transferir un proyecto completo de Adobe Illustrator (.ai y vectores) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Adobe Illustrator (.ai y vectores) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir proyecto de adobe illustrator\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de adobe illustrator\" y exigen suscripciones de 23 US$/mes.",
@@ -10363,7 +10363,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Proyectos de Adobe Illustrator Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10411,17 +10411,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Illustrator (.ai y vectores) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores Gráficos • Preserva .ai y vectores • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de adobe illustrator",
-    "directAnswer": "Para compartir un proyecto completo de Adobe Illustrator (.ai y vectores) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Adobe Illustrator (.ai y vectores) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Proyectos de Adobe Illustrator Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de adobe illustrator\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10452,7 +10452,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10468,7 +10468,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Lightroom (.lrcat y catálogos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Fotógrafos Profesionales • Preserva .lrcat y catálogos • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de adobe lightroom",
-    "directAnswer": "Para enviar un proyecto completo de Adobe Lightroom (.lrcat y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Adobe Lightroom (.lrcat y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar proyecto de adobe lightroom",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de adobe lightroom\" y exigen suscripciones de 23 US$/mes.",
@@ -10477,7 +10477,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Proyectos de Adobe Lightroom Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10525,7 +10525,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Lightroom (.lrcat y catálogos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Fotógrafos Profesionales • Preserva .lrcat y catálogos • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de adobe lightroom",
-    "directAnswer": "Para transferir un proyecto completo de Adobe Lightroom (.lrcat y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Adobe Lightroom (.lrcat y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir proyecto de adobe lightroom",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de adobe lightroom\" y exigen suscripciones de 23 US$/mes.",
@@ -10534,7 +10534,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Proyectos de Adobe Lightroom Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10582,17 +10582,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Adobe Lightroom (.lrcat y catálogos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Fotógrafos Profesionales • Preserva .lrcat y catálogos • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de adobe lightroom",
-    "directAnswer": "Para compartir un proyecto completo de Adobe Lightroom (.lrcat y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Adobe Lightroom (.lrcat y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir proyecto de adobe lightroom\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de adobe lightroom\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Proyectos de Adobe Lightroom Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10623,7 +10623,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10639,7 +10639,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Capture One Pro (Sesiones y catálogos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Fotógrafos de Moda y Publicidad • Preserva Sesiones y catálogos • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de capture one pro",
-    "directAnswer": "Para enviar un proyecto completo de Capture One Pro (Sesiones y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Capture One Pro (Sesiones y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de Capture One Pro Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de capture one pro\" y exigen suscripciones de 23 US$/mes.",
@@ -10648,7 +10648,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10696,17 +10696,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Capture One Pro (Sesiones y catálogos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Fotógrafos de Moda y Publicidad • Preserva Sesiones y catálogos • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de capture one pro",
-    "directAnswer": "Para transferir un proyecto completo de Capture One Pro (Sesiones y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Capture One Pro (Sesiones y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir proyecto de capture one pro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de capture one pro\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Proyectos de Capture One Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10737,7 +10737,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10753,7 +10753,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Capture One Pro (Sesiones y catálogos) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Fotógrafos de Moda y Publicidad • Preserva Sesiones y catálogos • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de capture one pro",
-    "directAnswer": "Para compartir un proyecto completo de Capture One Pro (Sesiones y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Capture One Pro (Sesiones y catálogos) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo compartir proyecto de capture one pro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de capture one pro\" y exigen suscripciones de 23 US$/mes.",
@@ -10762,7 +10762,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para compartir Proyectos de Capture One Pro Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10810,7 +10810,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de SolidWorks (.sldprt y ensamblajes) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Ingenieros Mecánicos • Preserva .sldprt y ensamblajes • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de solidworks",
-    "directAnswer": "Para enviar un proyecto completo de SolidWorks (.sldprt y ensamblajes) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de SolidWorks (.sldprt y ensamblajes) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo enviar proyecto de solidworks\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de solidworks\" y exigen suscripciones de 23 US$/mes.",
@@ -10819,7 +10819,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Proyectos de SolidWorks Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10867,17 +10867,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de SolidWorks (.sldprt y ensamblajes) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Ingenieros Mecánicos • Preserva .sldprt y ensamblajes • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de solidworks",
-    "directAnswer": "Para transferir un proyecto completo de SolidWorks (.sldprt y ensamblajes) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de SolidWorks (.sldprt y ensamblajes) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Proyectos de SolidWorks Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de solidworks\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -10908,7 +10908,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -10924,7 +10924,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de SolidWorks (.sldprt y ensamblajes) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Ingenieros Mecánicos • Preserva .sldprt y ensamblajes • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de solidworks",
-    "directAnswer": "Para compartir un proyecto completo de SolidWorks (.sldprt y ensamblajes) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de SolidWorks (.sldprt y ensamblajes) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo compartir proyecto de solidworks",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de solidworks\" y exigen suscripciones de 23 US$/mes.",
@@ -10933,7 +10933,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Proyectos de SolidWorks Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -10981,17 +10981,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Trimble SketchUp (.skp y materiales) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores de Interiores • Preserva .skp y materiales • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de trimble sketchup",
-    "directAnswer": "Para enviar un proyecto completo de Trimble SketchUp (.skp y materiales) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Trimble SketchUp (.skp y materiales) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo enviar proyecto de trimble sketchup",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de trimble sketchup\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Proyectos de Trimble SketchUp Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11022,7 +11022,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11038,7 +11038,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Trimble SketchUp (.skp y materiales) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores de Interiores • Preserva .skp y materiales • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de trimble sketchup",
-    "directAnswer": "Para transferir un proyecto completo de Trimble SketchUp (.skp y materiales) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Trimble SketchUp (.skp y materiales) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo transferir proyecto de trimble sketchup\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de trimble sketchup\" y exigen suscripciones de 23 US$/mes.",
@@ -11047,7 +11047,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Proyectos de Trimble SketchUp Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11095,7 +11095,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Trimble SketchUp (.skp y materiales) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Diseñadores de Interiores • Preserva .skp y materiales • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de trimble sketchup",
-    "directAnswer": "Para compartir un proyecto completo de Trimble SketchUp (.skp y materiales) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de Trimble SketchUp (.skp y materiales) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al compartir Proyectos de Trimble SketchUp Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de trimble sketchup\" y exigen suscripciones de 23 US$/mes.",
@@ -11104,7 +11104,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11152,17 +11152,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de CapCut PC / Mac (Proyectos y videos 4K) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Creadores de Contenido • Preserva Proyectos y videos 4K • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de capcut pc / mac",
-    "directAnswer": "Para enviar un proyecto completo de CapCut PC / Mac (Proyectos y videos 4K) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de CapCut PC / Mac (Proyectos y videos 4K) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo enviar proyecto de capcut pc / mac",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de capcut pc / mac\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Proyectos de CapCut PC / Mac Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11193,7 +11193,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11209,7 +11209,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de CapCut PC / Mac (Proyectos y videos 4K) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Creadores de Contenido • Preserva Proyectos y videos 4K • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de capcut pc / mac",
-    "directAnswer": "Para transferir un proyecto completo de CapCut PC / Mac (Proyectos y videos 4K) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de CapCut PC / Mac (Proyectos y videos 4K) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al cómo transferir proyecto de capcut pc / mac",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de capcut pc / mac\" y exigen suscripciones de 23 US$/mes.",
@@ -11218,7 +11218,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Proyectos de CapCut PC / Mac Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11266,17 +11266,17 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de CapCut PC / Mac (Proyectos y videos 4K) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Creadores de Contenido • Preserva Proyectos y videos 4K • Cero Suscripciones",
     "targetKeyword": "cómo compartir proyecto de capcut pc / mac",
-    "directAnswer": "Para compartir un proyecto completo de CapCut PC / Mac (Proyectos y videos 4K) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para compartir un proyecto completo de CapCut PC / Mac (Proyectos y videos 4K) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"cómo compartir proyecto de capcut pc / mac\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo compartir proyecto de capcut pc / mac\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para compartir Proyectos de CapCut PC / Mac Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11307,7 +11307,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "No. El colaborador simplemente hace clic en el enlace y descarga la carpeta completa a la velocidad máxima de su conexión de internet."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11323,7 +11323,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Avid Media Composer (.avb y MXF) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Editores de Cine y Televisión • Preserva .avb y MXF • Cero Suscripciones",
     "targetKeyword": "cómo enviar proyecto de avid media composer",
-    "directAnswer": "Para enviar un proyecto completo de Avid Media Composer (.avb y MXF) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para enviar un proyecto completo de Avid Media Composer (.avb y MXF) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de Avid Media Composer Sin Error de Medios",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo enviar proyecto de avid media composer\" y exigen suscripciones de 23 US$/mes.",
@@ -11332,7 +11332,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11380,7 +11380,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Transfiere proyectos completos de Avid Media Composer (.avb y MXF) a colaboradores remotos sin medios rotos ni pagar suscripciones mensuales fijas.",
     "pillBadge": "Diseñado para Editores de Cine y Televisión • Preserva .avb y MXF • Cero Suscripciones",
     "targetKeyword": "cómo transferir proyecto de avid media composer",
-    "directAnswer": "Para transferir un proyecto completo de Avid Media Composer (.avb y MXF) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a velocidad Anycast por solo 0,16 US$/GB.",
+    "directAnswer": "Para transferir un proyecto completo de Avid Media Composer (.avb y MXF) sin errores de medios desconectados ni límites de subida de 2 GB, utiliza Gigasend. Arrastra la carpeta contenedora con todos los activos directamente al navegador y transfiere a alta velocidad por solo 0,16 US$/GB.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de cómo transferir proyecto de avid media composer",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"cómo transferir proyecto de avid media composer\" y exigen suscripciones de 23 US$/mes.",
@@ -11389,7 +11389,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Proyectos de Avid Media Composer Sin Error de Medios",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11435,19 +11435,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Videógrafos de Bodas",
     "metaTitle": "Archivos Grandes para Videógrafos de Bodas | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Videógrafos de Bodas. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Videógrafos de Bodas • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Videógrafos de Bodas • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para videógrafos de bodas",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Videógrafos de Bodas. Transfiere películas nupciales en 4K de 50GB a 100GB con estacionalidad y desuso en invierno a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al archivos grandes para videógrafos de bodas",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para videógrafos de bodas\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Archivos Grandes para Videógrafos de Bodas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11478,7 +11478,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11492,7 +11492,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Videógrafos de Bodas",
     "metaTitle": "Transferencia para Videógrafos de Bodas | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Videógrafos de Bodas. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Videógrafos de Bodas • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Videógrafos de Bodas • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para videógrafos de bodas",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Videógrafos de Bodas. Transfiere películas nupciales en 4K de 50GB a 100GB con estacionalidad y desuso en invierno a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferencia para videógrafos de bodas\"",
@@ -11503,7 +11503,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Transferencia para Videógrafos de Bodas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11549,19 +11549,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Videógrafos de Bodas",
     "metaTitle": "Entrega Segura para Videógrafos de Bodas | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Videógrafos de Bodas. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Videógrafos de Bodas • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Videógrafos de Bodas • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para videógrafos de bodas",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Videógrafos de Bodas. Transfiere películas nupciales en 4K de 50GB a 100GB con estacionalidad y desuso en invierno a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Entrega Segura para Videógrafos de Bodas",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para videógrafos de bodas\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11592,7 +11592,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11606,7 +11606,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Fotógrafos Profesionales",
     "metaTitle": "Archivos Grandes para Fotógrafos Profesionales | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Fotógrafos Profesionales. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Fotógrafos Profesionales • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Fotógrafos Profesionales • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para fotógrafos profesionales",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Fotógrafos Profesionales. Transfiere galerías completas en RAW y entregas de alta resolución para clientes exigentes a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de archivos grandes para fotógrafos profesionales",
@@ -11617,7 +11617,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Archivos Grandes para Fotógrafos Profesionales",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11663,7 +11663,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Fotógrafos Profesionales",
     "metaTitle": "Transferencia para Fotógrafos Profesionales | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Fotógrafos Profesionales. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Fotógrafos Profesionales • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Fotógrafos Profesionales • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para fotógrafos profesionales",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Fotógrafos Profesionales. Transfiere galerías completas en RAW y entregas de alta resolución para clientes exigentes a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferencia para fotógrafos profesionales",
@@ -11674,7 +11674,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Transferencia para Fotógrafos Profesionales",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11720,19 +11720,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Fotógrafos Profesionales",
     "metaTitle": "Entrega Segura para Fotógrafos Profesionales | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Fotógrafos Profesionales. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Fotógrafos Profesionales • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Fotógrafos Profesionales • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para fotógrafos profesionales",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Fotógrafos Profesionales. Transfiere galerías completas en RAW y entregas de alta resolución para clientes exigentes a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"entrega segura para fotógrafos profesionales\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para fotógrafos profesionales\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Entrega Segura para Fotógrafos Profesionales",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11763,7 +11763,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11777,7 +11777,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Agencias de Publicidad",
     "metaTitle": "Archivos Grandes para Agencias de Publicidad | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Agencias de Publicidad. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Agencias de Publicidad • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Agencias de Publicidad • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para agencias de publicidad",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Agencias de Publicidad. Transfiere masters comerciales de video y campañas multiformato con entregas de última hora a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Archivos Grandes para Agencias de Publicidad",
@@ -11788,7 +11788,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11834,19 +11834,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Agencias de Publicidad",
     "metaTitle": "Transferencia para Agencias de Publicidad | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Agencias de Publicidad. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Agencias de Publicidad • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Agencias de Publicidad • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para agencias de publicidad",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Agencias de Publicidad. Transfiere masters comerciales de video y campañas multiformato con entregas de última hora a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferencia para agencias de publicidad",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferencia para agencias de publicidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Transferencia para Agencias de Publicidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -11877,7 +11877,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -11891,7 +11891,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Agencias de Publicidad",
     "metaTitle": "Entrega Segura para Agencias de Publicidad | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Agencias de Publicidad. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Agencias de Publicidad • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Agencias de Publicidad • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para agencias de publicidad",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Agencias de Publicidad. Transfiere masters comerciales de video y campañas multiformato con entregas de última hora a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al entrega segura para agencias de publicidad",
@@ -11902,7 +11902,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Entrega Segura para Agencias de Publicidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -11948,7 +11948,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Editores de Video",
     "metaTitle": "Archivos Grandes para Editores de Video | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Editores de Video. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Editores de Video • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Editores de Video • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para editores de video",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Editores de Video. Transfiere archivos brutos de cámara pesados enviados por clientes remotos sin compresión a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"archivos grandes para editores de video\"",
@@ -11959,7 +11959,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Archivos Grandes para Editores de Video",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12005,19 +12005,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Editores de Video",
     "metaTitle": "Transferencia para Editores de Video | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Editores de Video. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Editores de Video • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Editores de Video • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para editores de video",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Editores de Video. Transfiere archivos brutos de cámara pesados enviados por clientes remotos sin compresión a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Transferencia para Editores de Video",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferencia para editores de video\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12048,7 +12048,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12062,7 +12062,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Editores de Video",
     "metaTitle": "Entrega Segura para Editores de Video | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Editores de Video. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Editores de Video • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Editores de Video • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para editores de video",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Editores de Video. Transfiere archivos brutos de cámara pesados enviados por clientes remotos sin compresión a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de entrega segura para editores de video",
@@ -12073,7 +12073,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Entrega Segura para Editores de Video",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12119,19 +12119,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Coloristas y Postproducción",
     "metaTitle": "Archivos Grandes para Coloristas y Postproducción | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Coloristas y Postproducción. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Coloristas y Postproducción • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Coloristas y Postproducción • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para coloristas y postproducción",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Coloristas y Postproducción. Transfiere entregas cinematográficas en ProRes 4444 XQ y archivos .DRA de DaVinci Resolve a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al archivos grandes para coloristas y postproducción",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para coloristas y postproducción\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Archivos Grandes para Coloristas y Postproducción",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12162,7 +12162,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12176,7 +12176,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Coloristas y Postproducción",
     "metaTitle": "Transferencia para Coloristas y Postproducción | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Coloristas y Postproducción. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Coloristas y Postproducción • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Coloristas y Postproducción • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para coloristas y postproducción",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Coloristas y Postproducción. Transfiere entregas cinematográficas en ProRes 4444 XQ y archivos .DRA de DaVinci Resolve a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferencia para coloristas y postproducción\"",
@@ -12187,7 +12187,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Transferencia para Coloristas y Postproducción",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12233,7 +12233,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Coloristas y Postproducción",
     "metaTitle": "Entrega Segura para Coloristas y Postproducción | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Coloristas y Postproducción. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Coloristas y Postproducción • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Coloristas y Postproducción • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para coloristas y postproducción",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Coloristas y Postproducción. Transfiere entregas cinematográficas en ProRes 4444 XQ y archivos .DRA de DaVinci Resolve a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Entrega Segura para Coloristas y Postproducción",
@@ -12244,7 +12244,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12290,19 +12290,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Estudios de VFX",
     "metaTitle": "Archivos Grandes para Estudios de VFX | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de VFX. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de VFX • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de VFX • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para estudios de vfx",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de VFX. Transfiere pases de render OpenEXR multicapa y simulaciones 3D de cientos de gigabytes a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de archivos grandes para estudios de vfx",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para estudios de vfx\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Archivos Grandes para Estudios de VFX",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12333,7 +12333,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12347,7 +12347,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Estudios de VFX",
     "metaTitle": "Transferencia para Estudios de VFX | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de VFX. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de VFX • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de VFX • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para estudios de vfx",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de VFX. Transfiere pases de render OpenEXR multicapa y simulaciones 3D de cientos de gigabytes a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferencia para estudios de vfx",
@@ -12358,7 +12358,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Transferencia para Estudios de VFX",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12404,19 +12404,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Estudios de VFX",
     "metaTitle": "Entrega Segura para Estudios de VFX | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de VFX. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de VFX • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de VFX • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para estudios de vfx",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de VFX. Transfiere pases de render OpenEXR multicapa y simulaciones 3D de cientos de gigabytes a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"entrega segura para estudios de vfx\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para estudios de vfx\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Entrega Segura para Estudios de VFX",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12447,7 +12447,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12461,7 +12461,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Estudios de Audio",
     "metaTitle": "Archivos Grandes para Estudios de Audio | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de Audio. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de Audio • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de Audio • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para estudios de audio",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de Audio. Transfiere multipistas de audio a 32-bit float y masters de álbumes en alta fidelidad a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Archivos Grandes para Estudios de Audio",
@@ -12472,7 +12472,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12518,7 +12518,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Estudios de Audio",
     "metaTitle": "Transferencia para Estudios de Audio | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de Audio. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de Audio • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de Audio • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para estudios de audio",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de Audio. Transfiere multipistas de audio a 32-bit float y masters de álbumes en alta fidelidad a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferencia para estudios de audio",
@@ -12529,7 +12529,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Transferencia para Estudios de Audio",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12575,19 +12575,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Estudios de Audio",
     "metaTitle": "Entrega Segura para Estudios de Audio | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de Audio. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de Audio • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de Audio • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para estudios de audio",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de Audio. Transfiere multipistas de audio a 32-bit float y masters de álbumes en alta fidelidad a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al entrega segura para estudios de audio",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para estudios de audio\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Entrega Segura para Estudios de Audio",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12618,7 +12618,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12632,7 +12632,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Despachos de Arquitectura",
     "metaTitle": "Archivos Grandes para Despachos de Arquitectura | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Despachos de Arquitectura. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Despachos de Arquitectura • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Despachos de Arquitectura • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para despachos de arquitectura",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Despachos de Arquitectura. Transfiere maquetas BIM gigantes de Revit, planos CAD y recorridos virtuales fotorrealistas a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"archivos grandes para despachos de arquitectura\"",
@@ -12643,7 +12643,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Archivos Grandes para Despachos de Arquitectura",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12689,19 +12689,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Despachos de Arquitectura",
     "metaTitle": "Transferencia para Despachos de Arquitectura | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Despachos de Arquitectura. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Despachos de Arquitectura • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Despachos de Arquitectura • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para despachos de arquitectura",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Despachos de Arquitectura. Transfiere maquetas BIM gigantes de Revit, planos CAD y recorridos virtuales fotorrealistas a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Transferencia para Despachos de Arquitectura",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferencia para despachos de arquitectura\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12732,7 +12732,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12746,7 +12746,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Despachos de Arquitectura",
     "metaTitle": "Entrega Segura para Despachos de Arquitectura | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Despachos de Arquitectura. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Despachos de Arquitectura • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Despachos de Arquitectura • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para despachos de arquitectura",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Despachos de Arquitectura. Transfiere maquetas BIM gigantes de Revit, planos CAD y recorridos virtuales fotorrealistas a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de entrega segura para despachos de arquitectura",
@@ -12757,7 +12757,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Entrega Segura para Despachos de Arquitectura",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12803,7 +12803,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Topografía y Drones",
     "metaTitle": "Archivos Grandes para Topografía y Drones | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Topografía y Drones. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Topografía y Drones • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Topografía y Drones • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para topografía y drones",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Topografía y Drones. Transfiere nubes de puntos LiDAR pesadas y ortomosaicos GeoTIFF de gigapíxeles a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al archivos grandes para topografía y drones",
@@ -12814,7 +12814,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Archivos Grandes para Topografía y Drones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12860,19 +12860,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Topografía y Drones",
     "metaTitle": "Transferencia para Topografía y Drones | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Topografía y Drones. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Topografía y Drones • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Topografía y Drones • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para topografía y drones",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Topografía y Drones. Transfiere nubes de puntos LiDAR pesadas y ortomosaicos GeoTIFF de gigapíxeles a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferencia para topografía y drones\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferencia para topografía y drones\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Transferencia para Topografía y Drones",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -12903,7 +12903,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -12917,7 +12917,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Topografía y Drones",
     "metaTitle": "Entrega Segura para Topografía y Drones | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Topografía y Drones. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Topografía y Drones • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Topografía y Drones • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para topografía y drones",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Topografía y Drones. Transfiere nubes de puntos LiDAR pesadas y ortomosaicos GeoTIFF de gigapíxeles a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Entrega Segura para Topografía y Drones",
@@ -12928,7 +12928,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -12974,19 +12974,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Estudios de Videojuegos",
     "metaTitle": "Archivos Grandes para Estudios de Videojuegos | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de Videojuegos. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de Videojuegos • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de Videojuegos • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para estudios de videojuegos",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de Videojuegos. Transfiere builds ejecutables de Unreal Engine y bibliotecas de assets de más de 20 GB a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de archivos grandes para estudios de videojuegos",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para estudios de videojuegos\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Archivos Grandes para Estudios de Videojuegos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13017,7 +13017,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13031,7 +13031,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Estudios de Videojuegos",
     "metaTitle": "Transferencia para Estudios de Videojuegos | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de Videojuegos. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de Videojuegos • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de Videojuegos • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para estudios de videojuegos",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de Videojuegos. Transfiere builds ejecutables de Unreal Engine y bibliotecas de assets de más de 20 GB a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferencia para estudios de videojuegos",
@@ -13042,7 +13042,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Transferencia para Estudios de Videojuegos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13088,7 +13088,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Estudios de Videojuegos",
     "metaTitle": "Entrega Segura para Estudios de Videojuegos | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Estudios de Videojuegos. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Estudios de Videojuegos • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Estudios de Videojuegos • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para estudios de videojuegos",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Estudios de Videojuegos. Transfiere builds ejecutables de Unreal Engine y bibliotecas de assets de más de 20 GB a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"entrega segura para estudios de videojuegos\"",
@@ -13099,7 +13099,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Entrega Segura para Estudios de Videojuegos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13145,19 +13145,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Productoras de Podcasts",
     "metaTitle": "Archivos Grandes para Productoras de Podcasts | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Productoras de Podcasts. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Productoras de Podcasts • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Productoras de Podcasts • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para productoras de podcasts",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Productoras de Podcasts. Transfiere grabaciones multicanal de audio WAV y video 4K de invitados remotos a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Archivos Grandes para Productoras de Podcasts",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para productoras de podcasts\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13188,7 +13188,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13202,7 +13202,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Productoras de Podcasts",
     "metaTitle": "Transferencia para Productoras de Podcasts | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Productoras de Podcasts. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Productoras de Podcasts • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Productoras de Podcasts • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para productoras de podcasts",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Productoras de Podcasts. Transfiere grabaciones multicanal de audio WAV y video 4K de invitados remotos a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferencia para productoras de podcasts",
@@ -13213,7 +13213,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Transferencia para Productoras de Podcasts",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13259,19 +13259,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Productoras de Podcasts",
     "metaTitle": "Entrega Segura para Productoras de Podcasts | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Productoras de Podcasts. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Productoras de Podcasts • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Productoras de Podcasts • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para productoras de podcasts",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Productoras de Podcasts. Transfiere grabaciones multicanal de audio WAV y video 4K de invitados remotos a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al entrega segura para productoras de podcasts",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para productoras de podcasts\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Entrega Segura para Productoras de Podcasts",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13302,7 +13302,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13316,7 +13316,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Firmas Legales",
     "metaTitle": "Archivos Grandes para Firmas Legales | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Firmas Legales. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Firmas Legales • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Firmas Legales • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para firmas legales",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Firmas Legales. Transfiere evidencias digitales, grabaciones de audiencias y expedientes con cifrado AES-256 a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"archivos grandes para firmas legales\"",
@@ -13327,7 +13327,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Archivos Grandes para Firmas Legales",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13373,7 +13373,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Firmas Legales",
     "metaTitle": "Transferencia para Firmas Legales | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Firmas Legales. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Firmas Legales • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Firmas Legales • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para firmas legales",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Firmas Legales. Transfiere evidencias digitales, grabaciones de audiencias y expedientes con cifrado AES-256 a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Transferencia para Firmas Legales",
@@ -13384,7 +13384,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13430,19 +13430,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Firmas Legales",
     "metaTitle": "Entrega Segura para Firmas Legales | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Firmas Legales. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Firmas Legales • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Firmas Legales • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para firmas legales",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Firmas Legales. Transfiere evidencias digitales, grabaciones de audiencias y expedientes con cifrado AES-256 a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de entrega segura para firmas legales",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para firmas legales\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Entrega Segura para Firmas Legales",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13473,7 +13473,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13487,7 +13487,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Clínicas e Imágenes Médicas",
     "metaTitle": "Archivos Grandes para Clínicas e Imágenes Médicas | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Clínicas e Imágenes Médicas. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Clínicas e Imágenes Médicas • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Clínicas e Imágenes Médicas • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para clínicas e imágenes médicas",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Clínicas e Imágenes Médicas. Transfiere estudios diagnósticos DICOM, tomografías y resonancias magnéticas de alta resolución a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al archivos grandes para clínicas e imágenes médicas",
@@ -13498,7 +13498,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Archivos Grandes para Clínicas e Imágenes Médicas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13544,19 +13544,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Clínicas e Imágenes Médicas",
     "metaTitle": "Transferencia para Clínicas e Imágenes Médicas | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Clínicas e Imágenes Médicas. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Clínicas e Imágenes Médicas • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Clínicas e Imágenes Médicas • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para clínicas e imágenes médicas",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Clínicas e Imágenes Médicas. Transfiere estudios diagnósticos DICOM, tomografías y resonancias magnéticas de alta resolución a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferencia para clínicas e imágenes médicas\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferencia para clínicas e imágenes médicas\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Transferencia para Clínicas e Imágenes Médicas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13587,7 +13587,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13601,7 +13601,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Clínicas e Imágenes Médicas",
     "metaTitle": "Entrega Segura para Clínicas e Imágenes Médicas | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Clínicas e Imágenes Médicas. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Clínicas e Imágenes Médicas • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Clínicas e Imágenes Médicas • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para clínicas e imágenes médicas",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Clínicas e Imágenes Médicas. Transfiere estudios diagnósticos DICOM, tomografías y resonancias magnéticas de alta resolución a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Entrega Segura para Clínicas e Imágenes Médicas",
@@ -13612,7 +13612,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13658,7 +13658,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Creadores de Contenido",
     "metaTitle": "Archivos Grandes para Creadores de Contenido | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Creadores de Contenido. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Creadores de Contenido • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Creadores de Contenido • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para creadores de contenido",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Creadores de Contenido. Transfiere videos 4K largos y vlogs diarios para editores remotos sin el límite de WeTransfer a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de archivos grandes para creadores de contenido",
@@ -13669,7 +13669,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Archivos Grandes para Creadores de Contenido",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13715,19 +13715,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Creadores de Contenido",
     "metaTitle": "Transferencia para Creadores de Contenido | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Creadores de Contenido. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Creadores de Contenido • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Creadores de Contenido • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para creadores de contenido",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Creadores de Contenido. Transfiere videos 4K largos y vlogs diarios para editores remotos sin el límite de WeTransfer a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferencia para creadores de contenido",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferencia para creadores de contenido\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Transferencia para Creadores de Contenido",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13758,7 +13758,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13772,7 +13772,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Creadores de Contenido",
     "metaTitle": "Entrega Segura para Creadores de Contenido | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Creadores de Contenido. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Creadores de Contenido • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Creadores de Contenido • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para creadores de contenido",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Creadores de Contenido. Transfiere videos 4K largos y vlogs diarios para editores remotos sin el límite de WeTransfer a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"entrega segura para creadores de contenido\"",
@@ -13783,7 +13783,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Entrega Segura para Creadores de Contenido",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13829,19 +13829,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Eventos en Vivo",
     "metaTitle": "Archivos Grandes para Eventos en Vivo | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Eventos en Vivo. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Eventos en Vivo • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Eventos en Vivo • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para eventos en vivo",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Eventos en Vivo. Transfiere grabaciones multi-cámara del mismo día y material bruto para edición urgente a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Archivos Grandes para Eventos en Vivo",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para eventos en vivo\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -13872,7 +13872,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -13886,7 +13886,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Eventos en Vivo",
     "metaTitle": "Transferencia para Eventos en Vivo | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Eventos en Vivo. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Eventos en Vivo • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Eventos en Vivo • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para eventos en vivo",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Eventos en Vivo. Transfiere grabaciones multi-cámara del mismo día y material bruto para edición urgente a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferencia para eventos en vivo",
@@ -13897,7 +13897,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Transferencia para Eventos en Vivo",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -13943,7 +13943,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Eventos en Vivo",
     "metaTitle": "Entrega Segura para Eventos en Vivo | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Eventos en Vivo. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Eventos en Vivo • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Eventos en Vivo • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para eventos en vivo",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Eventos en Vivo. Transfiere grabaciones multi-cámara del mismo día y material bruto para edición urgente a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al entrega segura para eventos en vivo",
@@ -13954,7 +13954,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Entrega Segura para Eventos en Vivo",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -14000,19 +14000,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Sellos Discográficos",
     "metaTitle": "Archivos Grandes para Sellos Discográficos | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Sellos Discográficos. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Sellos Discográficos • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Sellos Discográficos • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para sellos discográficos",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Sellos Discográficos. Transfiere archivos de fabricación DDP, vinilo y masters de audio sin pérdida a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"archivos grandes para sellos discográficos\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"archivos grandes para sellos discográficos\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Archivos Grandes para Sellos Discográficos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -14043,7 +14043,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14057,7 +14057,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Sellos Discográficos",
     "metaTitle": "Transferencia para Sellos Discográficos | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Sellos Discográficos. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Sellos Discográficos • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Sellos Discográficos • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para sellos discográficos",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Sellos Discográficos. Transfiere archivos de fabricación DDP, vinilo y masters de audio sin pérdida a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Transferencia para Sellos Discográficos",
@@ -14068,7 +14068,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -14114,19 +14114,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Entrega Segura para Sellos Discográficos",
     "metaTitle": "Entrega Segura para Sellos Discográficos | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Sellos Discográficos. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Sellos Discográficos • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Sellos Discográficos • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "entrega segura para sellos discográficos",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Sellos Discográficos. Transfiere archivos de fabricación DDP, vinilo y masters de audio sin pérdida a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de entrega segura para sellos discográficos",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"entrega segura para sellos discográficos\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Entrega Segura para Sellos Discográficos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -14157,7 +14157,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Completamente. Toda transferencia cuenta con cifrado TLS 1.3 en tránsito y almacenamiento perimetral con cifrado AES-256."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14171,7 +14171,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Archivos Grandes para Ingenierías y Obras",
     "metaTitle": "Archivos Grandes para Ingenierías y Obras | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Ingenierías y Obras. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Ingenierías y Obras • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Ingenierías y Obras • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "archivos grandes para ingenierías y obras",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Ingenierías y Obras. Transfiere escaneos 3D de obra y modelos estructurales complejos a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al archivos grandes para ingenierías y obras",
@@ -14182,7 +14182,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Archivos Grandes para Ingenierías y Obras",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -14228,7 +14228,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Transferencia para Ingenierías y Obras",
     "metaTitle": "Transferencia para Ingenierías y Obras | Gigasend",
     "metaDescription": "Entrega de archivos pesados para Ingenierías y Obras. Mueve activos pesados sin límites desde 0,16 US$/GB y sin costo por usuario con Apple Pay.",
-    "pillBadge": "Diseñado para Ingenierías y Obras • Cero Costo por Asiento • Red Anycast",
+    "pillBadge": "Diseñado para Ingenierías y Obras • Cero Costo por Asiento • Servidores Locales",
     "targetKeyword": "transferencia para ingenierías y obras",
     "directAnswer": "Gigasend es la plataforma de entrega de archivos de gran tamaño para Ingenierías y Obras. Transfiere escaneos 3D de obra y modelos estructurales complejos a través de más de 335 centros perimetrales Cloudflare desde 0,16 US$/GB sin pagar suscripciones mensuales fijas ni licencias por usuario.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferencia para ingenierías y obras\"",
@@ -14239,7 +14239,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Transferencia para Ingenierías y Obras",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -14287,23 +14287,23 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "metaDescription": "Descubre cómo enviar más de 2 GB sin pagar los $23/mes de WeTransfer Pro. Pago por uso desde 0,16 US$/GB, sin registro para clientes y con Apple Pay.",
     "pillBadge": "Supera el Muro de 2 GB de WeTransfer • Sin Suscripción Mensual",
     "targetKeyword": "alternativas a wetransfer sin limite",
-    "directAnswer": "La mejor alternativa a WeTransfer para enviar archivos de más de 2 GB sin pagar una suscripción de 23 US$ al mes es Gigasend. Arrastra archivos de 5 GB, 20 GB o 100 GB directamente al navegador: tus datos viajan por la red Cloudflare Anycast pagando solo centavos por gigabyte (0,16 US$/GB) con 12 meses de vigencia.",
+    "directAnswer": "La mejor alternativa a WeTransfer para enviar archivos de más de 2 GB sin pagar una suscripción de 23 US$ al mes es Gigasend. Arrastra archivos de 5 GB, 20 GB o 100 GB directamente al navegador: tus datos viajan por la red global de Gigasend pagando solo centavos por gigabyte (0,16 US$/GB) con 12 meses de vigencia.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Alternativas a WeTransfer Sin Límite de 2 GB Ni Suscripción",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"alternativas a wetransfer sin limite\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14328,7 +14328,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Admitimos Apple Pay con 1 toque y tarjetas bancarias internacionales a través de Stripe, sin renovaciones automáticas sorpresa."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14353,14 +14353,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Pesados Por Correo Sin el Límite de 25 MB",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14405,19 +14405,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al como enviar videos largos por whatsapp sin comprimir",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"como enviar videos largos por whatsapp sin comprimir\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Videos Largos Por WhatsApp Sin Comprimir Calidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14442,7 +14442,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Admitimos Apple Pay con 1 toque y tarjetas bancarias internacionales a través de Stripe, sin renovaciones automáticas sorpresa."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14467,14 +14467,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos Grandes Por Gmail Sin Llenar Google Drive",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14524,14 +14524,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14576,19 +14576,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de enviar archivos grandes sin registro",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar archivos grandes sin registro\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Enviar Archivos Grandes Sin Registro Obligatorio Ni Crear Cuenta",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14613,7 +14613,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Admitimos Apple Pay con 1 toque y tarjetas bancarias internacionales a través de Stripe, sin renovaciones automáticas sorpresa."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14638,14 +14638,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos Grandes Con Contraseña y Cifrado AES-256",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14690,19 +14690,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar videos 4k desde iphone a pc sin perder calidad\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar videos 4k desde iphone a pc sin perder calidad\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Videos 4K Desde iPhone a PC Sin Perder Calidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14727,7 +14727,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Admitimos Apple Pay con 1 toque y tarjetas bancarias internacionales a través de Stripe, sin renovaciones automáticas sorpresa."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14740,10 +14740,10 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Velocidad Internacional",
     "h1": "Cómo Enviar Archivos Grandes Entre España y Latinoamérica Rápido",
     "metaTitle": "Enviar Archivos Grandes Entre España y Latinoamérica | Gigasend",
-    "metaDescription": "Transfiere archivos pesados entre Europa y América Latina a través de la red Anycast con 335+ puntos de presencia perimetrales.",
-    "pillBadge": "Ruta Anycast Transatlántica • Máxima Velocidad de Fibra",
+    "metaDescription": "Transfiere archivos pesados entre Europa y América Latina a través de nuestra red global con 335+ servidores cercanos.",
+    "pillBadge": "Conexión Directa Internacional • Máxima Velocidad de Fibra",
     "targetKeyword": "enviar archivos grandes entre espana y latinoamerica",
-    "directAnswer": "Para enviar archivos de 10 GB a 100 GB entre España, México, Colombia, Argentina, Chile o Perú sin caídas de conexión transatlánticas, utiliza Gigasend. La red Cloudflare Anycast enruta los datos al centro de datos local más cercano en cada país para eliminar la latencia intercontinental.",
+    "directAnswer": "Para enviar archivos de 10 GB a 100 GB entre España, México, Colombia, Argentina, Chile o Perú sin caídas de conexión transatlánticas, utiliza Gigasend. La red global de Gigasend enruta los datos al centro de datos local más cercano en cada país para eliminar la latencia intercontinental.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Grandes Entre España y Latinoamérica Rápido",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar archivos grandes entre espana y latinoamerica\" y exigen suscripciones de 23 US$/mes.",
@@ -14752,14 +14752,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Modelo de Entrega",
-        "value": "Anycast Perimetral"
+        "value": "Red Global Directa"
       },
       {
         "label": "Cifrado",
@@ -14797,8 +14797,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Archivos Pesados Por Telegram Sin Límite de 2 GB",
     "metaTitle": "Enviar Archivos Pesados Por Telegram Sin Límite de 2 | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos pesados por telegram: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos pesados por telegram: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos pesados por telegram",
     "directAnswer": "Para solucionar la necesidad de enviar archivos pesados por telegram con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de enviar archivos pesados por telegram",
@@ -14809,7 +14809,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Pesados Por Telegram Sin Límite de 2 GB",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -14824,7 +14824,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -14854,20 +14854,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Fotos de Alta Resolución a Clientes Sin Comprimir",
     "metaTitle": "Enviar Fotos de Alta Resolución a Clientes | Gigasend",
-    "metaDescription": "Descubre cómo enviar fotos alta resolución a clientes: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar fotos alta resolución a clientes: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar fotos alta resolución a clientes",
     "directAnswer": "Para solucionar la necesidad de enviar fotos alta resolución a clientes con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar fotos alta resolución a clientes",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar fotos alta resolución a clientes\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Fotos de Alta Resolución a Clientes Sin Comprimir",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -14881,7 +14881,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -14898,7 +14898,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -14911,8 +14911,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Archivos de Audio Sin Pérdida Ni Compresión",
     "metaTitle": "Enviar Archivos de Audio Sin Pérdida Ni Compresión | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos de audio sin perdida: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos de audio sin perdida: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos de audio sin perdida",
     "directAnswer": "Para solucionar la necesidad de enviar archivos de audio sin perdida con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar archivos de audio sin perdida\"",
@@ -14923,7 +14923,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos de Audio Sin Pérdida Ni Compresión",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -14938,7 +14938,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -14969,19 +14969,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar Archivos Pesados Por Teams y Slack Sin Límite de Tamaño",
     "metaTitle": "Enviar Archivos Pesados Por Teams y Slack Sin Límite | Gigasend",
     "metaDescription": "Descubre cómo enviar archivos pesados por teams y slack: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos pesados por teams y slack",
     "directAnswer": "Para solucionar la necesidad de enviar archivos pesados por teams y slack con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Pesados Por Teams y Slack Sin Límite de Tamaño",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar archivos pesados por teams y slack\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -14995,7 +14995,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15012,7 +15012,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15025,8 +15025,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Subir Archivos Grandes a la Nube Sin Que Se Cancele",
     "metaTitle": "Subir Archivos Grandes a la Nube Sin Que Se Cancele | Gigasend",
-    "metaDescription": "Transfiere con subir archivos grandes a la nube rapido: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Transfiere con subir archivos grandes a la nube rapido: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "subir archivos grandes a la nube rapido",
     "directAnswer": "Para solucionar la necesidad de subir archivos grandes a la nube rapido con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de subir archivos grandes a la nube rapido",
@@ -15037,7 +15037,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Cómo Subir Archivos Grandes a la Nube Sin Que Se Cancele",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15052,7 +15052,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15082,8 +15082,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Copias de Seguridad Gigantes Sin Caídas de Conexión",
     "metaTitle": "Enviar Copias de Seguridad Gigantes sin caídas de red | Gigasend",
-    "metaDescription": "Descubre cómo enviar copia de seguridad pesada: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar copia de seguridad pesada: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar copia de seguridad pesada",
     "directAnswer": "Para solucionar la necesidad de enviar copia de seguridad pesada con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar copia de seguridad pesada",
@@ -15094,7 +15094,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Copias de Seguridad Gigantes Sin Caídas de Conexión",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15109,7 +15109,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15140,19 +15140,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Transferir Brutos de Cámara Para Coloristas Remotos",
     "metaTitle": "Transferir Brutos de Cámara Para Coloristas Remotos | Gigasend",
     "metaDescription": "Descubre cómo transferir videos pesados para coloristas: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir videos pesados para coloristas",
     "directAnswer": "Para solucionar la necesidad de transferir videos pesados para coloristas con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferir videos pesados para coloristas\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferir videos pesados para coloristas\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Brutos de Cámara Para Coloristas Remotos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -15166,7 +15166,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15183,7 +15183,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15196,8 +15196,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Archivos Sin Que Caduquen en 7 Días Como WeTransfer",
     "metaTitle": "Enviar Archivos Sin Que Caduquen sin caducidad rápida | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos sin que caduquen rapido: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos sin que caduquen rapido: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos sin que caduquen rapido",
     "directAnswer": "Para solucionar la necesidad de enviar archivos sin que caduquen rapido con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Sin Que Caduquen en 7 Días Como WeTransfer",
@@ -15208,7 +15208,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15223,7 +15223,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15253,20 +15253,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Compartir Videos de Dron en 4K Sin Perder Bitrate",
     "metaTitle": "Cómo Compartir Videos de Dron en 4K Sin Perder Bitrate | Gigasend",
-    "metaDescription": "Descubre cómo compartir videos de dron en 4k: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo compartir videos de dron en 4k: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "compartir videos de dron en 4k",
     "directAnswer": "Para solucionar la necesidad de compartir videos de dron en 4k con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de compartir videos de dron en 4k",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"compartir videos de dron en 4k\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Videos de Dron en 4K Sin Perder Bitrate",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -15280,7 +15280,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15297,7 +15297,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15311,7 +15311,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar Archivos Gigantes Entre Mac y Windows Sin Formatear Discos",
     "metaTitle": "Enviar Archivos Gigantes entre Mac y Windows | Gigasend",
     "metaDescription": "Descubre cómo enviar archivos grandes desde mac a windows: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos grandes desde mac a windows",
     "directAnswer": "Para solucionar la necesidad de enviar archivos grandes desde mac a windows con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar archivos grandes desde mac a windows",
@@ -15322,7 +15322,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos Gigantes Entre Mac y Windows Sin Formatear Discos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15337,7 +15337,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15367,8 +15367,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Documentales y Películas en Master DCP a Festivales",
     "metaTitle": "Enviar Documentales y Películas en Master DCP | Gigasend",
-    "metaDescription": "Descubre cómo enviar documentales a festivales: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar documentales a festivales: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar documentales a festivales",
     "directAnswer": "Para solucionar la necesidad de enviar documentales a festivales con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar documentales a festivales\"",
@@ -15379,7 +15379,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Documentales y Películas en Master DCP a Festivales",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15394,7 +15394,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15424,20 +15424,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Entregables Finales a Clientes Con Experiencia Profesional",
     "metaTitle": "Enviar Entregables Finales a Clientes Con Experiencia | Gigasend",
-    "metaDescription": "Descubre cómo enviar entregables finales a clientes: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar entregables finales a clientes: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar entregables finales a clientes",
     "directAnswer": "Para solucionar la necesidad de enviar entregables finales a clientes con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Entregables Finales a Clientes Con Experiencia Profesional",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar entregables finales a clientes\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -15451,7 +15451,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15468,7 +15468,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15481,8 +15481,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Sesiones de Podcast en Video 4K al Editor",
     "metaTitle": "Cómo Enviar Sesiones de Podcast en Video 4K al Editor | Gigasend",
-    "metaDescription": "Descubre cómo enviar podcast en video al editor: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar podcast en video al editor: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar podcast en video al editor",
     "directAnswer": "Para solucionar la necesidad de enviar podcast en video al editor con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de enviar podcast en video al editor",
@@ -15493,7 +15493,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Sesiones de Podcast en Video 4K al Editor",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15508,7 +15508,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15539,19 +15539,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Transferir Archivos Pesados de Forma Anónima y Cifrada",
     "metaTitle": "Transferir Archivos Pesados de Forma Anónima y Cifrada | Gigasend",
     "metaDescription": "Descubre cómo transferir archivos pesados anónimamente: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir archivos pesados anónimamente",
     "directAnswer": "Para solucionar la necesidad de transferir archivos pesados anónimamente con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferir archivos pesados anónimamente",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferir archivos pesados anónimamente\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos Pesados de Forma Anónima y Cifrada",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -15565,7 +15565,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15582,7 +15582,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15595,8 +15595,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Planos y Archivos CAD Pesados al Equipo en Obra",
     "metaTitle": "Enviar Planos y Archivos CAD Pesados al Equipo en Obra | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos cad pesados a obra: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos cad pesados a obra: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos cad pesados a obra",
     "directAnswer": "Para solucionar la necesidad de enviar archivos cad pesados a obra con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar archivos cad pesados a obra\"",
@@ -15607,7 +15607,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Planos y Archivos CAD Pesados al Equipo en Obra",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15622,7 +15622,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15653,7 +15653,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar Archivos Pesados Aprovechando el 100% de la Fibra Óptica",
     "metaTitle": "Enviar Archivos Pesados a máxima velocidad | Gigasend",
     "metaDescription": "Descubre cómo enviar archivos pesados a velocidad de fibra: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos pesados a velocidad de fibra",
     "directAnswer": "Para solucionar la necesidad de enviar archivos pesados a velocidad de fibra con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Pesados Aprovechando el 100% de la Fibra Óptica",
@@ -15664,7 +15664,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15679,7 +15679,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15709,20 +15709,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Alternativa Económica a Dropbox Transfer Sin Pagar Cuotas Fijas",
     "metaTitle": "Alternativa Económica a Dropbox Transfer Sin Pagar | Gigasend",
-    "metaDescription": "Transfiere con alternativa a dropbox transfer: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Transfiere con alternativa a dropbox transfer: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "alternativa a dropbox transfer",
     "directAnswer": "Para solucionar la necesidad de alternativa a dropbox transfer con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de alternativa a dropbox transfer",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"alternativa a dropbox transfer\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Alternativa Económica a Dropbox Transfer Sin Pagar Cuotas Fijas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -15736,7 +15736,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15753,7 +15753,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15766,8 +15766,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Imágenes de Disco ISO Gigantes Sin Corrupción de Datos",
     "metaTitle": "Enviar Imágenes de Disco ISO Gigantes Sin Corrupción | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos iso pesados: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos iso pesados: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos iso pesados",
     "directAnswer": "Para solucionar la necesidad de enviar archivos iso pesados con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar archivos iso pesados",
@@ -15778,7 +15778,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Imágenes de Disco ISO Gigantes Sin Corrupción de Datos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15793,7 +15793,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15823,20 +15823,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Grabaciones de Voz y Locución en Máxima Calidad",
     "metaTitle": "Enviar Grabaciones de Voz y Locución en Máxima Calidad | Gigasend",
-    "metaDescription": "Descubre cómo enviar audios pesados locutores: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar audios pesados locutores: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar audios pesados locutores",
     "directAnswer": "Para solucionar la necesidad de enviar audios pesados locutores con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar audios pesados locutores\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar audios pesados locutores\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Grabaciones de Voz y Locución en Máxima Calidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -15850,7 +15850,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15867,7 +15867,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -15880,8 +15880,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Proyectos de After Effects Con Plugins y Assets",
     "metaTitle": "Enviar Proyectos de After Effects Con Plugins y Assets | Gigasend",
-    "metaDescription": "Descubre cómo enviar carpetas de after effects: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar carpetas de after effects: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar carpetas de after effects",
     "directAnswer": "Para solucionar la necesidad de enviar carpetas de after effects con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Proyectos de After Effects Con Plugins y Assets",
@@ -15892,7 +15892,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15907,7 +15907,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15937,8 +15937,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Archivos Gigantes Directamente Desde el Móvil",
     "metaTitle": "Enviar Archivos Gigantes Directamente Desde el Móvil | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos grandes desde el movil: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos grandes desde el movil: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos grandes desde el movil",
     "directAnswer": "Para solucionar la necesidad de enviar archivos grandes desde el movil con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de enviar archivos grandes desde el movil",
@@ -15949,7 +15949,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Gigantes Directamente Desde el Móvil",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -15964,7 +15964,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -15995,19 +15995,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar un Video Generando un Enlace de Descarga Directa",
     "metaTitle": "Enviar un Video Generando un Enlace de Descarga | Gigasend",
     "metaDescription": "Descubre cómo enviar video con enlace descarga directa: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar video con enlace descarga directa",
     "directAnswer": "Para solucionar la necesidad de enviar video con enlace descarga directa con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar video con enlace descarga directa",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar video con enlace descarga directa\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar un Video Generando un Enlace de Descarga Directa",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16021,7 +16021,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16038,7 +16038,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16051,8 +16051,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Hacer Entregas Audiovisuales Urgentes Sin Caídas de Servidor",
     "metaTitle": "Hacer Entregas Audiovisuales Urgentes sin caídas de red | Gigasend",
-    "metaDescription": "Descubre cómo enviar entregas audiovisuales urgentes: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar entregas audiovisuales urgentes: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar entregas audiovisuales urgentes",
     "directAnswer": "Para solucionar la necesidad de enviar entregas audiovisuales urgentes con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar entregas audiovisuales urgentes\"",
@@ -16063,7 +16063,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para hacer Entregas Audiovisuales Urgentes Sin Caídas de Servidor",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16078,7 +16078,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16109,19 +16109,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar Todo el Rodaje de una Boda al Montador Sin Enviar Discos Duros",
     "metaTitle": "Enviar Todo el Rodaje de una Boda al montador | Gigasend",
     "metaDescription": "Descubre cómo enviar material bruto de boda al montador: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar material bruto de boda al montador",
     "directAnswer": "Para solucionar la necesidad de enviar material bruto de boda al montador con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Todo el Rodaje de una Boda al Montador Sin Enviar Discos Duros",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar material bruto de boda al montador\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16135,7 +16135,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16152,7 +16152,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16165,8 +16165,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Archivos Pesados Sin Estrangulamiento de Ancho de Banda",
     "metaTitle": "Enviar Archivos Pesados Sin Estrangulamiento de Ancho | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos sin limite de velocidad: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos sin limite de velocidad: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos sin limite de velocidad",
     "directAnswer": "Para solucionar la necesidad de enviar archivos sin limite de velocidad con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de enviar archivos sin limite de velocidad",
@@ -16177,7 +16177,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Archivos Pesados Sin Estrangulamiento de Ancho de Banda",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16192,7 +16192,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16223,7 +16223,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar Archivos Grandes Con Verificación Criptográfica de Entrega",
     "metaTitle": "Enviar Archivos Grandes Con Verificación | Gigasend",
     "metaDescription": "Descubre cómo enviar archivos con confirmación de entrega: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos con confirmación de entrega",
     "directAnswer": "Para solucionar la necesidad de enviar archivos con confirmación de entrega con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar archivos con confirmación de entrega",
@@ -16234,7 +16234,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Archivos Grandes Con Verificación Criptográfica de Entrega",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16249,7 +16249,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16279,20 +16279,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Renders 3D e Infografías Gigantes al Cliente",
     "metaTitle": "Enviar Renders 3D e Infografías Gigantes al Cliente | Gigasend",
-    "metaDescription": "Aprende cómo resolver el problema de enviar renders 3D pesados sin límites artificiales ni suscripciones mensuales. Entrega perimetral Anycast desde 0,16 US$/GB.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Aprende cómo resolver el problema de enviar renders 3D pesados sin límites artificiales ni suscripciones mensuales. Entrega rápida y directa desde 0,16 US$/GB.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar renders 3D pesados",
     "directAnswer": "Para solucionar la necesidad de enviar renders 3D pesados con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar renders 3D pesados\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar renders 3D pesados\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Renders 3D e Infografías Gigantes al Cliente",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16306,7 +16306,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16323,7 +16323,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16337,7 +16337,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Cómo Enviar Archivos Pesados Por Enlace Seguro Cifrado",
     "metaTitle": "Cómo Enviar Archivos Pesados Por Enlace Seguro Cifrado | Gigasend",
     "metaDescription": "Descubre cómo enviar archivos grandes por enlace seguro: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos grandes por enlace seguro",
     "directAnswer": "Para solucionar la necesidad de enviar archivos grandes por enlace seguro con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Archivos Pesados Por Enlace Seguro Cifrado",
@@ -16348,7 +16348,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16363,7 +16363,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16393,20 +16393,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Fotos en RAW de Alta Calidad Por Correo Sin Pérdidas",
     "metaTitle": "Enviar Fotos en RAW de Alta Calidad por correo sin pérdidas | Gigasend",
-    "metaDescription": "Descubre cómo enviar fotos raw por correo: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar fotos raw por correo: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar fotos raw por correo",
     "directAnswer": "Para solucionar la necesidad de enviar fotos raw por correo con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de enviar fotos raw por correo",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar fotos raw por correo\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para enviar Fotos en RAW de Alta Calidad Por Correo Sin Pérdidas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16420,7 +16420,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16437,7 +16437,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16450,8 +16450,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Videos Musicales en Calidad Master Para Emisión",
     "metaTitle": "Enviar Videos Musicales en Calidad Master Para Emisión | Gigasend",
-    "metaDescription": "Descubre cómo enviar video musical calidad master: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar video musical calidad master: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar video musical calidad master",
     "directAnswer": "Para solucionar la necesidad de enviar video musical calidad master con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar video musical calidad master",
@@ -16462,7 +16462,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Videos Musicales en Calidad Master Para Emisión",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16477,7 +16477,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16507,8 +16507,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Archivos Pesados Con Apple Pay y Sin Suscripción",
     "metaTitle": "Enviar Archivos Pesados con Apple Pay | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos pesados con apple pay: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos pesados con apple pay: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos pesados con apple pay",
     "directAnswer": "Para solucionar la necesidad de enviar archivos pesados con apple pay con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar archivos pesados con apple pay\"",
@@ -16519,7 +16519,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Archivos Pesados Con Apple Pay y Sin Suscripción",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16534,7 +16534,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16564,20 +16564,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Transferir Fondos Audiovisuales Históricos y Documentales",
     "metaTitle": "Transferir Fondos Audiovisuales históricos y documentales | Gigasend",
-    "metaDescription": "Descubre cómo enviar material de archivo historico: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar material de archivo historico: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar material de archivo historico",
     "directAnswer": "Para solucionar la necesidad de enviar material de archivo historico con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Fondos Audiovisuales Históricos y Documentales",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar material de archivo historico\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16591,7 +16591,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16608,7 +16608,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16621,8 +16621,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Compartir Carpetas de Fotos de Eventos en Alta Definición",
     "metaTitle": "Compartir Carpetas de Fotos de Eventos en Alta | Gigasend",
-    "metaDescription": "Descubre cómo compartir carpetas de fotos de eventos: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo compartir carpetas de fotos de eventos: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "compartir carpetas de fotos de eventos",
     "directAnswer": "Para solucionar la necesidad de compartir carpetas de fotos de eventos con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de compartir carpetas de fotos de eventos",
@@ -16633,7 +16633,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para compartir Carpetas de Fotos de Eventos en Alta Definición",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16648,7 +16648,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16678,20 +16678,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Sesiones Completas de Grabación Musical a la Mezcla",
     "metaTitle": "Enviar Sesiones Completas de grabación musical | Gigasend",
-    "metaDescription": "Aprende cómo resolver el problema de enviar sesiones de música sin límites artificiales ni suscripciones mensuales. Entrega perimetral Anycast desde 0,16 US$/GB.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Aprende cómo resolver el problema de enviar sesiones de música sin límites artificiales ni suscripciones mensuales. Entrega rápida y directa desde 0,16 US$/GB.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar sesiones de música",
     "directAnswer": "Para solucionar la necesidad de enviar sesiones de música con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar sesiones de música",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar sesiones de música\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar Sesiones Completas de Grabación Musical a la Mezcla",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16705,7 +16705,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16722,7 +16722,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16735,8 +16735,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Campañas y Archivos Pesados a Agencias de Publicidad",
     "metaTitle": "Enviar Campañas y Archivos Pesados a agencias | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivos pesados a agencias: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar archivos pesados a agencias: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar archivos pesados a agencias",
     "directAnswer": "Para solucionar la necesidad de enviar archivos pesados a agencias con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"enviar archivos pesados a agencias\"",
@@ -16747,7 +16747,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para enviar Campañas y Archivos Pesados a Agencias de Publicidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16762,7 +16762,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16792,8 +16792,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Enviar Videos Sin Pixelado, Banding Ni Pérdida de Color",
     "metaTitle": "Enviar Videos Sin Pixelado, Banding ni pérdida de calidad | Gigasend",
-    "metaDescription": "Descubre cómo enviar videos sin pixelado: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo enviar videos sin pixelado: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "enviar videos sin pixelado",
     "directAnswer": "Para solucionar la necesidad de enviar videos sin pixelado con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al enviar Videos Sin Pixelado, Banding Ni Pérdida de Color",
@@ -16804,7 +16804,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16819,7 +16819,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16849,20 +16849,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Transferir Archivos Grandes a Clientes en España a Velocidad Gigabit",
     "metaTitle": "Transferir Archivos Grandes a clientes en España | Gigasend",
-    "metaDescription": "Descubre cómo transferir archivos grandes espana: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo transferir archivos grandes espana: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir archivos grandes espana",
     "directAnswer": "Para solucionar la necesidad de transferir archivos grandes espana con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferir archivos grandes espana",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferir archivos grandes espana\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos Grandes a Clientes en España a Velocidad Gigabit",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16876,7 +16876,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16893,7 +16893,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -16906,8 +16906,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Transferir Archivos Grandes a Clientes en México Sin Cortes de Red",
     "metaTitle": "Transferir Archivos Grandes a clientes en México | Gigasend",
-    "metaDescription": "Descubre cómo transferir archivos grandes en México: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo transferir archivos grandes en México: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir archivos grandes en México",
     "directAnswer": "Para solucionar la necesidad de transferir archivos grandes en México con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferir archivos grandes en México",
@@ -16918,7 +16918,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para transferir Archivos Grandes a Clientes en México Sin Cortes de Red",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -16933,7 +16933,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -16963,20 +16963,20 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Transferir Archivos Grandes a Clientes en Colombia Sin Caídas",
     "metaTitle": "Transferir Archivos Grandes a Clientes en Colombia | Gigasend",
-    "metaDescription": "Descubre cómo transferir archivos grandes colombia: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo transferir archivos grandes colombia: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir archivos grandes colombia",
     "directAnswer": "Para solucionar la necesidad de transferir archivos grandes colombia con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"transferir archivos grandes colombia\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferir archivos grandes colombia\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para transferir Archivos Grandes a Clientes en Colombia Sin Caídas",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
@@ -16990,7 +16990,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -17007,7 +17007,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
         "answer": "Puedes pagar con Apple Pay con un solo toque o con tarjeta de crédito/débito a través de Stripe."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17020,8 +17020,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Transferir Archivos Grandes a Clientes en Argentina Sin Dólares Fijos",
     "metaTitle": "Transferir Archivos Grandes a Clientes en Argentina | Gigasend",
-    "metaDescription": "Descubre cómo transferir archivos grandes argentina: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo transferir archivos grandes argentina: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir archivos grandes argentina",
     "directAnswer": "Para solucionar la necesidad de transferir archivos grandes argentina con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al transferir Archivos Grandes a Clientes en Argentina Sin Dólares Fijos",
@@ -17032,7 +17032,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -17047,7 +17047,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -17077,8 +17077,8 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas y Alternativas",
     "h1": "Cómo Transferir Archivos Grandes a Clientes en Chile a Máxima Velocidad",
     "metaTitle": "Transferir Archivos Grandes a clientes en Chile | Gigasend",
-    "metaDescription": "Descubre cómo transferir archivos grandes chile: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
-    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Anycast Edge",
+    "metaDescription": "Descubre cómo transferir archivos grandes chile: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
+    "pillBadge": "Entrega Directa en Navegador • Cero Suscripciones • Alta Velocidad",
     "targetKeyword": "transferir archivos grandes chile",
     "directAnswer": "Para solucionar la necesidad de transferir archivos grandes chile con total rapidez y sin pagar mensualidades fijas en dólares, utiliza Gigasend. Arrastra tus archivos directamente al navegador para transmitirlos a través de la red perimetral de Cloudflare por solo centavos por gigabyte con verificación SHA-256.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferir archivos grandes chile",
@@ -17089,7 +17089,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para transferir Archivos Grandes a Clientes en Chile a Máxima Velocidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
@@ -17104,7 +17104,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
       },
       {
         "label": "Velocidad",
-        "value": "335+ Nodos Anycast"
+        "value": "335+ Servidores Globales"
       },
       {
         "label": "Validez Saldo",
@@ -17135,25 +17135,25 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "h1": "Enviar Archivos de Más de 10 GB por Internet Gratis",
     "metaTitle": "Enviar Archivos de Más de 10 GB por Internet Gratis | Gigasend",
     "metaDescription": "Descubre cómo enviar archivos de más de 10 GB por internet: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos...",
-    "pillBadge": "hasta 10 GB gratis • Red Anycast",
+    "pillBadge": "hasta 10 GB gratis • Servidores Locales",
     "targetKeyword": "enviar archivos de más de 10 GB por internet",
     "directAnswer": "Para resolver \"enviar archivos de más de 10 GB por internet\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar archivos de más de 10 GB por internet",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar archivos de más de 10 GB por internet\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Enviar Archivos de Más de 10 GB por Internet Gratis",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17171,14 +17171,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar archivos de más de 10 GB por internet sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17191,7 +17191,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Tamaños de Archivo",
     "h1": "Enviar archivos de 20 GB sin suscripción mensual",
     "metaTitle": "Enviar archivos de 20 GB sin suscripción mensual | Gigasend",
-    "metaDescription": "Descubre cómo enviar archivo de 20gb gratis: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Descubre cómo enviar archivo de 20gb gratis: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "20 GB Gratis • 1 Clic Descarga",
     "targetKeyword": "enviar archivo de 20gb gratis",
     "directAnswer": "Para resolver \"enviar archivo de 20gb gratis\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
@@ -17203,14 +17203,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Enviar archivos de 20 GB sin suscripción mensual",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17228,7 +17228,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar archivo de 20gb gratis sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17255,19 +17255,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida al mandar Archivos de 50 GB Online Rápido",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"como mandar archivos de 50gb\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17285,14 +17285,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona como mandar archivos de 50gb sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17317,14 +17317,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Enviar Archivos de 100 GB Online Sin Límites",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17342,7 +17342,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar archivo de 100gb online sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17362,7 +17362,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas de Envío",
     "h1": "Cómo Enviar un Video Largo por Correo (Gmail y Outlook)",
     "metaTitle": "Enviar un Video Largo por Correo (Gmail y Outlook) | Gigasend",
-    "metaDescription": "Transfiere con como enviar un video largo por correo: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Transfiere con como enviar un video largo por correo: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Supera el Límite de 25 MB",
     "targetKeyword": "como enviar un video largo por correo",
     "directAnswer": "Para resolver \"como enviar un video largo por correo\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
@@ -17374,14 +17374,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para enviar un Video Largo por Correo (Gmail y Outlook)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17399,7 +17399,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona como enviar un video largo por correo sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17417,28 +17417,28 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
   {
     "slug": "alternativas-a-wetransfer",
     "category": "Alternativas a Competidores",
-    "h1": "La Mejor Alternativa a WeTransfer Gratis (Hasta 25 GB)",
-    "metaTitle": "La Mejor Alternativa a WeTransfer Gratis (Hasta 25 GB) | Gigasend",
-    "metaDescription": "Transfiere con alternativas a wetransfer gratis: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "h1": "La Mejor Alternativa a WeTransfer Gratis (Hasta 10 GB)",
+    "metaTitle": "La Mejor Alternativa a WeTransfer Gratis (Hasta 10 GB) | Gigasend",
+    "metaDescription": "Transfiere con alternativas a wetransfer gratis: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "10 GB gratis vs 2 GB WeTransfer",
     "targetKeyword": "alternativas a wetransfer gratis",
     "directAnswer": "Para resolver \"alternativas a wetransfer gratis\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"alternativas a wetransfer gratis\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"alternativas a wetransfer gratis\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para La Mejor Alternativa a WeTransfer Gratis (Hasta 25 GB)",
+    "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para La Mejor Alternativa a WeTransfer Gratis (Hasta 10 GB)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17456,14 +17456,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona alternativas a wetransfer gratis sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17488,14 +17488,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17513,7 +17513,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona programas como wetransfer sin limite sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17533,26 +17533,26 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Problemas de Envío",
     "h1": "Cómo Superar el Límite de 2 GB de WeTransfer Gratis",
     "metaTitle": "Cómo Superar el Límite de 2 GB de WeTransfer Gratis | Gigasend",
-    "metaDescription": "Transfiere con wetransfer limite 2gb solucion: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Transfiere con wetransfer limite 2gb solucion: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Solución Directa Hasta 500 GB+",
     "targetKeyword": "wetransfer limite 2gb solucion",
     "directAnswer": "Para resolver \"wetransfer limite 2gb solucion\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de wetransfer limite 2gb solucion",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"wetransfer limite 2gb solucion\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para superar el Límite de 2 GB de WeTransfer Gratis",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17570,14 +17570,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona wetransfer limite 2gb solucion sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17602,14 +17602,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Transferir Archivos Grandes Sin Registro para el Cliente",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17627,7 +17627,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona transferir archivos grandes sin registro sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17659,14 +17659,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para mandar Fotos RAW a Clientes Sin Comprimir",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17684,7 +17684,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona como mandar fotos raw sin comprimir sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17704,26 +17704,26 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Productividad",
     "h1": "Enviar Carpetas Pesadas por Internet Sin Comprimir ZIP",
     "metaTitle": "Enviar Carpetas Pesadas por Internet Sin Comprimir ZIP | Gigasend",
-    "metaDescription": "Descubre cómo enviar carpetas pesadas por internet: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Descubre cómo enviar carpetas pesadas por internet: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Estructura de Carpetas Intacta",
     "targetKeyword": "enviar carpetas pesadas por internet",
     "directAnswer": "Para resolver \"enviar carpetas pesadas por internet\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Enviar Carpetas Pesadas por Internet Sin Comprimir ZIP",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar carpetas pesadas por internet\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia)",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17741,14 +17741,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar carpetas pesadas por internet sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17761,7 +17761,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Software y Proyectos",
     "h1": "Transferir Proyectos de Adobe Premiere Pro (.PRPROJ)",
     "metaTitle": "Transferir Proyectos de Adobe Premiere Pro (.PRPROJ) | Gigasend",
-    "metaDescription": "Descubre cómo transferir proyectos de premiere pro: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Descubre cómo transferir proyectos de premiere pro: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Premiere Pro • Proxies & Brutos",
     "targetKeyword": "transferir proyectos de premiere pro",
     "directAnswer": "Para resolver \"transferir proyectos de premiere pro\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
@@ -17773,14 +17773,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Transferir Proyectos de Adobe Premiere Pro (.PRPROJ)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17798,7 +17798,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona transferir proyectos de premiere pro sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17825,19 +17825,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al enviar proyectos davinci resolve completos",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"enviar proyectos davinci resolve completos\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Enviar Proyectos DaVinci Resolve (.DRP / .DRA) Completos",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17855,14 +17855,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar proyectos davinci resolve completos sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -17887,14 +17887,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Transferencia de Archivos Grandes para Empresas (B2B)",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17912,7 +17912,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona transferencia de archivos grandes para empresas sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17944,14 +17944,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -17969,7 +17969,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar archivos pesados a clientes sin cuenta sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -17989,26 +17989,26 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Software y Proyectos",
     "h1": "Transferir Archivos AutoCAD (.DWG) y Modelos Revit BIM",
     "metaTitle": "Transferir Archivos AutoCAD (.DWG) y Modelos Revit BIM | Gigasend",
-    "metaDescription": "Descubre cómo transferir archivos cad y revit bim: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Descubre cómo transferir archivos cad y revit bim: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Ingeniería BIM • RVT • NWD • IFC",
     "targetKeyword": "transferir archivos cad y revit bim",
     "directAnswer": "Para resolver \"transferir archivos cad y revit bim\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
     "legacyTrapTitle": "Por qué las suscripciones mensuales frenan tu flujo de transferir archivos cad y revit bim",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferir archivos cad y revit bim\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Transferir Archivos AutoCAD (.DWG) y Modelos Revit BIM",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18026,14 +18026,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona transferir archivos cad y revit bim sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -18046,7 +18046,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Alternativas a Competidores",
     "h1": "Alternativa Rápida a SwissTransfer en España y Latinoamérica",
     "metaTitle": "Alternativa Rápida a SwissTransfer en España y Latinoamérica | Gigasend",
-    "metaDescription": "Transfiere con swisstransfer alternativa rapida: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Transfiere con swisstransfer alternativa rapida: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Nodos Locales MAD • MEX • BOG • EZE",
     "targetKeyword": "swisstransfer alternativa rapida",
     "directAnswer": "Para resolver \"swisstransfer alternativa rapida\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
@@ -18058,14 +18058,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Alternativa Rápida a SwissTransfer en España y Latinoamérica",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18083,7 +18083,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona swisstransfer alternativa rapida sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -18103,26 +18103,26 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "category": "Alternativas a Competidores",
     "h1": "Alternativa a Smash Sin Cola de Espera Prioritaria",
     "metaTitle": "Alternativa a Smash Sin Cola de Espera Prioritaria | Gigasend",
-    "metaDescription": "Transfiere con smash alternativa sin cola de espera: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro en nodos Anycast.",
+    "metaDescription": "Transfiere con smash alternativa sin cola de espera: hasta 10 GB gratis o paquetes de 12 meses (20 US$/100 GB). Descarga directa sin registro con servidores locales.",
     "pillBadge": "Velocidad Máxima Garantizada",
     "targetKeyword": "smash alternativa sin cola de espera",
     "directAnswer": "Para resolver \"smash alternativa sin cola de espera\", arrastra tus archivos o carpetas directamente a Gigasend. Transfiere hasta 10 GB gratis o paquetes prepagos de 100 GB (20 US$) y 1 TB (180 US$) válidos por 12 meses, con descarga inmediata en 1 clic sin obligar a tu cliente a crear cuenta.",
     "legacyTrapTitle": "El cuello de botella de WeTransfer y Drive en \"smash alternativa sin cola de espera\"",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"smash alternativa sin cola de espera\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para Alternativa a Smash Sin Cola de Espera Prioritaria",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18140,14 +18140,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona smash alternativa sin cola de espera sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -18172,14 +18172,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18197,7 +18197,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar video mp4 de más de 5 GB sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid, Barcelona, Valencia, CDMX, Bogotá, Lima y Buenos Aires, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -18229,14 +18229,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "El Estándar Profesional Sin Cuotas Fijas para Enviar Archivos Apple ProRes 4K/8K Sin Comprimir",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18254,7 +18254,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona enviar archivos prores 4k sin comprimir sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en redes de fibra óptica de España, México, Colombia, Argentina, Chile y Perú, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -18281,19 +18281,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Por qué fallan las nubes tradicionales al transferir carpeta comprimida zip de más de 10 GB",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"transferir carpeta comprimida zip de más de 10 GB\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia).",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
     "gigasendSolutionTitle": "Arquitectura Perimetral Gigasend para Transferir Carpeta Comprimida ZIP de Más de 10 GB",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia) con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18311,14 +18311,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona transferir carpeta comprimida zip de más de 10 GB sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Madrid/Barcelona (ESpanix/CATNIX), Ciudad de México (MEX) y Bogotá (NAP Colombia), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Madrid/Barcelona, Ciudad de México (MEX) y Bogotá, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona (ESpanix/CATNIX)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Madrid/Barcelona?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],
@@ -18343,14 +18343,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     ],
     "gigasendSolutionTitle": "Entrega Directa en 1 Clic (Sin Cuenta) para mandar un Archivo o Video Pesado por WhatsApp Sin Perder Calidad",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
       "Aceleración perimetral HTTP/3 en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange) con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18368,7 +18368,7 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona como mandar un archivo pesado por whatsapp sin perder calidad sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Ciudad de México, Guadalajara y Monterrey (Telmex/Totalplay/Izzi) y Madrid (Movistar/MasOrange), permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
@@ -18395,19 +18395,19 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "legacyTrapTitle": "Riesgos de compresión y cortes de subida en Compartir Archivos Gigantes en la Nube Sin Pagar Suscripción",
     "legacyTrapPoints": [
       "Límites artificiales de 2 GB en planes gratuitos que bloquean \"compartir archivos gigantes en la nube sin pagar suscripcion\" y exigen suscripciones de 23 US$/mes.",
-      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
+      "Servidores lejanos con alta latencia que provocan errores de subida al 99% en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín.",
       "Fricción para tu destinatario: obligan a tu cliente a iniciar sesión, pedir permisos o saturar su propia cuota de almacenamiento."
     ],
-    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín",
+    "gigasendSolutionTitle": "Transmisión Multiparte SHA-256 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín",
     "gigasendSolutionPoints": [
-      "Envía hasta 25 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
-      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
+      "Envía hasta 10 GB completamente gratis o activa paquetes prepagos (10 US$/50 GB, 20 US$/100 GB, 180 US$/1 TB) con 12 meses de vigencia.",
+      "Aceleración perimetral HTTP/3 en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín con reanudación automática ante microcortes.",
       "Descarga ejecutiva en 1 clic sin registro obligatorio y con verificación criptográfica SHA-256 bit a bit."
     ],
     "specs": [
       {
         "label": "Plan Gratuito",
-        "value": "Hasta 25 GB"
+        "value": "Hasta 10 GB"
       },
       {
         "label": "Capacidad Máxima",
@@ -18425,14 +18425,14 @@ export const esSeoLandingPages: EsSeoLandingPage[] = [
     "faqs": [
       {
         "question": "¿Cómo funciona compartir archivos gigantes en la nube sin pagar suscripcion sin perder calidad ni pagar mensualidades?",
-        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el nodo Anycast más cercano en Buenos Aires y Córdoba (CABASE), Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
+        "answer": "Arrastra tu archivo o carpeta directamente a Gigasend. El sistema divide la carga en bloques paralelos hacia el servidor más cercano en Buenos Aires y Córdoba, Santiago de Chile (PIT Chile) y Bogotá/Medellín, permitiendo enviar hasta 10 GB gratis o hasta 500 GB+ con paquetes prepagos de 12 meses."
       },
       {
         "question": "¿Mi cliente necesita crear una cuenta o instalar algo para descargar?",
         "answer": "No. Tu destinatario recibe un enlace HTTPS directo, hace clic y la descarga comienza de inmediato a velocidad máxima de fibra sin pedir correo, contraseña ni registro."
       },
       {
-        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba (CABASE)?",
+        "question": "¿Qué pasa si se corta el internet durante la subida en Buenos Aires y Córdoba?",
         "answer": "El motor multiparte de Gigasend guarda cada bloque verificado con SHA-256 en la frontera de Cloudflare. Si tu conexión Wi-Fi, fibra o Starlink sufre un microcorte, la transferencia retoma desde el último bloque sin reiniciar desde cero."
       }
     ],

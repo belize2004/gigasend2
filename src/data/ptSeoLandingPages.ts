@@ -158,7 +158,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Arquivos de 50 GB a 500 GB+",
-        "body": "Aceleramos cada transferência de \"enviar arquivos pesados\" e \"site para enviar arquivos pesados\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivos pesados\" e \"site para enviar arquivos pesados\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -195,7 +195,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 50 GB a 500 GB+ clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivos pesados acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivos pesados acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 50 GB a 500 GB+), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -454,7 +454,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo maior que 2gb gratis\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -535,7 +535,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Arquivos de 4 GB com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar arquivo 4gb gratis\" ou \"como enviar 4gb pela internet\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar arquivo 4gb gratis\" ou \"como enviar 4gb pela internet\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Como Enviar 4 GB Pela Internet\"",
@@ -576,7 +576,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 4 GB clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivo 4gb gratis acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivo 4gb gratis acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 4 GB), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -793,7 +793,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Arquivos de 8 GB",
-        "body": "Aceleramos cada transferência de \"enviar arquivo 8gb gratis\" e \"mandar arquivo 8gb gratis\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivo 8gb gratis\" e \"mandar arquivo 8gb gratis\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -835,7 +835,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo 8gb gratis\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -957,7 +957,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 10 GB clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivo 10gb gratis acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivo 10gb gratis acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 10 GB), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -1170,7 +1170,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Arquivos de 15 GB com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"Enviar arquivo de 15 GB sem mensalidade\" ou \"como enviar 15gb sem lotar google drive\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"Enviar arquivo de 15 GB sem mensalidade\" ou \"como enviar 15gb sem lotar google drive\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Como Enviar 15 GB sem Lotar Google Drive\"",
@@ -1216,7 +1216,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"Enviar arquivo de 15 GB sem mensalidade\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -1338,7 +1338,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 20 GB clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como enviar arquivo maior que 20gb acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como enviar arquivo maior que 20gb acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 20 GB), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -1415,7 +1415,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
     "metaDescription": "Enviar arquivo de 25 GB sem mensalidade: Até 10 GB grátis ou pacotes de 12 meses (US$ 20/100 GB • US$ 180/1 TB). CDN em SP e RJ e download direto sem cadastro.",
     "h1": "Como Enviar Arquivo de 25 GB Pela Internet em Um Único Link Direto",
     "eyebrow": "Canal Dedicado para 25 GB • Tempo Médio ~11 min 15 seg na Fibra 300 Mbps",
-    "intro": "Precisa transferir um arquivo ou pasta de 25 GB (máxima capacidade gratuita no Brasil sem login) sem dividir em partes .RAR e sem exigir login do destinatário? Com o Gigasend Brasil você envia 25 GB em um único link seguro acelerado pelos servidores CDN em São Paulo e Rio de Janeiro (projetos audiovisuais, BIM e engenharia), com Zero Cadastro para o Cliente.",
+    "intro": "Precisa transferir um arquivo ou pasta de 25 GB (com até 10 GB gratuitos sem login) sem dividir em partes .RAR e sem exigir login do destinatário? Com o Gigasend Brasil você envia 25 GB em um único link seguro acelerado pelos servidores CDN em São Paulo e Rio de Janeiro (projetos audiovisuais, BIM e engenharia), com Zero Cadastro para o Cliente.",
     "cta": "Enviar Arquivo de 25 GB Agora",
     "sections": [
       {
@@ -1428,7 +1428,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Arquivos de 25 GB",
-        "body": "Aceleramos cada transferência de \"Enviar arquivo de 25 GB sem mensalidade\" e \"site para enviar 25gb\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"Enviar arquivo de 25 GB sem mensalidade\" e \"site para enviar 25gb\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -1597,7 +1597,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo 30gb\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -1719,7 +1719,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 40 GB clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivo 40gb acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivo 40gb acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 40 GB), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -1805,7 +1805,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Arquivos de 50 GB com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar arquivo 50gb\" ou \"como enviar 50gb pela internet\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar arquivo 50gb\" ou \"como enviar 50gb pela internet\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Como Enviar 50 GB Pela Internet\"",
@@ -1978,7 +1978,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo 60gb\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -2063,7 +2063,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Arquivos de 80 GB",
-        "body": "Aceleramos cada transferência de \"enviar arquivo 80gb\" e \"mandar arquivo 80gb\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivo 80gb\" e \"mandar arquivo 80gb\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -2100,7 +2100,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 80 GB clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivo 80gb acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivo 80gb acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 80 GB), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -2359,7 +2359,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo 150gb\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -2440,7 +2440,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Arquivos de 200 GB com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar arquivo 200gb\" ou \"como enviar 200gb pela internet\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar arquivo 200gb\" ou \"como enviar 200gb pela internet\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Como Enviar 200 GB Pela Internet\"",
@@ -2481,7 +2481,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 200 GB clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivo 200gb acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivo 200gb acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 200 GB), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -2698,7 +2698,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Arquivos de 500 GB",
-        "body": "Aceleramos cada transferência de \"transferir 500gb online\" e \"mandar meio terabyte online\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"transferir 500gb online\" e \"mandar meio terabyte online\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -2740,7 +2740,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir 500gb online\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -2862,7 +2862,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de 1 TB (1 Terabyte) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para transferir 1tb pela internet acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para transferir 1tb pela internet acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de 1 TB (1 Terabyte)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -3075,7 +3075,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Arquivos de Pastas Inteiras (10 GB a 500 GB) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"como enviar pastas grandes pela internet\" ou \"transferir pasta com subpastas online\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"como enviar pastas grandes pela internet\" ou \"transferir pasta com subpastas online\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Transferir Pasta com Subpastas Online\"",
@@ -3121,7 +3121,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como enviar pastas grandes pela internet\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -3243,7 +3243,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Arquivos de HDs Externos & Pendrives (50 GB a 2 TB) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para substituir envio de hd externo correios acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para substituir envio de hd externo correios acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Arquivos de HDs Externos & Pendrives (50 GB a 2 TB)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -3333,7 +3333,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"alternativa wetransfer\" e \"substituto wetransfer brasil\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"alternativa wetransfer\" e \"substituto wetransfer brasil\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -3502,7 +3502,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"wetransfer brasil\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -3624,7 +3624,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para wetransfer limite 20gb acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para wetransfer limite 20gb acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -3710,7 +3710,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"wetransfer pro preco brasil\" ou \"cancelar assinatura wetransfer pro\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"wetransfer pro preco brasil\" ou \"cancelar assinatura wetransfer pro\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Cancelar Assinatura Wetransfer Pro\"",
@@ -3883,7 +3883,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"alternativa google drive arquivos grandes\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -3968,7 +3968,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"cota de download excedida google drive\" e \"cliente nao consegue baixar google drive\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"cota de download excedida google drive\" e \"cliente nao consegue baixar google drive\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -4005,7 +4005,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para cota de download excedida google drive acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para cota de download excedida google drive acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -4264,7 +4264,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"alternativa onedrive arquivos grandes\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -4345,7 +4345,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"alternativa masv brasil\" ou \"masv cobra por download\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"alternativa masv brasil\" ou \"masv cobra por download\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Masv Cobra por Download\"",
@@ -4386,7 +4386,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para alternativa masv brasil acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para alternativa masv brasil acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -4603,7 +4603,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"alternativa smash brasil\" e \"melhor que smash para arquivos pesados\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"alternativa smash brasil\" e \"melhor que smash para arquivos pesados\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -4645,7 +4645,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"alternativa smash brasil\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -4767,7 +4767,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para alternativa swisstransfer brasil acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para alternativa swisstransfer brasil acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -4980,7 +4980,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"alternativa pcloud transfer\" ou \"substituto pcloud para clientes\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"alternativa pcloud transfer\" ou \"substituto pcloud para clientes\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Substituto Pcloud para Clientes\"",
@@ -5026,7 +5026,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"alternativa pcloud transfer\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -5148,7 +5148,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para alternativa sendgb transferxl acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para alternativa sendgb transferxl acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -5238,7 +5238,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"alternativa mega nz arquivos pesados\" e \"enviar arquivo grande sem mega\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"alternativa mega nz arquivos pesados\" e \"enviar arquivo grande sem mega\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -5407,7 +5407,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"alternativa mediafire sem anuncios\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -5529,7 +5529,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para alternativa send anywhere airdrop acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para alternativa send anywhere airdrop acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -5615,7 +5615,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"alternativa frame io entrega arquivos\" ou \"substituto vimeo para baixar 4k original\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"alternativa frame io entrega arquivos\" ou \"substituto vimeo para baixar 4k original\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Substituto Vimeo para Baixar 4K Original\"",
@@ -5788,7 +5788,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"alternativa ibm aspera signiant brasil\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -5873,7 +5873,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"alternativa ftp filezilla para clientes\" e \"cliente nao sabe usar ftp\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"alternativa ftp filezilla para clientes\" e \"cliente nao sabe usar ftp\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -5910,7 +5910,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para alternativa ftp filezilla para clientes acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para alternativa ftp filezilla para clientes acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -6169,7 +6169,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"wetransfer ou google drive qual melhor\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -6250,7 +6250,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"melhores sites para enviar arquivos grandes gratis\" ou \"lista sites enviar arquivos grandes\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"melhores sites para enviar arquivos grandes gratis\" ou \"lista sites enviar arquivos grandes\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Lista Sites Enviar Arquivos Grandes\"",
@@ -6291,7 +6291,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para melhores sites para enviar arquivos grandes gratis acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para melhores sites para enviar arquivos grandes gratis acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -6508,7 +6508,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para GeoTIFF (.tif/.tiff)",
-        "body": "Aceleramos cada transferência de \"transferir ortomosaico tiff\" e \"entregar ortofoto drone para cliente\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"transferir ortomosaico tiff\" e \"entregar ortofoto drone para cliente\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -6550,7 +6550,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir ortomosaico tiff\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -6672,7 +6672,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de LiDAR .LAS / .LAZ clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar nuvem de pontos lidar acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar nuvem de pontos lidar acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (LiDAR .LAS / .LAZ), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -6885,7 +6885,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de GeoPackage (.gpkg) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"transferir arquivos qgis arcgis\" ou \"compartilhar geodatabase gdb geopackage gpkg\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"transferir arquivos qgis arcgis\" ou \"compartilhar geodatabase gdb geopackage gpkg\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Geodatabase Gdb Geopackage Gpkg\"",
@@ -6931,7 +6931,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir arquivos qgis arcgis\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -7053,7 +7053,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de MDT / MDS (.tif/.dem) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar mdt mds curvas de nivel topografia acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar mdt mds curvas de nivel topografia acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (MDT / MDS (.tif/.dem)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -7143,7 +7143,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Mapas NDVI / NDRE",
-        "body": "Aceleramos cada transferência de \"enviar mapeamento drone agricultura ndvi\" e \"entregar mapeamento fazenda drone\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar mapeamento drone agricultura ndvi\" e \"entregar mapeamento fazenda drone\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -7312,7 +7312,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir dados drone dji rtk starlink\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -7434,7 +7434,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Radiometric JPEG (R-JPEG) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar termografia drone inspecao solar acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar termografia drone inspecao solar acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Radiometric JPEG (R-JPEG)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -7520,7 +7520,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Wavefront (.obj + .mtl) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar malha 3d drone obj fbx\" ou \"compartilhar modelo 3d cidade drone\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar malha 3d drone obj fbx\" ou \"compartilhar modelo 3d cidade drone\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Modelo 3d Cidade Drone\"",
@@ -7693,7 +7693,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar projeto dji terra realitycapture\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -7778,7 +7778,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Planilhas ODS SIGEF/INCRA",
-        "body": "Aceleramos cada transferência de \"enviar georreferenciamento incra sigef car\" e \"compartilhar ortofoto licenciamento ambiental\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar georreferenciamento incra sigef car\" e \"compartilhar ortofoto licenciamento ambiental\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -7815,7 +7815,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Planilhas ODS SIGEF/INCRA clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar georreferenciamento incra sigef car acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar georreferenciamento incra sigef car acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Planilhas ODS SIGEF/INCRA), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -8074,7 +8074,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar imagens de satelite pesadas gis\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -8155,7 +8155,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de HYPACK / PDS com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar dados batimetria ecobatimetro sonar\" ou \"compartilhar arquivo s7k xtf hypack\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar dados batimetria ecobatimetro sonar\" ou \"compartilhar arquivo s7k xtf hypack\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Arquivo S7k Xtf Hypack\"",
@@ -8196,7 +8196,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de HYPACK / PDS clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar dados batimetria ecobatimetro sonar acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar dados batimetria ecobatimetro sonar acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (HYPACK / PDS), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -8413,7 +8413,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Equiretangular 360° (.jpg/.dng)",
-        "body": "Aceleramos cada transferência de \"enviar fotos 360 tour virtual drone obra\" e \"entregar relatorio fotografico obra\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar fotos 360 tour virtual drone obra\" e \"entregar relatorio fotografico obra\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -8455,7 +8455,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar fotos 360 tour virtual drone obra\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -8577,7 +8577,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Modelo de Altura de Dossel (CHM) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar mapeamento florestal inventario lidar acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar mapeamento florestal inventario lidar acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Modelo de Altura de Dossel (CHM)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -8790,7 +8790,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Vídeos 4K + Térmicos com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar inspecao drone offshore oleo e gas\" ou \"entregar ensaio nao destrutivo drone elios\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar inspecao drone offshore oleo e gas\" ou \"entregar ensaio nao destrutivo drone elios\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Entregar Ensaio Nao Destrutivo Drone Elios\"",
@@ -8836,7 +8836,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar inspecao drone offshore oleo e gas\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -8958,7 +8958,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Corredores Lineares GeoTIFF clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar topografia rodovias ferrovias drone acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar topografia rodovias ferrovias drone acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Corredores Lineares GeoTIFF), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -9048,7 +9048,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Pastas DCIM Completas",
-        "body": "Aceleramos cada transferência de \"como enviar milhares de fotos de drone\" e \"mandar fotos brutas aerofotogrametria\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"como enviar milhares de fotos de drone\" e \"mandar fotos brutas aerofotogrametria\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -9217,7 +9217,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo ecw mrsid jp2\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -9339,7 +9339,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de RINEX v2 / v3 (.obs/.nav) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar dados gnss rtk ppk rinex acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar dados gnss rtk ppk rinex acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (RINEX v2 / v3 (.obs/.nav)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -9425,7 +9425,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Ortofoto + Implantação DWG com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar mapeamento drone loteamento terraplenagem\" ou \"transferir ortofoto loteamento imobiliario\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar mapeamento drone loteamento terraplenagem\" ou \"transferir ortofoto loteamento imobiliario\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Transferir Ortofoto Loteamento Imobiliario\"",
@@ -9598,7 +9598,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como entregar arquivos de aerolevantamento para clientes\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -9683,7 +9683,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para 4K UHD / DCI 4K",
-        "body": "Aceleramos cada transferência de \"transferir videos 4k\" e \"compartilhar video 4k original\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"transferir videos 4k\" e \"compartilhar video 4k original\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -9720,7 +9720,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de 4K UHD / DCI 4K clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para transferir videos 4k acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para transferir videos 4k acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (4K UHD / DCI 4K), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -9979,7 +9979,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivos braw davinci resolve\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -10060,7 +10060,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de RED R3D (.r3d) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"transferir brutos red r3d arri\" ou \"transferir arri alexa arriraw mxf\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"transferir brutos red r3d arri\" ou \"transferir arri alexa arriraw mxf\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Transferir Arri Alexa Arriraw MXF\"",
@@ -10101,7 +10101,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de RED R3D (.r3d) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para transferir brutos red r3d arri acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para transferir brutos red r3d arri acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (RED R3D (.r3d)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -10318,7 +10318,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para SMPTE / Interop DCP",
-        "body": "Aceleramos cada transferência de \"enviar pacote dcp cinema digital\" e \"compartilhar dcp smpte interop sem corromper\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar pacote dcp cinema digital\" e \"compartilhar dcp smpte interop sem corromper\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -10360,7 +10360,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar pacote dcp cinema digital\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -10482,7 +10482,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Filmes de Casamento 4K clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como entregar videos de casamento 4k para clientes acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como entregar videos de casamento 4k para clientes acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Filmes de Casamento 4K), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -10695,7 +10695,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de XAVC S-I 4K 10-bit com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar arquivos xavc sony fx3 fx6\" ou \"compartilhar videos slog3 10bit\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar arquivos xavc sony fx3 fx6\" ou \"compartilhar videos slog3 10bit\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Videos Slog3 10bit\"",
@@ -10741,7 +10741,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivos xavc sony fx3 fx6\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -10863,7 +10863,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de iPhone ProRes 4K 60fps clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como transferir video prores iphone para pc acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como transferir video prores iphone para pc acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (iPhone ProRes 4K 60fps), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -10953,7 +10953,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Offload Verificado (XXHash/MD5 + SHA-256)",
-        "body": "Aceleramos cada transferência de \"enviar diarias de filmagem cinema dit\" e \"fluxo remoto dit para editor\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar diarias de filmagem cinema dit\" e \"fluxo remoto dit para editor\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -11122,7 +11122,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar sequencia openexr dpx vfx color\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -11244,7 +11244,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de 5.1K / 4K 120fps D-Log clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar videos drone dji 4k sem perder qualidade acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar videos drone dji 4k sem perder qualidade acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (5.1K / 4K 120fps D-Log), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -11330,7 +11330,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Insta360 (.insv / Pro 2 8K) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar video 360 8k insta360 gopro\" ou \"compartilhar video vr 8k oculus quest\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar video 360 8k insta360 gopro\" ou \"compartilhar video vr 8k oculus quest\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Video Vr 8K Oculus Quest\"",
@@ -11503,7 +11503,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como enviar gravacao longa obs studio\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -11588,7 +11588,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Masters ProRes 422 HQ + H.264",
-        "body": "Aceleramos cada transferência de \"entregar comercial de tv para agencia e cliente\" e \"mandar pacote de formatos 16x9 9x16 prores\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"entregar comercial de tv para agencia e cliente\" e \"mandar pacote de formatos 16x9 9x16 prores\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -11625,7 +11625,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Masters ProRes 422 HQ + H.264 clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para entregar comercial de tv para agencia e cliente acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para entregar comercial de tv para agencia e cliente acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Masters ProRes 422 HQ + H.264), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -11884,7 +11884,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar stems mixagem dolby atmos dublagem\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -11965,7 +11965,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Alembic (.abc) & USD (.usd) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar cache houdini vdb alembic vfx\" ou \"compartilhar script nuke com plates exr\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar cache houdini vdb alembic vfx\" ou \"compartilhar script nuke com plates exr\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Script Nuke com Plates Exr\"",
@@ -12006,7 +12006,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Alembic (.abc) & USD (.usd) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar cache houdini vdb alembic vfx acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar cache houdini vdb alembic vfx acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Alembic (.abc) & USD (.usd)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -12223,7 +12223,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Lotes de 10 a 100 Vídeos 4K",
-        "body": "Aceleramos cada transferência de \"como enviar videos brutos para editor\" e \"enviar videos youtube 4k sem google drive\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"como enviar videos brutos para editor\" e \"enviar videos youtube 4k sem google drive\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -12265,7 +12265,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como enviar videos brutos para editor\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -12387,7 +12387,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Pastas com 1.000 a 20.000 RAWs clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar sequencia fotos raw timelapse acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar sequencia fotos raw timelapse acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Pastas com 1.000 a 20.000 RAWs), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -12600,7 +12600,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Vídeos de 1h, 2h, 4h+ com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"como enviar video de 1 hora pela internet\" ou \"transferir palestra show completo 4k\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"como enviar video de 1 hora pela internet\" ou \"transferir palestra show completo 4k\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Transferir Palestra Show Completo 4K\"",
@@ -12646,7 +12646,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como enviar video de 1 hora pela internet\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -12768,7 +12768,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para plataforma para entregar videos para clientes acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para plataforma para entregar videos para clientes acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -12858,7 +12858,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"enviar arquivos para clientes sem cadastro\" e \"entregar projeto pesado para cliente\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivos para clientes sem cadastro\" e \"entregar projeto pesado para cliente\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -13027,7 +13027,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar projeto revit bim pesado\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -13149,7 +13149,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de 3ds Max + V-Ray/Corona (.max) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivo lumion sketchup 3ds max pesado acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivo lumion sketchup 3ds max pesado acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (3ds Max + V-Ray/Corona (.max)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -13235,7 +13235,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Unreal Engine 5 (.uproject) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"transferir projeto unreal engine 5 blender c4d\" ou \"compartilhar cena cinema 4d redshift octane\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"transferir projeto unreal engine 5 blender c4d\" ou \"compartilhar cena cinema 4d redshift octane\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Cena Cinema 4d Redshift Octane\"",
@@ -13408,7 +13408,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como enviar fotos raw sem perder qualidade\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -13493,7 +13493,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Pro Tools Session (.ptx)",
-        "body": "Aceleramos cada transferência de \"enviar stems wav sessao pro tools\" e \"mandar pistas wav 24bit para mixagem\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar stems wav sessao pro tools\" e \"mandar pistas wav 24bit para mixagem\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -13530,7 +13530,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Pro Tools Session (.ptx) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar stems wav sessao pro tools acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar stems wav sessao pro tools acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Pro Tools Session (.ptx)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -13789,7 +13789,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar projeto civil 3d autocad pesado\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -13870,7 +13870,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de SolidWorks Pack & Go (.sldasm/.sldprt) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar montagem solidworks step iges pesada\" ou \"compartilhar arquivo step stp iges grande\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar montagem solidworks step iges pesada\" ou \"compartilhar arquivo step stp iges grande\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Arquivo Step Stp Iges Grande\"",
@@ -13911,7 +13911,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de SolidWorks Pack & Go (.sldasm/.sldprt) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar montagem solidworks step iges pesada acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar montagem solidworks step iges pesada acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (SolidWorks Pack & Go (.sldasm/.sldprt)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -14128,7 +14128,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Photoshop Large Document (.psb)",
-        "body": "Aceleramos cada transferência de \"enviar arquivo psb photoshop gigante grafica\" e \"enviar arte fechada fachada lonas\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivo psb photoshop gigante grafica\" e \"enviar arte fechada fachada lonas\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -14170,7 +14170,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivo psb photoshop gigante grafica\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -14292,7 +14292,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de SQL Server Backup (.bak) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para transferir dump banco de dados sql grande acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para transferir dump banco de dados sql grande acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (SQL Server Backup (.bak)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -14505,7 +14505,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Apache Parquet / Arrow com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"transferir dataset machine learning csv parquet\" ou \"compartilhar pesos modelo ia safetensors gguf\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"transferir dataset machine learning csv parquet\" ou \"compartilhar pesos modelo ia safetensors gguf\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Pesos Modelo Ia Safetensors Gguf\"",
@@ -14551,7 +14551,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir dataset machine learning csv parquet\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -14673,7 +14673,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Vídeos de CFTV / Bodycam Intactos clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como enviar videos grandes para processo judicial acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como enviar videos grandes para processo judicial acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Vídeos de CFTV / Bodycam Intactos), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -14763,7 +14763,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para Malhas 3D (.stl / .ply / .obj)",
-        "body": "Aceleramos cada transferência de \"enviar tomografia odontologica dicom stl\" e \"entregar exame radiologia odontologica online\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar tomografia odontologica dicom stl\" e \"entregar exame radiologia odontologica online\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -14932,7 +14932,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar milhares de xmls notas fiscais auditoria\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -15054,7 +15054,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de PowerPoint (.pptx) com Vídeos clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como enviar powerpoint pesado pela internet acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como enviar powerpoint pesado pela internet acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (PowerPoint (.pptx) com Vídeos), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -15140,7 +15140,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Arquivos .ZIP / .ZIPX (64-bit) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar arquivo zip rar pesado pela internet\" ou \"compartilhar 7z gigante online\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar arquivo zip rar pesado pela internet\" ou \"compartilhar 7z gigante online\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar 7z Gigante Online\"",
@@ -15313,7 +15313,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir dados sismicos segy geofisica\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -15398,7 +15398,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para ANSYS Workbench (.wbpz / .rst)",
-        "body": "Aceleramos cada transferência de \"enviar arquivos simulacao ansys abaqus cfd\" e \"entregar simulacao estrutural fluido\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivos simulacao ansys abaqus cfd\" e \"entregar simulacao estrutural fluido\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -15435,7 +15435,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de ANSYS Workbench (.wbpz / .rst) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivos simulacao ansys abaqus cfd acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivos simulacao ansys abaqus cfd acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (ANSYS Workbench (.wbpz / .rst)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -15694,7 +15694,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"transferir arquivos fastq bam bioinformatica\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -15775,7 +15775,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de Pacotes SCORM 1.2 / 2004 (.zip) com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar pacote scorm pesado lms\" ou \"compartilhar treinamento corporativo rh\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar pacote scorm pesado lms\" ou \"compartilhar treinamento corporativo rh\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Treinamento Corporativo Rh\"",
@@ -15816,7 +15816,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de Pacotes SCORM 1.2 / 2004 (.zip) clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar pacote scorm pesado lms acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar pacote scorm pesado lms acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores (Pacotes SCORM 1.2 / 2004 (.zip)), ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -16032,7 +16032,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"compartilhar arquivos pesados\" e \"compartilhar arquivos grandes gratis\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"compartilhar arquivos pesados\" e \"compartilhar arquivos grandes gratis\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -16074,7 +16074,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"compartilhar arquivos pesados\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -16195,7 +16195,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como enviar video pesado no whatsapp sem perder qualidade acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como enviar video pesado no whatsapp sem perder qualidade acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -16406,7 +16406,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"upload lento arquivos grandes claro vivo fibra\" ou \"acelerar envio de arquivos pesados fibra\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"upload lento arquivos grandes claro vivo fibra\" ou \"acelerar envio de arquivos pesados fibra\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Acelerar Envio de Arquivos Pesados Fibra\"",
@@ -16452,7 +16452,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"upload lento arquivos grandes claro vivo fibra\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -16573,7 +16573,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivos pesados starlink brasil acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivos pesados starlink brasil acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -16662,7 +16662,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"como enviar arquivo maior que 2gb no telegram discord\" e \"gerar link arquivo grande para discord\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"como enviar arquivo maior que 2gb no telegram discord\" e \"gerar link arquivo grande para discord\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -16830,7 +16830,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"como enviar arquivo grande no slack microsoft teams\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -16951,7 +16951,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como transferir arquivos grandes de mac para pc acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como transferir arquivos grandes de mac para pc acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -17036,7 +17036,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"como passar video grande do celular para o pc\" ou \"enviar video 4k android para mac\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"como passar video grande do celular para o pc\" ou \"enviar video 4k android para mac\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Enviar Video 4K Android para Mac\"",
@@ -17208,7 +17208,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"upload de arquivo grande travando em 99 por cento\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -17292,7 +17292,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"enviar arquivos pesados com seguranca lgpd\" e \"proteger link de download pesado\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivos pesados com seguranca lgpd\" e \"proteger link de download pesado\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -17329,7 +17329,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivos pesados com seguranca lgpd acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivos pesados com seguranca lgpd acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -17586,7 +17586,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivos grandes sem instalar programas\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -17644,7 +17644,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
     "supportedFormatsOrTiers": [
       "Arquivos pesados (50 GB a 500 GB+)",
       "Latência < 5 ms na Capital e ABC",
-      "Peering Direto IX.br SP",
+      "Servidores em São Paulo",
       "Satura Fibra 600 Mbps a 1 Gbps",
       "Zero cadastro para o destinatário",
       "CDN São Paulo (GRU)",
@@ -17666,7 +17666,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"transferencia de arquivos grandes sao paulo\" ou \"upload rapido servidor sao paulo\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"transferencia de arquivos grandes sao paulo\" ou \"upload rapido servidor sao paulo\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Upload Rapido Servidor Sao Paulo\"",
@@ -17707,7 +17707,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para transferencia de arquivos grandes sao paulo acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para transferencia de arquivos grandes sao paulo acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -17771,7 +17771,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       "Arquivos pesados (50 GB a 500 GB+)",
       "Latência Mínima no RJ",
       "Ideal p/ Audiovisual, TV e Offshore",
-      "Peering Direto IX.br RJ",
+      "Servidores no Rio de Janeiro",
       "Zero cadastro para o destinatário",
       "CDN São Paulo (GRU)",
       "CDN Rio de Janeiro (GIG)",
@@ -17922,7 +17922,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"enviar arquivos pesados belo horizonte mg\" e \"upload nuvem de pontos barragens minas gerais\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivos pesados belo horizonte mg\" e \"upload nuvem de pontos barragens minas gerais\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -17964,7 +17964,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivos pesados belo horizonte mg\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -18085,7 +18085,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar arquivos pesados curitiba sul brasil acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar arquivos pesados curitiba sul brasil acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -18296,7 +18296,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"enviar arquivos pesados brasilia df\" ou \"compartilhar projetos engenharia brasilia\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"enviar arquivos pesados brasilia df\" ou \"compartilhar projetos engenharia brasilia\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Compartilhar Projetos Engenharia Brasilia\"",
@@ -18342,7 +18342,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivos pesados brasilia df\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -18463,7 +18463,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para enviar dados drone agricola mato grosso goias acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para enviar dados drone agricola mato grosso goias acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -18552,7 +18552,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Servidores CDN na Borda em São Paulo (GRU) e Rio (GIG) para arquivos pesados e pastas completas",
-        "body": "Aceleramos cada transferência de \"enviar arquivos pesados nordeste recife salvador fortaleza\" e \"transferir videos 4k produtoras nordeste\" através de peering direto nos pontos de troca de tráfego brasileiros (IX.br SP e RJ). Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
+        "body": "Aceleramos cada transferência de \"enviar arquivos pesados nordeste recife salvador fortaleza\" e \"transferir videos 4k produtoras nordeste\" através de servidores locais em São Paulo e Rio de Janeiro. Isso elimina quedas aos 99% em conexões Claro Fibra, Vivo Fibra, Oi Fibra, Brisanet e Starlink, permitindo enviar 50 GB, 100 GB ou 500 GB em um único link com verificação SHA-256."
       }
     ],
     "comparison": [
@@ -18720,7 +18720,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"enviar arquivos pesados manaus belem amazonia\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [
@@ -18841,7 +18841,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
         "answer": "Não. Temos Zero Cadastro para o Cliente: quem recebe o link de arquivos pesados e pastas completas clica e o download começa direto na velocidade máxima, sem login ou senha."
       },
       {
-        "question": "Qual o valor para como enviar video para social media sem perder qualidade acima dos 25 GB gratuitos?",
+        "question": "Qual o valor para como enviar video para social media sem perder qualidade acima dos 10 GB gratuitos?",
         "answer": "Você envia Até 10 GB grátis. Para arquivos maiores, ative pacotes pré-pagos de $10 (50 GB), $20 (100 GB) ou $180 (1 TB) válidos por 12 meses inteiros, sem assinatura mensal."
       },
       {
@@ -18926,7 +18926,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "heading": "Economia de Até 80% em Entregas de arquivos pesados e pastas completas com Créditos de 12 Meses",
-        "body": "Profissionais que pesquisam \"cliente nao consegue baixar arquivo grande\" ou \"melhorar velocidade download para cliente\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 25 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
+        "body": "Profissionais que pesquisam \"cliente nao consegue baixar arquivo grande\" ou \"melhorar velocidade download para cliente\" economizam eliminando tanto assinaturas mensais ociosas quanto o envio físico de HDs externos via Sedex. Você envia até 10 GB sem custo ou aciona pacotes pré-pagos (US$ 20/100 GB e US$ 180/1 TB) onde o cliente baixa com Zero Cadastro."
       },
       {
         "heading": "Por Que Rotas Locais em SP e RJ Superam Nuvens nos EUA para \"Melhorar Velocidade Download para Cliente\"",
@@ -19098,7 +19098,7 @@ export const ptSeoLandingPages: PtSeoLandingPage[] = [
       },
       {
         "question": "Qual a velocidade real para \"padronizar entrega de arquivos pesados agencia\" nas operadoras do Brasil?",
-        "answer": "Com peering direto no IX.br (SP e RJ), o Gigasend satura conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
+        "answer": "Com servidores locais em São Paulo e Rio de Janeiro, o Gigasend aproveita conexões de 300 Mbps a 1 Gbps na Claro, Vivo, Oi Fibra, Brisanet e Starlink em todo o Brasil."
       }
     ],
     "internalLinks": [

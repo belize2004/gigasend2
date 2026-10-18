@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 export default function SpeedCalculator() {
-  const [fileSizeGB, setFileSizeGB] = useState<number>(25);
-  const [bandwidthMbps, setBandwidthMbps] = useState<number>(300);
+  const [fileSizeGB, setFileSizeGB] = useState<number>(10);
+  const [bandwidthMbps, setBandwidthMbps] = useState<number>(500);
 
   // Calculations
   // 1 GB = 1024 MB = 8192 Megabits
   const totalMegabits = fileSizeGB * 8192;
   const theoreticalSec = totalMegabits / bandwidthMbps;
 
-  // Gigasend Multi-Part Edge: Anycast proximity, HTTP/3 QUIC, ~92% line efficiency
+  // Gigasend parallel upload to nearest regional server
   const gigasendSec = Math.max(1, Math.round(theoreticalSec / 0.92));
 
   // Legacy Single-Region Cloud (e.g. AWS S3 single bucket / WeTransfer): ~65% efficiency due to TCP window clamping + RTT handshake latency
@@ -35,23 +35,18 @@ export default function SpeedCalculator() {
   };
 
   const sizePresets = [
-    { label: "5 GB", val: 5 },
+    { label: "2 GB", val: 2 },
     { label: "10 GB", val: 10 },
-    { label: "25 GB", val: 25 },
     { label: "50 GB", val: 50 },
-    { label: "100 GB", val: 100 },
-    { label: "500 GB", val: 500 },
+    { label: "250 GB", val: 250 },
     { label: "1 TB", val: 1000 },
-    { label: "2 TB", val: 2000 },
   ];
 
   const speedPresets = [
-    { label: "50 Mbps (Cable)", val: 50 },
-    { label: "100 Mbps (Broadband)", val: 100 },
-    { label: "300 Mbps (Fiber)", val: 300 },
-    { label: "1 Gbps (Gigabit)", val: 1000 },
-    { label: "2.5 Gbps (High-Speed)", val: 2500 },
-    { label: "10 Gbps (Studio)", val: 10000 },
+    { label: "50 Mbps", val: 50 },
+    { label: "100 Mbps", val: 100 },
+    { label: "500 Mbps", val: 500 },
+    { label: "1 Gbps", val: 1000 },
   ];
 
   const timeSavedSec = Math.max(0, legacySec - gigasendSec);
@@ -65,13 +60,13 @@ export default function SpeedCalculator() {
 
       <div className="border-b border-white/10 pb-6 text-center relative z-10">
         <span className="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-          <span aria-hidden="true">⚡</span> INTERACTIVE ESTIMATION TOOL
+          Transfer Time Estimator
         </span>
-        <h1 className="mt-3 text-3xl font-black text-white font-display tracking-tight sm:text-4xl">
-          File Transfer Speed & Upload Time Calculator
-        </h1>
+        <h2 className="mt-3 text-2xl font-black text-white font-display tracking-tight sm:text-3xl">
+          Estimate Your Upload & Transfer Time
+        </h2>
         <p className="mt-2 text-sm text-slate-300 sm:text-base">
-          Estimate realistic upload and delivery durations based on your WAN bandwidth and file payload.
+          Select your file size and internet speed to see how quickly your files will arrive.
         </p>
       </div>
 
@@ -80,7 +75,7 @@ export default function SpeedCalculator() {
         <div>
           <div className="flex items-center justify-between">
             <label htmlFor="file-size-slider" className="text-base font-bold text-white font-display">
-              1. Payload Size:{" "}
+              1. File Size:{" "}
               <span className="text-gold-400 font-black font-mono">
                 {fileSizeGB >= 1000 ? `${(fileSizeGB / 1000).toFixed(1)} TB` : `${fileSizeGB} GB`}
               </span>
@@ -103,7 +98,7 @@ export default function SpeedCalculator() {
                 key={preset.val}
                 type="button"
                 onClick={() => setFileSizeGB(preset.val)}
-                className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition tap-tactile ${
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition tap-tactile ${
                   fileSizeGB === preset.val
                     ? "bg-gold-500 text-ocean-950 shadow-md shadow-gold-500/20 font-bold"
                     : "border border-white/10 bg-white/[0.04] text-slate-300 hover:border-gold-500/40 hover:text-white"
@@ -142,7 +137,7 @@ export default function SpeedCalculator() {
                 key={preset.val}
                 type="button"
                 onClick={() => setBandwidthMbps(preset.val)}
-                className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition tap-tactile ${
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition tap-tactile ${
                   bandwidthMbps === preset.val
                     ? "bg-gold-500 text-ocean-950 shadow-md shadow-gold-500/20 font-bold"
                     : "border border-white/10 bg-white/[0.04] text-slate-300 hover:border-gold-500/40 hover:text-white"
@@ -154,67 +149,45 @@ export default function SpeedCalculator() {
           </div>
         </div>
 
-        {/* Results Comparison Grid */}
+        {/* Simplified Hero Results Comparison */}
         <div className="rounded-2xl border border-gold-500/30 bg-ocean-950/70 p-6 shadow-xl">
-          <div className="flex flex-col justify-between gap-4 border-b border-white/10 pb-4 sm:flex-row sm:items-center">
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">Calculated Telemetry</span>
-              <h3 className="text-xl font-bold text-white font-display">Transfer Time Comparison</h3>
-            </div>
-            <div className="rounded-xl bg-emerald-500/15 px-3.5 py-1.5 text-center text-xs font-bold text-emerald-400 border border-emerald-500/30 font-mono">
-              {percentFaster}% Faster via Edge Multi-Part
-            </div>
-          </div>
-
-          <div className="mt-6 space-y-4">
-            {/* Gigasend Edge */}
-            <div className="rounded-xl border border-gold-500/40 bg-ocean-900/90 p-4 shadow-md">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-500 text-xs font-black text-ocean-950" aria-hidden="true">✓</span>
-                  <div>
-                    <h4 className="text-sm font-bold text-white font-display">Gigasend Edge Multi-Part (Cloudflare Anycast)</h4>
-                    <p className="text-xs text-slate-300">Direct chunking across 335+ edge PoPs with parallel TCP streams</p>
-                  </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {/* Hero Metric: Gigasend Transfer Time */}
+            <div className="rounded-2xl border border-gold-500/40 bg-ocean-900/95 p-5 shadow-lg flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">Gigasend Transfer Time</span>
+                  <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-bold text-emerald-400 border border-emerald-500/30 font-mono">
+                    {percentFaster}% Faster
+                  </span>
                 </div>
-                <div className="text-right shrink-0">
-                  <span className="text-lg font-black text-gold-400 font-mono sm:text-2xl">{formatDuration(gigasendSec)}</span>
-                  <div className="text-[11px] text-emerald-400 font-mono">~92% line efficiency</div>
+                <div className="mt-3 text-3xl font-black text-gold-400 font-mono sm:text-4xl">
+                  {formatDuration(gigasendSec)}
                 </div>
               </div>
+              <p className="mt-3 text-xs text-slate-300">
+                Parallel multi-stream upload to the nearest regional server
+              </p>
             </div>
 
-            {/* Legacy Cloud (Single Region) */}
-            <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-slate-400" aria-hidden="true">•</span>
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-200 font-display">Legacy Cloud Storage (AWS S3 / WeTransfer)</h4>
-                    <p className="text-xs text-slate-400">High round-trip latency & TCP slow-start window throttling</p>
-                  </div>
-                </div>
-                <div className="text-right shrink-0">
-                  <span className="text-base font-bold text-slate-300 font-mono sm:text-lg">{formatDuration(legacySec)}</span>
-                  <div className="text-[11px] text-slate-400 font-mono">~65% efficiency</div>
+            {/* Secondary Comparison: Standard Cloud Upload */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 label-caps">Standard Cloud Upload</span>
+                <div className="mt-3 text-2xl font-bold text-slate-300 font-mono sm:text-3xl">
+                  {formatDuration(legacySec)}
                 </div>
               </div>
-            </div>
-
-            {/* Theoretical Line Rate */}
-            <div className="rounded-xl border border-white/10 bg-ocean-950/80 p-3.5 text-xs text-slate-400 font-mono">
-              <div className="flex items-center justify-between">
-                <span>Theoretical Physics Maximum (100% wire speed):</span>
-                <span className="font-bold text-gold-400">{formatDuration(Math.round(theoreticalSec))}</span>
-              </div>
+              <p className="mt-3 text-xs text-slate-400">
+                Single-stream upload to a distant data center
+              </p>
             </div>
           </div>
 
           {/* Time Saved Highlight */}
           {timeSavedSec > 0 && (
-            <div className="mt-4 text-center text-xs text-slate-300">
-              <span aria-hidden="true">⚡</span> Uploading via Gigasend saves you roughly{" "}
-              <strong className="text-gold-400 font-mono">{formatDuration(timeSavedSec)}</strong> compared to single-region legacy uploads.
+            <div className="mt-4 pt-4 border-t border-white/10 text-center text-xs text-slate-300">
+              Saves approximately <strong className="text-gold-400 font-mono">{formatDuration(timeSavedSec)}</strong> compared to a standard single-stream cloud upload.
             </div>
           )}
         </div>
@@ -225,13 +198,14 @@ export default function SpeedCalculator() {
             href="/transfer"
             className="btn-gold inline-flex w-full items-center justify-center rounded-xl px-8 py-4 text-sm font-bold shadow-xl shadow-gold-500/20 transition sm:w-auto tap-tactile"
           >
-            Transfer {fileSizeGB >= 1000 ? `${(fileSizeGB / 1000).toFixed(1)} TB` : `${fileSizeGB} GB`} with Gigasend Now →
+            Transfer {fileSizeGB >= 1000 ? `${(fileSizeGB / 1000).toFixed(1)} TB` : `${fileSizeGB} GB`} Now →
           </a>
           <p className="mt-2.5 text-xs text-slate-400 font-mono">
-            Free up to 10 GB • No software install • In-browser parallel stream
+            10 GB free (3-day retention) • Paid plans & credit packs up to 5 TB
           </p>
         </div>
       </div>
     </div>
   );
 }
+

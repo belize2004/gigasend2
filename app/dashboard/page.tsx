@@ -2,11 +2,11 @@
 import EmptyShares from '@/components/dashboard/EmptyShares';
 import ShareCard from '@/components/dashboard/ShareCard';
 import Usage from '@/components/dashboard/Usage';
+import Link from '@/components/compat/Link';
 import axios, { AxiosError } from 'axios';
 import React, { useEffect, useState } from 'react';
 import {
-  FiUpload,
-  FiInbox
+  FiUpload
 } from 'react-icons/fi';
 import type { DashboardData } from '@/types/app-data';
 
@@ -38,21 +38,21 @@ const DashboardHome: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      {/* Header with Breadcrumbs & Actions */}
+      {/* Header with Primary Action */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold-500/15 text-gold-400 border border-gold-500/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              Edge Node Active
-            </span>
-            <span className="text-xs text-slate-400 font-mono">Cloudflare Anycast</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Workspace Overview</h1>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Transfers</h1>
           <p className="text-xs sm:text-sm text-slate-300 font-body mt-0.5">
-            Direct edge streaming and transfer package management.
+            Manage your shared links and storage.
           </p>
         </div>
+        <Link
+          href="/transfer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 btn-gold font-bold font-display text-xs rounded-xl shadow-lg shadow-gold-500/15 transition-all duration-200 tap-tactile"
+        >
+          <FiUpload className="text-sm" />
+          <span>Send Files</span>
+        </Link>
       </div>
 
       {/* Storage Usage Card */}
@@ -61,10 +61,7 @@ const DashboardHome: React.FC = () => {
       {/* Active Transfers */}
       <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
         <div className="flex items-center justify-between mb-6">
-          <div>
-            <span className="label-caps text-gold-400 text-[10px] block mb-0.5">Live Delivery</span>
-            <h2 className="text-xl font-bold text-white font-display">Active Transfers</h2>
-          </div>
+          <h2 className="text-xl font-bold text-white font-display">Active Transfers</h2>
           <div className="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {activeShares.length} Active
           </div>
@@ -86,32 +83,22 @@ const DashboardHome: React.FC = () => {
       </div>
 
       {/* Expired Transfers */}
-      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <span className="label-caps text-slate-400 text-[10px] block mb-0.5">Archive History</span>
+      {expiredShares.length > 0 && (
+        <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
+          <div className="flex items-center justify-between mb-6">
             <h2 className="text-xl font-bold text-white font-display">Expired Transfers</h2>
+            <div className="bg-rose-500/15 text-rose-400 border border-rose-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              {expiredShares.length} Expired
+            </div>
           </div>
-          <div className="bg-rose-500/15 text-rose-400 border border-rose-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            {expiredShares.length} Expired
-          </div>
-        </div>
 
-        {expiredShares.length > 0 ? (
           <div className="grid gap-4">
             {expiredShares.map((share, key) => (
               <ShareCard key={key} {...share} />
             ))}
           </div>
-        ) : (
-          <EmptyShares
-            title="No Expired Transfers"
-            description="Transfers that pass their expiration date will be listed here."
-            icon={FiInbox}
-            showAction={false}
-          />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

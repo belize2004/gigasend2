@@ -74,20 +74,20 @@ export function FileUploader({ locale: propLocale }: { locale?: "en" | "es" | "p
 
   const copy = {
     en: {
-      heading: "Drag and drop files or folders here, or choose below",
-      helper: "All file types and folders supported up to your available storage limit.",
+      heading: "Drop files or folders here",
+      helper: "Up to 10 GB free · 3-day link expiration",
       chooseFiles: "Choose Files",
       chooseFolder: "Choose Folder",
     },
     es: {
-      heading: "Arrastra archivos o carpetas aquí, o selecciónalos",
-      helper: "Admite cualquier tipo de archivo o carpeta hasta el límite disponible en tu plan.",
+      heading: "Arrastra archivos o carpetas aquí",
+      helper: "Hasta 10 GB gratis · Enlaces activos por 3 días",
       chooseFiles: "Seleccionar archivos",
       chooseFolder: "Seleccionar carpeta",
     },
     pt: {
-      heading: "Arraste arquivos ou pastas aqui ou selecione abaixo",
-      helper: "Compatível com todos os tipos de arquivo e pastas até o limite disponível no seu plano.",
+      heading: "Arraste arquivos ou pastas aqui",
+      helper: "Até 10 GB grátis · Links ativos por 3 dias",
       chooseFiles: "Selecionar arquivos",
       chooseFolder: "Selecionar pasta",
     },

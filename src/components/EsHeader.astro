@@ -1,15 +1,13 @@
 ---
-import { esSeoLandingPages } from "../data/esSeoLandingPages";
 import { brand } from "@/lib/brand";
 
 interface Props {
-  activeNav?: "hub" | "mexico" | "espana" | "colombia" | "argentina" | "mas2gb" | "videos" | "slug";
+  activeNav?: "hub" | "mexico" | "espana" | "colombia" | "argentina" | "mas2gb" | "videos" | "slug" | "precios" | "guias";
   enHref?: string;
   esHref?: string;
   ptHref?: string;
 }
 
-const totalSpanishCount = esSeoLandingPages.length + 7;
 const {
   activeNav = "slug",
   enHref = "/?lang=en",
@@ -18,18 +16,20 @@ const {
 } = Astro.props;
 
 const navItems = [
-  { id: "hub", label: `Central en español (${totalSpanishCount})`, shortLabel: `Español (${totalSpanishCount})`, href: "/es" },
-  { id: "mexico", label: "🇲🇽 México", shortLabel: "🇲🇽 México", href: "/es/mexico" },
-  { id: "espana", label: "🇪🇸 España", shortLabel: "🇪🇸 España", href: "/es/espana" },
-  { id: "colombia", label: "🇨🇴 Colombia", shortLabel: "🇨🇴 Colombia", href: "/es/colombia" },
-  { id: "argentina", label: "🇦🇷 Argentina", shortLabel: "🇦🇷 Argentina", href: "/es/argentina" },
-  { id: "mas2gb", label: "+2 GB gratis", shortLabel: "+2 GB gratis", href: "/es/enviar-archivos-mas-de-2gb" },
-  { id: "videos", label: "Videos 4K/RAW", shortLabel: "Videos 4K", href: "/es/enviar-videos-sin-perder-calidad" },
+  { id: "hub", label: "Enviar", shortLabel: "Enviar", href: "/es#uploader" },
+  { id: "precios", label: "Precios", shortLabel: "Precios", href: "/plans" },
+  { id: "guias", label: "Guías", shortLabel: "Guías", href: "/es#guias-completas" },
 ];
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/90 backdrop-blur-2xl">
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegación principal en español">
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-xl focus:bg-gold-500 focus:px-4 focus:py-2.5 focus:text-xs focus:font-bold focus:text-ocean-950"
+  >
+    Saltar al contenido
+  </a>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegación principal">
     <a
       href="/es"
       class="flex min-h-[44px] items-center gap-3 text-xl font-extrabold font-display tracking-tight text-white group tap-tactile"
@@ -43,12 +43,12 @@ const navItems = [
     </a>
 
     <div class="flex items-center gap-2 sm:gap-4 text-xs font-medium text-slate-300">
-      <div class="hidden xl:flex items-center gap-1">
+      <div class="hidden md:flex items-center gap-1">
         {navItems.map((item) => (
           <a
             href={item.href}
             aria-current={activeNav === item.id ? "page" : undefined}
-            class={`inline-flex min-h-[44px] items-center rounded-xl px-2.5 transition-colors tap-tactile ${
+            class={`inline-flex min-h-[44px] items-center rounded-xl px-3 transition-colors tap-tactile ${
               activeNav === item.id
                 ? "text-gold-400 font-bold bg-gold-500/10"
                 : "text-slate-300 hover:text-gold-400 hover:bg-white/5"
@@ -59,7 +59,6 @@ const navItems = [
         ))}
       </div>
 
-      <!-- 3-Way Segmented Language Switcher (EN | ES | PT) with 44x44pt Apple HIG touch targets -->
       <div
         class="inline-flex min-h-[44px] items-center rounded-xl border border-white/15 bg-ocean-900/90 p-1 text-xs font-mono"
         role="group"
@@ -101,10 +100,9 @@ const navItems = [
     </div>
   </nav>
 
-  <!-- Mobile & Tablet Sub-Navigation Strip (<1280px) so 375px iPhone viewports have full 40pt+ access to all hubs -->
   <nav
-    aria-label="Navegación rápida móvil en español"
-    class="xl:hidden border-t border-white/10 bg-ocean-950/95 px-4 py-1.5 overflow-x-auto no-scrollbar"
+    aria-label="Navegación rápida móvil"
+    class="md:hidden border-t border-white/10 bg-ocean-950/95 px-4 py-1.5 overflow-x-auto no-scrollbar"
   >
     <div class="mx-auto flex max-w-7xl items-center gap-2 whitespace-nowrap text-xs font-medium">
       {navItems.map((item) => (

@@ -74,20 +74,15 @@ const PricingPlans = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-800/80 border border-gold-500/30 text-gold-400 label-caps text-xs shadow-lg shadow-ocean-950/60">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Zero Cloud Egress Markups • Line-Rate Anycast Delivery
-          </div>
-
           <div className="flex items-center justify-center gap-3">
             <BsArrowUpSquareFill className="text-3xl sm:text-4xl text-gold-400" />
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white font-display tracking-tight">
-              {brand.productName} <span className="text-gold-400">Pricing</span>
+              Simple, Predictable <span className="text-gold-400">Pricing</span>
             </h1>
           </div>
 
-          <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Choose a monthly plan or prepaid Pay-As-You-Go delivery packs valid for 12 months—powered by our global edge network across 335+ cities.
+          <p className="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Start with 10 GB free. Upgrade to a monthly plan or buy Pay-As-You-Go credits whenever you need more space.
           </p>
 
           {/* Pricing Model Segmented Toggle */}
@@ -107,26 +102,15 @@ const PricingPlans = () => {
               <button
                 type="button"
                 onClick={() => setBillingModel('payg')}
-                className={`flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer tap-tactile ${
+                className={`flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer tap-tactile ${
                   billingModel === 'payg'
                     ? 'btn-gold bg-gold-500 text-ocean-950 shadow-lg'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
-                <span>⚡ Pay-As-You-Go</span>
-                <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                  billingModel === 'payg'
-                    ? 'bg-ocean-950/20 text-ocean-950'
-                    : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                }`}>
-                  No Monthly Fee
-                </span>
+                Pay As You Go
               </button>
             </div>
-          </div>
-
-          <div className="pt-4">
-            <TrustSignals />
           </div>
         </div>
 
@@ -201,19 +185,10 @@ const PricingPlans = () => {
 
         {/* ===================== TAB 2: PAY-AS-YOU-GO PACKS ===================== */}
         {billingModel === 'payg' && (
-          <div className="mb-16 animate-fadeIn space-y-10">
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 label-caps text-xs">
-                <FiClock className="text-gold-400" />
-                12-Month Credit Validity • Deducted Only Upon Download
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-white font-display tracking-tight">
-                Buy Delivery Data Upfront. <span className="text-gold-400">Use It Anytime.</span>
-              </h2>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
-                Ideal for freelance video editors, colorists, and boutique studios with project-based workflows. Recipients download uncompressed at line-rate speed with no account needed.
-              </p>
-            </div>
+          <div className="mb-16 animate-fadeIn space-y-6">
+            <p className="text-center text-sm text-slate-300 max-w-2xl mx-auto">
+              Uploads are always free. Credits are used only when recipients download your files and remain valid for 12 months.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {Object.values(PAYG_PACKS).map((pack) => (
@@ -284,52 +259,8 @@ const PricingPlans = () => {
                 </div>
               ))}
             </div>
-
-            {/* PAYG Guarantee Notice */}
-            <div className="max-w-3xl mx-auto rounded-3xl apple-glass bg-ocean-900/70 border border-white/10 p-6 sm:p-8 shadow-xl text-center space-y-2">
-              <h4 className="text-base font-bold text-white font-display flex items-center justify-center gap-2">
-                <FiLock className="text-gold-400" />
-                How Pay-As-You-Go Credits Work
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
-                Uploading files and creating share links are always free. Credits are deducted only when a recipient downloads your files, and remain valid for 12 months.
-              </p>
-            </div>
           </div>
         )}
-
-        {/* Why Choose Gigasend Section */}
-        <div className="apple-glass bg-ocean-900/60 border border-white/10 rounded-3xl shadow-xl p-8 sm:p-10 mb-12">
-          <div className="text-center mb-10 space-y-2">
-            <span className="label-caps text-gold-400 text-xs">The Zero-Egress Architecture</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
-              Why Choose {brand.productName}?
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center space-y-2">
-              <div className="bg-gold-500/15 border border-gold-500/30 rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-3">
-                <FiZap className="text-2xl text-gold-400" />
-              </div>
-              <h3 className="text-lg font-bold text-white font-display">Lightning Fast</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">Upload and share files at line-rate speeds with our optimized Cloudflare Anycast edge network.</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="bg-emerald-500/15 border border-emerald-500/30 rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-3">
-                <FiShield className="text-2xl text-emerald-400" />
-              </div>
-              <h3 className="text-lg font-bold text-white font-display">Secure &amp; Private</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">Your files are protected with enterprise-grade 256-bit TLS encryption and expiring secure links.</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="bg-gold-500/15 border border-gold-500/30 rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-3">
-                <FiUsers className="text-2xl text-gold-400" />
-              </div>
-              <h3 className="text-lg font-bold text-white font-display">Zero Recipient Friction</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">Clients download files directly in their browser without registering an account or installing software.</p>
-            </div>
-          </div>
-        </div>
 
         {/* FAQ Cards Section */}
         <div className="mb-12">
@@ -369,26 +300,26 @@ const PricingPlans = () => {
 
         {/* Bottom Enterprise CTA Banner */}
         <div className="apple-glass bg-ocean-900/90 border border-gold-500/30 rounded-3xl p-8 sm:p-10 text-center shadow-2xl space-y-4">
-          <span className="label-caps text-gold-400 text-xs">Custom Studio &amp; Enterprise Volume</span>
+          <span className="label-caps text-gold-400 text-xs">Enterprise</span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
-            Moving 10 TB+ per month or need custom retention?
+            Need 5 TB+ or Custom Retention?
           </h3>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-            Talk to our engineering team for custom multi-terabyte pools, dedicated SLA onboarding, and ACH invoicing.
+            Tailored storage, dedicated support, and custom SLAs for studios and teams.
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <a
               href="/#contact"
               className="btn-gold px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile inline-flex items-center gap-2"
             >
-              <span>Contact Studio Sales</span>
+              <span>Contact Sales</span>
               <FiArrowRight />
             </a>
             <a
               href="/transfer"
               className="btn-outline-gold px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold tap-tactile inline-flex items-center gap-2"
             >
-              <span>Start a Transfer Now</span>
+              <span>Send Files</span>
             </a>
           </div>
         </div>

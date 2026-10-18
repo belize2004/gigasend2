@@ -55,7 +55,7 @@ export default function ShareCard(share: Props) {
           )}
           <button
             onClick={() => copyToClipboard(share.link)}
-            className={`p-2.5 rounded-xl border transition-all duration-200 tap-tactile ${copied
+            className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold font-display transition-all duration-200 tap-tactile ${copied
               ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
               : isExpired
                 ? 'bg-rose-500/15 text-rose-300 border-rose-500/30 hover:bg-rose-500/25'
@@ -64,7 +64,8 @@ export default function ShareCard(share: Props) {
             aria-label={copied ? "Link copied" : "Copy download link"}
             title={copied ? "Link copied" : "Copy download link"}
           >
-            {copied ? <FiCheck size={16} /> : <FiCopy size={16} />}
+            {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
+            <span>{copied ? "Copied" : "Copy Link"}</span>
           </button>
         </div>
       </div>
@@ -74,10 +75,6 @@ export default function ShareCard(share: Props) {
           <FiCalendar className="mr-1.5 text-slate-500" />
           <span>Expires: {formatDate(share.expiresAt.toString())}</span>
         </div>
-      </div>
-
-      <div className="mt-3 p-3 bg-ocean-950 border border-white/10 rounded-xl">
-        <p className="text-xs text-slate-300 font-mono break-all">{share.link}</p>
       </div>
     </div>
   )

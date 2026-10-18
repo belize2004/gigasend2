@@ -53,30 +53,21 @@ export default function SubscriptionManagement({
 
   return (
     <>
-      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-white font-display mb-6">Subscription Management</h2>
-
-        <div className="space-y-5">
-          <div className="bg-gold-500/10 border border-gold-500/30 rounded-2xl p-4">
-            <div className="flex items-start">
-              <FiAlertTriangle className="text-gold-400 mr-3.5 mt-0.5 text-lg shrink-0" />
-              <div>
-                <h4 className="font-bold text-gold-400 font-display text-sm mb-1">Before You Cancel</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  You&apos;ll lose access to all premium features and your files will be removed after the current billing period ends.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <button
-            onClick={() => setShowCancelConfirm(true)}
-            className="w-full md:w-auto px-6 py-3 bg-rose-500/15 border border-rose-500/40 text-rose-300 hover:bg-rose-500/25 hover:text-white rounded-xl font-bold font-display text-xs transition-all duration-200 flex items-center justify-center tap-tactile"
-          >
-            <FiX className="mr-2 text-base" />
-            Cancel Subscription
-          </button>
+      <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-xl font-bold text-white font-display">Subscription Management</h2>
+          <p className="text-xs text-slate-300 mt-1">
+            You can cancel your monthly subscription at any time.
+          </p>
         </div>
+
+        <button
+          onClick={() => setShowCancelConfirm(true)}
+          className="w-full sm:w-auto px-6 py-3 bg-rose-500/15 border border-rose-500/40 text-rose-300 hover:bg-rose-500/25 hover:text-white rounded-xl font-bold font-display text-xs transition-all duration-200 flex items-center justify-center tap-tactile"
+        >
+          <FiX className="mr-2 text-base" />
+          Cancel Subscription
+        </button>
       </div>
       {showCancelConfirm && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50 w-screen h-screen">

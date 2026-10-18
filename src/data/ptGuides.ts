@@ -26,7 +26,7 @@ export const PT_ENGINEERING_GUIDES: PtEngineeringGuide[] = [
     metaDescription:
       "Veja por que envios acima de 20 GB dão timeout na Claro, Vivo e Starlink e como o streaming multiparte HTTP/3 em São Paulo e Rio resolve quedas aos 99%.",
     h1: "Por que o upload de arquivos grandes é lento ou cai aos 99% nas operadoras brasileiras",
-    eyebrow: "Engenharia de redes e borda • IX.br São Paulo (GRU) e Rio (GIG)",
+    eyebrow: "Transferência rápida no Brasil • Servidores em São Paulo e Rio",
     readTime: "6 min de leitura",
     primaryKeyword: "upload de arquivo grande caindo em 99 por cento",
     summary:

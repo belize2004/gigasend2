@@ -52,7 +52,7 @@ const CheckoutPage = () => {
   const currentPrice = monthlyPrice;
 
   const handleCheckout = async () => {
-    if (!formData.email) {
+    if (stripe && elements && !formData.email) {
       setError('Enter your email address to continue.');
       return;
     }
@@ -219,19 +219,6 @@ const CheckoutPage = () => {
                 </div>
               </div>
             </div>
-
-            {/* Security Notice */}
-            <div className="apple-subtle-glass bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5">
-              <div className="flex items-center">
-                <FiShield className="text-emerald-400 mr-3.5 text-lg shrink-0" />
-                <div>
-                  <h4 className="font-bold text-emerald-400 font-display text-sm">Secure Payment</h4>
-                  <p className="text-xs text-slate-300 mt-0.5">
-                    Your payment information is encrypted and secure. We use Stripe for processing.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Right Side - Payment Form */}
@@ -251,50 +238,52 @@ const CheckoutPage = () => {
             </div>
 
             <div className="space-y-6">
-              {/* Email */}
-              <div>
-                <label className="block label-caps text-slate-200 text-[10px] mb-2">
-                  Email Address <span className="text-rose-400">*</span>
-                </label>
-                <div className="relative">
-                  <FiMail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 bg-ocean-950 border border-white/15 rounded-xl text-sm text-white placeholder-slate-500 focus:border-gold-500 outline-none transition-all duration-200"
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-              </div>
-
               {/* Card Information or Hosted Stripe Banner */}
               {stripe && elements ? (
-                <div>
-                  <label className="block label-caps text-slate-200 text-[10px] mb-2">
-                    Card Information <span className="text-rose-400">*</span>
-                  </label>
-                  <CardElement
-                    options={{
-                      style: {
-                        base: {
-                          color: '#f8fafc',
-                          fontFamily: 'ui-sans-serif, system-ui, sans-serif',
-                          fontSize: '14px',
-                          '::placeholder': {
-                            color: '#64748b',
+                <>
+                  {/* Email */}
+                  <div>
+                    <label className="block label-caps text-slate-200 text-[10px] mb-2">
+                      Email Address <span className="text-rose-400">*</span>
+                    </label>
+                    <div className="relative">
+                      <FiMail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full pl-10 pr-4 py-3 bg-ocean-950 border border-white/15 rounded-xl text-sm text-white placeholder-slate-500 focus:border-gold-500 outline-none transition-all duration-200"
+                        placeholder="your@email.com"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block label-caps text-slate-200 text-[10px] mb-2">
+                      Card Information <span className="text-rose-400">*</span>
+                    </label>
+                    <CardElement
+                      options={{
+                        style: {
+                          base: {
+                            color: '#f8fafc',
+                            fontFamily: 'ui-sans-serif, system-ui, sans-serif',
+                            fontSize: '14px',
+                            '::placeholder': {
+                              color: '#64748b',
+                            },
+                          },
+                          invalid: {
+                            color: '#fb7185',
                           },
                         },
-                        invalid: {
-                          color: '#fb7185',
-                        },
-                      },
-                    }}
-                    className="bg-ocean-950 border border-white/15 rounded-xl px-4 py-4 focus:border-gold-500 transition-all duration-200 mb-4"
-                  />
-                </div>
+                      }}
+                      className="bg-ocean-950 border border-white/15 rounded-xl px-4 py-4 focus:border-gold-500 transition-all duration-200 mb-4"
+                    />
+                  </div>
+                </>
               ) : (
                 <div className="rounded-2xl border border-gold-500/30 bg-ocean-950/80 p-6 text-center mb-4">
                   <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-500/15 text-gold-400 border border-gold-500/20">
@@ -324,26 +313,10 @@ const CheckoutPage = () => {
               {/* Security info */}
               <div className="text-center">
                 <p className="text-xs text-slate-400">
-                  Powered by <span className="font-semibold text-white">Stripe</span> • Your payment info is secure
+                  Encrypted checkout powered by <span className="font-semibold text-white">Stripe</span>. Cancel anytime.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Additional Trust Elements */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-          <div className="apple-subtle-glass border border-white/10 rounded-2xl py-3.5 px-4 flex items-center justify-center">
-            <FiShield className="text-emerald-400 mr-2" />
-            <span className="text-xs font-semibold text-slate-200">SSL Encrypted</span>
-          </div>
-          <div className="apple-subtle-glass border border-white/10 rounded-2xl py-3.5 px-4 flex items-center justify-center">
-            <FiZap className="text-gold-400 mr-2" />
-            <span className="text-xs font-semibold text-slate-200">Instant Activation</span>
-          </div>
-          <div className="apple-subtle-glass border border-white/10 rounded-2xl py-3.5 px-4 flex items-center justify-center">
-            <FiUsers className="text-sky-400 mr-2" />
-            <span className="text-xs font-semibold text-slate-200">24/7 Support</span>
           </div>
         </div>
       </div>

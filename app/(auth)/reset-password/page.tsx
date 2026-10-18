@@ -74,16 +74,12 @@ export default function ResetPasswordPage() {
     <div className="min-h-screen bg-ocean-950 text-slate-100 flex items-center justify-center p-4 font-body">
       <div className="w-full max-w-md apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl shadow-2xl p-8 sm:p-10 backdrop-blur-2xl text-left">
         <div className="mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mb-6 border border-gold-500/20">
+          <div className="w-12 h-12 rounded-2xl bg-gold-500/15 text-gold-400 flex items-center justify-center mb-5 border border-gold-500/20">
             <FiLock className="w-6 h-6" />
-          </div>
-          <div className="flex items-center gap-2 mb-2">
-            <BsArrowUpSquareFill className="text-lg text-gold-400" />
-            <span className="label-caps text-gold-400 text-xs">{brand.productName} Security</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight">Create New Password</h1>
           <p className="text-sm text-slate-300 mt-1.5 font-body">
-            Enter your new password below to regain access to your account.
+            Choose a password with at least 8 characters.
           </p>
         </div>
 

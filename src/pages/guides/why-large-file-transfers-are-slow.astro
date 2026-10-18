@@ -1,7 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import SpeedCalculator from "../../components/SpeedCalculator";
-import RelatedWorkflows from "@/src/components/seo/RelatedWorkflows.astro";
 import { brand } from "@/lib/brand";
 
 export const prerender = true;
@@ -12,7 +10,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "TechArticle",
   headline: "Why Large File Transfers Are So Slow (And How to Fix It)",
-  description: "A comprehensive network engineering breakdown of TCP window scaling, peering latency, packet loss, and WAN bottlenecks during 25 GB–2 TB file transfers.",
+  description: "Understand why 25 GB–5 TB file uploads slow down over long distances, and how nearest-server routing and parallel upload streams keep transfers fast.",
   url: canonical,
   author: {
     "@type": "Organization",
@@ -36,15 +34,15 @@ const faqSchema = {
       name: "Why does my 1 Gbps connection only upload large files at 20–40 Mbps?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Advertised 1 Gbps ISP speeds represent local line capacity to your local exchange. When transmitting across long distances to a centralized cloud data center (e.g. AWS us-east-1), high Round-Trip Time (RTT) and TCP window scaling limits cap your effective throughput to a fraction of physical wire speed.",
+        text: "Advertised 1 Gbps ISP speeds measure local capacity to your neighborhood exchange. When uploading across long distances to a single distant cloud data center, high round-trip delay limits how fast a single connection can send data.",
       },
     },
     {
       "@type": "Question",
-      name: "How does edge multi-part upload solve WAN bottlenecks?",
+      name: "How do parallel upload streams speed up large transfers?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Edge multi-part architectures terminate TCP connections at the nearest local Anycast PoP (often under 10 ms away). By splitting large files into concurrent chunks and streaming them in parallel, network latency is neutralized and transfers achieve up to 92% of available bandwidth.",
+        text: "Connecting to the nearest regional server (often under 15 ms away) and splitting large files into parallel streams keeps your connection saturated from start to finish.",
       },
     },
     {
@@ -52,7 +50,7 @@ const faqSchema = {
       name: "Why do large browser uploads fail midway?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Single-stream HTTP uploads have zero failure recovery. If a Wi-Fi packet drop or TCP timeout occurs at 95% of a 40 GB upload, the entire socket terminates. Modern edge transfer tools use chunked hashing with individual block retries.",
+        text: "Single-stream browser uploads have no failure recovery. If a brief Wi-Fi drop occurs at 95% of a 40 GB upload, the entire transfer fails. Modern transfer tools split files into smaller blocks and automatically retry any interrupted piece.",
       },
     },
   ],
@@ -61,7 +59,7 @@ const faqSchema = {
 
 <BaseLayout
   title={`Why Large File Transfers Are So Slow (And How to Fix It) | ${brand.productName}`}
-  description="Diagnose slow 25 GB to 2 TB file uploads. Understand TCP window scaling, RTT latency, packet loss, and how edge multi-part networks deliver line-rate speeds."
+  description="Diagnose slow 25 GB to 5 TB file uploads. Learn how distance delay and single-stream bottlenecks slow you down, and how parallel uploads fix it."
   canonical={canonical}
   hreflang={[
     { lang: "en", href: canonical },
@@ -108,85 +106,82 @@ const faqSchema = {
     <article class="bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 py-16 sm:py-20 border-b border-white/10">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div class="inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400 label-caps">
-          <span>Infrastructure & WAN Engineering</span>
+          <span>Speed & Performance Guide</span>
         </div>
         <h1 class="mt-4 text-4xl font-black tracking-tight text-white font-display sm:text-5xl">
           Why Large File Transfers Are So Slow (And How to Fix It)
         </h1>
         <p class="mt-4 text-lg text-slate-300 leading-relaxed">
-          You upgraded to gigabit fiber, yet sending a 60 GB raw video archive or 3D VFX sequence to an overseas client is still crawling at a painful 15–30 Mbps. Why does this happen, and how do modern edge architectures eliminate the bottleneck?
+          You upgraded to gigabit fiber, yet sending a 60 GB raw video archive or 3D project to a client still crawls at 15–30 Mbps. Here is why that happens and how connecting to the nearest regional server fixes the bottleneck.
         </p>
 
         <div class="mt-6 flex items-center gap-3 border-y border-white/10 py-4 text-xs text-slate-400 font-mono">
-          <span>Published by Infrastructure Engineering</span>
+          <span>Published by {brand.productName} Engineering</span>
           <span aria-hidden="true">•</span>
           <span>Updated October 2026</span>
           <span aria-hidden="true">•</span>
-          <span class="text-gold-400">6 min read</span>
+          <span class="text-gold-400">4 min read</span>
         </div>
 
         <div class="mt-8 max-w-none space-y-6 text-slate-300 leading-relaxed">
           <h2 class="text-2xl font-bold text-white font-display">1. The Myth of the "Gigabit Pipe"</h2>
           <p>
-            When internet service providers advertise a <strong class="text-white">1 Gbps (Gigabit per second)</strong> connection, they are quoting the physical bandwidth between your optical terminal and their local Central Office exchange.
+            When internet service providers advertise a <strong class="text-white">1 Gbps (Gigabit per second)</strong> connection, they are quoting the local speed between your router and their neighborhood exchange.
           </p>
           <p>
-            However, transferring a 40 GB file is rarely an exchange-local task. When delivering footage to an agency in London, a colorist in Los Angeles, or a client in Tokyo, your data packets must transit through multiple Tier-1 transit providers (Cogent, Telia, Lumen) before arriving at the destination storage bucket.
+            However, transferring a 40 GB file to a client in London, Los Angeles, or Tokyo requires your data to travel across multiple long-distance network hops before reaching a centralized storage server.
           </p>
 
-          <h2 class="text-2xl font-bold text-white font-display">2. The Mathematics of TCP Window Scaling & Latency</h2>
+          <h2 class="text-2xl font-bold text-white font-display">2. How Distance Slows Down Single-Stream Uploads</h2>
           <p>
-            Standard internet traffic relies on the <strong class="text-white">Transmission Control Protocol (TCP)</strong>. TCP is designed for guaranteed delivery, meaning the receiver must acknowledge (ACK) packets before the sender sends more data.
-          </p>
-          <p>
-            The maximum theoretical speed of a single TCP connection is governed by the <strong class="text-gold-400">Bandwidth-Delay Product (BDP)</strong>:
+            Standard browser uploads send your file over a single connection that waits for confirmation after every small batch of data. The further away the destination server is, the longer your computer spends waiting for those confirmations.
           </p>
           <div class="rounded-xl bg-ocean-950 border border-gold-500/30 p-4 font-mono text-xs text-gold-400 shadow-inner">
-            Maximum Throughput = TCP Window Size / Round Trip Time (RTT)
+            Real-World Upload Speed = Buffer Capacity ÷ Round-Trip Delay
           </div>
           <p>
-            Even with modern TCP window scaling enabled (e.g. 64 KB up to 16 MB buffers), if your round-trip latency to a centralized cloud data center is <strong class="text-white">90 milliseconds</strong>, a single lost packet forces TCP congestion control (CUBIC) to cut throughput by up to 50%. On transatlantic connections, real-world throughput often collapses to less than 10% of physical capacity.
+            When uploading to a distant data center with <strong class="text-white">90 ms of round-trip delay</strong>, even a tiny hiccup on Wi-Fi causes your browser to cut its sending speed in half. Over long distances, a single-stream upload often uses less than 10% of your actual internet speed.
           </p>
 
-          <h2 class="text-2xl font-bold text-white font-display">3. Single-Region Cloud Storage: The Bottleneck Architecture</h2>
+          <h2 class="text-2xl font-bold text-white font-display">3. Single-Region Cloud Storage Bottlenecks</h2>
           <p>
-            Legacy services like Google Drive, Dropbox, and standard AWS S3 buckets operate out of centralized regions (e.g. <code class="px-2 py-0.5 rounded bg-ocean-900 border border-white/10 text-gold-400 font-mono text-xs">us-east-1</code> in Virginia or <code class="px-2 py-0.5 rounded bg-ocean-900 border border-white/10 text-gold-400 font-mono text-xs">eu-west-1</code> in Ireland). When a creator in Munich uploads to a New York agency's bucket:
+            Traditional cloud drives often route uploads to a single regional data center. When a creator in Europe uploads to a folder hosted in North America:
           </p>
           <ul class="list-disc pl-5 space-y-2 text-slate-300">
-            <li>Every packet must cross the Atlantic before reaching the cloud.</li>
-            <li>Round-trip time exceeds 100 ms.</li>
-            <li>Any transient Wi-Fi fluctuation or ISP jitter drops the TCP window size to near zero.</li>
+            <li>Every piece of data has to cross the ocean before being acknowledged.</li>
+            <li>Round-trip delay exceeds 100 ms, throttling your upload speed.</li>
+            <li>Any brief Wi-Fi drop can stall or reset the entire upload.</li>
           </ul>
 
-          <h2 class="text-2xl font-bold text-white font-display">4. The Solution: Multi-Part Anycast Edge Ingestion</h2>
+          <h2 class="text-2xl font-bold text-white font-display">4. The Fix: Nearest-Server Routing & Parallel Streams</h2>
           <p>
-            Gigasend was architected to bypass this physics limitation entirely using Cloudflare's Anycast global network:
+            Gigasend removes long-distance slowdowns by combining three simple improvements:
           </p>
           <ol class="list-decimal pl-5 space-y-3 text-slate-300">
-            <li><strong class="text-white">Sub-15 ms Anycast Termination:</strong> Your browser connects to the nearest Cloudflare data center (across 335+ cities). Instead of crossing the ocean, your TCP handshake completes locally in under 15 ms.</li>
-            <li><strong class="text-white">Parallel Chunking:</strong> Files are sliced in-browser into concurrent chunks and uploaded across multiple parallel HTTP/3 streams. If one chunk experiences jitter, other streams continue at maximum line rate.</li>
-            <li><strong class="text-white">Zero Local SSD Cache:</strong> Files are streamed directly into durable edge object storage without caching hundreds of gigabytes onto your local hard drive.</li>
+            <li><strong class="text-white">Nearest Regional Server:</strong> Your browser connects to the closest server in over 335 cities worldwide, completing the connection locally in under 15 ms.</li>
+            <li><strong class="text-white">Parallel Upload Streams:</strong> Large files are split into smaller parts and uploaded simultaneously across multiple streams, keeping your connection running at full speed.</li>
+            <li><strong class="text-white">No Local Folder Sync:</strong> Files stream directly from your browser without duplicating hundreds of gigabytes onto your startup disk.</li>
           </ol>
+        </div>
+
+        <!-- Clean Callout Link to Speed Calculator -->
+        <div class="mt-10 apple-glass rounded-2xl border border-gold-500/30 bg-ocean-900/80 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <span class="label-caps text-gold-400 text-xs">Interactive Tool</span>
+            <h3 class="mt-1 text-lg font-bold text-white font-display">Want to estimate your exact upload time?</h3>
+            <p class="mt-1 text-xs text-slate-300">Compare transfer times for 2 GB to 1 TB files on your internet speed.</p>
+          </div>
+          <a href="/tools/transfer-speed-calculator" class="btn-outline-gold shrink-0 rounded-xl px-5 py-2.5 text-xs font-bold tap-tactile">
+            Open Speed Calculator →
+          </a>
         </div>
       </div>
     </article>
 
-    <!-- Interactive Speed Calculator Integration -->
-    <section class="py-16 bg-ocean-950">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-8 text-center">
-          <span class="label-caps text-gold-400 text-xs">Live Telemetry Simulator</span>
-          <h2 class="mt-1 text-2xl font-black text-white font-display sm:text-3xl">Test Your Upload Speed & Latency Overhead</h2>
-          <p class="mt-2 text-sm text-slate-300">Simulate transfer times with our real-time WAN transfer calculator:</p>
-        </div>
-        <SpeedCalculator client:visible />
-      </div>
-    </section>
-
     <!-- FAQs & Takeaways -->
     <section class="border-t border-white/10 bg-ocean-900/50 py-16">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <span class="label-caps text-gold-400 text-xs">Engineering Q&A</span>
+        <span class="label-caps text-gold-400 text-xs">Quick Answers</span>
         <h2 class="mt-1 text-2xl font-black text-white font-display">Frequently Asked Questions</h2>
         <dl class="mt-8 space-y-6">
           {faqSchema.mainEntity.map((faq) => (
@@ -198,10 +193,10 @@ const faqSchema = {
         </dl>
 
         <div class="mt-12 apple-glass rounded-3xl border border-gold-500/30 bg-ocean-900/90 p-8 text-white text-center shadow-2xl">
-          <span class="label-caps text-gold-400 text-xs">Sub-15 ms Anycast Edge</span>
-          <h3 class="mt-2 text-2xl font-black font-display">Transfer Large Files at Line Rate</h3>
+          <span class="label-caps text-gold-400 text-xs">Fast Global Network</span>
+          <h3 class="mt-2 text-2xl font-black font-display">Transfer Large Files at Full Speed</h3>
           <p class="mt-2 text-slate-300 text-sm">
-            Experience sub-15 ms edge upload acceleration. Free transfers up to 10 GB with zero subscription barriers.
+            Upload to the nearest regional server. Send up to 10 GB free with 3-day retention.
           </p>
           <a
             href="/transfer"
@@ -227,12 +222,12 @@ const faqSchema = {
           <a href="/guides/large-file-transfer-cost-calculator" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Cost & Billing</span>
             <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Large File Transfer Cost Calculator</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go vs. monthly subscriptions and AWS egress fees.</p>
+            <p class="mt-1.5 text-xs text-slate-300">Pay-as-you-go credit packs vs. monthly subscriptions.</p>
           </a>
           <a href="/guides/transfer-large-files-without-failed-uploads" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Reliability</span>
             <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Transfer Without Failed Uploads</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Client-side chunking, multi-part parallel streams, and auto-retry.</p>
+            <p class="mt-1.5 text-xs text-slate-300">Parallel upload streams and automatic block retry.</p>
           </a>
           <a href="/guides/file-transfer-vs-cloud-storage-vs-media-review" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Workflow Architecture</span>
@@ -242,23 +237,11 @@ const faqSchema = {
           <a href="/guides/send-large-files-without-filling-computer" class="group apple-glass rounded-2xl border border-white/10 bg-ocean-900/80 p-5 shadow-lg transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile">
             <span class="text-[10px] font-mono uppercase tracking-wider text-gold-400">Storage Optimization</span>
             <h3 class="mt-2 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">Send Without Filling Your Hard Drive</h3>
-            <p class="mt-1.5 text-xs text-slate-300">Avoid local sync cache bloat with zero-cache browser streaming.</p>
+            <p class="mt-1.5 text-xs text-slate-300">Avoid local sync cache bloat with direct browser streaming.</p>
           </a>
         </div>
       </div>
     </section>
-
-    <RelatedWorkflows
-      currentSlug="guides/why-large-file-transfers-are-slow"
-      internalLinks={[
-        { href: "/tools/transfer-speed-calculator", label: "Transfer Speed Calculator" },
-        { href: "/fast-large-file-transfer", label: "Fast Large File Transfer" },
-        { href: "/fastest-way-to-send-large-files", label: "Fastest Way to Send Large Files" },
-        { href: "/send-large-files-free", label: "Send Large Files Free (10 GB)" },
-        { href: "/compare", label: "Cloudflare Edge vs. AWS Relays" },
-        { href: "/directory", label: "Full Transfer Directory" },
-      ]}
-    />
 
     <!-- Apple HIG Dark Blue SEO Footer -->
     <footer class="border-t border-white/10 bg-ocean-950 py-14 text-xs text-slate-400">
@@ -270,7 +253,7 @@ const faqSchema = {
               <span>{brand.productName}</span>
             </a>
             <p class="mt-3 text-slate-400 leading-relaxed">
-              Zero-egress large file transfer powered by Cloudflare's 335+ Anycast edge network. Send up to 10 GB free.
+              Fast, reliable large file transfers across 335+ global server locations with zero bandwidth fees. Send up to 10 GB free.
             </p>
           </div>
           <div>

@@ -1,6 +1,6 @@
 const publicEnv = import.meta.env;
 
-const defaultTagline = "Send large files fast with zero bandwidth fees, powered by a global edge network across 335+ cities.";
+const defaultTagline = "Send large files up to 5 TB fast—with 10 GB free and no recipient sign-in required.";
 
 export const brand = {
   name: publicEnv.PUBLIC_BRAND_NAME || "Gigasend",

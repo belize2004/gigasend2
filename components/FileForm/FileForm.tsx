@@ -22,7 +22,6 @@ import { FileUploader } from "../Upload/FileUploader";
 // import { AdvancedParams } from "./AdvancedParams";
 import { TermsConditions } from "../TermsConditions";
 import FileList from "../File/FileList";
-import Image from '@/components/compat/Image';
 import { type FieldErrors, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UploadFormSchema } from "./schema/uploadSchema";
@@ -1375,20 +1374,12 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
 
   const uiCopy = {
     en: {
-      kicker: "Fast, Encrypted File Delivery",
-      emptyHeading: "No Files Selected",
       selectedHeading: `${files.length} Selected ${files.length === 1 ? "File" : "Files"}`,
-      emptyStorageLoading: "Checking available storage…",
-      emptyStorageReady: `Up to ${formatBytes(allowedLimit)} available on your plan`,
       selectedStorageLoading: `${getSizeInReadableFormat(files)} selected. Checking available storage…`,
       selectedStorageReady: `${getSizeInReadableFormat(files)} selected of ${formatBytes(allowedLimit)} remaining`,
       resumableHint: `Previous upload saved (${formatBytes(savedSessionBytes)}). Start the transfer to resume where you left off.`,
       modeEmailTab: "Email Recipient",
       modeLinkTab: "Share Link",
-      modeEmailTitle: "Email Delivery",
-      modeLinkTitle: "Shareable Link",
-      modeEmailDesc: "We’ll email a download link to your recipient and notify you when they download your files.",
-      modeLinkDesc: "Upload your files to get a shareable download link you can send anywhere.",
       recipientEmailLabel: "Recipient’s email",
       recipientEmailPlaceholder: "client@studio.com",
       senderEmailLabel: "Your email",
@@ -1396,8 +1387,7 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       senderEmailHelper: "Shown to the recipient so they know who sent the files.",
       messageLabel: "Message (optional)",
       messagePlaceholder: "Add an optional delivery note…",
-      instantLinkTitle: "Instant Link Sharing",
-      instantLinkBody: `Upload your files once and get a secure, high-speed download link from ${brand.productName}—no recipient account required.`,
+      linkCaption: "Anyone with the link can download—no account required.",
       expiryText: expiryDateText
         ? `Expires ${expiryDateText}`
         : `Expires in ${expiryLimit} ${expiryLimit === 1 ? "day" : "days"}`,
@@ -1414,20 +1404,12 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       resumeBtn: "Resume",
     },
     es: {
-      kicker: "Entrega de archivos rápida y cifrada",
-      emptyHeading: "Ningún archivo seleccionado",
       selectedHeading: `${files.length} ${files.length === 1 ? "archivo seleccionado" : "archivos seleccionados"}`,
-      emptyStorageLoading: "Comprobando almacenamiento disponible…",
-      emptyStorageReady: `Hasta ${formatBytes(allowedLimit)} disponibles en tu plan`,
       selectedStorageLoading: `${getSizeInReadableFormat(files)} seleccionados. Comprobando espacio…`,
       selectedStorageReady: `${getSizeInReadableFormat(files)} seleccionados de ${formatBytes(allowedLimit)} disponibles`,
       resumableHint: `Subida anterior guardada (${formatBytes(savedSessionBytes)}). Inicia la transferencia para reanudar donde la dejaste.`,
       modeEmailTab: "Enviar por correo",
       modeLinkTab: "Crear enlace",
-      modeEmailTitle: "Entrega por correo",
-      modeLinkTitle: "Enlace para compartir",
-      modeEmailDesc: "Enviaremos un enlace de descarga al destinatario y te avisaremos cuando descargue tus archivos.",
-      modeLinkDesc: "Sube tus archivos para obtener un enlace de descarga que puedes compartir donde quieras.",
       recipientEmailLabel: "Correo del destinatario",
       recipientEmailPlaceholder: "cliente@estudio.com",
       senderEmailLabel: "Tu correo electrónico",
@@ -1435,8 +1417,7 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       senderEmailHelper: "Se mostrará al destinatario para que sepa quién envió los archivos.",
       messageLabel: "Mensaje (opcional)",
       messagePlaceholder: "Añade una nota opcional para el destinatario…",
-      instantLinkTitle: "Enlace directo al instante",
-      instantLinkBody: `Sube tus archivos una sola vez y obtén un enlace de descarga seguro y de alta velocidad con ${brand.productName}, sin que el destinatario necesite crear una cuenta.`,
+      linkCaption: "Cualquier persona con el enlace podrá descargar sin crear una cuenta.",
       expiryText: expiryDateText
         ? `Vence el ${expiryDateText}`
         : `Vence en ${expiryLimit} ${expiryLimit === 1 ? "día" : "días"}`,
@@ -1453,20 +1434,12 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       resumeBtn: "Reanudar",
     },
     pt: {
-      kicker: "Envio de arquivos rápido e criptografado",
-      emptyHeading: "Nenhum arquivo selecionado",
       selectedHeading: `${files.length} ${files.length === 1 ? "arquivo selecionado" : "arquivos selecionados"}`,
-      emptyStorageLoading: "Verificando armazenamento disponível…",
-      emptyStorageReady: `Até ${formatBytes(allowedLimit)} disponíveis no seu plano`,
       selectedStorageLoading: `${getSizeInReadableFormat(files)} selecionados. Verificando espaço…`,
       selectedStorageReady: `${getSizeInReadableFormat(files)} selecionados de ${formatBytes(allowedLimit)} disponíveis`,
       resumableHint: `Envio anterior salvo (${formatBytes(savedSessionBytes)}). Inicie a transferência para retomar de onde parou.`,
       modeEmailTab: "Enviar por e-mail",
       modeLinkTab: "Gerar link",
-      modeEmailTitle: "Entrega por e-mail",
-      modeLinkTitle: "Link compartilhável",
-      modeEmailDesc: "Enviaremos um link de download ao destinatário e avisaremos quando seus arquivos forem baixados.",
-      modeLinkDesc: "Envie seus arquivos para gerar um link de download que você pode compartilhar onde quiser.",
       recipientEmailLabel: "E-mail do destinatário",
       recipientEmailPlaceholder: "cliente@estudio.com",
       senderEmailLabel: "Seu e-mail",
@@ -1474,8 +1447,7 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       senderEmailHelper: "Mostrado ao destinatário para identificar quem enviou os arquivos.",
       messageLabel: "Mensagem (opcional)",
       messagePlaceholder: "Adicione uma mensagem opcional para o destinatário…",
-      instantLinkTitle: "Link de compartilhamento instantâneo",
-      instantLinkBody: `Envie seus arquivos uma única vez e receba um link de download seguro e de alta velocidade com o ${brand.productName}, sem exigir cadastro do destinatário.`,
+      linkCaption: "Qualquer pessoa com o link pode baixar sem criar conta.",
       expiryText: expiryDateText
         ? `Expira em ${expiryDateText}`
         : `Expira em ${expiryLimit} ${expiryLimit === 1 ? "dia" : "dias"}`,
@@ -1499,8 +1471,6 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       sx={{
         width: "100%",
         maxWidth: "820px",
-        maxHeight: "86vh",
-        overflowY: "auto",
         backgroundColor: "rgba(0, 47, 77, 0.88)",
         backdropFilter: "blur(24px)",
         border: "1px solid rgba(255, 255, 255, 0.12)",
@@ -1515,59 +1485,34 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
       >
         <CardContent sx={{ flex: "column", p: 0, "&:last-child": { pb: 0 } }}>
           <Stack
-            sx={{
-              padding: "24px 28px 18px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            gap={0.5}
-          >
-            {brand.logoUrl ? (
-              <Image src={brand.logoUrl} alt={brand.productName} width={168} height={36} />
-            ) : (
-              <Typography
-                variant="h5"
-                fontWeight={800}
-                sx={{ color: "#FFFFFF", letterSpacing: "-0.02em" }}
-              >
-                {brand.productName}
-              </Typography>
-            )}
-            <span className="label-caps text-gold-400 text-[10px]">
-              {uiCopy.kicker}
-            </span>
-          </Stack>
-
-          <Stack
             direction={{ xs: "column", md: "row" }}
             sx={{
-              padding: "24px 28px",
-              borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+              padding: "28px",
               borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
             }}
             gap={3}
             alignItems="stretch"
           >
             <Stack gap={2} width={{ xs: "100%", md: "50%" }}>
-              <Stack gap={0.5}>
-                <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
-                  {files.length === 0 ? uiCopy.emptyHeading : uiCopy.selectedHeading}
-                </Typography>
-                <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
-                  {files.length === 0
-                    ? usageLoading
-                      ? uiCopy.emptyStorageLoading
-                      : uiCopy.emptyStorageReady
-                    : usageLoading
-                      ? uiCopy.selectedStorageLoading
-                      : uiCopy.selectedStorageReady}
-                </Typography>
-                {savedSession && (
-                  <Typography variant="body2" sx={{ color: "#ffddb4", fontWeight: 600, fontSize: "0.8rem" }}>
-                    {uiCopy.resumableHint}
-                  </Typography>
-                )}
-              </Stack>
+              {(files.length > 0 || savedSession) && (
+                <Stack gap={0.5}>
+                  {files.length > 0 && (
+                    <>
+                      <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
+                        {uiCopy.selectedHeading}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
+                        {usageLoading ? uiCopy.selectedStorageLoading : uiCopy.selectedStorageReady}
+                      </Typography>
+                    </>
+                  )}
+                  {savedSession && (
+                    <Typography variant="body2" sx={{ color: "#ffddb4", fontWeight: 600, fontSize: "0.8rem" }}>
+                      {uiCopy.resumableHint}
+                    </Typography>
+                  )}
+                </Stack>
+              )}
               <Stack gap={2}>
                 <FileUploader locale={activeLocale} />
                 <FileList />
@@ -1642,24 +1587,8 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
                   {uiCopy.modeLinkTab}
                 </Button>
               </Stack>
-              <Stack gap={0.5}>
-                <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }}>
-                  {deliveryMode === "email" ? uiCopy.modeEmailTitle : uiCopy.modeLinkTitle}
-                </Typography>
-                <Typography variant="body2" sx={{ color: "#cbd5e1", fontSize: "0.82rem" }}>
-                  {deliveryMode === "email" ? uiCopy.modeEmailDesc : uiCopy.modeLinkDesc}
-                </Typography>
-              </Stack>
-              <Stack
-                borderRadius={"18px"}
-                padding={2.5}
-                sx={{
-                  backgroundColor: "rgba(0, 29, 50, 0.7)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-                flex={1}
-                gap={2}
-              >
+
+              <Stack flex={1} gap={2} justifyContent={deliveryMode === "link" ? "center" : "flex-start"}>
                 {deliveryMode === "email" ? (
                   <>
                     <FormControl fullWidth variant="outlined">
@@ -1757,22 +1686,18 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
                     </FormControl>
                   </>
                 ) : (
-                  <Stack
-                    gap={1.25}
+                  <Typography
+                    variant="body2"
                     sx={{
-                      border: "1px solid rgba(247, 188, 106, 0.25)",
-                      borderRadius: "14px",
-                      backgroundColor: "rgba(0, 29, 50, 0.9)",
-                      padding: 2.25,
+                      color: "#cbd5e1",
+                      lineHeight: 1.6,
+                      fontSize: "0.9rem",
+                      textAlign: "center",
+                      px: 1,
                     }}
                   >
-                    <Typography variant="body2" fontWeight={700} sx={{ color: "#ffddb4" }}>
-                      {uiCopy.instantLinkTitle}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: "#cbd5e1", lineHeight: 1.6, fontSize: "0.85rem" }}>
-                      {uiCopy.instantLinkBody}
-                    </Typography>
-                  </Stack>
+                    {uiCopy.linkCaption}
+                  </Typography>
                 )}
 
                 {/* <AdvancedParams /> */}
@@ -1783,13 +1708,9 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
           <Stack
             sx={{
               padding: "18px 28px 22px",
-              position: "sticky",
-              bottom: 0,
-              zIndex: 2,
               backgroundColor: "rgba(0, 29, 50, 0.95)",
-              backdropFilter: "blur(16px)",
-              borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-              boxShadow: "0 -12px 28px rgba(0, 15, 28, 0.45)",
+              borderBottomLeftRadius: "28px",
+              borderBottomRightRadius: "28px",
             }}
           >
             <Stack
@@ -1805,32 +1726,12 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
                 <TermsConditions sx={{ fontSize: "12px", color: "#94a3b8" }} />
               </Stack>
 
-              <Stack direction={{ xs: "column-reverse", sm: "row" }} gap={2} width={{ xs: "100%", sm: "auto" }}>
-                <Button
-                  onClick={() => router.replace('/')}
-                  variant="outlined"
-                  type="button"
-                  sx={{
-                    minHeight: 48,
-                    minWidth: { sm: 112 },
-                    borderRadius: "12px",
-                    textTransform: "none",
-                    fontWeight: 700,
-                    borderColor: "rgba(255, 255, 255, 0.2)",
-                    color: "#cbd5e1",
-                    "&:hover": {
-                      borderColor: "#f7bc6a",
-                      color: "#FFFFFF",
-                      backgroundColor: "rgba(255, 255, 255, 0.05)",
-                    },
-                  }}
-                >
-                  {uiCopy.cancelBtn}
-                </Button>
+              <Stack direction="row" gap={2} width={{ xs: "100%", sm: "auto" }}>
                 <Button
                   variant="contained"
+                  fullWidth
                   type={deliveryMode === "link" ? "button" : "submit"}
-                  disabled={isSubmitting || uploading}
+                  disabled={files.length === 0 || isSubmitting || uploading}
                   onClick={deliveryMode === "link" ? () => {
                     clearErrors();
                     onSubmit({
@@ -1855,8 +1756,9 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
                       boxShadow: "0 14px 28px rgba(247, 188, 106, 0.38)",
                     },
                     "&.Mui-disabled": {
-                      backgroundColor: "rgba(247, 188, 106, 0.3)",
-                      color: "rgba(0, 29, 50, 0.6)",
+                      backgroundColor: "rgba(255, 255, 255, 0.08)",
+                      color: "rgba(248, 250, 252, 0.4)",
+                      boxShadow: "none",
                     },
                   }}
                 >
@@ -1936,29 +1838,21 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
             </Box>
           </Box>
           <Typography variant="body1" sx={{ color: "#FFFFFF", fontWeight: 700 }} mt={1}>
-            {uploadStatus === "sending email"
-              ? deliveryMode === "email"
-                ? "Sending transfer email…"
-                : "Creating your shareable link…"
-              : uploadStatus === "finalizing"
-                ? "Finalizing your transfer…"
-                : "Uploading your files…"}
+            {isPaused
+              ? "Transfer paused — select Resume to continue"
+              : uploadStatus === "sending email"
+                ? deliveryMode === "email"
+                  ? "Sending transfer email…"
+                  : "Creating your shareable link…"
+                : uploadStatus === "finalizing"
+                  ? "Finalizing your transfer…"
+                  : "Uploading your files…"}
           </Typography>
-          {uploadStatus && (
-            <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
-              {isPaused
-                ? "Transfer paused — select Resume to continue"
-                : uploadStatus === "sending email"
-                  ? deliveryMode === "email"
-                    ? "Step 3 of 3: Sending download link email"
-                    : "Step 3 of 3: Creating shareable download link"
-                  : uploadStatus === "finalizing"
-                    ? "Step 3 of 3: Verifying uploaded files"
-                    : overallProgress > 0
-                      ? `Step 2 of 3: Uploading${currentSpeedMBps ? ` at ${currentSpeedMBps} MB/s` : "…"}`
-                      : "Step 1 of 3: Preparing secure upload"}
-            </Typography>
-          )}
+          <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
+            {`${formatBytes(totalUploadedRef.current)} of ${formatBytes(totalBytesRef.current)}${
+              estimatedTimeLeft !== null ? ` • ${formatSeconds(estimatedTimeLeft)} remaining` : ""
+            }${currentSpeedMBps ? ` (${currentSpeedMBps} MB/s)` : ""}`}
+          </Typography>
           <Stack direction="row" gap={1.5} mt={1}>
             <Button
               variant="contained"
@@ -1996,16 +1890,6 @@ export const FileForm = ({ locale: propLocale }: { locale?: "en" | "es" | "pt" }
             >
               {uiCopy.cancelBtn}
             </Button>
-          </Stack>
-          <Stack alignItems="center" gap={0.5} mt={1} sx={{ minHeight: 68 }}>
-            <Typography sx={{ color: "#ffddb4", fontFamily: "monospace" }} variant="body2">
-              {estimatedTimeLeft !== null
-                ? `Time remaining: ${formatSeconds(estimatedTimeLeft)}${currentSpeedMBps ? ` • ${currentSpeedMBps} MB/s` : ""}`
-                : "Calculating transfer speed…"}
-            </Typography>
-            <Typography sx={{ color: "#cbd5e1", fontFamily: "monospace" }} variant="body2">
-              Uploaded: {formatBytes(totalUploadedRef.current)} of {formatBytes(totalBytesRef.current)}
-            </Typography>
           </Stack>
         </Stack>
       )}

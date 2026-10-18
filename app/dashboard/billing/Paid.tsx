@@ -2,7 +2,6 @@ import type { PaidPlan } from '@/types/app-data'
 import BillingDetails from '@/components/dashboard/billing/BillingDetails'
 // import PaymentMethod from '@/components/dashboard/billing/PaymentMethod'
 import PlanDetails from '@/components/dashboard/billing/PlanDetails'
-import SecurityNotice from '@/components/dashboard/billing/SecurityNotice'
 import SubscriptionManagement from '@/components/dashboard/billing/SubscriptionManagement'
 import React from 'react'
 
@@ -73,9 +72,6 @@ export default function Paid(
         onSubscriptionCancel={onSubscriptionCancel}
         isVipPartner={data.isVipPartner}
       />
-
-      {/* Security Notice */}
-      <SecurityNotice />
     </div>
   )
 }

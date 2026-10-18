@@ -1,15 +1,10 @@
 "use client"
 import React, { useState } from 'react';
 import {
-  FiMail,
-  FiUser,
-  FiMessageSquare,
   FiSend,
-  FiPhone,
   FiCheck,
   FiAlertCircle
 } from 'react-icons/fi';
-import { BsBuildings } from 'react-icons/bs';
 import { brand } from '@/lib/brand';
 
 type FormData = {
@@ -26,31 +21,13 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 function validateContactForm(data: FormData): FormErrors {
   const errors: FormErrors = {};
   const name = data.name.trim();
-  if (!name) errors.name = 'Please enter your full name.';
+  if (!name) errors.name = 'Please enter your name.';
   else if (name.length < 2) errors.name = 'Enter a name with at least 2 characters.';
   else if (name.length > 50) errors.name = 'Keep your name under 50 characters.';
 
   const email = data.email.trim();
   if (!email) errors.email = 'Please enter your email address.';
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Enter a valid email address, like name@example.com.';
-
-  if (data.company && data.company.length > 100) {
-    errors.company = 'Keep your company name under 100 characters.';
-  }
-
-  const phone = data.phone.trim();
-  if (phone.length > 0) {
-    if (!/^[\+]?[0-9\(\)\-\s]*$/.test(phone) || phone.length < 10) {
-      errors.phone = 'Enter a valid phone number with at least 10 digits.';
-    } else if (phone.length > 20) {
-      errors.phone = 'Keep your phone number under 20 characters.';
-    }
-  }
-
-  const subject = data.subject.trim();
-  if (!subject) errors.subject = 'Please enter a subject.';
-  else if (subject.length < 5) errors.subject = 'Enter a subject with at least 5 characters.';
-  else if (subject.length > 100) errors.subject = 'Keep your subject under 100 characters.';
 
   const message = data.message.trim();
   if (!message) errors.message = 'Please enter your message.';
@@ -68,7 +45,7 @@ const ContactForm = () => {
     email: '',
     company: '',
     phone: '',
-    subject: '',
+    subject: 'Support & Inquiry',
     message: ''
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -102,10 +79,23 @@ const ContactForm = () => {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          company: '',
+          phone: '',
+          subject: formData.subject || 'Support & Inquiry',
+        }),
       });
       if (!res.ok) throw new Error('Request failed');
       setSubmitStatus("success");
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        subject: 'Support & Inquiry',
+        message: '',
+      });
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
@@ -116,151 +106,75 @@ const ContactForm = () => {
 
   return (
     <section id="contact" className="py-20 bg-ocean-950 text-slate-100 font-body">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <span className="label-caps text-gold-400 text-xs block mb-2">Support &amp; Inquiries</span>
-          <h2 className="text-4xl font-extrabold text-white font-display tracking-tight mb-4">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight mb-4">
             Get in Touch
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Have questions? We&rsquo;d love to hear from you. Send us a message and we&rsquo;ll respond as soon as possible.
+          <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
+            Have a question or need a custom plan? Send a message below or email{" "}
+            <a
+              href={`mailto:${brand.contactEmail}`}
+              className="text-gold-400 hover:text-gold-300 underline underline-offset-2 font-medium transition-colors"
+            >
+              {brand.contactEmail}
+            </a>
+            . We typically reply within one business day.
           </p>
         </div>
 
-        <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl backdrop-blur-2xl">
+        <div className="apple-glass bg-ocean-900/90 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl backdrop-blur-2xl">
           <form onSubmit={handleFormSubmit} className="space-y-6">
             {/* Name and Email Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="relative">
+              <div>
                 <label htmlFor="name" className="block text-xs font-semibold text-slate-200 mb-2">
-                  Full Name *
+                  Name
                 </label>
-                <div className="relative">
-                  <FiUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
-                  <input
-                    type="text"
-                    id="name"
-                    {...register('name')}
-                    className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
-                      errors.name ? 'border-rose-500/60' : 'border-white/15'
-                    }`}
-                    placeholder="Jane Doe"
-                  />
-                </div>
+                <input
+                  type="text"
+                  id="name"
+                  {...register('name')}
+                  className={`w-full px-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
+                    errors.name ? 'border-rose-500/60' : 'border-white/15'
+                  }`}
+                  placeholder="Jane Doe"
+                />
                 {errors.name && (
                   <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
+                    <FiAlertCircle className="mr-1.5 shrink-0" aria-hidden="true" />
                     {errors.name}
                   </p>
                 )}
               </div>
 
-              <div className="relative">
+              <div>
                 <label htmlFor="email" className="block text-xs font-semibold text-slate-200 mb-2">
-                  Email Address *
+                  Email
                 </label>
-                <div className="relative">
-                  <FiMail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
-                  <input
-                    type="email"
-                    id="email"
-                    {...register('email')}
-                    className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
-                      errors.email ? 'border-rose-500/60' : 'border-white/15'
-                    }`}
-                    placeholder="you@company.com"
-                  />
-                </div>
+                <input
+                  type="email"
+                  id="email"
+                  {...register('email')}
+                  className={`w-full px-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
+                    errors.email ? 'border-rose-500/60' : 'border-white/15'
+                  }`}
+                  placeholder="you@company.com"
+                />
                 {errors.email && (
                   <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
+                    <FiAlertCircle className="mr-1.5 shrink-0" aria-hidden="true" />
                     {errors.email}
                   </p>
                 )}
               </div>
             </div>
 
-            {/* Company and Phone Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="relative">
-                <label htmlFor="company" className="block text-xs font-semibold text-slate-200 mb-2">
-                  Company
-                </label>
-                <div className="relative">
-                  <BsBuildings className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
-                  <input
-                    type="text"
-                    id="company"
-                    {...register('company')}
-                    className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
-                      errors.company ? 'border-rose-500/60' : 'border-white/15'
-                    }`}
-                    placeholder="Studio or organization (optional)"
-                  />
-                </div>
-                {errors.company && (
-                  <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
-                    {errors.company}
-                  </p>
-                )}
-              </div>
-
-              <div className="relative">
-                <label htmlFor="phone" className="block text-xs font-semibold text-slate-200 mb-2">
-                  Phone Number
-                </label>
-                <div className="relative">
-                  <FiPhone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
-                  <input
-                    type="tel"
-                    id="phone"
-                    {...register('phone')}
-                    className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
-                      errors.phone ? 'border-rose-500/60' : 'border-white/15'
-                    }`}
-                    placeholder="+1 (555) 000-0000 (optional)"
-                  />
-                </div>
-                {errors.phone && (
-                  <p className="mt-2 text-xs text-rose-400 flex items-center">
-                    <FiAlertCircle className="mr-1.5" aria-hidden="true" />
-                    {errors.phone}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Subject */}
-            <div className="relative">
-              <label htmlFor="subject" className="block text-xs font-semibold text-slate-200 mb-2">
-                Subject *
-              </label>
-              <div className="relative">
-                <FiMessageSquare className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" aria-hidden="true" />
-                <input
-                  type="text"
-                  id="subject"
-                  {...register('subject')}
-                  className={`w-full pl-12 pr-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm ${
-                    errors.subject ? 'border-rose-500/60' : 'border-white/15'
-                  }`}
-                  placeholder="What’s this about?"
-                />
-              </div>
-              {errors.subject && (
-                <p className="mt-2 text-xs text-rose-400 flex items-center">
-                  <FiAlertCircle className="mr-1.5" aria-hidden="true" />
-                  {errors.subject}
-                </p>
-              )}
-            </div>
-
             {/* Message */}
-            <div className="relative">
+            <div>
               <div className="flex justify-between items-center mb-2">
                 <label htmlFor="message" className="block text-xs font-semibold text-slate-200">
-                  Message *
+                  Message
                 </label>
                 <span className="text-xs text-slate-400 font-mono">
                   {messageValue.length}/1,000
@@ -269,15 +183,15 @@ const ContactForm = () => {
               <textarea
                 id="message"
                 {...register('message')}
-                rows={6}
+                rows={5}
                 className={`w-full px-4 py-3.5 bg-ocean-950 border rounded-xl focus:border-gold-500 outline-none transition-all duration-200 text-white placeholder-slate-500 text-sm resize-none ${
                   errors.message ? 'border-rose-500/60' : 'border-white/15'
                 }`}
-                placeholder="Tell us more about your inquiry…"
+                placeholder="How can we help?"
               />
               {errors.message && (
                 <p className="mt-2 text-xs text-rose-400 flex items-center">
-                  <FiAlertCircle className="mr-1.5" aria-hidden="true" />
+                  <FiAlertCircle className="mr-1.5 shrink-0" aria-hidden="true" />
                   {errors.message}
                 </p>
               )}
@@ -321,17 +235,6 @@ const ContactForm = () => {
               </button>
             </div>
           </form>
-        </div>
-
-        {/* Contact Info */}
-        <div className="mt-12 grid grid-cols-1 gap-8 text-center">
-          <div className="apple-glass bg-ocean-900/90 border border-white/10 p-6 sm:p-8 rounded-3xl shadow-xl">
-            <div className="bg-gold-500/15 text-gold-400 border border-gold-500/20 w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <FiMail className="text-xl" aria-hidden="true" />
-            </div>
-            <h3 className="font-bold text-white font-display text-base mb-1">Email Us</h3>
-            <p className="text-sm text-slate-300 font-mono">{brand.contactEmail}</p>
-          </div>
         </div>
       </div>
     </section>

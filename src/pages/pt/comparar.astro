@@ -167,13 +167,13 @@ const collectionSchema = {
 
       <div class="mt-14">
         <h2 class="text-2xl font-black text-white font-display">
-          Comparativos detalhados por concorrente ({competitorPages.length} análises)
+          Comparativos detalhados por plataforma
         </h2>
         <p class="mt-2 text-sm text-slate-300">
-          Clique em qualquer plataforma abaixo para ver a análise técnica completa de limites, velocidade no Brasil e custos:
+          Escolha uma plataforma abaixo para ver a comparação de limites, velocidade no Brasil e preços:
         </p>
         <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {competitorPages.map((p) => (
+          {competitorPages.slice(0, 6).map((p) => (
             <a
               href={`/pt/${p.slug}`}
               class="rounded-2xl border border-white/10 bg-ocean-900/80 p-5 hover:border-gold-500/50 transition flex flex-col justify-between tap-tactile"
@@ -183,7 +183,7 @@ const collectionSchema = {
                 <h3 class="mt-1 text-base font-bold text-white font-display">{p.h1}</h3>
                 <p class="mt-2 text-xs text-slate-300 line-clamp-2">{p.metaDescription}</p>
               </div>
-              <span class="mt-4 text-xs font-bold text-gold-400">Ver comparativo completo →</span>
+              <span class="mt-4 text-xs font-bold text-gold-400">Ver comparativo →</span>
             </a>
           ))}
         </div>

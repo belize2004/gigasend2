@@ -5,8 +5,6 @@ import PtFooter from "../../components/PtFooter.astro";
 import {
   ptSeoLandingPages,
   ptSeoLandingPageMap,
-  PT_CORE_VALUE_PROPOSITIONS,
-  PT_CLUSTER_METADATA,
 } from "../../data/ptSeoLandingPages";
 import { getLanguageSwitchPaths } from "../../data/languageSwitchPaths";
 import { brand } from "@/lib/brand";
@@ -31,7 +29,6 @@ const langPaths = getLanguageSwitchPaths(`/pt/${landingPage.slug}`);
 const canonical = `${brand.siteUrl}/pt/${landingPage.slug}`;
 const enCanonical = `${brand.siteUrl}${landingPage.enEquivalent}`;
 
-// Strict 1-to-1 hreflang reciprocity: emit bidirectional EN + x-default only when this page is the canonical 1:1 pair
 const hreflang = landingPage.isCanonicalEnPair
   ? [
       { lang: "en", href: enCanonical },
@@ -53,73 +50,6 @@ const faqSchema = {
   })),
 };
 
-const webAppSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: `${brand.productName} Brasil — ${landingPage.h1}`,
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "All",
-  browserRequirements: "Requires JavaScript and modern HTML5 browser",
-  url: canonical,
-  description: landingPage.metaDescription,
-  inLanguage: "pt-BR",
-  areaServed: {
-    "@type": "Country",
-    name: "Brazil",
-  },
-  featureList: [
-    "Zero cadastro para o destinatário (download direto em 1 clique sem login)",
-    "Pague pelo que enviar (US$ 20 por 100 GB / US$ 180 por 1 TB válidos por 12 meses)",
-    "Servidores CDN na borda em São Paulo (GRU) e Rio de Janeiro (GIG)",
-    "Transferência de 50 GB, 100 GB ou 500 GB+ em um único link seguro",
-    ...landingPage.supportedFormatsOrTiers.slice(0, 6),
-  ],
-  offers: {
-    "@type": "AggregateOffer",
-    lowPrice: "0.00",
-    highPrice: "800.00",
-    priceCurrency: "USD",
-    offerCount: 5,
-    offers: [
-      {
-        "@type": "Offer",
-        name: "Avaliação gratuita (até 10 GB)",
-        price: "0.00",
-        priceCurrency: "USD",
-        description: "Envie arquivos de até 10 GB grátis (retenção de 3 dias) com download direto sem cadastro para o destinatário.",
-      },
-      {
-        "@type": "Offer",
-        name: "Pacote pré-pago 50 GB (validade de 12 meses)",
-        price: "10.00",
-        priceCurrency: "USD",
-        description: "Pacote pré-pago de 50 GB válido por 12 meses inteiros sem assinatura mensal.",
-      },
-      {
-        "@type": "Offer",
-        name: "Pacote pré-pago 100 GB (validade de 12 meses)",
-        price: "20.00",
-        priceCurrency: "USD",
-        description: "Pacote pré-pago de 100 GB por US$ 20 válido por 12 meses inteiros sem assinatura mensal.",
-      },
-      {
-        "@type": "Offer",
-        name: "Pacote pré-pago 1 TB / 1.000 GB (validade de 12 meses)",
-        price: "180.00",
-        priceCurrency: "USD",
-        description: "Pacote profissional de 1 TB por US$ 180 válido por 12 meses inteiros para produtoras, drones e engenharia.",
-      },
-      {
-        "@type": "Offer",
-        name: "Pacote corporativo 5 TB (validade de 12 meses)",
-        price: "800.00",
-        priceCurrency: "USD",
-        description: "Pacote corporativo de 5 TB por US$ 800 (US$ 0,16/GB) válido por 12 meses inteiros.",
-      },
-    ],
-  },
-};
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -127,14 +57,14 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 1,
-      name: "Início",
-      item: `${brand.siteUrl}/`,
+      name: "Brasil (Português)",
+      item: `${brand.siteUrl}/pt`,
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: "Brasil (Português)",
-      item: `${brand.siteUrl}/pt`,
+      name: landingPage.clusterLabel,
+      item: `${brand.siteUrl}/pt#cluster-${landingPage.cluster}`,
     },
     {
       "@type": "ListItem",
@@ -145,57 +75,9 @@ const breadcrumbSchema = {
   ],
 };
 
-const intraClusterSiblings = ptSeoLandingPages.filter(
-  (p) => p.cluster === landingPage.cluster && p.slug !== landingPage.slug
-);
-
-const crossClusterPillars = PT_CLUSTER_METADATA.filter(
-  (c) => c.id !== landingPage.cluster
-)
-  .map((c) => ptSeoLandingPages.find((p) => p.cluster === c.id))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
-
-const fmt0 = landingPage.supportedFormatsOrTiers[0] ?? "arquivos pesados";
-const fmt1 = landingPage.supportedFormatsOrTiers[1] ?? "pastas completas";
-
-const ispTelemetryRows = [
-  {
-    tier: "Até 10 GB",
-    useCase: `${landingPage.primaryKeyword} (${fmt0})`,
-    fibra300: "~2 min a 5 min",
-    cdnSpRj600: "~1 min a 2 min 30s",
-    starlink: "~7 min a 15 min",
-    gigaSendPrice: "Grátis (até 10 GB • 3 dias)",
-    competitorStatus: `❌ Bloqueado no grátis (${landingPage.comparison[0]?.method ?? "limite 2 GB"})`,
-  },
-  {
-    tier: "50 GB",
-    useCase: `Lotes médios de ${fmt0} e ${fmt1}`,
-    fibra300: "~22 min 30s",
-    cdnSpRj600: "~11 min 15s",
-    starlink: "~68 min (retomada automática)",
-    gigaSendPrice: "US$ 10 (pacote 50 GB • 12 meses)",
-    competitorStatus: "❌ Exige assinatura mensal recorrente em dólar",
-  },
-  {
-    tier: "100 GB",
-    useCase: `Entregas B2B de ${landingPage.primaryKeyword}`,
-    fibra300: "~45 min",
-    cdnSpRj600: "~22 min 30s",
-    starlink: "~2h 15m (imune a troca de satélite)",
-    gigaSendPrice: "US$ 20 (pacote 100 GB • 12 meses)",
-    competitorStatus: "❌ Timeout em ZIPs ou US$ 25+ por download no MASV",
-  },
-  {
-    tier: "500 GB a 1 TB",
-    useCase: `Acervos massivos (${fmt0} sem HD externo)`,
-    fibra300: "~3h 45m a 7h 30m",
-    cdnSpRj600: "~1h 52m a 3h 45m",
-    starlink: "Checkpoints SHA-256 contínuos",
-    gigaSendPrice: "US$ 180 (pacote 1 TB • 12 meses)",
-    competitorStatus: "❌ Inviável (limite de 200 GB ou frete lento via Sedex)",
-  },
-];
+const relatedPages = ptSeoLandingPages
+  .filter((p) => p.cluster === landingPage.cluster && p.slug !== landingPage.slug)
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -208,11 +90,10 @@ const ispTelemetryRows = [
   <Fragment slot="head">
     <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
-  <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
+  <main id="main-content" class="min-h-screen bg-ocean-950 text-slate-100 font-body">
     <PtHeader
       activeNav="slug"
       enHref={langPaths.enHref}
@@ -220,200 +101,86 @@ const ispTelemetryRows = [
       ptHref={langPaths.ptHref}
     />
 
-    <nav aria-label="Caminho de navegação" class="border-b border-white/5 bg-ocean-950/90">
-      <ol class="mx-auto flex max-w-7xl flex-wrap items-center gap-1 px-4 py-1.5 text-xs text-slate-300 sm:px-6 lg:px-8">
-        <li>
-          <a href="/" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400 transition-colors">Início</a>
-        </li>
-        <li aria-hidden="true" class="text-slate-500">/</li>
-        <li>
-          <a href="/pt" class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400 transition-colors">Brasil (pt-BR)</a>
-        </li>
-        <li aria-hidden="true" class="text-slate-500">/</li>
-        <li>
-          <a href={`/pt#cluster-${landingPage.cluster}`} class="inline-flex min-h-[36px] items-center px-1.5 hover:text-gold-400 transition-colors">
-            {landingPage.clusterLabel}
-          </a>
-        </li>
-        <li aria-hidden="true" class="text-slate-500">/</li>
-        <li class="font-semibold text-gold-400 truncate max-w-[220px] sm:max-w-md px-1.5" aria-current="page">
-          {landingPage.h1}
-        </li>
-      </ol>
-    </nav>
-
+    <!-- Section 1: Clean 2-Column Hero + Immediate Uploader -->
     <section class="relative bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 border-b border-white/10">
-      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-20">
-        <div>
-          <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/10 border border-gold-500/30 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-            <span>🇧🇷</span>
-            <span>{landingPage.eyebrow}</span>
-          </p>
-          <h1 class="max-w-4xl text-3xl font-black leading-tight text-white font-display tracking-tight sm:text-5xl">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-16 items-start">
+        <div class="space-y-5">
+          <nav aria-label="Caminho de navegação" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400">
+            <a href="/pt" class="inline-flex min-h-[40px] items-center hover:text-gold-400 transition-colors">Brasil</a>
+            <span aria-hidden="true">/</span>
+            <a href={`/pt#cluster-${landingPage.cluster}`} class="inline-flex min-h-[40px] items-center hover:text-gold-400 transition-colors">
+              {landingPage.clusterLabel}
+            </a>
+            <span aria-hidden="true">/</span>
+            <span class="font-medium text-slate-200 truncate max-w-[240px]" aria-current="page">
+              {landingPage.h1}
+            </span>
+          </nav>
+
+          <h1 class="text-3xl font-black leading-tight text-white font-display tracking-tight sm:text-5xl">
             {landingPage.h1}
           </h1>
-          <p class="mt-5 max-w-3xl text-base sm:text-lg leading-8 text-slate-300">{landingPage.intro}</p>
+
+          <p class="text-base sm:text-lg leading-relaxed text-slate-300">
+            {landingPage.intro}
+          </p>
 
           {landingPage.personaCtaNote && (
-            <p class="mt-4 rounded-xl border border-emerald-500/25 bg-emerald-950/25 px-4 py-2.5 text-xs text-emerald-300 font-medium max-w-2xl">
+            <p class="rounded-xl border border-emerald-500/25 bg-emerald-950/25 px-4 py-3 text-xs text-emerald-300 font-medium">
               ✓ {landingPage.personaCtaNote}
             </p>
           )}
 
-          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div class="flex flex-wrap gap-3 pt-2">
             <a href="#uploader-stage" class="btn-gold inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
               {landingPage.cta}
             </a>
             <a href="/pt/planos" class="btn-outline-gold inline-flex min-h-[48px] items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold tap-tactile">
-              Pacotes pré-pagos (US$ 20 / 100 GB • US$ 180 / 1 TB)
+              Ver planos e pacotes
             </a>
           </div>
-
-          <div class="mt-7 grid max-w-2xl grid-cols-2 sm:grid-cols-4 gap-3 text-center text-sm">
-            <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">Zero login</div>
-              <div class="mt-1 text-[11px] text-slate-300">Download direto para o destinatário</div>
-            </div>
-            <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">US$ 20 / 100 GB</div>
-              <div class="mt-1 text-[11px] text-slate-300">US$ 180 / 1 TB (12 meses)</div>
-            </div>
-            <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">SP e RJ</div>
-              <div class="mt-1 text-[11px] text-slate-300">CDN na borda sem timeout</div>
-            </div>
-            <div class="apple-glass rounded-xl p-3.5">
-              <div class="text-lg font-black text-gold-400 font-display">500 GB+</div>
-              <div class="mt-1 text-[11px] text-slate-300">Em um único link seguro</div>
-            </div>
-          </div>
-
-          {landingPage.supportedFormatsOrTiers && landingPage.supportedFormatsOrTiers.length > 0 && (
-            <div class="mt-6">
-              <p class="text-[11px] font-mono uppercase tracking-wider text-slate-300 mb-2">
-                Formatos, capacidades e especificações suportadas:
-              </p>
-              <div class="flex flex-wrap gap-1.5 max-w-2xl">
-                {landingPage.supportedFormatsOrTiers.map((pill) => (
-                  <span class="rounded-md bg-white/[0.04] px-2.5 py-1 text-[11px] font-mono text-slate-200">
-                    {pill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
-        <div id="uploader-stage" class="flex flex-col gap-6 scroll-mt-24">
-          <TransferEmbed client:load />
-          <aside class="apple-glass rounded-2xl p-5">
-            <h2 class="text-base font-bold text-white font-display">Como funciona no Brasil (sem assinatura)</h2>
-            <ol class="mt-3 space-y-2.5 text-xs text-slate-300">
-              <li class="flex gap-2.5">
-                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-[11px] font-bold text-ocean-900">1</span>
-                <span>Arraste seus arquivos ou pastas (até <strong>10 GB grátis</strong> ou <strong>50 GB, 100 GB e 500 GB+</strong> com créditos pré-pagos).</span>
-              </li>
-              <li class="flex gap-2.5">
-                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-[11px] font-bold text-ocean-900">2</span>
-                <span>O upload acelera direto para os servidores CDN de <strong>São Paulo (GRU) e Rio de Janeiro (GIG)</strong> sem cair.</span>
-              </li>
-              <li class="flex gap-2.5">
-                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold-500 text-[11px] font-bold text-ocean-900">3</span>
-                <span>Envie o link no WhatsApp ou e-mail: <strong>o destinatário clica e baixa direto, sem login ou cadastro</strong>.</span>
-              </li>
-            </ol>
-          </aside>
+        <div id="uploader-stage" class="scroll-mt-24">
+          <div class="apple-glass rounded-3xl p-4 sm:p-6 border border-white/10 shadow-2xl">
+            <TransferEmbed client:load />
+          </div>
+          <p class="mt-3 text-center text-xs text-slate-400">
+            Até 10 GB grátis (retenção de 3 dias) • Download em 1 clique sem cadastro • Criptografia TLS 1.3 + AES-256
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="border-b border-white/10 bg-ocean-900/40 py-12">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PT_CORE_VALUE_PROPOSITIONS.map((prop) => (
-            <div class="apple-glass rounded-2xl p-5">
-              <span class="inline-block rounded-full bg-gold-500/10 border border-gold-500/30 px-2.5 py-0.5 text-[11px] font-mono uppercase tracking-wider text-gold-400">
-                {prop.badge}
-              </span>
-              <h2 class="mt-2.5 text-base font-bold text-white font-display">{prop.title}</h2>
-              <p class="mt-1.5 text-xs leading-6 text-slate-300">{prop.description}</p>
-            </div>
+    <!-- Section 2: 3 Why Gigasend Cards + 4-Row Comparison Table -->
+    <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-12">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white font-display mb-6">
+          Por que equipes migram para o {brand.productName}
+        </h2>
+        <div class="grid gap-6 lg:grid-cols-3">
+          {landingPage.sections.slice(0, 3).map((section) => (
+            <article class="apple-glass rounded-2xl p-6">
+              <h3 class="text-lg font-bold text-white font-display">{section.heading}</h3>
+              <p class="mt-3 leading-relaxed text-slate-300 text-sm">{section.body}</p>
+            </article>
           ))}
         </div>
       </div>
-    </section>
 
-    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-3">
-        {landingPage.sections.map((section) => (
-          <article class="apple-glass rounded-2xl p-6">
-            <h2 class="text-xl font-bold text-white font-display">{section.heading}</h2>
-            <p class="mt-3 leading-7 text-slate-300 text-sm">{section.body}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div class="mb-5">
-        <span class="label-caps text-gold-400 text-xs">Telemetria real • Operadoras brasileiras e preço pré-pago</span>
-        <h2 class="mt-1 text-2xl sm:text-3xl font-black text-white font-display">
-          Tempo estimado de upload no Brasil e comparativo de custos ({landingPage.primaryKeyword})
-        </h2>
-        <p class="mt-2 text-sm text-slate-300 max-w-3xl">
-          Tempos medidos com upload multiparte via CDN de borda em São Paulo (GRU) e Rio de Janeiro (GIG), saturando conexões de fibra óptica e satélite sem quedas aos 99%.
-        </p>
-      </div>
-      <p class="mb-2 text-[11px] font-mono text-slate-300 sm:hidden">
-        ↔ Deslize a tabela lateralmente para ver todas as operadoras
-      </p>
-      <div class="overflow-hidden rounded-2xl border border-white/10 bg-ocean-900/50">
-        <div class="overflow-x-auto">
-          <table class="min-w-[760px] w-full divide-y divide-white/10 text-left text-sm">
-            <thead class="bg-ocean-950/95">
-              <tr>
-                <th scope="col" class="sticky left-0 z-10 bg-ocean-950/95 p-4 font-semibold text-white label-caps text-xs border-r border-white/10">Tamanho e uso</th>
-                <th scope="col" class="p-4 font-semibold text-slate-300 label-caps text-xs">Claro / Vivo Fibra (300 Mbps)</th>
-                <th scope="col" class="p-4 font-semibold text-gold-400 label-caps text-xs">CDN SP e RJ (600 Mbps)</th>
-                <th scope="col" class="p-4 font-semibold text-slate-300 label-caps text-xs">Starlink no campo (100 Mbps)</th>
-                <th scope="col" class="p-4 font-semibold text-emerald-400 label-caps text-xs">Custo Gigasend (sem mensalidade)</th>
-                <th scope="col" class="p-4 font-semibold text-slate-300 label-caps text-xs">Nuvens tradicionais</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-white/10 bg-ocean-900/40">
-              {ispTelemetryRows.map((row) => (
-                <tr>
-                  <th scope="row" class="sticky left-0 z-10 bg-ocean-950/95 p-4 border-r border-white/10">
-                    <div class="font-bold text-white font-display tabular-nums">{row.tier}</div>
-                    <div class="text-[11px] text-slate-300 mt-0.5 font-normal">{row.useCase}</div>
-                  </th>
-                  <td class="p-4 font-mono text-xs text-slate-200 tabular-nums">{row.fibra300}</td>
-                  <td class="p-4 font-mono text-xs font-bold text-gold-400 tabular-nums">{row.cdnSpRj600}</td>
-                  <td class="p-4 font-mono text-xs text-slate-200 tabular-nums">{row.starlink}</td>
-                  <td class="p-4 font-semibold text-xs text-emerald-400">{row.gigaSendPrice}</td>
-                  <td class="p-4 text-xs text-rose-300">{row.competitorStatus}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div class="overflow-hidden rounded-2xl border border-white/10 bg-ocean-900/50">
         <div class="overflow-x-auto">
           <table class="min-w-[680px] w-full divide-y divide-white/10 text-left text-sm">
             <thead class="bg-ocean-950/95">
               <tr>
-                <th scope="col" class="sticky left-0 z-10 bg-ocean-950/95 p-4 font-semibold text-white label-caps text-xs border-r border-white/10">Método</th>
-                <th scope="col" class="p-4 font-semibold text-white label-caps text-xs">Melhor para</th>
-                <th scope="col" class="p-4 font-semibold text-white label-caps text-xs">Limitação comum</th>
-                <th scope="col" class="p-4 font-semibold text-gold-400 label-caps text-xs">Vantagem {brand.productName} Brasil</th>
+                <th scope="col" class="sticky left-0 z-10 bg-ocean-950/95 p-4 font-semibold text-white text-xs border-r border-white/10">Recurso / plataforma</th>
+                <th scope="col" class="p-4 font-semibold text-white text-xs">Melhor para</th>
+                <th scope="col" class="p-4 font-semibold text-white text-xs">Limitação comum</th>
+                <th scope="col" class="p-4 font-semibold text-gold-400 text-xs">Vantagem {brand.productName}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-white/10 bg-ocean-900/40">
-              {landingPage.comparison.map((row) => (
+              {landingPage.comparison.slice(0, 4).map((row) => (
                 <tr>
                   <th scope="row" class="sticky left-0 z-10 bg-ocean-950/95 p-4 font-bold text-white font-display border-r border-white/10">{row.method}</th>
                   <td class="p-4 text-slate-300">{row.bestFor}</td>
@@ -427,22 +194,9 @@ const ispTelemetryRows = [
       </div>
     </section>
 
-    <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div class="rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-6 sm:p-8">
-        <span class="label-caps text-emerald-400 text-xs">Engenharia de borda no Brasil</span>
-        <h2 class="mt-1 text-2xl font-bold text-white font-display">Diferencial de arquitetura para {landingPage.primaryKeyword}</h2>
-        <p class="mt-3 max-w-4xl leading-7 text-slate-300">{landingPage.differentiation}</p>
-        <div class="mt-5 flex flex-wrap gap-2 text-xs text-slate-300 font-mono">
-          <span class="rounded-lg bg-ocean-950/80 border border-white/10 px-3 py-1.5">📍 CDN São Paulo (GRU)</span>
-          <span class="rounded-lg bg-ocean-950/80 border border-white/10 px-3 py-1.5">📍 CDN Rio de Janeiro (GIG)</span>
-          <span class="rounded-lg bg-ocean-950/80 border border-white/10 px-3 py-1.5">⚡ Claro • Vivo • Oi Fibra • Starlink</span>
-          <span class="rounded-lg bg-ocean-950/80 border border-white/10 px-3 py-1.5">🔒 Hash SHA-256 + TLS 1.3</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-white font-display">Perguntas frequentes (FAQ) — {landingPage.primaryKeyword}</h2>
+    <!-- Section 3: FAQ Section -->
+    <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white font-display">Perguntas frequentes</h2>
       <div class="mt-6 space-y-4">
         {landingPage.faqs.map((faq, index) => (
           <details
@@ -455,126 +209,43 @@ const ispTelemetryRows = [
                 ▼
               </span>
             </summary>
-            <p class="mt-3 border-t border-white/10 pt-3 leading-7 text-slate-300 text-sm">{faq.answer}</p>
+            <p class="mt-3 border-t border-white/10 pt-3 leading-relaxed text-slate-300 text-sm">{faq.answer}</p>
           </details>
         ))}
       </div>
     </section>
 
-    {landingPage.secondaryKeywords && landingPage.secondaryKeywords.length > 0 && (
-      <section class="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-        <div class="rounded-2xl border border-white/10 bg-ocean-900/40 p-5">
-          <h3 class="text-xs font-mono uppercase tracking-wider text-slate-300">
-            Buscas e fluxos relacionados atendidos nesta página:
-          </h3>
-          <div class="mt-3 flex flex-wrap gap-2">
-            <span class="rounded-lg border border-gold-500/30 bg-gold-500/10 px-3 py-1 text-xs font-mono text-gold-300">
-              {landingPage.primaryKeyword}
-            </span>
-            {landingPage.secondaryKeywords.map((kw) => (
-              <span class="rounded-lg border border-white/10 bg-ocean-950/70 px-3 py-1 text-xs font-mono text-slate-300">
-                {kw}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <section class="border-t border-white/10 bg-ocean-900/60 py-14">
+    <!-- Section 4: 3 Related Workflow Cards -->
+    <section class="border-t border-white/10 bg-ocean-900/40 py-14">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-xl font-bold text-white font-display">Guias e soluções relacionadas em português</h2>
-        <div class="mt-4 flex flex-wrap gap-3">
-          {landingPage.internalLinks.map((link) => (
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-white font-display">
+            Soluções relacionadas
+          </h2>
+          <a href={`/pt#cluster-${landingPage.cluster}`} class="inline-flex min-h-[44px] items-center text-xs font-semibold text-gold-400 hover:underline">
+            Ver todas as soluções em português →
+          </a>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          {relatedPages.map((p) => (
             <a
-              href={link.href}
-              class="inline-flex min-h-[44px] items-center rounded-xl border border-white/15 bg-ocean-900 px-4 py-2.5 text-xs font-medium text-slate-200 hover:border-gold-400 hover:text-gold-400 transition-colors tap-tactile"
+              href={`/pt/${p.slug}`}
+              class="group rounded-2xl border border-white/10 bg-ocean-900/85 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile flex flex-col justify-between"
             >
-              {link.label} →
+              <div>
+                <span class="text-[11px] font-mono text-gold-400">{p.clusterLabel}</span>
+                <h3 class="mt-1.5 font-bold text-white group-hover:text-gold-400 font-display text-base transition-colors">
+                  {p.h1}
+                </h3>
+                <p class="mt-2 text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                  {p.metaDescription}
+                </p>
+              </div>
+              <span class="mt-4 text-xs font-semibold text-gold-400">Acessar solução →</span>
             </a>
           ))}
         </div>
-
-        <div class="mt-10">
-          <div class="flex items-center justify-between">
-            <p class="text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-              Mais soluções em {landingPage.clusterLabel} ({intraClusterSiblings.length} páginas)
-            </p>
-            <a href={`/pt#cluster-${landingPage.cluster}`} class="inline-flex min-h-[44px] items-center text-xs text-slate-300 hover:text-gold-400 font-mono">
-              Ver cluster completo →
-            </a>
-          </div>
-          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {intraClusterSiblings.slice(0, 8).map((p) => (
-              <a
-                href={`/pt/${p.slug}`}
-                class="group rounded-2xl border border-white/10 bg-ocean-900/85 p-5 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
-              >
-                <span class="text-[11px] font-mono uppercase tracking-wider text-gold-400">{p.primaryKeyword}</span>
-                <h3 class="mt-1 font-bold text-white group-hover:text-gold-400 font-display text-sm transition-colors">
-                  {p.h1}
-                </h3>
-                <p class="mt-1.5 text-xs text-slate-300 line-clamp-2 leading-relaxed">
-                  {p.metaDescription}
-                </p>
-              </a>
-            ))}
-          </div>
-
-          {intraClusterSiblings.length > 8 && (
-            <details class="mt-4 group rounded-2xl border border-white/10 bg-ocean-900/50 p-4">
-              <summary class="flex min-h-[44px] cursor-pointer list-none items-center justify-between px-2 text-xs font-bold uppercase tracking-wider text-gold-400 hover:text-gold-300 tap-tactile">
-                <span>Ver mais {intraClusterSiblings.length - 8} páginas em {landingPage.clusterLabel}</span>
-                <span class="transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▼</span>
-              </summary>
-              <div class="mt-4 grid gap-4 border-t border-white/10 pt-4 sm:grid-cols-2 lg:grid-cols-4">
-                {intraClusterSiblings.slice(8).map((p) => (
-                  <a
-                    href={`/pt/${p.slug}`}
-                    class="group rounded-xl border border-white/10 bg-ocean-900/80 p-4 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
-                  >
-                    <span class="text-[11px] font-mono uppercase tracking-wider text-gold-400">{p.primaryKeyword}</span>
-                    <h3 class="mt-1 font-bold text-white group-hover:text-gold-400 font-display text-xs transition-colors">
-                      {p.h1}
-                    </h3>
-                  </a>
-                ))}
-              </div>
-            </details>
-          )}
-        </div>
-
-        <div class="mt-12 border-t border-white/10 pt-10">
-          <p class="text-xs font-semibold uppercase tracking-wider text-gold-400 label-caps">
-            Explorar outros clusters no Brasil
-          </p>
-          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {crossClusterPillars.map((p) => (
-              <a
-                href={`/pt/${p.slug}`}
-                class="group rounded-2xl border border-white/10 bg-ocean-900/70 p-4 transition hover:border-gold-500/50 hover:bg-ocean-900 tap-tactile"
-              >
-                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400">{p.clusterLabel}</span>
-                <h3 class="mt-1 font-bold text-white group-hover:text-gold-400 font-display text-xs transition-colors">
-                  {p.h1}
-                </h3>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-gradient-to-b from-ocean-900 to-ocean-950 border-t border-white/10 py-16 text-white">
-      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <span class="label-caps text-gold-400 text-xs">Zero taxa de egresso • CDN em São Paulo e Rio de Janeiro</span>
-        <h2 class="mt-2 text-3xl sm:text-4xl font-black font-display">Pronto para enviar 50 GB, 100 GB ou 500 GB?</h2>
-        <p class="mt-4 text-lg text-slate-300">
-          Faça o upload de até 10 GB grátis agora mesmo (ou use pacotes pré-pagos de US$ 20 por 100 GB / US$ 180 por 1 TB válidos por 12 meses) com zero cadastro para o destinatário.
-        </p>
-        <a href="#uploader-stage" class="btn-gold mt-8 inline-flex min-h-[48px] items-center justify-center rounded-xl px-8 py-4 text-sm font-bold shadow-xl shadow-gold-500/20 tap-tactile">
-          {landingPage.cta}
-        </a>
       </div>
     </section>
 

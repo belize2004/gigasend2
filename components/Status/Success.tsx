@@ -1,10 +1,9 @@
 "use client";
 
 import { Button, Card, Stack, Typography } from "@mui/material";
-import Image from "@/components/compat/Image";
 import { useRouter } from "@/components/compat/navigation";
 import { useEffect, useState } from "react";
-import { FiCheck, FiCopy, FiExternalLink } from "react-icons/fi";
+import { FiCheck, FiCopy } from "react-icons/fi";
 
 export const Success = () => {
   const router = useRouter();
@@ -48,7 +47,7 @@ export const Success = () => {
       className="apple-glass"
       sx={{
         width: "100%",
-        maxWidth: "768px",
+        maxWidth: "680px",
         mx: "auto",
         backgroundColor: "rgba(0, 47, 77, 0.88)",
         backdropFilter: "blur(24px)",
@@ -56,168 +55,125 @@ export const Success = () => {
         borderRadius: "28px",
         boxShadow: "0 24px 64px rgba(0, 15, 28, 0.7)",
         color: "#f8fafc",
-        overflow: "visible",
       }}
     >
       <Stack
         alignItems="center"
-        position="relative"
         justifyContent="center"
+        gap={2.5}
         sx={{
-          padding: "48px 28px",
-          justifyContent: "center",
-          alignItems: "center",
+          padding: { xs: "36px 24px", sm: "44px 36px" },
         }}
       >
-        <Stack position="relative" height={55} width={"100%"} top={-150}>
-          <Image
-            src={"/success.png"}
-            alt=""
-            aria-hidden="true"
-            width={336}
-            height={336}
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              margin: "auto",
-              zIndex: 0,
-            }}
-          />
-        </Stack>
-        <Stack
-          gap={3}
-          zIndex={1}
-          alignItems="center"
-          position="relative"
-          justifyContent="center"
-          width="100%"
+        <div
+          aria-hidden="true"
+          className="w-14 h-14 rounded-full bg-emerald-500/15 border border-emerald-500/35 flex items-center justify-center text-emerald-400"
         >
-          <span className="label-caps text-emerald-400 text-xs px-3.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
-            Ready to Share • Expires in {expiryDays} {expiryDays === 1 ? "Day" : "Days"}
-          </span>
-          <Typography
-            variant="h1"
-            fontWeight={800}
-            textAlign="center"
-            sx={{ color: "#FFFFFF", fontSize: { xs: "2rem", sm: "2.5rem" }, letterSpacing: "-0.02em" }}
-          >
-            {deliveryMode === "email" && !emailFailed ? "Email Sent and Link Ready" : "Transfer Ready"}
-          </Typography>
-          <Typography
-            variant="body2"
-            textAlign="center"
+          <FiCheck className="w-7 h-7" />
+        </div>
+
+        <Typography
+          variant="h1"
+          fontWeight={800}
+          textAlign="center"
+          sx={{ color: "#FFFFFF", fontSize: { xs: "1.85rem", sm: "2.25rem" }, letterSpacing: "-0.02em" }}
+        >
+          {deliveryMode === "email" && !emailFailed ? "Transfer Sent" : "Link Ready"}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          textAlign="center"
+          sx={{
+            color: "#cbd5e1",
+            fontSize: "0.95rem",
+            lineHeight: 1.6,
+            maxWidth: 500,
+          }}
+        >
+          {emailFailed
+            ? "Your upload is finished, but the recipient email could not be sent. Copy this link and send it manually."
+            : deliveryMode === "email"
+              ? `We emailed your download link to the recipient. It remains active for ${expiryDays} ${expiryDays === 1 ? "day" : "days"}.`
+              : `Anyone with this link can download your files for the next ${expiryDays} ${expiryDays === 1 ? "day" : "days"}.`}
+        </Typography>
+
+        {shareLink && (
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            gap={1.5}
+            alignItems="center"
             sx={{
-              color: "#cbd5e1",
-              fontSize: "0.95rem",
-              lineHeight: 1.6,
-              "@media (min-width: 600px)": {
-                margin: "0 50px",
-              },
+              width: "100%",
+              maxWidth: 580,
+              border: "1px solid rgba(247, 188, 106, 0.35)",
+              borderRadius: "16px",
+              backgroundColor: "rgba(0, 29, 50, 0.9)",
+              padding: 1.25,
+              boxShadow: "inset 0 2px 10px rgba(0, 0, 0, 0.4)",
+              mt: 0.5,
             }}
           >
-            {emailFailed
-              ? "Your upload is finished, but the recipient email could not be sent. Copy this link and send it manually."
-              : deliveryMode === "email"
-                ? `We emailed the download link to your recipient (valid for ${expiryDays} ${expiryDays === 1 ? "day" : "days"}). You can also copy the direct link below to share anywhere.`
-                : `Your shareable link is ready (valid for ${expiryDays} ${expiryDays === 1 ? "day" : "days"}). Anyone with this link can download the files at full speed.`}
-          </Typography>
-          {shareLink && (
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              gap={1.5}
-              alignItems="center"
+            <Typography
+              variant="body2"
               sx={{
-                width: "100%",
-                maxWidth: 620,
-                border: "1px solid rgba(247, 188, 106, 0.35)",
-                borderRadius: "16px",
-                backgroundColor: "rgba(0, 29, 50, 0.9)",
-                padding: 1.25,
-                boxShadow: "inset 0 2px 10px rgba(0, 0, 0, 0.4)",
+                flex: 1,
+                fontFamily: "monospace",
+                color: "#ffddb4",
+                overflowWrap: "anywhere",
+                padding: "8px 12px",
+                fontSize: "0.85rem",
               }}
             >
-              <Typography
-                variant="body2"
-                sx={{
-                  flex: 1,
-                  fontFamily: "monospace",
-                  color: "#ffddb4",
-                  overflowWrap: "anywhere",
-                  padding: "8px 12px",
-                  fontSize: "0.85rem",
-                }}
-              >
-                {shareLink}
-              </Typography>
-              <Stack direction="row" gap={1} sx={{ flexShrink: 0 }}>
-                <Button
-                  variant="contained"
-                  type="button"
-                  onClick={copyShareLink}
-                  startIcon={copied ? <FiCheck /> : <FiCopy />}
-                  sx={{
-                    textTransform: "none",
-                    backgroundColor: "#f7bc6a",
-                    color: "#001d32",
-                    fontWeight: 700,
-                    borderRadius: "12px",
-                    px: 2.5,
-                    py: 1.2,
-                    "&:hover": {
-                      backgroundColor: "#ffddb4",
-                    },
-                  }}
-                >
-                  {copied ? "Copied" : "Copy Link"}
-                </Button>
-                <Button
-                  variant="outlined"
-                  component="a"
-                  href={shareLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  startIcon={<FiExternalLink />}
-                  sx={{
-                    textTransform: "none",
-                    borderColor: "rgba(247, 188, 106, 0.4)",
-                    color: "#ffddb4",
-                    fontWeight: 700,
-                    borderRadius: "12px",
-                    px: 2,
-                    py: 1.2,
-                    "&:hover": {
-                      borderColor: "#f7bc6a",
-                      backgroundColor: "rgba(247, 188, 106, 0.12)",
-                    },
-                  }}
-                >
-                  Open
-                </Button>
-              </Stack>
-            </Stack>
-          )}
-          <Button
-            variant="outlined"
-            onClick={() => router.push("/transfer")}
-            sx={{
-              textTransform: "none",
-              borderColor: "rgba(247, 188, 106, 0.5)",
+              {shareLink}
+            </Typography>
+            <Button
+              variant="contained"
+              type="button"
+              onClick={copyShareLink}
+              startIcon={copied ? <FiCheck /> : <FiCopy />}
+              sx={{
+                flexShrink: 0,
+                width: { xs: "100%", sm: "auto" },
+                textTransform: "none",
+                backgroundColor: "#f7bc6a",
+                color: "#001d32",
+                fontWeight: 700,
+                borderRadius: "12px",
+                px: 3,
+                py: 1.2,
+                "&:hover": {
+                  backgroundColor: "#ffddb4",
+                },
+              }}
+            >
+              {copied ? "Copied" : "Copy Link"}
+            </Button>
+          </Stack>
+        )}
+
+        <Button
+          variant="text"
+          onClick={() => router.push("/transfer")}
+          sx={{
+            mt: 0.5,
+            textTransform: "none",
+            color: "#cbd5e1",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            borderRadius: "10px",
+            px: 2.5,
+            py: 0.75,
+            "&:hover": {
               color: "#ffddb4",
-              fontWeight: 700,
-              borderRadius: "12px",
-              px: 4,
-              py: 1.25,
-              "&:hover": {
-                borderColor: "#f7bc6a",
-                backgroundColor: "rgba(247, 188, 106, 0.12)",
-              },
-            }}
-          >
-            Send More Files
-          </Button>
-        </Stack>
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+            },
+          }}
+        >
+          Send More Files
+        </Button>
       </Stack>
     </Card>
   );
 };
+

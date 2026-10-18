@@ -4,13 +4,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EsHeader from "../../components/EsHeader.astro";
 import EsFooter from "../../components/EsFooter.astro";
 import TransferEmbed from "@/src/components/TransferEmbed";
-import SavingsCalculatorEs from "@/src/components/SavingsCalculatorEs";
-import EdgeLocationBadge from "@/src/components/EdgeLocationBadge";
 import { brand } from "@/lib/brand";
 
 const pageTitle = "Enviar archivos grandes en Argentina (EZE/COR) | Gigasend";
 const pageDescription =
-  "Transferí archivos de 10 GB a 500 GB+ en Argentina por nodos CABASE en Buenos Aires, Córdoba y Rosario. Hasta 10 GB gratis y sin abonos fijos en dólares.";
+  "Transferí archivos de 10 GB a 500 GB+ en Argentina con servidores locales de alta velocidad en Buenos Aires, Córdoba y Rosario. Hasta 10 GB gratis y sin abonos fijos en dólares.";
 const canonical = `${brand.siteUrl}/es/argentina`;
 
 const faqs = [
@@ -22,7 +20,7 @@ const faqs = [
   {
     question: "¿Qué velocidad alcanza en Personal Flow, Movistar Fibra, Telecentro o Claro?",
     answer:
-      "Al ingresar directamente por los nodos de Cloudflare conectados a CABASE en Buenos Aires (EZE), Córdoba (COR) y Rosario (ROS), evitás el cuello de botella internacional hacia Miami y aprovechás el máximo de tu fibra simétrica.",
+      "Al conectarse directamente a servidores locales de alta velocidad en Buenos Aires (EZE), Córdoba (COR) y Rosario (ROS), evitás el cuello de botella internacional y aprovechás el máximo de tu fibra simétrica.",
   },
   {
     question: "¿Mi cliente necesita registrarse para descargar los archivos?",
@@ -46,9 +44,9 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       "@id": `${canonical}/#breadcrumb`,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Inicio (Español)", item: `${brand.siteUrl}/es` },
-        { "@type": "ListItem", position: 2, name: "Infraestructura regional", item: `${brand.siteUrl}/es` },
-        { "@type": "ListItem", position: 3, name: "Argentina (EZE / COR / ROS)", item: canonical },
+        { "@type": "ListItem", position: 1, name: "Español", item: `${brand.siteUrl}/es` },
+        { "@type": "ListItem", position: 2, name: "Regiones", item: `${brand.siteUrl}/es` },
+        { "@type": "ListItem", position: 3, name: "Argentina", item: canonical },
       ],
     },
     {
@@ -84,69 +82,53 @@ const jsonLd = {
   <div class="relative overflow-hidden bg-ocean-950 text-slate-100 min-h-screen font-body">
     <EsHeader activeNav="argentina" enHref="/" esHref="/es/argentina" ptHref="/pt" />
 
-    <main class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
+    <main id="main-content" class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-10 pb-24">
       <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 mb-6 font-body">
-        <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Inicio (Español)</a>
-        <span aria-hidden="true">/</span>
-        <span class="text-slate-400">Infraestructura perimetral</span>
+        <a href="/es" class="min-h-[44px] px-2 -ml-2 inline-flex items-center hover:text-gold-400 transition-colors tap-tactile">Español</a>
         <span aria-hidden="true">/</span>
         <span class="text-slate-200 font-medium">Argentina 🇦🇷</span>
       </nav>
 
-      <header class="max-w-3xl mb-12 space-y-4">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 label-caps shadow-lg shadow-ocean-950/60">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          Nodos Anycast en Buenos Aires (EZE), Córdoba (COR) y Rosario (ROS)
+      <header class="max-w-3xl mb-10 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ocean-900/80 border border-gold-500/30 text-gold-400 text-xs font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          Servidores locales en Buenos Aires, Córdoba y Rosario
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight font-display">
           Transferencia en Argentina <span class="text-gold-400">sin abonos fijos en dólares.</span>
         </h1>
 
-        <div class="p-6 rounded-2xl apple-glass border border-white/10 text-slate-200 text-base sm:text-lg leading-relaxed font-body shadow-xl shadow-ocean-950/80">
-          <p>
-            <strong class="text-white font-display">Para enviar archivos grandes desde Argentina:</strong> transmití tus proyectos a través de los nodos locales CABASE en Buenos Aires, Córdoba y Rosario. Enviá hasta 10 GB gratis o usá paquetes prepagos válidos por 12 meses para exportar audiovisuales, VFX y software al mundo sin suscripciones mensuales.
-          </p>
-        </div>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-body">
+          Enviá hasta 10 GB gratis (retención de 3 días) o usá paquetes prepagos válidos por 12 meses para exportar audiovisuales, VFX y software al mundo sin suscripciones mensuales.
+        </p>
       </header>
 
       <section id="uploader" class="mb-16">
-        <div class="text-center mb-6 space-y-3">
-          <EdgeLocationBadge client:load />
-          <div>
-            <span class="label-caps text-gold-400/90 text-xs">Carga perimetral en Argentina</span>
-            <p class="text-xs text-slate-400 font-body">Arrastrá tus archivos o carpetas para subir a velocidad de fibra local.</p>
-          </div>
-        </div>
-
         <div class="apple-glass rounded-3xl p-4 sm:p-6 relative z-10 shadow-2xl shadow-ocean-950/90 border border-white/10">
           <TransferEmbed client:idle />
         </div>
       </section>
 
       <section class="my-16">
-        <h2 class="text-2xl font-bold text-white mb-6 font-display">Puntos de presencia perimetral en Argentina</h2>
+        <h2 class="text-2xl font-bold text-white mb-6 font-display">Cobertura de alta velocidad en Argentina</h2>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
-            <span class="text-xs text-gold-400 font-mono font-bold">EZE • BUENOS AIRES</span>
-            <h3 class="text-lg font-bold text-white font-display">CABASE / CABA y AMBA</h3>
-            <p class="text-xs text-slate-300 font-body leading-relaxed">Interconexión directa con Personal Flow, Movistar Fibra, Telecentro e Iplan para productoras de Palermo, Belgrano y todo el AMBA.</p>
+            <span class="text-xs text-gold-400 font-mono font-bold">Buenos Aires</span>
+            <h3 class="text-lg font-bold text-white font-display">CABA y AMBA</h3>
+            <p class="text-xs text-slate-300 font-body leading-relaxed">Conexión directa con Personal Flow, Movistar Fibra, Telecentro e Iplan para productoras y estudios en todo el AMBA.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
-            <span class="text-xs text-gold-400 font-mono font-bold">COR • CÓRDOBA</span>
-            <h3 class="text-lg font-bold text-white font-display">Nodo región Centro</h3>
+            <span class="text-xs text-gold-400 font-mono font-bold">Córdoba</span>
+            <h3 class="text-lg font-bold text-white font-display">Región Centro</h3>
             <p class="text-xs text-slate-300 font-body leading-relaxed">Baja latencia para estudios de arquitectura, desarrollo de videojuegos e ingeniería en Córdoba y Cuyo.</p>
           </div>
           <div class="p-6 rounded-2xl apple-glass border border-white/10 space-y-2">
-            <span class="text-xs text-gold-400 font-mono font-bold">ROS • ROSARIO</span>
-            <h3 class="text-lg font-bold text-white font-display">Corredor Litoral y agro</h3>
-            <p class="text-xs text-slate-300 font-body leading-relaxed">Subida resiliente para mapeo con drones agrícolas, topografía y empresas agroindustriales en Santa Fe y Entre Ríos.</p>
+            <span class="text-xs text-gold-400 font-mono font-bold">Rosario</span>
+            <h3 class="text-lg font-bold text-white font-display">Litoral y agro</h3>
+            <p class="text-xs text-slate-300 font-body leading-relaxed">Subida con reanudación automática para mapeo con drones agrícolas, topografía y empresas en Santa Fe y Entre Ríos.</p>
           </div>
         </div>
-      </section>
-
-      <section class="my-20">
-        <SavingsCalculatorEs client:visible />
       </section>
 
       <section class="my-16">
@@ -165,12 +147,11 @@ const jsonLd = {
       </section>
 
       <section class="mt-16 pt-12 border-t border-white/10 space-y-6">
-        <h2 class="text-2xl font-bold text-white font-display">Flujos destacados en Argentina</h2>
+        <h2 class="text-2xl font-bold text-white font-display">Guías destacadas en Argentina</h2>
         <div class="flex flex-wrap gap-2.5">
           <a href="/es/enviar-archivos-100gb" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar archivos de 100 GB online</a>
           <a href="/es/enviar-archivos-clientes-sin-cuenta" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar a clientes sin cuenta</a>
-          <a href="/es/transferencia-archivos-pago-por-uso" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Pago por uso (sin suscripción)</a>
-          <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar videos 4K sin perder calidad</a>
+          <a href="/es/enviar-videos-sin-perder-calidad" class="min-h-[44px] px-4 py-2.5 inline-flex items-center rounded-xl bg-ocean-900/70 hover:bg-ocean-800 border border-white/10 text-xs text-slate-200 hover:text-gold-400 transition-colors tap-tactile">Enviar vídeos 4K sin perder calidad</a>
         </div>
       </section>
     </main>
