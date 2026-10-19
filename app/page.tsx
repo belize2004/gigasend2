@@ -18,15 +18,9 @@ const TransferPage = lazy(() => import('@/src/components/TransferPage'));
 const Homepage = () => {
   const { files } = useFileContext();
   const [showTransferForm, setShowTransferForm] = useState(false);
-  const [uploadPromptError, setUploadPromptError] = useState("");
 
   const handleUploadClick = () => {
-    if (files.length === 0) {
-      setUploadPromptError("Select a file or folder to continue.");
-      return;
-    }
-
-    setUploadPromptError("");
+    if (files.length === 0) return;
     setShowTransferForm(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -34,7 +28,7 @@ const Homepage = () => {
   if (showTransferForm) {
     return (
       <Suspense fallback={
-        <div className="min-h-screen bg-ocean-950 text-slate-100 flex items-center justify-center px-4">
+        <div className="min-h-[calc(100vh-4rem)] bg-ocean-950 text-slate-100 flex items-center justify-center px-4">
           <div className="text-center">
             <div className="mx-auto mb-4 h-10 w-10 rounded-full border-4 border-ocean-800 border-t-gold-500 animate-spin" />
             <p className="text-slate-300 font-medium font-body">Preparing your transfer…</p>
@@ -47,14 +41,14 @@ const Homepage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-ocean-950 text-slate-100 font-body">
+    <div className="min-h-screen overflow-x-hidden bg-ocean-950 text-slate-100 font-body">
 
-      {/* Section 1: Hero — Immediate Action, Zero Clutter */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      {/* Section 1: Full-Viewport Hero — One Focal Point, Zero Bleed */}
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center bg-gradient-to-b from-ocean-950 via-ocean-900 to-ocean-950 border-b border-white/10 py-12 lg:py-0">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
-            {/* Left Column: 3 Calm,Focused Elements */}
+            {/* Left Column: Clear Headline, Human Benefit, Quiet Reassurance */}
             <div className="lg:col-span-6 text-left space-y-6">
               <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.06]">
                 Send large files.{" "}
@@ -65,53 +59,37 @@ const Homepage = () => {
                 Share up to 10 GB free—or up to 5 TB—with a link anyone can download in a click. No compression. No recipient sign-in required.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3.5 pt-1">
-                <Link
-                  href="/transfer"
-                  className="w-full sm:w-auto btn-gold px-7 py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-gold-500/15 tap-tactile flex items-center justify-center"
-                >
-                  Send a File
-                </Link>
-                <Link
-                  href="/plans"
-                  className="w-full sm:w-auto btn-outline-gold px-7 py-3.5 rounded-xl text-sm font-bold tap-tactile flex items-center justify-center"
-                >
-                  View Plans
-                </Link>
-              </div>
-
-              <p className="pt-2 text-xs sm:text-sm font-medium text-slate-400">
+              <p className="text-xs sm:text-sm font-medium text-slate-400">
                 10 GB free &middot; Up to 5 TB per transfer &middot; Encrypted end to end
               </p>
+
+              <div className="pt-1">
+                <Link
+                  href="/plans"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+                >
+                  View Plans &amp; Pricing <FiArrowRight className="text-sm" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
 
-            {/* Right Column: Single Clean Drop Zone */}
+            {/* Right Column: Single Unwrapped Drop Zone (Progressive Disclosure on Selection) */}
             <div className="lg:col-span-6">
-              <div className="apple-glass bg-ocean-900/80 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8">
-                <FileUploader />
+              <FileUploader />
 
-                {files.length > 0 && (
-                  <div className="mt-5">
-                    <FileList />
-                  </div>
-                )}
-
-                {uploadPromptError && files.length === 0 && (
-                  <p role="alert" className="mt-4 text-center text-xs font-medium text-rose-300">
-                    {uploadPromptError}
-                  </p>
-                )}
-
-                <button
-                  type="button"
-                  onClick={handleUploadClick}
-                  className="w-full mt-5 btn-gold py-3.5 px-4 rounded-xl text-sm font-bold shadow-lg shadow-gold-500/15 tap-tactile transition-all duration-200"
-                >
-                  {files.length > 0
-                    ? `Continue with ${files.length} ${files.length === 1 ? "File" : "Files"}`
-                    : "Continue"}
-                </button>
-              </div>
+              {files.length > 0 && (
+                <div className="mt-4 max-w-[552px] mx-auto space-y-4">
+                  <FileList />
+                  <button
+                    type="button"
+                    onClick={handleUploadClick}
+                    className="w-full btn-gold py-3.5 px-6 rounded-xl text-sm font-bold shadow-lg shadow-gold-500/20 tap-tactile transition-all duration-200 flex items-center justify-center gap-2"
+                  >
+                    Continue with {files.length} {files.length === 1 ? "File" : "Files"}
+                    <FiArrowRight className="text-base" aria-hidden="true" />
+                  </button>
+                </div>
+              )}
             </div>
 
           </div>
