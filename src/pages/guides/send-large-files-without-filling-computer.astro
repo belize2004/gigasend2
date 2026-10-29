@@ -30,11 +30,6 @@ const articleSchema = {
   title={`How to Send Large Files Without Filling Up Your Hard Drive | ${brand.productName}`}
   description="Stop cloud sync apps from cloning 200 GB project folders onto your local SSD. How direct browser streaming transfers large files with zero disk caching."
   canonical={canonical}
-  hreflang={[
-    { lang: "en", href: canonical },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/como-enviar-arquivos-pesados-sem-lotar-hd-ou-nuvem` },
-    { lang: "x-default", href: canonical },
-  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />

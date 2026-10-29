@@ -11,12 +11,6 @@ export const prerender = true;
 
 const langPaths = getLanguageSwitchPaths("/pt/planos");
 const canonical = `${brand.siteUrl}/pt/planos`;
-const hreflang = [
-  { lang: "en", href: `${brand.siteUrl}/plans` },
-  { lang: "pt-BR", href: canonical },
-  { lang: "x-default", href: `${brand.siteUrl}/plans` },
-];
-
 const pricingSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -157,10 +151,8 @@ const plans = [
   description="Pague apenas pelo que enviar no Brasil: até 10 GB grátis ou pacotes de 12 meses (US$ 10/50 GB, US$ 20/100 GB, US$ 180/1 TB, US$ 800/5 TB). Zero cadastro para o destinatário e CDN SP/RJ."
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>

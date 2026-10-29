@@ -4,19 +4,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { brand } from "@/lib/brand";
 
 const canonical = `${brand.siteUrl}/compare`;
-const hreflang = [
-  { lang: "en", href: canonical },
-  { lang: "es", href: `${brand.siteUrl}/es/alternativas-a-wetransfer` },
-  { lang: "pt-BR", href: `${brand.siteUrl}/pt/comparar` },
-  { lang: "x-default", href: canonical },
-];
 ---
 
 <BaseLayout
   title={`Compare File Transfer Services — Send Large Files for Less | ${brand.productName}`}
   description="See how Gigasend compares with WeTransfer, Dropbox, Google Drive, and Frame.io on speed, storage, and price. Start with 10 GB free and transfer up to 5 TB."
   canonical={canonical}
-  hreflang={hreflang}
 >
   <main class="min-h-screen bg-ocean-950 text-slate-100 font-body">
     <header class="sticky top-0 z-50 border-b border-white/10 bg-ocean-950/85 backdrop-blur-2xl">

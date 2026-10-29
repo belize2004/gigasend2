@@ -9,12 +9,6 @@ export const prerender = true;
 
 const langPaths = getLanguageSwitchPaths("/pt/calculadora-tempo-upload");
 const canonical = `${brand.siteUrl}/pt/calculadora-tempo-upload`;
-const hreflang = [
-  { lang: "en", href: `${brand.siteUrl}/tools/transfer-speed-calculator` },
-  { lang: "pt-BR", href: canonical },
-  { lang: "x-default", href: `${brand.siteUrl}/tools/transfer-speed-calculator` },
-];
-
 const faqs = [
   {
     question: "Como é calculado o tempo estimado de upload?",
@@ -56,10 +50,8 @@ const calcSchema = {
   description="Calcule o tempo estimado para enviar arquivos de 5 GB, 10 GB, 50 GB, 100 GB, 500 GB e 1 TB na Claro Fibra, Vivo Fibra, Oi e Starlink."
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(calcSchema)} />
   </Fragment>
 

@@ -30,11 +30,6 @@ const articleSchema = {
   title={`How to Transfer Large Files Without Failed Uploads | ${brand.productName}`}
   description="Stop failed 50 GB+ file uploads. How parallel upload streams and automatic block retry ensure 100% upload completion."
   canonical={canonical}
-  hreflang={[
-    { lang: "en", href: canonical },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai` },
-    { lang: "x-default", href: canonical },
-  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />

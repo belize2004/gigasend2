@@ -4,13 +4,8 @@ import PlansApp from "@/src/components/PlansApp";
 import { brand } from "@/lib/brand";
 
 const canonical = `${brand.siteUrl}/plans`;
-const hreflang = [
-  { lang: "en", href: canonical },
-  { lang: "pt-BR", href: `${brand.siteUrl}/pt/planos` },
-  { lang: "x-default", href: canonical },
-];
 ---
 
-<BaseLayout title="Plans | Gigasend" canonical={canonical} hreflang={hreflang}>
+<BaseLayout title="Plans | Gigasend" canonical={canonical}>
   <PlansApp client:load />
 </BaseLayout>

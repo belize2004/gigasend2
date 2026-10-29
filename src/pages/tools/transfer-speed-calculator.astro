@@ -79,12 +79,6 @@ const faqSchema = {
   title={`File Transfer Speed Calculator — Estimate Upload Times | ${brand.productName}`}
   description="Estimate upload and download times for 1 GB to 2 TB files across 10 Mbps to 10 Gbps connections. Compare parallel multi-stream transfers with standard cloud uploads."
   canonical={canonical}
-  hreflang={[
-    { lang: "en", href: canonical },
-    { lang: "es", href: `${brand.siteUrl}/es/enviar-archivos-mas-de-2gb` },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt/calculadora-tempo-upload` },
-    { lang: "x-default", href: canonical },
-  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />

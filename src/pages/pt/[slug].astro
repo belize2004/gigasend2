@@ -27,15 +27,6 @@ if (!landingPage) {
 
 const langPaths = getLanguageSwitchPaths(`/pt/${landingPage.slug}`);
 const canonical = `${brand.siteUrl}/pt/${landingPage.slug}`;
-const enCanonical = `${brand.siteUrl}${landingPage.enEquivalent}`;
-
-const hreflang = landingPage.isCanonicalEnPair
-  ? [
-      { lang: "en", href: enCanonical },
-      { lang: "pt-BR", href: canonical },
-      { lang: "x-default", href: enCanonical },
-    ]
-  : [{ lang: "pt-BR", href: canonical }];
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -85,10 +76,8 @@ const relatedPages = ptSeoLandingPages
   description={landingPage.metaDescription}
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>

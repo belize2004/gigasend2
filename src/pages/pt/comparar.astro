@@ -10,12 +10,6 @@ export const prerender = true;
 
 const langPaths = getLanguageSwitchPaths("/pt/comparar");
 const canonical = `${brand.siteUrl}/pt/comparar`;
-const hreflang = [
-  { lang: "en", href: `${brand.siteUrl}/compare` },
-  { lang: "pt-BR", href: canonical },
-  { lang: "x-default", href: `${brand.siteUrl}/compare` },
-];
-
 const competitorPages = ptSeoLandingPages.filter((p) => p.cluster === "concorrentes-alternativas");
 
 const matrixRows = [
@@ -99,10 +93,8 @@ const collectionSchema = {
   description="Comparativo no Brasil: supere o limite de 2 GB do WeTransfer, a cota excedida do Google Drive e a tarifa por download do MASV com CDN SP/RJ."
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   </Fragment>

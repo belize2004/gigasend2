@@ -18,12 +18,6 @@ export function getStaticPaths() {
 const { page: landingPage } = Astro.props;
 const canonical = `${brand.siteUrl}/${landingPage.slug}`;
 const { ptPath, esPath } = getLanguageSwitchPaths(`/${landingPage.slug}`);
-const hreflang = [
-  { lang: "en", href: canonical },
-  { lang: "es", href: `${brand.siteUrl}${esPath || "/es"}` },
-  { lang: "pt-BR", href: `${brand.siteUrl}${ptPath || "/pt"}` },
-  { lang: "x-default", href: canonical },
-];
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -76,7 +70,7 @@ const breadcrumbSchema = {
 };
 ---
 
-<BaseLayout title={landingPage.title} description={landingPage.metaDescription} canonical={canonical} hreflang={hreflang}>
+<BaseLayout title={landingPage.title} description={landingPage.metaDescription} canonical={canonical}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />

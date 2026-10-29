@@ -23,13 +23,6 @@ if (!guide) {
 
 const langPaths = getLanguageSwitchPaths(`/pt/guias/${guide.slug}`);
 const canonical = `${brand.siteUrl}/pt/guias/${guide.slug}`;
-const enCanonical = `${brand.siteUrl}${guide.enEquivalent}`;
-const hreflang = [
-  { lang: "en", href: enCanonical },
-  { lang: "pt-BR", href: canonical },
-  { lang: "x-default", href: enCanonical },
-];
-
 const otherGuides = PT_ENGINEERING_GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3);
 
 const articleSchema = {
@@ -78,10 +71,8 @@ const breadcrumbSchema = {
   description={guide.metaDescription}
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>

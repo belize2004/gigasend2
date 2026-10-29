@@ -10,12 +10,6 @@ export const prerender = true;
 
 const langPaths = getLanguageSwitchPaths("/pt/guias");
 const canonical = `${brand.siteUrl}/pt/guias`;
-const hreflang = [
-  { lang: "en", href: `${brand.siteUrl}/guides` },
-  { lang: "pt-BR", href: canonical },
-  { lang: "x-default", href: `${brand.siteUrl}/guides` },
-];
-
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -46,10 +40,8 @@ const breadcrumbSchema = {
   description="Guias práticos em português sobre transferência de arquivos grandes (50 GB a 500 GB+), drones, vídeos 4K/RAW e upload rápido na fibra e Starlink."
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>

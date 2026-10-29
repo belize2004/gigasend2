@@ -95,12 +95,6 @@ const jsonLd = {
   description={pageDescription}
   canonical={canonical}
   lang="es"
-  hreflang={[
-    { lang: "en", href: `${brand.siteUrl}/send-files-larger-than-2gb` },
-    { lang: "es", href: canonical },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt/enviar-arquivo-2gb-3gb-gratis` },
-    { lang: "x-default", href: `${brand.siteUrl}/send-files-larger-than-2gb` },
-  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

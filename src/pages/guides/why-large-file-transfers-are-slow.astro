@@ -61,11 +61,6 @@ const faqSchema = {
   title={`Why Large File Transfers Are So Slow (And How to Fix It) | ${brand.productName}`}
   description="Diagnose slow 25 GB to 5 TB file uploads. Learn how distance delay and single-stream bottlenecks slow you down, and how parallel uploads fix it."
   canonical={canonical}
-  hreflang={[
-    { lang: "en", href: canonical },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai` },
-    { lang: "x-default", href: canonical },
-  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />

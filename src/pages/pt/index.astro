@@ -16,12 +16,6 @@ export const prerender = true;
 
 const langPaths = getLanguageSwitchPaths("/pt");
 const canonical = `${brand.siteUrl}/pt`;
-const hreflang = [
-  { lang: "en", href: `${brand.siteUrl}/` },
-  { lang: "pt-BR", href: canonical },
-  { lang: "x-default", href: `${brand.siteUrl}/` },
-];
-
 const clusters = PT_CLUSTER_METADATA.map((meta) => ({
   ...meta,
   pages: ptSeoLandingPages.filter((p) => p.cluster === meta.id),
@@ -43,10 +37,8 @@ const collectionSchema = {
   description="Compartilhe vídeos 4K, pastas pesadas e projetos criativos de até 5 TB sem compressão. Seus primeiros 10 GB são grátis (retenção de 3 dias) e o destinatário baixa sem cadastro."
   canonical={canonical}
   lang="pt-BR"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="es" href={`https://gigasend.us${langPaths.esPath}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   </Fragment>
 

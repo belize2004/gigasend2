@@ -1,0 +1,148 @@
+// GENERATED — do not edit by hand.
+// node scripts/build-hreflang-clusters.mjs
+//
+// A page appears here only when a genuine reciprocal translation exists in all
+// listed languages. Pages absent from this map must emit NO hreflang at all:
+// a lone self-referencing tag is ignored by Google and hides the real problem.
+import { brand } from "@/lib/brand";
+
+export type HreflangAlternate = { lang: string; href: string };
+
+type Cluster = Record<string, string>;
+
+const LANGS = ["en","es","pt-BR","es-MX","es-ES","es-CO","es-AR"] as const;
+
+const CLUSTERS: Record<string, Cluster> = {
+  "/": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/best-way-to-share-large-files-with-clients": { "en": "/best-way-to-share-large-files-with-clients", "es": "/es/enviar-archivos-sin-registro-obligatorio", "pt-BR": "/pt/enviar-arquivos-para-clientes-sem-cadastro" },
+  "/compare": { "en": "/compare", "pt-BR": "/pt/comparar" },
+  "/deliver-20gb-file": { "en": "/deliver-20gb-file", "es": "/es/enviar-archivo-20gb", "pt-BR": "/pt/como-enviar-arquivo-maior-que-20gb" },
+  "/deliver-arri-raw-footage": { "en": "/deliver-arri-raw-footage", "pt-BR": "/pt/enviar-brutos-sony-fx3-fx6-a7siii-slog3" },
+  "/dropbox-file-size-limit-bypass": { "en": "/dropbox-file-size-limit-bypass", "pt-BR": "/pt/alternativa-onedrive-icloud-arquivos-grandes" },
+  "/dropbox-transfer-alternative": { "en": "/dropbox-transfer-alternative", "es": "/es/alternativa-economica-a-dropbox-transfer", "pt-BR": "/pt/alternativa-dropbox-transfer" },
+  "/email-attachment-too-large-alternative": { "en": "/email-attachment-too-large-alternative", "pt-BR": "/pt/enviar-apresentacoes-powerpoint-keynote-com-videos-pesados" },
+  "/es": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/es/alternativa-economica-a-dropbox-transfer": { "en": "/dropbox-transfer-alternative", "es": "/es/alternativa-economica-a-dropbox-transfer", "pt-BR": "/pt/alternativa-dropbox-transfer" },
+  "/es/alternativas-a-wetransfer-sin-limite": { "en": "/wetransfer-alternative", "es": "/es/alternativas-a-wetransfer-sin-limite", "pt-BR": "/pt/alternativa-wetransfer" },
+  "/es/argentina": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/es/colombia": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/es/como-enviar-archivos-grandes-por-gmail-sin-google-drive": { "en": "/google-drive-download-quota-exceeded-fix", "es": "/es/como-enviar-archivos-grandes-por-gmail-sin-google-drive", "pt-BR": "/pt/erro-cota-download-excedida-google-drive" },
+  "/es/enviar-archivo-100gb": { "en": "/send-100gb-file", "es": "/es/enviar-archivo-100gb", "pt-BR": "/pt/enviar-arquivo-100gb" },
+  "/es/enviar-archivo-15gb": { "en": "/send-15gb-file", "es": "/es/enviar-archivo-15gb", "pt-BR": "/pt/enviar-arquivo-15gb-gratis" },
+  "/es/enviar-archivo-20gb": { "en": "/deliver-20gb-file", "es": "/es/enviar-archivo-20gb", "pt-BR": "/pt/como-enviar-arquivo-maior-que-20gb" },
+  "/es/enviar-archivo-30gb": { "en": "/send-30gb-file", "es": "/es/enviar-archivo-30gb", "pt-BR": "/pt/enviar-arquivo-30gb-online" },
+  "/es/enviar-archivo-50gb": { "en": "/send-50gb-file", "es": "/es/enviar-archivo-50gb", "pt-BR": "/pt/enviar-arquivo-50gb-online" },
+  "/es/enviar-archivo-6gb": { "en": "/send-large-files-free", "es": "/es/enviar-archivo-6gb", "pt-BR": "/pt/enviar-arquivos-pesados" },
+  "/es/enviar-archivos-blackmagic-braw-sin-perder-calidad": { "en": "/send-braw-video-files", "es": "/es/enviar-archivos-blackmagic-braw-sin-perder-calidad", "pt-BR": "/pt/enviar-arquivos-braw-davinci-resolve" },
+  "/es/enviar-archivos-blender-blend-sin-perder-calidad": { "en": "/how-to-send-blender-blend-files", "es": "/es/enviar-archivos-blender-blend-sin-perder-calidad", "pt-BR": "/pt/transferir-projetos-blender-cinema4d-unreal-vfx" },
+  "/es/enviar-archivos-cad-dwg-sin-perder-calidad": { "en": "/send-revit-rvt-bim-models", "es": "/es/enviar-archivos-cad-dwg-sin-perder-calidad", "pt-BR": "/pt/enviar-projeto-revit-bim-navisworks-autocad" },
+  "/es/enviar-archivos-mas-de-2gb": { "en": "/send-files-larger-than-2gb", "es": "/es/enviar-archivos-mas-de-2gb", "pt-BR": "/pt/enviar-arquivo-2gb-3gb-gratis" },
+  "/es/enviar-archivos-pesados-por-correo": { "en": "/send-large-files-by-email", "es": "/es/enviar-archivos-pesados-por-correo", "pt-BR": "/pt/enviar-arquivos-grandes-por-email-gmail-outlook" },
+  "/es/enviar-archivos-prores-422-sin-perder-calidad": { "en": "/transfer-davinci-resolve-project", "es": "/es/enviar-archivos-prores-422-sin-perder-calidad", "pt-BR": "/pt/enviar-prores-raw" },
+  "/es/enviar-archivos-red-r3d-sin-perder-calidad": { "en": "/transfer-r3d-raw-footage", "es": "/es/enviar-archivos-red-r3d-sin-perder-calidad", "pt-BR": "/pt/transferir-brutos-red-r3d-arri-sony-canon" },
+  "/es/enviar-archivos-sin-registro-obligatorio": { "en": "/best-way-to-share-large-files-with-clients", "es": "/es/enviar-archivos-sin-registro-obligatorio", "pt-BR": "/pt/enviar-arquivos-para-clientes-sem-cadastro" },
+  "/es/enviar-archivos-sony-xavc-sin-perder-calidad": { "en": "/transfer-large-files-online", "es": "/es/enviar-archivos-sony-xavc-sin-perder-calidad", "pt-BR": "/pt/transferir-arquivos-grandes" },
+  "/es/enviar-archivos-wav-multitrack-sin-perder-calidad": { "en": "/share-multitrack-audio-stems", "es": "/es/enviar-archivos-wav-multitrack-sin-perder-calidad", "pt-BR": "/pt/enviar-stems-audio-pro-tools-logic-ableton" },
+  "/es/enviar-proyecto-premiere-pro": { "en": "/transfer-premiere-pro-project", "es": "/es/enviar-proyecto-premiere-pro", "pt-BR": "/pt/enviar-projeto-premiere-final-cut-after-effects" },
+  "/es/enviar-videos-sin-perder-calidad": { "en": "/send-large-video-files", "es": "/es/enviar-videos-sin-perder-calidad", "pt-BR": "/pt/transferir-videos-4k" },
+  "/es/espana": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/es/mexico": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/fast-large-file-transfer": { "en": "/fast-large-file-transfer", "pt-BR": "/pt/transferir-ortomosaico-tiff" },
+  "/fastest-way-to-send-large-files": { "en": "/fastest-way-to-send-large-files", "pt-BR": "/pt/substituir-envio-hd-externo-pendrive-correios" },
+  "/free-large-file-transfer": { "en": "/free-large-file-transfer", "pt-BR": "/pt/enviar-pastas-grandes-sem-compactar-zip" },
+  "/google-drive-download-quota-exceeded-fix": { "en": "/google-drive-download-quota-exceeded-fix", "es": "/es/como-enviar-archivos-grandes-por-gmail-sin-google-drive", "pt-BR": "/pt/erro-cota-download-excedida-google-drive" },
+  "/guides": { "en": "/guides", "pt-BR": "/pt/guias" },
+  "/guides/file-transfer-vs-cloud-storage-vs-media-review": { "en": "/guides/file-transfer-vs-cloud-storage-vs-media-review", "pt-BR": "/pt/guias/como-enviar-videos-4k-raw-whatsapp-email-sem-comprimir" },
+  "/guides/large-file-transfer-cost-calculator": { "en": "/guides/large-file-transfer-cost-calculator", "pt-BR": "/pt/guias/calculadora-custo-transferencia-arquivos-pre-pago-vs-assinatura" },
+  "/guides/send-large-files-without-filling-computer": { "en": "/guides/send-large-files-without-filling-computer", "pt-BR": "/pt/guias/como-enviar-arquivos-pesados-sem-lotar-hd-ou-nuvem" },
+  "/guides/transfer-large-files-without-failed-uploads": { "en": "/guides/transfer-large-files-without-failed-uploads", "pt-BR": "/pt/guias/como-entregar-mapeamento-drone-anac-sisant-ortomosaico-lidar" },
+  "/guides/why-large-file-transfers-are-slow": { "en": "/guides/why-large-file-transfers-are-slow", "pt-BR": "/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai" },
+  "/how-to-send-blender-blend-files": { "en": "/how-to-send-blender-blend-files", "es": "/es/enviar-archivos-blender-blend-sin-perder-calidad", "pt-BR": "/pt/transferir-projetos-blender-cinema4d-unreal-vfx" },
+  "/how-to-send-maya-mb-files": { "en": "/how-to-send-maya-mb-files", "pt-BR": "/pt/enviar-arquivos-3ds-max-sketchup-lumion-arquitetura" },
+  "/plans": { "en": "/plans", "pt-BR": "/pt/planos" },
+  "/pt": { "en": "/", "es": "/es", "pt-BR": "/pt", "es-MX": "/es/mexico", "es-ES": "/es/espana", "es-CO": "/es/colombia", "es-AR": "/es/argentina" },
+  "/pt/alternativa-dropbox-transfer": { "en": "/dropbox-transfer-alternative", "es": "/es/alternativa-economica-a-dropbox-transfer", "pt-BR": "/pt/alternativa-dropbox-transfer" },
+  "/pt/alternativa-onedrive-icloud-arquivos-grandes": { "en": "/dropbox-file-size-limit-bypass", "pt-BR": "/pt/alternativa-onedrive-icloud-arquivos-grandes" },
+  "/pt/alternativa-wetransfer": { "en": "/wetransfer-alternative", "es": "/es/alternativas-a-wetransfer-sin-limite", "pt-BR": "/pt/alternativa-wetransfer" },
+  "/pt/calculadora-tempo-upload": { "en": "/tools/transfer-speed-calculator", "pt-BR": "/pt/calculadora-tempo-upload" },
+  "/pt/como-enviar-arquivo-maior-que-20gb": { "en": "/deliver-20gb-file", "es": "/es/enviar-archivo-20gb", "pt-BR": "/pt/como-enviar-arquivo-maior-que-20gb" },
+  "/pt/comparar": { "en": "/compare", "pt-BR": "/pt/comparar" },
+  "/pt/compartilhar-arquivos-pesados": { "en": "/share-large-files-with-link", "pt-BR": "/pt/compartilhar-arquivos-pesados" },
+  "/pt/enviar-apresentacoes-powerpoint-keynote-com-videos-pesados": { "en": "/email-attachment-too-large-alternative", "pt-BR": "/pt/enviar-apresentacoes-powerpoint-keynote-com-videos-pesados" },
+  "/pt/enviar-arquivo-100gb": { "en": "/send-100gb-file", "es": "/es/enviar-archivo-100gb", "pt-BR": "/pt/enviar-arquivo-100gb" },
+  "/pt/enviar-arquivo-15gb-gratis": { "en": "/send-15gb-file", "es": "/es/enviar-archivo-15gb", "pt-BR": "/pt/enviar-arquivo-15gb-gratis" },
+  "/pt/enviar-arquivo-2gb-3gb-gratis": { "en": "/send-files-larger-than-2gb", "es": "/es/enviar-archivos-mas-de-2gb", "pt-BR": "/pt/enviar-arquivo-2gb-3gb-gratis" },
+  "/pt/enviar-arquivo-30gb-online": { "en": "/send-30gb-file", "es": "/es/enviar-archivo-30gb", "pt-BR": "/pt/enviar-arquivo-30gb-online" },
+  "/pt/enviar-arquivo-50gb-online": { "en": "/send-50gb-file", "es": "/es/enviar-archivo-50gb", "pt-BR": "/pt/enviar-arquivo-50gb-online" },
+  "/pt/enviar-arquivos-3ds-max-sketchup-lumion-arquitetura": { "en": "/how-to-send-maya-mb-files", "pt-BR": "/pt/enviar-arquivos-3ds-max-sketchup-lumion-arquitetura" },
+  "/pt/enviar-arquivos-avid-media-composer-mxf-dnxhd": { "en": "/share-final-cut-pro-fcpbundle", "pt-BR": "/pt/enviar-arquivos-avid-media-composer-mxf-dnxhd" },
+  "/pt/enviar-arquivos-braw-davinci-resolve": { "en": "/send-braw-video-files", "es": "/es/enviar-archivos-blackmagic-braw-sin-perder-calidad", "pt-BR": "/pt/enviar-arquivos-braw-davinci-resolve" },
+  "/pt/enviar-arquivos-color-grading-aces-exr-dpx": { "en": "/transfer-openexr-files", "pt-BR": "/pt/enviar-arquivos-color-grading-aces-exr-dpx" },
+  "/pt/enviar-arquivos-grandes-por-email-gmail-outlook": { "en": "/send-large-files-by-email", "es": "/es/enviar-archivos-pesados-por-correo", "pt-BR": "/pt/enviar-arquivos-grandes-por-email-gmail-outlook" },
+  "/pt/enviar-arquivos-para-clientes-sem-cadastro": { "en": "/best-way-to-share-large-files-with-clients", "es": "/es/enviar-archivos-sin-registro-obligatorio", "pt-BR": "/pt/enviar-arquivos-para-clientes-sem-cadastro" },
+  "/pt/enviar-arquivos-pesados": { "en": "/send-large-files-free", "es": "/es/enviar-archivo-6gb", "pt-BR": "/pt/enviar-arquivos-pesados" },
+  "/pt/enviar-arquivos-vfx-nuke-houdini-maya-render": { "en": "/send-houdini-hip-projects", "pt-BR": "/pt/enviar-arquivos-vfx-nuke-houdini-maya-render" },
+  "/pt/enviar-brutos-sony-fx3-fx6-a7siii-slog3": { "en": "/deliver-arri-raw-footage", "pt-BR": "/pt/enviar-brutos-sony-fx3-fx6-a7siii-slog3" },
+  "/pt/enviar-exames-dicom-bancos-sql-vms-pesados": { "en": "/secure-large-file-transfer", "pt-BR": "/pt/enviar-exames-dicom-bancos-sql-vms-pesados" },
+  "/pt/enviar-pacote-dcp-cinema-mxf-broadcast": { "en": "/send-mxf-broadcast-video", "pt-BR": "/pt/enviar-pacote-dcp-cinema-mxf-broadcast" },
+  "/pt/enviar-pastas-grandes-sem-compactar-zip": { "en": "/free-large-file-transfer", "pt-BR": "/pt/enviar-pastas-grandes-sem-compactar-zip" },
+  "/pt/enviar-projeto-premiere-final-cut-after-effects": { "en": "/transfer-premiere-pro-project", "es": "/es/enviar-proyecto-premiere-pro", "pt-BR": "/pt/enviar-projeto-premiere-final-cut-after-effects" },
+  "/pt/enviar-projeto-revit-bim-navisworks-autocad": { "en": "/send-revit-rvt-bim-models", "es": "/es/enviar-archivos-cad-dwg-sin-perder-calidad", "pt-BR": "/pt/enviar-projeto-revit-bim-navisworks-autocad" },
+  "/pt/enviar-projetos-solidworks-inventor-catia-nx-step": { "en": "/transfer-cinema-4d-c4d-files", "pt-BR": "/pt/enviar-projetos-solidworks-inventor-catia-nx-step" },
+  "/pt/enviar-prores-raw": { "en": "/transfer-davinci-resolve-project", "es": "/es/enviar-archivos-prores-422-sin-perder-calidad", "pt-BR": "/pt/enviar-prores-raw" },
+  "/pt/enviar-stems-audio-pro-tools-logic-ableton": { "en": "/share-multitrack-audio-stems", "es": "/es/enviar-archivos-wav-multitrack-sin-perder-calidad", "pt-BR": "/pt/enviar-stems-audio-pro-tools-logic-ableton" },
+  "/pt/erro-cota-download-excedida-google-drive": { "en": "/google-drive-download-quota-exceeded-fix", "es": "/es/como-enviar-archivos-grandes-por-gmail-sin-google-drive", "pt-BR": "/pt/erro-cota-download-excedida-google-drive" },
+  "/pt/guias": { "en": "/guides", "pt-BR": "/pt/guias" },
+  "/pt/guias/calculadora-custo-transferencia-arquivos-pre-pago-vs-assinatura": { "en": "/guides/large-file-transfer-cost-calculator", "pt-BR": "/pt/guias/calculadora-custo-transferencia-arquivos-pre-pago-vs-assinatura" },
+  "/pt/guias/como-entregar-mapeamento-drone-anac-sisant-ortomosaico-lidar": { "en": "/guides/transfer-large-files-without-failed-uploads", "pt-BR": "/pt/guias/como-entregar-mapeamento-drone-anac-sisant-ortomosaico-lidar" },
+  "/pt/guias/como-enviar-arquivos-pesados-sem-lotar-hd-ou-nuvem": { "en": "/guides/send-large-files-without-filling-computer", "pt-BR": "/pt/guias/como-enviar-arquivos-pesados-sem-lotar-hd-ou-nuvem" },
+  "/pt/guias/como-enviar-videos-4k-raw-whatsapp-email-sem-comprimir": { "en": "/guides/file-transfer-vs-cloud-storage-vs-media-review", "pt-BR": "/pt/guias/como-enviar-videos-4k-raw-whatsapp-email-sem-comprimir" },
+  "/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai": { "en": "/guides/why-large-file-transfers-are-slow", "pt-BR": "/pt/guias/por-que-upload-de-arquivos-grandes-e-lento-ou-cai" },
+  "/pt/planos": { "en": "/plans", "pt-BR": "/pt/planos" },
+  "/pt/substituir-envio-hd-externo-pendrive-correios": { "en": "/fastest-way-to-send-large-files", "pt-BR": "/pt/substituir-envio-hd-externo-pendrive-correios" },
+  "/pt/transferir-1tb-online-brasil": { "en": "/send-1tb-file", "pt-BR": "/pt/transferir-1tb-online-brasil" },
+  "/pt/transferir-2tb-online-brasil": { "en": "/send-2tb-file", "pt-BR": "/pt/transferir-2tb-online-brasil" },
+  "/pt/transferir-arquivos-grandes": { "en": "/transfer-large-files-online", "es": "/es/enviar-archivos-sony-xavc-sin-perder-calidad", "pt-BR": "/pt/transferir-arquivos-grandes" },
+  "/pt/transferir-brutos-red-r3d-arri-sony-canon": { "en": "/transfer-r3d-raw-footage", "es": "/es/enviar-archivos-red-r3d-sin-perder-calidad", "pt-BR": "/pt/transferir-brutos-red-r3d-arri-sony-canon" },
+  "/pt/transferir-ortomosaico-tiff": { "en": "/fast-large-file-transfer", "pt-BR": "/pt/transferir-ortomosaico-tiff" },
+  "/pt/transferir-projetos-blender-cinema4d-unreal-vfx": { "en": "/how-to-send-blender-blend-files", "es": "/es/enviar-archivos-blender-blend-sin-perder-calidad", "pt-BR": "/pt/transferir-projetos-blender-cinema4d-unreal-vfx" },
+  "/pt/transferir-videos-4k": { "en": "/send-large-video-files", "es": "/es/enviar-videos-sin-perder-calidad", "pt-BR": "/pt/transferir-videos-4k" },
+  "/secure-large-file-transfer": { "en": "/secure-large-file-transfer", "pt-BR": "/pt/enviar-exames-dicom-bancos-sql-vms-pesados" },
+  "/send-100gb-file": { "en": "/send-100gb-file", "es": "/es/enviar-archivo-100gb", "pt-BR": "/pt/enviar-arquivo-100gb" },
+  "/send-15gb-file": { "en": "/send-15gb-file", "es": "/es/enviar-archivo-15gb", "pt-BR": "/pt/enviar-arquivo-15gb-gratis" },
+  "/send-1tb-file": { "en": "/send-1tb-file", "pt-BR": "/pt/transferir-1tb-online-brasil" },
+  "/send-2tb-file": { "en": "/send-2tb-file", "pt-BR": "/pt/transferir-2tb-online-brasil" },
+  "/send-30gb-file": { "en": "/send-30gb-file", "es": "/es/enviar-archivo-30gb", "pt-BR": "/pt/enviar-arquivo-30gb-online" },
+  "/send-50gb-file": { "en": "/send-50gb-file", "es": "/es/enviar-archivo-50gb", "pt-BR": "/pt/enviar-arquivo-50gb-online" },
+  "/send-braw-video-files": { "en": "/send-braw-video-files", "es": "/es/enviar-archivos-blackmagic-braw-sin-perder-calidad", "pt-BR": "/pt/enviar-arquivos-braw-davinci-resolve" },
+  "/send-files-larger-than-2gb": { "en": "/send-files-larger-than-2gb", "es": "/es/enviar-archivos-mas-de-2gb", "pt-BR": "/pt/enviar-arquivo-2gb-3gb-gratis" },
+  "/send-houdini-hip-projects": { "en": "/send-houdini-hip-projects", "pt-BR": "/pt/enviar-arquivos-vfx-nuke-houdini-maya-render" },
+  "/send-large-files-by-email": { "en": "/send-large-files-by-email", "es": "/es/enviar-archivos-pesados-por-correo", "pt-BR": "/pt/enviar-arquivos-grandes-por-email-gmail-outlook" },
+  "/send-large-files-free": { "en": "/send-large-files-free", "es": "/es/enviar-archivo-6gb", "pt-BR": "/pt/enviar-arquivos-pesados" },
+  "/send-large-video-files": { "en": "/send-large-video-files", "es": "/es/enviar-videos-sin-perder-calidad", "pt-BR": "/pt/transferir-videos-4k" },
+  "/send-mxf-broadcast-video": { "en": "/send-mxf-broadcast-video", "pt-BR": "/pt/enviar-pacote-dcp-cinema-mxf-broadcast" },
+  "/send-revit-rvt-bim-models": { "en": "/send-revit-rvt-bim-models", "es": "/es/enviar-archivos-cad-dwg-sin-perder-calidad", "pt-BR": "/pt/enviar-projeto-revit-bim-navisworks-autocad" },
+  "/share-final-cut-pro-fcpbundle": { "en": "/share-final-cut-pro-fcpbundle", "pt-BR": "/pt/enviar-arquivos-avid-media-composer-mxf-dnxhd" },
+  "/share-large-files-with-link": { "en": "/share-large-files-with-link", "pt-BR": "/pt/compartilhar-arquivos-pesados" },
+  "/share-multitrack-audio-stems": { "en": "/share-multitrack-audio-stems", "es": "/es/enviar-archivos-wav-multitrack-sin-perder-calidad", "pt-BR": "/pt/enviar-stems-audio-pro-tools-logic-ableton" },
+  "/tools/transfer-speed-calculator": { "en": "/tools/transfer-speed-calculator", "pt-BR": "/pt/calculadora-tempo-upload" },
+  "/transfer-cinema-4d-c4d-files": { "en": "/transfer-cinema-4d-c4d-files", "pt-BR": "/pt/enviar-projetos-solidworks-inventor-catia-nx-step" },
+  "/transfer-davinci-resolve-project": { "en": "/transfer-davinci-resolve-project", "es": "/es/enviar-archivos-prores-422-sin-perder-calidad", "pt-BR": "/pt/enviar-prores-raw" },
+  "/transfer-large-files-online": { "en": "/transfer-large-files-online", "es": "/es/enviar-archivos-sony-xavc-sin-perder-calidad", "pt-BR": "/pt/transferir-arquivos-grandes" },
+  "/transfer-openexr-files": { "en": "/transfer-openexr-files", "pt-BR": "/pt/enviar-arquivos-color-grading-aces-exr-dpx" },
+  "/transfer-premiere-pro-project": { "en": "/transfer-premiere-pro-project", "es": "/es/enviar-proyecto-premiere-pro", "pt-BR": "/pt/enviar-projeto-premiere-final-cut-after-effects" },
+  "/transfer-r3d-raw-footage": { "en": "/transfer-r3d-raw-footage", "es": "/es/enviar-archivos-red-r3d-sin-perder-calidad", "pt-BR": "/pt/transferir-brutos-red-r3d-arri-sony-canon" },
+  "/wetransfer-alternative": { "en": "/wetransfer-alternative", "es": "/es/alternativas-a-wetransfer-sin-limite", "pt-BR": "/pt/alternativa-wetransfer" },
+};
+
+export function getHreflangCluster(pathname: string): HreflangAlternate[] {
+  const clean = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+  const cluster = CLUSTERS[clean];
+  if (!cluster) return [];
+  const abs = (p: string) => `${brand.siteUrl}${p === "/" ? "/" : p}`;
+  const alternates: HreflangAlternate[] = LANGS
+    .filter((tag) => cluster[tag])
+    .map((tag) => ({ lang: tag, href: abs(cluster[tag]) }));
+  alternates.push({ lang: "x-default", href: abs(cluster.en) });
+  return alternates;
+}

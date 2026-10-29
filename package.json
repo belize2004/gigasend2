@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "run:stripe": "ts-node --esm lib/stripe.ts",
+    "prebuild": "node scripts/build-hreflang-clusters.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "start": "astro dev",
     "lint": "astro check",
+    "seo:hreflang": "node scripts/build-hreflang-clusters.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

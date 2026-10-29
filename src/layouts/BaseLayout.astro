@@ -1,12 +1,14 @@
 ---
 import "../../app/globals.css";
 import { brand } from "@/lib/brand";
+import { getHreflangCluster } from "../data/hreflangClusters";
 
 interface Props {
   title?: string;
   description?: string;
   canonical?: string;
   lang?: string;
+  /** Escape hatch for one-off pages. Almost nothing should need this. */
   hreflang?: Array<{ lang: string; href: string }>;
 }
 
@@ -22,16 +24,10 @@ const canonicalUrl = canonical ?? `${brand.siteUrl}${pathname}`;
 const pageTitle = title.replaceAll("GigaSend", brand.productName);
 const ogLocale = lang === "pt-BR" ? "pt_BR" : lang.startsWith("es") ? "es_ES" : "en_US";
 
-const defaultHreflang =
-  pathname === "/" || pathname === "/es" || pathname === "/pt"
-    ? [
-        { lang: "en", href: `${brand.siteUrl}/` },
-        { lang: "es", href: `${brand.siteUrl}/es` },
-        { lang: "pt-BR", href: `${brand.siteUrl}/pt` },
-        { lang: "x-default", href: `${brand.siteUrl}/` },
-      ]
-    : [];
-const effectiveHreflang = hreflang.length > 0 ? hreflang : defaultHreflang;
+// hreflang is derived from a verified cluster map (scripts/build-hreflang-clusters.mjs).
+// Pages with no genuinely reciprocal translation emit nothing: a lone self-referencing
+// tag is ignored by Google and only hides the fact that the cluster is broken.
+const effectiveHreflang = hreflang.length > 0 ? hreflang : getHreflangCluster(pathname);
 const showBrazilBanner = Boolean((Astro.locals as Record<string, unknown>)?.showBrazilBanner);
 ---
 

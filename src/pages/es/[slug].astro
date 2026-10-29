@@ -34,15 +34,6 @@ for (let offset = 1; offset <= 4; offset++) {
 const relatedSpanishPages = Array.from(relatedMap.values()).slice(0, 3);
 const benefitPoints = (page.gigasendSolutionPoints || []).slice(0, 3);
 
-const hreflang = page.isCanonicalEnPair
-  ? [
-      { lang: "es", href: canonical },
-      { lang: "en", href: `${brand.siteUrl}${page.enEquivalent}` },
-      { lang: "pt-BR", href: `${brand.siteUrl}${page.ptEquivalent}` },
-      { lang: "x-default", href: `${brand.siteUrl}${page.enEquivalent}` },
-    ]
-  : [{ lang: "es", href: canonical }];
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -99,7 +90,6 @@ const jsonLd = {
   description={page.metaDescription}
   canonical={canonical}
   lang="es"
-  hreflang={hreflang}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

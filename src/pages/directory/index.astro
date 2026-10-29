@@ -73,12 +73,6 @@ const collectionSchema = {
   title={`Workflow & Codec Directory | ${brand.productName}`}
   description="Browse specialized file transfer workflows. Send BRAW, RED R3D, Blender, DaVinci Resolve, Ableton, and overcome 2 GB upload limits directly."
   canonical={canonical}
-  hreflang={[
-    { lang: "en", href: canonical },
-    { lang: "es", href: `${brand.siteUrl}/es` },
-    { lang: "pt-BR", href: `${brand.siteUrl}/pt` },
-    { lang: "x-default", href: canonical },
-  ]}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
