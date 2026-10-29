@@ -1,4 +1,6 @@
-name = "gigasend-app"
+# Isolated from the production gigasend-app Worker so a deploy from this
+# worktree cannot overwrite the live gigasend.us transfer service.
+name = "gigasend-locale-audit"
 account_id = "54b1fed58d0ba6424964b70ae4ba4b14"
 main = "worker-wrapper.js"
 compatibility_date = "2026-05-07"
@@ -42,7 +44,7 @@ name = "EMAIL"
 allowed_sender_addresses = ["no-reply@mail.gigasend.us"]
 
 [[tail_consumers]]
-service = "gigasend-app"
+service = "gigasend-locale-audit"
 
 [triggers]
 crons = ["0 * * * *"]
